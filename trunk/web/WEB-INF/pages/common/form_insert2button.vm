@@ -1,0 +1,9 @@
+#if($!action != "detail")
+	<input type=submit name="insert" value="±£´æ" class=btn1_mouseout title="±£´æ"/>
+#end
+
+#if($!action == "detail")
+	#if(!$hideEdit)
+		<input type="submit" name="edit" value="±à¼­" class=btn1_mouseout title="±à¼­" >
+	#end
+#end

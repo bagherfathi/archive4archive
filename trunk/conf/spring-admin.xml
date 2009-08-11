@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+
+	<bean id="commonDao" class="com.renhenet.fw.dao.CommonDao">
+			<property name="sessionFactory">
+				<ref bean="sessionFactory"/>
+			</property>
+	</bean>	
+	
+ 	<bean id="vMUtils" class="com.renhenet.web.VMUtils" singleton="true">  
+ 		<property name="resourcesService"><ref bean="resourcesService"/></property>	
+ 		<property name="memberService"><ref bean="memberService"/></property>
+	</bean> 
+	
+	<bean id="memberService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.MemberService">
+		        <property name="dao"><ref bean="commonDao"/></property> 
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="resourcesService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.ResourcesService">
+		        <property name="dao"><ref bean="commonDao"/></property> 
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="infoSortService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.InfoSortService">
+		        <property name="dao"><ref bean="commonDao"/></property> 
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="dictionarySortService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.DictionarySortService">
+		        <property name="dao"><ref bean="commonDao"/></property> 
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="quanzongService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.QuanzongService">
+		        <property name="dao"><ref bean="commonDao"/></property> 
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="structureService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.StructureService">
+		        <property name="dao"><ref bean="commonDao"/></property> 
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

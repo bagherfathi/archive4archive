@@ -1,0 +1,91 @@
+#if($infoSortList && $parentId>0)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">类目序号</td>
+            <td class="tableheadingbg">类目名称</td>
+            <td class="tableheadingbg">类目类型</td>
+            <td class="tableheadingbg">创建时间</td>
+			<td class="tableheadingbg">操作</td>
+          </tr>
+		#foreach($biz in $infoSortList)
+		<tr>
+			<td class="tablelistbg">$biz.seq</td>
+			<td class="tablelistbg">$biz.name</td>
+			<td class="tablelistbg">
+			#if($!biz.type=='0')
+			顶层门类
+			#elseif($!biz.type=='1')
+			中间门类	
+			#elseif($!biz.type=='2')
+			底层门类 	
+			#end
+			</td>
+			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
+			<td class="tablelistbg">
+				#if($!biz.type!='2')
+				<a href="/infosort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子门类</a>
+				#else
+				<a href="/structure/actions.html?method=insert&infoSortId=$vMUtils.encrypt($biz.id)"  >结构维护</a>
+				#end
+				<a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
+				<a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
+			</td>
+         </tr>
+		#end
+      </table>
+#end
+<br>
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="infosortForm" method="post" action="$!actionUrl" onSubmit = "return validateinfosortForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				#if($!parentId>0)
+					<input type=hidden name=parentId value=$!parentId>
+				#else
+				<input type=hidden name=parentId value=$!bizObj.parentId>
+				#end
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">类目序号:
+								</td>
+								<td>
+									#showFormText("seq" "$!bizObj.seq" 20)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">类目名称:
+								</td>
+								<td>
+									#showFormText("name" "$!bizObj.name" 20)#showMustFill()
+								</td>
+							</tr>					
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">类目类型:
+								</td>
+								<td>
+									<select name="type">
+										<option value="0"  #if($!bizObj.type==0) selected #end>顶层门类</option>
+										<option value="1" #if($!bizObj.type==1) selected #end>中间门类</option>
+										<option value="2" #if($!bizObj.type==2) selected #end>底层门类</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>
+
+
