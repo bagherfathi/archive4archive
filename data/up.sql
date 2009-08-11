@@ -57,6 +57,7 @@ CREATE TABLE `quanzong` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
+--Êý¾Ý±í
 CREATE TABLE `structure` (
   `id` int(11) NOT NULL auto_increment,
   `en_name` varchar(32) default '',

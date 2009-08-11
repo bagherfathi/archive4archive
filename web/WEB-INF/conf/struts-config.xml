@@ -13,6 +13,7 @@
 		<form-bean name="infosortForm" type="com.renhenet.web.form.InfoSortForm" />
 		<form-bean name="dictionarysortForm" type="com.renhenet.web.form.DictionarySortForm" />
 		<form-bean name="quanzongForm" type="com.renhenet.web.form.QuanzongForm" />
+		<form-bean name="structureForm" type="com.renhenet.web.form.StructureForm" />
 	</form-beans>
 
 	<!-- ================================= Global Exception Definitions -->
@@ -80,7 +81,15 @@
 			<forward name="insert" path="/WEB-INF/pages/quanzong/insert.vm" />
 			<forward name="insertsuccess" path="/quanzong/actions.html?method=list" redirect="true" />
 			<forward name="delete" path="/quanzong/actions.html?method=list" redirect="true" />
-			<forward name="update" path="/WEB-INF/quanzong/dictionarysort/update.vm" />
+			<forward name="update" path="/WEB-INF/pages/dictionarysort/update.vm" />
+		</action>
+
+		<action path="/structure/actions"	type="com.renhenet.web.structure.StructureAction" name="structureForm" input=""	parameter="method" scope="request">
+			<forward name="list" path="/WEB-INF/pages/structure/list.vm" />
+			<forward name="insert" path="/WEB-INF/pages/structure/insert.vm" />
+			<forward name="insertsuccess" path="/structure/actions.html?method=list" redirect="true" />
+			<forward name="delete" path="/structure/actions.html?method=list" redirect="true" />
+			<forward name="update" path="/WEB-INF/pages/structure/update.vm" />
 		</action>
 		
 		</action-mappings>
