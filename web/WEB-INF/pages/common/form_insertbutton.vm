@@ -1,0 +1,13 @@
+#if($!action != "detail")
+	<input type=submit name="insert" value="保存" class=btn1_mouseout title="保存"/>
+	##if(!$hideInsert2)
+		##<input type=submit name="insert2" value="保存并新建" class=btn1_mouseout title="保存并新建" />	
+	##end
+#end
+
+#if($!action == "detail")
+	#if(!$hideEdit)
+		<input type="submit" name="edit" value="编辑" class=btn1_mouseout title="编辑" >
+	#end
+#end
+
