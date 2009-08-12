@@ -12,6 +12,7 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 	private int length;
 	private int decimalDigits;
 	private int inputFashion;
+	private int isNull;
 	private int isOverlap;
 	private int isIndex;
 	private int isQuery;
@@ -21,6 +22,14 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 	private int isExtend;
 	private int isBalance;
 	private int isSerialNumber;
+
+	public int getIsNull() {
+		return isNull;
+	}
+
+	public void setIsNull(int isNull) {
+		this.isNull = isNull;
+	}
 
 	public String getEnName() {
 		return enName;
