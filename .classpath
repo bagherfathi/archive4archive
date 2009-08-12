@@ -4,7 +4,6 @@
 	<classpathentry kind="src" path="src/java/modules"/>
 	<classpathentry kind="src" path="src/java/share"/>
 	<classpathentry kind="src" path="src/java/web"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/activation.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/antlr-2.7.5H3.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/aopalliance.jar"/>
@@ -87,5 +86,7 @@
 	<classpathentry kind="lib" path="web/WEB-INF/lib/xmlParserAPIs.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/xmlrpc-1.2-b1.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/xwork-2.0-beta-1.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/yguard.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
