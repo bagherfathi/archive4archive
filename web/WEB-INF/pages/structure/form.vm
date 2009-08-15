@@ -1,8 +1,34 @@
+#if($structureList)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">字段名</td>
+            <td class="tableheadingbg">中文名:</td>
+			<td class="tableheadingbg">操作</td>
+          </tr>
+		  #foreach($biz in $infoSortList)
+		  <tr>
+				<td class="tablelistbg">$biz.seq</td>
+				<td class="tablelistbg">$biz.name</td>
+				<td class="tablelistbg">
+					<a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
+					<a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
+				</td>
+	      </tr>
+		  #end
+      </table>
+#end
+<br>
+
 <table width="100%" border="0" cellpadding="4" cellspacing="1" >
 	<tr>
 		<td >
 			<form name="structureForm" method="post" action="$!actionUrl" onSubmit = "return validatestructureForm(this);">
 				<input type=hidden name=id value=$!bizObj.id>
+				<input type=text name=infoSortId value=$!infoSortId>
 						<table width="100%" border="0" cellpadding="2" cellspacing="3">数据类型
 							<tr> 
 								<td bgcolor="#eeeee5" width="20%">字段名:
