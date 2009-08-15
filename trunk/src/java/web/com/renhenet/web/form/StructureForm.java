@@ -2,6 +2,7 @@ package com.renhenet.web.form;
 
 import com.renhenet.fw.waf.BasePOForm;
 
+@SuppressWarnings("serial")
 public class StructureForm extends BasePOForm {
 	private String enName;
 	private String znName;
@@ -13,6 +14,7 @@ public class StructureForm extends BasePOForm {
 	private int decimalDigits;
 	private int inputFashion;
 	private int isOverlap;
+	private int isNull;
 	private int isIndex;
 	private int isQuery;
 	private int isTypeQuery;
@@ -21,6 +23,14 @@ public class StructureForm extends BasePOForm {
 	private int isExtend;
 	private int isBalance;
 	private int isSerialNumber;
+
+	public int getIsNull() {
+		return isNull;
+	}
+
+	public void setIsNull(int isNull) {
+		this.isNull = isNull;
+	}
 
 	public String getEnName() {
 		return enName;

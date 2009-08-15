@@ -1,0 +1,19 @@
+#renhehead()
+#renheMenu("structure")
+<br>
+<div id="conbg">
+<div class=contitle>
+<div class=leftmain>定义表结构</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/structure/actions.html?method=list">&#171;返回</a></div>
+<div class=rightmain></div>
+</div>
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=message></div></td></tr></table>
+#set($actionUrl="/structure/actions.html?method=insert&insert=y")
+<div class=conmain>
+	#parse( "/WEB-INF/pages/structure/form.vm" )
+</div>
+</div>
+
+#renheend()	

@@ -19,6 +19,7 @@ public class DictionarySortAction extends DispatchActions {
 	private static DictionarySortService service = (DictionarySortService) ServiceLocator
 			.getService("dictionarySortService");
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected Class getActionClass() {
 		return DictionarySort.class;

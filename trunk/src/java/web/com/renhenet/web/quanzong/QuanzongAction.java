@@ -17,6 +17,7 @@ public class QuanzongAction extends DispatchActions {
 	private static QuanzongService service = (QuanzongService) ServiceLocator
 			.getService("quanzongService");
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected Class getActionClass() {
 		return Quanzong.class;

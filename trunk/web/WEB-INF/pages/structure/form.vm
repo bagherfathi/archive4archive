@@ -1,0 +1,143 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="structureForm" method="post" action="$!actionUrl" onSubmit = "return validatestructureForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">数据类型
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">字段名:
+								</td>
+								<td>
+									#showFormText("enName" "$!bizObj.enName" 20)#showMustFill()
+								</td>
+								<td bgcolor="#eeeee5" width="20%">中文名:
+								</td>
+								<td>
+									#showFormText("znName" "$!bizObj.znName" 20)#showMustFill()
+								</td>
+							</tr>					
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">类型:
+								</td>
+								<td>
+									<select name="type">
+										<option value="0"  #if($!bizObj.type==0) selected #end>字符型</option>
+										<option value="1" #if($!bizObj.type==1) selected #end>整数型</option>
+										<option value="2" #if($!bizObj.type==2) selected #end>数字型</option>
+										<option value="3" #if($!bizObj.type==3) selected #end>时间型</option>
+										<option value="4" #if($!bizObj.type==4) selected #end>档案日期</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">长度:
+								</td>
+								<td>
+									#showFormText("length" "$!bizObj.length" 20)
+								</td>
+								<td bgcolor="#eeeee5" width="20%">小数点位:
+								</td>
+								<td>
+									#showFormText("decimalDigits" "$!bizObj.decimalDigits" 20)
+								</td>
+							</tr>
+							
+						</table>
+						
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">表结构
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">输入方式:
+								</td>
+								<td >
+									<select name="inputFashion">
+										<option value="0"  #if($!bizObj.type==0) selected #end>文本输入</option>
+										<option value="1" #if($!bizObj.type==1) selected #end>选择输入</option>
+										<option value="2" #if($!bizObj.type==2) selected #end>对话框输入</option>
+										<option value="3" #if($!bizObj.type==3) selected #end>多选择对话框输入</option>
+									</select>
+								</td>
+								<td bgcolor="#eeeee5" width="20%">字典名称:
+								</td>
+								<td>
+									#showFormText("dictionaryName" "$!bizObj.dictionaryName" 20)
+								</td>
+							</tr>					
+							<tr>
+								
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">字段可空:
+								</td>
+								<td>
+									<input type="checkbox" name="isNull" value="1" #if($!bizObj.isNull==1)checked#end>
+								</td>
+								<td bgcolor="#eeeee5" width="20%">权限控制字段:
+								</td>
+								<td>
+									<input type="checkbox" name="isPurview" value="1" #if($!bizObj.isPurview==1)checked#end>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">值可以重复:
+								</td>
+								<td>
+									<input type="checkbox" name="isOverlap" value="1" #if($!bizObj.isOverlap==1)checked#end>
+								</td>
+								<td bgcolor="#eeeee5" width="20%">自动加一:
+								</td>
+								<td>
+									<input type="checkbox" name="isSelfMotion" value="1" #if($!bizObj.isSelfMotion==1)checked#end>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">带索引字段:
+								</td>
+								<td>
+									<input type="checkbox" name="isIndex" value="1" #if($!bizObj.isIndex==1)checked#end> 
+								</td>
+								<td bgcolor="#eeeee5" width="20%">值继承:
+								</td>
+								<td>
+									<input type="checkbox" name="isExtend" value="1" #if($!bizObj.isExtend==1)checked#end>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">简单查询字段:
+								</td>
+								<td>
+									<input type="checkbox" name="isQuery" value="1" #if($!bizObj.isQuery==1)checked#end>
+								</td>
+								<td bgcolor="#eeeee5" width="20%">对比字段:
+								</td>
+								<td>
+									<input type="checkbox" name="isBalance" value="1" #if($!bizObj.isBalance==1)checked#end>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">分类查询字段:
+								</td>
+								<td>
+									<input type="checkbox" name="isTypeQuery" value="1" #if($!bizObj.isTypeQuery==1)checked#end>
+								</td>
+								<td bgcolor="#eeeee5" width="20%">作为目录序列字段:
+								</td>
+								<td>
+									<input type="checkbox" name="isSerialNumber" value="1" #if($!bizObj.isSerialNumber==1)checked#end>
+								</td>
+							</tr>
+							
+						</table>
+						
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>
+
+
