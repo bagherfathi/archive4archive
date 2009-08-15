@@ -8,7 +8,7 @@
     <class name="com.renhenet.po.Resources" table="resources" lazy="false" >
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
+            <generator class="native"/>
         </id> 
         <property name="type" type="java.lang.String">
             <column name="type" length="64" not-null="true" />
