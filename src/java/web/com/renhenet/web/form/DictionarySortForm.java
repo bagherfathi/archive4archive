@@ -2,6 +2,7 @@ package com.renhenet.web.form;
 
 import com.renhenet.fw.waf.BasePOForm;
 
+@SuppressWarnings("serial")
 public class DictionarySortForm extends BasePOForm {
 	private String name;
 

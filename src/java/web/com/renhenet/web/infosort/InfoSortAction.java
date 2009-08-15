@@ -19,6 +19,7 @@ public class InfoSortAction extends DispatchActions {
 	private static InfoSortService service = (InfoSortService) ServiceLocator
 			.getService("infoSortService");
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected Class getActionClass() {
 		return InfoSort.class;

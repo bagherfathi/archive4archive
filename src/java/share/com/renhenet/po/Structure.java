@@ -2,6 +2,7 @@ package com.renhenet.po;
 
 import com.renhenet.fw.orm.IdPersistent;
 
+@SuppressWarnings("serial")
 public class Structure extends IdPersistent implements java.io.Serializable {
 	private String enName;
 	private String znName;

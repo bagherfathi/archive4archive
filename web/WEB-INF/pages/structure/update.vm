@@ -1,0 +1,21 @@
+#renhehead()
+#renheMenu("structure")
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="conbg">
+<div class=contitle>
+<div class=leftmain>编辑结构关系表</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/structure/actions.html?method=list">&#171;返回</a></div>
+<div class=rightmain></div>
+</div>
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=message></div></td></tr></table>
+#if($!updated)
+	<script type="text/javascript">showmsg(true,"更新成功!",msg);</script>
+#end
+#set($actionUrl="/structure/actions.html?method=update&insert=y")
+<div class=conmain>
+	#parse( "/WEB-INF/pages/structure/form.vm" )
+</div>
+<br></div>
+#renheend()	

@@ -1,5 +1,7 @@
 package com.renhenet.web.structure;
 
+import java.util.List;
+
 import javax.servlet.ServletException;
 
 import com.renhenet.fw.ServiceLocator;
@@ -14,9 +16,28 @@ public class StructureAction extends DispatchActions {
 	private static StructureService service = (StructureService) ServiceLocator
 			.getService("structureService");
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected Class getActionClass() {
 		return Structure.class;
+	}
+
+	public String insertProcess(WebContext context) throws ServletException {
+		// 根据infoSortId得到所有表结构
+		int infoSortId = context.getSIntParameter("infoSortId");
+
+		List<Structure> structureList = service
+				.getStructureByInfoSortId(infoSortId);
+		context.put("structureList", structureList);
+
+		if (context.getParameter("insert") != null
+				|| context.getParameter("insert2") != null) {
+			String StrInfoSortId = context.getParameter("infoSortId");
+			return "/structure/actions.html?method=insert&infoSortId="
+					+ StrInfoSortId;
+		}
+
+		return super.insertProcess(context);
 	}
 
 	@Override
