@@ -1,0 +1,46 @@
+#renhehead()
+#renheMenu("file")
+#set($addNewLink = "/file/actions.html?method=insert&infoSortId=ff2e8a06dd18d07409de60fa67c3e11bb332c31edbf9a67e192e1ca8c9326670")
+#set($addNewLinkText = "新增来文")
+#parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
+#set($urlPre = "/file/actions.html?method=list")
+#if($!$bizObjList)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">类目序号</td>
+            <td class="tableheadingbg">类目名称</td>
+            <td class="tableheadingbg">类目类型</td>
+            <td class="tableheadingbg">创建时间</td>
+			<td class="tableheadingbg">操作</td>
+          </tr>
+		#foreach($biz in $bizObjList)
+		<tr>
+			<td class="tablelistbg">$biz.seq</td>
+			<td class="tablelistbg">$biz.name</td>
+			<td class="tablelistbg">
+			#if($!biz.type=='0')
+			顶层门类
+			#elseif($!biz.type=='1')
+			中间门类	
+			#elseif($!biz.type=='2')
+			底层门类 	
+			#end
+			</td>
+			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
+			<td class="tablelistbg">
+				<a href="/file/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子门类</a>
+				<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
+				<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)"  >删除</a>
+			</td>
+         </tr>
+		#end
+      </table>
+	  	#parse( "/WEB-INF/pages/common/page.vm" )
+#else
+		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
+#end
+#renheend()

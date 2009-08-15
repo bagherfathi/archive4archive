@@ -22,6 +22,7 @@
 				<value>hibernate/DictionarySort.hbm.xml</value>
 				<value>hibernate/Quanzong.hbm.xml</value>
 				<value>hibernate/Structure.hbm.xml</value>
+				<value>hibernate/File.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

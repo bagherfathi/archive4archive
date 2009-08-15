@@ -4,11 +4,12 @@ import com.renhenet.fw.orm.IdPersistent;
 
 @SuppressWarnings("serial")
 public class Structure extends IdPersistent implements java.io.Serializable {
-	private String enName;
+	private String serialNumber;
 	private String znName;
 	private String dictionaryName;
 	private int ifUpdate;
 	private int infoSortId;
+	private int taxis;
 	private int type;
 	private int length;
 	private int decimalDigits;
@@ -23,6 +24,31 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 	private int isExtend;
 	private int isBalance;
 	private int isSerialNumber;
+	private int isDelete;
+
+	public String getSerialNumber() {
+		return serialNumber;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
+	}
+
+	public int getTaxis() {
+		return taxis;
+	}
+
+	public void setTaxis(int taxis) {
+		this.taxis = taxis;
+	}
+
+	public int getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(int isDelete) {
+		this.isDelete = isDelete;
+	}
 
 	public int getIsNull() {
 		return isNull;
@@ -30,14 +56,6 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 
 	public void setIsNull(int isNull) {
 		this.isNull = isNull;
-	}
-
-	public String getEnName() {
-		return enName;
-	}
-
-	public void setEnName(String enName) {
-		this.enName = enName;
 	}
 
 	public String getZnName() {

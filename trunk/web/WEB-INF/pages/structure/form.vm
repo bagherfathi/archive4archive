@@ -5,17 +5,15 @@
 	</div>
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
-            <td class="tableheadingbg">字段名</td>
             <td class="tableheadingbg">中文名:</td>
 			<td class="tableheadingbg">操作</td>
           </tr>
-		  #foreach($biz in $infoSortList)
+		  #foreach($biz in $structureList)
 		  <tr>
-				<td class="tablelistbg">$biz.seq</td>
-				<td class="tablelistbg">$biz.name</td>
+				<td class="tablelistbg">$biz.znName</td>
 				<td class="tablelistbg">
-					<a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
-					<a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
+					<a href="/structure/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortId=$vMUtils.encrypt($biz.infoSortId)"  >编辑</a>
+					<a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortId=$vMUtils.encrypt($biz.infoSortId)"  >删除</a>
 				</td>
 	      </tr>
 		  #end
@@ -26,16 +24,12 @@
 <table width="100%" border="0" cellpadding="4" cellspacing="1" >
 	<tr>
 		<td >
-			<form name="structureForm" method="post" action="$!actionUrl" onSubmit = "return validatestructureForm(this);">
+			<form name="structureForm" method="post" action="$!actionUrl" onSubmit = "return validateStructureForm(this);">
 				<input type=hidden name=id value=$!bizObj.id>
-				<input type=text name=infoSortId value=$!infoSortId>
+				<input type=hidden name=infoSortId value=$!infoSortId>
+				<input type=hidden name=isDelete value=$!bizObj.isDelete>
 						<table width="100%" border="0" cellpadding="2" cellspacing="3">数据类型
 							<tr> 
-								<td bgcolor="#eeeee5" width="20%">字段名:
-								</td>
-								<td>
-									#showFormText("enName" "$!bizObj.enName" 20)#showMustFill()
-								</td>
 								<td bgcolor="#eeeee5" width="20%">中文名:
 								</td>
 								<td>
@@ -53,6 +47,11 @@
 										<option value="3" #if($!bizObj.type==3) selected #end>时间型</option>
 										<option value="4" #if($!bizObj.type==4) selected #end>档案日期</option>
 									</select>
+								</td>
+								<td bgcolor="#eeeee5" width="20%">序号:
+								</td>
+								<td>
+									#showFormText("taxis" "$!bizObj.taxis" 20)
 								</td>
 							</tr>
 							<tr>
@@ -76,16 +75,16 @@
 								</td>
 								<td >
 									<select name="inputFashion">
-										<option value="0"  #if($!bizObj.type==0) selected #end>文本输入</option>
-										<option value="1" #if($!bizObj.type==1) selected #end>选择输入</option>
-										<option value="2" #if($!bizObj.type==2) selected #end>对话框输入</option>
-										<option value="3" #if($!bizObj.type==3) selected #end>多选择对话框输入</option>
+										<option value="0"  #if($!bizObj.inputFashion==0) selected #end>文本输入</option>
+										<option value="1" #if($!bizObj.inputFashion==1) selected #end>选择输入</option>
+										<option value="2" #if($!bizObj.inputFashion==2) selected #end>对话框输入</option>
+										<option value="3" #if($!bizObj.inputFashion==3) selected #end>多选择对话框输入</option>
 									</select>
 								</td>
 								<td bgcolor="#eeeee5" width="20%">字典名称:
 								</td>
 								<td>
-									#showFormText("dictionaryName" "$!bizObj.dictionaryName" 20)
+								#showListSelect($dictionarySortList "dictionaryName" $!bizObj.dictionaryName)
 								</td>
 							</tr>					
 							<tr>
