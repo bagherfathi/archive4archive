@@ -11,6 +11,7 @@ import com.renhenet.modules.member.StructureService;
 import com.renhenet.po.Structure;
 import com.renhenet.util.searchcontext.SearchContext;
 import com.renhenet.web.DispatchActions;
+import com.renhenet.web.VMUtils;
 
 public class StructureAction extends DispatchActions {
 	private static StructureService service = (StructureService) ServiceLocator
@@ -25,16 +26,19 @@ public class StructureAction extends DispatchActions {
 	public String insertProcess(WebContext context) throws ServletException {
 		// 根据infoSortId得到所有表结构
 		int infoSortId = context.getSIntParameter("infoSortId");
-
+		context.put("infoSortId",infoSortId);
+		
+		
 		List<Structure> structureList = service
 				.getStructureByInfoSortId(infoSortId);
 		context.put("structureList", structureList);
 
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {
-			String StrInfoSortId = context.getParameter("infoSortId");
+			super.insertProcess(context);
+	
 			return "/structure/actions.html?method=insert&infoSortId="
-					+ StrInfoSortId;
+					+ VMUtils.encrypt(infoSortId);
 		}
 
 		return super.insertProcess(context);
