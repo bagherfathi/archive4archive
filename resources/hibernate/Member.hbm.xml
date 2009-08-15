@@ -8,7 +8,7 @@
     <class name="com.renhenet.po.Member" table="member" lazy="false">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
+            <generator class="native"/>
         </id>
         <property name="loginName" type="java.lang.String">
             <column name="login_name" length="32" not-null="true" />
