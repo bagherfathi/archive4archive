@@ -23,6 +23,24 @@ public class StructureForm extends BasePOForm {
 	private int isExtend;
 	private int isBalance;
 	private int isSerialNumber;
+	private int isDelete;
+	private int taxis;
+
+	public int getTaxis() {
+		return taxis;
+	}
+
+	public void setTaxis(int taxis) {
+		this.taxis = taxis;
+	}
+
+	public int getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(int isDelete) {
+		this.isDelete = isDelete;
+	}
 
 	public int getIsNull() {
 		return isNull;

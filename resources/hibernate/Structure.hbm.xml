@@ -10,11 +10,14 @@
             <column name="id" />
             <generator class="native"/>
         </id>
-         <property name="enName" type="java.lang.String">
-            <column name="en_name" length="64" not-null="true" />
+         <property name="serialNumber" type="java.lang.String">
+            <column name="serial_number" length="64" />
         </property>
          <property name="znName" type="java.lang.String">
             <column name="zn_name" length="64" not-null="true" />
+        </property>
+          <property name="taxis" type="java.lang.Integer">
+            <column name="taxis" />
         </property>
          <property name="dictionaryName" type="java.lang.String">
             <column name="dictionary_name" length="64" not-null="true" />
@@ -68,6 +71,9 @@
         </property>
         <property name="isSerialNumber" type="java.lang.Integer">
             <column name="is_serial_number" />
+        </property>
+        <property name="isDelete" type="java.lang.Integer">
+            <column name="is_delete" />
         </property>
         <property name="timeCreate" type="java.util.Date">
             <column name="time_create" length="19" not-null="true" />

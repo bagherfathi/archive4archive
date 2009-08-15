@@ -1,0 +1,42 @@
+<iframe width=174 height=172 name="gToday:normal:/scripts/time/agenda.js"  src="/scripts/time/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>     
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="fileForm" method="post" action="$!actionUrl" onSubmit = "return validatefileForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				<input type=hidden name=infoSortId value=$!infoSortId>
+				<table width="100%" border="0" cellpadding="2" cellspacing="3">
+								##时间型和日期型
+									 
+						#foreach($biz in $structureList)
+						<tr> 
+							<td bgcolor="#eeeee5" width="20%">$biz.znName:
+							</td>
+							<td>
+								#if($biz.length>200)
+									#showFormTextarea("serialNumber" "$!bizObj.serialNumber" 3)
+								#else
+									#if($biz.type>=3)
+										<input name="$!biz.serialNumber" type="text" size="10" maxlength="10" value="" />
+								        <a onclick="gfPop.fPopCalendar(document.fileForm.$!biz.serialNumber);return false;">
+								       		<img name="popcal" align="absmiddle" src="/images/calbtn.gif" width="34" height="22" border="0" alt="日历标签"/>
+								        </a>
+									#else
+										#if($biz.inputFashion==1)
+											#showListSelect($vMUtils.getDictionarySortByParentId($biz.dictionaryName+"") "serialNumber" $!bizObj.serialNumber)
+										#else
+											#showFormText("serialNumber" "$!bizObj.serialNumber" 20)
+										#end
+										
+									#end					
+								#end
+							</td>
+						</tr>
+						#end					
+					</table>
+			</form>
+		</td>
+	</tr>
+</table>
+
+

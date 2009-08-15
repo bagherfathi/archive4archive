@@ -1,17 +1,15 @@
 <td width="150" height="500" valign="top" bgcolor="#93B1D7">
 <script language="JavaScript" src="/scripts/menu.js"></script>
-
-
 	<div  class="lmain" onClick="javascript:showdesc(1)">文件管理</div>
-		<div class="lmain2" id="desc1" style="display: none">
+		<div class="lmain2" id="desc1" style="display:#if($memuModule == "file")block#else none#end">
 			<ul>
 			    <li><a  onClick="javascript:showdesc(11)" class=menubg >
 		     		<img src= /images/expand.gif border="0" align="absmiddle" id=pic11>文件登记</a></li>
-    	<div id="desc11" style="display: none">
+    	<div id="desc11"  style="display:#if($memuModule == "file")block#else none#end">
     		<ul>
-    			<li><a href="/customer/actions.html?method=list&oc=all&cm=c1" class=menubg2>来文</a></li>
-    			<li><a href="/customer/actions.html?method=list&oc=today&cm=c2"  class=menubg2>发文</a></li>
-    			<li><a href="/customer/actions.html?method=list&oc=todaylinked&cm=c3"  class=menubg2>内部文件</a></li>			
+    			<li><a href="/file/actions.html?method=list&oc=all&cm=c1" #showMenuClass("file")>来文</a></li>
+    			<li><a href="/file/actions.html?method=list&oc=today&cm=c2&infoSortId=ff2e8a06dd18d07409de60fa67c3e11bb332c31edbf9a67e192e1ca8c9326670"  class=menubg2>发文</a></li>
+    			<li><a href="/file/actions.html?method=list&oc=todaylinked&cm=c3"  class=menubg2>内部文件</a></li>			
     		</ul>
     	</div>
     	<li>
@@ -176,7 +174,7 @@
 	</div-->
 	
 		<div class="lmain" onClick="javascript:showdesc(6)">系统设置</div>
-		<div class="lmain2" id="desc6" style="display:#if($memuModule == "systemPri" || $memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong")block#else none#end">
+		<div class="lmain2" id="desc6" style="display:#if($memuModule == "systemPri" || $memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong"  || $memuModule=="structure")block#else none#end">
 			<ul>
 				<li><a  onClick="javascript:showdesc(61)"  class=menubg>
 				    #set($menuOpen = false)
@@ -193,7 +191,7 @@
 					</div>
 				<li><a  onClick="javascript:showdesc(62)"  class=menubg>
 					<img src= /images/expand.gif border="0" align="absmiddle" id=pic62>资料设置</a></li>
-				<div id="desc62" style="display:#if($memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong")block#else none#end">
+				<div id="desc62" style="display:#if($memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
 					<ul>
 						<li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息门类 </a></li>
 						<li><a href="/dictionarysort/actions.html?method=list" #showMenuClass("dictionarysort")> 字典类目 </a></li>

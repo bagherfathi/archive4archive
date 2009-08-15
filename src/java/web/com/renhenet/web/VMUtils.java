@@ -9,8 +9,10 @@ import java.util.Locale;
 import org.apache.commons.lang.StringUtils;
 
 import com.renhenet.fw.Config;
+import com.renhenet.modules.member.DictionarySortService;
 import com.renhenet.modules.member.MemberService;
 import com.renhenet.modules.member.ResourcesService;
+import com.renhenet.po.DictionarySort;
 import com.renhenet.po.Member;
 import com.renhenet.po.Resources;
 import com.renhenet.util.DateUtil;
@@ -26,6 +28,17 @@ public class VMUtils {
 
 	private MemberService memberService;
 
+	private DictionarySortService dictionarySortService;
+
+	public List<DictionarySort> getDictionarySortByParentId(String parentId) {
+		if(!StringUtils.isEmpty(parentId)){
+			return dictionarySortService.getDictionarySortByParentId(new Integer(parentId));
+		}else{
+			return dictionarySortService.getDictionarySortByParentId(new Integer(-1));
+		}
+		
+	}
+
 	public String getResourceValue(int id) {
 		return resourcesService.getResourceValue(id);
 	}
@@ -36,6 +49,14 @@ public class VMUtils {
 
 	public String getResourceValue(String id) {
 		return resourcesService.getResourceValue(id);
+	}
+
+	public int stringToInt(String strNum) {
+		int num = -1;
+		if (StringUtils.isEmpty(strNum)) {
+			num = new Integer(strNum);
+		}
+		return num;
 	}
 
 	public List<Resources> getResourceByType(String type) {
@@ -322,6 +343,15 @@ public class VMUtils {
 
 	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;
+	}
+
+	public DictionarySortService getDictionarySortService() {
+		return dictionarySortService;
+	}
+
+	public void setDictionarySortService(
+			DictionarySortService dictionarySortService) {
+		this.dictionarySortService = dictionarySortService;
 	}
 
 }

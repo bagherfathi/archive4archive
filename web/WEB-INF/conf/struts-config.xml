@@ -14,6 +14,7 @@
 		<form-bean name="dictionarysortForm" type="com.renhenet.web.form.DictionarySortForm" />
 		<form-bean name="quanzongForm" type="com.renhenet.web.form.QuanzongForm" />
 		<form-bean name="structureForm" type="com.renhenet.web.form.StructureForm" />
+		<form-bean name="fileForm" type="com.renhenet.web.form.FileForm" />
 	</form-beans>
 
 	<!-- ================================= Global Exception Definitions -->
@@ -90,6 +91,14 @@
 			<forward name="insertsuccess" path="/structure/actions.html?method=list" redirect="true" />
 			<forward name="delete" path="/structure/actions.html?method=list" redirect="true" />
 			<forward name="update" path="/WEB-INF/pages/structure/update.vm" />
+		</action>
+		
+		<action path="/file/actions"	type="com.renhenet.web.file.FileAction" name="fileForm" input=""	parameter="method" scope="request">
+			<forward name="list" path="/WEB-INF/pages/file/list.vm" />
+			<forward name="insert" path="/WEB-INF/pages/file/insert.vm" />
+			<forward name="insertsuccess" path="/file/actions.html?method=list" redirect="true" />
+			<forward name="delete" path="/file/actions.html?method=list" redirect="true" />
+			<forward name="update" path="/WEB-INF/pages/file/update.vm" />
 		</action>
 		
 		</action-mappings>

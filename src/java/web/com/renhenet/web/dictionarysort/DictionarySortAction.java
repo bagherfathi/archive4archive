@@ -44,7 +44,7 @@ public class DictionarySortAction extends DispatchActions {
 			DictionarySortForm form = (DictionarySortForm) context.getForm();
 			if (form.getParentId() > 0) {
 				super.insertProcess(context);
-				return "/dictionarySort/actions.html?method=insert&parentId="
+				return "/dictionarysort/actions.html?method=insert&parentId="
 						+ VMUtils.encrypt(form.getParentId());
 			}
 		}
@@ -63,7 +63,7 @@ public class DictionarySortAction extends DispatchActions {
 			DictionarySortForm form = (DictionarySortForm) context.getForm();
 			if (form.getParentId() > 0) {
 				super.updateProcess(context);
-				return "/dictionarySort/actions.html?method=update&parentId="
+				return "/dictionarysort/actions.html?method=update&parentId="
 						+ VMUtils.encrypt(form.getParentId());
 			}
 		}
@@ -79,7 +79,7 @@ public class DictionarySortAction extends DispatchActions {
 		int parentId = context.getSIntParameter("parentId");
 		if (parentId > 0) {
 			super.deleteProcess(context);
-			return "/dictionarySort/actions.html?method=update&parentId="
+			return "/dictionarysort/actions.html?method=update&parentId="
 					+ VMUtils.encrypt(parentId);
 		}
 		return super.deleteProcess(context);
