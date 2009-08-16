@@ -43,6 +43,12 @@ public class FileAction extends DispatchActions {
 	}
 
 	public String updateProcess(WebContext context) throws ServletException {
+		int infoSortId = context.getSIntParameter("infoSortId");
+		context.put("infoSortId", infoSortId);
+
+		List<Structure> structureList = structureService
+				.getStructureByInfoSortId(infoSortId);
+		context.put("structureList", structureList);
 
 		return super.updateProcess(context);
 	}

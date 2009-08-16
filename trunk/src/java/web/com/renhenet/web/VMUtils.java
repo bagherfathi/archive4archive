@@ -10,6 +10,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.renhenet.fw.Config;
 import com.renhenet.modules.member.DictionarySortService;
+import com.renhenet.modules.member.FileService;
 import com.renhenet.modules.member.MemberService;
 import com.renhenet.modules.member.ResourcesService;
 import com.renhenet.po.DictionarySort;
@@ -30,13 +31,11 @@ public class VMUtils {
 
 	private DictionarySortService dictionarySortService;
 
-	public List<DictionarySort> getDictionarySortByParentId(String parentId) {
-		if(!StringUtils.isEmpty(parentId)){
-			return dictionarySortService.getDictionarySortByParentId(new Integer(parentId));
-		}else{
-			return dictionarySortService.getDictionarySortByParentId(new Integer(-1));
-		}
-		
+	private FileService fileService;
+
+	public List<DictionarySort> getDictionarySortByParentId(int parentId) {
+		return dictionarySortService.getDictionarySortByParentId(new Integer(
+				parentId));
 	}
 
 	public String getResourceValue(int id) {
@@ -352,6 +351,14 @@ public class VMUtils {
 	public void setDictionarySortService(
 			DictionarySortService dictionarySortService) {
 		this.dictionarySortService = dictionarySortService;
+	}
+
+	public FileService getFileService() {
+		return fileService;
+	}
+
+	public void setFileService(FileService fileService) {
+		this.fileService = fileService;
 	}
 
 }
