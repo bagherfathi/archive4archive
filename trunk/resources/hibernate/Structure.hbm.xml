@@ -10,8 +10,8 @@
             <column name="id" />
             <generator class="native"/>
         </id>
-         <property name="serialNumber" type="java.lang.String">
-            <column name="serial_number" length="64" />
+         <property name="serialNumber" type="java.lang.Integer">
+            <column name="serial_number"/>
         </property>
          <property name="znName" type="java.lang.String">
             <column name="zn_name" length="64" not-null="true" />
