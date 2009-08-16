@@ -34,7 +34,7 @@ $validator.getStaticJavascript()
               </tr>
               <tr>
                 <td class="f14">ÃÜ&nbsp;Âë£º</td>
-                <td><input name="password" type="password" class="b" size="26" value="111222"/></td>
+                <td><input name="password" type="password" class="b" size="26" value="pass"/></td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
