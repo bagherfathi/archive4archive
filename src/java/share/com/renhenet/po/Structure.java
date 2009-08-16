@@ -6,7 +6,7 @@ import com.renhenet.fw.orm.IdPersistent;
 public class Structure extends IdPersistent implements java.io.Serializable {
 	private String serialNumber;
 	private String znName;
-	private String dictionaryName;
+	private int dictionaryName;
 	private int ifUpdate;
 	private int infoSortId;
 	private int taxis;
@@ -25,6 +25,15 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 	private int isBalance;
 	private int isSerialNumber;
 	private int isDelete;
+	private int isList;
+
+	public int getIsList() {
+		return isList;
+	}
+
+	public void setIsList(int isList) {
+		this.isList = isList;
+	}
 
 	public String getSerialNumber() {
 		return serialNumber;
@@ -66,11 +75,11 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 		this.znName = znName;
 	}
 
-	public String getDictionaryName() {
+	public int getDictionaryName() {
 		return dictionaryName;
 	}
 
-	public void setDictionaryName(String dictionaryName) {
+	public void setDictionaryName(int dictionaryName) {
 		this.dictionaryName = dictionaryName;
 	}
 
