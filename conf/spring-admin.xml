@@ -13,6 +13,7 @@
  		<property name="resourcesService"><ref bean="resourcesService"/></property>	
  		<property name="memberService"><ref bean="memberService"/></property>
  		<property name="dictionarySortService"><ref bean="dictionarySortService"/></property>
+ 		<property name="infoSortService"><ref bean="infoSortService"/></property>
 	</bean> 
 	
 	<bean id="memberService" parent="baseTransactionProxy" >
