@@ -31,7 +31,7 @@ public class StructureAction extends DispatchActions {
 
 	public String insertProcess(WebContext context) throws ServletException {
 		// 根据infoSortId得到所有表结构
-		int infoSortId = context.getSIntParameter("infoSortId");
+		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
 
 		List<Structure> structureList = service
@@ -45,9 +45,15 @@ public class StructureAction extends DispatchActions {
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {
 			StructureForm form = (StructureForm) context.getForm();
+
+			int serialNumber = service.getStructureByinfoSortId(form.getInfoSortId());
+
+			String strSerialNumber = "a" + serialNumber;
+			form.setSerialNumber(strSerialNumber);
+
 			super.insertProcess(context);
 
-			return "/structure/actions.html?method=insert&infoSortId="
+			return "/structure/actions.html?method=insert&infoSortIds="
 					+ VMUtils.encrypt(form.getInfoSortId());
 		}
 
@@ -56,7 +62,7 @@ public class StructureAction extends DispatchActions {
 
 	public String updateProcess(WebContext context) throws ServletException {
 		// 根据infoSortId得到所有表结构
-		int infoSortId = context.getSIntParameter("infoSortId");
+		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
 
 		List<Structure> structureList = service
@@ -72,7 +78,7 @@ public class StructureAction extends DispatchActions {
 			StructureForm form = (StructureForm) context.getForm();
 			super.updateProcess(context);
 
-			return "/structure/actions.html?method=insert&infoSortId="
+			return "/structure/actions.html?method=insert&infoSortIds="
 					+ VMUtils.encrypt(form.getInfoSortId());
 		}
 
@@ -80,15 +86,16 @@ public class StructureAction extends DispatchActions {
 	}
 
 	public String deleteProcess(WebContext context) throws ServletException {
-		int infoSortId = context.getSIntParameter("infoSortId");
+		int infoSortId = context.getSIntParameter("infoSortIds");
+		int sid = context.getSIntParameter("sid");
 
-		if (infoSortId > 0) {
+		if (sid > 0) {
 			Structure structure = (Structure) service.getObjectById(
-					Structure.class, infoSortId);
+					Structure.class, sid);
 			structure.setIsDelete(1);
 			service.updateObject(structure);
 
-			return "/structure/actions.html?method=insert&infoSortId="
+			return "/structure/actions.html?method=insert&infoSortIds="
 					+ VMUtils.encrypt(infoSortId);
 		}
 		return super.deleteProcess(context);

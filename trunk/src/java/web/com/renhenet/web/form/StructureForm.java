@@ -4,6 +4,7 @@ import com.renhenet.fw.waf.BasePOForm;
 
 @SuppressWarnings("serial")
 public class StructureForm extends BasePOForm {
+	private String serialNumber;
 	private String enName;
 	private String znName;
 	private String dictionaryName;
@@ -201,6 +202,14 @@ public class StructureForm extends BasePOForm {
 
 	public void setIsSerialNumber(int isSerialNumber) {
 		this.isSerialNumber = isSerialNumber;
+	}
+
+	public String getSerialNumber() {
+		return serialNumber;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
 	}
 
 }

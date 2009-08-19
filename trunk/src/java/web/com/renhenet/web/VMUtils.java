@@ -11,9 +11,11 @@ import org.apache.commons.lang.StringUtils;
 import com.renhenet.fw.Config;
 import com.renhenet.modules.member.DictionarySortService;
 import com.renhenet.modules.member.FileService;
+import com.renhenet.modules.member.InfoSortService;
 import com.renhenet.modules.member.MemberService;
 import com.renhenet.modules.member.ResourcesService;
 import com.renhenet.po.DictionarySort;
+import com.renhenet.po.InfoSort;
 import com.renhenet.po.Member;
 import com.renhenet.po.Resources;
 import com.renhenet.util.DateUtil;
@@ -32,6 +34,12 @@ public class VMUtils {
 	private DictionarySortService dictionarySortService;
 
 	private FileService fileService;
+
+	private InfoSortService infoSortService;
+
+	public List<InfoSort> getInfoSortByparentId(int parentId) {
+		return infoSortService.getInfoSortByParentId(parentId);
+	}
 
 	public List<DictionarySort> getDictionarySortByParentId(int parentId) {
 		return dictionarySortService.getDictionarySortByParentId(new Integer(
@@ -359,6 +367,14 @@ public class VMUtils {
 
 	public void setFileService(FileService fileService) {
 		this.fileService = fileService;
+	}
+
+	public InfoSortService getInfoSortService() {
+		return infoSortService;
+	}
+
+	public void setInfoSortService(InfoSortService infoSortService) {
+		this.infoSortService = infoSortService;
 	}
 
 }

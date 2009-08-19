@@ -8,7 +8,7 @@ import com.renhenet.po.InfoSort;
 public class InfoSortService extends CommonService {
 	@SuppressWarnings("unchecked")
 	public List<InfoSort> getInfoSortByParentId(int parentId) {
-		String hql = "from InfoSort where parentId =?";
+		String hql = "from InfoSort where parentId =? order by timeModified desc";
 
 		return (List<InfoSort>) dao.find(hql, new Object[] { parentId });
 	}
