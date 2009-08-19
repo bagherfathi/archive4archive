@@ -58,20 +58,6 @@
 					<ul>
    	<li><a href="/customer/actions.html?method=list&formal=formal&oc=all&cm=cf1"  class=menubg2
  >所有正式客户</a></li>
-   	<li><a href="/customer/actions.html?method=list&oc=today&formal=formal&cm=cf2" class=menubg2
-	>今天要回访的客户</a></li>
-   	<li><a href="/customer/actions.html?method=list&oc=todaylinked&formal=formal&cm=cf3" class=menubg2
-	>今天共回访的客户</a></li>
-   	<li><a href="/customer/actions.html?method=list&oc=alllinked&formal=formal&cm=cf4" class=menubg2
-	>所有正回访的客户</a></li>
-   	<li><a href="/customer/actions.html?method=list&oc=allnotlinked&formal=formal&cm=cf5" class=menubg2
-	>所有未回访的客户</a></li>
-   	<li><a href="/customer/actions.html?method=list&oc=expire&formal=formal&cm=cf6" class=menubg2
-	>过期未回访的客户</a></li>
-   	<li><a href="/customer/actions.html?method=list&oc=waitdistributes&formal=formal&cm=cf8" class=menubg2
-	>待分配的客户</a></li>
-   	<li><a href="/customer/actions.html?method=list&oc=contract&formal=formal&cm=cf7" class=menubg2
-	>合同结束的客户</a></li>
 					</ul>				
 				</div>
 				<li><a  onClick="javascript:showdesc(92)"  class=menubg>
@@ -85,103 +71,16 @@
 							</ul>
 	</div>
 
-	<!--div class="lmain" onClick="javascript:showdesc(22)"> 发行管理</div>
-		<div class="lmain2" id="desc22" style="display: none">
-			<ul>
-				<li><a href="/issuance/actions.html?method=list&oc=all&cm=c1" class=menubg2
-	>添加发行</a></li>
-				<li><a href="/issuance1/actions.html?method=list&cm=c22" class=menubg2
-  >发行记录</a></li>
-			</ul>
-	</div>
-
-	<div class="lmain" onClick="javascript:showdesc(2)"> 合同管理</div>
-		<div class="lmain2" id="desc2" style="display: none">
-			<ul>
-				<li><a href="/contract/actions.html?method=list&cm=con1" class=menubg2
- >全部合同</a></li>
-				<li><a href="/contract/actions.html?method=list&status=paied&cm=con2" class=menubg2
-  >已到款合同</a></li>
-				<li><a href="/contract/actions.html?method=list&status=future&cm=con3" class=menubg2
-  >预到款合同</a></li>
-				<li><a href="/payment/actions.html?method=list&status=future&cm=con4" class=menubg2
-  >到款记录</a></li>
-			</ul>
-	</div>
-	
-		<div class="lmain" onClick="javascript:showdesc(3)">营销管理</div>
-		<div class="lmain2" id="desc3" style="display: none">
-			<ul>
-				<li><a href="/massmail/customerlist.html?method=list&type=sms&cm=m1"  class=menubg2
-	>群发短信</a></li>  
-				<li><a href="/massmail/customerlist.html?method=list&type=email&cm=m2"  class=menubg2
-	>群发邮件</a></li>  
-								<li><a href="/groupfax/actions.html?method=list&cm=m7"  class=menubg2
-	>群发传真</a></li>  
-				<li><a href="/emailtemplate/actions.html?method=list&cm=m3"   class=menubg2
-	>模板管理</a></li> 
-				<li><a href="/marketing/actions.html?method=list&cm=m4"  class=menubg2
-	>活动管理</a></li>
-				<li><a href="/massmail/actions.html?method=list&cm=m5"   class=menubg2
-	>发送查询</a></li> 
-				<li><a href="/companyaccountdetail/actions.html?method=list&cm=m6"  class=menubg2
-	>账单查询</a></li>
-			</ul>
-	</div>
-		
-		<div class="lmain" onClick="javascript:showdesc(4)">统计分析</div>
-		<div class="lmain2" id="desc4" style="display: none">
-			<ul>
-				<li><a  onClick="javascript:showdesc(41)" class=menubg >
-						     						<img src= /images/expand.gif border="0" align="absmiddle" id=pic41>客户数据统计</a></li>
-				<div id="desc41" style="display: none">
-					<ul>
-						<li><a href="/report/leadscustomerreport.html?type=customer&f=prov&cm=re1"  class=menubg2
-	>客户省份统计</a></li>
-						<li><a href="/report/leadscustomerreport.html?type=customer&f=city&cm=re2"  class=menubg2
-	>客户城市统计</a></li>
-						<li><a href="/report/leadscustomerreport.html?type=customer&f=industry&cm=re3"  class=menubg2
-	>客户行业统计</a></li>
-					</ul>
-				</div>
-				<li><a  onClick="javascript:showdesc(42)"  class=menubg>
-						     						<img src= /images/expand.gif border="0" align="absmiddle" id=pic42>销售数据统计</a></li>
-				<div id="desc42" style="display: none">
-					<ul>
-						<li><a href="/report/leadscustomerreport.html?type=customer&f=status&cm=re4"  class=menubg2
-  >成熟度统计</a></li>
-						<li><a href="/report/linkrecord.html?disLink=y&cm=re5"  class=menubg2
- >联系量统计</a></li>
-						<li><a href="/report/linkrecord.html?cm=re6"  class=menubg2
- >联系次数统计</a></li>
-						<li><a href="/report/activereport.html?cm=re7"  class=menubg2
- >盘活率统计</a></li>
-					</ul>
-				</div>
-				<li><a  onClick="javascript:showdesc(43)"  class=menubg>
-					     					<img src= /images/expand.gif border="0" align="absmiddle" id=pic43>合同统计</a></li>
-				<div id="desc43" style="display: none">
-					<ul>
-						<li><a href="/report/contractmoneyreport.html?cm=re8"  class=menubg2
-	>合同金额统计</a></li>
-					</ul>
-				</div>
-			</ul>
-	</div>
-		
-	<div class="lmain"  onClick="javascript:showdesc(5)">工作助手</div>
-		<div class="lmain2" id="desc5" style="display: none">
-			<ul>
-				<li><a href="/remind/actions.html?method=list&cm=as1" class=menubg2
-  >提醒管理</a></li>
-									<li><a href="/callboard/actions.html?method=list&cm=as2"  class=menubg2
- >公告管理</a></li>
-								<li><a href="/share/actions.html?method=list&cm=as3"  class=menubg2
- >分享管理</a></li>
-								<li><a href="/plan/actions.html?method=list&cm=as4"  class=menubg2
- >目标管理</a></li>
-							</ul>
-	</div-->
+	<div  class="lmain" onClick="javascript:showdesc(9)">资料管理</div>
+	<div  class="lmain" onClick="javascript:showdesc(10)">检&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</div>
+	<!--div  class="lmain" onClick="javascript:showdesc(11)">利&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用</div>
+	<div  class="lmain" onClick="javascript:showdesc(12)">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管</div>
+	<div  class="lmain" onClick="javascript:showdesc(12)">鉴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+	<div  class="lmain" onClick="javascript:showdesc(12)">移交接受</div>
+	<div  class="lmain" onClick="javascript:showdesc(12)">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;研</div-->
+	<div  class="lmain" onClick="javascript:showdesc(12)">统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</div>
+	<div  class="lmain" onClick="javascript:showdesc(12)">数据管理</div>
+	<div  class="lmain" onClick="javascript:showdesc(12)">鉴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定</div>
 	
 		<div class="lmain" onClick="javascript:showdesc(6)">系统设置</div>
 		<div class="lmain2" id="desc6" style="display:#if($memuModule == "systemPri" || $memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong"  || $memuModule=="structure")block#else none#end">
