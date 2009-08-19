@@ -5,15 +5,15 @@
 	</div>
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
-            <td class="tableheadingbg">中文名:</td>
+            <td class="tableheadingbg">中文名</td>
 			<td class="tableheadingbg">操作</td>
           </tr>
 		  #foreach($biz in $structureList)
 		  <tr>
 				<td class="tablelistbg">$biz.znName</td>
 				<td class="tablelistbg">
-					<a href="/structure/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortId=$vMUtils.encrypt($biz.infoSortId)"  >编辑</a>
-					<a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortId=$vMUtils.encrypt($biz.infoSortId)"  >删除</a>
+					<a href="/structure/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)"  >编辑</a>
+					<a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)"  >删除</a>
 				</td>
 	      </tr>
 		  #end
@@ -27,6 +27,7 @@
 			<form name="structureForm" method="post" action="$!actionUrl" onSubmit = "return validateStructureForm(this);">
 				<input type=hidden name=id value=$!bizObj.id>
 				<input type=hidden name=infoSortId value=$!infoSortId>
+				<input type=hidden name=serialNumber value=$!bizObj.serialNumber>
 				<input type=hidden name=isDelete value=$!bizObj.isDelete>
 						<table width="100%" border="0" cellpadding="2" cellspacing="3">数据类型
 							<tr> 
@@ -148,6 +149,13 @@
 								</td>
 								<td>
 									<input type="checkbox" name="isSerialNumber" value="1" #if($!bizObj.isSerialNumber==1)checked#end>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">列表显示字段:
+								</td>
+								<td>
+									<input type="checkbox" name="isList" value="1" #if($!bizObj.isList==1)checked#end>
 								</td>
 							</tr>
 							

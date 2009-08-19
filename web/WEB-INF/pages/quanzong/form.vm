@@ -26,7 +26,7 @@
 			</td>
 			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
 			<td class="tablelistbg">
-				#if($!biz.type!='2')<a href="/quanzong/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子门类</a>#end
+				#if($!biz.type!='2')<a href="/quanzong/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>#end
 				<a href="/quanzong/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
 				<a href="/quanzong/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
 			</td>

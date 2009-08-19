@@ -1,45 +1,141 @@
 #renhehead()
 #renheMenu("file")
-#set($addNewLink = "/file/actions.html?method=insert&infoSortId=ff2e8a06dd18d07409de60fa67c3e11bb332c31edbf9a67e192e1ca8c9326670")
-#set($addNewLinkText = "新增来文")
+#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&cm=$cm")
+#set($addNewLinkText = "新增$!infoSort.name")
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
-#set($urlPre = "/file/actions.html?method=list")
-#if($!$bizObjList)
+#set($urlPre = "/file/actions.html?method=list&cm=$cm")
+#if($!fileList)
 <div id="listhead">
 		<div id="listheadleftimg"></div>
 		<div id="listheadrightimg"></div>
 	</div>
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
-            <td class="tableheadingbg">类目序号</td>
-            <td class="tableheadingbg">类目名称</td>
-            <td class="tableheadingbg">类目类型</td>
-            <td class="tableheadingbg">创建时间</td>
-			<td class="tableheadingbg">操作</td>
+          #foreach($biz in $structureList)
+          	#if($biz.isList==1)
+            <td class="tableheadingbg">$biz.znName</td>
+            #end
+          #end
+          <td class="tableheadingbg">操作</td>
           </tr>
-		#foreach($biz in $bizObjList)
-		<tr>
-			<td class="tablelistbg">$biz.seq</td>
-			<td class="tablelistbg">$biz.name</td>
-			<td class="tablelistbg">
-			#if($!biz.type=='0')
-			顶层门类
-			#elseif($!biz.type=='1')
-			中间门类	
-			#elseif($!biz.type=='2')
-			底层门类 	
-			#end
-			</td>
-			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
-			<td class="tablelistbg">
-				<a href="/file/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子门类</a>
-				<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
-				<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)"  >删除</a>
-			</td>
-         </tr>
-		#end
+		
+				#foreach($!file in $!fileList)
+				<tr>
+					#foreach($biz in $structureList)
+						#if($biz.isList==1)
+							#set($strIndex=$biz.serialNumber)
+							#if($strIndex=='a1')
+							<td class="tablelistbg">&nbsp;$!file.a1</td>
+							#elseif($strIndex=='a2')
+							<td class="tablelistbg">&nbsp;$!file.a2</td>
+							#elseif($strIndex=='a3')
+							<td class="tablelistbg">&nbsp;$!file.a3</td>
+							#elseif($strIndex=='a4')
+							<td class="tablelistbg">&nbsp;$!file.a4</td>
+							#elseif($strIndex=='a5')
+							<td class="tablelistbg">&nbsp;$!file.a5</td>
+							#elseif($strIndex=='a6')
+							<td class="tablelistbg">&nbsp;$!file.a6</td>
+							#elseif($strIndex=='a7')
+							<td class="tablelistbg">&nbsp;$!file.a7</td>
+							#elseif($strIndex=='a8')
+							<td class="tablelistbg">&nbsp;$!file.a8</td>
+							#elseif($strIndex=='a9')
+							<td class="tablelistbg">&nbsp;$!file.a9</td>
+							#elseif($strIndex=='a10')
+							<td class="tablelistbg">&nbsp;$!file.a10</td>
+							#elseif($strIndex=='a11')
+							<td class="tablelistbg">&nbsp;$!file.a11</td>
+							#elseif($strIndex=='a12')
+							<td class="tablelistbg">&nbsp;$!file.a12</td>
+							#elseif($strIndex=='a13')
+							<td class="tablelistbg">&nbsp;$!file.a13</td>
+							#elseif($strIndex=='a14')
+							<td class="tablelistbg">&nbsp;$!file.a14</td>
+							#elseif($strIndex=='a15')
+							<td class="tablelistbg">&nbsp;$!file.a15</td>
+							#elseif($strIndex=='a16')
+							<td class="tablelistbg">&nbsp;$!file.a16</td>
+							#elseif($strIndex=='a17')
+							<td class="tablelistbg">&nbsp;$!file.a17</td>
+							#elseif($strIndex=='a18')
+							<td class="tablelistbg">&nbsp;$!file.a18</td>
+							#elseif($strIndex=='a19')
+							<td class="tablelistbg">&nbsp;$!file.a19</td>
+							#elseif($strIndex=='a20')
+							<td class="tablelistbg">&nbsp;$!file.a20</td>
+							#elseif($strIndex=='a21')
+							<td class="tablelistbg">&nbsp;$!file.a21</td>
+							#elseif($strIndex=='a22')
+							<td class="tablelistbg">&nbsp;$!file.a22</td>
+							#elseif($strIndex=='a23')
+							<td class="tablelistbg">&nbsp;$!file.a23</td>
+							#elseif($strIndex=='a24')
+							<td class="tablelistbg">&nbsp;$!file.a24</td>
+							#elseif($strIndex=='a25')
+							<td class="tablelistbg">&nbsp;$!file.a25</td>
+							#elseif($strIndex=='a26')
+							<td class="tablelistbg">&nbsp;$!file.a26</td>
+							#elseif($strIndex=='a27')
+							<td class="tablelistbg">&nbsp;$!file.a27</td>
+							#elseif($strIndex=='a28')
+							<td class="tablelistbg">&nbsp;$!file.a28</td>
+							#elseif($strIndex=='a29')
+							<td class="tablelistbg">&nbsp;$!file.a29</td>
+							#elseif($strIndex=='a30')
+							<td class="tablelistbg">&nbsp;$!file.a30</td>
+							#elseif($strIndex=='a31')
+							<td class="tablelistbg">&nbsp;$!file.a31</td>
+							#elseif($strIndex=='a32')
+							<td class="tablelistbg">&nbsp;$!file.a32</td>
+							#elseif($strIndex=='a33')
+							<td class="tablelistbg">&nbsp;$!file.a33</td>
+							#elseif($strIndex=='a34')
+							<td class="tablelistbg">&nbsp;$!file.a34</td>
+							#elseif($strIndex=='a35')
+							<td class="tablelistbg">&nbsp;$!file.a35</td>
+							#elseif($strIndex=='a36')
+							<td class="tablelistbg">&nbsp;$!file.a36</td>
+							#elseif($strIndex=='a37')
+							<td class="tablelistbg">&nbsp;$!file.a37</td>
+							#elseif($strIndex=='a38')
+							<td class="tablelistbg">&nbsp;$!file.a38</td>
+							#elseif($strIndex=='a39')
+							<td class="tablelistbg">&nbsp;$!file.a39</td>
+							#elseif($strIndex=='a40')
+							<td class="tablelistbg">&nbsp;$!file.a40</td>
+							#elseif($strIndex=='a41')
+							<td class="tablelistbg">&nbsp;$!file.a41</td>
+							#elseif($strIndex=='a42')
+							<td class="tablelistbg">&nbsp;$!file.a42</td>
+							#elseif($strIndex=='a43')
+							<td class="tablelistbg">&nbsp;$!file.a43</td>
+							#elseif($strIndex=='a44')
+							<td class="tablelistbg">&nbsp;$!file.a44</td>
+							#elseif($strIndex=='a45')
+							<td class="tablelistbg">&nbsp;$!file.a45</td>
+							#elseif($strIndex=='a46')
+							<td class="tablelistbg">&nbsp;$!file.a46</td>
+							#elseif($strIndex=='a47')
+							<td class="tablelistbg">&nbsp;$!file.a47</td>
+							#elseif($strIndex=='a48')
+							<td class="tablelistbg">&nbsp;$!file.a48</td>
+							#elseif($strIndex=='a49')
+							<td class="tablelistbg">&nbsp;$!file.a49</td>
+							#elseif($strIndex=='a50')
+							<td class="tablelistbg">&nbsp;$!file.a50</td>
+							#end
+						#end
+					#end
+						<td class="tablelistbg">
+							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&cm=$cm"  >编辑</a>
+							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($!file.id)"  >删除</a>
+						</td>	
+					</tr>
+				#end
+		
       </table>
-	  	#parse( "/WEB-INF/pages/common/page.vm" )
+	  	##parse( "/WEB-INF/pages/common/page.vm" )
 #else
 		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
 #end

@@ -1,15 +1,25 @@
 <td width="150" height="500" valign="top" bgcolor="#93B1D7">
 <script language="JavaScript" src="/scripts/menu.js"></script>
-	<div  class="lmain" onClick="javascript:showdesc(1)">文件管理</div>
+	<div class="lmain" background="/images/menuleft2.gif"  onClick="javascript:showdesc(1)">文件管理</div>
 		<div class="lmain2" id="desc1" style="display:#if($memuModule == "file")block#else none#end">
 			<ul>
 			    <li><a  onClick="javascript:showdesc(11)" class=menubg >
-		     		<img src= /images/expand.gif border="0" align="absmiddle" id=pic11>文件登记</a></li>
+			      #set($menuOpen = false)
+                		#if($memuModule == "systemPri" )
+                			#set($menuOpen = true)
+                		#end
+					<img src=#if($menuOpen || $cm!='')/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic11>文件登记</a></li>
     	<div id="desc11"  style="display:#if($memuModule == "file")block#else none#end">
     		<ul>
-    			<li><a href="/file/actions.html?method=list&oc=all&cm=c1" #showMenuClass("file")>来文</a></li>
-    			<li><a href="/file/actions.html?method=list&oc=today&cm=c2&infoSortId=ff2e8a06dd18d07409de60fa67c3e11bb332c31edbf9a67e192e1ca8c9326670"  class=menubg2>发文</a></li>
-    			<li><a href="/file/actions.html?method=list&oc=todaylinked&cm=c3"  class=menubg2>内部文件</a></li>			
+    			#set($index=1)
+    			#foreach($infosort in $vMUtils.getInfoSortByparentId(2))
+    			<li>
+    				<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&cm=$index" #if( 'file'== $curMenu && $cm==$index) class=menubg21 #else class=menubg2 #end>
+    					$!infosort.name
+    				</a>
+    			</li>
+    			#set($index=$index+1)
+    			#end	
     		</ul>
     	</div>
     	<li>
@@ -193,7 +203,7 @@
 					<img src= /images/expand.gif border="0" align="absmiddle" id=pic62>资料设置</a></li>
 				<div id="desc62" style="display:#if($memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
 					<ul>
-						<li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息门类 </a></li>
+						<li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息分类 </a></li>
 						<li><a href="/dictionarysort/actions.html?method=list" #showMenuClass("dictionarysort")> 字典类目 </a></li>
 						<li><a href="/quanzong/actions.html?method=list" #showMenuClass("quanzong")> 全宗管理 </a></li>
 						

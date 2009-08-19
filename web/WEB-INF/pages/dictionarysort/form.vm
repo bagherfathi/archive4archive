@@ -17,16 +17,16 @@
 			<td class="tablelistbg">$biz.name</td>
 			<td class="tablelistbg">
 			#if($!biz.type=='0')
-			顶层门类
+			顶层分类
 			#elseif($!biz.type=='1')
-			中间门类	
+			中间分类	
 			#elseif($!biz.type=='2')
-			底层门类 	
+			底层分类 	
 			#end
 			</td>
 			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
 			<td class="tablelistbg">
-				#if($!biz.type!='2')<a href="/dictionarysort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子门类</a>#end
+				#if($!biz.type!='2')<a href="/dictionarysort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>#end
 				<a href="/dictionarysort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
 				<a href="/dictionarysort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
 			</td>

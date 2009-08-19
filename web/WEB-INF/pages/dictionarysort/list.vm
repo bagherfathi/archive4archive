@@ -32,7 +32,7 @@
 			<td class="tablelistbg">$biz.memo</td>
 			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
 			<td class="tablelistbg">
-				<a href="/dictionarysort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)&cm=sys5"  >添加子门类</a>
+				<a href="/dictionarysort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)&cm=sys5"  >添加子分类</a>
 				<a href="/dictionarysort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&cm=sys5"  >编辑</a>
 				<a href="/dictionarysort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&cm=sys5"  >删除</a>
 			</td>
