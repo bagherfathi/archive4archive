@@ -8,10 +8,10 @@
     <class name="com.renhenet.po.Structure" table="structure" lazy="false" >
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="native"/>
+            <generator class="identity"/>
         </id>
-         <property name="serialNumber" type="java.lang.Integer">
-            <column name="serial_number"/>
+         <property name="serialNumber" type="java.lang.String">
+            <column name="serial_number" length="64" />
         </property>
          <property name="znName" type="java.lang.String">
             <column name="zn_name" length="64" not-null="true" />
@@ -19,8 +19,9 @@
           <property name="taxis" type="java.lang.Integer">
             <column name="taxis" />
         </property>
-         <property name="dictionaryName" type="java.lang.String">
-            <column name="dictionary_name" length="64" not-null="true" />
+        
+         <property name="dictionaryName" type="java.lang.Integer">
+            <column name="dictionary_name"  />
         </property>
 
         <property name="ifUpdate" type="java.lang.Integer">
@@ -74,6 +75,9 @@
         </property>
         <property name="isDelete" type="java.lang.Integer">
             <column name="is_delete" />
+        </property>
+        <property name="isList" type="java.lang.Integer">
+            <column name="is_list" />
         </property>
         <property name="timeCreate" type="java.util.Date">
             <column name="time_create" length="19" not-null="true" />
