@@ -17,19 +17,19 @@
 			<td class="tablelistbg">$biz.name</td>
 			<td class="tablelistbg">
 			#if($!biz.type=='0')
-			顶层门类
+			顶层分类
 			#elseif($!biz.type=='1')
-			中间门类	
+			中间分类	
 			#elseif($!biz.type=='2')
-			底层门类 	
+			底层分类 	
 			#end
 			</td>
 			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
 			<td class="tablelistbg">
 				#if($!biz.type!='2')
-				<a href="/infosort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子门类</a>
+				<a href="/infosort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>
 				#else
-				<a href="/structure/actions.html?method=insert&infoSortId=$vMUtils.encrypt($biz.id)"  >结构维护</a>
+				<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)"  >结构维护</a>
 				#end
 				<a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
 				<a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
@@ -69,9 +69,9 @@
 								</td>
 								<td>
 									<select name="type">
-										<option value="0"  #if($!bizObj.type==0) selected #end>顶层门类</option>
-										<option value="1" #if($!bizObj.type==1) selected #end>中间门类</option>
-										<option value="2" #if($!bizObj.type==2) selected #end>底层门类</option>
+										<option value="0"  #if($!bizObj.type==0) selected #end>顶层分类</option>
+										<option value="1" #if($!bizObj.type==1) selected #end>中间分类</option>
+										<option value="2" #if($!bizObj.type==2) selected #end>底层分类</option>
 									</select>
 								</td>
 							</tr>
