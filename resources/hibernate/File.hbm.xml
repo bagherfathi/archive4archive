@@ -8,7 +8,7 @@
     <class name="com.renhenet.po.File" table="files" lazy="false" >
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="native"/>
+            <generator class="identity"/>
         </id>
           <property name="infoSortId" type="java.lang.Integer">
             <column name="info_sort_id" />
