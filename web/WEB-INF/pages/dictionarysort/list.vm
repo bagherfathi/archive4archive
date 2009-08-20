@@ -20,8 +20,8 @@
           </tr>
 		#foreach($biz in $bizObjList)
 		<tr>
-			<td class="tablelistbg">&nbsp;$biz.name</td>
-			<td class="tablelistbg">&nbsp;$biz.seq</td>
+			<td class="tablelistbg">&nbsp;$!biz.name</td>
+			<td class="tablelistbg">&nbsp;$!biz.seq</td>
 			<td class="tablelistbg">
 			#if($!biz.defaultValue=='0')
 			否
@@ -29,7 +29,7 @@
 			是		
 			#end
 			</td>
-			<td class="tablelistbg">&nbsp;$biz.memo</td>
+			<td class="tablelistbg">&nbsp;$!biz.memo</td>
 			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
 			<td class="tablelistbg">
 				<a href="/dictionarysort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)&cm=sys5"  >添加子分类</a>

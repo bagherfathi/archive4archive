@@ -5,6 +5,8 @@
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
 #set($urlPre = "/member/actions.html?method=list")
 #if($!$bizObjList)
+
+
 <div id="listhead">
 		<div id="listheadleftimg"></div>
 		<div id="listheadrightimg"></div>

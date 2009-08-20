@@ -8,7 +8,7 @@ import com.renhenet.po.Structure;
 public class StructureService extends CommonService {
 	@SuppressWarnings("unchecked")
 	public List<Structure> getStructureByInfoSortId(int infoSortId) {
-		String hql = "from Structure where infoSortId =? and isDelete=0 order by taxis asc";
+		String hql = "from Structure where infoSortId =? and isDelete=0 order by taxis desc";
 
 		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
 	}
@@ -23,7 +23,7 @@ public class StructureService extends CommonService {
 			return 1;
 		} else {
 			String str = structure.getSerialNumber();
-			return new Integer(str.substring(1, str.length()))+1;
+			return new Integer(str.substring(1, str.length())) + 1;
 		}
 
 	}

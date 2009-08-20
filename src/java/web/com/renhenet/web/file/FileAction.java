@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.renhenet.fw.ServiceLocator;
 import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
@@ -59,7 +61,7 @@ public class FileAction extends DispatchActions {
 	public String updateProcess(WebContext context) throws ServletException {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
-		
+
 		String cm = context.getParameter("cm");
 		context.put("cm", cm);
 
@@ -97,8 +99,16 @@ public class FileAction extends DispatchActions {
 		List<Structure> structureList = structureService
 				.getStructureByInfoSortId(infoSortId);
 		context.put("structureList", structureList);
+		String a5 = context.getParameter("a5");
+		context.put("a5", a5);
+		a5 = this.getTitles(a5);
 
-		List<File> fileList = service.getFileByInfoSortId(infoSortId);
+		List<File> fileList = null;
+		if (!StringUtils.isEmpty(a5)) {
+			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5);
+		} else {
+			fileList = service.getFileByInfoSortId(infoSortId);
+		}
 		context.put("fileList", fileList);
 
 		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
@@ -119,6 +129,33 @@ public class FileAction extends DispatchActions {
 	@Override
 	public String getWebMenuType(WebContext context) throws ServletException {
 		return "file";
+	}
+
+	public String getTitles(String title) {
+		if (title == null) {
+			return "";
+		}
+		String a5 = title;
+		String strA5 = "";
+		String tempString = "";
+		if (a5.length() < 2) {
+			return a5;
+		}
+
+		tempString = a5.substring(0, 2);
+		strA5 = tempString;
+		a5 = a5.substring(2, a5.length());
+		for (int i = a5.length(); i > 1; i--) {
+			if (i % 2 != 0) {
+				tempString = a5.substring(0, 2);
+				strA5 = strA5 + "," + tempString;
+				a5 = a5.substring(2, a5.length());
+			}
+		}
+		if (a5.length() != 0) {
+			strA5 = strA5 + "," + a5;
+		}
+		return strA5;
 	}
 
 }
