@@ -38,7 +38,7 @@ public class Login extends BaseAction {
 		} else if (context.getParameter("logout") != null) {
 			context.setTempClientValue("memberId", "");
 			context.setTempClientValue("member", "");
-			re = "/bgindex.html";
+			re = "/index.html";
 		}
 		return re;
 	}

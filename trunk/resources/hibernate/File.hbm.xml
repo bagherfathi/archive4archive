@@ -17,154 +17,154 @@
             <column name="title" length="255" />
         </property>
          <property name="a1" type="java.lang.String">
-            <column name="A1" length="12" />
+            <column name="A1" length="120" />
         </property>
          <property name="a2" type="java.lang.String">
-            <column name="A2" length="12" />
+            <column name="A2" length="120" />
         </property>
          <property name="a3" type="java.lang.String">
-            <column name="A3" length="12" />
+            <column name="A3" length="120" />
         </property>
          <property name="a4" type="java.lang.String">
-            <column name="A4" length="12" />
+            <column name="A4" length="120" />
         </property>
          <property name="a5" type="java.lang.String">
-            <column name="A5" length="12" />
+            <column name="A5" length="120" />
         </property>
          <property name="a6" type="java.lang.String">
-            <column name="A6" length="12" />
+            <column name="A6" length="120" />
         </property>
          <property name="a7" type="java.lang.String">
-            <column name="A7" length="12" />
+            <column name="A7" length="120" />
         </property>
          <property name="a8" type="java.lang.String">
-            <column name="A8" length="12" />
+            <column name="A8" length="120" />
         </property>
          <property name="a9" type="java.lang.String">
-            <column name="A9" length="12" />
+            <column name="A9" length="120" />
         </property>
          <property name="a10" type="java.lang.String">
-            <column name="A10" length="12" />
+            <column name="A10" length="120" />
         </property>
          <property name="a11" type="java.lang.String">
-            <column name="A11" length="12" />
+            <column name="A11" length="120" />
         </property>
-         <property name="a12" type="java.lang.String">
-            <column name="A12" length="12" />
+         <property name="a120" type="java.lang.String">
+            <column name="A120" length="120" />
         </property>
          <property name="a13" type="java.lang.String">
-            <column name="A13" length="12" />
+            <column name="A13" length="120" />
         </property>
          <property name="a14" type="java.lang.String">
-            <column name="A14" length="12" />
+            <column name="A14" length="120" />
         </property>
          <property name="a15" type="java.lang.String">
-            <column name="A15" length="12" />
+            <column name="A15" length="120" />
         </property>
          <property name="a16" type="java.lang.String">
-            <column name="A16" length="12" />
+            <column name="A16" length="120" />
         </property>
          <property name="a17" type="java.lang.String">
-            <column name="A17" length="12" />
+            <column name="A17" length="120" />
         </property>
          <property name="a18" type="java.lang.String">
-            <column name="A18" length="12" />
+            <column name="A18" length="120" />
         </property>
          <property name="a19" type="java.lang.String">
-            <column name="A19" length="12" />
+            <column name="A19" length="120" />
         </property>
          <property name="a20" type="java.lang.String">
-            <column name="A20" length="12" />
+            <column name="A20" length="120" />
         </property>
          <property name="a21" type="java.lang.String">
-            <column name="A21" length="12" />
+            <column name="A21" length="120" />
         </property>
          <property name="a22" type="java.lang.String">
-            <column name="A22" length="12" />
+            <column name="A22" length="120" />
         </property>
          <property name="a23" type="java.lang.String">
-            <column name="A23" length="12" />
+            <column name="A23" length="120" />
         </property>
          <property name="a24" type="java.lang.String">
-            <column name="A24" length="12" />
+            <column name="A24" length="120" />
         </property>
          <property name="a25" type="java.lang.String">
-            <column name="A25" length="12" />
+            <column name="A25" length="120" />
         </property>
          <property name="a26" type="java.lang.String">
-            <column name="A26" length="12" />
+            <column name="A26" length="120" />
         </property>
          <property name="a27" type="java.lang.String">
-            <column name="A27" length="12" />
+            <column name="A27" length="120" />
         </property>
          <property name="a28" type="java.lang.String">
-            <column name="A28" length="12" />
+            <column name="A28" length="120" />
         </property>
          <property name="a29" type="java.lang.String">
-            <column name="A29" length="12" />
+            <column name="A29" length="120" />
         </property>
          <property name="a30" type="java.lang.String">
-            <column name="A30" length="12" />
+            <column name="A30" length="120" />
         </property>
          <property name="a31" type="java.lang.String">
-            <column name="A31" length="12" />
+            <column name="A31" length="120" />
         </property>
          <property name="a32" type="java.lang.String">
-            <column name="A32" length="12" />
+            <column name="A32" length="120" />
         </property>
          <property name="a33" type="java.lang.String">
-            <column name="A33" length="12" />
+            <column name="A33" length="120" />
         </property>
          <property name="a34" type="java.lang.String">
-            <column name="A34" length="12" />
+            <column name="A34" length="120" />
         </property>
          <property name="a35" type="java.lang.String">
-            <column name="A35" length="12" />
+            <column name="A35" length="120" />
         </property>
          <property name="a36" type="java.lang.String">
-            <column name="A36" length="12" />
+            <column name="A36" length="120" />
         </property>
          <property name="a37" type="java.lang.String">
-            <column name="A37" length="12" />
+            <column name="A37" length="120" />
         </property>
          <property name="a38" type="java.lang.String">
-            <column name="A38" length="12" />
+            <column name="A38" length="120" />
         </property>
          <property name="a39" type="java.lang.String">
-            <column name="A39" length="12" />
+            <column name="A39" length="120" />
         </property>
          <property name="a40" type="java.lang.String">
-            <column name="A40" length="12" />
+            <column name="A40" length="120" />
         </property>
          <property name="a41" type="java.lang.String">
-            <column name="A41" length="12" />
+            <column name="A41" length="120" />
         </property>
          <property name="a42" type="java.lang.String">
-            <column name="A42" length="12" />
+            <column name="A42" length="120" />
         </property>
          <property name="a43" type="java.lang.String">
-            <column name="A43" length="12" />
+            <column name="A43" length="120" />
         </property>
          <property name="a44" type="java.lang.String">
-            <column name="A44" length="12" />
+            <column name="A44" length="120" />
         </property>
          <property name="a45" type="java.lang.String">
-            <column name="A45" length="12" />
+            <column name="A45" length="120" />
         </property>
          <property name="a46" type="java.lang.String">
-            <column name="A46" length="12" />
+            <column name="A46" length="120" />
         </property>
          <property name="a47" type="java.lang.String">
-            <column name="A47" length="12" />
+            <column name="A47" length="120" />
         </property>
          <property name="a48" type="java.lang.String">
-            <column name="A48" length="12" />
+            <column name="A48" length="120" />
         </property>
          <property name="a49" type="java.lang.String">
-            <column name="A49" length="12" />
+            <column name="A49" length="120" />
         </property>
          <property name="a50" type="java.lang.String">
-            <column name="A50" length="12" />
+            <column name="A50" length="120" />
         </property>
         
        

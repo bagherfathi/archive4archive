@@ -5,10 +5,52 @@
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
 #set($urlPre = "/file/actions.html?method=list&cm=$cm")
 #if($!fileList)
-<div id="listhead">
-		<div id="listheadleftimg"></div>
-		<div id="listheadrightimg"></div>
-	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" id="searchform">
+              <tr>
+                <td width="10" height="10"><img src="/images/s_1.gif" width="10" height="10" /></td>
+                <td></td>
+                <td width="10"><img src="/images/s_2.gif" width="10" height="10" /></td>
+              </tr>
+              <tr>			  
+                <td></td>				
+                <td>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<form name="searchForm" method="post" action="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($infoSortId)&cm=$cm"> 
+			<input type = hidden name="searchAction" value=y>
+			<tr>
+				<td>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td >
+								<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+									<tr>
+										<td> 
+											<table>
+												<tr> 
+													<td>Ã‚√˚:
+													</td>
+													<td>
+														<input name="a5" type="text" class="inputfield" value="$!a5">
+													</td>
+													<td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
+												</tr>
+											</table>
+											
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</form>
+	</table>
+	</td><td></td></tr><tr><td height="10"><img src="/images/s_3.gif" width="10" height="10" /></td>
+<td></td> <td><img src="/images/s_4.gif" width="10" height="10" /></td></tr></table>
+
+<br>
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
           #foreach($biz in $structureList)
@@ -25,105 +67,105 @@
 						#if($biz.isList==1)
 							#set($strIndex=$biz.serialNumber)
 							#if($strIndex=='a1')
-							<td class="tablelistbg">&nbsp;$!file.a1</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a1!='null')$!file.a1#end</td>
 							#elseif($strIndex=='a2')
-							<td class="tablelistbg">&nbsp;$!file.a2</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a2!='null')$!file.a2#end</td>
 							#elseif($strIndex=='a3')
-							<td class="tablelistbg">&nbsp;$!file.a3</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a3!='null')$!file.a3#end</td>
 							#elseif($strIndex=='a4')
-							<td class="tablelistbg">&nbsp;$!file.a4</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a4!='null')$!file.a4#end</td>
 							#elseif($strIndex=='a5')
-							<td class="tablelistbg">&nbsp;$!file.a5</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a5!='null')$!file.a5#end</td>
 							#elseif($strIndex=='a6')
-							<td class="tablelistbg">&nbsp;$!file.a6</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a6!='null')$!file.a6#end</td>
 							#elseif($strIndex=='a7')
-							<td class="tablelistbg">&nbsp;$!file.a7</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a7!='null')$!file.a7#end</td>
 							#elseif($strIndex=='a8')
-							<td class="tablelistbg">&nbsp;$!file.a8</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a8!='null')$!file.a8#end</td>
 							#elseif($strIndex=='a9')
-							<td class="tablelistbg">&nbsp;$!file.a9</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a9!='null')$!file.a9#end</td>
 							#elseif($strIndex=='a10')
-							<td class="tablelistbg">&nbsp;$!file.a10</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a10!='null')$!file.a10#end</td>
 							#elseif($strIndex=='a11')
-							<td class="tablelistbg">&nbsp;$!file.a11</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a11!='null')$!file.a11#end</td>
 							#elseif($strIndex=='a12')
-							<td class="tablelistbg">&nbsp;$!file.a12</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a12!='null')$!file.a12#end</td>
 							#elseif($strIndex=='a13')
-							<td class="tablelistbg">&nbsp;$!file.a13</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a13!='null')$!file.a13#end</td>
 							#elseif($strIndex=='a14')
-							<td class="tablelistbg">&nbsp;$!file.a14</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a14!='null')$!file.a14#end</td>
 							#elseif($strIndex=='a15')
-							<td class="tablelistbg">&nbsp;$!file.a15</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a15!='null')$!file.a15#end</td>
 							#elseif($strIndex=='a16')
-							<td class="tablelistbg">&nbsp;$!file.a16</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a16!='null')$!file.a16#end</td>
 							#elseif($strIndex=='a17')
-							<td class="tablelistbg">&nbsp;$!file.a17</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a17!='null')$!file.a17#end</td>
 							#elseif($strIndex=='a18')
-							<td class="tablelistbg">&nbsp;$!file.a18</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a18!='null')$!file.a18#end</td>
 							#elseif($strIndex=='a19')
-							<td class="tablelistbg">&nbsp;$!file.a19</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a19!='null')$!file.a19#end</td>
 							#elseif($strIndex=='a20')
-							<td class="tablelistbg">&nbsp;$!file.a20</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a20!='null')$!file.a20#end</td>
 							#elseif($strIndex=='a21')
-							<td class="tablelistbg">&nbsp;$!file.a21</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a21!='null')$!file.a21#end</td>
 							#elseif($strIndex=='a22')
-							<td class="tablelistbg">&nbsp;$!file.a22</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a22!='null')$!file.a22#end</td>
 							#elseif($strIndex=='a23')
-							<td class="tablelistbg">&nbsp;$!file.a23</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a23!='null')$!file.a23#end</td>
 							#elseif($strIndex=='a24')
-							<td class="tablelistbg">&nbsp;$!file.a24</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a24!='null')$!file.a24#end</td>
 							#elseif($strIndex=='a25')
-							<td class="tablelistbg">&nbsp;$!file.a25</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a25!='null')$!file.a25#end</td>
 							#elseif($strIndex=='a26')
-							<td class="tablelistbg">&nbsp;$!file.a26</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a26!='null')$!file.a26#end</td>
 							#elseif($strIndex=='a27')
-							<td class="tablelistbg">&nbsp;$!file.a27</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a27!='null')$!file.a27#end</td>
 							#elseif($strIndex=='a28')
-							<td class="tablelistbg">&nbsp;$!file.a28</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a28!='null')$!file.a28#end</td>
 							#elseif($strIndex=='a29')
-							<td class="tablelistbg">&nbsp;$!file.a29</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a29!='null')$!file.a29#end</td>
 							#elseif($strIndex=='a30')
-							<td class="tablelistbg">&nbsp;$!file.a30</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a30!='null')$!file.a30#end</td>
 							#elseif($strIndex=='a31')
-							<td class="tablelistbg">&nbsp;$!file.a31</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a31!='null')$!file.a31#end</td>
 							#elseif($strIndex=='a32')
-							<td class="tablelistbg">&nbsp;$!file.a32</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a32!='null')$!file.a32#end</td>
 							#elseif($strIndex=='a33')
-							<td class="tablelistbg">&nbsp;$!file.a33</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a33!='null')$!file.a33#end</td>
 							#elseif($strIndex=='a34')
-							<td class="tablelistbg">&nbsp;$!file.a34</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a34!='null')$!file.a34#end</td>
 							#elseif($strIndex=='a35')
-							<td class="tablelistbg">&nbsp;$!file.a35</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a35!='null')$!file.a35#end</td>
 							#elseif($strIndex=='a36')
-							<td class="tablelistbg">&nbsp;$!file.a36</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a36!='null')$!file.a36#end</td>
 							#elseif($strIndex=='a37')
-							<td class="tablelistbg">&nbsp;$!file.a37</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a37!='null')$!file.a37#end</td>
 							#elseif($strIndex=='a38')
-							<td class="tablelistbg">&nbsp;$!file.a38</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a38!='null')$!file.a38#end</td>
 							#elseif($strIndex=='a39')
-							<td class="tablelistbg">&nbsp;$!file.a39</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a39!='null')$!file.a39#end</td>
 							#elseif($strIndex=='a40')
-							<td class="tablelistbg">&nbsp;$!file.a40</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a40!='null')$!file.a40#end</td>
 							#elseif($strIndex=='a41')
-							<td class="tablelistbg">&nbsp;$!file.a41</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a41!='null')$!file.a41#end</td>
 							#elseif($strIndex=='a42')
-							<td class="tablelistbg">&nbsp;$!file.a42</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a42!='null')$!file.a42#end</td>
 							#elseif($strIndex=='a43')
-							<td class="tablelistbg">&nbsp;$!file.a43</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a43!='null')$!file.a43#end</td>
 							#elseif($strIndex=='a44')
-							<td class="tablelistbg">&nbsp;$!file.a44</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a44!='null')$!file.a44#end</td>
 							#elseif($strIndex=='a45')
-							<td class="tablelistbg">&nbsp;$!file.a45</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a45!='null')$!file.a45#end</td>
 							#elseif($strIndex=='a46')
-							<td class="tablelistbg">&nbsp;$!file.a46</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a46!='null')$!file.a46#end</td>
 							#elseif($strIndex=='a47')
-							<td class="tablelistbg">&nbsp;$!file.a47</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a47!='null')$!file.a47#end</td>
 							#elseif($strIndex=='a48')
-							<td class="tablelistbg">&nbsp;$!file.a48</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a48!='null')$!file.a48#end</td>
 							#elseif($strIndex=='a49')
-							<td class="tablelistbg">&nbsp;$!file.a49</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a49!='null')$!file.a49#end</td>
 							#elseif($strIndex=='a50')
-							<td class="tablelistbg">&nbsp;$!file.a50</td>
+							<td class="tablelistbg">&nbsp;#if($!file.a50!='null')$!file.a50#end</td>
 							#end
 						#end
 					#end
