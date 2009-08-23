@@ -51,33 +51,43 @@
 	</div>
 	<div  class="lmain" onClick="javascript:showdesc(9)">档案管理</div>
 	<div class="lmain2" id="desc9" style="display: none">
-			<ul>
-			    	<li><a  onClick="javascript:showdesc(91)" class=menubg >
-						     			<img src= /images/expand.gif border="0" align="absmiddle" id=pic91>客户管理</a></li>
-				<div id="desc91" style="display: none">
-					<ul>
-   	<li><a href="/customer/actions.html?method=list&formal=formal&oc=all&cm=cf1"  class=menubg2
- >所有正式客户</a></li>
-					</ul>				
-				</div>
-				<li><a  onClick="javascript:showdesc(92)"  class=menubg>
-						     						<img src= /images/expand.gif border="0" align="absmiddle" id=pic92>联系人管理</a></li>
-    	<div id="desc92" style="display: none">
+		<ul>
+	    	<li>
+		    	<a  onClick="javascript:showdesc(91)" class=menubg >
+     				<img src= /images/expand.gif border="0" align="absmiddle" id=pic91>档案录入
+     			</a>
+ 			</li>
+			<div id="desc91" style="display: none">
+				#set($index=1)
+    			#foreach($infosort in $vMUtils.getInfoSortByparentId(219))
+				<ul>
+					<li>
+						<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&cm=s$index" #if( 'file'== $curMenu && $cm==$index) class=menubg21 #else class=menubg2 #end>
+    					$!infosort.name
+    					</a>
+					</li>
+				</ul>
+				#set($index=$index+1)
+    			#end					
+			</div>
+			
+			<li>
+				<a  onClick="javascript:showdesc(92)"  class=menubg>
+					<img src= /images/expand.gif border="0" align="absmiddle" id=pic92>归档
+				</a>
+			</li>
+    		<div id="desc92" style="display: none">
     		<ul>
-    			<li><a href="/linkman/actions.html?method=list&formal=formal1&cm=cf9" class=menubg2
-	>我的全部联系人</a></li>
+    			<li>
+    				<a href="/linkman/actions.html?method=list&formal=formal1&cm=cf9" class=menubg2>我的全部联系人</a>
+    			</li>
     		</ul>
-    	</div>
-							</ul>
+    		</div>
+    	</ul>
 	</div>
 
 	<div  class="lmain" onClick="javascript:showdesc(9)">资料管理</div>
 	<div  class="lmain" onClick="javascript:showdesc(10)">检&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</div>
-	<!--div  class="lmain" onClick="javascript:showdesc(11)">利&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用</div>
-	<div  class="lmain" onClick="javascript:showdesc(12)">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管</div>
-	<div  class="lmain" onClick="javascript:showdesc(12)">鉴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定</div>
-	<div  class="lmain" onClick="javascript:showdesc(12)">移交接受</div>
-	<div  class="lmain" onClick="javascript:showdesc(12)">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;研</div-->
 	<div  class="lmain" onClick="javascript:showdesc(12)">统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</div>
 	<div  class="lmain" onClick="javascript:showdesc(12)">数据管理</div>
 	<div  class="lmain" onClick="javascript:showdesc(12)">鉴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定</div>

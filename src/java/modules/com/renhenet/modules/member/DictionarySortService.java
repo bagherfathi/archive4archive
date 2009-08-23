@@ -8,7 +8,7 @@ import com.renhenet.po.DictionarySort;
 public class DictionarySortService extends CommonService {
 	@SuppressWarnings("unchecked")
 	public List<DictionarySort> getDictionarySortByParentId(int parentId) {
-		String hql = "from DictionarySort where parentId =?";
+		String hql = "from DictionarySort where parentId =? order by taxis asc";
 
 		return (List<DictionarySort>) dao.find(hql, new Object[] { parentId });
 	}

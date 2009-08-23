@@ -8,7 +8,7 @@ import com.renhenet.po.Structure;
 public class StructureService extends CommonService {
 	@SuppressWarnings("unchecked")
 	public List<Structure> getStructureByInfoSortId(int infoSortId) {
-		String hql = "from Structure where infoSortId =? and isDelete=0 order by taxis desc";
+		String hql = "from Structure where infoSortId =? and isDelete=0 order by taxis asc";
 
 		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
 	}

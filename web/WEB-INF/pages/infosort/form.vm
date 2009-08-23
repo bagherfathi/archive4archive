@@ -29,7 +29,15 @@
 				#if($!biz.type!='2')
 				<a href="/infosort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>
 				#else
-				<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)"  >结构维护</a>
+					#if($biz.oneFloor!="")
+						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)"  >一层结构维护</a>
+					#end
+					#if($biz.twoFloor!="")
+						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)"  >二层结构维护</a>
+					#end
+					#if($biz.threeFloor!="")
+						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)"  >三层结构维护</a>
+					#end
 				#end
 				<a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
 				<a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
@@ -51,19 +59,20 @@
 				#end
 						<table width="100%" border="0" cellpadding="2" cellspacing="3">
 							<tr> 
+								<td bgcolor="#eeeee5" width="20%">类目名称:
+								</td>
+								<td>
+									#showFormText("name" "$!bizObj.name" 20)#showMustFill()
+								</td>
+							</tr>	
+							<tr> 
 								<td bgcolor="#eeeee5" width="20%">类目序号:
 								</td>
 								<td>
 									#showFormText("seq" "$!bizObj.seq" 20)#showMustFill()
 								</td>
 							</tr>
-							<tr> 
-								<td bgcolor="#eeeee5" width="20%">类目名称:
-								</td>
-								<td>
-									#showFormText("name" "$!bizObj.name" 20)#showMustFill()
-								</td>
-							</tr>					
+											
 							<tr>
 								<td bgcolor="#eeeee5" width="20%">类目类型:
 								</td>
@@ -75,6 +84,48 @@
 									</select>
 								</td>
 							</tr>
+						</table>
+						
+						<br><br>下属编目表
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">选择层次:
+								</td>
+								<td>
+									<select name="type">
+										<option value="0"  #if($!bizObj.type==0) selected #end>一层</option>
+										<option value="1" #if($!bizObj.type==1) selected #end>二层</option>
+										<option value="2" #if($!bizObj.type==2) selected #end>三层</option>
+									</select>
+								</td>
+							</tr>
+							##if($!bizObj.oneFloor!="")
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">第一层:
+								</td>
+								<td>
+									#showFormText("oneFloor" "$!bizObj.oneFloor" 20)
+								</td>
+							</tr>
+							##end
+							##if($!bizObj.oneFloor!="")
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">第二层:
+								</td>
+								<td>
+									#showFormText("twoFloor" "$!bizObj.twoFloor" 20)
+								</td>
+							</tr>
+							##end
+							##if($!bizObj.oneFloor!="")	
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">第三层:
+								</td>
+								<td>
+									#showFormText("threeFloor" "$!bizObj.threeFloor" 20)
+								</td>
+							</tr>
+							##end	
 						</table>
 						<table width="100%" border="0" cellspacing="4" cellpadding="0">
 							<tr>

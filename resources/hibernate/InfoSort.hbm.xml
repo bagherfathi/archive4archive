@@ -8,7 +8,7 @@
     <class name="com.renhenet.po.InfoSort" table="info_sort" lazy="false" >
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity"/>
+            <generator class="native"/>
         </id>
          <property name="name" type="java.lang.String">
             <column name="name" length="64" not-null="true" />
@@ -24,6 +24,18 @@
         </property>
         <property name="parentId" type="java.lang.Integer">
             <column name="parent_id" />
+        </property>
+		 <property name="oneFloor" type="java.lang.String">
+            <column name="one_floor" />
+        </property>
+         <property name="twoFloor" type="java.lang.String">
+            <column name="two_floor" />
+        </property>
+         <property name="threeFloor" type="java.lang.String">
+            <column name="three_floor" />
+        </property>
+		 <property name="status" type="java.lang.Integer">
+            <column name="status" />
         </property>
         <property name="timeCreate" type="java.util.Date">
             <column name="time_create" length="19" not-null="true" />

@@ -27,6 +27,15 @@ public class StructureForm extends BasePOForm {
 	private int isDelete;
 	private int taxis;
 	private int isList;
+	private int status;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 	public int getIsList() {
 		return isList;

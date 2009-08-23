@@ -15,6 +15,46 @@ public class InfoSortForm extends BasePOForm {
 
 	private int parentId;
 
+	private String oneFloor;
+
+	private String twoFloor;
+
+	private String threeFloor;
+
+	private int status;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getOneFloor() {
+		return oneFloor;
+	}
+
+	public void setOneFloor(String oneFloor) {
+		this.oneFloor = oneFloor;
+	}
+
+	public String getTwoFloor() {
+		return twoFloor;
+	}
+
+	public void setTwoFloor(String twoFloor) {
+		this.twoFloor = twoFloor;
+	}
+
+	public String getThreeFloor() {
+		return threeFloor;
+	}
+
+	public void setThreeFloor(String threeFloor) {
+		this.threeFloor = threeFloor;
+	}
+
 	public String getName() {
 		return name;
 	}
