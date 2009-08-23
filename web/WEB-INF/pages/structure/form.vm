@@ -12,8 +12,8 @@
 		  <tr>
 				<td class="tablelistbg">$biz.znName</td>
 				<td class="tablelistbg">
-					<a href="/structure/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)"  >±à¼­</a>
-					<a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)"  >É¾³ý</a>
+					<a href="/structure/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)"  >±à¼­</a>
+					<a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)"  >É¾³ý</a>
 				</td>
 	      </tr>
 		  #end
@@ -27,6 +27,7 @@
 			<form name="structureForm" method="post" action="$!actionUrl" onSubmit = "return validateStructureForm(this);">
 				<input type=hidden name=id value=$!bizObj.id>
 				<input type=hidden name=infoSortId value=$!infoSortId>
+				<input type=hidden name=status value=$!status>
 				<input type=hidden name=serialNumber value=$!bizObj.serialNumber>
 				<input type=hidden name=isDelete value=$!bizObj.isDelete>
 						<table width="100%" border="0" cellpadding="2" cellspacing="3">Êý¾ÝÀàÐÍ

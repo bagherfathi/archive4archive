@@ -6,9 +6,9 @@
 			<form name="fileForm" method="post" action="$!actionUrl" onSubmit = "return validateFileForm(this);">
 				<input type=hidden name=id value=$!bizObj.id>
 				<input type=hidden name=infoSortId value=$!infoSortId>
+				<input type=hidden name=status value=$!status>
 				<table width="100%" border="0" cellpadding="2" cellspacing="3">
 								##时间型和日期型
-							
 						#foreach($biz in $structureList)
 						#set($strIndex=$biz.serialNumber)	
 						#set($values="")

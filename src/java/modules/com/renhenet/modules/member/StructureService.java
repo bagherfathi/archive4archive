@@ -7,10 +7,11 @@ import com.renhenet.po.Structure;
 
 public class StructureService extends CommonService {
 	@SuppressWarnings("unchecked")
-	public List<Structure> getStructureByInfoSortId(int infoSortId) {
-		String hql = "from Structure where infoSortId =? and isDelete=0 order by taxis asc";
+	public List<Structure> getStructureByInfoSortId(int infoSortId, int status) {
+		String hql = "from Structure where infoSortId =? and status =? and isDelete=0 order by taxis asc";
 
-		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
+		return (List<Structure>) dao.find(hql, new Object[] { infoSortId,
+				status });
 	}
 
 	// 根据信息门类得到最后添加的一条Structure记录处理
@@ -28,14 +29,4 @@ public class StructureService extends CommonService {
 
 	}
 
-	// public List<Structure> getStructureByInfoSortIdAnd(int infoSortId,
-	// int isList) {
-	// String hql = "from Structure where infoSortId =? ";
-	// if (isList > 0) {
-	// hql += " and isList =" + isList;
-	// }
-	// hql += " order by taxis asc";
-	//
-	// return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
-	// }
 }

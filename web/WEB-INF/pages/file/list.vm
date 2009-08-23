@@ -1,6 +1,6 @@
 #renhehead()
 #renheMenu("file")
-#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&cm=$cm")
+#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm")
 #set($addNewLinkText = "ÐÂÔö$!infoSort.name")
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
 #set($urlPre = "/file/actions.html?method=list&cm=$cm")
@@ -15,7 +15,7 @@
                 <td></td>				
                 <td>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-		<form name="searchForm" method="post" action="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($infoSortId)&cm=$cm"> 
+		<form name="searchForm" method="post" action="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm"> 
 			<input type = hidden name="searchAction" value=y>
 			<tr>
 				<td>

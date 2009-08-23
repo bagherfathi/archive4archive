@@ -33,9 +33,11 @@ public class StructureAction extends DispatchActions {
 		// 根据infoSortId得到所有表结构
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
 
-		List<Structure> structureList = service
-				.getStructureByInfoSortId(infoSortId);
+		List<Structure> structureList = service.getStructureByInfoSortId(
+				infoSortId, status);
 		context.put("structureList", structureList);
 
 		List<DictionarySort> dictionarySortList = dictionarySortService
@@ -46,7 +48,8 @@ public class StructureAction extends DispatchActions {
 				|| context.getParameter("insert2") != null) {
 			StructureForm form = (StructureForm) context.getForm();
 
-			int serialNumber = service.getStructureByinfoSortId(form.getInfoSortId());
+			int serialNumber = service.getStructureByinfoSortId(form
+					.getInfoSortId());
 
 			String strSerialNumber = "a" + serialNumber;
 			form.setSerialNumber(strSerialNumber);
@@ -64,9 +67,11 @@ public class StructureAction extends DispatchActions {
 		// 根据infoSortId得到所有表结构
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
 
-		List<Structure> structureList = service
-				.getStructureByInfoSortId(infoSortId);
+		List<Structure> structureList = service.getStructureByInfoSortId(
+				infoSortId, status);
 		context.put("structureList", structureList);
 
 		List<DictionarySort> dictionarySortList = dictionarySortService

@@ -39,9 +39,11 @@ public class FileAction extends DispatchActions {
 	public String insertProcess(WebContext context) throws ServletException {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
 
 		List<Structure> structureList = structureService
-				.getStructureByInfoSortId(infoSortId);
+				.getStructureByInfoSortId(infoSortId, status);
 		context.put("structureList", structureList);
 
 		String cm = context.getParameter("cm");
@@ -61,12 +63,14 @@ public class FileAction extends DispatchActions {
 	public String updateProcess(WebContext context) throws ServletException {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
 
 		String cm = context.getParameter("cm");
 		context.put("cm", cm);
 
 		List<Structure> structureList = structureService
-				.getStructureByInfoSortId(infoSortId);
+				.getStructureByInfoSortId(infoSortId, status);
 		context.put("structureList", structureList);
 
 		return super.updateProcess(context);
@@ -87,17 +91,19 @@ public class FileAction extends DispatchActions {
 	@Override
 	protected SearchContext getListSearchContext(WebContext context) {
 		SearchContext searchContext = new SearchContext();
-
 		int infoSortId = context.getSIntParameter("infoSortId");
-
 		if (infoSortId >= 0) {
 			searchContext.addOption(new SearchOption("infoSortId", infoSortId,
 					SearchOption.Option.eqaul));
 		}
 		context.put("infoSortId", infoSortId);
 
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
+
 		List<Structure> structureList = structureService
-				.getStructureByInfoSortId(infoSortId);
+				.getStructureByInfoSortId(infoSortId,status);
+		
 		context.put("structureList", structureList);
 		String a5 = context.getParameter("a5");
 		context.put("a5", a5);
