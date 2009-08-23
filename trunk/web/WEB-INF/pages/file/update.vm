@@ -4,7 +4,7 @@
 <div id="conbg">
 <div class=contitle>
 <div class=leftmain>编辑结构关系表</div>
-<div class=rightmain>&nbsp;&nbsp;<a href="/file/actions.html?method=list&infoSortId=$vMUtils.encrypt($infoSortId)&cm=$cm">&#171;返回</a></div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/file/actions.html?method=list&infoSortId=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm">&#171;返回</a></div>
 <div class=rightmain></div>
 </div>
 $validator.getDynamicJavascript()
@@ -13,7 +13,7 @@ $validator.getStaticJavascript()
 #if($!updated)
 	<script type="text/javascript">showmsg(true,"更新成功!",msg);</script>
 #end
-#set($actionUrl="/file/actions.html?method=update&insert=y&infoSortIds=$vMUtils.encrypt($infoSortId)&cm=$cm")
+#set($actionUrl="/file/actions.html?method=update&insert=y&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm")
 <div class=conmain>
 	#parse( "/WEB-INF/pages/file/form.vm" )
 </div>

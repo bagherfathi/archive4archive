@@ -14,7 +14,7 @@
     			#set($index=1)
     			#foreach($infosort in $vMUtils.getInfoSortByparentId(132))
     			<li>
-    				<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&cm=$index" #if( 'file'== $curMenu && $cm==$index) class=menubg21 #else class=menubg2 #end>
+    				<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=($!infosort.status)&cm=$index" #if( 'file'== $curMenu && $cm==$index) class=menubg21 #else class=menubg2 #end>
     					$!infosort.name
     				</a>
     			</li>
