@@ -2,6 +2,10 @@ package com.renhenet.po;
 
 import com.renhenet.fw.orm.IdPersistent;
 
+/**
+ * @author Administrator
+ * 
+ */
 @SuppressWarnings("serial")
 public class Structure extends IdPersistent implements java.io.Serializable {
 	private String serialNumber;
@@ -26,6 +30,16 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 	private int isSerialNumber;
 	private int isDelete;
 	private int isList;
+	// µÚ¼¸²ã
+	private int status;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 	public int getIsList() {
 		return isList;
