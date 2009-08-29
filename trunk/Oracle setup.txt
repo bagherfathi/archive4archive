@@ -1,0 +1,12 @@
+Login as sys in oracle
+
+create user archive;
+
+grant ctxapp to archive;
+grant execute on ctx_ddl to archive;
+
+Login as archive
+begin ctx_ddl.create_preference('club_lexer','chinese_vgram_lexer'); end;
+create index search_index on file ( a5 ) indextype is ctxsys.context parameters('lexer club_lexer');
+
+
