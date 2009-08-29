@@ -26,8 +26,44 @@ public class StructureForm extends BasePOForm {
 	private int isSerialNumber;
 	private int isDelete;
 	private int taxis;
-	private int isList;
+	private int isLists;
 	private int status;
+	private int taxis2;
+	private int taxis3;
+	private int ifTwo;
+	private int ifThree;
+
+	public int getIfTwo() {
+		return ifTwo;
+	}
+
+	public void setIfTwo(int ifTwo) {
+		this.ifTwo = ifTwo;
+	}
+
+	public int getIfThree() {
+		return ifThree;
+	}
+
+	public void setIfThree(int ifThree) {
+		this.ifThree = ifThree;
+	}
+
+	public int getTaxis2() {
+		return taxis2;
+	}
+
+	public void setTaxis2(int taxis2) {
+		this.taxis2 = taxis2;
+	}
+
+	public int getTaxis3() {
+		return taxis3;
+	}
+
+	public void setTaxis3(int taxis3) {
+		this.taxis3 = taxis3;
+	}
 
 	public int getStatus() {
 		return status;
@@ -37,12 +73,12 @@ public class StructureForm extends BasePOForm {
 		this.status = status;
 	}
 
-	public int getIsList() {
-		return isList;
+	public int getIsLists() {
+		return isLists;
 	}
 
-	public void setIsList(int isList) {
-		this.isList = isList;
+	public void setIsLists(int isLists) {
+		this.isLists = isLists;
 	}
 
 	public int getTaxis() {

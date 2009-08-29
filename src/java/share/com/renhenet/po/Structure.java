@@ -14,6 +14,8 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 	private int ifUpdate;
 	private int infoSortId;
 	private int taxis;
+	private int taxis2;
+	private int taxis3;
 	private int type;
 	private int length;
 	private int decimalDigits;
@@ -29,9 +31,28 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 	private int isBalance;
 	private int isSerialNumber;
 	private int isDelete;
-	private int isList;
+	private int isLists;
+	private int ifTwo;
+	private int ifThree;
+
 	// µÚ¼¸²ã
 	private int status;
+
+	public int getTaxis2() {
+		return taxis2;
+	}
+
+	public void setTaxis2(int taxis2) {
+		this.taxis2 = taxis2;
+	}
+
+	public int getTaxis3() {
+		return taxis3;
+	}
+
+	public void setTaxis3(int taxis3) {
+		this.taxis3 = taxis3;
+	}
 
 	public int getStatus() {
 		return status;
@@ -41,12 +62,12 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public int getIsList() {
-		return isList;
+	public int getIsLists() {
+		return isLists;
 	}
 
-	public void setIsList(int isList) {
-		this.isList = isList;
+	public void setIsLists(int isLists) {
+		this.isLists = isLists;
 	}
 
 	public String getSerialNumber() {
@@ -215,6 +236,22 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 
 	public void setIsSerialNumber(int isSerialNumber) {
 		this.isSerialNumber = isSerialNumber;
+	}
+
+	public int getIfTwo() {
+		return ifTwo;
+	}
+
+	public void setIfTwo(int ifTwo) {
+		this.ifTwo = ifTwo;
+	}
+
+	public int getIfThree() {
+		return ifThree;
+	}
+
+	public void setIfThree(int ifThree) {
+		this.ifThree = ifThree;
 	}
 
 }

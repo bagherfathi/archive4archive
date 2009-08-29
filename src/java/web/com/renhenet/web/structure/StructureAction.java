@@ -36,8 +36,9 @@ public class StructureAction extends DispatchActions {
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
-		List<Structure> structureList = service.getStructureByInfoSortId(
-				infoSortId, status);
+		List<Structure> structureList = service
+				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
+
 		context.put("structureList", structureList);
 
 		List<DictionarySort> dictionarySortList = dictionarySortService
@@ -49,7 +50,7 @@ public class StructureAction extends DispatchActions {
 			StructureForm form = (StructureForm) context.getForm();
 
 			int serialNumber = service.getStructureByinfoSortId(form
-					.getInfoSortId());
+					.getInfoSortId(),form.getStatus());
 
 			String strSerialNumber = "a" + serialNumber;
 			form.setSerialNumber(strSerialNumber);
@@ -57,7 +58,8 @@ public class StructureAction extends DispatchActions {
 			super.insertProcess(context);
 
 			return "/structure/actions.html?method=insert&infoSortIds="
-					+ VMUtils.encrypt(form.getInfoSortId());
+					+ VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
+					+ VMUtils.encrypt(form.getStatus());
 		}
 
 		return super.insertProcess(context);
@@ -70,8 +72,8 @@ public class StructureAction extends DispatchActions {
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
-		List<Structure> structureList = service.getStructureByInfoSortId(
-				infoSortId, status);
+		List<Structure> structureList = service
+				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
 		context.put("structureList", structureList);
 
 		List<DictionarySort> dictionarySortList = dictionarySortService
@@ -84,7 +86,8 @@ public class StructureAction extends DispatchActions {
 			super.updateProcess(context);
 
 			return "/structure/actions.html?method=insert&infoSortIds="
-					+ VMUtils.encrypt(form.getInfoSortId());
+					+ VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
+					+ VMUtils.encrypt(form.getStatus());
 		}
 
 		return super.updateProcess(context);
@@ -93,6 +96,8 @@ public class StructureAction extends DispatchActions {
 	public String deleteProcess(WebContext context) throws ServletException {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		int sid = context.getSIntParameter("sid");
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
 
 		if (sid > 0) {
 			Structure structure = (Structure) service.getObjectById(
@@ -101,7 +106,8 @@ public class StructureAction extends DispatchActions {
 			service.updateObject(structure);
 
 			return "/structure/actions.html?method=insert&infoSortIds="
-					+ VMUtils.encrypt(infoSortId);
+					+ VMUtils.encrypt(infoSortId) + "&statuses="
+					+ VMUtils.encrypt(status);
 		}
 		return super.deleteProcess(context);
 	}

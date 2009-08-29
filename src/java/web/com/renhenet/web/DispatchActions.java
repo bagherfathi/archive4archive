@@ -41,6 +41,9 @@ public abstract class DispatchActions extends DispatchAdminAction {
 
 	@Override
 	public String listProcess(WebContext context) throws ServletException {
+		String cm = context.getParameter("cm");
+		context.put("cm", cm);
+		
 		Member member = WebHelper.getMemberContext(context);
 		if (member == null) {
 			return "/index.html";
@@ -135,6 +138,8 @@ public abstract class DispatchActions extends DispatchAdminAction {
 
 	@Override
 	public String updateProcess(WebContext context) throws ServletException {
+		String cm = context.getParameter("cm");
+		context.put("cm", cm);
 		Member member = WebHelper.getMemberContext(context);
 		if (member == null) {
 			return "/index.html";
@@ -168,6 +173,8 @@ public abstract class DispatchActions extends DispatchAdminAction {
 
 	@Override
 	public String detailProcess(WebContext context) throws ServletException {
+		String cm = context.getParameter("cm");
+		context.put("cm", cm);
 		Member member = WebHelper.getMemberContext(context);
 		if (member == null) {
 			return "/index.html";
@@ -181,6 +188,8 @@ public abstract class DispatchActions extends DispatchAdminAction {
 
 	@Override
 	public String insertProcess(WebContext context) throws ServletException {
+		String cm = context.getParameter("cm");
+		context.put("cm", cm);
 		Member member = WebHelper.getMemberContext(context);
 		if (member == null) {
 			return "/index.html";
@@ -212,6 +221,8 @@ public abstract class DispatchActions extends DispatchAdminAction {
 
 	@Override
 	public String deleteProcess(WebContext context) throws ServletException {
+		String cm = context.getParameter("cm");
+		context.put("cm", cm);
 		Member member = WebHelper.getMemberContext(context);
 		if (member == null) {
 			return "/index.html";
