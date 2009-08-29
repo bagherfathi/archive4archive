@@ -1,20 +1,21 @@
 <td width="150" height="500" valign="top" bgcolor="#93B1D7">
 <script language="JavaScript" src="/scripts/menu.js"></script>
 	<div class="lmain" background="/images/menuleft2.gif"  onClick="javascript:showdesc(1)">文件管理</div>
-		<div class="lmain2" id="desc1" style="display:#if($memuModule == "file")block#else none#end">
+		<div class="lmain2" id="desc1" style="display:#if($memuModule == "file" && ($cm.indexOf("wj")>=0 || $cm.indexOf("gd")>=0))block#else none#end">
 			<ul>
 			    <li><a  onClick="javascript:showdesc(11)" class=menubg >
 			      #set($menuOpen = false)
-                		#if($memuModule == "systemPri" )
+                		#if($memuModule == "file" )
                 			#set($menuOpen = true)
                 		#end
-					<img src=#if($menuOpen || $cm!='')/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic11>文件登记</a></li>
-    	<div id="desc11"  style="display:#if($memuModule == "file")block#else none#end">
+					<img src=#if($menuOpen && $cm.indexOf("wj")>=0)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic11>文件登记</a></li>
+    	<div id="desc11"  style="display:#if($memuModule == "file" && $cm.indexOf("wj")>=0)block#else none#end">
     		<ul>
     			#set($index=1)
     			#foreach($infosort in $vMUtils.getInfoSortByparentId(132))
+    			#set($strIndex="wj"+$index)
     			<li>
-    				<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=($!infosort.status)&cm=$index" #if( 'file'== $curMenu && $cm==$index) class=menubg21 #else class=menubg2 #end>
+    				<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index" #if( 'file'== $curMenu && $cm==$strIndex) class=menubg21 #else class=menubg2 #end>
     					$!infosort.name
     				</a>
     			</li>
@@ -24,13 +25,24 @@
     	</div>
     	<li>
     		<a  onClick="javascript:showdesc(12)"  class=menubg>
-				<img src= /images/expand.gif border="0" align="absmiddle" id=pic12>文件归档</a>
+				#set($menuOpen = false)
+        		#if($memuModule == "file" )
+        			#set($menuOpen = true)
+        		#end
+				<img src=#if($menuOpen && $cm.indexOf("gd")>=0)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic12>文件归档</a>
 		</li>
-    	<div id="desc12" style="display: none">
+    	<div id="desc12"  style="display:#if($memuModule == "file" && $cm.indexOf("gd")>=0)block#else none#end">
     		<ul>
-    			<li><a href="/customer/actions.html?method=list&oc=all&cm=c1" class=menubg2>来文</a></li>
-    			<li><a href="/customer/actions.html?method=list&oc=today&cm=c2"  class=menubg2>发文</a></li>
-    			<li><a href="/customer/actions.html?method=list&oc=todaylinked&cm=c3"  class=menubg2>内部文件</a></li>			
+    			#set($index=1)
+    			#foreach($infosort in $vMUtils.getInfoSortByparentId(132))
+    			#set($strIndex="gd"+$index)
+    			<li>
+    				<a href="/files/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=gd$index" #if( 'file'== $curMenu && $cm==$strIndex) class=menubg21 #else class=menubg2 #end>
+    					$!infosort.name
+    				</a>
+    			</li>
+    			#set($index=$index+1)
+    			#end	
     		</ul>
     	</div>
     	
@@ -50,19 +62,25 @@
 		</ul>
 	</div>
 	<div  class="lmain" onClick="javascript:showdesc(9)">档案管理</div>
-	<div class="lmain2" id="desc9" style="display: none">
+	<div class="lmain2" id="desc9" style="display:#if($memuModule == "file" && $cm.indexOf("da")>=0)block#else none#end">
 		<ul>
 	    	<li>
 		    	<a  onClick="javascript:showdesc(91)" class=menubg >
-     				<img src= /images/expand.gif border="0" align="absmiddle" id=pic91>档案录入
+		    	 #set($menuOpen = false)
+                		#if($memuModule == "file" )
+                			#set($menuOpen = true)
+                		#end
+                		
+     				<img src=#if($menuOpen || $cm!='')/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic91>档案录入
      			</a>
  			</li>
-			<div id="desc91" style="display: none">
+			<div id="desc91" style="display:#if($memuModule == "file")block#else none#end">
 				#set($index=1)
     			#foreach($infosort in $vMUtils.getInfoSortByparentId(219))
+    			#set($strIndex="da"+$index)
 				<ul>
 					<li>
-						<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&cm=s$index" #if( 'file'== $curMenu && $cm==$index) class=menubg21 #else class=menubg2 #end>
+						<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=da$index" #if( 'file'== $curMenu && $cm==$strIndex) class=menubg21 #else class=menubg2 #end>
     					$!infosort.name
     					</a>
 					</li>

@@ -10,6 +10,7 @@ public class FileForm extends BasePOForm {
 	private static final long serialVersionUID = 561747347747316457L;
 	private String title;
 	private int infoSortId;
+	private int parInfoSortId;
 	private String a1;
 	private String a2;
 	private String a3;
@@ -475,6 +476,14 @@ public class FileForm extends BasePOForm {
 
 	public void setA50(String a50) {
 		this.a50 = a50;
+	}
+
+	public int getParInfoSortId() {
+		return parInfoSortId;
+	}
+
+	public void setParInfoSortId(int parInfoSortId) {
+		this.parInfoSortId = parInfoSortId;
 	}
 
 }

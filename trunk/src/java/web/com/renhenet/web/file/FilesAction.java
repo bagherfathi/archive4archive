@@ -11,21 +11,24 @@ import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
 import com.renhenet.modules.member.FileService;
 import com.renhenet.modules.member.InfoSortService;
+import com.renhenet.modules.member.QuanzongService;
 import com.renhenet.modules.member.StructureService;
 import com.renhenet.po.File;
 import com.renhenet.po.InfoSort;
+import com.renhenet.po.Quanzong;
 import com.renhenet.po.Structure;
 import com.renhenet.util.searchcontext.SearchContext;
 import com.renhenet.util.searchcontext.SearchOption;
 import com.renhenet.web.DispatchActions;
-import com.renhenet.web.VMUtils;
-import com.renhenet.web.form.FileForm;
 
-public class FileAction extends DispatchActions {
+public class FilesAction extends DispatchActions {
 	private static FileService service = (FileService) ServiceLocator
 			.getService("fileService");
 	private static StructureService structureService = (StructureService) ServiceLocator
 			.getService("structureService");
+
+	private static QuanzongService quanzongService = (QuanzongService) ServiceLocator
+			.getService("quanzongService");
 
 	private static InfoSortService infoSortService = (InfoSortService) ServiceLocator
 			.getService("infoSortService");
@@ -34,63 +37,6 @@ public class FileAction extends DispatchActions {
 	@Override
 	protected Class getActionClass() {
 		return File.class;
-	}
-
-	public String insertProcess(WebContext context) throws ServletException {
-		int infoSortId = context.getSIntParameter("infoSortIds");
-		context.put("infoSortId", infoSortId);
-		int status = context.getSIntParameter("statuses");
-		context.put("status", status);
-
-		int id = context.getSIntParameter("sid");
-		if (id > 0) {
-			File f = (File) service.getObjectById(File.class, id);
-			f.setId(null);
-			context.put("bizObj", f);
-		}
-
-		List<Structure> structureList = structureService
-				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
-		context.put("structureList", structureList);
-
-		if (context.getParameter("insert") != null
-				|| context.getParameter("insert2") != null) {
-			FileForm form = (FileForm) context.getForm();
-			super.insertProcess(context);
-
-			return "/file/actions.html?method=list&oc=all&infoSortId="
-					+ VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
-					+ VMUtils.encrypt(status) + "&cm="
-					+ context.getParameter("cm");
-		}
-		return super.insertProcess(context);
-	}
-
-	public String updateProcess(WebContext context) throws ServletException {
-		int infoSortId = context.getSIntParameter("infoSortIds");
-		context.put("infoSortId", infoSortId);
-		int status = context.getSIntParameter("statuses");
-		context.put("status", status);
-
-		List<Structure> structureList = structureService
-				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
-		context.put("structureList", structureList);
-
-		return super.updateProcess(context);
-	}
-
-	public String deleteProcess(WebContext context) throws ServletException {
-		int infoSortId = context.getSIntParameter("infoSortIds");
-		context.put("infoSortId", infoSortId);
-
-		int status = context.getSIntParameter("statuses");
-		context.put("status", status);
-
-		super.deleteProcess(context);
-
-		return "/file/actions.html?method=list&oc=all&infoSortId="
-				+ VMUtils.encrypt(infoSortId) + "&statuses="
-				+ VMUtils.encrypt(status) + "&cm=" + context.getParameter("cm");
 	}
 
 	@Override
@@ -118,13 +64,17 @@ public class FileAction extends DispatchActions {
 		if (!StringUtils.isEmpty(a5)) {
 			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5);
 		} else {
-			fileList = service.getFileByInfoSortId(infoSortId);
+			fileList = service.getFileByInfoSortIdAndType(infoSortId, "124");
 		}
 		context.put("fileList", fileList);
 
 		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
 				InfoSort.class, infoSortId);
 		context.put("infoSort", infoSort);
+
+		// µÃµ½È«×ÚºÅ
+		List<Quanzong> quanzongList = quanzongService.getQuanzong();
+		context.put("quanzongList", quanzongList);
 
 		return searchContext;
 	}

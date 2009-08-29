@@ -16,10 +16,15 @@
          <property name="znName" type="java.lang.String">
             <column name="zn_name" length="64" not-null="true" />
         </property>
-          <property name="taxis" type="java.lang.Integer">
+        <property name="taxis" type="java.lang.Integer">
             <column name="taxis" />
         </property>
-        
+        <property name="taxis2" type="java.lang.Integer">
+            <column name="taxis2" />
+        </property>
+        <property name="taxis3" type="java.lang.Integer">
+            <column name="taxis3" />
+        </property>
          <property name="dictionaryName" type="java.lang.Integer">
             <column name="dictionary_name"  />
         </property>
@@ -76,11 +81,17 @@
         <property name="isDelete" type="java.lang.Integer">
             <column name="is_delete" />
         </property>
-        <property name="isList" type="java.lang.Integer">
-            <column name="is_list" />
+        <property name="isLists" type="java.lang.Integer">
+            <column name="is_lists" />
         </property>
 		 <property name="status" type="java.lang.Integer">
             <column name="status" />
+        </property>
+		 <property name="ifTwo" type="java.lang.Integer">
+            <column name="if_two" />
+        </property>
+		 <property name="ifThree" type="java.lang.Integer">
+            <column name="if_three" />
         </property>
         <property name="timeCreate" type="java.util.Date">
             <column name="time_create" length="19" not-null="true" />

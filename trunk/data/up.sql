@@ -1,3 +1,14 @@
+CREATE TABLE `file_pigeonhole` (
+  `id` int(11) NOT NULL auto_increment,
+  `info_sort_id` int(11) default 0,
+  `info_column`  varchar(32) NOT NULL default '',
+  `info_column_to`  varchar(32) NOT NULL default '',
+  `time_create` datetime NOT NULL default '2009-8-8 3:38:00',
+  `time_modified` datetime NOT NULL default '2009-8-8 3:38:00',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+
+
 CREATE TABLE `resources` (
   `id` int(11) NOT NULL auto_increment,
   `type` varchar(32) NOT NULL default '',

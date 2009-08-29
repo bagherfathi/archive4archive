@@ -30,13 +30,13 @@
 				<a href="/infosort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>
 				#else
 					#if($biz.oneFloor!="")
-						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt($status)"  >一层结构维护</a>
+						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(0)"  >一层结构维护</a>
 					#end
 					#if($biz.twoFloor!="")
-						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt($status)"  >二层结构维护</a>
+						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(1)"  >二层结构维护</a>
 					#end
 					#if($biz.threeFloor!="")
-						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt($status)"  >三层结构维护</a>
+						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(2)"  >三层结构维护</a>
 					#end
 				#end
 				<a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>

@@ -7,11 +7,24 @@ import com.renhenet.modules.CommonService;
 import com.renhenet.po.File;
 
 public class FileService extends CommonService {
+	@SuppressWarnings("unchecked")
 	public List<File> getFileByInfoSortId(int infoSortId) {
-		String hql = "from File where  infoSortId =?";
+		String hql = "from File where  infoSortId =? order by id desc";
 		return (List<File>) dao.find(hql, new Object[] { infoSortId });
 	}
 
+	/**
+	 * 把需要归档的文件取出来
+	 * 
+	 * @param infoSortId
+	 * @return
+	 */
+	public List<File> getFileByInfoSortIdAndType(int infoSortId, String type) {
+		String hql = "from File where  infoSortId =? and a6 =? order by id desc";
+		return (List<File>) dao.find(hql, new Object[] { infoSortId, type });
+	}
+
+	@SuppressWarnings("unchecked")
 	public List<File> getFileByInfoSortIdAnd(int infoSortId, String a5) {
 		StringBuffer query = new StringBuffer();
 		List args = new ArrayList();

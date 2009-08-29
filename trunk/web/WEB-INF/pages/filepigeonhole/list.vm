@@ -3,71 +3,26 @@
 #renheMenu("file")
 
 #if($!infoSort.oneFloor!="")
-#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm")
-#set($addNewLinkText = "新增$!infoSort.oneFloor")
+#set($addNewLink = "/filepigeonhole/actions.html?method=insert&infoSortIdsTo=$vMUtils.encrypt(227)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm")
+#set($addNewLinkText = "$!infoSort.oneFloor归档管理")
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
-#set($urlPre = "/file/actions.html?method=list&cm=$cm")
+#set($urlPre = "/filepigeonhole/actions.html?method=list&cm=$cm")
 #end
 
 #if($!fileList)
-	<table width="99%" border="0" cellpadding="0" cellspacing="0" id="searchform">
-              <tr>
-                <td width="10" height="10"><img src="/images/s_1.gif" width="10" height="10" /></td>
-                <td></td>
-                <td width="10"><img src="/images/s_2.gif" width="10" height="10" /></td>
-              </tr>
-              <tr>			  
-                <td></td>				
-                <td>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-		<form name="searchForm" method="post" action="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm"> 
-			<input type = hidden name="searchAction" value=y>
-			<tr>
-				<td>
-					<table width="100%" border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td >
-								<table width="100%" border="0" cellpadding="0" cellspacing="0">
-
-									<tr>
-										<td> 
-											<table>
-												<tr> 
-													<td>题名:
-													</td>
-													<td>
-														<input name="a5" type="text" class="inputfield" value="$!a5">
-													</td>
-													<td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
-												</tr>
-											</table>
-											
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</form>
-	</table>
-	</td><td></td></tr><tr><td height="10"><img src="/images/s_3.gif" width="10" height="10" /></td>
-<td></td> <td><img src="/images/s_4.gif" width="10" height="10" /></td></tr></table>
-
-<br>
+<form name="searchForm" method="post" action="/filepigeonhole/actions.html?method=update&infoSortIdsTo=$vMUtils.encrypt(227)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm">
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
+            <td class="tableheadingbg">&nbsp;</td>
           #foreach($biz in $structureList)
           	#if($biz.isLists==1)
             <td class="tableheadingbg">$biz.znName</td>
             #end
           #end
-          <td class="tableheadingbg">操作</td>
           </tr>
-		
 				#foreach($!file in $!fileList)
-				<tr>
+				<tr>	
+					<td class="tablelistbg"><input type="checkbox" name="fileGds" value="$!file.id"/></td>
 					#foreach($biz in $structureList)
 						#if($biz.isLists==1)
 							#set($strIndex=$biz.serialNumber)
@@ -175,17 +130,35 @@
 							#end
 						#end
 					#end
-						<td class="tablelistbg">
-							#if($!infoSort.twoFloor!="")<a href="/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">维护$!infoSort.twoFloor</a>#end
-							#if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">维护$!infoSort.threeFloor</a>#end
-							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
-							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
-						</td>	
+							
 					</tr>
 				#end
 		
       </table>
-	  	##parse( "/WEB-INF/pages/common/page.vm" )
+      <br>
+      
+      <table width="70%" border="0" cellpadding="0" cellspacing="0" >
+           <tr>
+            <td bgcolor="#eeeee5" width="10%">全宗号</td>
+            <td>
+
+      			<select name="qzh" >
+      				<option value="">-请选择-</value>
+      				#foreach($biz in $quanzongList)
+					<option value="$biz.name">$biz.name</value>	      					
+      				#end
+      			</select>
+	      	</td>
+	      	<td bgcolor="#eeeee5" width="10%">归档年度</td>
+            <td >
+      			#showFormText("year" "" 12)
+	      	</td>
+	      	 <td >
+      			<input type=submit name="insert2" value="归   档" class=btn1_mouseout title="文件归档" />
+	      </td>
+      </table>
+      </form>
+      
 #else
 		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
 #end
