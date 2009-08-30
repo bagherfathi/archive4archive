@@ -10,8 +10,14 @@ grant execute on ctx_ddl to archive;
 begin ctx_ddl.create_preference('club_lexer','chinese_vgram_lexer'); end;
 create index search_index on files ( a5 ) indextype is ctxsys.context parameters('lexer club_lexer');
 
-#procedure for sync and optimize
+#procedure for index sync and optimize
 #for sync
 create or replace procedure hsp_sync_index as begin ctx_ddl.sync_index('search_index'); end;
 #for optimize
 create or replace procedure hsp_optimize_index as begin ctx_ddl.optimize_index('search_index','FULL'); end;
+
+#Create job for index sync and optimize for each minite
+variable jobsync number;
+begin dbms_job.submit(:jobsync,'hsp_sync_index();',sysdate,'sysdate + 1/1440'); commit; end;
+variable joboptimize number;
+begin dbms_job.submit(:joboptimize,'hsp_optimize_index();',sysdate,'sysdate + 1/1440'); commit; end;
