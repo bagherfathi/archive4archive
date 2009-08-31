@@ -1,24 +1,177 @@
+#if($!fileList)
+<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+          #foreach($biz in $structureList)
+          	#if($biz.isLists==1)
+            <td class="tableheadingbg">$biz.znName</td>
+            #end
+          #end
+          <td class="tableheadingbg">操作</td>
+          </tr>
+		
+				#foreach($!file in $!fileList)
+				<tr>
+					#foreach($biz in $structureList)
+						#if($biz.isLists==1)
+							#set($strIndex=$biz.serialNumber)
+							#if($strIndex=='a1')
+							<td class="tablelistbg"> 
+							 &nbsp;#if($!file.a1!='null')$!file.a1#end</td>
+							#elseif($strIndex=='a2')
+							<td class="tablelistbg">&nbsp;#if($!file.a2!='null')$!file.a2#end</td>
+							#elseif($strIndex=='a3')
+							<td class="tablelistbg">&nbsp;#if($!file.a3!='null')$!file.a3#end</td>
+							#elseif($strIndex=='a4')
+							<td class="tablelistbg">&nbsp;#if($!file.a4!='null')$!file.a4#end</td>
+							#elseif($strIndex=='a5')
+							<td class="tablelistbg">&nbsp;#if($!file.a5!='null')$!file.a5#end</td>
+							#elseif($strIndex=='a6')
+							<td class="tablelistbg">&nbsp;#if($!file.a6!='null')$!file.a6#end</td>
+							#elseif($strIndex=='a7')
+							<td class="tablelistbg">&nbsp;#if($!file.a7!='null')$!file.a7#end</td>
+							#elseif($strIndex=='a8')
+							<td class="tablelistbg">&nbsp;#if($!file.a8!='null')$!file.a8#end</td>
+							#elseif($strIndex=='a9')
+							<td class="tablelistbg">&nbsp;#if($!file.a9!='null')$!file.a9#end</td>
+							#elseif($strIndex=='a10')
+							<td class="tablelistbg">&nbsp;#if($!file.a10!='null')$!file.a10#end</td>
+							#elseif($strIndex=='a11')
+							<td class="tablelistbg">&nbsp;#if($!file.a11!='null')$!file.a11#end</td>
+							#elseif($strIndex=='a12')
+							<td class="tablelistbg">&nbsp;#if($!file.a12!='null')$!file.a12#end</td>
+							#elseif($strIndex=='a13')
+							<td class="tablelistbg">&nbsp;#if($!file.a13!='null')$!file.a13#end</td>
+							#elseif($strIndex=='a14')
+							<td class="tablelistbg">&nbsp;#if($!file.a14!='null')$!file.a14#end</td>
+							#elseif($strIndex=='a15')
+							<td class="tablelistbg">&nbsp;#if($!file.a15!='null')$!file.a15#end</td>
+							#elseif($strIndex=='a16')
+							<td class="tablelistbg">&nbsp;#if($!file.a16!='null')$!file.a16#end</td>
+							#elseif($strIndex=='a17')
+							<td class="tablelistbg">&nbsp;#if($!file.a17!='null')$!file.a17#end</td>
+							#elseif($strIndex=='a18')
+							<td class="tablelistbg">&nbsp;#if($!file.a18!='null')$!file.a18#end</td>
+							#elseif($strIndex=='a19')
+							<td class="tablelistbg">&nbsp;#if($!file.a19!='null')$!file.a19#end</td>
+							#elseif($strIndex=='a20')
+							<td class="tablelistbg">&nbsp;#if($!file.a20!='null')$!file.a20#end</td>
+							#elseif($strIndex=='a21')
+							<td class="tablelistbg">&nbsp;#if($!file.a21!='null')$!file.a21#end</td>
+							#elseif($strIndex=='a22')
+							<td class="tablelistbg">&nbsp;#if($!file.a22!='null')$!file.a22#end</td>
+							#elseif($strIndex=='a23')
+							<td class="tablelistbg">&nbsp;#if($!file.a23!='null')$!file.a23#end</td>
+							#elseif($strIndex=='a24')
+							<td class="tablelistbg">&nbsp;#if($!file.a24!='null')$!file.a24#end</td>
+							#elseif($strIndex=='a25')
+							<td class="tablelistbg">&nbsp;#if($!file.a25!='null')$!file.a25#end</td>
+							#elseif($strIndex=='a26')
+							<td class="tablelistbg">&nbsp;#if($!file.a26!='null')$!file.a26#end</td>
+							#elseif($strIndex=='a27')
+							<td class="tablelistbg">&nbsp;#if($!file.a27!='null')$!file.a27#end</td>
+							#elseif($strIndex=='a28')
+							<td class="tablelistbg">&nbsp;#if($!file.a28!='null')$!file.a28#end</td>
+							#elseif($strIndex=='a29')
+							<td class="tablelistbg">&nbsp;#if($!file.a29!='null')$!file.a29#end</td>
+							#elseif($strIndex=='a30')
+							<td class="tablelistbg">&nbsp;#if($!file.a30!='null')$!file.a30#end</td>
+							#elseif($strIndex=='a31')
+							<td class="tablelistbg">&nbsp;#if($!file.a31!='null')$!file.a31#end</td>
+							#elseif($strIndex=='a32')
+							<td class="tablelistbg">&nbsp;#if($!file.a32!='null')$!file.a32#end</td>
+							#elseif($strIndex=='a33')
+							<td class="tablelistbg">&nbsp;#if($!file.a33!='null')$!file.a33#end</td>
+							#elseif($strIndex=='a34')
+							<td class="tablelistbg">&nbsp;#if($!file.a34!='null')$!file.a34#end</td>
+							#elseif($strIndex=='a35')
+							<td class="tablelistbg">&nbsp;#if($!file.a35!='null')$!file.a35#end</td>
+							#elseif($strIndex=='a36')
+							<td class="tablelistbg">&nbsp;#if($!file.a36!='null')$!file.a36#end</td>
+							#elseif($strIndex=='a37')
+							<td class="tablelistbg">&nbsp;#if($!file.a37!='null')$!file.a37#end</td>
+							#elseif($strIndex=='a38')
+							<td class="tablelistbg">&nbsp;#if($!file.a38!='null')$!file.a38#end</td>
+							#elseif($strIndex=='a39')
+							<td class="tablelistbg">&nbsp;#if($!file.a39!='null')$!file.a39#end</td>
+							#elseif($strIndex=='a40')
+							<td class="tablelistbg">&nbsp;#if($!file.a40!='null')$!file.a40#end</td>
+							#elseif($strIndex=='a41')
+							<td class="tablelistbg">&nbsp;#if($!file.a41!='null')$!file.a41#end</td>
+							#elseif($strIndex=='a42')
+							<td class="tablelistbg">&nbsp;#if($!file.a42!='null')$!file.a42#end</td>
+							#elseif($strIndex=='a43')
+							<td class="tablelistbg">&nbsp;#if($!file.a43!='null')$!file.a43#end</td>
+							#elseif($strIndex=='a44')
+							<td class="tablelistbg">&nbsp;#if($!file.a44!='null')$!file.a44#end</td>
+							#elseif($strIndex=='a45')
+							<td class="tablelistbg">&nbsp;#if($!file.a45!='null')$!file.a45#end</td>
+							#elseif($strIndex=='a46')
+							<td class="tablelistbg">&nbsp;#if($!file.a46!='null')$!file.a46#end</td>
+							#elseif($strIndex=='a47')
+							<td class="tablelistbg">&nbsp;#if($!file.a47!='null')$!file.a47#end</td>
+							#elseif($strIndex=='a48')
+							<td class="tablelistbg">&nbsp;#if($!file.a48!='null')$!file.a48#end</td>
+							#elseif($strIndex=='a49')
+							<td class="tablelistbg">&nbsp;#if($!file.a49!='null')$!file.a49#end</td>
+							#elseif($strIndex=='a50')
+							<td class="tablelistbg">&nbsp;#if($!file.a50!='null')$!file.a50#end</td>
+							#end
+						#end
+					#end
+						<td class="tablelistbg">&nbsp;
+							##if($!infoSort.twoFloor!="")<a href="/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>#end
+							#if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>#end
+							##if($file.a6!="126")	
+								<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
+								<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+							##end
+						</td>	
+					</tr>
+				#end
+		
+      </table>
+<br><br>
+#end
 <iframe width=174 height=172 name="gToday:normal:/scripts/time/agenda.js"  src="/scripts/time/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>     
-
 <table width="100%" border="0" cellpadding="4" cellspacing="1" >
 	<tr>
 		<td >
 			<form name="fileForm" method="post" action="$!actionUrl" onSubmit = "return validateFileForm(this);">
-				<input type=hidden name=id value=$!bizObj.id>
-				<input type=hidden name=infoSortId value=$!infoSortId>
-				<input type=hidden name=status value=$!status>
+				<input type=text name=id value=$!bizObj.id>
+				#if($!bizObj.id>0)
+					<input type=text name=type value=$!bizObj.type>
+				#else
+					#if($parInfoSortId>0)
+						<input type=text id=type name=type value="1">
+					#else
+						#if($type==0)
+						<input type=text id=type name=type value="0">
+						#elseif($type==1)
+						<input type=text id=type name=type value="1">
+						#else
+						<input type=text id=type name=type value="-1">
+						#end
+					#end
+				#end
+				<input type=text name=infoSortId value=$!infoSortId>
+				#if($!parInfoSortId>0)
+				<input type=text name=parInfoSortId value=$!parInfoSortId>
+				#else
+				<input type=text name=parInfoSortId value=$!bizObj.parInfoSortId>
+				#end
+				<input type=text name=status value=$!status>
 				<table width="100%" border="0" cellpadding="2" cellspacing="3">
 								##时间型和日期型
 						#foreach($biz in $structureList)
 						#set($strIndex=$biz.serialNumber)	
 						#set($values="")
-						#if($!bizObj.id>0)
+						#if($!bizObj)
 							#if($strIndex=='a1')
 							#set($values=$!bizObj.a1)
 							#elseif($strIndex=='a2')
 							#set($values=$!bizObj.a2)
 							#elseif($strIndex=='a3')
-						#set($values=$!bizObj.a3)
+							#set($values=$!bizObj.a3)
 							#elseif($strIndex=='a4')
 							#set($values=$!bizObj.a4)
 							#elseif($strIndex=='a5')
@@ -135,7 +288,16 @@
 											#else
 												#set($indexNum=$biz.dictionaryName)
 											#end
-											#showListSelect($vMUtils.getDictionarySortByParentId($indexNum) "$biz.serialNumber" $values)
+											#showFormText("$biz.serialNumber" "$values" 12)
+											<select name="selectName" class="pulldown" onchange="tochanages('$biz.serialNumber',this.value);">
+												<option value="">-请选择-</option>
+												#if($vMUtils.getDictionarySortByParentId($indexNum))
+													#foreach($_resourceType in $vMUtils.getDictionarySortByParentId($indexNum))
+														<option value="$_resourceType.name" #isSelected("$_resourceType.name" $selectValue )>$_resourceType.name
+														</option>
+													#end
+												#end
+											</select>
 										#else
 											#showFormText("$biz.serialNumber" "$values" 20)
 										#end
@@ -164,7 +326,16 @@
 											#else
 												#set($indexNum=$biz.dictionaryName)
 											#end
-											#showListSelect($vMUtils.getDictionarySortByParentId($indexNum) "$biz.serialNumber" $values)
+											#showFormText("$biz.serialNumber" "$values" 12)
+											<select name="selectName" class="pulldown" onchange="tochanages('$biz.serialNumber',this.value);">
+												<option value="">-请选择-</option>
+												#if($vMUtils.getDictionarySortByParentId($indexNum))
+													#foreach($_resourceType in $vMUtils.getDictionarySortByParentId($indexNum))
+														<option value="$_resourceType.name" #isSelected("$_resourceType.name" $selectValue )>$_resourceType.name
+														</option>
+													#end
+												#end
+											</select>
 										#else
 											#showFormText("$biz.serialNumber" "$values" 20)
 										#end
@@ -193,7 +364,16 @@
 											#else
 												#set($indexNum=$biz.dictionaryName)
 											#end
-											#showListSelect($vMUtils.getDictionarySortByParentId($indexNum) "$biz.serialNumber" $values)
+											#showFormText("$biz.serialNumber" "$values" 12)
+											<select name="selectName" class="pulldown" onchange="tochanages('$biz.serialNumber',this.value);">
+												<option value="">-请选择-</option>
+												#if($vMUtils.getDictionarySortByParentId($indexNum))
+													#foreach($_resourceType in $vMUtils.getDictionarySortByParentId($indexNum))
+														<option value="$_resourceType.name" #isSelected("$_resourceType.name" $selectValue )>$_resourceType.name
+														</option>
+													#end
+												#end
+											</select>
 										#else
 											#showFormText("$biz.serialNumber" "$values" 20)
 										#end
@@ -203,21 +383,32 @@
 							</td>
 						</tr>
 						#end
-						
-						
 						#set($index = $index+1)
 						#end					
 					</table>
 					<table width="100%" border="0" cellspacing="4" cellpadding="0">
-							<tr>
-								<td  align="center" >
-									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
-								</td>
-							</tr>
-						</table>
+						<tr>
+							<td  align="center" >
+								#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+							</td>
+						</tr>
+					</table>
 			</form>
 		</td>
 	</tr>
 </table>
+
+<script>
+function tochanages(name,value){
+	if(name=='a6' && value=="需归档"){
+		document.getElementById("type").value=0;
+	}else if(name=='a6' && value=="已归档"){
+		document.getElementById("type").value=1;
+	}else if(name=='a6' && (value=="不归档"||value=="")){
+		document.getElementById("type").value=-1;	
+	}
+	document.getElementById(name).value=value;
+}
+</script>
 
 

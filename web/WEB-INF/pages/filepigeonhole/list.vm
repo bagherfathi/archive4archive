@@ -28,7 +28,7 @@
 							#set($strIndex=$biz.serialNumber)
 							#if($strIndex=='a1')
 							<td class="tablelistbg"> 
-							 $!file.a5&nbsp;#if($!file.a1!='null')$!file.a1#end</td>
+							 &nbsp;#if($!file.a1!='null')$!file.a1#end</td>
 							#elseif($strIndex=='a2')
 							<td class="tablelistbg">&nbsp;#if($!file.a2!='null')$!file.a2#end</td>
 							#elseif($strIndex=='a3')
@@ -139,21 +139,37 @@
       
       <table width="70%" border="0" cellpadding="0" cellspacing="0" >
            <tr>
-            <td bgcolor="#eeeee5" width="10%">全宗号</td>
+            <td bgcolor="#eeeee5" width="15%">全宗号:</td>
             <td>
-
-      			<select name="qzh" >
-      				<option value="">-请选择-</value>
-      				#foreach($biz in $quanzongList)
-					<option value="$biz.name">$biz.name</value>	      					
-      				#end
-      			</select>
+				<input type="hidden" name="qzh" id="qzh" value=""/>
+				<select name="selectName" class="pulldown" onchange="tochanages('qzh',this.value);">
+					<option value="">-请选择-</option>
+					#if($quanzongList)
+						#foreach($quanzong in $quanzongList)
+							<option value="$quanzong.name" #isSelected("$quanzong.name" $selectValue )>$quanzong.name
+							</option>
+						#end
+					#end
+				</select>
 	      	</td>
-	      	<td bgcolor="#eeeee5" width="10%">归档年度</td>
+	      	<td bgcolor="#eeeee5" width="15%">归档年度:</td>
             <td >
       			#showFormText("year" "" 12)
 	      	</td>
-	      	 <td >
+	      	<td bgcolor="#eeeee5" width="15%">保管期限:</td>
+            <td>
+				<input type="hidden" name="bgqx" id="qzh" value=""/>
+				<select name="selectName" class="pulldown" onchange="tochanages('bgqx',this.value);">
+					<option value="">-请选择-</option>
+					#if($vMUtils.getDictionarySortByParentId(53))
+						#foreach($_resourceType in $vMUtils.getDictionarySortByParentId(53))
+							<option value="$_resourceType.name" #isSelected("$_resourceType.name" $selectValue )>$_resourceType.name
+							</option>
+						#end
+					#end
+				</select>
+			</td>
+	      	<td >
       			<input type=submit name="insert2" value="归   档" class=btn1_mouseout title="文件归档" />
 	      </td>
       </table>
@@ -162,4 +178,9 @@
 #else
 		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
 #end
+<script>
+function tochanages(name,value){
+	document.getElementById(name).value=value;
+}
+</script>
 #renheend()

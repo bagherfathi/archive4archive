@@ -26,15 +26,16 @@ public class StructureService extends CommonService {
 				serialNumber });
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Structure> getStructureByInfoSortIdAndInStatus(int infoSortId,
 			int status) {
 		String hql = "from Structure where infoSortId =?";
 		if (status == 0) {
 			hql += " and status in(0)";
 		} else if (status == 1) {
-			hql += " and status in(0,1)";
+			hql += " and status in(0,1) and ifTwo =0";
 		} else if (status == 2) {
-			hql += " and status in(0,1,2)";
+			hql += " and status in(0,1,2) and ifTwo =0 and ifThree=0";
 		}
 
 		hql += " and isDelete=0 order by taxis asc";

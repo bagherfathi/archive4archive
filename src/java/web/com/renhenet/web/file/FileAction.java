@@ -39,26 +39,40 @@ public class FileAction extends DispatchActions {
 	public String insertProcess(WebContext context) throws ServletException {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
+
+		int type = context.getIntParameter("types");
+		context.put("type", type);
+
+		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
+		context.put("parInfoSortId", parInfoSortId);
+
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
-		int id = context.getSIntParameter("sid");
-		if (id > 0) {
-			File f = (File) service.getObjectById(File.class, id);
+		if (parInfoSortId > 0) {
+			File f = (File) service.getObjectById(File.class, parInfoSortId);
 			f.setId(null);
 			context.put("bizObj", f);
+
 		}
 
 		List<Structure> structureList = structureService
 				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
 		context.put("structureList", structureList);
 
+		// 得到二层或者三层的档案
+		if (status > 0) {
+			// 得到上层的档案文件的内容
+			List<File> fileList = service.getFileByParInfoSortId(parInfoSortId);
+			context.put("fileList", fileList);
+		}
+
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {
 			FileForm form = (FileForm) context.getForm();
 			super.insertProcess(context);
 
-			return "/file/actions.html?method=list&oc=all&infoSortId="
+			return "/file/actions.html?method=list&infoSortId="
 					+ VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
 					+ VMUtils.encrypt(status) + "&cm="
 					+ context.getParameter("cm");
@@ -100,6 +114,9 @@ public class FileAction extends DispatchActions {
 		if (infoSortId >= 0) {
 			searchContext.addOption(new SearchOption("infoSortId", infoSortId,
 					SearchOption.Option.eqaul));
+
+			searchContext.addOption(new SearchOption("parInfoSortId", 0,
+					SearchOption.Option.eqaul));
 		}
 		context.put("infoSortId", infoSortId);
 
@@ -116,9 +133,9 @@ public class FileAction extends DispatchActions {
 
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
-			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5);
+			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, 0);
 		} else {
-			fileList = service.getFileByInfoSortId(infoSortId);
+			fileList = service.getFileByInfoSortId(infoSortId, 0);
 		}
 		context.put("fileList", fileList);
 

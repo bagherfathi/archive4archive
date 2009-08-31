@@ -1,14 +1,17 @@
 #renhehead()
 
 #renheMenu("file")
-
 #if($!infoSort.oneFloor!="")
-#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm")
+#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&types=1&parInfoSortIds=$vMUtils.encrypt(0)&statuses=$vMUtils.encrypt(0)&cm=$cm")
 #set($addNewLinkText = "新增$!infoSort.oneFloor")
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
-#set($urlPre = "/file/actions.html?method=list&cm=$cm")
+#if($cm.indexOf("da")>=0)
+	#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&types=0&parInfoSortIds=$vMUtils.encrypt(0)&statuses=$vMUtils.encrypt(0)&cm=$cm")
+	#set($addNewLinkText = "新增未归档文件")
+	#parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
+	#end
 #end
-
+#set($urlPre = "/file/actions.html?method=list&cm=$cm")
 #if($!fileList)
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" id="searchform">
               <tr>
@@ -73,7 +76,7 @@
 							#set($strIndex=$biz.serialNumber)
 							#if($strIndex=='a1')
 							<td class="tablelistbg"> 
-							 $!file.a5&nbsp;#if($!file.a1!='null')$!file.a1#end</td>
+							&nbsp;#if($!file.a1!='null')$!file.a1#end</td>
 							#elseif($strIndex=='a2')
 							<td class="tablelistbg">&nbsp;#if($!file.a2!='null')$!file.a2#end</td>
 							#elseif($strIndex=='a3')
@@ -175,11 +178,13 @@
 							#end
 						#end
 					#end
-						<td class="tablelistbg">
-							#if($!infoSort.twoFloor!="")<a href="/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">维护$!infoSort.twoFloor</a>#end
-							#if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">维护$!infoSort.threeFloor</a>#end
-							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
-							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+						<td class="tablelistbg">&nbsp;
+							#if($!infoSort.twoFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>#end
+							#if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>#end
+							##if($file.a6!="126")	
+								<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
+								<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+							##end
 						</td>	
 					</tr>
 				#end

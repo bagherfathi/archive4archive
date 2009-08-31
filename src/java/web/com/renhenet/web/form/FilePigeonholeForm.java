@@ -11,7 +11,16 @@ public class FilePigeonholeForm extends BasePOForm {
 
 	private int[] fileGds;
 	private String year;
-	private int qzh;
+	private String qzh;
+	private String bgqx;
+
+	public String getBgqx() {
+		return bgqx;
+	}
+
+	public void setBgqx(String bgqx) {
+		this.bgqx = bgqx;
+	}
 
 	public int[] getFileGds() {
 		return fileGds;
@@ -21,11 +30,11 @@ public class FilePigeonholeForm extends BasePOForm {
 		this.fileGds = fileGds;
 	}
 
-	public int getQzh() {
+	public String getQzh() {
 		return qzh;
 	}
 
-	public void setQzh(int qzh) {
+	public void setQzh(String qzh) {
 		this.qzh = qzh;
 	}
 
