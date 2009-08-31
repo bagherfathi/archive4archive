@@ -10,7 +10,7 @@
 $validator.getDynamicJavascript()
 $validator.getStaticJavascript()
 <table width="100%"><tr><td><div id=message></div></td></tr></table>
-#set($actionUrl="/file/actions.html?method=insert&insert=y&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm")
+#set($actionUrl="/file/actions.html?method=insert&insert=y&parInfoSortIds=$vMUtils.encrypt($parInfoSortId)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm")
 <div class=conmain>
 	#parse( "/WEB-INF/pages/file/form.vm" )
 </div>

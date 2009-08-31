@@ -11,6 +11,7 @@ public class FileForm extends BasePOForm {
 	private String title;
 	private int infoSortId;
 	private int parInfoSortId;
+	private int type;
 	private String a1;
 	private String a2;
 	private String a3;
@@ -484,6 +485,14 @@ public class FileForm extends BasePOForm {
 
 	public void setParInfoSortId(int parInfoSortId) {
 		this.parInfoSortId = parInfoSortId;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }

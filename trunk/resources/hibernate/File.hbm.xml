@@ -10,8 +10,14 @@
             <column name="id" />
             <generator class="native"/>
         </id>
-          <property name="infoSortId" type="java.lang.Integer">
+        <property name="infoSortId" type="java.lang.Integer">
             <column name="info_sort_id" />
+        </property>
+        <property name="parInfoSortId" type="java.lang.Integer">
+            <column name="par_info_sort_id" />
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" />
         </property>
          <property name="title" type="java.lang.String">
             <column name="title" length="255" />

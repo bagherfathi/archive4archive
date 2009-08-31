@@ -57,7 +57,7 @@ $!vMUtils.dateFormateHuman($_fieldValue)
 	#if($!action == "detail")
 		$_fieldValue
 		#else
-			<input name="$_fieldName" size="$_size"  type="text" value="$!_fieldValue">
+			<input name="$_fieldName" id="$_fieldName" size="$_size"  type="text" value="$!_fieldValue">
 	#end
 #end
 
@@ -144,6 +144,20 @@ $!vMUtils.dateFormateHuman($_fieldValue)
 		#end
 	</select>
 #end
+
+#macro( showListSelectTxt $resourceTypes $selectName $selectValue)
+	<select name="$selectName" class="pulldown" onchange="tochanages($selectName,this.value);">
+		<option value="">-«Î—°‘Ò-
+		</option>
+		#if($resourceTypes)
+			#foreach($_resourceType in $resourceTypes)
+				<option value="$_resourceType.name" #isSelected("$_resourceType.name" $selectValue )>$_resourceType.name
+				</option>
+			#end
+		#end
+	</select>
+#end
+
 #macro( showSalesList  )
 	<select name="salesId" class="pulldown">
 		<option value="">-«Î—°‘Ò-</option>

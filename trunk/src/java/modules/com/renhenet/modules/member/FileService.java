@@ -8,9 +8,10 @@ import com.renhenet.po.File;
 
 public class FileService extends CommonService {
 	@SuppressWarnings("unchecked")
-	public List<File> getFileByInfoSortId(int infoSortId) {
-		String hql = "from File where  infoSortId =? order by id desc";
-		return (List<File>) dao.find(hql, new Object[] { infoSortId });
+	public List<File> getFileByInfoSortId(int infoSortId, int parInfoSortId) {
+		String hql = "from File where  infoSortId =? and parInfoSortId=? order by id desc";
+		return (List<File>) dao.find(hql, new Object[] { infoSortId,
+				parInfoSortId });
 	}
 
 	/**
@@ -19,17 +20,26 @@ public class FileService extends CommonService {
 	 * @param infoSortId
 	 * @return
 	 */
-	public List<File> getFileByInfoSortIdAndType(int infoSortId, String type) {
-		String hql = "from File where  infoSortId =? and a6 =? order by id desc";
+	@SuppressWarnings("unchecked")
+	public List<File> getFileByInfoSortIdAndType(int infoSortId, int type) {
+		String hql = "from File where  infoSortId =? and type=? order by id desc";
 		return (List<File>) dao.find(hql, new Object[] { infoSortId, type });
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<File> getFileByInfoSortIdAnd(int infoSortId, String a5) {
+	public List<File> getFileByParInfoSortId(int parInfoSortId) {
+		String hql = "from File where  parInfoSortId =? order by id desc";
+		return (List<File>) dao.find(hql, new Object[] { parInfoSortId });
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<File> getFileByInfoSortIdAnd(int infoSortId, String a5,
+			int parInfoSortId) {
 		StringBuffer query = new StringBuffer();
 		List args = new ArrayList();
 		query.append("SELECT * FROM files WHERE contains(a5,'" + a5
-				+ "',1) > 0 and info_sort_id =" + infoSortId
+				+ "',1) > 0  and parInfoSortId=" + parInfoSortId
+				+ " and info_sort_id =" + infoSortId
 				+ " ORDER BY score(1) desc");
 
 		List<Object[]> oos = dao.executeQueryBySQL(query.toString(), null, args
