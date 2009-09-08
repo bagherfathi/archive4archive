@@ -607,12 +607,6 @@ Insert into STRUCTURE (ID,SERIAL_NUMBER,ZN_NAME,TAXIS,DICTIONARY_NAME,IF_UPDATE,
   ALTER TABLE "MEMBER" MODIFY ("TIME_MODIFIED" NOT NULL ENABLE);
  
   ALTER TABLE "MEMBER" ADD PRIMARY KEY ("ID") ENABLE;
---------------------------------------------------------
---  DDL for Index INDEX_TITLE
---------------------------------------------------------
-
-  CREATE INDEX "INDEX_TITLE" ON "FILES" ("A5") 
-   INDEXTYPE IS "CTXSYS"."CONTEXT" PARAMETERS ('lexer club_lexer');
 
 
 
