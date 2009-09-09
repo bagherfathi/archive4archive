@@ -10,6 +10,7 @@
 		<div id="listheadrightimg"></div>
 	</div>
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+        <tbody>
           <tr>
             <td class="tableheadingbg">类目序号</td>
             <td class="tableheadingbg">类目名称</td>
@@ -17,8 +18,10 @@
             <td class="tableheadingbg">创建时间</td>
 			<td class="tableheadingbg">操作</td>
           </tr>
+        </tbody>
+        <tbody id="arrangableNodes">
 		#foreach($biz in $bizObjList)
-		<tr>
+		<tr  id="node${biz.id}">
 			<td class="tablelistbg">$biz.seq</td>
 			<td class="tablelistbg">$biz.name</td>
 			<td class="tablelistbg">
@@ -38,7 +41,14 @@
 			</td>
          </tr>
 		#end
+        </tbody>
       </table>
+<div id="movableNode">
+<table><tbody></tbody></table></div>
+<div id="arrDestInditcator"><img src="images/insert.gif"></div>
+<div id="arrDebug"></div>
+
+
 	  	#parse( "/WEB-INF/pages/common/page.vm" )
 #else
 		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
