@@ -199,12 +199,9 @@
 	function initArrangableNodes()
 	{
 		arrParent = document.getElementById('arrangableNodes');
-		
 		arrMoveCont = document.getElementById('movableNode').getElementsByTagName('table')[0].getElementsByTagName('tbody')[0];
-	alert(arrMoveCont.innerHTML);
 		arrInsertDiv = document.getElementById('arrDestInditcator');
-		
-
+        
 		leftPosArrangableNodes = getLeftPos(arrParent);
 		arrInsertDiv.style.left = leftPosArrangableNodes - 5 + 'px';
 		widthArrangableNodes = arrParent.offsetWidth;
@@ -232,20 +229,12 @@
 <table >
 	<tbody id="arrangableNodes">
 	<tr id="node1"><td>Node no. 1</td></tr>
-	<tr id="node2"><td >Node no. 2</td></tr>
-	<tr id="node2"><td>Node no. 3</td></tr>
-	<tr id="node2"><td>Node no. 4</td></tr>
-	<tr id="node2"><td>Node no. 5</td></tr>
-	<tr id="node2"><td>Node no. 6</td></tr>
-	<tr id="node2"><td>Node no. 7</td></tr>
-	<tr id="node2"><td>Node no. 8</td></tr>
-	<tr id="node2"><td>Node no. 9</td></tr>	
-	<tr id="node2"><td>Node no. 10</td></tr>	
-	<tr id="node2"><td>http://www.sharejs.com</td></tr>	
-	<tr id="node2"><td>Node no. 12</td></tr>	
-	<tr id="node2"><td>Node no. 13</td></tr>	
-	<tr id="node2"><td>Node no. 14</td></tr>	
-	<tr id="node2"><td>Node no. 15</td></tr>
+	<tr id="node2"><td>Node no. 2</td></tr>
+	<tr id="node3"><td>Node no. 3</td></tr>
+	<tr id="node4"><td>Node no. 4</td></tr>
+	<tr id="node5"><td>Node no. 5</td></tr>
+	<tr id="node6"><td>Node no. 6</td></tr>
+	<tr id="node7"><td>Node no. 7</td></tr>
 	</tbody>
 </tr>	
 </table>
