@@ -1,6 +1,6 @@
 #renhehead()
 #renheMenu("systemRe")
-
+                                 
 ###set($editUrl = "/leads/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
 #set($actionUrl = "/resources/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
 <div id="Position">位置：系统设置 / 资料设置</div>

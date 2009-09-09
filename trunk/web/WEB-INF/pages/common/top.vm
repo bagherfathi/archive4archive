@@ -20,4 +20,5 @@ body {
 <LINK rel="stylesheet" type="text/css" href="/css/CssBops_lan.css">
 <LINK rel="stylesheet" type="text/css" href="/css/cnTree.css">
 <script language="JavaScript" src="/scripts/showmsg.js"></script>
+<script language="JavaScript" src="/scripts/dragtable.js"></script>    
 </head>
