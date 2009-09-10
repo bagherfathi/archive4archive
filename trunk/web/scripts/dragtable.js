@@ -13,6 +13,7 @@ var nodeHeights = new Array();
 var arrInsertDiv = false;
 var insertAsFirstNode = false;
 var arrNodesDestination = false;
+var howfarfrommouse=10;
 function cancelEvent()
 {
     return false;
@@ -58,13 +59,14 @@ function initMoveNode(e)
     else
         arrNextSibling = false;
     timerMoveNode();
-    arrMoveCont.parentNode.style.left = e.clientX + 'px';
+    arrMoveCont.parentNode.style.left = (e.clientX+howfarfrommouse) + 'px';
 
-    arrMoveCont.parentNode.style.top = e.clientY + 'px';
+    arrMoveCont.parentNode.style.top = (e.clientY+howfarfrommouse) + 'px';
 
     arrMoveCont.parentNode.style.position = "absolute";
     arrMoveCont.parentNode.style.cursor = "pointer";
-
+    arrTarget.style.backgroundColor="#E0E0F8";
+    arrMoveCont.parentNode.style.backgroundColor="#E0E0F8";
 
     return false;
 
@@ -87,8 +89,8 @@ function arrangeNodeMove(e)
     if (document.all && arrMoveCounter >= 10 && e.button != 1 && navigator.userAgent.indexOf('Opera') == -1) {
         arrangeNodeStopMove();
     }
-    arrMoveCont.parentNode.style.left = e.clientX + 'px';
-    arrMoveCont.parentNode.style.top = e.clientY + 'px';
+    arrMoveCont.parentNode.style.left = (e.clientX+howfarfrommouse) + 'px';
+    arrMoveCont.parentNode.style.top = (e.clientY+howfarfrommouse) + 'px';
 
     var tmpY = e.clientY;
     arrInsertDiv.style.display = 'none';
