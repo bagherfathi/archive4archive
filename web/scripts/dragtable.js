@@ -53,7 +53,6 @@ function initMoveNode(e)
     if (document.all)e = event;
     arrMoveCounter = 0;
     arrTarget = this;
-//    alert(arrTarget.innerHTML);
     if (this.nextSibling)
         arrNextSibling = this.nextSibling;
     else
@@ -63,8 +62,9 @@ function initMoveNode(e)
 
     arrMoveCont.parentNode.style.top = e.clientY + 'px';
 
-    arrMoveCont.parentNode.style.position="absolute";
-    
+    arrMoveCont.parentNode.style.position = "absolute";
+    arrMoveCont.parentNode.style.cursor = "pointer";
+
     return false;
 
 }
@@ -105,7 +105,8 @@ function arrangeNodeMove(e)
                 arrInsertDiv.style.top = (topPos + offsetYInsertDiv) + 'px';
                 arrInsertDiv.style.display = 'block';
                 arrNodesDestination = subs[no];
-                insertAsFirstNode = true;          s
+                insertAsFirstNode = true;
+                s
                 return;
             }
         }
@@ -159,7 +160,6 @@ function saveArrangableNodes()
 function initArrangableNodes()
 {
     arrParent = document.getElementById('arrangableNodes');
-//    alert(arrParent.innerHTML);
     arrMoveCont = document.getElementById('movableNode').getElementsByTagName('table')[0].getElementsByTagName('tbody')[0];
 
     arrInsertDiv = document.getElementById('arrDestInditcator');
@@ -171,13 +171,12 @@ function initArrangableNodes()
     for (var no = 0; no < subs.length; no++) {
         subs[no].onmousedown = initMoveNode;
         subs[no].onselectstart = cancelEvent;
+        subs[no].style.cursor = "pointer";
     }
 
     document.documentElement.onmouseup = arrangeNodeStopMove;
     document.documentElement.onmousemove = arrangeNodeMove;
     document.documentElement.onselectstart = cancelEvent;
-//    arrInsertDiv.style.left= subs[1].style.left+5+'px';
-    arrInsertDiv.style.display='none';
-    arrParent.parentNode.style.onselectstart="return false";    
+    arrInsertDiv.style.display = 'none';
 }
 //window.onload = initArrangableNodes;

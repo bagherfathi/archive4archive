@@ -48,10 +48,12 @@
 <p>
 	<a href="#" onclick="saveArrangableNodes();return false">Save</a>
 </p>
+<!-- need by dragtable-->
 <div id="movableNode">
 <table><tbody></tbody></table></div>
 <div style="position:absolute;" id="arrDestInditcator"><img src="../../../images/insert.gif"></div>
 <div id="arrDebug"></div>
+<!-- need end-->
 
 	  	#parse( "/WEB-INF/pages/common/page.vm" )
 #else
