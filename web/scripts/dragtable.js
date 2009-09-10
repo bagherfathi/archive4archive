@@ -65,6 +65,7 @@ function initMoveNode(e)
     arrMoveCont.parentNode.style.position = "absolute";
     arrMoveCont.parentNode.style.cursor = "pointer";
 
+
     return false;
 
 }
@@ -98,6 +99,8 @@ function arrangeNodeMove(e)
 
     var subs = arrParent.getElementsByTagName('TR');
     for (var no = 0; no < subs.length; no++) {
+        subs[no].style.backgroundColor="#FFFFFF";
+        
         var topPos = getTopPos(subs[no]);
         var tmpHeight = subs[no].offsetHeight;
         if (no == 0) {
@@ -105,9 +108,9 @@ function arrangeNodeMove(e)
                 arrInsertDiv.style.top = (topPos + offsetYInsertDiv) + 'px';
                 arrInsertDiv.style.display = 'block';
                 arrNodesDestination = subs[no];
+                subs[no].style.backgroundColor="#F2F2F2";
                 insertAsFirstNode = true;
-                s
-                return;
+//                return;
             }
         }
 
@@ -115,8 +118,9 @@ function arrangeNodeMove(e)
             arrInsertDiv.style.top = (topPos + tmpHeight + offsetYInsertDiv) + 'px';
             arrInsertDiv.style.display = 'block';
             arrNodesDestination = subs[no];
+            subs[no].style.backgroundColor="#F2F2F2";
             insertAsFirstNode = false;
-            return;
+//            return;
         }
     }
 }
@@ -137,6 +141,9 @@ function arrangeNodeStopMove()
                 arrParent.appendChild(arrTarget);
             }
         }
+    }
+    for (var no = 0; no < subs.length; no++) {
+        subs[no].style.backgroundColor="#FFFFFF";
     }
     arrNodesDestination = false;
     clearMovableDiv();
