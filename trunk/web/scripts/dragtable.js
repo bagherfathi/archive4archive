@@ -6,6 +6,7 @@ var arrMoveCont = false;
 var arrMoveCounter = -1;
 var arrTarget = false;
 var arrNextSibling = false;
+var arrPreviousSibling = false;
 var leftPosArrangableNodes = false;
 var widthArrangableNodes = false;
 var nodePositionsY = new Array();
@@ -13,7 +14,7 @@ var nodeHeights = new Array();
 var arrInsertDiv = false;
 var insertAsFirstNode = false;
 var arrNodesDestination = false;
-var howfarfrommouse=10;
+var howfarfrommouse = 10;
 function cancelEvent()
 {
     return false;
@@ -38,14 +39,16 @@ function getLeftPos(inputObj)
 function clearMovableDiv()
 {
     if (arrMoveCont.getElementsByTagName('TR').length > 0) {
+
         if (arrNextSibling) {
             arrParent.insertBefore(arrTarget, arrNextSibling);
+
         }
         else {
             arrParent.appendChild(arrTarget);
         }
-    }
 
+    }
 }
 
 function initMoveNode(e)
@@ -54,19 +57,16 @@ function initMoveNode(e)
     if (document.all)e = event;
     arrMoveCounter = 0;
     arrTarget = this;
-    if (this.nextSibling)
-        arrNextSibling = this.nextSibling;
-    else
-        arrNextSibling = false;
+    if (this.nextSibling)arrNextSibling = this.nextSibling; else arrNextSibling = false;
     timerMoveNode();
-    arrMoveCont.parentNode.style.left = (e.clientX+howfarfrommouse) + 'px';
+    arrMoveCont.parentNode.style.left = (e.clientX + howfarfrommouse) + 'px';
 
-    arrMoveCont.parentNode.style.top = (e.clientY+howfarfrommouse) + 'px';
+    arrMoveCont.parentNode.style.top = (e.clientY + howfarfrommouse) + 'px';
 
     arrMoveCont.parentNode.style.position = "absolute";
     arrMoveCont.parentNode.style.cursor = "pointer";
-    arrTarget.style.backgroundColor="#E0E0F8";
-    arrMoveCont.parentNode.style.backgroundColor="#E0E0F8";
+    arrTarget.style.backgroundColor = "#E0E0F8";
+    arrMoveCont.parentNode.style.backgroundColor = "#E0E0F8";
 
     return false;
 
@@ -89,8 +89,8 @@ function arrangeNodeMove(e)
     if (document.all && arrMoveCounter >= 10 && e.button != 1 && navigator.userAgent.indexOf('Opera') == -1) {
         arrangeNodeStopMove();
     }
-    arrMoveCont.parentNode.style.left = (e.clientX+howfarfrommouse) + 'px';
-    arrMoveCont.parentNode.style.top = (e.clientY+howfarfrommouse) + 'px';
+    arrMoveCont.parentNode.style.left = (e.clientX + howfarfrommouse) + 'px';
+    arrMoveCont.parentNode.style.top = (e.clientY + howfarfrommouse) + 'px';
 
     var tmpY = e.clientY;
     arrInsertDiv.style.display = 'none';
@@ -101,8 +101,8 @@ function arrangeNodeMove(e)
 
     var subs = arrParent.getElementsByTagName('TR');
     for (var no = 0; no < subs.length; no++) {
-        subs[no].style.backgroundColor="#FFFFFF";
-        
+        subs[no].style.backgroundColor = "#FFFFFF";
+
         var topPos = getTopPos(subs[no]);
         var tmpHeight = subs[no].offsetHeight;
         if (no == 0) {
@@ -110,9 +110,9 @@ function arrangeNodeMove(e)
                 arrInsertDiv.style.top = (topPos + offsetYInsertDiv) + 'px';
                 arrInsertDiv.style.display = 'block';
                 arrNodesDestination = subs[no];
-                subs[no].style.backgroundColor="#F2F2F2";
+                subs[no].style.backgroundColor = "#F2F2F2";
                 insertAsFirstNode = true;
-//                return;
+                //                return;
             }
         }
 
@@ -120,9 +120,9 @@ function arrangeNodeMove(e)
             arrInsertDiv.style.top = (topPos + tmpHeight + offsetYInsertDiv) + 'px';
             arrInsertDiv.style.display = 'block';
             arrNodesDestination = subs[no];
-            subs[no].style.backgroundColor="#F2F2F2";
+            subs[no].style.backgroundColor = "#F2F2F2";
             insertAsFirstNode = false;
-//            return;
+            //            return;
         }
     }
 }
@@ -143,12 +143,15 @@ function arrangeNodeStopMove()
                 arrParent.appendChild(arrTarget);
             }
         }
-    }
-    for (var no = 0; no < subs.length; no++) {
-        subs[no].style.backgroundColor="#FFFFFF";
+    } else {
+
     }
     arrNodesDestination = false;
     clearMovableDiv();
+    var subs = arrParent.getElementsByTagName('TR');
+    for (var no = 0; no < subs.length; no++) {
+        subs[no].style.backgroundColor = "#FFFFFF";
+    }
 }
 
 function saveArrangableNodes()
