@@ -53,6 +53,7 @@ function initMoveNode(e)
     if (document.all)e = event;
     arrMoveCounter = 0;
     arrTarget = this;
+//    alert(arrTarget.innerHTML);
     if (this.nextSibling)
         arrNextSibling = this.nextSibling;
     else
@@ -61,6 +62,9 @@ function initMoveNode(e)
     arrMoveCont.parentNode.style.left = e.clientX + 'px';
 
     arrMoveCont.parentNode.style.top = e.clientY + 'px';
+
+    arrMoveCont.parentNode.style.position="absolute";
+    
     return false;
 
 }
@@ -96,13 +100,12 @@ function arrangeNodeMove(e)
     for (var no = 0; no < subs.length; no++) {
         var topPos = getTopPos(subs[no]);
         var tmpHeight = subs[no].offsetHeight;
-
         if (no == 0) {
             if (tmpY <= topPos && tmpY >= topPos - 5) {
                 arrInsertDiv.style.top = (topPos + offsetYInsertDiv) + 'px';
                 arrInsertDiv.style.display = 'block';
                 arrNodesDestination = subs[no];
-                insertAsFirstNode = true;
+                insertAsFirstNode = true;          s
                 return;
             }
         }
@@ -155,23 +158,17 @@ function saveArrangableNodes()
 
 function initArrangableNodes()
 {
-    alert("initArrangableNodes:");
     arrParent = document.getElementById('arrangableNodes');
-    alert(arrParent.innerHTML);
+//    alert(arrParent.innerHTML);
     arrMoveCont = document.getElementById('movableNode').getElementsByTagName('table')[0].getElementsByTagName('tbody')[0];
-    alert(arrMoveCont.innerHTML);
 
     arrInsertDiv = document.getElementById('arrDestInditcator');
-    alert(arrInsertDiv.innerHTML);
     leftPosArrangableNodes = getLeftPos(arrParent);
     arrInsertDiv.style.left = leftPosArrangableNodes - 5 + 'px';
     widthArrangableNodes = arrParent.offsetWidth;
 
     var subs = arrParent.getElementsByTagName('TR');
-    alert(arrParent.innerHTML);
     for (var no = 0; no < subs.length; no++) {
-        alert(subs[no].innnerHTML);
-
         subs[no].onmousedown = initMoveNode;
         subs[no].onselectstart = cancelEvent;
     }
@@ -179,6 +176,8 @@ function initArrangableNodes()
     document.documentElement.onmouseup = arrangeNodeStopMove;
     document.documentElement.onmousemove = arrangeNodeMove;
     document.documentElement.onselectstart = cancelEvent;
-
+//    arrInsertDiv.style.left= subs[1].style.left+5+'px';
+    arrInsertDiv.style.display='none';
+    arrParent.parentNode.style.onselectstart="return false";    
 }
 //window.onload = initArrangableNodes;
