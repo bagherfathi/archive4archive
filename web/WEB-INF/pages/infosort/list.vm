@@ -4,7 +4,7 @@
 #set($addNewLinkText = "新增信息分类")
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
 #set($urlPre = "/infosort/actions.html?method=list")
-#if($!$bizObjList)
+#if($!${bizObjList})
 <div id="listhead">
 		<div id="listheadleftimg"></div>
 		<div id="listheadrightimg"></div>
@@ -20,17 +20,19 @@
           </tr>
         </tbody>
         <tbody id="arrangableNodes">
+        #set($lineindex=1)
 		#foreach($biz in $bizObjList)
-		<tr  id="node${biz.id}">
+		<tr id="node${lineindex}">
+            #set($lineindex=${lineindex}+1)
 			<td class="tablelistbg">$biz.seq</td>
 			<td class="tablelistbg">$biz.name</td>
 			<td class="tablelistbg">
 			#if($!biz.type=='0')
 			顶层分类
 			#elseif($!biz.type=='1')
-			中间分类	
+			中间分类
 			#elseif($!biz.type=='2')
-			底层分类 	
+			底层分类
 			#end
 			</td>
 			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
@@ -43,11 +45,13 @@
 		#end
         </tbody>
       </table>
+<p>
+	<a href="#" onclick="saveArrangableNodes();return false">Save</a>
+</p>
 <div id="movableNode">
 <table><tbody></tbody></table></div>
-<div id="arrDestInditcator"><img src="images/insert.gif"></div>
+<div style="position:absolute;" id="arrDestInditcator"><img src="../../../images/insert.gif"></div>
 <div id="arrDebug"></div>
-
 
 	  	#parse( "/WEB-INF/pages/common/page.vm" )
 #else
