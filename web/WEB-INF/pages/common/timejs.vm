@@ -14,10 +14,10 @@
 	}
 	window.onload = function(){
 		tick();
+		initArrangableNodes();
 	}
 </script>
 
-<body onload="initArrangableNodes();">
 <font id=Clock face=ARIAL  color="#ffffff" fize=9pt align="left"></font>
                
 </body>
