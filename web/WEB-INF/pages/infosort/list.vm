@@ -51,7 +51,7 @@
 <!-- need by dragtable-->
 <div id="movableNode">
 <table><tbody></tbody></table></div>
-<div style="position:absolute;" id="arrDestInditcator"><img src="../../../images/insert.gif"></div>
+<div style="position:absolute;display:none;" id="arrDestInditcator"><img src="../../../images/insert.gif"></div>
 <div id="arrDebug"></div>
 <!-- need end-->
 
