@@ -110,7 +110,7 @@ function arrangeNodeMove(e)
                 arrInsertDiv.style.top = (topPos + offsetYInsertDiv) + 'px';
                 arrInsertDiv.style.display = 'block';
                 arrNodesDestination = subs[no];
-                subs[no].style.backgroundColor = "#F2F2F2";
+                subs[no].style.backgroundColor = "#BDBDBD";
                 insertAsFirstNode = true;
                 //                return;
             }
@@ -120,7 +120,7 @@ function arrangeNodeMove(e)
             arrInsertDiv.style.top = (topPos + tmpHeight + offsetYInsertDiv) + 'px';
             arrInsertDiv.style.display = 'block';
             arrNodesDestination = subs[no];
-            subs[no].style.backgroundColor = "#F2F2F2";
+            subs[no].style.backgroundColor = "#BDBDBD";
             insertAsFirstNode = false;
             //            return;
         }
