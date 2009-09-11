@@ -13,8 +13,9 @@
 	   tick();
 	}
 	window.onload = function(){
-		tick();
 		initArrangableNodes();
+		tick();
+		
 	}
 </script>
 
