@@ -65,8 +65,7 @@ function initMoveNode(e)
 
     arrMoveCont.parentNode.style.position = "absolute";
     arrMoveCont.parentNode.style.cursor = "pointer";
-    arrTarget.style.backgroundColor = "#E0E0F8";
-    arrMoveCont.parentNode.style.backgroundColor = "#E0E0F8";
+    
 
     return false;
 
@@ -84,6 +83,8 @@ function timerMoveNode()
 
 function arrangeNodeMove(e)
 {
+//	arrTarget.style.backgroundColor = "#E0E0F8";
+//    arrMoveCont.parentNode.style.backgroundColor = "#E0E0F8";
     if (document.all)e = event;
     if (arrMoveCounter < 10)return;
     if (document.all && arrMoveCounter >= 10 && e.button != 1 && navigator.userAgent.indexOf('Opera') == -1) {
@@ -110,7 +111,7 @@ function arrangeNodeMove(e)
                 arrInsertDiv.style.top = (topPos + offsetYInsertDiv) + 'px';
                 arrInsertDiv.style.display = 'block';
                 arrNodesDestination = subs[no];
-                subs[no].style.backgroundColor = "#BDBDBD";
+                subs[no].style.backgroundColor = "#F2F5A9";
                 insertAsFirstNode = true;
                 //                return;
             }
@@ -120,7 +121,7 @@ function arrangeNodeMove(e)
             arrInsertDiv.style.top = (topPos + tmpHeight + offsetYInsertDiv) + 'px';
             arrInsertDiv.style.display = 'block';
             arrNodesDestination = subs[no];
-            subs[no].style.backgroundColor = "#BDBDBD";
+            subs[no].style.backgroundColor = "#F2F5A9";
             insertAsFirstNode = false;
             //            return;
         }
