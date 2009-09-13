@@ -1,0 +1,18 @@
+#renhehead()
+#renheMenu("file")
+<div id="conbg">
+<div class=contitle>
+<div class=leftmain>添加原文</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="#">&#171;返回</a></div>
+<div class=rightmain></div>
+</div>
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=message></div></td></tr></table>
+#set($actionUrl="/accessory/actions.html?method=insert&insert=y&cm=$cm")
+<div class=conmain>
+	#parse( "/WEB-INF/pages/accessory/form.vm" )
+</div>
+</div>
+<br>
+#renheend()	

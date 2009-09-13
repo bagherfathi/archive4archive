@@ -16,6 +16,7 @@
 		<form-bean name="structureForm" type="com.renhenet.web.form.StructureForm" />
 		<form-bean name="fileForm" type="com.renhenet.web.form.FileForm" />
 		<form-bean name="filePigeonholeForm" type="com.renhenet.web.form.FilePigeonholeForm" />
+		<form-bean name="accessoryForm" type="com.renhenet.web.form.AccessoryForm" />
 	</form-beans>
 
 	<!-- ================================= Global Exception Definitions -->
@@ -112,6 +113,14 @@
 			<forward name="insertsuccess" path="/filepigeonhole/actions.html?method=list" redirect="true" />
 			<forward name="delete" path="/filepigeonhole/actions.html?method=list" redirect="true" />
 			<forward name="update" path="/WEB-INF/pages/filepigeonhole/update.vm" />
+		</action>
+
+        <action path="/accessory/actions"	type="com.renhenet.web.file.AccessoryAction" name="accessoryForm" input=""	 parameter="method" scope="request">
+			<forward name="list" path="/WEB-INF/pages/accessory/list.vm" />
+			<forward name="insert" path="/WEB-INF/pages/accessory/insert.vm" />
+			<forward name="insertsuccess" path="/accessory/actions.html?method=list" redirect="true" />
+			<forward name="delete" path="/accessory/actions.html?method=list" redirect="true" />
+			<forward name="update" path="/WEB-INF/pages/accessory/update.vm" />
 		</action>
 
 		</action-mappings>

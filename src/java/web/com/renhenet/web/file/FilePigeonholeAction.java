@@ -135,6 +135,20 @@ public class FilePigeonholeAction extends DispatchActions {
 				// 更新当前文件为已归档
 				File files = (File) service.getObjectById(File.class, form
 						.getFileGds()[i]);
+
+				if (context.getParameter("cm").indexOf("dsag") >= 0) {
+					files.setA7(form.getQzh());
+					files.setA6(form.getYear());
+					files.setA8(form.getBgqx());
+					files.setType(1);
+					service.updateObject(files);
+
+					return "/files/actions.html?method=list&infoSortId="
+							+ VMUtils.encrypt(infoSortId) + "&statuses="
+							+ VMUtils.encrypt(status) + "&cm="
+							+ context.getParameter("cm");
+				}
+
 				files.setA6("126");
 				files.setType(1);
 				service.updateObject(files);
@@ -155,7 +169,6 @@ public class FilePigeonholeAction extends DispatchActions {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					log.info("target=" + target);
 
 					try {
 						log.info("fileds[0].getType()" + fileds[0].getType());

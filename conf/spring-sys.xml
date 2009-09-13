@@ -24,6 +24,7 @@
 				<value>hibernate/Structure.hbm.xml</value>
 				<value>hibernate/File.hbm.xml</value>
 				<value>hibernate/FilePigeonhole.hbm.xml</value>
+				<value>hibernate/Accessory.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

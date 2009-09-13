@@ -75,9 +75,18 @@
 	<bean id="filePigeonholeService" parent="baseTransactionProxy" >
 		<property name="target">
 			<bean  class="com.renhenet.modules.member.FilePigeonholeService">
-		        <property name="dao"><ref bean="commonDao"/></property> 
+		        <property name="dao"><ref bean="commonDao"/></property>
 			</bean>
 		</property>
 	</bean>
+
+    <bean id="accessoryService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.AccessoryService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+
 	
 </beans>
