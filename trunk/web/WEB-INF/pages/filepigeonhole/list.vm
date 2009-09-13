@@ -8,7 +8,6 @@
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
 #set($urlPre = "/filepigeonhole/actions.html?method=list&cm=$cm")
 #end
-
 #if($!fileList)
 <form name="searchForm" method="post" action="/filepigeonhole/actions.html?method=update&infoSortIdsTo=$vMUtils.encrypt(227)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm">
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >

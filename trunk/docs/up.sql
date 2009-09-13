@@ -1,3 +1,15 @@
+CREATE TABLE `accessory` (
+  `id` int(11) NOT NULL auto_increment,
+  `file_id` int(11) default 0,
+  `old_name`  varchar(120) NOT NULL default '',
+  `new_name`  varchar(120) NOT NULL default '',
+  `time_create` datetime NOT NULL default '2009-8-8 3:38:00',
+  `time_modified` datetime NOT NULL default '2009-8-8 3:38:00',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+
+
+
 CREATE TABLE `file_pigeonhole` (
   `id` int(11) NOT NULL auto_increment,
   `info_sort_id` int(11) default 0,
@@ -31,7 +43,7 @@ CREATE TABLE `member` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
---ÐÅÏ¢ÃÅÀà¹ÜÀí
+--ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE `info_sort` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(32) NOT NULL default '',
@@ -44,7 +56,7 @@ CREATE TABLE `info_sort` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
---×ÖµäÀàÄ¿
+--ï¿½Öµï¿½ï¿½ï¿½Ä¿
 CREATE TABLE `dictionary_sort` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(32) NOT NULL default '',
@@ -68,7 +80,7 @@ CREATE TABLE `quanzong` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
---Êý¾Ý±í
+--ï¿½ï¿½Ý±ï¿½
 CREATE TABLE `structure` (
   `id` int(11) NOT NULL auto_increment,
   `en_name` varchar(32) default '',

@@ -121,10 +121,13 @@
 						<td class="tablelistbg">&nbsp;
 							##if($!infoSort.twoFloor!="")<a href="/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>#end
 							#if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>#end
+							
 							##if($file.a6!="126")	
 								<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
 								<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >添加原文</a>
 							##end
+							
 						</td>	
 					</tr>
 				#end
@@ -137,29 +140,29 @@
 	<tr>
 		<td >
 			<form name="fileForm" method="post" action="$!actionUrl" onSubmit = "return validateFileForm(this);">
-				<input type=text name=id value=$!bizObj.id>
+				<input type=hidden name=id value=$!bizObj.id>
 				#if($!bizObj.id>0)
-					<input type=text name=type value=$!bizObj.type>
+					<input type=hidden name=type value=$!bizObj.type>
 				#else
 					#if($parInfoSortId>0)
-						<input type=text id=type name=type value="1">
+						<input type=hidden id=type name=type value="1">
 					#else
 						#if($type==0)
-						<input type=text id=type name=type value="0">
+						<input type=hidden id=type name=type value="0">
 						#elseif($type==1)
-						<input type=text id=type name=type value="1">
+						<input type=hidden id=type name=type value="1">
 						#else
-						<input type=text id=type name=type value="-1">
+						<input type=hidden id=type name=type value="-1">
 						#end
 					#end
 				#end
-				<input type=text name=infoSortId value=$!infoSortId>
+				<input type=hidden name=infoSortId value=$!infoSortId>
 				#if($!parInfoSortId>0)
-				<input type=text name=parInfoSortId value=$!parInfoSortId>
+				<input type=hidden name=parInfoSortId value=$!parInfoSortId>
 				#else
-				<input type=text name=parInfoSortId value=$!bizObj.parInfoSortId>
+				<input type=hidden name=parInfoSortId value=$!bizObj.parInfoSortId>
 				#end
-				<input type=text name=status value=$!status>
+				<input type=hidden name=status value=$!status>
 				<table width="100%" border="0" cellpadding="2" cellspacing="3">
 								##时间型和日期型
 						#foreach($biz in $structureList)

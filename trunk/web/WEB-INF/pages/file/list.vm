@@ -184,6 +184,7 @@
 							##if($file.a6!="126")	
 								<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >╠Ю╪╜</a>
 								<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >и╬ЁЩ</a>
+								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >лМ╪ст╜нд</a>
 							##end
 						</td>	
 					</tr>
