@@ -14,7 +14,7 @@ var nodeHeights = new Array();
 var arrInsertDiv = false;
 var insertAsFirstNode = false;
 var arrNodesDestination = false;
-var howfarfrommouse = 10;
+var howfarfrommouse = 8;
 function cancelEvent()
 {
     return false;
@@ -157,17 +157,19 @@ function arrangeNodeStopMove()
 
 function saveArrangableNodes()
 {
+//    alert("aaaaaaaaaaaaaaaaaaa");
     var nodes = arrParent.getElementsByTagName('TR');
     var string = "";
     for (var no = 0; no < nodes.length; no++) {
         if (string.length > 0)string = string + ',';
         string = string + nodes[no].id;
     }
-
-    document.forms[0].hiddenNodeIds.value = string;
+//    alert("String"+string);
+//    document.forms[0].hiddenNodeIds.value = string;
 
     // Just for testing
     document.getElementById('arrDebug').innerHTML = 'Ready to save these nodes:<br>' + string.replace(/,/g, ',<BR>');
+    alert(document.getElementById('arrDebug').innerHTML);
 }
 
 function initArrangableNodes()
