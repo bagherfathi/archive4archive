@@ -13,4 +13,9 @@ public class InfoSortService extends CommonService {
 		return (List<InfoSort>) dao.find(hql, new Object[] { parentId });
 	}
 
+    public List<InfoSort> getInfoSortByParentIds(int parentId) {
+		String hql = "from InfoSort where parentId =? order by seq asc";
+
+		return (List<InfoSort>) dao.find(hql, new Object[] { parentId });
+	}
 }

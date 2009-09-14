@@ -16,80 +16,107 @@ import com.renhenet.web.VMUtils;
 import com.renhenet.web.form.InfoSortForm;
 
 public class InfoSortAction extends DispatchActions {
-	private static InfoSortService service = (InfoSortService) ServiceLocator
-			.getService("infoSortService");
+    private static InfoSortService service = (InfoSortService) ServiceLocator
+            .getService("infoSortService");
 
-	@SuppressWarnings("unchecked")
-	@Override
-	protected Class getActionClass() {
-		return InfoSort.class;
-	}
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Class getActionClass() {
+        return InfoSort.class;
+    }
 
-	@Override
-	protected SearchContext getListSearchContext(WebContext context) {
-		SearchContext searchContext = new SearchContext();
+    @Override
+    protected SearchContext getListSearchContext(WebContext context) {
+        SearchContext searchContext = new SearchContext();
 
-		searchContext.addOption(new SearchOption("parentId", 0,
-				SearchOption.Option.eqaul));
+        searchContext.setOrderByField("seq");
+        searchContext.setOrderBy("asc");
 
-		return searchContext;
-	}
+        searchContext.addOption(new SearchOption("parentId", 0,
+                SearchOption.Option.eqaul));
 
-	public String insertProcess(WebContext context) throws ServletException {
-		int parentId = context.getSIntParameter("parentId");
-		context.put("parentId", parentId);
+        return searchContext;
+    }
 
-		if (context.getParameter("insert") != null
-				|| context.getParameter("insert2") != null) {
-			InfoSortForm form = (InfoSortForm) context.getForm();
-			if (form.getParentId() > 0) {
-				super.insertProcess(context);
-				return "/infosort/actions.html?method=insert&parentId="
-						+ VMUtils.encrypt(form.getParentId());
-			}
-		}
-		List<InfoSort> infoSortList = service.getInfoSortByParentId(parentId);
-		context.put("infoSortList", infoSortList);
-		return super.insertProcess(context);
-	}
+    public String insertProcess(WebContext context) throws ServletException {
+        int parentId = context.getSIntParameter("parentId");
+        context.put("parentId", parentId);
 
-	public String updateProcess(WebContext context) throws ServletException {
-		int parentId = context.getSIntParameter("parentId");
-		context.put("parentId", parentId);
+        if ("list".equals(context.getParameter("insert"))) {
+            InfoSortForm form = (InfoSortForm) context.getForm();
 
-		if (context.getParameter("insert") != null
-				|| context.getParameter("insert2") != null) {
-			InfoSortForm form = (InfoSortForm) context.getForm();
-			if (form.getParentId() > 0) {
-				super.updateProcess(context);
-				return "/infosort/actions.html?method=update&parentId="
-						+ VMUtils.encrypt(form.getParentId());
-			}
-		}
+            List<InfoSort> infoSortList = service.getInfoSortByParentIds(parentId);
+            for (int i = 0; i < infoSortList.size(); i++) {
+                InfoSort infoSort = infoSortList.get(i);
+                for (int j = 0; j < form.getListseq().length; j++) {
+                    if (form.getListseq()[j] == i+1) {
+                        infoSort.setSeq(j+1 + "");
+                        service.updateObject(infoSort);
+                    }
+                }
+            }
+             return "/infosort/actions.html?method=list&parentId="
+                        + VMUtils.encrypt(form.getParentId());
+        }
+        if (context.getParameter("insert") != null
+                || context.getParameter("insert2") != null) {
+            InfoSortForm form = (InfoSortForm) context.getForm();
+            if (form.getParentId() > 0) {
+                super.insertProcess(context);
+                return "/infosort/actions.html?method=insert&parentId="
+                        + VMUtils.encrypt(form.getParentId());
+            }
+        }
+        List<InfoSort> infoSortList = service.getInfoSortByParentId(parentId);
+        context.put("infoSortList", infoSortList);
+        return super.insertProcess(context);
+    }
 
-		List<InfoSort> infoSortList = service.getInfoSortByParentId(parentId);
-		context.put("infoSortList", infoSortList);
+    public String updateProcess(WebContext context) throws ServletException {
+        int parentId = context.getSIntParameter("parentId");
+        context.put("parentId", parentId);
 
-		return super.updateProcess(context);
-	}
+        if (context.getParameter("insert") != null
+                || context.getParameter("insert2") != null) {
+            InfoSortForm form = (InfoSortForm) context.getForm();
+            if (form.getParentId() > 0) {
+                super.updateProcess(context);
+                return "/infosort/actions.html?method=update&parentId="
+                        + VMUtils.encrypt(form.getParentId());
+            }
+        }
 
-	public String deleteProcess(WebContext context) throws ServletException {
-		int parentId = context.getSIntParameter("parentId");
-		if (parentId > 0) {
-			super.deleteProcess(context);
-			return "/infosort/actions.html?method=update&parentId="
-					+ VMUtils.encrypt(parentId);
-		}
-		return super.deleteProcess(context);
-	}
+        List<InfoSort> infoSortList = service.getInfoSortByParentId(parentId);
+        context.put("infoSortList", infoSortList);
 
-	@Override
-	protected CommonService getService() {
-		return service;
-	}
+        return super.updateProcess(context);
+    }
 
-	@Override
-	public String getWebMenuType(WebContext context) throws ServletException {
-		return "infosort";
-	}
+    public String saveList(WebContext context) throws ServletException {
+
+
+//        List<InfoSort> infoSortList = service.getInfoSortByParentId(parentId);
+//		context.put("infoSortList", infoSortList);
+        return "";
+    }
+
+    public String deleteProcess(WebContext context) throws ServletException {
+        int parentId = context.getSIntParameter("parentId");
+        if (parentId > 0) {
+            super.deleteProcess(context);
+            return "/infosort/actions.html?method=update&parentId="
+                    + VMUtils.encrypt(parentId);
+        }
+        return super.deleteProcess(context);
+    }
+
+    @Override
+    protected CommonService getService() {
+        return service;
+    }
+
+    @Override
+    public String getWebMenuType(WebContext context) throws ServletException {
+        return "infosort";
+    }
 }
