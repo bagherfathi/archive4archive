@@ -155,7 +155,7 @@ function arrangeNodeStopMove()
     }
 }
 
-function saveArrangableNodes()
+function saveArrangableNodes(formName)
 {
 //    alert("aaaaaaaaaaaaaaaaaaa");
     var nodes = arrParent.getElementsByTagName('TR');
@@ -175,7 +175,9 @@ function saveArrangableNodes()
     // Just for testing
 //    document.getElementById('arrDebug').innerHTML = '<Ready to save these nodes:<br>' + string.replace(/,/g, ',<BR>');
 //    alert(string);
-    document.infoSortForm.submit();
+//    alert(formName);
+//    alert(document.getElementsByName(formName)[0].innerHTML);
+    document.getElementsByName(formName)[0].submit();
 }
 
 function initArrangableNodes()
