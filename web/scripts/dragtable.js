@@ -161,15 +161,21 @@ function saveArrangableNodes()
     var nodes = arrParent.getElementsByTagName('TR');
     var string = "";
     for (var no = 0; no < nodes.length; no++) {
-        if (string.length > 0)string = string + ',';
-        string = string + nodes[no].id;
+     nodes[no].innerHTML="<td><input name='listseq' type=hidden value="+nodes[no].id.substring(4,5)+" /></td>";
+//        if (string.length > 0)string = string + ',';
+//        string = string + nodes[no].innerHTML;
     }
+//    for (var no = 0; no < nodes.length; no++) {
+//        if (string.length > 0)string = string + ',';
+//        string = string + nodes[no].id;
+//    }
 //    alert("String"+string);
 //    document.forms[0].hiddenNodeIds.value = string;
 
     // Just for testing
-    document.getElementById('arrDebug').innerHTML = 'Ready to save these nodes:<br>' + string.replace(/,/g, ',<BR>');
-    alert(document.getElementById('arrDebug').innerHTML);
+//    document.getElementById('arrDebug').innerHTML = '<Ready to save these nodes:<br>' + string.replace(/,/g, ',<BR>');
+//    alert(string);
+    document.infoSortForm.submit();
 }
 
 function initArrangableNodes()

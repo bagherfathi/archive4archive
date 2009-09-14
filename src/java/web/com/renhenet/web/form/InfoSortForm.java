@@ -5,7 +5,17 @@ import com.renhenet.fw.waf.BasePOForm;
 public class InfoSortForm extends BasePOForm {
 	private static final long serialVersionUID = 6700588647849845079L;
 
-	private String name;
+    private int[] listseq;
+
+    public int[] getListseq() {
+        return listseq;
+    }
+
+    public void setListseq(int[] listseq) {
+        this.listseq = listseq;
+    }
+
+    private String name;
 
 	private String seq;
 
