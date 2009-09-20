@@ -1,18 +1,18 @@
-#if($accessoryList)
+#if($fileDtoList)
 <div id="listhead">
 		<div id="listheadleftimg"></div>
 		<div id="listheadrightimg"></div>
 	</div>
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
-            <td class="tableheadingbg">文件名称</td>
+            <td class="tableheadingbg">文件路径</td>
 			<td class="tableheadingbg">操作</td>
           </tr>
-		#foreach($biz in $accessoryList)
+		#foreach($biz in $fileDtoList)
 		<tr>
-			<td class="tablelistbg">$biz.oldName</td>
+			<td class="tablelistbg">$biz.filePath</td>
 			<td class="tablelistbg">
-				<a href="/upload/$biz.newName" target="_blank">查看</a>
+				<a href="$biz.filePath" target="_blank">查看</a>
 			</td>
          </tr>
 		#end

@@ -175,12 +175,32 @@
 							<td class="tablelistbg">&nbsp;#if($!file.a49!='null')$!file.a49#end</td>
 							#elseif($strIndex=='a50')
 							<td class="tablelistbg">&nbsp;#if($!file.a50!='null')$!file.a50#end</td>
+							#elseif($strIndex=='a51')
+							<td class="tablelistbg">&nbsp;#if($!file.a51!='null')$!file.a51#end</td>
+							#elseif($strIndex=='a52')
+							<td class="tablelistbg">&nbsp;#if($!file.a52!='null')$!file.a52#end</td>
+							#elseif($strIndex=='a53')
+							<td class="tablelistbg">&nbsp;#if($!file.a53!='null')$!file.a53#end</td>
+							#elseif($strIndex=='a54')
+							<td class="tablelistbg">&nbsp;#if($!file.a54!='null')$!file.a54#end</td>
+							#elseif($strIndex=='a55')
+							<td class="tablelistbg">&nbsp;#if($!file.a55!='null')$!file.a55#end</td>
+							#elseif($strIndex=='a56')
+							<td class="tablelistbg">&nbsp;#if($!file.a56!='null')$!file.a56#end</td>
+							#elseif($strIndex=='a57')
+							<td class="tablelistbg">&nbsp;#if($!file.a57!='null')$!file.a57#end</td>
+							#elseif($strIndex=='a58')
+							<td class="tablelistbg">&nbsp;#if($!file.a58!='null')$!file.a58#end</td>
+							#elseif($strIndex=='a59')
+							<td class="tablelistbg">&nbsp;#if($!file.a59!='null')$!file.a59#end</td>
+							#elseif($strIndex=='a60')
+							<td class="tablelistbg">&nbsp;#if($!file.a60!='null')$!file.a60#end</td>
 							#end
 						#end
 					#end
 						<td class="tablelistbg">&nbsp;
 							#if($!infoSort.twoFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>#end
-							#if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>#end
+							##if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>#end
 							##if($file.a6!="126")	
 								<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
 								<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
