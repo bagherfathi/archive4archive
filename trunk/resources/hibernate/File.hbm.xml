@@ -169,8 +169,38 @@
          <property name="a49" type="java.lang.String">
             <column name="A49" length="120" />
         </property>
-         <property name="a50" type="java.lang.String">
+        <property name="a50" type="java.lang.String">
             <column name="A50" length="120" />
+        </property>
+        <property name="a51" type="java.lang.String">
+            <column name="A51" length="120" />
+        </property>
+        <property name="a52" type="java.lang.String">
+            <column name="A52" length="120" />
+        </property>
+        <property name="a53" type="java.lang.String">
+            <column name="A53" length="120" />
+        </property>
+        <property name="a54" type="java.lang.String">
+            <column name="A54" length="120" />
+        </property>
+        <property name="a55" type="java.lang.String">
+            <column name="A55" length="120" />
+        </property>
+        <property name="a56" type="java.lang.String">
+            <column name="A56" length="120" />
+        </property>
+        <property name="a57" type="java.lang.String">
+            <column name="A57" length="120" />
+        </property>
+        <property name="a58" type="java.lang.String">
+            <column name="A58" length="120" />
+        </property>
+        <property name="a59" type="java.lang.String">
+            <column name="A59" length="120" />
+        </property>
+        <property name="a60" type="java.lang.String">
+            <column name="A60" length="120" />
         </property>
         
        
