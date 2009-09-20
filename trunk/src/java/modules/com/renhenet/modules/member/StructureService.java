@@ -29,7 +29,13 @@ public class StructureService extends CommonService {
 	@SuppressWarnings("unchecked")
 	public List<Structure> getStructureByInfoSortIdAndInStatus(int infoSortId,
 			int status) {
-		String hql = "from Structure where infoSortId =?";
+		String hql = "";
+		if (status == 2) {
+			hql = "from Structure where infoSortId in (544,221,559)";
+		} else {
+			hql = "from Structure where infoSortId =?";
+		}
+
 		if (status == 0) {
 			hql += " and status in(0)";
 		} else if (status == 1) {
@@ -40,7 +46,12 @@ public class StructureService extends CommonService {
 
 		hql += " and isDelete=0 order by taxis asc";
 
-		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
+		if (status == 2) {
+			 return (List<Structure>) dao.find(hql, null);
+		}else{
+			return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
+		}
+		
 	}
 
 	// 根据信息门类得到最后添加的一条Structure记录处理

@@ -1,5 +1,6 @@
 package com.renhenet.web.file;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import org.apache.struts.upload.FormFile;
 
 import com.renhenet.fw.Config;
 import com.renhenet.fw.ServiceLocator;
+import com.renhenet.fw.util.FileManager;
 import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
 import com.renhenet.modules.member.AccessoryService;
@@ -22,7 +24,9 @@ import com.renhenet.web.WebHelper;
 import com.renhenet.web.form.AccessoryForm;
 
 public class AccessoryAction extends DispatchActions {
-	private static final String FILE_PATH = Config.getString("file.path","D:/dangan/dangan/web/upload/");
+	private static final String FILE_PATH = Config.getString("file.path",
+			"D:/dangan/dangan/web/upload/");
+	
 
 	private static AccessoryService service = (AccessoryService) ServiceLocator
 			.getService("accessoryService");
@@ -37,8 +41,18 @@ public class AccessoryAction extends DispatchActions {
 		context.put("fileId", fileId);
 
 		// 得到文件的原文
-		List<Accessory> accessoryList = service.getAccessoryByFileId(fileId);
-		context.put("accessoryList", accessoryList);
+		// List<Accessory> accessoryList = service.getAccessoryByFileId(fileId);
+		// context.put("accessoryList", accessoryList);
+
+		List<FileDto> fileDtoList = new ArrayList();
+		FileManager fm = new FileManager();
+		List<String> fileList = fm.serachFiles(FILE_PATH);
+		for (int i = 0; i < fileList.size(); i++) {
+			FileDto fileDto = new FileDto();
+			fileDto.setFilePath("/upload/"+fileList.get(i));
+			fileDtoList.add(fileDto);
+		}
+		context.put("fileDtoList", fileDtoList);
 
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {

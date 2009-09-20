@@ -8,40 +8,39 @@ package com.renhenet.fw.util;
  * To change this template use File | Settings | File Templates.
  */
 
-
 import java.io.File;
 import java.util.List;
 import java.util.ArrayList;
 
-public class   FileManager {
+public class FileManager {
 
-    List<String> outList=new ArrayList();
- 
-    public synchronized List<String>  serachFiles(String dir) {
-        File root = new File(dir);
-        File[] filesOrDirs = root.listFiles();
-        for (int i = 0; i < filesOrDirs.length; i++) {
-            if (filesOrDirs[i].isDirectory()) {
-                serachFiles(filesOrDirs[i].getAbsolutePath());
-            } else {
-                String filePath=filesOrDirs[i].getAbsolutePath();
-                outList.add(filePath);
-            }
-        }
-        return  outList;
-    }
+	List<String> outList = new ArrayList();
 
-    /** */
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        FileManager fm = new FileManager();
-        List<String> fileList= fm.serachFiles("/home/tingwei/project/mmp/");
-        for (int i = 0; i <fileList.size(); i++) {
-            System.out.println(fileList.get(i));
-        }
-        System.out.print(fileList.size());
+	public synchronized List<String> serachFiles(String dir) {
+		File root = new File(dir);
+		File[] filesOrDirs = root.listFiles();
+		for (int i = 0; i < filesOrDirs.length; i++) {
+			if (filesOrDirs[i].isDirectory()) {
+				serachFiles(filesOrDirs[i].getAbsolutePath());
+			} else {
+				String filePath = filesOrDirs[i].getName();
+				outList.add(filePath);
+			}
+		}
+		return outList;
+	}
 
-    }
+	/** */
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		FileManager fm = new FileManager();
+		List<String> fileList = fm.serachFiles("D://dangan//dangan//conf");
+		for (int i = 0; i < fileList.size(); i++) {
+			System.out.println(fileList.get(i));
+		}
+		System.out.print(fileList.size());
+
+	}
 }

@@ -58,6 +58,96 @@ public class File extends IdPersistent implements java.io.Serializable {
 	private String a48;
 	private String a49;
 	private String a50;
+	private String a51;
+	private String a52;
+	private String a53;
+	private String a54;
+	private String a55;
+	private String a56;
+	private String a57;
+	private String a58;
+	private String a59;
+	private String a60;
+
+	public String getA51() {
+		return a51;
+	}
+
+	public void setA51(String a51) {
+		this.a51 = a51;
+	}
+
+	public String getA52() {
+		return a52;
+	}
+
+	public void setA52(String a52) {
+		this.a52 = a52;
+	}
+
+	public String getA53() {
+		return a53;
+	}
+
+	public void setA53(String a53) {
+		this.a53 = a53;
+	}
+
+	public String getA54() {
+		return a54;
+	}
+
+	public void setA54(String a54) {
+		this.a54 = a54;
+	}
+
+	public String getA55() {
+		return a55;
+	}
+
+	public void setA55(String a55) {
+		this.a55 = a55;
+	}
+
+	public String getA56() {
+		return a56;
+	}
+
+	public void setA56(String a56) {
+		this.a56 = a56;
+	}
+
+	public String getA57() {
+		return a57;
+	}
+
+	public void setA57(String a57) {
+		this.a57 = a57;
+	}
+
+	public String getA58() {
+		return a58;
+	}
+
+	public void setA58(String a58) {
+		this.a58 = a58;
+	}
+
+	public String getA59() {
+		return a59;
+	}
+
+	public void setA59(String a59) {
+		this.a59 = a59;
+	}
+
+	public String getA60() {
+		return a60;
+	}
+
+	public void setA60(String a60) {
+		this.a60 = a60;
+	}
 
 	public String getTitle() {
 		return title;

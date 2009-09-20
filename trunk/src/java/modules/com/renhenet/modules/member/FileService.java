@@ -31,6 +31,11 @@ public class FileService extends CommonService {
 		String hql = "from File where  parInfoSortId =? order by id desc";
 		return (List<File>) dao.find(hql, new Object[] { parInfoSortId });
 	}
+	
+	public List<File> getFileByParInfoSortId(String parInfoSortId) {
+		String hql = "from File where  parInfoSortId in(?) order by id desc";
+		return (List<File>) dao.find(hql, new Object[] { parInfoSortId });
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<File> getFileByInfoSortIdAnd(int infoSortId, String a5,

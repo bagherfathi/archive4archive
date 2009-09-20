@@ -40,6 +40,10 @@ public class FileAction extends DispatchActions {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
 
+		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
+				InfoSort.class, infoSortId);
+		context.put("infoSort", infoSort);
+
 		int type = context.getIntParameter("types");
 		context.put("type", type);
 
@@ -72,7 +76,8 @@ public class FileAction extends DispatchActions {
 			FileForm form = (FileForm) context.getForm();
 			super.insertProcess(context);
 
-			return "/file/actions.html?method=list&infoSortId="
+			return "/file/actions.html?method=insert&parInfoSortIds="
+					+ VMUtils.encrypt(parInfoSortId) + "&infoSortIds="
 					+ VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
 					+ VMUtils.encrypt(status) + "&cm="
 					+ context.getParameter("cm");
@@ -83,6 +88,11 @@ public class FileAction extends DispatchActions {
 	public String updateProcess(WebContext context) throws ServletException {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
+
+		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
+				InfoSort.class, infoSortId);
+		context.put("infoSort", infoSort);
+
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
@@ -100,11 +110,19 @@ public class FileAction extends DispatchActions {
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
+		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
+		context.put("parInfoSortId", parInfoSortId);
+
 		super.deleteProcess(context);
 
-		return "/file/actions.html?method=list&oc=all&infoSortId="
+		return "/file/actions.html?method=insert&parInfoSortIds="
+				+ VMUtils.encrypt(parInfoSortId) + "&infoSortIds="
 				+ VMUtils.encrypt(infoSortId) + "&statuses="
 				+ VMUtils.encrypt(status) + "&cm=" + context.getParameter("cm");
+
+		// return "/file/actions.html?method=list&oc=all&infoSortId="
+		// + VMUtils.encrypt(infoSortId) + "&statuses="
+		// + VMUtils.encrypt(status) + "&cm=" + context.getParameter("cm");
 	}
 
 	@Override
