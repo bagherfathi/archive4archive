@@ -182,6 +182,12 @@ function saveArrangableNodes(formName)
 
 function initArrangableNodes()
 {
+    if(null==document.getElementById('arrangableNodes') ){
+        return;
+    }
+    if(null==document.getElementById('movableNode')){
+        return;
+    }
     arrParent = document.getElementById('arrangableNodes');
     arrMoveCont = document.getElementById('movableNode').getElementsByTagName('table')[0].getElementsByTagName('tbody')[0];
 
