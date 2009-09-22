@@ -158,10 +158,11 @@ function arrangeNodeStopMove()
 function saveArrangableNodes(formName)
 {
     var nodes = arrParent.getElementsByTagName('TR');
-    var string = "";
     for (var no = 0; no < nodes.length; no++) {
-        nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " /></td>";
+        var td = nodes[no].insertCell();
+        td.innerHTML = "<input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " />";
     }
+
     document.getElementsByName(formName)[0].submit();
 }
 
