@@ -13,6 +13,16 @@ public class MemberForm extends BasePOForm {
 
 	private Integer state;
 
+	private int type;
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	public String getIsAdmin() {
 		return isAdmin;
 	}

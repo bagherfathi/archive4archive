@@ -172,6 +172,11 @@
 								<td>
 									<input type="checkbox" name="isLists" value="1" #if($!bizObj.isLists==1)checked#end>
 								</td>
+								<td bgcolor="#eeeee5" width="20%">µµ∫≈≈‰÷√◊÷∂Œ:
+								</td>
+								<td>
+									<input type="checkbox" name="isDhpz" value="1" #if($!bizObj.isDhpz==1)checked#end>
+								</td>
 							
 							</tr>
 							<tr>

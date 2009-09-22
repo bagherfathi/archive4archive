@@ -139,9 +139,9 @@
 						#end
 					#end
 						<td class="tablelistbg">&nbsp;
-							#if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($file.id)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>#end
+							#if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>#end
 							##if($file.a6!="126")	
-								<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($parInfoSortId)&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm"  >编辑</a>
+								<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&parInfoSortIds=$vMUtils.encrypt($parInfoSortId)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm"  >编辑</a>
 								<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&parInfoSortIds=$vMUtils.encrypt($parInfoSortId)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm"  >删除</a>
 								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >添加原文</a>
 							##end
@@ -175,10 +175,11 @@
 					#end
 				#end
 				<input type=hidden name=infoSortId value=$!infoSortId>
+				
 				#if($!parInfoSortId>0)
-				<input type=text name=parInfoSortId value=$!parInfoSortId>
+				<input type=hidden name=parInfoSortId value=$!parInfoSortId>
 				#else
-				<input type=text name=parInfoSortId value=$!bizObj.parInfoSortId>
+				<input type=hidden name=parInfoSortId value=$!bizObj.parInfoSortId>
 				#end
 				<input type=hidden name=status value=$!status>
 				<table width="100%" border="0" cellpadding="2" cellspacing="3">

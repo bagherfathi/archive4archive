@@ -13,9 +13,34 @@ public class InfoSortService extends CommonService {
 		return (List<InfoSort>) dao.find(hql, new Object[] { parentId });
 	}
 
-    public List<InfoSort> getInfoSortByParentIds(int parentId) {
-		String hql = "from InfoSort where parentId =? order by seq asc";
+	/**
+	 * 得到可以copy的底层分类
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public List<InfoSort> getInfoSortByTypeAndCopy(int type) {
+		String hql = "from InfoSort where type =? and copy=0 order by id desc";
 
-		return (List<InfoSort>) dao.find(hql, new Object[] { parentId });
+		return (List<InfoSort>) dao.find(hql, new Object[] { type });
 	}
+
+	public List<InfoSort> getInfoSortByNotTypeAndCopy(int type) {
+		String hql = "from InfoSort where type <>? order by id desc";
+
+		return (List<InfoSort>) dao.find(hql, new Object[] { type });
+	}
+
+	/**
+	 * 得到所有底层分类
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public List<InfoSort> getInfoSortByType(int type) {
+		String hql = "from InfoSort where type =? order by id desc";
+
+		return (List<InfoSort>) dao.find(hql, new Object[] { type });
+	}
+
 }

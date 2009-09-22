@@ -22,6 +22,9 @@
         <property name="type" type="java.lang.Integer">
             <column name="type" />
         </property>
+        <property name="copy" type="java.lang.Integer">
+            <column name="copy" />
+        </property>
         <property name="parentId" type="java.lang.Integer">
             <column name="parent_id" />
         </property>

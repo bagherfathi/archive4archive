@@ -88,7 +88,7 @@
     			#end
     								
 			</div>
-			<li>
+			#**<li>
 				<a  onClick="javascript:showdesc(92)"  class=menubg>
 					#set($menuOpen = false)
         		#if($memuModule == "file" && $cm.indexOf("dsag")>=0)
@@ -109,7 +109,7 @@
 	    			#set($index=$index+1)
 	    			#end	
 	    		</ul>
-	    	</div>
+	    	</div>**#
     	</ul>
 	</div>
 
@@ -140,11 +140,10 @@
 				<div id="desc62" style="display:#if($memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
 					<ul>
 						<li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息分类 </a></li>
+						<li><a href="/cpstructure/actions.html?method=insert"  #showMenuClass("infosort")> 复制添加信息分类 </a></li>
+						<li><a href="/dhsz/actions.html?method=list"  #showMenuClass("infosort")> 档号设置 </a></li>
 						<li><a href="/dictionarysort/actions.html?method=list" #showMenuClass("dictionarysort")> 字典类目 </a></li>
 						<li><a href="/quanzong/actions.html?method=list" #showMenuClass("quanzong")> 全宗管理 </a></li>
-						
-						<!--li><a href="/resources/actions.html?method=list&type=contentment&cm=sys9"  class=menubg2> 满意度管理 </a></li>
-						<li><a href="/resources/actions.html?method=list&type=enterpriseType&cm=sys8" class=menubg2> 企业类型    </a></li-->
 					</ul>
 				</div>
 			</ul>	

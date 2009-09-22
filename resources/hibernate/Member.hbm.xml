@@ -19,6 +19,9 @@
         <property name="state" type="java.lang.Integer">
             <column name="state" />
         </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" />
+        </property>
         <property name="isAdmin" type="java.lang.String">
             <column name="is_admin" />
         </property>

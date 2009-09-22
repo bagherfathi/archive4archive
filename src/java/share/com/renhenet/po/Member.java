@@ -4,8 +4,7 @@ import java.util.Date;
 
 import com.renhenet.fw.orm.IdPersistent;
 
-public class Member extends IdPersistent implements
-		java.io.Serializable {
+public class Member extends IdPersistent implements java.io.Serializable {
 
 	private static final long serialVersionUID = 4557104755589524548L;
 
@@ -22,6 +21,8 @@ public class Member extends IdPersistent implements
 	private Date timeCreate;
 
 	private Date timeModified;
+
+	private int type;
 
 	public Integer getId() {
 		return id;
@@ -77,6 +78,14 @@ public class Member extends IdPersistent implements
 
 	public void setTimeModified(Date timeModified) {
 		this.timeModified = timeModified;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }

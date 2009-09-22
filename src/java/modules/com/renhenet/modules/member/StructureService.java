@@ -18,6 +18,25 @@ public class StructureService extends CommonService {
 		return (List<Structure>) dao.find(hql, new Object[] { infoSortId,
 				status });
 	}
+	
+	public List<Structure> getStructureByInfoSortIdAndNotDelete(int infoSortId) {
+		String hql = "from Structure where infoSortId =? and isDelete=0 order by taxis asc";
+
+		return (List<Structure>) dao.find(hql, new Object[] { infoSortId});
+	}
+
+	/**
+	 * 得到没有说出的所有可以作为档号的字段
+	 * 
+	 * @param infoSortId
+	 * @param status
+	 * @return
+	 */
+	public List<Structure> getStructureByInfoSortId(int infoSortId) {
+		String hql = "from Structure where infoSortId =? and isDelete=0 and isDhpz = 0 order by taxis asc";
+
+		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
+	}
 
 	public Structure getStructureByInfoSortIdAndSerialNumber(int infoSortId,
 			String serialNumber) {
@@ -29,12 +48,8 @@ public class StructureService extends CommonService {
 	@SuppressWarnings("unchecked")
 	public List<Structure> getStructureByInfoSortIdAndInStatus(int infoSortId,
 			int status) {
-		String hql = "";
-		if (status == 2) {
-			hql = "from Structure where infoSortId in (544,221,559)";
-		} else {
-			hql = "from Structure where infoSortId =?";
-		}
+
+		String hql = "from Structure where infoSortId =?";
 
 		if (status == 0) {
 			hql += " and status in(0)";
@@ -46,20 +61,14 @@ public class StructureService extends CommonService {
 
 		hql += " and isDelete=0 order by taxis asc";
 
-		if (status == 2) {
-			 return (List<Structure>) dao.find(hql, null);
-		}else{
-			return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
-		}
-		
+		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
 	}
 
 	// 根据信息门类得到最后添加的一条Structure记录处理
-	public int getStructureByinfoSortId(int infoSortId, int status) {
-		String hql = "from Structure where infoSortId =? and status=? order by id desc";
-		logger.info(infoSortId + "___" + status);
-		Structure structure = (Structure) dao.findSingle(hql, new Object[] {
-				infoSortId, status });
+	public int getStructureByinfoSortId(int infoSortId) {
+		String hql = "from Structure where infoSortId =? order by id desc";
+		Structure structure = (Structure) dao.findSingle(hql,
+				new Object[] { infoSortId });
 		if (structure == null) {
 			return 1;
 		} else {
