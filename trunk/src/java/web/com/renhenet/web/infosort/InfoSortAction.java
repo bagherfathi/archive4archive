@@ -45,7 +45,7 @@ public class InfoSortAction extends DispatchActions {
         if ("list".equals(context.getParameter("insert"))) {
             InfoSortForm form = (InfoSortForm) context.getForm();
 
-            List<InfoSort> infoSortList = service.getInfoSortByParentIds(parentId);
+            List<InfoSort> infoSortList = service.getInfoSortByParentId(parentId);
             for (int i = 0; i < infoSortList.size(); i++) {
                 InfoSort infoSort = infoSortList.get(i);
                 for (int j = 0; j < form.getListseq().length; j++) {

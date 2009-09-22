@@ -32,6 +32,15 @@ public class StructureForm extends BasePOForm {
 	private int taxis3;
 	private int ifTwo;
 	private int ifThree;
+	private int isDhpz;
+
+	public int getIsDhpz() {
+		return isDhpz;
+	}
+
+	public void setIsDhpz(int isDhpz) {
+		this.isDhpz = isDhpz;
+	}
 
 	public int getIfTwo() {
 		return ifTwo;

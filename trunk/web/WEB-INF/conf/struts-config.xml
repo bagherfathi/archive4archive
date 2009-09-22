@@ -122,6 +122,11 @@
 			<forward name="delete" path="/accessory/actions.html?method=list" redirect="true" />
 			<forward name="update" path="/WEB-INF/pages/accessory/update.vm" />
 		</action>
+		
+		<action path="/cpstructure/actions"	type="com.renhenet.web.structure.CPStructureAction" name="infosortForm" input=""	parameter="method" scope="request">
+			<forward name="insert" path="/WEB-INF/pages/structure/cpinsert.vm" />
+			<forward name="insertsuccess" path="/cpstructure/actions.html?method=list" redirect="true" />
+		</action>
 
 		</action-mappings>
 		

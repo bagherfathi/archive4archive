@@ -5,17 +5,18 @@ import com.renhenet.fw.waf.BasePOForm;
 public class InfoSortForm extends BasePOForm {
 	private static final long serialVersionUID = 6700588647849845079L;
 
-    private int[] listseq;
+	private int[] listseq;
 
-    public int[] getListseq() {
-        return listseq;
-    }
+	public int[] getListseq() {
+		return listseq;
+	}
 
-    public void setListseq(int[] listseq) {
-        this.listseq = listseq;
-    }
+	public void setListseq(int[] listseq) {
+		this.listseq = listseq;
+	}
 
-    private String name;
+	private int infoSortId;
+	private String name;
 
 	private String seq;
 
@@ -32,6 +33,24 @@ public class InfoSortForm extends BasePOForm {
 	private String threeFloor;
 
 	private int status;
+
+	private int copy;
+
+	public int getInfoSortId() {
+		return infoSortId;
+	}
+
+	public void setInfoSortId(int infoSortId) {
+		this.infoSortId = infoSortId;
+	}
+
+	public int getCopy() {
+		return copy;
+	}
+
+	public void setCopy(int copy) {
+		this.copy = copy;
+	}
 
 	public int getStatus() {
 		return status;

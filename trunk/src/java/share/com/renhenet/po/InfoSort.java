@@ -25,6 +25,16 @@ public class InfoSort extends IdPersistent implements java.io.Serializable {
 
 	private String threeFloor;
 
+	private int copy;
+
+	public int getCopy() {
+		return copy;
+	}
+
+	public void setCopy(int copy) {
+		this.copy = copy;
+	}
+
 	public int getStatus() {
 		return status;
 	}

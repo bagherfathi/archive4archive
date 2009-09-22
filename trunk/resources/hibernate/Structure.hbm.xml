@@ -93,6 +93,9 @@
 		 <property name="ifThree" type="java.lang.Integer">
             <column name="if_three" />
         </property>
+		 <property name="isDhpz" type="java.lang.Integer">
+            <column name="is_dhpz" />
+        </property>
         <property name="timeCreate" type="java.util.Date">
             <column name="time_create" length="19" not-null="true" />
         </property>

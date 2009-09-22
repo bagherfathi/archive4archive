@@ -50,7 +50,7 @@ public class StructureAction extends DispatchActions {
 			StructureForm form = (StructureForm) context.getForm();
 
 			int serialNumber = service.getStructureByinfoSortId(form
-					.getInfoSortId(),form.getStatus());
+					.getInfoSortId());
 
 			String strSerialNumber = "a" + serialNumber;
 			form.setSerialNumber(strSerialNumber);

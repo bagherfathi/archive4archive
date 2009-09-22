@@ -34,6 +34,7 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 	private int isLists;
 	private int ifTwo;
 	private int ifThree;
+	private int isDhpz;
 
 	// µÚ¼¸²ã
 	private int status;
@@ -252,6 +253,14 @@ public class Structure extends IdPersistent implements java.io.Serializable {
 
 	public void setIfThree(int ifThree) {
 		this.ifThree = ifThree;
+	}
+
+	public int getIsDhpz() {
+		return isDhpz;
+	}
+
+	public void setIsDhpz(int isDhpz) {
+		this.isDhpz = isDhpz;
 	}
 
 }

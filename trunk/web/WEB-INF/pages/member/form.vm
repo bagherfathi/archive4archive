@@ -29,6 +29,16 @@
 									</select>
 								</td>
 							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">原文查看权限:
+								</td>
+								<td>
+									<select name="type">
+										<option value="0" #if($!bizObj.type==0) selected #end>可以查看</option>
+										<option value="1" #if($!bizObj.type==1) selected #end>不能查看</option>
+									</select>
+								</td>
+							</tr>
 						</table>
 						<table width="100%" border="0" cellspacing="4" cellpadding="0">
 							<tr>
