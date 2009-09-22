@@ -1,7 +1,8 @@
 <script language="javascript">
 	function tick() {
 	   var today
-	   today = new Date()
+	   today = new Date();
+       var Clock = document.getElementById("Clock");
 	   Clock.innerHTML = today.toLocaleString();
 	   window.setTimeout("tick()", 1000);
 	}
