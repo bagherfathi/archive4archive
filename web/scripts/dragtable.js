@@ -15,6 +15,7 @@ var arrInsertDiv = false;
 var insertAsFirstNode = false;
 var arrNodesDestination = false;
 var howfarfrommouse = 8;
+var browser = "";
 function cancelEvent()
 {
     return false;
@@ -154,15 +155,38 @@ function arrangeNodeStopMove()
         subs[no].style.backgroundColor = "#FFFFFF";
     }
 }
+function getBrowser()
+{
+    if (navigator.userAgent.indexOf("MSIE") > 0) {
+        return "MSIE";
+    }
+    if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
+        return "Firefox";
+    }
+    if (isSafari = navigator.userAgent.indexOf("Safari") > 0) {
+        return "Safari";
+    }
+    if (isCamino = navigator.userAgent.indexOf("Camino") > 0) {
+        return "Camino";
+    }
+    if (isMozilla = navigator.userAgent.indexOf("Gecko/") > 0) {
+        return "Gecko";
+    }
 
+}
 function saveArrangableNodes(formName)
 {
     var nodes = arrParent.getElementsByTagName('TR');
     for (var no = 0; no < nodes.length; no++) {
-        var td = nodes[no].insertCell();
-        td.innerHTML = "<input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " />";
+        if (browser == "MSIE") {
+            var td = nodes[no].insertCell();
+            td.innerHTML = "<input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " />";
+        } else if (browser == "Firefox") {
+            nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " /></td>";
+        }else{
+            nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " /></td>";
+        }
     }
-
     document.getElementsByName(formName)[0].submit();
 }
 
@@ -193,5 +217,6 @@ function initArrangableNodes()
     document.documentElement.onmousemove = arrangeNodeMove;
     document.documentElement.onselectstart = cancelEvent;
     arrInsertDiv.style.display = 'none';
+    browser = getBrowser();
 }
 //window.onload = initArrangableNodes;
