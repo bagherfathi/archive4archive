@@ -65,7 +65,7 @@ function initMoveNode(e)
 
     arrMoveCont.parentNode.style.position = "absolute";
     arrMoveCont.parentNode.style.cursor = "pointer";
-    
+
 
     return false;
 
@@ -83,8 +83,8 @@ function timerMoveNode()
 
 function arrangeNodeMove(e)
 {
-//	arrTarget.style.backgroundColor = "#E0E0F8";
-//    arrMoveCont.parentNode.style.backgroundColor = "#E0E0F8";
+    //	arrTarget.style.backgroundColor = "#E0E0F8";
+    //    arrMoveCont.parentNode.style.backgroundColor = "#E0E0F8";
     if (document.all)e = event;
     if (arrMoveCounter < 10)return;
     if (document.all && arrMoveCounter >= 10 && e.button != 1 && navigator.userAgent.indexOf('Opera') == -1) {
@@ -157,35 +157,20 @@ function arrangeNodeStopMove()
 
 function saveArrangableNodes(formName)
 {
-//    alert("aaaaaaaaaaaaaaaaaaa");
     var nodes = arrParent.getElementsByTagName('TR');
     var string = "";
     for (var no = 0; no < nodes.length; no++) {
-     nodes[no].innerHTML="<td><input name='listseq' type=hidden value="+nodes[no].id.substring(4,5)+" /></td>";
-//        if (string.length > 0)string = string + ',';
-//        string = string + nodes[no].innerHTML;
+        nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " /></td>";
     }
-//    for (var no = 0; no < nodes.length; no++) {
-//        if (string.length > 0)string = string + ',';
-//        string = string + nodes[no].id;
-//    }
-//    alert("String"+string);
-//    document.forms[0].hiddenNodeIds.value = string;
-
-    // Just for testing
-//    document.getElementById('arrDebug').innerHTML = '<Ready to save these nodes:<br>' + string.replace(/,/g, ',<BR>');
-//    alert(string);
-//    alert(formName);
-//    alert(document.getElementsByName(formName)[0].innerHTML);
     document.getElementsByName(formName)[0].submit();
 }
 
 function initArrangableNodes()
 {
-    if(null==document.getElementById('arrangableNodes') ){
+    if (null == document.getElementById('arrangableNodes')) {
         return;
     }
-    if(null==document.getElementById('movableNode')){
+    if (null == document.getElementById('movableNode')) {
         return;
     }
     arrParent = document.getElementById('arrangableNodes');
