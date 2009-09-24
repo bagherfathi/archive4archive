@@ -128,13 +128,7 @@ public class FileAction extends DispatchActions {
 	protected SearchContext getListSearchContext(WebContext context) {
 		SearchContext searchContext = new SearchContext();
 		int infoSortId = context.getSIntParameter("infoSortId");
-		if (infoSortId >= 0) {
-			searchContext.addOption(new SearchOption("infoSortId", infoSortId,
-					SearchOption.Option.eqaul));
 
-			searchContext.addOption(new SearchOption("parInfoSortId", 0,
-					SearchOption.Option.eqaul));
-		}
 		context.put("infoSortId", infoSortId);
 
 		int status = context.getSIntParameter("statuses");
@@ -144,15 +138,22 @@ public class FileAction extends DispatchActions {
 				.getStructureByInfoSortId(infoSortId, status);
 
 		context.put("structureList", structureList);
-		String a5 = context.getParameter("a5");
-		context.put("a5", a5);
+		String a5 = context.getParameter("titleA5");
+		context.put("titleA5", a5);
 		a5 = this.getTitles(a5);
 
+//		for (int i = 0; i <= 100; i++) {
+//			String name = "a" + i;
+//			String value = context.getParameter(name);
+//			if (!StringUtils.isEmpty(value)) {
+//				context.put(name, value);
+//			}
+//		}
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
 			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, 0);
 		} else {
-			fileList = service.getFileByInfoSortId(infoSortId, 0);
+			fileList = service.getFileByInfoSortId(infoSortId, 0, context);
 		}
 		context.put("fileList", fileList);
 

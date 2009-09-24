@@ -12,7 +12,8 @@
 	#end
 #end
 #set($urlPre = "/file/actions.html?method=list&cm=$cm")
-#if($!fileList)
+
+<iframe width=174 height=172 name="gToday:normal:/scripts/time/agenda.js"  src="/scripts/time/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>     
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" id="searchform">
               <tr>
                 <td width="10" height="10"><img src="/images/s_1.gif" width="10" height="10" /></td>
@@ -36,15 +37,54 @@
 										<td> 
 											<table>
 												<tr> 
-													<td>题名:
+													<td>题名模糊查询:
 													</td>
 													<td>
-														<input name="a5" type="text" class="inputfield" value="$!a5">
+														<input name="titleA5" type="text" class="inputfield" value="$!titleA5">
 													</td>
 													<td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
 												</tr>
+												#set($index=1)
+												<tr>
+												 #foreach($biz in $structureList)
+										          	#if($biz.isQuery==1)
+										          		<td>$biz.znName:</td>
+										          		<td>
+										          		#if($biz.type>=3)
+															<input name="$!biz.serialNumber" type="text" size="10" maxlength="10" value="$values" />
+													        <a onclick="gfPop.fPopCalendar(document.fileForm.$!biz.serialNumber);return false;">
+													       		<img name="popcal" align="absmiddle" src="/images/calbtn.gif" width="34" height="22" border="0" alt="日历标签"/>
+													        </a>
+														#else
+															#if($biz.inputFashion==1)
+																#if($biz.dictionaryName==0)
+																	#set($indexNum=-1)
+																#else
+																	#set($indexNum=$biz.dictionaryName)
+																#end
+																#showFormText("$biz.serialNumber" "$!values" 12)
+																<select name="selectName" class="pulldown" onchange="tochanages('$biz.serialNumber',this.value);">
+																	<option value="">-请选择-</option>
+																	#if($vMUtils.getDictionarySortByParentId($indexNum))
+																		#foreach($_resourceType in $vMUtils.getDictionarySortByParentId($indexNum))
+																			<option value="$_resourceType.name" #isSelected("$_resourceType.name" $!selectValue )>$_resourceType.name
+																			</option>
+																		#end
+																	#end
+																</select>
+															#else
+																#showFormText("$biz.serialNumber" "" 20)
+															#end
+														#end
+														#if($index%3==0)
+										          		</tr><tr>
+										          		#end
+														#set($index=$index+1)
+										            #end
+										         #end											
+												</tr>
+												<td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
 											</table>
-											
 										</td>
 									</tr>
 								</table>
@@ -59,6 +99,7 @@
 <td></td> <td><img src="/images/s_4.gif" width="10" height="10" /></td></tr></table>
 
 <br>
+#if($!fileList)
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
           #foreach($biz in $structureList)
@@ -280,14 +321,11 @@
 					#end
 						<td class="tablelistbg">&nbsp;
 							#if($!infoSort.twoFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>#end
-							##if($!infoSort.threeFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>#end
-							##if($file.a6!="126")	
-								<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
-								<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
-								#if($member.type==0)
+							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
+							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+							#if($member.type==0)
 								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >原文</a>
-								#end
-							##end
+							#end
 						</td>	
 					</tr>
 				#end
@@ -297,4 +335,10 @@
 #else
 		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
 #end
+
+<script>
+function tochanages(name,value){
+	document.getElementById(name).value=value;
+}
+</script>
 #renheend()

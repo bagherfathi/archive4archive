@@ -113,11 +113,10 @@
     	</ul>
 	</div>
 
-	<div  class="lmain" onClick="javascript:showdesc(9)">资料管理</div>
-	<div  class="lmain" onClick="javascript:showdesc(10)">检&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</div>
-	<div  class="lmain" onClick="javascript:showdesc(12)">统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</div>
-	<div  class="lmain" onClick="javascript:showdesc(12)">数据管理</div>
-	<div  class="lmain" onClick="javascript:showdesc(12)">鉴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+	##<div  class="lmain" onClick="javascript:showdesc(9)">资料管理</div>
+	##<div  class="lmain" onClick="javascript:showdesc(10)">检&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</div>
+	##<div  class="lmain" onClick="javascript:showdesc(12)">统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</div>
+	##<div  class="lmain" onClick="javascript:showdesc(12)">数据管理</div>
 	
 		<div class="lmain" onClick="javascript:showdesc(6)">系统设置</div>
 		<div class="lmain2" id="desc6" style="display:#if($memuModule == "systemPri" || $memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong"  || $memuModule=="structure")block#else none#end">

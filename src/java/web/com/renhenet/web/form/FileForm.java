@@ -9,6 +9,7 @@ import com.renhenet.fw.waf.BasePOForm;
 public class FileForm extends BasePOForm {
 	private static final long serialVersionUID = 561747347747316457L;
 	private String title;
+	private String titleA5;
 	private int infoSortId;
 	private int parInfoSortId;
 	private int type;
@@ -493,6 +494,14 @@ public class FileForm extends BasePOForm {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public String getTitleA5() {
+		return titleA5;
+	}
+
+	public void setTitleA5(String titleA5) {
+		this.titleA5 = titleA5;
 	}
 
 }

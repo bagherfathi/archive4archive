@@ -3,6 +3,9 @@ package com.renhenet.modules.member;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
+import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
 import com.renhenet.po.File;
 
@@ -10,6 +13,23 @@ public class FileService extends CommonService {
 	@SuppressWarnings("unchecked")
 	public List<File> getFileByInfoSortId(int infoSortId, int parInfoSortId) {
 		String hql = "from File where  infoSortId =? and parInfoSortId=? order by id desc";
+		return (List<File>) dao.find(hql, new Object[] { infoSortId,
+				parInfoSortId });
+	}
+
+	public List<File> getFileByInfoSortId(int infoSortId, int parInfoSortId,
+			WebContext context) {
+		String hql = "from File where  infoSortId =? and parInfoSortId=? ";
+		for (int i = 0; i <= 100; i++) {
+			String name = "a" + i;
+			String value = context.getParameter(name);
+
+			if (!StringUtils.isEmpty(value)) {
+				hql += " and " + name + " like '%" + value + "%'";
+			}
+		}
+
+		hql += " order by id desc";
 		return (List<File>) dao.find(hql, new Object[] { infoSortId,
 				parInfoSortId });
 	}
@@ -31,7 +51,7 @@ public class FileService extends CommonService {
 		String hql = "from File where  parInfoSortId =? order by id desc";
 		return (List<File>) dao.find(hql, new Object[] { parInfoSortId });
 	}
-	
+
 	public List<File> getFileByParInfoSortId(String parInfoSortId) {
 		String hql = "from File where  parInfoSortId in(?) order by id desc";
 		return (List<File>) dao.find(hql, new Object[] { parInfoSortId });
