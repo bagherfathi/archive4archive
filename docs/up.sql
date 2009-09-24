@@ -1,3 +1,14 @@
+CREATE TABLE `dhsz` (
+  `id` int(11) NOT NULL auto_increment,
+  `info_sort_id` int(11) default 0,
+  `len`  int(11) default 0,
+  `tittle`  varchar(2) NOT NULL default '',
+  `time_create` datetime NOT NULL default '2009-8-8 3:38:00',
+  `time_modified` datetime NOT NULL default '2009-8-8 3:38:00',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
+
+
 CREATE TABLE `accessory` (
   `id` int(11) NOT NULL auto_increment,
   `file_id` int(11) default 0,
@@ -7,7 +18,6 @@ CREATE TABLE `accessory` (
   `time_modified` datetime NOT NULL default '2009-8-8 3:38:00',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk;
-
 
 
 CREATE TABLE `file_pigeonhole` (
