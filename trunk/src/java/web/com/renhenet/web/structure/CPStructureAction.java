@@ -72,10 +72,11 @@ public class CPStructureAction extends DispatchActions {
 		List<InfoSort> infoSortList = infoSortService
 				.getInfoSortByNotTypeAndCopy(2);
 		context.put("infoSortList", infoSortList);
-
+		context.put("updated", updated);
 		if (updated) {
 			return "insert";
 		}
+
 		return super.insertProcess(context);
 	}
 

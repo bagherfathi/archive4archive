@@ -57,7 +57,6 @@ public class FileAction extends DispatchActions {
 			File f = (File) service.getObjectById(File.class, parInfoSortId);
 			f.setId(null);
 			context.put("bizObj", f);
-
 		}
 
 		List<Structure> structureList = structureService

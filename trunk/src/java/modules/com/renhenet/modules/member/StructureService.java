@@ -33,7 +33,7 @@ public class StructureService extends CommonService {
 	 * @return
 	 */
 	public List<Structure> getStructureByInfoSortId(int infoSortId) {
-		String hql = "from Structure where infoSortId =? and isDelete=0 and isDhpz = 0 order by taxis asc";
+		String hql = "from Structure where infoSortId =? and isDelete=0 and isDhpz = 1 order by taxis asc";
 
 		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
 	}

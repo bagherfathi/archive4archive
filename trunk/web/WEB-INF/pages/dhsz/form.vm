@@ -1,0 +1,91 @@
+#if($dhszList)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">µµºÅÏî</td>
+            <td class="tableheadingbg">³¤¶È</td>
+            <td class="tableheadingbg">Á´½Ó×Ö·û</td>
+            <td class="tableheadingbg">ÐòºÅ</td>
+			<td class="tableheadingbg">²Ù×÷</td>
+          </tr>
+		#foreach($biz in $dhszList)
+		<tr>
+			<td class="tablelistbg">$biz.structure.znName</td>
+			<td class="tablelistbg">$biz.len</td>
+			<td class="tablelistbg">$biz.title</td>
+			<td class="tablelistbg">$biz.taxis</td>
+			<td class="tablelistbg">
+				<a href="/dhsz/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)"  >±à¼­</a>
+				<a href="/dhsz/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortId=$vMUtils.encrypt($biz.infoSortId)"  >É¾³ý</a>
+			</td>
+         </tr>
+		#end
+      </table>
+#end
+<br>
+
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="dhszForm" method="post" action="$!actionUrl" onSubmit = "return validateDhszForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				#if($infoSortId>0)
+					<input type=text name=infoSortId value=$!infoSortId>
+				#else
+					<input type=text name=infoSortId value=$!bizObj.infoSortId>
+				#end
+				<table width="100%" border="0" cellpadding="2" cellspacing="3">
+					<tr> 
+						<td bgcolor="#eeeee5" width="20%">µµºÅÏî:
+						</td>
+						<td>
+							<select name="structureId" class="pulldown">
+								<option value="">-ÇëÑ¡Ôñ-
+								</option>
+								#if($structureList)
+									#foreach($structure in $structureList)
+										<option value="$structure.id" #isSelected("$structure.id" $!bizObj.structureId)>$structure.znName
+										</option>
+									#end
+								#end
+							</select>
+	
+							##showListSelect($structureList "structureId" "$!bizObj.structureId")#showMustFill()
+						</td>
+					</tr>
+					<tr> 
+						<td bgcolor="#eeeee5" width="20%">³¤¶È:
+						</td>
+						<td>
+							#showFormText("len" "$!bizObj.len" 20)#showMustFill()
+						</td>
+					</tr>
+					<tr> 
+						<td bgcolor="#eeeee5" width="20%">Á´½Ó×Ö·û:
+						</td>
+						<td>
+							#showFormText("title" "$!bizObj.title" 20)#showMustFill() Ò»°ã²ÉÓÃ . - / £¨ £©µÈ×Ö·û
+						</td>
+					</tr>
+					<tr> 
+						<td bgcolor="#eeeee5" width="20%">ÐòºÅ:
+						</td>
+						<td>
+							#showFormText("taxis" "$!bizObj.taxis" 20)#showMustFill()
+						</td>
+					</tr>
+				</table>
+				<table width="100%" border="0" cellspacing="4" cellpadding="0">
+					<tr>
+						<td  align="center" >
+							#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+						</td>
+					</tr>
+				</table>
+			</form>
+		</td>
+	</tr>
+</table>

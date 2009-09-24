@@ -38,9 +38,11 @@
 					#if($biz.threeFloor!="")
 						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(2)"  >三层结构维护</a>
 					#end
+					<a href="/dhsz/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)"  >档号设置</a>
 				#end
 				<a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
 				<a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
+				
 			</td>
          </tr>
 		#end
