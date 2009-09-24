@@ -199,12 +199,13 @@ function saveArrangableNodes(formName)
     for (var no = 0; no < nodes.length; no++) {
         if (browser == "MSIE") {
             var td = nodes[no].insertCell();
-            td.innerHTML = "<input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " />";
+            td.innerHTML = "<input name='listseq' type=hidden value=" + nodes[no].id.substring(4, nodes[no].id.length) + " />";
         } else if (browser == "Firefox") {
-            nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " /></td>";
+            nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, nodes[no].id.length) + " /></td>";
         } else {
-            nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " /></td>";
+            nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, nodes[no].id.length) + " /></td>";
         }
+//        alert(nodes[no].innerHTML);
     }
     document.getElementsByName(formName)[0].submit();
 }
