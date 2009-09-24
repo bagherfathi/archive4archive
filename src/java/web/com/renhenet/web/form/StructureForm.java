@@ -4,6 +4,7 @@ import com.renhenet.fw.waf.BasePOForm;
 
 @SuppressWarnings("serial")
 public class StructureForm extends BasePOForm {
+    private int[] listseq;
 	private String serialNumber;
 	private String enName;
 	private String znName;
@@ -34,7 +35,15 @@ public class StructureForm extends BasePOForm {
 	private int ifThree;
 	private int isDhpz;
 
-	public int getIsDhpz() {
+    public int[] getListseq() {
+        return listseq;
+    }
+
+    public void setListseq(int[] listseq) {
+        this.listseq = listseq;
+    }
+
+    public int getIsDhpz() {
 		return isDhpz;
 	}
 
