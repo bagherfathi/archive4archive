@@ -70,8 +70,8 @@
         </tr>
     </table>
 </form>
-#parse( "/WEB-INF/pages/common/page.vm" )
+###parse( "/WEB-INF/pages/common/page.vm" )
 #else
-#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
+###parse( "/WEB-INF/pages/common/noresult.inc.vm" )
 #end
 #renheend()
