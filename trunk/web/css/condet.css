@@ -92,7 +92,7 @@
 	/*background-color: #8db0cc;*/
 	color: #333333;
 	clear: both;
-	position: relative;
+	position: static;
 	border-bottom: 2px solid #FFFFFF;
 	margin-right: auto;
 	margin-left: auto;
