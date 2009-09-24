@@ -104,6 +104,7 @@ public class InfoSortAction extends DispatchActions {
         int parentId = context.getSIntParameter("parentId");
         if (parentId > 0) {
             super.deleteProcess(context);
+            
             return "/infosort/actions.html?method=update&parentId="
                     + VMUtils.encrypt(parentId);
         }

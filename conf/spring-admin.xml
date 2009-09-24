@@ -88,5 +88,13 @@
 		</property>
 	</bean>
 
+    <bean id="dhszService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.DhszService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+
 	
 </beans>

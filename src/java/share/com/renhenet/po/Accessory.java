@@ -18,7 +18,9 @@ import com.renhenet.fw.orm.IdPersistent;
  */
 public class Accessory extends IdPersistent implements
         java.io.Serializable {
-    private String oldName;
+
+	private static final long serialVersionUID = -8971566322373073109L;
+	private String oldName;
     private String newName;
     private int fileId;
 

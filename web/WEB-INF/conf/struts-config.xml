@@ -17,6 +17,7 @@
 		<form-bean name="fileForm" type="com.renhenet.web.form.FileForm" />
 		<form-bean name="filePigeonholeForm" type="com.renhenet.web.form.FilePigeonholeForm" />
 		<form-bean name="accessoryForm" type="com.renhenet.web.form.AccessoryForm" />
+		<form-bean name="dhszForm" type="com.renhenet.web.form.DhszForm" />
 	</form-beans>
 
 	<!-- ================================= Global Exception Definitions -->
@@ -126,6 +127,13 @@
 		<action path="/cpstructure/actions"	type="com.renhenet.web.structure.CPStructureAction" name="infosortForm" input=""	parameter="method" scope="request">
 			<forward name="insert" path="/WEB-INF/pages/structure/cpinsert.vm" />
 			<forward name="insertsuccess" path="/cpstructure/actions.html?method=list" redirect="true" />
+		</action>
+		
+		<action path="/dhsz/actions"	type="com.renhenet.web.structure.DhszAction" name="dhszForm" input=""	parameter="method" scope="request">
+			<forward name="insert" path="/WEB-INF/pages/dhsz/insert.vm" />
+			<forward name="insertsuccess" path="/dhsz/actions.html?method=list" redirect="true" />
+			<forward name="delete" path="/dhsz/actions.html?method=list" redirect="true" />
+			<forward name="update" path="/WEB-INF/pages/dhsz/update.vm" />
 		</action>
 
 		</action-mappings>

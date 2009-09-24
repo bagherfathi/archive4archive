@@ -68,86 +68,46 @@ public class File extends IdPersistent implements java.io.Serializable {
 	private String a58;
 	private String a59;
 	private String a60;
-
-	public String getA51() {
-		return a51;
-	}
-
-	public void setA51(String a51) {
-		this.a51 = a51;
-	}
-
-	public String getA52() {
-		return a52;
-	}
-
-	public void setA52(String a52) {
-		this.a52 = a52;
-	}
-
-	public String getA53() {
-		return a53;
-	}
-
-	public void setA53(String a53) {
-		this.a53 = a53;
-	}
-
-	public String getA54() {
-		return a54;
-	}
-
-	public void setA54(String a54) {
-		this.a54 = a54;
-	}
-
-	public String getA55() {
-		return a55;
-	}
-
-	public void setA55(String a55) {
-		this.a55 = a55;
-	}
-
-	public String getA56() {
-		return a56;
-	}
-
-	public void setA56(String a56) {
-		this.a56 = a56;
-	}
-
-	public String getA57() {
-		return a57;
-	}
-
-	public void setA57(String a57) {
-		this.a57 = a57;
-	}
-
-	public String getA58() {
-		return a58;
-	}
-
-	public void setA58(String a58) {
-		this.a58 = a58;
-	}
-
-	public String getA59() {
-		return a59;
-	}
-
-	public void setA59(String a59) {
-		this.a59 = a59;
-	}
-
-	public String getA60() {
-		return a60;
-	}
-
-	public void setA60(String a60) {
-		this.a60 = a60;
-	}
+	private String a61;
+	private String a62;
+	private String a63;
+	private String a64;
+	private String a65;
+	private String a66;
+	private String a67;
+	private String a68;
+	private String a69;
+	private String a70;
+	private String a71;
+	private String a72;
+	private String a73;
+	private String a74;
+	private String a75;
+	private String a76;
+	private String a77;
+	private String a78;
+	private String a79;
+	private String a80;
+	private String a81;
+	private String a82;
+	private String a83;
+	private String a84;
+	private String a85;
+	private String a86;
+	private String a87;
+	private String a88;
+	private String a89;
+	private String a90;
+	private String a91;
+	private String a92;
+	private String a93;
+	private String a94;
+	private String a95;
+	private String a96;
+	private String a97;
+	private String a98;
+	private String a99;
+	private String a100;
 
 	public String getTitle() {
 		return title;
@@ -163,6 +123,22 @@ public class File extends IdPersistent implements java.io.Serializable {
 
 	public void setInfoSortId(int infoSortId) {
 		this.infoSortId = infoSortId;
+	}
+
+	public int getParInfoSortId() {
+		return parInfoSortId;
+	}
+
+	public void setParInfoSortId(int parInfoSortId) {
+		this.parInfoSortId = parInfoSortId;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	public String getA1() {
@@ -565,20 +541,404 @@ public class File extends IdPersistent implements java.io.Serializable {
 		this.a50 = a50;
 	}
 
-	public int getParInfoSortId() {
-		return parInfoSortId;
+	public String getA51() {
+		return a51;
 	}
 
-	public void setParInfoSortId(int parInfoSortId) {
-		this.parInfoSortId = parInfoSortId;
+	public void setA51(String a51) {
+		this.a51 = a51;
 	}
 
-	public int getType() {
-		return type;
+	public String getA52() {
+		return a52;
 	}
 
-	public void setType(int type) {
-		this.type = type;
+	public void setA52(String a52) {
+		this.a52 = a52;
+	}
+
+	public String getA53() {
+		return a53;
+	}
+
+	public void setA53(String a53) {
+		this.a53 = a53;
+	}
+
+	public String getA54() {
+		return a54;
+	}
+
+	public void setA54(String a54) {
+		this.a54 = a54;
+	}
+
+	public String getA55() {
+		return a55;
+	}
+
+	public void setA55(String a55) {
+		this.a55 = a55;
+	}
+
+	public String getA56() {
+		return a56;
+	}
+
+	public void setA56(String a56) {
+		this.a56 = a56;
+	}
+
+	public String getA57() {
+		return a57;
+	}
+
+	public void setA57(String a57) {
+		this.a57 = a57;
+	}
+
+	public String getA58() {
+		return a58;
+	}
+
+	public void setA58(String a58) {
+		this.a58 = a58;
+	}
+
+	public String getA59() {
+		return a59;
+	}
+
+	public void setA59(String a59) {
+		this.a59 = a59;
+	}
+
+	public String getA60() {
+		return a60;
+	}
+
+	public void setA60(String a60) {
+		this.a60 = a60;
+	}
+
+	public String getA61() {
+		return a61;
+	}
+
+	public void setA61(String a61) {
+		this.a61 = a61;
+	}
+
+	public String getA62() {
+		return a62;
+	}
+
+	public void setA62(String a62) {
+		this.a62 = a62;
+	}
+
+	public String getA63() {
+		return a63;
+	}
+
+	public void setA63(String a63) {
+		this.a63 = a63;
+	}
+
+	public String getA64() {
+		return a64;
+	}
+
+	public void setA64(String a64) {
+		this.a64 = a64;
+	}
+
+	public String getA65() {
+		return a65;
+	}
+
+	public void setA65(String a65) {
+		this.a65 = a65;
+	}
+
+	public String getA66() {
+		return a66;
+	}
+
+	public void setA66(String a66) {
+		this.a66 = a66;
+	}
+
+	public String getA67() {
+		return a67;
+	}
+
+	public void setA67(String a67) {
+		this.a67 = a67;
+	}
+
+	public String getA68() {
+		return a68;
+	}
+
+	public void setA68(String a68) {
+		this.a68 = a68;
+	}
+
+	public String getA69() {
+		return a69;
+	}
+
+	public void setA69(String a69) {
+		this.a69 = a69;
+	}
+
+	public String getA70() {
+		return a70;
+	}
+
+	public void setA70(String a70) {
+		this.a70 = a70;
+	}
+
+	public String getA71() {
+		return a71;
+	}
+
+	public void setA71(String a71) {
+		this.a71 = a71;
+	}
+
+	public String getA72() {
+		return a72;
+	}
+
+	public void setA72(String a72) {
+		this.a72 = a72;
+	}
+
+	public String getA73() {
+		return a73;
+	}
+
+	public void setA73(String a73) {
+		this.a73 = a73;
+	}
+
+	public String getA74() {
+		return a74;
+	}
+
+	public void setA74(String a74) {
+		this.a74 = a74;
+	}
+
+	public String getA75() {
+		return a75;
+	}
+
+	public void setA75(String a75) {
+		this.a75 = a75;
+	}
+
+	public String getA76() {
+		return a76;
+	}
+
+	public void setA76(String a76) {
+		this.a76 = a76;
+	}
+
+	public String getA77() {
+		return a77;
+	}
+
+	public void setA77(String a77) {
+		this.a77 = a77;
+	}
+
+	public String getA78() {
+		return a78;
+	}
+
+	public void setA78(String a78) {
+		this.a78 = a78;
+	}
+
+	public String getA79() {
+		return a79;
+	}
+
+	public void setA79(String a79) {
+		this.a79 = a79;
+	}
+
+	public String getA80() {
+		return a80;
+	}
+
+	public void setA80(String a80) {
+		this.a80 = a80;
+	}
+
+	public String getA81() {
+		return a81;
+	}
+
+	public void setA81(String a81) {
+		this.a81 = a81;
+	}
+
+	public String getA82() {
+		return a82;
+	}
+
+	public void setA82(String a82) {
+		this.a82 = a82;
+	}
+
+	public String getA83() {
+		return a83;
+	}
+
+	public void setA83(String a83) {
+		this.a83 = a83;
+	}
+
+	public String getA84() {
+		return a84;
+	}
+
+	public void setA84(String a84) {
+		this.a84 = a84;
+	}
+
+	public String getA85() {
+		return a85;
+	}
+
+	public void setA85(String a85) {
+		this.a85 = a85;
+	}
+
+	public String getA86() {
+		return a86;
+	}
+
+	public void setA86(String a86) {
+		this.a86 = a86;
+	}
+
+	public String getA87() {
+		return a87;
+	}
+
+	public void setA87(String a87) {
+		this.a87 = a87;
+	}
+
+	public String getA88() {
+		return a88;
+	}
+
+	public void setA88(String a88) {
+		this.a88 = a88;
+	}
+
+	public String getA89() {
+		return a89;
+	}
+
+	public void setA89(String a89) {
+		this.a89 = a89;
+	}
+
+	public String getA90() {
+		return a90;
+	}
+
+	public void setA90(String a90) {
+		this.a90 = a90;
+	}
+
+	public String getA91() {
+		return a91;
+	}
+
+	public void setA91(String a91) {
+		this.a91 = a91;
+	}
+
+	public String getA92() {
+		return a92;
+	}
+
+	public void setA92(String a92) {
+		this.a92 = a92;
+	}
+
+	public String getA93() {
+		return a93;
+	}
+
+	public void setA93(String a93) {
+		this.a93 = a93;
+	}
+
+	public String getA94() {
+		return a94;
+	}
+
+	public void setA94(String a94) {
+		this.a94 = a94;
+	}
+
+	public String getA95() {
+		return a95;
+	}
+
+	public void setA95(String a95) {
+		this.a95 = a95;
+	}
+
+	public String getA96() {
+		return a96;
+	}
+
+	public void setA96(String a96) {
+		this.a96 = a96;
+	}
+
+	public String getA97() {
+		return a97;
+	}
+
+	public void setA97(String a97) {
+		this.a97 = a97;
+	}
+
+	public String getA98() {
+		return a98;
+	}
+
+	public void setA98(String a98) {
+		this.a98 = a98;
+	}
+
+	public String getA99() {
+		return a99;
+	}
+
+	public void setA99(String a99) {
+		this.a99 = a99;
+	}
+
+	public String getA100() {
+		return a100;
+	}
+
+	public void setA100(String a100) {
+		this.a100 = a100;
 	}
 
 }

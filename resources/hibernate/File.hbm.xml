@@ -25,184 +25,302 @@
          <property name="a1" type="java.lang.String">
             <column name="A1" length="120" />
         </property>
-         <property name="a2" type="java.lang.String">
-            <column name="A2" length="120" />
-        </property>
-         <property name="a3" type="java.lang.String">
-            <column name="A3" length="120" />
-        </property>
-         <property name="a4" type="java.lang.String">
-            <column name="A4" length="120" />
-        </property>
-         <property name="a5" type="java.lang.String">
-            <column name="A5" length="120" />
-        </property>
-         <property name="a6" type="java.lang.String">
-            <column name="A6" length="120" />
-        </property>
-         <property name="a7" type="java.lang.String">
-            <column name="A7" length="120" />
-        </property>
-         <property name="a8" type="java.lang.String">
-            <column name="A8" length="120" />
-        </property>
-         <property name="a9" type="java.lang.String">
-            <column name="A9" length="120" />
-        </property>
-         <property name="a10" type="java.lang.String">
-            <column name="A10" length="120" />
-        </property>
-         <property name="a11" type="java.lang.String">
-            <column name="A11" length="120" />
-        </property>
-         <property name="a12" type="java.lang.String">
-            <column name="A120" length="120" />
-        </property>
-         <property name="a13" type="java.lang.String">
-            <column name="A13" length="120" />
-        </property>
-         <property name="a14" type="java.lang.String">
-            <column name="A14" length="120" />
-        </property>
-         <property name="a15" type="java.lang.String">
-            <column name="A15" length="120" />
-        </property>
-         <property name="a16" type="java.lang.String">
-            <column name="A16" length="120" />
-        </property>
-         <property name="a17" type="java.lang.String">
-            <column name="A17" length="120" />
-        </property>
-         <property name="a18" type="java.lang.String">
-            <column name="A18" length="120" />
-        </property>
-         <property name="a19" type="java.lang.String">
-            <column name="A19" length="120" />
-        </property>
-         <property name="a20" type="java.lang.String">
-            <column name="A20" length="120" />
-        </property>
-         <property name="a21" type="java.lang.String">
-            <column name="A21" length="120" />
-        </property>
-         <property name="a22" type="java.lang.String">
-            <column name="A22" length="120" />
-        </property>
-         <property name="a23" type="java.lang.String">
-            <column name="A23" length="120" />
-        </property>
-         <property name="a24" type="java.lang.String">
-            <column name="A24" length="120" />
-        </property>
-         <property name="a25" type="java.lang.String">
-            <column name="A25" length="120" />
-        </property>
-         <property name="a26" type="java.lang.String">
-            <column name="A26" length="120" />
-        </property>
-         <property name="a27" type="java.lang.String">
-            <column name="A27" length="120" />
-        </property>
-         <property name="a28" type="java.lang.String">
-            <column name="A28" length="120" />
-        </property>
-         <property name="a29" type="java.lang.String">
-            <column name="A29" length="120" />
-        </property>
-         <property name="a30" type="java.lang.String">
-            <column name="A30" length="120" />
-        </property>
-         <property name="a31" type="java.lang.String">
-            <column name="A31" length="120" />
-        </property>
-         <property name="a32" type="java.lang.String">
-            <column name="A32" length="120" />
-        </property>
-         <property name="a33" type="java.lang.String">
-            <column name="A33" length="120" />
-        </property>
-         <property name="a34" type="java.lang.String">
-            <column name="A34" length="120" />
-        </property>
-         <property name="a35" type="java.lang.String">
-            <column name="A35" length="120" />
-        </property>
-         <property name="a36" type="java.lang.String">
-            <column name="A36" length="120" />
-        </property>
-         <property name="a37" type="java.lang.String">
-            <column name="A37" length="120" />
-        </property>
-         <property name="a38" type="java.lang.String">
-            <column name="A38" length="120" />
-        </property>
-         <property name="a39" type="java.lang.String">
-            <column name="A39" length="120" />
-        </property>
-         <property name="a40" type="java.lang.String">
-            <column name="A40" length="120" />
-        </property>
-         <property name="a41" type="java.lang.String">
-            <column name="A41" length="120" />
-        </property>
-         <property name="a42" type="java.lang.String">
-            <column name="A42" length="120" />
-        </property>
-         <property name="a43" type="java.lang.String">
-            <column name="A43" length="120" />
-        </property>
-         <property name="a44" type="java.lang.String">
-            <column name="A44" length="120" />
-        </property>
-         <property name="a45" type="java.lang.String">
-            <column name="A45" length="120" />
-        </property>
-         <property name="a46" type="java.lang.String">
-            <column name="A46" length="120" />
-        </property>
-         <property name="a47" type="java.lang.String">
-            <column name="A47" length="120" />
-        </property>
-         <property name="a48" type="java.lang.String">
-            <column name="A48" length="120" />
-        </property>
-         <property name="a49" type="java.lang.String">
-            <column name="A49" length="120" />
-        </property>
-        <property name="a50" type="java.lang.String">
-            <column name="A50" length="120" />
-        </property>
-        <property name="a51" type="java.lang.String">
-            <column name="A51" length="120" />
-        </property>
-        <property name="a52" type="java.lang.String">
-            <column name="A52" length="120" />
-        </property>
-        <property name="a53" type="java.lang.String">
-            <column name="A53" length="120" />
-        </property>
-        <property name="a54" type="java.lang.String">
-            <column name="A54" length="120" />
-        </property>
-        <property name="a55" type="java.lang.String">
-            <column name="A55" length="120" />
-        </property>
-        <property name="a56" type="java.lang.String">
-            <column name="A56" length="120" />
-        </property>
-        <property name="a57" type="java.lang.String">
-            <column name="A57" length="120" />
-        </property>
-        <property name="a58" type="java.lang.String">
-            <column name="A58" length="120" />
-        </property>
-        <property name="a59" type="java.lang.String">
-            <column name="A59" length="120" />
-        </property>
-        <property name="a60" type="java.lang.String">
-            <column name="A60" length="120" />
-        </property>
-        
-       
+        <property name="a2" type="java.lang.String">
+		<column name="A2" length="120" />
+		</property>
+		<property name="a3" type="java.lang.String">
+		<column name="A3" length="120" />
+		</property>
+		<property name="a4" type="java.lang.String">
+		<column name="A4" length="120" />
+		</property>
+		<property name="a5" type="java.lang.String">
+		<column name="A5" length="120" />
+		</property>
+		<property name="a6" type="java.lang.String">
+		<column name="A6" length="120" />
+		</property>
+		<property name="a7" type="java.lang.String">
+		<column name="A7" length="120" />
+		</property>
+		<property name="a8" type="java.lang.String">
+		<column name="A8" length="120" />
+		</property>
+		<property name="a9" type="java.lang.String">
+		<column name="A9" length="120" />
+		</property>
+		<property name="a10" type="java.lang.String">
+		<column name="A10" length="120" />
+		</property>
+		<property name="a11" type="java.lang.String">
+		<column name="A11" length="120" />
+		</property>
+		<property name="a12" type="java.lang.String">
+		<column name="A12" length="120" />
+		</property>
+		<property name="a13" type="java.lang.String">
+		<column name="A13" length="120" />
+		</property>
+		<property name="a14" type="java.lang.String">
+		<column name="A14" length="120" />
+		</property>
+		<property name="a15" type="java.lang.String">
+		<column name="A15" length="120" />
+		</property>
+		<property name="a16" type="java.lang.String">
+		<column name="A16" length="120" />
+		</property>
+		<property name="a17" type="java.lang.String">
+		<column name="A17" length="120" />
+		</property>
+		<property name="a18" type="java.lang.String">
+		<column name="A18" length="120" />
+		</property>
+		<property name="a19" type="java.lang.String">
+		<column name="A19" length="120" />
+		</property>
+		<property name="a20" type="java.lang.String">
+		<column name="A20" length="120" />
+		</property>
+		<property name="a21" type="java.lang.String">
+		<column name="A21" length="120" />
+		</property>
+		<property name="a22" type="java.lang.String">
+		<column name="A22" length="120" />
+		</property>
+		<property name="a23" type="java.lang.String">
+		<column name="A23" length="120" />
+		</property>
+		<property name="a24" type="java.lang.String">
+		<column name="A24" length="120" />
+		</property>
+		<property name="a25" type="java.lang.String">
+		<column name="A25" length="120" />
+		</property>
+		<property name="a26" type="java.lang.String">
+		<column name="A26" length="120" />
+		</property>
+		<property name="a27" type="java.lang.String">
+		<column name="A27" length="120" />
+		</property>
+		<property name="a28" type="java.lang.String">
+		<column name="A28" length="120" />
+		</property>
+		<property name="a29" type="java.lang.String">
+		<column name="A29" length="120" />
+		</property>
+		<property name="a30" type="java.lang.String">
+		<column name="A30" length="120" />
+		</property>
+		<property name="a31" type="java.lang.String">
+		<column name="A31" length="120" />
+		</property>
+		<property name="a32" type="java.lang.String">
+		<column name="A32" length="120" />
+		</property>
+		<property name="a33" type="java.lang.String">
+		<column name="A33" length="120" />
+		</property>
+		<property name="a34" type="java.lang.String">
+		<column name="A34" length="120" />
+		</property>
+		<property name="a35" type="java.lang.String">
+		<column name="A35" length="120" />
+		</property>
+		<property name="a36" type="java.lang.String">
+		<column name="A36" length="120" />
+		</property>
+		<property name="a37" type="java.lang.String">
+		<column name="A37" length="120" />
+		</property>
+		<property name="a38" type="java.lang.String">
+		<column name="A38" length="120" />
+		</property>
+		<property name="a39" type="java.lang.String">
+		<column name="A39" length="120" />
+		</property>
+		<property name="a40" type="java.lang.String">
+		<column name="A40" length="120" />
+		</property>
+		<property name="a41" type="java.lang.String">
+		<column name="A41" length="120" />
+		</property>
+		<property name="a42" type="java.lang.String">
+		<column name="A42" length="120" />
+		</property>
+		<property name="a43" type="java.lang.String">
+		<column name="A43" length="120" />
+		</property>
+		<property name="a44" type="java.lang.String">
+		<column name="A44" length="120" />
+		</property>
+		<property name="a45" type="java.lang.String">
+		<column name="A45" length="120" />
+		</property>
+		<property name="a46" type="java.lang.String">
+		<column name="A46" length="120" />
+		</property>
+		<property name="a47" type="java.lang.String">
+		<column name="A47" length="120" />
+		</property>
+		<property name="a48" type="java.lang.String">
+		<column name="A48" length="120" />
+		</property>
+		<property name="a49" type="java.lang.String">
+		<column name="A49" length="120" />
+		</property>
+		<property name="a50" type="java.lang.String">
+		<column name="A50" length="120" />
+		</property>
+		<property name="a51" type="java.lang.String">
+		<column name="A51" length="120" />
+		</property>
+		<property name="a52" type="java.lang.String">
+		<column name="A52" length="120" />
+		</property>
+		<property name="a53" type="java.lang.String">
+		<column name="A53" length="120" />
+		</property>
+		<property name="a54" type="java.lang.String">
+		<column name="A54" length="120" />
+		</property>
+		<property name="a55" type="java.lang.String">
+		<column name="A55" length="120" />
+		</property>
+		<property name="a56" type="java.lang.String">
+		<column name="A56" length="120" />
+		</property>
+		<property name="a57" type="java.lang.String">
+		<column name="A57" length="120" />
+		</property>
+		<property name="a58" type="java.lang.String">
+		<column name="A58" length="120" />
+		</property>
+		<property name="a59" type="java.lang.String">
+		<column name="A59" length="120" />
+		</property>
+		<property name="a60" type="java.lang.String">
+		<column name="A60" length="120" />
+		</property>
+		<property name="a61" type="java.lang.String">
+		<column name="A61" length="120" />
+		</property>
+		<property name="a62" type="java.lang.String">
+		<column name="A62" length="120" />
+		</property>
+		<property name="a63" type="java.lang.String">
+		<column name="A63" length="120" />
+		</property>
+		<property name="a64" type="java.lang.String">
+		<column name="A64" length="120" />
+		</property>
+		<property name="a65" type="java.lang.String">
+		<column name="A65" length="120" />
+		</property>
+		<property name="a66" type="java.lang.String">
+		<column name="A66" length="120" />
+		</property>
+		<property name="a67" type="java.lang.String">
+		<column name="A67" length="120" />
+		</property>
+		<property name="a68" type="java.lang.String">
+		<column name="A68" length="120" />
+		</property>
+		<property name="a69" type="java.lang.String">
+		<column name="A69" length="120" />
+		</property>
+		<property name="a70" type="java.lang.String">
+		<column name="A70" length="120" />
+		</property>
+		<property name="a71" type="java.lang.String">
+		<column name="A71" length="120" />
+		</property>
+		<property name="a72" type="java.lang.String">
+		<column name="A72" length="120" />
+		</property>
+		<property name="a73" type="java.lang.String">
+		<column name="A73" length="120" />
+		</property>
+		<property name="a74" type="java.lang.String">
+		<column name="A74" length="120" />
+		</property>
+		<property name="a75" type="java.lang.String">
+		<column name="A75" length="120" />
+		</property>
+		<property name="a76" type="java.lang.String">
+		<column name="A76" length="120" />
+		</property>
+		<property name="a77" type="java.lang.String">
+		<column name="A77" length="120" />
+		</property>
+		<property name="a78" type="java.lang.String">
+		<column name="A78" length="120" />
+		</property>
+		<property name="a79" type="java.lang.String">
+		<column name="A79" length="120" />
+		</property>
+		<property name="a80" type="java.lang.String">
+		<column name="A80" length="120" />
+		</property>
+		<property name="a81" type="java.lang.String">
+		<column name="A81" length="120" />
+		</property>
+		<property name="a82" type="java.lang.String">
+		<column name="A82" length="120" />
+		</property>
+		<property name="a83" type="java.lang.String">
+		<column name="A83" length="120" />
+		</property>
+		<property name="a84" type="java.lang.String">
+		<column name="A84" length="120" />
+		</property>
+		<property name="a85" type="java.lang.String">
+		<column name="A85" length="120" />
+		</property>
+		<property name="a86" type="java.lang.String">
+		<column name="A86" length="120" />
+		</property>
+		<property name="a87" type="java.lang.String">
+		<column name="A87" length="120" />
+		</property>
+		<property name="a88" type="java.lang.String">
+		<column name="A88" length="120" />
+		</property>
+		<property name="a89" type="java.lang.String">
+		<column name="A89" length="120" />
+		</property>
+		<property name="a90" type="java.lang.String">
+		<column name="A90" length="120" />
+		</property>
+		<property name="a91" type="java.lang.String">
+		<column name="A91" length="120" />
+		</property>
+		<property name="a92" type="java.lang.String">
+		<column name="A92" length="120" />
+		</property>
+		<property name="a93" type="java.lang.String">
+		<column name="A93" length="120" />
+		</property>
+		<property name="a94" type="java.lang.String">
+		<column name="A94" length="120" />
+		</property>
+		<property name="a95" type="java.lang.String">
+		<column name="A95" length="120" />
+		</property>
+		<property name="a96" type="java.lang.String">
+		<column name="A96" length="120" />
+		</property>
+		<property name="a97" type="java.lang.String">
+		<column name="A97" length="120" />
+		</property>
+		<property name="a98" type="java.lang.String">
+		<column name="A98" length="120" />
+		</property>
+		<property name="a99" type="java.lang.String">
+		<column name="A99" length="120" />
+		</property>
+		<property name="a100" type="java.lang.String">
+		<column name="A100" length="120" />
+		</property>
     </class>
 </hibernate-mapping>
