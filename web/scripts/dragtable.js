@@ -51,6 +51,24 @@ function clearMovableDiv()
 
     }
 }
+function GetPageScroll() {
+    var x, y;
+    if (window.pageYOffset) {
+        // all except IE
+        y = window.pageYOffset;
+        x = window.pageXOffset;
+    } else if (document.documentElement
+            && document.documentElement.scrollTop) {
+        // IE 6 Strict
+        y = document.documentElement.scrollTop;
+        x = document.documentElement.scrollLeft;
+    } else if (document.body) {
+        // all other IE
+        y = document.body.scrollTop;
+        x = document.body.scrollLeft;
+    }
+    return {X:x, Y:y};
+}
 
 function initMoveNode(e)
 {
@@ -62,7 +80,7 @@ function initMoveNode(e)
     timerMoveNode();
     arrMoveCont.parentNode.style.left = (e.clientX + howfarfrommouse) + 'px';
 
-    arrMoveCont.parentNode.style.top = (e.clientY + howfarfrommouse) + 'px';
+    arrMoveCont.parentNode.style.top = (e.clientY + GetPageScroll().Y + howfarfrommouse) + 'px';
 
     arrMoveCont.parentNode.style.position = "absolute";
     arrMoveCont.parentNode.style.cursor = "pointer";
@@ -86,15 +104,16 @@ function arrangeNodeMove(e)
 {
     //	arrTarget.style.backgroundColor = "#E0E0F8";
     //    arrMoveCont.parentNode.style.backgroundColor = "#E0E0F8";
+    //    alert(document.documentElement.scrollTop);
     if (document.all)e = event;
     if (arrMoveCounter < 10)return;
     if (document.all && arrMoveCounter >= 10 && e.button != 1 && navigator.userAgent.indexOf('Opera') == -1) {
         arrangeNodeStopMove();
     }
     arrMoveCont.parentNode.style.left = (e.clientX + howfarfrommouse) + 'px';
-    arrMoveCont.parentNode.style.top = (e.clientY + howfarfrommouse) + 'px';
+    arrMoveCont.parentNode.style.top = (e.clientY + GetPageScroll().Y + howfarfrommouse) + 'px';
 
-    var tmpY = e.clientY;
+    var tmpY = e.clientY + GetPageScroll().Y;
     arrInsertDiv.style.display = 'none';
     arrNodesDestination = false;
 
@@ -183,7 +202,7 @@ function saveArrangableNodes(formName)
             td.innerHTML = "<input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " />";
         } else if (browser == "Firefox") {
             nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " /></td>";
-        }else{
+        } else {
             nodes[no].innerHTML = "<td><input name='listseq' type=hidden value=" + nodes[no].id.substring(4, 5) + " /></td>";
         }
     }
