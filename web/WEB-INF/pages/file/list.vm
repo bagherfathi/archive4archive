@@ -5,11 +5,6 @@
 #set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&types=1&parInfoSortIds=$vMUtils.encrypt(0)&statuses=$vMUtils.encrypt(0)&cm=$cm")
 #set($addNewLinkText = "新增$!infoSort.oneFloor")
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
-#if($cm.indexOf("da")>=0)
-	#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&types=0&parInfoSortIds=$vMUtils.encrypt(0)&statuses=$vMUtils.encrypt(0)&cm=$cm")
-	#set($addNewLinkText = "新增未归档文件")
-	#parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
-	#end
 #end
 #set($urlPre = "/file/actions.html?method=list&cm=$cm")
 
@@ -51,7 +46,7 @@
 										          		<td>$biz.znName:</td>
 										          		<td>
 										          		#if($biz.type>=3)
-															<input name="$!biz.serialNumber" type="text" size="10" maxlength="10" value="$values" />
+															<input name="$!biz.serialNumber" type="text" size="10" maxlength="10" value="" />
 													        <a onclick="gfPop.fPopCalendar(document.fileForm.$!biz.serialNumber);return false;">
 													       		<img name="popcal" align="absmiddle" src="/images/calbtn.gif" width="34" height="22" border="0" alt="日历标签"/>
 													        </a>

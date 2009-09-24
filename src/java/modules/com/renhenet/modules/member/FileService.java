@@ -17,6 +17,17 @@ public class FileService extends CommonService {
 				parInfoSortId });
 	}
 
+	/**
+	 * 得到最近添加的一条该类别文件数据
+	 * 
+	 * @param infoSortId
+	 * @return
+	 */
+	public File getFileByInfoSortId(int infoSortId) {
+		String hql = "from File where  infoSortId =?order by id desc";
+		return (File) dao.findSingle(hql, new Object[] { infoSortId });
+	}
+
 	public List<File> getFileByInfoSortId(int infoSortId, int parInfoSortId,
 			WebContext context) {
 		String hql = "from File where  infoSortId =? and parInfoSortId=? ";

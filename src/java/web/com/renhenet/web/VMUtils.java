@@ -60,7 +60,7 @@ public class VMUtils {
 
 	public int stringToInt(String strNum) {
 		int num = -1;
-		if (StringUtils.isEmpty(strNum)) {
+		if (!StringUtils.isEmpty(strNum)) {
 			num = new Integer(strNum);
 		}
 		return num;

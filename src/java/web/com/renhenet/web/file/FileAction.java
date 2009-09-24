@@ -16,7 +16,6 @@ import com.renhenet.po.File;
 import com.renhenet.po.InfoSort;
 import com.renhenet.po.Structure;
 import com.renhenet.util.searchcontext.SearchContext;
-import com.renhenet.util.searchcontext.SearchOption;
 import com.renhenet.web.DispatchActions;
 import com.renhenet.web.VMUtils;
 import com.renhenet.web.form.FileForm;
@@ -53,11 +52,15 @@ public class FileAction extends DispatchActions {
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
-		if (parInfoSortId > 0) {
-			File f = (File) service.getObjectById(File.class, parInfoSortId);
-			f.setId(null);
-			context.put("bizObj", f);
-		}
+		// if (parInfoSortId > 0) {
+		// File f = (File) service.getObjectById(File.class, parInfoSortId);
+		// f.setId(null);
+		// context.put("bizObj", f);
+		// } else {
+		File f = (File) service.getFileByInfoSortId(infoSortId);
+		f.setId(null);
+		context.put("bizObj", f);
+		// }
 
 		List<Structure> structureList = structureService
 				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
@@ -118,10 +121,6 @@ public class FileAction extends DispatchActions {
 				+ VMUtils.encrypt(parInfoSortId) + "&infoSortIds="
 				+ VMUtils.encrypt(infoSortId) + "&statuses="
 				+ VMUtils.encrypt(status) + "&cm=" + context.getParameter("cm");
-
-		// return "/file/actions.html?method=list&oc=all&infoSortId="
-		// + VMUtils.encrypt(infoSortId) + "&statuses="
-		// + VMUtils.encrypt(status) + "&cm=" + context.getParameter("cm");
 	}
 
 	@Override
@@ -142,13 +141,6 @@ public class FileAction extends DispatchActions {
 		context.put("titleA5", a5);
 		a5 = this.getTitles(a5);
 
-//		for (int i = 0; i <= 100; i++) {
-//			String name = "a" + i;
-//			String value = context.getParameter(name);
-//			if (!StringUtils.isEmpty(value)) {
-//				context.put(name, value);
-//			}
-//		}
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
 			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, 0);
