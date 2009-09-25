@@ -47,27 +47,27 @@ public class StructureAction extends DispatchActions {
 
         if ("list".equals(context.getParameter("insert"))) {
             StructureForm form = (StructureForm) context.getForm();
-            List<Structure> structureInList = service.getStructureByInfoSortId(infoSortId);
+            List<Structure> structureInList = service.getStructureByInfoSortIdAndInStatus(infoSortId,status);
             for (int i = 0; i < structureInList.size(); i++) {
                 Structure structure = structureInList.get(i);
-                if (status == 0) {
+                if (structure.getStatus() == 0) {
                     for (int j = 0; j < form.getListseq().length; j++) {
                         if (form.getListseq()[j] == i + 1) {
                             structure.setTaxis(j + 1);
                             service.updateObject(structure);
                         }
                     }
-                } else if (status == 1) {
+                } else if (structure.getStatus() == 1) {
                   for (int j = 0; j < form.getListseq().length; j++) {
                         if (form.getListseq()[j] == i + 1) {
-                            structure.setTaxis(j + 1);
+                            structure.setTaxis2(j + 1);
                             service.updateObject(structure);
                         }
                     }
-                } else if (status == 2) {
+                } else if (structure.getStatus() == 2) {
                    for (int j = 0; j < form.getListseq().length; j++) {
                         if (form.getListseq()[j] == i + 1) {
-                            structure.setTaxis(j + 1);
+                            structure.setTaxis3(j + 1);
                             service.updateObject(structure);
                         }
                     }
@@ -75,7 +75,7 @@ public class StructureAction extends DispatchActions {
             }
             return "/structure/actions.html?method=insert&infoSortIds="
                     + VMUtils.encrypt(infoSortId) + "&statuses="
-                    + VMUtils.encrypt(form.getStatus());
+                    + VMUtils.encrypt(status);
         }
 
         if (context.getParameter("insert") != null
