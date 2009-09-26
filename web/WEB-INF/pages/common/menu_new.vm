@@ -1,94 +1,120 @@
 <td width="150" height="500" valign="top" bgcolor="#93B1D7">
-<script language="JavaScript" src="/scripts/menu.js"></script>
-	<div class="lmain" background="/images/menuleft2.gif"  onClick="javascript:showdesc(1)">文件管理</div>
-		<div class="lmain2" id="desc1" style="display:#if($memuModule == "file" && ($cm.indexOf("wj")>=0 || $cm.indexOf("gd")>=0))block#else none#end">
-			<ul>
-			    <li><a  onClick="javascript:showdesc(11)" class=menubg >
-			      #set($menuOpen = false)
-                		#if($memuModule == "file" )
-                			#set($menuOpen = true)
-                		#end
-					<img src=#if($menuOpen && $cm.indexOf("wj")>=0)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic11>文件登记</a></li>
-    	<div id="desc11"  style="display:#if($memuModule == "file" && $cm.indexOf("wj")>=0)block#else none#end">
-    		<ul>
-    			#set($index=1)
-    			#foreach($infosort in $vMUtils.getInfoSortByparentId(132))
-    			#set($strIndex="wj"+$index)
-    			<li>
-    				<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index" #if( 'file'== $curMenu && $cm==$strIndex) class=menubg21 #else class=menubg2 #end>
-    					$!infosort.name
-    				</a>
-    			</li>
-    			#set($index=$index+1)
-    			#end	
-    		</ul>
-    	</div>
-    	<li>
-    		<a  onClick="javascript:showdesc(12)"  class=menubg>
-				#set($menuOpen = false)
-        		#if($memuModule == "file" )
-        			#set($menuOpen = true)
-        		#end
-				<img src=#if($menuOpen && $cm.indexOf("gd")>=0)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic12>文件归档</a>
-		</li>
-    	<div id="desc12"  style="display:#if($memuModule == "file" && $cm.indexOf("gd")>=0)block#else none#end">
-    		<ul>
-    			#set($index=1)
-    			#foreach($infosort in $vMUtils.getInfoSortByparentId(132))
-    			#set($strIndex="gd"+$index)
-    			<li>
-    				<a href="/files/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=gd$index" #if( 'file'== $curMenu && $cm==$strIndex) class=menubg21 #else class=menubg2 #end>
-    					$!infosort.name
-    				</a>
-    			</li>
-    			#set($index=$index+1)
-    			#end	
-    		</ul>
-    	</div>
-		</ul>
-	</div>
-	<div  class="lmain" onClick="javascript:showdesc(9)">档案管理</div>
-	<div class="lmain2" id="desc9" style="display:#if($memuModule == "file" && $cm.indexOf("da")>=0||$cm.indexOf("dsag")>=0)block#else none#end">
-		<ul>
-	    	<li>
-		    	<a  onClick="javascript:showdesc(91)" class=menubg >
-		    	 #set($menuOpen = false)
-                		#if($memuModule == "file" && $cm.indexOf("da")>=0)
-                			#set($menuOpen = true)
-                		#end
-     				<img src=#if($menuOpen || $cm.indexOf("da")>=0)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic91>档案录入
-     			</a>
- 			</li>
-			<div id="desc91" style="display:#if($memuModule == "file" && $cm.indexOf("da")>=0)block#else none#end">
-				#set($index=1)
-    			#foreach($infosort in $vMUtils.getInfoSortByparentId(219))
-    			#set($strIndex="da"+$index)
-				<ul>
-					<li>
-						<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=da$index" #if( 'file'== $curMenu && $cm==$strIndex) class=menubg21 #else class=menubg2 #end>
-    					$!infosort.name
-    					</a>
-					</li>
-				</ul>
-				#set($index=$index+1)
-    			#end
-    			
-    			#foreach($infosort in $vMUtils.getInfoSortByparentId(215))
-    			#set($strIndex="da"+$index)
-				#if($!infosort.id=="221")
-				<ul>
-					<li>
-						<a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=da$index" #if( 'file'== $curMenu && $cm==$strIndex) class=menubg21 #else class=menubg2 #end>
-    					$!infosort.name
-    					</a>
-					</li>
-				</ul>
-				#end
-				#set($index=$index+1)
-    			#end
-    								
-			</div>
-			#**<li>
+    <script language="JavaScript" src="/scripts/menu.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="/css/screen.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/jquery.treeview.css" type="text/css"/>
+    <script type="text/javascript" src="/scripts/jquery.treeview.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#example").treeview();
+        });
+    </script>
+    <div class="lmain" background="/images/menuleft2.gif" onClick="javascript:showdesc(1)">文件管理</div>
+    <div class="lmain2" id="desc1"
+         style="display:#if($memuModule == "file" && ($cm.indexOf("wj")>=0 || $cm.indexOf("gd")>=0))block#else none#end">
+        <ul>
+            <li><a onClick="javascript:showdesc(11)" class=menubg>
+                #set($menuOpen = false)
+                #if($memuModule == "file" )
+                #set($menuOpen = true)
+                #end
+                <img src=#if($menuOpen && $cm.indexOf("wj")>=0)/images/collapse.gif#else /images/expand.gif#end
+                border="0" align="absmiddle" id=pic11>文件登记</a></li>
+            <div id="desc11" style="display:#if($memuModule == "file" && $cm.indexOf("wj")>=0)block#else none#end">
+                <ul>
+                    #set($index=1)
+                    #foreach($infosort in $vMUtils.getInfoSortByparentId(132))
+                    #set($strIndex="wj"+$index)
+                    <li>
+                        <a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index" #if( 'file'== $curMenu && $cm==$strIndex)
+                           class=menubg21 #else class=menubg2 #end>
+                            $!infosort.name
+                        </a>
+                    </li>
+                    #set($index=$index+1)
+                    #end
+                </ul>
+            </div>
+            <li>
+                <a onClick="javascript:showdesc(12)" class=menubg>
+                    #set($menuOpen = false)
+                    #if($memuModule == "file" )
+                    #set($menuOpen = true)
+                    #end
+                    <img src=#if($menuOpen && $cm.indexOf("gd")>=0)/images/collapse.gif#else /images/expand.gif#end
+                    border="0" align="absmiddle" id=pic12>文件归档</a>
+            </li>
+            <div id="desc12" style="display:#if($memuModule == "file" && $cm.indexOf("gd")>=0)block#else none#end">
+                <ul>
+                    #set($index=1)
+                    #foreach($infosort in $vMUtils.getInfoSortByparentId(132))
+                    #set($strIndex="gd"+$index)
+                    <li>
+                        <a href="/files/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=gd$index" #if( 'file'== $curMenu && $cm==$strIndex)
+                           class=menubg21 #else class=menubg2 #end>
+                            $!infosort.name
+                        </a>
+                    </li>
+                    #set($index=$index+1)
+                    #end
+                </ul>
+            </div>
+        </ul>
+    </div>
+    <div class="lmain" onClick="javascript:showdesc(9)">档案管理</div>
+    <div class="lmain2" id="desc9">
+        <ul id="example" class="filetree" style="background-color:white;">
+            ##	    	<li>
+##		    	<a  onClick="javascript:showdesc(91)" class=menubg >
+##		    	 #set($menuOpen = false)
+##                		#if($memuModule == "file" && $cm.indexOf("da")>=0)
+##                			#set($menuOpen = true)
+##                		#end
+##     				<img src=#if($menuOpen || $cm.indexOf("da")>=0)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic91>档案录入
+##     			</a>
+##            </li>
+
+            <li>
+                ##		    	<a  onClick="javascript:showdesc(91)" class=menubg >
+##		    	 #set($menuOpen = false)
+##                		#if($memuModule == "file" && $cm.indexOf("da")>=0)
+##                			#set($menuOpen = true)
+##                		#end
+ <span class="folder">档案录入</span>
+                ##     			</a>
+##            </li>
+##            ##            <div id="desc91" style="display:#if($memuModule == "file" && $cm.indexOf("da")>=0)block#else none#end">
+##
+##            <li>
+ #set($index=1)
+                #foreach($infosort in $vMUtils.getInfoSortByparentId(219))
+                #set($strIndex="da"+$index)
+                <ul>
+                    <li>
+                        <a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=da$index">
+                            <span class="file">$!infosort.name</span>
+                        </a>
+                    </li>
+                </ul>
+                #set($index=$index+1)
+                #end
+
+                #foreach($infosort in $vMUtils.getInfoSortByparentId(215))
+                #set($strIndex="da"+$index)
+                #if($!infosort.id=="221")
+                <ul>
+                    <li>
+                        <a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=da$index" >
+                            <span class="file">$!infosort.name</span>
+                        </a>
+                    </li>
+                </ul>
+                #end
+                #set($index=$index+1)
+                #end
+            </li>
+            ##            </div>
+ #**<li>
 				<a  onClick="javascript:showdesc(92)"  class=menubg>
 					#set($menuOpen = false)
         		#if($memuModule == "file" && $cm.indexOf("dsag")>=0)
@@ -110,42 +136,48 @@
 	    			#end	
 	    		</ul>
 	    	</div>**#
-    	</ul>
-	</div>
+        </ul>
+    </div>
 
-	##<div  class="lmain" onClick="javascript:showdesc(9)">资料管理</div>
-	##<div  class="lmain" onClick="javascript:showdesc(10)">检&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</div>
-	##<div  class="lmain" onClick="javascript:showdesc(12)">统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</div>
-	##<div  class="lmain" onClick="javascript:showdesc(12)">数据管理</div>
-	
-		<div class="lmain" onClick="javascript:showdesc(6)">系统设置</div>
-		<div class="lmain2" id="desc6" style="display:#if($memuModule == "systemPri" || $memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong"  || $memuModule=="structure")block#else none#end">
-			<ul>
-				<li><a  onClick="javascript:showdesc(61)"  class=menubg>
-				    #set($menuOpen = false)
-                		#if($memuModule == "systemPri" )
-                			#set($menuOpen = true)
-                		#end
-					<img src=#if($menuOpen)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic61>权限设置</a></li>
-					<div id="desc61" style="display:#if($memuModule == "systemPri")block#else none#end">
-						<ul>
-							<li><a href="/member/actions.html?method=list&cm=sys1"  class=menubg21 #showMenuClass("member")>用户管理</a></li>
-							<!--li><a href="/crmrole/actions.html?method=list&cm=sys2"  class=menubg2 >角色管理</a></li>
-							<li><a href="/crmsalesgroup/actions.html?method=list&cm=sys3"  class=menubg2 >部门管理</a></li-->
-						</ul>
-					</div>
-				<li><a  onClick="javascript:showdesc(62)"  class=menubg>
-					<img src= /images/expand.gif border="0" align="absmiddle" id=pic62>资料设置</a></li>
-				<div id="desc62" style="display:#if($memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
-					<ul>
-						<li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息分类 </a></li>
-						<li><a href="/cpstructure/actions.html?method=insert"  #showMenuClass("infosort")> 复制添加信息分类 </a></li>
-						<li><a href="/dictionarysort/actions.html?method=list" #showMenuClass("dictionarysort")> 字典类目 </a></li>
-						<li><a href="/quanzong/actions.html?method=list" #showMenuClass("quanzong")> 全宗管理 </a></li>
-					</ul>
-				</div>
-			</ul>	
-	</div>
+    ##<div  class="lmain" onClick="javascript:showdesc(9)">资料管理</div>
+ ##<div  class="lmain" onClick="javascript:showdesc(10)">检&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</div>
+ ##<div  class="lmain" onClick="javascript:showdesc(12)">统&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</div>
+ ##<div  class="lmain" onClick="javascript:showdesc(12)">数据管理</div>
+
+    <div class="lmain" onClick="javascript:showdesc(6)">系统设置</div>
+    <div class="lmain2" id="desc6"
+         style="display:#if($memuModule == "systemPri" || $memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong"  || $memuModule=="structure")block#else none#end">
+        <ul>
+            <li><a onClick="javascript:showdesc(61)" class=menubg>
+                #set($menuOpen = false)
+                #if($memuModule == "systemPri" )
+                #set($menuOpen = true)
+                #end
+                <img src=#if($menuOpen)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle"
+                id=pic61>权限设置</a></li>
+            <div id="desc61" style="display:#if($memuModule == "systemPri")block#else none#end">
+                <ul>
+                    <li><a href="/member/actions.html?method=list&cm=sys1"
+                           class=menubg21 #showMenuClass("member")>用户管理</a></li>
+                    <!--li><a href="/crmrole/actions.html?method=list&cm=sys2"  class=menubg2 >角色管理</a></li>
+                                 <li><a href="/crmsalesgroup/actions.html?method=list&cm=sys3"  class=menubg2 >部门管理</a></li-->
+                </ul>
+            </div>
+            <li><a onClick="javascript:showdesc(62)" class=menubg>
+                <img src=/images/expand.gif border="0" align="absmiddle" id=pic62>资料设置</a></li>
+            <div id="desc62"
+                 style="display:#if($memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
+                <ul>
+                    <li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息分类 </a></li>
+                    <li><a href="/cpstructure/actions.html?method=insert"  #showMenuClass("infosort")> 复制添加信息分类 </a>
+                    </li>
+                    <li><a href="/dictionarysort/actions.html?method=list" #showMenuClass("dictionarysort")> 字典类目 </a>
+                    </li>
+                    <li><a href="/quanzong/actions.html?method=list" #showMenuClass("quanzong")> 全宗管理 </a></li>
+                </ul>
+            </div>
+        </ul>
+    </div>
 </td>
 <td width="8" valign="top"></td>
 <td valign="top">
