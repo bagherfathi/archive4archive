@@ -63,7 +63,7 @@
     </div>
     <div class="lmain" onClick="javascript:showdesc(9)">µµ∞∏π‹¿Ì</div>
     <div class="lmain2" id="desc9">
-        <ul id="example" class="filetree" style="background-color:white;">
+        <ul id="example" class="filetree">
             ##	    	<li>
 ##		    	<a  onClick="javascript:showdesc(91)" class=menubg >
 ##		    	 #set($menuOpen = false)
