@@ -62,7 +62,7 @@
     </ul>
 </div>
 <div class="lmain" onClick="javascript:showdesc(9)">µµ∞∏π‹¿Ì</div>
-<div class="lmain2" id="desc9">
+<div class="lmain2" id="desc9"     style="display:#if($memuModule == "file" && ($cm.indexOf("da")>=0 ))block#else none#end">
     <ul id="archiveTree" class="filetree">
         <li>
             ##		    	<a  onClick="javascript:showdesc(91)" class=menubg >
