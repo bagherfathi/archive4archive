@@ -18,11 +18,11 @@ public class StructureService extends CommonService {
 		return (List<Structure>) dao.find(hql, new Object[] { infoSortId,
 				status });
 	}
-	
+
 	public List<Structure> getStructureByInfoSortIdAndNotDelete(int infoSortId) {
 		String hql = "from Structure where infoSortId =? and isDelete=0 order by taxis asc";
 
-		return (List<Structure>) dao.find(hql, new Object[] { infoSortId});
+		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
 	}
 
 	/**
@@ -58,8 +58,14 @@ public class StructureService extends CommonService {
 		} else if (status == 2) {
 			hql += " and status in(0,1,2) and ifTwo =0 and ifThree=0";
 		}
+		String taxis = "taxis";
+		if (status == 1) {
+			taxis = "taxis2";
+		} else if (status == 2) {
+			taxis = "taxis3";
+		}
 
-		hql += " and isDelete=0 order by taxis asc";
+		hql += " and isDelete=0 order by " + taxis + " asc";
 
 		return (List<Structure>) dao.find(hql, new Object[] { infoSortId });
 	}

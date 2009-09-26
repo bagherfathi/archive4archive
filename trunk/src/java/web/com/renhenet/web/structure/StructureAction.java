@@ -50,21 +50,21 @@ public class StructureAction extends DispatchActions {
             List<Structure> structureInList = service.getStructureByInfoSortIdAndInStatus(infoSortId,status);
             for (int i = 0; i < structureInList.size(); i++) {
                 Structure structure = structureInList.get(i);
-                if (structure.getStatus() == 0) {
+                if (status == 0) {
                     for (int j = 0; j < form.getListseq().length; j++) {
                         if (form.getListseq()[j] == i + 1) {
                             structure.setTaxis(j + 1);
                             service.updateObject(structure);
                         }
                     }
-                } else if (structure.getStatus() == 1) {
+                } else if (status == 1) {
                   for (int j = 0; j < form.getListseq().length; j++) {
                         if (form.getListseq()[j] == i + 1) {
                             structure.setTaxis2(j + 1);
                             service.updateObject(structure);
                         }
                     }
-                } else if (structure.getStatus() == 2) {
+                } else if (status == 2) {
                    for (int j = 0; j < form.getListseq().length; j++) {
                         if (form.getListseq()[j] == i + 1) {
                             structure.setTaxis3(j + 1);

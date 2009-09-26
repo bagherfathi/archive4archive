@@ -1,5 +1,6 @@
 package com.renhenet.web.file;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,9 +10,11 @@ import org.apache.commons.lang.StringUtils;
 import com.renhenet.fw.ServiceLocator;
 import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
+import com.renhenet.modules.member.DhszService;
 import com.renhenet.modules.member.FileService;
 import com.renhenet.modules.member.InfoSortService;
 import com.renhenet.modules.member.StructureService;
+import com.renhenet.po.Dhsz;
 import com.renhenet.po.File;
 import com.renhenet.po.InfoSort;
 import com.renhenet.po.Structure;
@@ -28,6 +31,9 @@ public class FileAction extends DispatchActions {
 
 	private static InfoSortService infoSortService = (InfoSortService) ServiceLocator
 			.getService("infoSortService");
+
+	private static DhszService dhszService = (DhszService) ServiceLocator
+			.getService("dhszService");
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -52,15 +58,9 @@ public class FileAction extends DispatchActions {
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
-		// if (parInfoSortId > 0) {
-		// File f = (File) service.getObjectById(File.class, parInfoSortId);
-		// f.setId(null);
-		// context.put("bizObj", f);
-		// } else {
 		File f = (File) service.getFileByInfoSortId(infoSortId);
 		f.setId(null);
 		context.put("bizObj", f);
-		// }
 
 		List<Structure> structureList = structureService
 				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
@@ -72,6 +72,21 @@ public class FileAction extends DispatchActions {
 			List<File> fileList = service.getFileByParInfoSortId(parInfoSortId);
 			context.put("fileList", fileList);
 		}
+
+		// 得到档号设置项,处理档号
+		List<Dhsz> dhszList1 = dhszService.getDhszByinfoSortId(infoSortId);
+		List<Dhsz> dhszList = new ArrayList();
+		for (Dhsz dhsz : dhszList1) {
+			Structure structure = (Structure) service.getObjectById(
+					Structure.class, dhsz.getStructureId());
+
+			// structure.setZnName(structure.getZnName().substring(0,
+			// dhsz.getLen()));
+
+			dhsz.setStructure(structure);
+			dhszList.add(dhsz);
+		}
+		context.put("dhszList", dhszList);
 
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {

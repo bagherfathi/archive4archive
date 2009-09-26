@@ -19,12 +19,13 @@
         #foreach($biz in $structureList)
         <tr id="node${lineindex}">
             #set($lineindex=${lineindex}+1)
-            <td class="tablelistbg"> #if($biz.status==0)
-                $biz.taxis
-                #elseif($biz.status==1)
-                $biz.taxis2
-                #elseif($biz.status==2)
-                $biz.taxis3
+            <td class="tablelistbg"> 
+            	#if($status==0)
+                	$biz.taxis  
+                #elseif($status==1)
+                	$biz.taxis2
+                #elseif($status==2)
+                	$biz.taxis3
                 #end
             </td>
             <td class="tablelistbg">$biz.znName</td>

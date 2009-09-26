@@ -1230,6 +1230,13 @@ function toSubmit(){
  #end
  document.fileForm.submit();
  }
+ 
+ function danhao(){
+ 	 #foreach($dhsz in $dhszList)
+ 	 	document.fileForm["a9"].value=
+ 		//document.fileForm["$dhsz.structure.serialNumber"]=$dhsz.structure.znName+$dhsz.title;	 
+ 	 #end
+ }
 </script>
 
 
