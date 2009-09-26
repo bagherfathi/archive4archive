@@ -160,6 +160,7 @@ lmain1 ul li{padding:5px;
 .lmain {
 	font-size: 14px;
 	font-weight: bold;
+    letter-spacing:10px;
 	width: 200px;
 	background-color: #436A9C;;
 	border-top: 1px solid #69c;
