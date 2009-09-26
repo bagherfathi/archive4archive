@@ -59,9 +59,10 @@ public class FileAction extends DispatchActions {
 		context.put("status", status);
 
 		File f = (File) service.getFileByInfoSortId(infoSortId);
-		f.setId(null);
-		context.put("bizObj", f);
-
+		if (f != null) {
+			f.setId(null);
+			context.put("bizObj", f);
+		}
 		List<Structure> structureList = structureService
 				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
 		context.put("structureList", structureList);
