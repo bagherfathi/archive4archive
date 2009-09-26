@@ -11,10 +11,10 @@
             <generator class="native"/>
         </id>
         <property name="oldName" type="java.lang.String">
-            <column name="old_name" length="225" not-null="true" />
+            <column name="old_name" length="225" />
         </property>
         <property name="newName" type="java.lang.String">
-            <column name="new_name" length="225" not-null="true" />
+            <column name="new_name" length="225" />
         </property>
         <property name="fileId" type="java.lang.Integer">
             <column name="file_id" />

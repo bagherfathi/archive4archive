@@ -13,7 +13,7 @@ $validator.getStaticJavascript()
 #if($!updated)
 	<script type="text/javascript">showmsg(true,"���³ɹ�!",msg);</script>
 #end
-#set($actionUrl="/accessory/actions.html?method=update&insert=y")
+#set($actionUrl="/accessory/actions.html?method=update&insert=y&fileIds=$vMUtils.encrypt($fileIds)")
 <div class=conmain>
 	#parse( "/WEB-INF/pages/accessory/form.vm" )
 </div>
