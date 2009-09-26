@@ -13,9 +13,8 @@ public class DhszService extends CommonService {
 	 * @return
 	 */
 	public List<Dhsz> getDhszByinfoSortId(int infoSortId) {
-		String hql = "from Dhsz where infoSortId =? order by id asc";
+		String hql = "from Dhsz where infoSortId =? order by taxis asc";
 
 		return dao.find(hql, new Object[] { infoSortId });
 	}
-
 }

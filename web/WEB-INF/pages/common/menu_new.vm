@@ -140,7 +140,6 @@
 					<ul>
 						<li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息分类 </a></li>
 						<li><a href="/cpstructure/actions.html?method=insert"  #showMenuClass("infosort")> 复制添加信息分类 </a></li>
-						##<li><a href="/dhsz/actions.html?method=insert"  #showMenuClass("infosort")> 档号设置 </a></li>
 						<li><a href="/dictionarysort/actions.html?method=list" #showMenuClass("dictionarysort")> 字典类目 </a></li>
 						<li><a href="/quanzong/actions.html?method=list" #showMenuClass("quanzong")> 全宗管理 </a></li>
 					</ul>
