@@ -76,16 +76,19 @@ public class FileAction extends DispatchActions {
 		// 得到档号设置项,处理档号
 		List<Dhsz> dhszList1 = dhszService.getDhszByinfoSortId(infoSortId);
 		List<Dhsz> dhszList = new ArrayList();
+
+		String strStructure = "";
 		for (Dhsz dhsz : dhszList1) {
 			Structure structure = (Structure) service.getObjectById(
 					Structure.class, dhsz.getStructureId());
-
+			strStructure += "," + structure.getSerialNumber() + ",";
 			// structure.setZnName(structure.getZnName().substring(0,
 			// dhsz.getLen()));
 
 			dhsz.setStructure(structure);
 			dhszList.add(dhsz);
 		}
+		context.put("strStructure", strStructure);
 		context.put("dhszList", dhszList);
 
 		if (context.getParameter("insert") != null

@@ -6,7 +6,7 @@
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
             <td class="tableheadingbg">档号项</td>
-            <td class="tableheadingbg">长度</td>
+            <!--td class="tableheadingbg">长度</td-->
             <td class="tableheadingbg">链接字符</td>
             <td class="tableheadingbg">序号</td>
 			<td class="tableheadingbg">操作</td>
@@ -14,7 +14,7 @@
 		#foreach($biz in $dhszList)
 		<tr>
 			<td class="tablelistbg">$biz.structure.znName</td>
-			<td class="tablelistbg">$biz.len</td>
+			<!--td class="tablelistbg">$biz.len</td-->
 			<td class="tablelistbg">$biz.title</td>
 			<td class="tablelistbg">$biz.taxis</td>
 			<td class="tablelistbg">
@@ -53,16 +53,16 @@
 								#end
 							</select>
 	
-							##showListSelect($structureList "structureId" "$!bizObj.structureId")#showMustFill()
+							
 						</td>
 					</tr>
-					<tr> 
+					<!--tr> 
 						<td bgcolor="#eeeee5" width="20%">长度:
 						</td>
 						<td>
 							#showFormText("len" "$!bizObj.len" 20)#showMustFill()
 						</td>
-					</tr>
+					</tr-->
 					<tr> 
 						<td bgcolor="#eeeee5" width="20%">链接字符:
 						</td>

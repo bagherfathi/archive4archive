@@ -7,6 +7,9 @@ public class File extends IdPersistent implements java.io.Serializable {
 	private String title;
 	private int infoSortId;
 	private int parInfoSortId;
+	// 区别是分层（1层、2层、3层）
+	private int status;
+	// 数据类型
 	private int type;
 	private String a1;
 	private String a2;
@@ -939,6 +942,14 @@ public class File extends IdPersistent implements java.io.Serializable {
 
 	public void setA100(String a100) {
 		this.a100 = a100;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 }

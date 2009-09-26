@@ -16,6 +16,7 @@ import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
 import com.renhenet.modules.member.AccessoryService;
 import com.renhenet.po.Accessory;
+import com.renhenet.po.File;
 import com.renhenet.util.DateUtil;
 import com.renhenet.util.searchcontext.SearchContext;
 import com.renhenet.web.DispatchActions;
@@ -24,9 +25,7 @@ import com.renhenet.web.WebHelper;
 import com.renhenet.web.form.AccessoryForm;
 
 public class AccessoryAction extends DispatchActions {
-	private static final String FILE_PATH = Config.getString("file.path",
-			"D:/dangan/dangan/web/upload/");
-	
+	private static final String FILE_PATH = Config.getString("file.path");
 
 	private static AccessoryService service = (AccessoryService) ServiceLocator
 			.getService("accessoryService");
@@ -40,16 +39,22 @@ public class AccessoryAction extends DispatchActions {
 		int fileId = context.getSIntParameter("fileIds");
 		context.put("fileId", fileId);
 
-		// 得到文件的原文
-		// List<Accessory> accessoryList = service.getAccessoryByFileId(fileId);
-		// context.put("accessoryList", accessoryList);
+		File files = (File) service.getObjectById(File.class, fileId);
+		String path = "";
+		if (files.getStatus() == 0) {
+			path = files.getA9() + "/";
+		} else if (files.getStatus() == 1) {
+			path = files.getA10() + "/";
+		} else if (files.getStatus() == 2) {
+			path = files.getA11() + "/";
+		}
 
-		List<FileDto> fileDtoList = new ArrayList();
+		List<FileDto> fileDtoList = new ArrayList<FileDto>();
 		FileManager fm = new FileManager();
-		List<String> fileList = fm.serachFiles(FILE_PATH);
+		List<String> fileList = fm.serachFiles(FILE_PATH + path);
 		for (int i = 0; i < fileList.size(); i++) {
 			FileDto fileDto = new FileDto();
-			fileDto.setFilePath("/upload/"+fileList.get(i));
+			fileDto.setFilePath("/upload/" + path + fileList.get(i));
 			fileDtoList.add(fileDto);
 		}
 		context.put("fileDtoList", fileDtoList);
@@ -65,7 +70,8 @@ public class AccessoryAction extends DispatchActions {
 						try {
 							Date now = new Date();
 							String seq = DateUtil.date2MysqlDate(now) + "";
-							String fileName = FILE_PATH + seq + fName;
+							mkDir(FILE_PATH + path);
+							String fileName = FILE_PATH + path + seq + fName;
 							WebHelper.writeUploadFile2Server(fileName, file);
 							accessoryForm.setNewName(seq + fName);
 
@@ -113,4 +119,26 @@ public class AccessoryAction extends DispatchActions {
 		return "file";
 	}
 
+	public void mkDir(String strPath) {
+		java.io.File dirFile;
+		boolean bFile;
+		try {
+			dirFile = new java.io.File(strPath);
+			bFile = dirFile.exists();
+
+			if (bFile == true) {
+				System.out.println("The folder exists.");
+			} else {
+				bFile = dirFile.mkdir();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// public static void main(String[] args) {
+	// AccessoryAction a = new AccessoryAction();
+	// a.mkDir("D:/dangan/dangan/web/upload/222");
+	//
+	// }
 }
