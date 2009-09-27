@@ -14,9 +14,11 @@ import com.renhenet.fw.ServiceLocator;
 import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
 import com.renhenet.modules.member.FilePigeonholeService;
+import com.renhenet.modules.member.InfoSortService;
 import com.renhenet.modules.member.StructureService;
 import com.renhenet.po.File;
 import com.renhenet.po.FilePigeonhole;
+import com.renhenet.po.InfoSort;
 import com.renhenet.po.Structure;
 import com.renhenet.util.searchcontext.SearchContext;
 import com.renhenet.util.searchcontext.SearchOption;
@@ -30,6 +32,8 @@ public class FilePigeonholeAction extends DispatchActions {
 			.getService("filePigeonholeService");
 	private static StructureService structureService = (StructureService) ServiceLocator
 			.getService("structureService");
+	private static InfoSortService infoSortService = (InfoSortService) ServiceLocator
+			.getService("infoSortService");
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -50,6 +54,7 @@ public class FilePigeonholeAction extends DispatchActions {
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {
 			FilePigeonholeForm form = (FilePigeonholeForm) context.getForm();
+
 			super.insertProcess(context);
 
 			return "/filepigeonhole/actions.html?method=insert&infoSortIdsTo="
@@ -59,14 +64,15 @@ public class FilePigeonholeAction extends DispatchActions {
 					+ context.getParameter("cm");
 
 		} else {
-
+			// 得到原表字段
 			List<Structure> structureList = structureService
 					.getStructureByInfoSortId(infoSortId, status);
 			context.put("structureList", structureList);
 
-			List<Structure> structureToList = structureService
-					.getStructureByInfoSortId(infoSortIdTo, status);
-			context.put("structureToList", structureToList);
+			// 得到目标表字段
+			List<InfoSort> infoSortList = infoSortService
+					.getInfoSortByTypeAndCopy(2);
+			context.put("infoSortList", infoSortList);
 
 			List<FilePigeonhole> filePigeonholeLists = service
 					.getFilePigeonholeByInfoSortId(infoSortId);
@@ -119,8 +125,8 @@ public class FilePigeonholeAction extends DispatchActions {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
 
-		int infoSortIdTo = context.getSIntParameter("infoSortIdsTo");
-		context.put("infoSortIdTo", infoSortIdTo);
+		// int infoSortIdTo = context.getSIntParameter("infoSortIdsTo");
+		// context.put("infoSortIdTo", infoSortIdTo);
 
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
@@ -187,6 +193,10 @@ public class FilePigeonholeAction extends DispatchActions {
 						e.printStackTrace();
 					}
 				}
+
+				int infoSortIdTo = service
+						.getInfoSortIdsToByInfoSortId(infoSortId);
+
 				filed.setInfoSortId(infoSortIdTo);
 				filed.setA7(form.getQzh());
 				filed.setA6(form.getYear());

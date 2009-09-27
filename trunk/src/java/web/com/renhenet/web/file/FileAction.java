@@ -20,6 +20,7 @@ import com.renhenet.po.InfoSort;
 import com.renhenet.po.Structure;
 import com.renhenet.util.searchcontext.SearchContext;
 import com.renhenet.web.DispatchActions;
+import com.renhenet.web.Pagination;
 import com.renhenet.web.VMUtils;
 import com.renhenet.web.form.FileForm;
 
@@ -146,31 +147,91 @@ public class FileAction extends DispatchActions {
 	protected SearchContext getListSearchContext(WebContext context) {
 		SearchContext searchContext = new SearchContext();
 		int infoSortId = context.getSIntParameter("infoSortId");
+		int startNum = context.getIntParameter("startNum");
+		context.put("startNum", startNum);
+
+		int parInfoSortId = context.getSIntParameter("parInfoSortId");
+		context.put("parInfoSortId", parInfoSortId);
+
+		int parparInfoSortId = context.getSIntParameter("parparInfoSortId");
+		context.put("parparInfoSortId", parparInfoSortId);
 
 		context.put("infoSortId", infoSortId);
 
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
-		List<Structure> structureList = structureService
-				.getStructureByInfoSortId(infoSortId, status);
+		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
+				InfoSort.class, infoSortId);
+		context.put("infoSort", infoSort);
+		// 得到分类有几层
 
+		// 第一层
+		List<Structure> structureList = structureService
+				.getStructureByInfoSortIdAndInStatus(infoSortId, 0);
 		context.put("structureList", structureList);
+
+		if (infoSort.getType() > 0) {
+			// 第二层
+			List<Structure> structureList1 = structureService
+					.getStructureByInfoSortIdAndInStatus(infoSortId, 1);
+			context.put("structureList1", structureList1);
+		} else if (infoSort.getType() == 2) {
+			// 第三层
+			List<Structure> structureList2 = structureService
+					.getStructureByInfoSortIdAndInStatus(infoSortId, 2);
+			context.put("structureList2", structureList2);
+		}
+
 		String a5 = context.getParameter("titleA5");
 		context.put("titleA5", a5);
 		a5 = this.getTitles(a5);
 
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
-			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, 0);
+			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, 0,
+					startNum, 10);
+			int num = service.getNumByInfoSortIdAndA5(infoSortId, a5, 0, 0, 0);
+			Pagination pagination = new Pagination(num, startNum, 10);
+
+			context.put("pagination", pagination);
 		} else {
-			fileList = service.getFileByInfoSortId(infoSortId, 0, context);
+			// 第1层
+			int num1 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
+					infoSortId, 0, 0, context);
+			fileList = service.getFileByInfoSortIdAndParInfoSortIdAndStatus(
+					infoSortId, 0, 0, context, startNum, 10);
+			Pagination pagination1 = new Pagination(num1, startNum, 10);
+			context.put("pagination1", pagination1);
+
+			// 第2层
+			if (parInfoSortId > 0) {
+				int num2 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
+						infoSortId, parInfoSortId, 1, context);
+				List<File> fileList2 = service
+						.getFileByInfoSortIdAndParInfoSortIdAndStatus(
+								infoSortId, parInfoSortId, 1, context,
+								startNum, 10);
+				context.put("fileList2", fileList2);
+				Pagination pagination2 = new Pagination(num2, startNum, 10);
+				context.put("pagination2", pagination2);
+			}
+
+			// 第3层
+			if (parparInfoSortId > 0) {
+				int num3 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
+						infoSortId, parparInfoSortId, 2, context);
+				List<File> fileList3 = service
+						.getFileByInfoSortIdAndParInfoSortIdAndStatus(
+								infoSortId, parparInfoSortId, 2, context,
+								startNum, 10);
+				context.put("fileList3", fileList3);
+
+				Pagination pagination3 = new Pagination(num3, startNum, 10);
+				context.put("pagination3", pagination3);
+			}
 		}
 		context.put("fileList", fileList);
-
-		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
-				InfoSort.class, infoSortId);
-		context.put("infoSort", infoSort);
 
 		return searchContext;
 	}

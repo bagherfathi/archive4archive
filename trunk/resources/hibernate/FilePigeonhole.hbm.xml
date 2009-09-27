@@ -13,6 +13,9 @@
           <property name="infoSortId" type="java.lang.Integer">
             <column name="info_sort_id" />
         </property>
+          <property name="infoSortIdsTo" type="java.lang.Integer">
+            <column name="info_sort_ids_to" />
+        </property>
          <property name="infoColumn" type="java.lang.String">
             <column name="info_column" length="12" />
         </property>

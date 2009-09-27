@@ -951,5 +951,4 @@ public class File extends IdPersistent implements java.io.Serializable {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-
 }
