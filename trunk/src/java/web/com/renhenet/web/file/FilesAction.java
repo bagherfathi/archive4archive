@@ -62,7 +62,7 @@ public class FilesAction extends DispatchActions {
 
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
-			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, 0);
+			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, 0, 0, 0);
 		} else {
 			fileList = service.getFileByInfoSortIdAndType(infoSortId, 0);
 		}

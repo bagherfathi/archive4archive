@@ -42,15 +42,22 @@ public class AccessoryAction extends DispatchActions {
 		File files = (File) service.getObjectById(File.class, fileId);
 		String path = "";
 		if (files.getStatus() == 0) {
-			path = files.getA9() + "/";
+			if (!StringUtils.isEmpty(files.getA9())) {
+				path = files.getA9() + "/";
+			}
 		} else if (files.getStatus() == 1) {
-			path = files.getA10() + "/";
+			if (!StringUtils.isEmpty(files.getA10())) {
+				path = files.getA10() + "/";
+			}
 		} else if (files.getStatus() == 2) {
-			path = files.getA11() + "/";
+			if (!StringUtils.isEmpty(files.getA11())) {
+				path = files.getA11() + "/";
+			}
 		}
 
 		List<FileDto> fileDtoList = new ArrayList<FileDto>();
 		FileManager fm = new FileManager();
+		mkDir(FILE_PATH + path);
 		List<String> fileList = fm.serachFiles(FILE_PATH + path);
 		for (int i = 0; i < fileList.size(); i++) {
 			FileDto fileDto = new FileDto();
