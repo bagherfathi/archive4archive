@@ -317,8 +317,8 @@
 								<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>
 								<a href="/file/actions.html?method=list&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">显示第二层</a>
 							#end
-							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
-							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm"  >编辑</a>
+							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm"  >删除</a>
 							#if($member.type==0)
 								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >原文</a>
 							#end
@@ -551,10 +551,10 @@
 						<td class="tablelistbg">&nbsp;
 							#if($!infoSort.threeFloor!="")
 								<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">新增$!infoSort.threeFloor</a>
-								<a href="/file/actions.html?method=list&parInfoSortIds=$vMUtils.encrypt($file.id)&parparInfoSortIds=$vMUtils.encrypt($parInfoSortId)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">显示第三层</a>
+								<a href="/file/actions.html?method=list&parInfoSortIds=$vMUtils.encrypt($parInfoSortId)&parparInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm">显示第三层</a>
 							#end
-							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
-							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm"  >编辑</a>
+							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm"  >删除</a>
 							#if($member.type==0)
 								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >原文</a>
 							#end
@@ -786,8 +786,8 @@
 						#end
 					#end
 						<td class="tablelistbg">&nbsp;
-							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
-							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm"  >编辑</a>
+							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(2)&cm=$cm"  >删除</a>
 							#if($member.type==0)
 								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >原文</a>
 							#end
