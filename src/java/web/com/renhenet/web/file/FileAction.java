@@ -146,14 +146,14 @@ public class FileAction extends DispatchActions {
 	@Override
 	protected SearchContext getListSearchContext(WebContext context) {
 		SearchContext searchContext = new SearchContext();
-		int infoSortId = context.getSIntParameter("infoSortId");
+		int infoSortId = context.getSIntParameter("infoSortIds");
 		int startNum = context.getIntParameter("startNum");
 		context.put("startNum", startNum);
 
-		int parInfoSortId = context.getSIntParameter("parInfoSortId");
+		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
 		context.put("parInfoSortId", parInfoSortId);
 
-		int parparInfoSortId = context.getSIntParameter("parparInfoSortId");
+		int parparInfoSortId = context.getSIntParameter("parparInfoSortIds");
 		context.put("parparInfoSortId", parparInfoSortId);
 
 		context.put("infoSortId", infoSortId);
@@ -171,12 +171,13 @@ public class FileAction extends DispatchActions {
 				.getStructureByInfoSortIdAndInStatus(infoSortId, 0);
 		context.put("structureList", structureList);
 
-		if (infoSort.getType() > 0) {
+		if (infoSort.getStatus() > 0) {
 			// 第二层
 			List<Structure> structureList1 = structureService
 					.getStructureByInfoSortIdAndInStatus(infoSortId, 1);
 			context.put("structureList1", structureList1);
-		} else if (infoSort.getType() == 2) {
+		}
+		if (infoSort.getStatus() == 2) {
 			// 第三层
 			List<Structure> structureList2 = structureService
 					.getStructureByInfoSortIdAndInStatus(infoSortId, 2);
@@ -201,8 +202,8 @@ public class FileAction extends DispatchActions {
 					infoSortId, 0, 0, context);
 			fileList = service.getFileByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, 0, 0, context, startNum, 10);
-			Pagination pagination1 = new Pagination(num1, startNum, 10);
-			context.put("pagination1", pagination1);
+			Pagination pagination = new Pagination(num1, startNum, 10);
+			context.put("pagination", pagination);
 
 			// 第2层
 			if (parInfoSortId > 0) {

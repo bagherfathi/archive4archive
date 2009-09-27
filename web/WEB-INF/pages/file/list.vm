@@ -1,5 +1,4 @@
 #renhehead()
-
 #renheMenu("file")
 #if($!infoSort.oneFloor!="")
 #set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&types=1&parInfoSortIds=$vMUtils.encrypt(0)&statuses=$vMUtils.encrypt(0)&cm=$cm")
