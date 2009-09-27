@@ -13,16 +13,13 @@ public class Test {
 		// String str ="<property name=\"a2\"
 		// type=\"java.lang.String\">\n<column
 		// name=\"A2\" length=\"120\" />\n</property>";
-		String str = "#elseif($strIndex=='a2')\n	"
-				+ "#if($!biz.isSelfMotion==1&&($!bizObj.a2!='null'||$!bizObj.a2!=''))\n		"
-				+ "#set($values=$vMUtils.stringToInt($!bizObj.a2)+1)\n	"
-				+ "#else\n		" + "#set($values=$!bizObj.a2)\n	"
-				+ "#end";
+		String str = "file.setA1(oo[6] + \"\");";
 		// String str1 = "";
 
-		for (int i = 2; i <= 100; i++) {
+		for (int i = 1; i <= 100; i++) {
 			String str1 = "";
-			str1 = str.replaceAll("a2", "a" + i);
+			str1 = str.replaceAll("A1", "A" + i);
+			str1 = str1.replace("[6]", "[" + (i + 5) + "]");
 			// str1 = str1.replaceAll("A2", "A" + i);
 			System.out.println(str1);
 		}

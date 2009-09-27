@@ -7,6 +7,7 @@ public class FilePigeonhole extends IdPersistent implements
 	private static final long serialVersionUID = 561747347747316457L;
 	private String infoColumn;
 	private String infoColumnTo;
+	private int infoSortIdsTo;
 	private int infoSortId;
 	private Structure structure;
 
@@ -40,6 +41,14 @@ public class FilePigeonhole extends IdPersistent implements
 
 	public void setInfoSortId(int infoSortId) {
 		this.infoSortId = infoSortId;
+	}
+
+	public int getInfoSortIdsTo() {
+		return infoSortIdsTo;
+	}
+
+	public void setInfoSortIdsTo(int infoSortIdsTo) {
+		this.infoSortIdsTo = infoSortIdsTo;
 	}
 
 }

@@ -14,10 +14,12 @@ import com.renhenet.modules.member.FileService;
 import com.renhenet.modules.member.InfoSortService;
 import com.renhenet.modules.member.MemberService;
 import com.renhenet.modules.member.ResourcesService;
+import com.renhenet.modules.member.StructureService;
 import com.renhenet.po.DictionarySort;
 import com.renhenet.po.InfoSort;
 import com.renhenet.po.Member;
 import com.renhenet.po.Resources;
+import com.renhenet.po.Structure;
 import com.renhenet.util.DateUtil;
 import com.renhenet.util.FileUtil;
 import com.renhenet.util.HaoImageScale;
@@ -36,6 +38,8 @@ public class VMUtils {
 	private FileService fileService;
 
 	private InfoSortService infoSortService;
+
+	private StructureService structureService;
 
 	public List<InfoSort> getInfoSortByparentId(int parentId) {
 		return infoSortService.getInfoSortByParentId(parentId);
@@ -64,6 +68,13 @@ public class VMUtils {
 			num = new Integer(strNum);
 		}
 		return num;
+	}
+
+	public List<Structure> getStructureByInfoSortId(int infoSortIdTo, int status) {
+		List<Structure> structureToList = structureService
+				.getStructureByInfoSortId(infoSortIdTo, status);
+
+		return structureToList;
 	}
 
 	public List<Resources> getResourceByType(String type) {
@@ -375,6 +386,14 @@ public class VMUtils {
 
 	public void setInfoSortService(InfoSortService infoSortService) {
 		this.infoSortService = infoSortService;
+	}
+
+	public StructureService getStructureService() {
+		return structureService;
+	}
+
+	public void setStructureService(StructureService structureService) {
+		this.structureService = structureService;
 	}
 
 }
