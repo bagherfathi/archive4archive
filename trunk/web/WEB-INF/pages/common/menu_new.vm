@@ -83,10 +83,11 @@
 
     <ul id="archiveTree" class="filetree">
         <li class="open"><span class="folder">µµ°¸Â¼Èë</span>
-
+            #set($list1=$vMUtils.getInfoSortByparentId(133))
+            #if($list1.size()!=0)
             <ul>
                 #set($index1=1)
-                #foreach($infosort1 in $vMUtils.getInfoSortByparentId(133))
+                #foreach($infosort1 in $list1)
                 #set($strIndex1="da"+$index1)
                 <li class="open">
 
@@ -97,10 +98,11 @@
                     <span class="folder">$!infosort1.name</span>
                     #end
 
-
+                    #set($list2=$vMUtils.getInfoSortByparentId($!infosort1.id))
+                    #if($list2.size()!=0)
                     <ul>
                         #set($index2=1)
-                        #foreach($infosort2 in $vMUtils.getInfoSortByparentId($!infosort1.id))
+                        #foreach($infosort2 in $list2)
                         #set($strIndex2="da"+$index2)
 
                         <li class="open">
@@ -111,9 +113,10 @@
                             <span class="folder">$!infosort2.name</span>
                             #end
 
-
+                            #set($list3=$vMUtils.getInfoSortByparentId($!infosort2.id))
+                            #if($list3.size()!=0)
                             <ul>#set($index3=1)
-                                #foreach($infosort3 in $vMUtils.getInfoSortByparentId($!infosort2.id))
+                                #foreach($infosort3 in $list3)
                                 #set($strIndex3="da"+$index3)
                                 <li class="open">
                                     #if($infosort3.type==2)
@@ -123,9 +126,10 @@
                                     <span class="folder">$!infosort3.name</span>
                                     #end
 
-
+                                    #set($list4=$vMUtils.getInfoSortByparentId($!infosort3.id))
+                                    #if($list4.size()!=0)
                                     <ul> #set($index4=1)
-                                        #foreach($infosort4 in $vMUtils.getInfoSortByparentId($!infosort3.id))
+                                        #foreach($infosort4 in $list4)
                                         #set($strIndex4="da"+$index4)
                                         <li class="open">
                                             #if($infosort4.type==2)
@@ -136,9 +140,11 @@
                                             <span class="folder">$!infosort4.name</span>
                                             #end
 
+                                            #set($list5=$vMUtils.getInfoSortByparentId($!infosort4.id))
+                                            #if($list5.size()!=0)
 
                                             <ul> #set($index5=1)
-                                                #foreach($infosort5 in $vMUtils.getInfoSortByparentId($!infosort4.id))
+                                                #foreach($infosort5 in $list5)
                                                 #set($strIndex5="da"+$index5)
                                                 <li class="open">
                                                     #if($infosort5.type==2)
@@ -151,30 +157,34 @@
                                                 #set($index5=$index5+1)
                                                 #end
                                             </ul>
-
+                                            #end
 
                                         </li>
                                         #set($index4=$index4+1)
                                         #end
                                     </ul>
+                                    #end
 
 
                                 </li>
                                 #set($index3=$index3+1)
                                 #end
                             </ul>
+                            #end
 
 
                         </li>
                         #set($index2=$index2+1)
                         #end
                     </ul>
+                    #end
 
 
                 </li>
                 #set($index1=$index1+1)
                 #end
             </ul>
+            #end
 
         </li>
     </ul>
