@@ -38,7 +38,7 @@
 		<column name="A4" length="120" />
 		</property>
 		<property name="a5" type="java.lang.String">
-		<column name="A5" length="120" />
+		<column name="A5"/>
 		</property>
 		<property name="a6" type="java.lang.String">
 		<column name="A6" length="120" />
