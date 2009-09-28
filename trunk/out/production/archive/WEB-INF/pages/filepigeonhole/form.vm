@@ -43,29 +43,60 @@
 							</td>
 						</tr>
 						<tr> 
-							<td bgcolor="#eeeee5" width="20%">目标表字段:
+							<td bgcolor="#eeeee5" width="20%">目标分类:
 							</td>							
 							<td>
-							<select name="infoColumnTo" >
+							<select name="infoSortIdsTo" onchange="showTab(this.value)">
 								<option value="">-请选择-</option>
-							#foreach($biz in $structureToList)
-								<option value="$biz.serialNumber">$biz.znName</option>
-								$biz.serialNumber
+								#foreach($biz in $infoSortList)
+									<option value="$biz.id">$biz.name</option>
+								#end
+							</td>
+						</tr>
+						<tr> 
+							<td bgcolor="#eeeee5" width="20%">分类字段:
+							</td>							
+							<td>
+							#foreach($bizs in $infoSortList)
+								<select name="" id="$bizs.id" style="display:none" onchange="toValue(this.value);">
+									<option value="">-请选择-</option>
+								#foreach($structure in $vMUtils.getStructureByInfoSortId($bizs.id,$status))
+									<option value="$structure.serialNumber">$structure.znName</option>
+								#end
+								</select>
 							#end
 							</td>
 						</tr>
-										
 					</table>
 					<table width="100%" border="0" cellspacing="4" cellpadding="0">
-							<tr>
-								<td  align="center" >
-									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
-								</td>
-							</tr>
-						</table>
+						<tr>
+							<td  align="center" >
+								#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+							</td>
+						</tr>
+					</table>
+					<input id="infoColumnTo" type=hidden name="infoColumnTo" value="$!biz.infoColumnTo">	
+					<input id="showValue" type=hidden name="showValue" value="$!biz.infoSortIdsTo">	
 			</form>
 		</td>
 	</tr>
 </table>
+<script>
+	
+	function showTab(id){
+		var showValue =document.getElementById("showValue").value;
+		if(showValue>0){
+			document.getElementById(showValue).style.display="none";
+		}
+		
+		document.getElementById(id).style.display="";
+		document.getElementById("showValue").value=id;
+	}
+	
+	function toValue(id){
+		document.getElementById("infoColumnTo").value=id;
+	}
+	
+</script>
 
 

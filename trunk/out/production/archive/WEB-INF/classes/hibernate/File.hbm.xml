@@ -13,6 +13,9 @@
         <property name="infoSortId" type="java.lang.Integer">
             <column name="info_sort_id" />
         </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
         <property name="parInfoSortId" type="java.lang.Integer">
             <column name="par_info_sort_id" />
         </property>
