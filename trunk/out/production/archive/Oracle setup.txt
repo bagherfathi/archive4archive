@@ -1,0 +1,52 @@
+				Using fulltext retrieval in Oracle
+
+
+#Step 1: Login as sys in oracle
+#--------------------------------------------------------------------------------------------------------------------
+
+#Step 2: Create archive user
+#--------------------------------------------------------------------------------------------------------------------
+create user archive;
+
+#Step 3: Authorize for ctxapp & ctx_dll rights
+#--------------------------------------------------------------------------------------------------------------------
+grant ctxapp to archive;
+grant execute on ctx_ddl to archive;
+
+
+#Step 4: Login as target user 
+#--------------------------------------------------------------------------------------------------------------------
+
+#Step 5: Create ctx_dll preference
+#--------------------------------------------------------------------------------------------------------------------
+begin ctx_ddl.create_preference('club_lexer','chinese_vgram_lexer'); end;
+
+#Step 6: Create index for search field
+#--------------------------------------------------------------------------------------------------------------------
+create index search_index on files ( a5 ) indextype is ctxsys.context parameters('lexer club_lexer');
+
+#Step 7: Create procedure for index sync and optimize
+#--------------------------------------------------------------------------------------------------------------------
+#for sync
+create or replace procedure hsp_sync as begin ctx_ddl.sync_index('search_index'); end;
+#for optimize
+create or replace procedure hsp_optimize as begin ctx_ddl.optimize_index('search_index','FULL'); end;
+
+#Step 8: Create job for index sync and optimize for each minite
+#--------------------------------------------------------------------------------------------------------------------
+#When excute the number 2 line ,you will be ask for the type of the job
+variable jobsync number;
+begin dbms_job.submit(:jobsync,'hsp_sync();',sysdate,'sysdate + 1/1440'); commit; end;
+
+#When excute the number 2 line ,you will be ask for the type of the job
+variable joboptimize number;
+begin dbms_job.submit(:joboptimize,'hsp_optimize();',sysdate,'sysdate + 1/1440'); commit; end;
+
+#********************************************************************************************************************
+#Run job manually
+begin dbms_job.run(:jobsync); end;
+begin dbms_job.run(:joboptimize); end;
+
+#Using
+SELECT score(1),a5 FROM files WHERE contains (a5, '中华,人民,解放,军', 1) > 0
+ORDER BY score(1) desc
