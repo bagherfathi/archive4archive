@@ -65,7 +65,11 @@ public class VMUtils {
 	public int stringToInt(String strNum) {
 		int num = -1;
 		if (!StringUtils.isEmpty(strNum)) {
-			num = new Integer(strNum);
+			try {
+				num = new Integer(strNum);
+			} catch (NumberFormatException e) {
+				return num;
+			}
 		}
 		return num;
 	}
