@@ -33,9 +33,9 @@
 			<form name="dhszForm" method="post" action="$!actionUrl" onSubmit = "return validateDhszForm(this);">
 				<input type=hidden name=id value=$!bizObj.id>
 				#if($infoSortId>0)
-					<input type=text name=infoSortId value=$!infoSortId>
+					<input type=hidden name=infoSortId value=$!infoSortId>
 				#else
-					<input type=text name=infoSortId value=$!bizObj.infoSortId>
+					<input type=hidden name=infoSortId value=$!bizObj.infoSortId>
 				#end
 				<table width="100%" border="0" cellpadding="2" cellspacing="3">
 					<tr> 
