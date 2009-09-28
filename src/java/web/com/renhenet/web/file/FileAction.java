@@ -137,7 +137,7 @@ public class FileAction extends DispatchActions {
 
 		super.deleteProcess(context);
 
-		return "/file/actions.html?method=insert&parInfoSortIds="
+		return "/file/actions.html?method=list&parInfoSortIds="
 				+ VMUtils.encrypt(parInfoSortId) + "&infoSortIds="
 				+ VMUtils.encrypt(infoSortId) + "&statuses="
 				+ VMUtils.encrypt(status) + "&cm=" + context.getParameter("cm");
