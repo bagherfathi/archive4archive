@@ -1,0 +1,24 @@
+#renhehead()
+#renheMenu("dictionarysort")
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="conbg">
+<div class=contitle>
+<div class=leftmain>编辑字典类目</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/dictionarysort/actions.html?method=list&cm=sys5">&#171;返回</a></div>
+<div class=rightmain></div>
+</div>
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=message></div></td></tr></table>
+#if($!nameExits)
+<script>showmsg(false,"字典类目名重复",message);</script>
+#end
+#if($!updated)
+	<script type="text/javascript">showmsg(true,"更新成功!",msg);</script>
+#end
+#set($actionUrl="/dictionarysort/actions.html?method=update&insert=y&cm=sys5")
+<div class=conmain>
+	#parse( "/WEB-INF/pages/dictionarysort/form.vm" )
+</div>
+<br></div>
+#renheend()	

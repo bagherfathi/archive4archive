@@ -1,0 +1,21 @@
+#renhehead()
+#renheMenu("systemPri")
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="conbg">
+<div class=contitle>
+<div class=leftmain>�༭�û�</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/accessory/actions.html?method=list">&#171;����</a></div>
+<div class=rightmain></div>
+</div>
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=message></div></td></tr></table>
+#if($!updated)
+	<script type="text/javascript">showmsg(true,"���³ɹ�!",msg);</script>
+#end
+#set($actionUrl="/accessory/actions.html?method=update&insert=y")
+<div class=conmain>
+	#parse( "/WEB-INF/pages/accessory/form.vm" )
+</div>
+<br></div>
+#renheend()	

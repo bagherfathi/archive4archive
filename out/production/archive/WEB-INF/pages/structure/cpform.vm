@@ -1,0 +1,40 @@
+
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="infosortForm" method="post" action="$!actionUrl" onSubmit = "return validateInfosortForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				<table width="100%" border="0" cellpadding="2" cellspacing="3">
+					<tr> 
+						<td bgcolor="#eeeee5" width="20%">信息分类:
+						</td>
+						<td>
+							#showListSelect($infoSortList2 "infoSortId" "")#showMustFill()
+						</td>
+					</tr>					
+					<tr>
+						<td bgcolor="#eeeee5" width="20%">目录:
+						</td>
+						<td>
+							#showListSelect($infoSortList "parentId" "")#showMustFill()
+						</td>
+						<td bgcolor="#eeeee5" width="20%">名称:
+						</td>
+						<td>
+							#showFormText("name" "" 20)
+						</td>
+					</tr>
+				</table>
+				<table width="100%" border="0" cellspacing="4" cellpadding="0">
+					<tr>
+						<td  align="center" >
+							#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+						</td>
+					</tr>
+				</table>
+			</form>
+		</td>
+	</tr>
+</table>
+
+

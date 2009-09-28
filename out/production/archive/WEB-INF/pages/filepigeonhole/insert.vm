@@ -1,0 +1,19 @@
+#renhehead()
+#renheMenu("file")
+<br>
+<div id="conbg">
+<div class=contitle>
+<div class=leftmain>定义表结构</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/filepigeonhole/actions.html?method=list&infoSortIdsTo=$vMUtils.encrypt(227)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm">&#171;返回</a></div>
+<div class=rightmain></div>
+</div>
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=message></div></td></tr></table>
+#set($actionUrl="/filepigeonhole/actions.html?method=insert&insert=y&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm")
+<div class=conmain>
+	#parse( "/WEB-INF/pages/filepigeonhole/form.vm" )
+</div>
+</div>
+
+#renheend()	

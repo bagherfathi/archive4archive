@@ -1,0 +1,71 @@
+#if($filePigeonholeList)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">原表字段名</td>
+            <td class="tableheadingbg">目标表字段名</td>
+			<td class="tableheadingbg">操作</td>
+          </tr>
+		#foreach($biz in $filePigeonholeList)
+		<tr>
+			<td class="tablelistbg">$biz.infoColumn</td>
+			<td class="tablelistbg">$biz.infoColumnTo</td>
+			<td class="tablelistbg">
+				<a href="/filepigeonhole/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&infoSortIdsTo=$vMUtils.encrypt($infoSortIdTo)&statuses=$vMUtils.encrypt($&status)&cm=$cm"  >删除</a>
+			</td>
+         </tr>
+		#end
+      </table>
+#end
+<br><br>
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="filepigeonholeForm" method="post" action="$!actionUrl" onSubmit = "return validateFilePigeonholeForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				<input type=hidden name=infoSortId value=$!infoSortId>
+				<input type=hidden name=status value=$!status>
+				<input type=hidden name=infoSortIdsTo value=$!infoSortIdTo>
+				<table width="100%" border="0" cellpadding="2" cellspacing="3">
+						<tr> 
+							<td bgcolor="#eeeee5" width="20%">原表字段:
+							</td>							
+							<td>
+							<select name="infoColumn" >
+								<option value="">-请选择-</option>
+							#foreach($biz in $structureList)
+								<option value="$biz.serialNumber">$biz.znName</option>
+								$biz.serialNumber
+							#end
+							</td>
+						</tr>
+						<tr> 
+							<td bgcolor="#eeeee5" width="20%">目标表字段:
+							</td>							
+							<td>
+							<select name="infoColumnTo" >
+								<option value="">-请选择-</option>
+							#foreach($biz in $structureToList)
+								<option value="$biz.serialNumber">$biz.znName</option>
+								$biz.serialNumber
+							#end
+							</td>
+						</tr>
+										
+					</table>
+					<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>
+
+

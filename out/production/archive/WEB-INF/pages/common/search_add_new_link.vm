@@ -1,0 +1,11 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="6" >
+	<form action="$!addNewLink" method= "post">
+		<tr>
+			<td align="right" > 
+				<button type=submit name="addNew" value="y" class=btn1_mouseout title="$!addNewLinkText" >$!addNewLinkText
+				</button>
+				##		<a href="$!addNewLink">$!addNewLinkText</a>
+			</td>
+		</tr>
+	</form>
+</table>	
