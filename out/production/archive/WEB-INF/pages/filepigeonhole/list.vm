@@ -1,15 +1,14 @@
 #renhehead()
-
 #renheMenu("file")
-
 #if($!infoSort.oneFloor!="")
-#set($addNewLink = "/filepigeonhole/actions.html?method=insert&infoSortIdsTo=$vMUtils.encrypt(227)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm")
+#set($addNewLink = "/filepigeonhole/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm")
 #set($addNewLinkText = "$!infoSort.oneFloorπÈµµπ‹¿Ì")
 #parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
 #set($urlPre = "/filepigeonhole/actions.html?method=list&cm=$cm")
 #end
+<br>
 #if($!fileList)
-<form name="searchForm" method="post" action="/filepigeonhole/actions.html?method=update&infoSortIdsTo=$vMUtils.encrypt(227)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm">
+<form name="searchForm" method="post" action="/filepigeonhole/actions.html?method=update&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm">
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
             <td class="tableheadingbg">&nbsp;</td>

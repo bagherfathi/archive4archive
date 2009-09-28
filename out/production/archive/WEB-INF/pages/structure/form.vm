@@ -67,9 +67,8 @@
             <form name="structureForm" method="post" action="$!actionUrl"
                   onSubmit="return validateStructureForm(this);">
                 <input type=hidden name=id value=$!bizObj.id>
-                <input type=text name=infoSortId value=$!infoSortId>
-                <input type=text name=status value=$!status>
-                <input type=text name=serialNumber value=$!bizObj.serialNumber>
+                <input type=hidden name=infoSortId value=$!infoSortId>
+                <input type=hidden name=status value=$!status>
                 <input type=hidden name=isDelete value=$!bizObj.isDelete>
                 <input type=hidden name=taxis2 value=$!bizObj.taxis2>
                 <input type=hidden name=taxis3 value=$!bizObj.taxis3>
@@ -80,6 +79,11 @@
                         </td>
                         <td>
                             #showFormText("znName" "$!bizObj.znName" 20)#showMustFill()
+                        </td>
+                        <td bgcolor="#eeeee5" width="20%">×Ô¶¯±àÂë:
+                        </td>
+                        <td>
+                           <input type=text name=serialNumber value=$!bizObj.serialNumber>
                         </td>
                     </tr>
                     <tr>

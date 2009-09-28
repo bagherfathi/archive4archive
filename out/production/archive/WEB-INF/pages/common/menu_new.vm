@@ -21,14 +21,230 @@
                 window.console && console.log("%o was toggled", this);
             }
         });
-
-
+        $("#fileTree").treeview({
+            animated: "fast",
+            collapsed: true,
+            unique: true,
+            persist: "cookie",
+            toggle: function() {
+                window.console && console.log("%o was toggled", this);
+            }
+        });
+        $("#fileArchiveTree").treeview({
+            animated: "fast",
+            collapsed: true,
+            unique: true,
+            persist: "cookie",
+            toggle: function() {
+                window.console && console.log("%o was toggled", this);
+            }
+        });
     });
 </script>
 <div class="lmain" background="/images/menuleft2.gif" onClick="javascript:showdesc(1)">文件管理</div>
 <div class="lmain2" id="desc1"
      style="display:#if($memuModule == "file" && ($cm.indexOf("wj")>=0 || $cm.indexOf("gd")>=0))block#else none#end">
-    <ul>
+   <ul id="fileTree" class="filetree">
+        <li ><span class="folder">文件录入</span>
+            #set($list1=$vMUtils.getInfoSortByparentId(132))
+            #if($list1.size()!=0)
+            <ul>
+                #set($index1=1)
+                #foreach($infosort1 in $list1)
+                #set($strIndex1="da"+$index1)
+                <li class="open">
+
+                    #if($infosort1.type==2)
+                            <span class="file">
+                            <a href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort1.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index1">
+                                    $!infosort1.name</a></span>
+                    #else
+                    <span class="folder">$!infosort1.name</span>
+                    #end
+
+                    #set($list2=$vMUtils.getInfoSortByparentId($!infosort1.id))
+                    #if($list2.size()!=0)
+                    <ul>
+                        #set($index2=1)
+                        #foreach($infosort2 in $list2)
+                        #set($strIndex2="da"+$index2)
+
+                        <li class="open">
+                            #if($infosort2.type==2)
+                                    <span class="file"><a href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort2.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index2">$!infosort2.name</a></span>
+                            #else
+                            <span class="folder">$!infosort2.name</span>
+                            #end
+
+                            #set($list3=$vMUtils.getInfoSortByparentId($!infosort2.id))
+                            #if($list3.size()!=0)
+                            <ul>#set($index3=1)
+                                #foreach($infosort3 in $list3)
+                                #set($strIndex3="da"+$index3)
+                                <li class="open">
+                                    #if($infosort3.type==2)
+                                            <span class="file"><a href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort3.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index3">$!infosort3.name</a></span>
+                                    #else
+                                    <span class="folder">$!infosort3.name</span>
+                                    #end
+
+                                    #set($list4=$vMUtils.getInfoSortByparentId($!infosort3.id))
+                                    #if($list4.size()!=0)
+                                    <ul> #set($index4=1)
+                                        #foreach($infosort4 in $list4)
+                                        #set($strIndex4="da"+$index4)
+                                        <li class="open">
+                                            #if($infosort4.type==2)
+                                                    <span class="file"><a href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort4.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index4">$!infosort4.name</a></span>
+
+                                            #else
+                                            <span class="folder">$!infosort4.name</span>
+                                            #end
+
+                                            #set($list5=$vMUtils.getInfoSortByparentId($!infosort4.id))
+                                            #if($list5.size()!=0)
+
+                                            <ul> #set($index5=1)
+                                                #foreach($infosort5 in $list5)
+                                                #set($strIndex5="da"+$index5)
+                                                <li class="open">
+                                                    #if($infosort5.type==2)
+                                                            <span class="file"><a href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort5.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index5">$!infosort5.name</a></span>
+                                                    #else
+                                                    <span class="folder">$!infosort5.name</span>
+                                                    #end
+                                                </li>
+                                                #set($index5=$index5+1)
+                                                #end
+                                            </ul>
+                                            #end
+
+                                        </li>
+                                        #set($index4=$index4+1)
+                                        #end
+                                    </ul>
+                                    #end
+
+
+                                </li>
+                                #set($index3=$index3+1)
+                                #end
+                            </ul>
+                            #end
+
+
+                        </li>
+                        #set($index2=$index2+1)
+                        #end
+                    </ul>
+                    #end
+
+
+                </li>
+                #set($index1=$index1+1)
+                #end
+            </ul>
+            #end
+
+  
+        <li ><span class="folder">文件归档</span>
+            #set($list1=$vMUtils.getInfoSortByparentId(132))
+            #if($list1.size()!=0)
+            <ul>
+                #set($index1=1)
+                #foreach($infosort1 in $list1)
+                #set($strIndex1="da"+$index1)
+                <li class="open">
+                    #if($infosort1.type==2)
+                            <span class="file">
+                            <a href="/files/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort1.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index1">
+                                    $!infosort1.name</a></span>
+                    #else
+                    <span class="folder">$!infosort1.name</span>
+                    #end
+
+                    #set($list2=$vMUtils.getInfoSortByparentId($!infosort1.id))
+                    #if($list2.size()!=0)
+                    <ul>
+                        #set($index2=1)
+                        #foreach($infosort2 in $list2)
+                        #set($strIndex2="da"+$index2)
+
+                        <li class="open">
+                            #if($infosort2.type==2)
+                                    <span class="file"><a href="/files/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort2.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index2">$!infosort2.name</a></span>
+                            #else
+                            <span class="folder">$!infosort2.name</span>
+                            #end
+
+                            #set($list3=$vMUtils.getInfoSortByparentId($!infosort2.id))
+                            #if($list3.size()!=0)
+                            <ul>#set($index3=1)
+                                #foreach($infosort3 in $list3)
+                                #set($strIndex3="da"+$index3)
+                                <li class="open">
+                                    #if($infosort3.type==2)
+                                            <span class="file"><a href="/files/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort3.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index3">$!infosort3.name</a></span>
+                                    #else
+                                    <span class="folder">$!infosort3.name</span>
+                                    #end
+
+                                    #set($list4=$vMUtils.getInfoSortByparentId($!infosort3.id))
+                                    #if($list4.size()!=0)
+                                    <ul> #set($index4=1)
+                                        #foreach($infosort4 in $list4)
+                                        #set($strIndex4="da"+$index4)
+                                        <li class="open">
+                                            #if($infosort4.type==2)
+                                                    <span class="file"><a href="/files/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort4.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index4">$!infosort4.name</a></span>
+
+                                            #else
+                                            <span class="folder">$!infosort4.name</span>
+                                            #end
+
+                                            #set($list5=$vMUtils.getInfoSortByparentId($!infosort4.id))
+                                            #if($list5.size()!=0)
+
+                                            <ul> #set($index5=1)
+                                                #foreach($infosort5 in $list5)
+                                                #set($strIndex5="da"+$index5)
+                                                <li class="open">
+                                                    #if($infosort5.type==2)
+                                                            <span class="file"><a href="/files/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort5.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index5">$!infosort5.name</a></span>
+                                                    #else
+                                                    <span class="folder">$!infosort5.name</span>
+                                                    #end
+                                                </li>
+                                                #set($index5=$index5+1)
+                                                #end
+                                            </ul>
+                                            #end
+
+                                        </li>
+                                        #set($index4=$index4+1)
+                                        #end
+                                    </ul>
+                                    #end
+                                </li>
+                                #set($index3=$index3+1)
+                                #end
+                            </ul>
+                            #end
+                        </li>
+                        #set($index2=$index2+1)
+                        #end
+                    </ul>
+                    #end
+                </li>
+                #set($index1=$index1+1)
+                #end
+            </ul>
+            #end
+
+        </li>
+    </ul>
+   
+    <!--ul>
         <li><a onClick="javascript:showdesc(11)" class=menubg>
             #set($menuOpen = false)
             #if($memuModule == "file" )
@@ -42,8 +258,7 @@
                 #foreach($infosort in $vMUtils.getInfoSortByparentId(132))
                 #set($strIndex="wj"+$index)
                 <li>
-                    <a href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index" #if( 'file'== $curMenu && $cm==$strIndex)
-                       class=menubg21 #else class=menubg2 #end>
+                    <a href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort.id)&statuses=$vMUtils.encrypt(0)&cm=wj$index">
                         $!infosort.name
                     </a>
                 </li>
@@ -75,7 +290,9 @@
                 #end
             </ul>
         </div>
-    </ul>
+    </ul-->
+    
+    
 </div>
 <div class="lmain" onClick="javascript:showdesc(9)">档案管理</div>
 <div class="lmain2" id="desc9" style="display:#if($memuModule == "file" && ($cm.indexOf("da")>=0 ))block#else none#end">
@@ -93,7 +310,7 @@
 
                     #if($infosort1.type==2)
                             <span class="file"><a
-                                    href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort1.id)&statuses=$vMUtils.encrypt(0)&cm=da$index1">$!infosort1.name</a></span>
+                                    href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort1.id)&statuses=$vMUtils.encrypt(0)&cm=da$index1">$!infosort1.name</a></span>
                     #else
                     <span class="folder">$!infosort1.name</span>
                     #end
@@ -108,7 +325,7 @@
                         <li class="open">
                             #if($infosort2.type==2)
                                     <span class="file"><a
-                                            href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort2.id)&statuses=$vMUtils.encrypt(0)&cm=da$index2">$!infosort2.name</a></span>
+                                            href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort2.id)&statuses=$vMUtils.encrypt(0)&cm=da$index2">$!infosort2.name</a></span>
                             #else
                             <span class="folder">$!infosort2.name</span>
                             #end
@@ -121,7 +338,7 @@
                                 <li class="open">
                                     #if($infosort3.type==2)
                                             <span class="file"><a
-                                                    href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort3.id)&statuses=$vMUtils.encrypt(0)&cm=da$index3">$!infosort3.name</a></span>
+                                                    href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort3.id)&statuses=$vMUtils.encrypt(0)&cm=da$index3">$!infosort3.name</a></span>
                                     #else
                                     <span class="folder">$!infosort3.name</span>
                                     #end
@@ -134,7 +351,7 @@
                                         <li class="open">
                                             #if($infosort4.type==2)
                                                     <span class="file"><a
-                                                            href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort4.id)&statuses=$vMUtils.encrypt(0)&cm=da$index4">$!infosort4.name</a></span>
+                                                            href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort4.id)&statuses=$vMUtils.encrypt(0)&cm=da$index4">$!infosort4.name</a></span>
 
                                             #else
                                             <span class="folder">$!infosort4.name</span>
@@ -149,7 +366,7 @@
                                                 <li class="open">
                                                     #if($infosort5.type==2)
                                                             <span class="file"><a
-                                                                    href="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($!infosort5.id)&statuses=$vMUtils.encrypt(0)&cm=da$index5">$!infosort5.name</a></span>
+                                                                    href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort5.id)&statuses=$vMUtils.encrypt(0)&cm=da$index5">$!infosort5.name</a></span>
                                                     #else
                                                     <span class="folder">$!infosort5.name</span>
                                                     #end

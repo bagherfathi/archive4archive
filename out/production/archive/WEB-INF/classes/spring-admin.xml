@@ -14,6 +14,7 @@
  		<property name="memberService"><ref bean="memberService"/></property>
  		<property name="dictionarySortService"><ref bean="dictionarySortService"/></property>
  		<property name="infoSortService"><ref bean="infoSortService"/></property>
+ 		<property name="structureService"><ref bean="structureService"/></property>
 	</bean> 
 	
 	<bean id="memberService" parent="baseTransactionProxy" >
