@@ -1,0 +1,25 @@
+#renhehead()
+#renheMenu("systemRe")
+                                 
+###set($editUrl = "/leads/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
+#set($actionUrl = "/resources/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
+<div id="Position">位置：系统设置 / 资料设置</div>
+
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  CRM资源信息   #########
+<div class=contitle>
+<div class=leftmain>CRM资源信息</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/resources/actions.html?method=search">&#171;返回</a></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/resources/form.vm" )
+</div>
+<br></div>
+
+
+#renheend()	

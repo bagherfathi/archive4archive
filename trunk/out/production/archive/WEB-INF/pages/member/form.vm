@@ -1,0 +1,53 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="memberForm" method="post" action="$!actionUrl" onSubmit = "return validateMemberForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">用户名:
+								</td>
+								<td>
+									#showFormText("loginName" "$!bizObj.loginName" 20)#showMustFill()
+								</td>
+							</tr>
+							
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">密码:
+								</td>
+								<td>
+									<input name="password" type="password" class="inputfield" value="hello123">#showMustFill()
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">状态:
+								</td>
+								<td>
+									<select name="status">
+										<option value="0" #if($!bizObj.status==0) selected #end>正常</option>
+										<option value="1" #if($!bizObj.status==1) selected #end>停用</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">原文查看权限:
+								</td>
+								<td>
+									<select name="type">
+										<option value="0" #if($!bizObj.type==0) selected #end>可以查看</option>
+										<option value="1" #if($!bizObj.type==1) selected #end>不能查看</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,65 @@
+#renhehead()
+#renheMenu("quanzong")
+<br>
+<span >&nbsp;&nbsp;全宗是一个独立的机关、组织或人物在社会活动中形成的档案有机整体。一个单位的全宗有三种情况：<br>
+1、如果本单位没有分配全宗号，可选择无全宗。<br>
+2、如果本单位只管理一个全宗单位的档案，可选择单全宗。<br>
+3、如果本单位管理多个全宗单位的档案，可选择多全宗<br></span>
+<br>
+
+<form name="queryForm" action="/quanzong/actions.html?method=insert" method= "post">
+	<table width="15%" border="0" cellpadding="0" cellspacing="0" >
+		<tr  > 
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td align="left" class="lmain2">
+					<input name="types" type="radio" value="0"  >无全宗
+			</td>
+		</tr>
+	</table>
+	<br>
+	<table width="15%" border="0" cellpadding="0" cellspacing="0" >
+			<tr  > 
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td align="left" class="lmain2">
+					<input name="types" type="radio" value="1"  >单全宗
+			</td>
+		</tr>
+	</table>
+	<br>
+	<table width="15%" border="0" cellpadding="0" cellspacing="0" >
+			<tr  > 
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td align="left" class="lmain2">
+					<input name="types" type="radio" value="2"  >多全宗
+			</td>
+		</tr>
+      </table>
+      <table border="0" cellpadding="0" cellspacing="0"  align="center">
+			<tr  > 
+			
+			<td>
+					<input type=button name="button" value=" 下 一 步 " class=btn1_mouseout title="下一步" onclick="tosubmit()"/>
+					<input type=hidden name="type">
+			</td>
+		</tr>
+      </table>
+      </form>
+      <script>
+      	function tosubmit(){
+      		var radioN=document.queryForm["types"];   
+			var types= radioN.length; 
+    		for(var i=0;i<types;i++){   
+              if(radioN[i].checked==true){   
+               	types =radioN[i].value;
+              }   
+      		} 
+      		if(types==3){
+      			alert("请选择全宗类型");
+      		}else{
+      			document.queryForm["type"].value=types;
+      			document.queryForm.submit();
+      		}  
+      	}
+      </script>
+</form>      	
+#renheend()

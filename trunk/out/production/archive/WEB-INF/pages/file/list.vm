@@ -1,0 +1,339 @@
+#renhehead()
+
+#renheMenu("file")
+#if($!infoSort.oneFloor!="")
+#set($addNewLink = "/file/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&types=1&parInfoSortIds=$vMUtils.encrypt(0)&statuses=$vMUtils.encrypt(0)&cm=$cm")
+#set($addNewLinkText = "新增$!infoSort.oneFloor")
+#parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
+#end
+#set($urlPre = "/file/actions.html?method=list&cm=$cm")
+
+<iframe width=174 height=172 name="gToday:normal:/scripts/time/agenda.js"  src="/scripts/time/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>     
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" id="searchform">
+              <tr>
+                <td width="10" height="10"><img src="/images/s_1.gif" width="10" height="10" /></td>
+                <td></td>
+                <td width="10"><img src="/images/s_2.gif" width="10" height="10" /></td>
+              </tr>
+              <tr>			  
+                <td></td>				
+                <td>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<form name="searchForm" method="post" action="/file/actions.html?method=list&oc=all&infoSortId=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm"> 
+			<input type = hidden name="searchAction" value=y>
+			<tr>
+				<td>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td >
+								<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+									<tr>
+										<td> 
+											<table>
+												<tr> 
+													<td>题名模糊查询:
+													</td>
+													<td>
+														<input name="titleA5" type="text" class="inputfield" value="$!titleA5">
+													</td>
+													<td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
+												</tr>
+												#set($index=1)
+												<tr>
+												 #foreach($biz in $structureList)
+										          	#if($biz.isQuery==1)
+										          		<td>$biz.znName:</td>
+										          		<td>
+										          		#if($biz.type>=3)
+															<input name="$!biz.serialNumber" type="text" size="10" maxlength="10" value="" />
+													        <a onclick="gfPop.fPopCalendar(document.fileForm.$!biz.serialNumber);return false;">
+													       		<img name="popcal" align="absmiddle" src="/images/calbtn.gif" width="34" height="22" border="0" alt="日历标签"/>
+													        </a>
+														#else
+															#if($biz.inputFashion==1)
+																#if($biz.dictionaryName==0)
+																	#set($indexNum=-1)
+																#else
+																	#set($indexNum=$biz.dictionaryName)
+																#end
+																#showFormText("$biz.serialNumber" "$!values" 12)
+																<select name="selectName" class="pulldown" onchange="tochanages('$biz.serialNumber',this.value);">
+																	<option value="">-请选择-</option>
+																	#if($vMUtils.getDictionarySortByParentId($indexNum))
+																		#foreach($_resourceType in $vMUtils.getDictionarySortByParentId($indexNum))
+																			<option value="$_resourceType.name" #isSelected("$_resourceType.name" $!selectValue )>$_resourceType.name
+																			</option>
+																		#end
+																	#end
+																</select>
+															#else
+																#showFormText("$biz.serialNumber" "" 20)
+															#end
+														#end
+														#if($index%3==0)
+										          		</tr><tr>
+										          		#end
+														#set($index=$index+1)
+										            #end
+										         #end											
+												</tr>
+												<td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</form>
+	</table>
+	</td><td></td></tr><tr><td height="10"><img src="/images/s_3.gif" width="10" height="10" /></td>
+<td></td> <td><img src="/images/s_4.gif" width="10" height="10" /></td></tr></table>
+
+<br>
+#if($!fileList)
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+          #foreach($biz in $structureList)
+          	#if($biz.isLists==1)
+            <td class="tableheadingbg">$biz.znName</td>
+            #end
+          #end
+          <td class="tableheadingbg">操作</td>
+          </tr>
+		
+				#foreach($!file in $!fileList)
+				<tr>
+					#foreach($biz in $structureList)
+						#if($biz.isLists==1)
+							#set($strIndex=$biz.serialNumber)
+							#if($strIndex=='a1')
+							<td class="tablelistbg"> 
+							&nbsp;#if($!file.a1!='null')$!file.a1#end</td>
+							#elseif($strIndex=='a2')
+							<td class='tablelistbg'>&nbsp;#if($!file.a2!='null')$!file.a2#end</td>
+							#elseif($strIndex=='a3')
+							<td class='tablelistbg'>&nbsp;#if($!file.a3!='null')$!file.a3#end</td>
+							#elseif($strIndex=='a4')
+							<td class='tablelistbg'>&nbsp;#if($!file.a4!='null')$!file.a4#end</td>
+							#elseif($strIndex=='a5')
+							<td class='tablelistbg'>&nbsp;#if($!file.a5!='null')$!file.a5#end</td>
+							#elseif($strIndex=='a6')
+							<td class='tablelistbg'>&nbsp;#if($!file.a6!='null')$!file.a6#end</td>
+							#elseif($strIndex=='a7')
+							<td class='tablelistbg'>&nbsp;#if($!file.a7!='null')$!file.a7#end</td>
+							#elseif($strIndex=='a8')
+							<td class='tablelistbg'>&nbsp;#if($!file.a8!='null')$!file.a8#end</td>
+							#elseif($strIndex=='a9')
+							<td class='tablelistbg'>&nbsp;#if($!file.a9!='null')$!file.a9#end</td>
+							#elseif($strIndex=='a10')
+							<td class='tablelistbg'>&nbsp;#if($!file.a10!='null')$!file.a10#end</td>
+							#elseif($strIndex=='a11')
+							<td class='tablelistbg'>&nbsp;#if($!file.a11!='null')$!file.a11#end</td>
+							#elseif($strIndex=='a12')
+							<td class='tablelistbg'>&nbsp;#if($!file.a12!='null')$!file.a12#end</td>
+							#elseif($strIndex=='a13')
+							<td class='tablelistbg'>&nbsp;#if($!file.a13!='null')$!file.a13#end</td>
+							#elseif($strIndex=='a14')
+							<td class='tablelistbg'>&nbsp;#if($!file.a14!='null')$!file.a14#end</td>
+							#elseif($strIndex=='a15')
+							<td class='tablelistbg'>&nbsp;#if($!file.a15!='null')$!file.a15#end</td>
+							#elseif($strIndex=='a16')
+							<td class='tablelistbg'>&nbsp;#if($!file.a16!='null')$!file.a16#end</td>
+							#elseif($strIndex=='a17')
+							<td class='tablelistbg'>&nbsp;#if($!file.a17!='null')$!file.a17#end</td>
+							#elseif($strIndex=='a18')
+							<td class='tablelistbg'>&nbsp;#if($!file.a18!='null')$!file.a18#end</td>
+							#elseif($strIndex=='a19')
+							<td class='tablelistbg'>&nbsp;#if($!file.a19!='null')$!file.a19#end</td>
+							#elseif($strIndex=='a20')
+							<td class='tablelistbg'>&nbsp;#if($!file.a20!='null')$!file.a20#end</td>
+							#elseif($strIndex=='a21')
+							<td class='tablelistbg'>&nbsp;#if($!file.a21!='null')$!file.a21#end</td>
+							#elseif($strIndex=='a22')
+							<td class='tablelistbg'>&nbsp;#if($!file.a22!='null')$!file.a22#end</td>
+							#elseif($strIndex=='a23')
+							<td class='tablelistbg'>&nbsp;#if($!file.a23!='null')$!file.a23#end</td>
+							#elseif($strIndex=='a24')
+							<td class='tablelistbg'>&nbsp;#if($!file.a24!='null')$!file.a24#end</td>
+							#elseif($strIndex=='a25')
+							<td class='tablelistbg'>&nbsp;#if($!file.a25!='null')$!file.a25#end</td>
+							#elseif($strIndex=='a26')
+							<td class='tablelistbg'>&nbsp;#if($!file.a26!='null')$!file.a26#end</td>
+							#elseif($strIndex=='a27')
+							<td class='tablelistbg'>&nbsp;#if($!file.a27!='null')$!file.a27#end</td>
+							#elseif($strIndex=='a28')
+							<td class='tablelistbg'>&nbsp;#if($!file.a28!='null')$!file.a28#end</td>
+							#elseif($strIndex=='a29')
+							<td class='tablelistbg'>&nbsp;#if($!file.a29!='null')$!file.a29#end</td>
+							#elseif($strIndex=='a30')
+							<td class='tablelistbg'>&nbsp;#if($!file.a30!='null')$!file.a30#end</td>
+							#elseif($strIndex=='a31')
+							<td class='tablelistbg'>&nbsp;#if($!file.a31!='null')$!file.a31#end</td>
+							#elseif($strIndex=='a32')
+							<td class='tablelistbg'>&nbsp;#if($!file.a32!='null')$!file.a32#end</td>
+							#elseif($strIndex=='a33')
+							<td class='tablelistbg'>&nbsp;#if($!file.a33!='null')$!file.a33#end</td>
+							#elseif($strIndex=='a34')
+							<td class='tablelistbg'>&nbsp;#if($!file.a34!='null')$!file.a34#end</td>
+							#elseif($strIndex=='a35')
+							<td class='tablelistbg'>&nbsp;#if($!file.a35!='null')$!file.a35#end</td>
+							#elseif($strIndex=='a36')
+							<td class='tablelistbg'>&nbsp;#if($!file.a36!='null')$!file.a36#end</td>
+							#elseif($strIndex=='a37')
+							<td class='tablelistbg'>&nbsp;#if($!file.a37!='null')$!file.a37#end</td>
+							#elseif($strIndex=='a38')
+							<td class='tablelistbg'>&nbsp;#if($!file.a38!='null')$!file.a38#end</td>
+							#elseif($strIndex=='a39')
+							<td class='tablelistbg'>&nbsp;#if($!file.a39!='null')$!file.a39#end</td>
+							#elseif($strIndex=='a40')
+							<td class='tablelistbg'>&nbsp;#if($!file.a40!='null')$!file.a40#end</td>
+							#elseif($strIndex=='a41')
+							<td class='tablelistbg'>&nbsp;#if($!file.a41!='null')$!file.a41#end</td>
+							#elseif($strIndex=='a42')
+							<td class='tablelistbg'>&nbsp;#if($!file.a42!='null')$!file.a42#end</td>
+							#elseif($strIndex=='a43')
+							<td class='tablelistbg'>&nbsp;#if($!file.a43!='null')$!file.a43#end</td>
+							#elseif($strIndex=='a44')
+							<td class='tablelistbg'>&nbsp;#if($!file.a44!='null')$!file.a44#end</td>
+							#elseif($strIndex=='a45')
+							<td class='tablelistbg'>&nbsp;#if($!file.a45!='null')$!file.a45#end</td>
+							#elseif($strIndex=='a46')
+							<td class='tablelistbg'>&nbsp;#if($!file.a46!='null')$!file.a46#end</td>
+							#elseif($strIndex=='a47')
+							<td class='tablelistbg'>&nbsp;#if($!file.a47!='null')$!file.a47#end</td>
+							#elseif($strIndex=='a48')
+							<td class='tablelistbg'>&nbsp;#if($!file.a48!='null')$!file.a48#end</td>
+							#elseif($strIndex=='a49')
+							<td class='tablelistbg'>&nbsp;#if($!file.a49!='null')$!file.a49#end</td>
+							#elseif($strIndex=='a50')
+							<td class='tablelistbg'>&nbsp;#if($!file.a50!='null')$!file.a50#end</td>
+							#elseif($strIndex=='a51')
+							<td class='tablelistbg'>&nbsp;#if($!file.a51!='null')$!file.a51#end</td>
+							#elseif($strIndex=='a52')
+							<td class='tablelistbg'>&nbsp;#if($!file.a52!='null')$!file.a52#end</td>
+							#elseif($strIndex=='a53')
+							<td class='tablelistbg'>&nbsp;#if($!file.a53!='null')$!file.a53#end</td>
+							#elseif($strIndex=='a54')
+							<td class='tablelistbg'>&nbsp;#if($!file.a54!='null')$!file.a54#end</td>
+							#elseif($strIndex=='a55')
+							<td class='tablelistbg'>&nbsp;#if($!file.a55!='null')$!file.a55#end</td>
+							#elseif($strIndex=='a56')
+							<td class='tablelistbg'>&nbsp;#if($!file.a56!='null')$!file.a56#end</td>
+							#elseif($strIndex=='a57')
+							<td class='tablelistbg'>&nbsp;#if($!file.a57!='null')$!file.a57#end</td>
+							#elseif($strIndex=='a58')
+							<td class='tablelistbg'>&nbsp;#if($!file.a58!='null')$!file.a58#end</td>
+							#elseif($strIndex=='a59')
+							<td class='tablelistbg'>&nbsp;#if($!file.a59!='null')$!file.a59#end</td>
+							#elseif($strIndex=='a60')
+							<td class='tablelistbg'>&nbsp;#if($!file.a60!='null')$!file.a60#end</td>
+							#elseif($strIndex=='a61')
+							<td class='tablelistbg'>&nbsp;#if($!file.a61!='null')$!file.a61#end</td>
+							#elseif($strIndex=='a62')
+							<td class='tablelistbg'>&nbsp;#if($!file.a62!='null')$!file.a62#end</td>
+							#elseif($strIndex=='a63')
+							<td class='tablelistbg'>&nbsp;#if($!file.a63!='null')$!file.a63#end</td>
+							#elseif($strIndex=='a64')
+							<td class='tablelistbg'>&nbsp;#if($!file.a64!='null')$!file.a64#end</td>
+							#elseif($strIndex=='a65')
+							<td class='tablelistbg'>&nbsp;#if($!file.a65!='null')$!file.a65#end</td>
+							#elseif($strIndex=='a66')
+							<td class='tablelistbg'>&nbsp;#if($!file.a66!='null')$!file.a66#end</td>
+							#elseif($strIndex=='a67')
+							<td class='tablelistbg'>&nbsp;#if($!file.a67!='null')$!file.a67#end</td>
+							#elseif($strIndex=='a68')
+							<td class='tablelistbg'>&nbsp;#if($!file.a68!='null')$!file.a68#end</td>
+							#elseif($strIndex=='a69')
+							<td class='tablelistbg'>&nbsp;#if($!file.a69!='null')$!file.a69#end</td>
+							#elseif($strIndex=='a70')
+							<td class='tablelistbg'>&nbsp;#if($!file.a70!='null')$!file.a70#end</td>
+							#elseif($strIndex=='a71')
+							<td class='tablelistbg'>&nbsp;#if($!file.a71!='null')$!file.a71#end</td>
+							#elseif($strIndex=='a72')
+							<td class='tablelistbg'>&nbsp;#if($!file.a72!='null')$!file.a72#end</td>
+							#elseif($strIndex=='a73')
+							<td class='tablelistbg'>&nbsp;#if($!file.a73!='null')$!file.a73#end</td>
+							#elseif($strIndex=='a74')
+							<td class='tablelistbg'>&nbsp;#if($!file.a74!='null')$!file.a74#end</td>
+							#elseif($strIndex=='a75')
+							<td class='tablelistbg'>&nbsp;#if($!file.a75!='null')$!file.a75#end</td>
+							#elseif($strIndex=='a76')
+							<td class='tablelistbg'>&nbsp;#if($!file.a76!='null')$!file.a76#end</td>
+							#elseif($strIndex=='a77')
+							<td class='tablelistbg'>&nbsp;#if($!file.a77!='null')$!file.a77#end</td>
+							#elseif($strIndex=='a78')
+							<td class='tablelistbg'>&nbsp;#if($!file.a78!='null')$!file.a78#end</td>
+							#elseif($strIndex=='a79')
+							<td class='tablelistbg'>&nbsp;#if($!file.a79!='null')$!file.a79#end</td>
+							#elseif($strIndex=='a80')
+							<td class='tablelistbg'>&nbsp;#if($!file.a80!='null')$!file.a80#end</td>
+							#elseif($strIndex=='a81')
+							<td class='tablelistbg'>&nbsp;#if($!file.a81!='null')$!file.a81#end</td>
+							#elseif($strIndex=='a82')
+							<td class='tablelistbg'>&nbsp;#if($!file.a82!='null')$!file.a82#end</td>
+							#elseif($strIndex=='a83')
+							<td class='tablelistbg'>&nbsp;#if($!file.a83!='null')$!file.a83#end</td>
+							#elseif($strIndex=='a84')
+							<td class='tablelistbg'>&nbsp;#if($!file.a84!='null')$!file.a84#end</td>
+							#elseif($strIndex=='a85')
+							<td class='tablelistbg'>&nbsp;#if($!file.a85!='null')$!file.a85#end</td>
+							#elseif($strIndex=='a86')
+							<td class='tablelistbg'>&nbsp;#if($!file.a86!='null')$!file.a86#end</td>
+							#elseif($strIndex=='a87')
+							<td class='tablelistbg'>&nbsp;#if($!file.a87!='null')$!file.a87#end</td>
+							#elseif($strIndex=='a88')
+							<td class='tablelistbg'>&nbsp;#if($!file.a88!='null')$!file.a88#end</td>
+							#elseif($strIndex=='a89')
+							<td class='tablelistbg'>&nbsp;#if($!file.a89!='null')$!file.a89#end</td>
+							#elseif($strIndex=='a90')
+							<td class='tablelistbg'>&nbsp;#if($!file.a90!='null')$!file.a90#end</td>
+							#elseif($strIndex=='a91')
+							<td class='tablelistbg'>&nbsp;#if($!file.a91!='null')$!file.a91#end</td>
+							#elseif($strIndex=='a92')
+							<td class='tablelistbg'>&nbsp;#if($!file.a92!='null')$!file.a92#end</td>
+							#elseif($strIndex=='a93')
+							<td class='tablelistbg'>&nbsp;#if($!file.a93!='null')$!file.a93#end</td>
+							#elseif($strIndex=='a94')
+							<td class='tablelistbg'>&nbsp;#if($!file.a94!='null')$!file.a94#end</td>
+							#elseif($strIndex=='a95')
+							<td class='tablelistbg'>&nbsp;#if($!file.a95!='null')$!file.a95#end</td>
+							#elseif($strIndex=='a96')
+							<td class='tablelistbg'>&nbsp;#if($!file.a96!='null')$!file.a96#end</td>
+							#elseif($strIndex=='a97')
+							<td class='tablelistbg'>&nbsp;#if($!file.a97!='null')$!file.a97#end</td>
+							#elseif($strIndex=='a98')
+							<td class='tablelistbg'>&nbsp;#if($!file.a98!='null')$!file.a98#end</td>
+							#elseif($strIndex=='a99')
+							<td class='tablelistbg'>&nbsp;#if($!file.a99!='null')$!file.a99#end</td>
+							#elseif($strIndex=='a100')
+							<td class='tablelistbg'>&nbsp;#if($!file.a100!='null')$!file.a100#end</td>
+							#end
+						#end
+					#end
+						<td class="tablelistbg">&nbsp;
+							#if($!infoSort.twoFloor!="")<a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>#end
+							<a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >编辑</a>
+							<a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm"  >删除</a>
+							#if($member.type==0)
+								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >原文</a>
+							#end
+						</td>	
+					</tr>
+				#end
+		
+      </table>
+	  	##parse( "/WEB-INF/pages/common/page.vm" )
+#else
+		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
+#end
+
+<script>
+function tochanages(name,value){
+	document.getElementById(name).value=value;
+}
+</script>
+#renheend()

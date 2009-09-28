@@ -1,0 +1,46 @@
+#renhehead()
+#renheMenu("dictionarysort")
+#set($addNewLink = "/dictionarysort/actions.html?method=insert&cm=sys5")
+#set($addNewLinkText = "新增字典类目")
+#parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
+#set($urlPre = "/dictionarysort/actions.html?method=list")
+#if($!$bizObjList)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">名称</td>
+            <td class="tableheadingbg">代码</td>
+            <td class="tableheadingbg">缺省值</td>
+            <td class="tableheadingbg">备注</td>
+            <td class="tableheadingbg">创建时间</td>
+			<td class="tableheadingbg">操作</td>
+          </tr>
+		#foreach($biz in $bizObjList)
+		<tr>
+			<td class="tablelistbg">&nbsp;$!biz.name</td>
+			<td class="tablelistbg">&nbsp;$!biz.seq</td>
+			<td class="tablelistbg">
+			#if($!biz.defaultValue=='0')
+			否
+			#elseif($!biz.defaultValue=='1')
+			是		
+			#end
+			</td>
+			<td class="tablelistbg">&nbsp;$!biz.memo</td>
+			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
+			<td class="tablelistbg">
+				<a href="/dictionarysort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)&cm=sys5"  >添加子分类</a>
+				<a href="/dictionarysort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&cm=sys5"  >编辑</a>
+				<a href="/dictionarysort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&cm=sys5"  >删除</a>
+			</td>
+         </tr>
+		#end
+      </table>
+	  	#parse( "/WEB-INF/pages/common/page.vm" )
+#else
+		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
+#end
+#renheend()

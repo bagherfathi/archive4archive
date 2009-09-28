@@ -1,0 +1,25 @@
+/* CSS Document */
+
+.menu1{
+font-family: Arial, sans-serif;
+font-size: 12px;
+font-weight:bold;
+line-height: 18px;
+color: #000000;
+padding-left: 18px;
+background: url(../img/j2.gif) no-repeat #C1DAF0 0 40%;
+}
+
+.jg{
+line-height: 1px;
+}
+
+.menu2{
+font-family: Arial, sans-serif;
+font-size: 12px;
+/*font-weight:bold;*/
+line-height: 18px;
+color: #000000;
+padding-left: 32px;
+/*background: url(../img/j2.gif) no-repeat #C1DAF0 0 40%;*/
+}

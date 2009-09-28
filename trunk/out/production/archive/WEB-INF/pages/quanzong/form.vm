@@ -1,0 +1,84 @@
+#if($quanzongList)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">类目序号</td>
+            <td class="tableheadingbg">类目名称</td>
+            <td class="tableheadingbg">类目类型</td>
+            <td class="tableheadingbg">创建时间</td>
+			<td class="tableheadingbg">操作</td>
+          </tr>
+		#foreach($biz in $quanzongList)
+		<tr>
+			<td class="tablelistbg">$biz.seq</td>
+			<td class="tablelistbg">$biz.name</td>
+			<td class="tablelistbg">
+			#if($!biz.type=='0')
+			无全宗
+			#elseif($!biz.type=='1')
+			单全宗	
+			#elseif($!biz.type=='2')
+			多全宗 	
+			#end
+			</td>
+			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
+			<td class="tablelistbg">
+				#if($!biz.type!='2')<a href="/quanzong/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>#end
+				<a href="/quanzong/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
+				<a href="/quanzong/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
+			</td>
+         </tr>
+		#end
+      </table>
+#end
+<br>
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="quanzongForm" method="post" action="$!actionUrl" onSubmit = "return validateQuanzongForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+					<input type=hidden name=type value=$!type>
+							#if($type==0)
+							<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+								<tr > 
+									<td bgcolor="#eeeee5" width="20%">无全宗:
+									</td>
+									<td>
+										没有指定任何全宗号，您的档案将不需要全宗。
+									</td>
+								</tr>
+							</table>
+							#else
+							<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+								<tr > 
+									<td bgcolor="#eeeee5" width="20%">全宗号:
+									</td>
+									<td>
+										#showFormText("seq" "$!bizObj.seq" 20)#showMustFill()
+									</td>
+								</tr>
+								<tr> 
+									<td bgcolor="#eeeee5" width="20%">全宗名:
+									</td>
+									<td>
+										#showFormText("name" "$!bizObj.name" 20)#showMustFill()
+									</td>
+								</tr>
+						</table>
+						#end
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>
+
+

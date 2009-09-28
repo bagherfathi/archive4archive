@@ -1,0 +1,126 @@
+/*
+body {
+	background-color: #EFEEEE;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+	border:1px black solid #8A8A8C;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+*/
+.btn_2k3 {
+	BORDER-RIGHT: #002D96 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #002D96 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 14px;
+    FILTER: 
+            progid:DXImageTransform.Microsoft.Gradient(GradientType=0, 
+            StartColorStr=#FFFFFF, EndColorStr=#9DBCEA); 		
+	BORDER-LEFT: #002D96 
+            1px solid;
+	CURSOR: hand;
+	COLOR: #003366;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #002D96 1px solid;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+            }
+			
+.btn_2k4 {
+	BORDER-RIGHT: #FF0000 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #FF0000 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 14px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, 
+            StartColorStr=#FFFFFF, EndColorStr=#FFA200); 
+	BORDER-LEFT: #FF0000 1px solid;
+	CURSOR: hand;
+	COLOR: black;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #FF0000 1px solid;
+	font-family: Arial, Helvetica, sans-serif;		
+	font-weight: bold;	
+            }
+
+.h67 {
+	color: #000;
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+.w12 {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.b14 {
+	font-size: 14px;
+}
+
+.b14b {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+.b14rb {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF0000;
+}
+
+.b14l {
+	font-size: 14px;
+	font-weight: bold;
+	color: #013970;
+}
+.mnone input {
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	border-left: medium none; 
+	border-right: medium none; 
+	border-top: medium none; 
+	border-bottom: medium none
+}
+
+.mnone textarea {
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	border-left: medium none; 
+	border-right: medium none; 
+	border-top: medium none; 
+	border-bottom: medium none
+	margin:0;
+	overflow:hidden;
+	scroll=no
+}
+/*
+.btn1_mouseout {
+font-family: Arial, Helvetica, sans-serif;BORDER-RIGHT: #58AC1B 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #58AC1B 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 13px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#78D030); BORDER-LEFT: #58AC1B 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #58AC1B 1px solid
+}
+.btn1_mouseover {
+font-family: Arial, Helvetica, sans-serif;BORDER-RIGHT: #58AC1B 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #58AC1B 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 14px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#78D030); BORDER-LEFT: #58AC1B 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #58AC1B 1px solid
+}
+.btn2_mouseout {
+font-family: Arial, Helvetica, sans-serif;BORDER-RIGHT: #58AC1B 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #58AC1B 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#78D030); BORDER-LEFT: #58AC1B 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #58AC1B 1px solid
+}
+.btn2_mouseover {
+font-family: Arial, Helvetica, sans-serif;BORDER-RIGHT: #58AC1B 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #58AC1B 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#78D030); BORDER-LEFT: #58AC1B 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #58AC1B 1px solid
+}
+*/
+
+.btn1_mouseout {
+font-family: Arial, Helvetica, sans-serif;BORDER-RIGHT: #58AC1B 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #58AC1B 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 13px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#78D030); BORDER-LEFT: #58AC1B 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #58AC1B 1px solid
+}
+.btn1_mouseover {
+font-family: Arial, Helvetica, sans-serif;BORDER-RIGHT: #58AC1B 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #58AC1B 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 14px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#78D030); BORDER-LEFT: #58AC1B 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #58AC1B 1px solid
+}
+.btn2_mouseout {
+font-family: Arial, Helvetica, sans-serif;BORDER-RIGHT: #58AC1B 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #58AC1B 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#78D030); BORDER-LEFT: #58AC1B 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #58AC1B 1px solid
+}
+.btn2_mouseover {
+font-family: Arial, Helvetica, sans-serif;BORDER-RIGHT: #58AC1B 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #58AC1B 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#78D030); BORDER-LEFT: #58AC1B 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #58AC1B 1px solid
+}

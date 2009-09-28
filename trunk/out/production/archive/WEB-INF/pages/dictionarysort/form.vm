@@ -1,0 +1,97 @@
+#if($dictionarysortList && $parentId>0)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">类目序号</td>
+            <td class="tableheadingbg">类目名称</td>
+            <td class="tableheadingbg">类目类型</td>
+            <td class="tableheadingbg">创建时间</td>
+			<td class="tableheadingbg">操作</td>
+          </tr>
+		#foreach($biz in $dictionarysortList)
+		<tr>
+			<td class="tablelistbg">$biz.seq</td>
+			<td class="tablelistbg">$biz.name</td>
+			<td class="tablelistbg">
+			#if($!biz.type=='0')
+			顶层分类
+			#elseif($!biz.type=='1')
+			中间分类	
+			#elseif($!biz.type=='2')
+			底层分类 	
+			#end
+			</td>
+			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
+			<td class="tablelistbg">
+				#if($!biz.type!='2')<a href="/dictionarysort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>#end
+				<a href="/dictionarysort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
+				<a href="/dictionarysort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
+			</td>
+         </tr>
+		#end
+      </table>
+#end
+<br>
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="dictionarysortForm" method="post" action="$!actionUrl" onSubmit = "return validatedictionarysortForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				#if($!parentId>0)
+					<input type=hidden name=parentId value=$!parentId>
+				#else
+				<input type=hidden name=parentId value=$!bizObj.parentId>
+				#end
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">名称:
+								</td>
+								<td>
+									#showFormText("name" "$!bizObj.name" 20)#showMustFill()
+								</td>
+							</tr>					
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">代码:
+								</td>
+								<td>
+									#showFormText("seq" "$!bizObj.seq" 20)#showMustFill()
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">设为缺省值:
+								</td>
+								<td>
+									<input name="defaultValue" type="checkbox" value="1" #if($!bizObj.defaultValue==1)checked#end />
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">是否可删除:
+								</td>
+								<td>
+									<input name="ifDelete" type="checkbox" value="1" #if($!bizObj.ifDelete==1)checked#end />
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">备注:
+								</td>
+								<td>
+									#showFormTextarea("memo" "$!bizObj.memo" 3)
+								</td>
+							</tr>
+						</table>
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>
+
+

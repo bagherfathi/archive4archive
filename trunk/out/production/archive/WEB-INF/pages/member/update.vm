@@ -1,0 +1,24 @@
+#renhehead()
+#renheMenu("systemPri")
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="conbg">
+<div class=contitle>
+<div class=leftmain>编辑用户</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/member/actions.html?method=list">&#171;返回</a></div>
+<div class=rightmain></div>
+</div>
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=message></div></td></tr></table>
+#if($!nameExits)
+<script>showmsg(false,"用户名重复",message);</script>
+#end
+#if($!updated)
+	<script type="text/javascript">showmsg(true,"更新成功!",msg);</script>
+#end
+#set($actionUrl="/member/actions.html?method=update&insert=y")
+<div class=conmain>
+	#parse( "/WEB-INF/pages/member/form.vm" )
+</div>
+<br></div>
+#renheend()	
