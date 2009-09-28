@@ -105,7 +105,7 @@ public class FileService extends CommonService {
 		List args = new ArrayList();
 
 		query.append("SELECT * FROM files WHERE contains(a5,'" + a5
-				+ "',1) > 0  and parInfoSortId=" + parInfoSortId
+				+ "',1) > 0  and par_info_sort_id=" + parInfoSortId
 				+ " and info_sort_id =" + infoSortId
 				+ " ORDER BY score(1) desc");
 
@@ -239,8 +239,8 @@ public class FileService extends CommonService {
 		StringBuffer query = new StringBuffer();
 		List args = new ArrayList();
 
-		query.append("SELECT * FROM files WHERE contains(a5,'" + a5
-				+ "',1) > 0  and parInfoSortId=" + parInfoSortId
+		query.append("SELECT count(*) FROM files WHERE contains(a5,'" + a5
+				+ "',1) > 0  and par_info_sort_id=" + parInfoSortId
 				+ " and info_sort_id =" + infoSortId
 				+ " ORDER BY score(1) desc");
 
@@ -251,6 +251,6 @@ public class FileService extends CommonService {
 		List<Object[]> oos = dao.executeQueryBySQL(query.toString(), null, args
 				.toArray());
 
-		return Integer.parseInt(oos.get(0).toString());
+		return Integer.parseInt(oos.get(0)[0].toString());
 	}
 }
