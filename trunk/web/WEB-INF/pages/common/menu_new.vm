@@ -30,15 +30,6 @@
                 window.console && console.log("%o was toggled", this);
             }
         });
-        $("#fileArchiveTree").treeview({
-            animated: "fast",
-            collapsed: true,
-            unique: true,
-            persist: "cookie",
-            toggle: function() {
-                window.console && console.log("%o was toggled", this);
-            }
-        });
     });
 </script>
 <div class="lmain" background="/images/menuleft2.gif" onClick="javascript:showdesc(1)">文件管理</div>
@@ -124,8 +115,6 @@
                                         #end
                                     </ul>
                                     #end
-
-
                                 </li>
                                 #set($index3=$index3+1)
                                 #end
@@ -138,8 +127,6 @@
                         #end
                     </ul>
                     #end
-
-
                 </li>
                 #set($index1=$index1+1)
                 #end

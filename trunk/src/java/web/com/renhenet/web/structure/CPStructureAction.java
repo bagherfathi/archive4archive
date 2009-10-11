@@ -46,18 +46,127 @@ public class CPStructureAction extends DispatchActions {
 
 			service.insertObject(infoSort);
 
-			// 保存数据信息(1层、2层、3层)
-			List<Structure> structureList = service
-					.getStructureByInfoSortIdAndInStatus(form.getInfoSortId(),
-							3);
+			List<InfoSort> infoSortList2 = infoSortService
+					.getInfoSortByParentId(form.getInfoSortId());
+			for (InfoSort infoSort2 : infoSortList2) {
+				int infoSortId2 = infoSort2.getId();
+				infoSort2.setId(null);
+				infoSort2.setTimeCreate(new Date());
+				infoSort2.setParentId(infoSort.getId());
+				infoSort2.setTimeModified(new Date());
 
-			for (Structure structure : structureList) {
-				structure.setId(null);
-				structure.setTimeCreate(new Date());
-				structure.setTimeModified(new Date());
-				structure.setInfoSortId(infoSort.getId());
+				service.insertObject(infoSort2);
 
-				service.insertObject(structure);
+				List<InfoSort> infoSortList3 = infoSortService
+						.getInfoSortByParentId(infoSortId2);
+				for (InfoSort infoSort3 : infoSortList3) {
+					int infoSortId3 = infoSort3.getId();
+					infoSort3.setId(null);
+					infoSort3.setTimeCreate(new Date());
+					infoSort3.setParentId(infoSort2.getId());
+					infoSort3.setTimeModified(new Date());
+
+					service.insertObject(infoSort3);
+
+					List<InfoSort> infoSortList4 = infoSortService
+							.getInfoSortByParentId(infoSortId3);
+					for (InfoSort infoSort4 : infoSortList4) {
+						int infoSortId4 = infoSort4.getId();
+						infoSort4.setId(null);
+						infoSort4.setTimeCreate(new Date());
+						infoSort4.setParentId(infoSort3.getId());
+						infoSort4.setTimeModified(new Date());
+
+						service.insertObject(infoSort4);
+
+						List<InfoSort> infoSortList5 = infoSortService
+								.getInfoSortByParentId(infoSortId4);
+						for (InfoSort infoSort5 : infoSortList5) {
+
+							int infoSortId5 = infoSort5.getId();
+							infoSort5.setId(null);
+							infoSort5.setTimeCreate(new Date());
+							infoSort5.setParentId(infoSort4.getId());
+							infoSort5.setTimeModified(new Date());
+
+							service.insertObject(infoSort5);
+							if (infoSort5.getType() == 2) {
+								// 保存数据信息(1层、2层、3层)
+								List<Structure> structureList = service
+										.getStructureByInfoSortIdAndInStatus(
+												infoSortId5, 3);
+
+								for (Structure structure : structureList) {
+									structure.setId(null);
+									structure.setTimeCreate(new Date());
+									structure.setTimeModified(new Date());
+									structure.setInfoSortId(infoSort5.getId());
+
+									service.insertObject(structure);
+								}
+							}
+						}
+
+						if (infoSort4.getType() == 2) {
+							// 保存数据信息(1层、2层、3层)
+							List<Structure> structureList = service
+									.getStructureByInfoSortIdAndInStatus(
+											infoSortId4, 3);
+
+							for (Structure structure : structureList) {
+								structure.setId(null);
+								structure.setTimeCreate(new Date());
+								structure.setTimeModified(new Date());
+								structure.setInfoSortId(infoSort4.getId());
+
+								service.insertObject(structure);
+							}
+						}
+					}
+					if (infoSort3.getType() == 2) {
+						// 保存数据信息(1层、2层、3层)
+						List<Structure> structureList = service
+								.getStructureByInfoSortIdAndInStatus(
+										infoSortId3, 3);
+
+						for (Structure structure : structureList) {
+							structure.setId(null);
+							structure.setTimeCreate(new Date());
+							structure.setTimeModified(new Date());
+							structure.setInfoSortId(infoSort3.getId());
+
+							service.insertObject(structure);
+						}
+					}
+				}
+				if (infoSort2.getType() == 2) { // 保存数据信息(1层、2层、3层)
+					List<Structure> structureList = service
+							.getStructureByInfoSortIdAndInStatus(infoSortId2, 3);
+
+					for (Structure structure : structureList) {
+						structure.setId(null);
+						structure.setTimeCreate(new Date());
+						structure.setTimeModified(new Date());
+						structure.setInfoSortId(infoSort2.getId());
+
+						service.insertObject(structure);
+					}
+				}
+			}
+			if (infoSort.getType() == 2) {
+				// 保存数据信息(1层、2层、3层)
+				List<Structure> structureList = service
+						.getStructureByInfoSortIdAndInStatus(form
+								.getInfoSortId(), 3);
+
+				for (Structure structure : structureList) {
+					structure.setId(null);
+					structure.setTimeCreate(new Date());
+					structure.setTimeModified(new Date());
+					structure.setInfoSortId(infoSort.getId());
+
+					service.insertObject(structure);
+				}
 			}
 
 			updated = true;

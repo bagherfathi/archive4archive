@@ -1,66 +1,4 @@
-#if($structureList)
-<div id="listhead">
-    <div id="listheadleftimg"></div>
-    <div id="listheadrightimg"></div>
-</div>
-<form name="infoSortForm" method="post"
-      action="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&insert=list&statuses=$vMUtils.encrypt($status)">
-    <table width="99%" border="0" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF">
-        <tbody>
-        <tr>
-            <td class="tableheadingbg">序号</td>            
-            <td class="tableheadingbg">中文名</td>
-            <td class="tableheadingbg">内部排序号</td>
-            <td class="tableheadingbg">操作</td>
-        </tr>
-        </tbody>
-        <tbody id="arrangableNodes">
-        #set($lineindex=1)
-        #foreach($biz in $structureList)
-        <tr id="node${lineindex}">
-            #set($lineindex=${lineindex}+1)
-            <td class="tablelistbg"> 
-            	#if($status==0)
-                	$biz.taxis  
-                #elseif($status==1)
-                	$biz.taxis2
-                #elseif($status==2)
-                	$biz.taxis3
-                #end
-            </td>
-            <td class="tablelistbg">$biz.znName</td>
-            <td class="tablelistbg">$biz.serialNumber</td>            
-            <td class="tablelistbg">
-                <a href="/structure/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)">编辑</a>
-                <a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)">删除</a>
-            </td>
-        </tr>
-        #end
-        </tbody>
-    </table>
- <!-- need by dragtable-->
-    <div id="movableNode">
-        <table>
-            <tbody></tbody>
-        </table>
-    </div>
-    <div style="position:absolute;display:none;" id="arrDestInditcator"><img src="../../../images/insert.gif"></div>
-    <div id="arrDebug"></div>
-    <!-- need end-->
-    <table width="100%" border="0" cellspacing="4" cellpadding="0">
-        <tr>
-            <td align="left">
-                <input type=button name="insert" onclick="saveArrangableNodes('infoSortForm');return false;"
-                       style="cursor:pointer"
-                       value="保存" class=btn1_mouseout title="保存"/>
-            </td>
-        </tr>
-    </table>
-</form>
-<!-- need end-->
-#end
 <br>
-
 <table width="100%" border="0" cellpadding="4" cellspacing="1">
     <tr>
         <td>
@@ -242,5 +180,67 @@
         </td>
     </tr>
 </table>
+<br>
+#if($structureList)
+<div id="listhead">
+    <div id="listheadleftimg"></div>
+    <div id="listheadrightimg"></div>
+</div>
+<form name="infoSortForm" method="post"
+      action="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($infoSortId)&insert=list&statuses=$vMUtils.encrypt($status)">
+    <table width="99%" border="0" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF">
+        <tbody>
+        <tr>
+            <td class="tableheadingbg">序号</td>            
+            <td class="tableheadingbg">中文名</td>
+            <td class="tableheadingbg">内部排序号</td>
+            <td class="tableheadingbg">操作</td>
+        </tr>
+        </tbody>
+        <tbody id="arrangableNodes">
+        #set($lineindex=1)
+        #foreach($biz in $structureList)
+        <tr id="node${lineindex}">
+            #set($lineindex=${lineindex}+1)
+            <td class="tablelistbg"> 
+            	#if($status==0)
+                	$biz.taxis  
+                #elseif($status==1)
+                	$biz.taxis2
+                #elseif($status==2)
+                	$biz.taxis3
+                #end
+            </td>
+            <td class="tablelistbg">$biz.znName</td>
+            <td class="tablelistbg">$biz.serialNumber</td>            
+            <td class="tablelistbg">
+                <a href="/structure/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)">编辑</a>
+                <a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)">删除</a>
+            </td>
+        </tr>
+        #end
+        </tbody>
+    </table>
+ <!-- need by dragtable-->
+    <div id="movableNode">
+        <table>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div style="position:absolute;display:none;" id="arrDestInditcator"><img src="../../../images/insert.gif"></div>
+    <div id="arrDebug"></div>
+    <!-- need end-->
+    <table width="100%" border="0" cellspacing="4" cellpadding="0">
+        <tr>
+            <td align="left">
+                <input type=button name="insert" onclick="saveArrangableNodes('infoSortForm');return false;"
+                       style="cursor:pointer"
+                       value="保存" class=btn1_mouseout title="保存"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<!-- need end-->
+#end
 
 
