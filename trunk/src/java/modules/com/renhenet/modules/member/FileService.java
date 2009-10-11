@@ -132,9 +132,10 @@ public class FileService extends CommonService {
 
 		List<File> vos = null;
 		if (oos != null && oos.size() > 0) {
-			File file = new File();
+			File file =null;
 			vos = new ArrayList(oos.size());
 			for (Object[] oo : oos) {
+                file = new File();
 				file.setId(Integer.parseInt(oo[0] + ""));
 				file.setInfoSortId(Integer.parseInt(oo[1] + ""));
 				file.setStatus(new Integer(oo[2] + "").intValue());
