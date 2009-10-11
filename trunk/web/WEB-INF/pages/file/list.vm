@@ -7,18 +7,18 @@
 #end
 #set($urlPre = "/file/actions.html?method=list&cm=$cm")
 
-<iframe width=174 height=172 name="gToday:normal:/scripts/time/agenda.js"  src="/scripts/time/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>     
+<iframe width=174 height=172 name="gToday:normal:/scripts/time/agenda.js"  src="/scripts/time/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" id="searchform">
               <tr>
                 <td width="10" height="10"><img src="/images/s_1.gif" width="10" height="10" /></td>
                 <td></td>
                 <td width="10"><img src="/images/s_2.gif" width="10" height="10" /></td>
               </tr>
-              <tr>			  
-                <td></td>				
+              <tr>
+                <td></td>
                 <td>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-		<form name="searchForm" method="post" action="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm"> 
+		<form name="searchForm" method="post" action="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm">
 			<input type = hidden name="searchAction" value=y>
 			<tr>
 				<td>
@@ -28,9 +28,9 @@
 								<table width="100%" border="0" cellpadding="0" cellspacing="0">
 
 									<tr>
-										<td> 
+										<td>
 											<table>
-												<tr> 
+												<tr>
 													<td>题名模糊查询:
 													</td>
 													<td>
@@ -75,7 +75,7 @@
 										          		#end
 														#set($index=$index+1)
 										            #end
-										         #end											
+										         #end
 												</tr>
 												<td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
 											</table>
@@ -102,14 +102,26 @@
           #end
           <td class="tableheadingbg">操作</td>
           </tr>
-		
+<script language="javascript" type="text/javascript">
+//    function showalert(){
+//        alert("abc");
+//    }
+   function showlayer2(parInfoSortIds,infoSortIds,statuses,cm){
+       window.location.href="/file/actions.html?method=list&parInfoSortIds="+parInfoSortIds+"&infoSortIds="+infoSortIds+"&statuses="+statuses+"&cm="+cm;
+   }
+    function showlayer3(parInfoSortIds,parparInfoSortIds,infoSortIds,statuses,cm){
+//        alert("/file/actions.html?method=list&parInfoSortIds="+parInfoSortIds+"&parparInfoSortIds="+parparInfoSortIds+"&infoSortIds="+infoSortIds+"&statuses="+statuses+"&cm="+cm);
+       window.location.href="/file/actions.html?method=list&parInfoSortIds="+parInfoSortIds+"&parparInfoSortIds="+parparInfoSortIds+"&infoSortIds="+infoSortIds+"&statuses="+statuses+"&cm="+cm;
+   }
+</script>
 				#foreach($!file in $!fileList)
-				<tr>
+				<tr onclick="javascript:showlayer2('$vMUtils.encrypt($file.id)','$vMUtils.encrypt($infoSortId)','$vMUtils.encrypt(1)','$cm')"  style="cursor:pointer">
+##				<tr onclick="javascript:showalert()">
 					#foreach($biz in $structureList)
 						#if($biz.isLists==1)
 							#set($strIndex=$biz.serialNumber)
 							#if($strIndex=='a1')
-							<td class="tablelistbg"> 
+							<td class="tablelistbg">
 							&nbsp;#if($!file.a1!='null')$!file.a1#end</td>
 							#elseif($strIndex=='a2')
 							<td class='tablelistbg'>&nbsp;#if($!file.a2!='null')$!file.a2#end</td>
@@ -322,12 +334,12 @@
 							#if($member.type==0)
 								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >原文</a>
 							#end
-						</td>	
+						</td>
 					</tr>
 				#end
       </table>
 	  #parse( "/WEB-INF/pages/common/page.vm" )
-	  
+
 	  #if($!structureList1)
 	  <br>
 	  <table width="99%" border="0" cellpadding="0" cellspacing="0" >
@@ -340,12 +352,12 @@
           <td class="tableheadingbg">操作</td>
           </tr>
 				#foreach($!file in $!fileList2)
-				<tr>
+             <tr onclick="javascript:showlayer3('$vMUtils.encrypt($parInfoSortId)','$vMUtils.encrypt($file.id)','$vMUtils.encrypt($infoSortId)','$vMUtils.encrypt(2)','$cm')" style="cursor:pointer">
 					#foreach($biz in $structureList1)
 						#if($biz.isLists==1)
 							#set($strIndex=$biz.serialNumber)
 							#if($strIndex=='a1')
-							<td class="tablelistbg"> 
+							<td class="tablelistbg">
 							&nbsp;#if($!file.a1!='null')$!file.a1#end</td>
 							#elseif($strIndex=='a2')
 							<td class='tablelistbg'>&nbsp;#if($!file.a2!='null')$!file.a2#end</td>
@@ -558,13 +570,13 @@
 							#if($member.type==0)
 								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >原文</a>
 							#end
-						</td>	
+						</td>
 					</tr>
 				#end
       </table>
 	  #end
-	  
-	  
+
+
 	   #if($!structureList2)
 	  <br>
 	  <table width="99%" border="0" cellpadding="0" cellspacing="0" >
@@ -582,7 +594,7 @@
 						#if($biz.isLists==1)
 							#set($strIndex=$biz.serialNumber)
 							#if($strIndex=='a1')
-							<td class="tablelistbg"> 
+							<td class="tablelistbg">
 							&nbsp;#if($!file.a1!='null')$!file.a1#end</td>
 							#elseif($strIndex=='a2')
 							<td class='tablelistbg'>&nbsp;#if($!file.a2!='null')$!file.a2#end</td>
@@ -791,14 +803,14 @@
 							#if($member.type==0)
 								<a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm"  >原文</a>
 							#end
-						</td>	
+						</td>
 					</tr>
 				#end
       </table>
 	  #end
-	  
-	  
-	  
+
+
+
 
 <script>
 function tochanages(name,value){
