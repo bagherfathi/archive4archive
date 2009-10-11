@@ -49,6 +49,9 @@ public class FilesAction extends DispatchActions {
 		}
 		context.put("infoSortId", infoSortId);
 
+        int statuses = context.getIntParameter("statuses1");
+		context.put("statuses", statuses);
+
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
@@ -62,7 +65,7 @@ public class FilesAction extends DispatchActions {
 
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
-			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, 0, 0, 0);
+			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5,statuses, 0, 0, 0);
 		} else {
 			fileList = service.getFileByInfoSortIdAndType(infoSortId, 0);
 		}
