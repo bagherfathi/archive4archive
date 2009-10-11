@@ -67,25 +67,27 @@
                                                             <td>
                                                                 ##                                                                <select name="selectLayer" class="pulldown"
 ##                                                                        onchange="tochanages('$biz.serialNumber',this.value);">
-                                                                <select name="selectLayer" class="pulldown">
-                                                                    <option value="">-请选择-</option>
+                                                                <select name="statuses1" class="pulldown">
 ##                                                                    #if($biz.type==0)
-##                                                                    <option value="0">第一层
-##                                                                    </option>
+                                                                    <option value="-1">-请选择-
+                                                                    </option>
 ##                                                                    #elseif($biz.type==1)
 ##                                                                    <option value="0">第一层
 ##                                                                    </option>
 ##                                                                    <option value="1">第二层
 ##                                                                    </option>
 ##                                                                    #elseif($biz.type==2)
-                                                                    <option value="0">第一层
+                                                                    <option value="0" #if($statuses==0)selected
+#end >第一层
                                                                     </option>
-                                                                    <option value="1">第二层
+                                                                    <option value="1" #if($statuses==1)selected
+#end >第二层
                                                                     </option>
-                                                                    <option value="2">第三层
+                                                                    <option value="2" #if($statuses==2)selected
+#end >第三层
                                                                     </option>
 ##                                                                    #end
-##                                                                </select>
+                                                                </select>
                                                             </td>
                                                             <td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
                                                         </tr>
@@ -179,6 +181,9 @@
         window.location.href = "/file/actions.html?method=list&parInfoSortIds=" + parInfoSortIds + "&parparInfoSortIds=" + parparInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
     }
 </script>
+#if($statuses>0)
+     #set( $structureList=0)
+#end
 #foreach($!file in $!fileList)
 <tr onclick="javascript:showlayer2('$vMUtils.encrypt($file.id)','$vMUtils.encrypt($infoSortId)','$vMUtils.encrypt(1)','$cm')"
     style="cursor:pointer">
@@ -390,6 +395,7 @@
 #end
 #end
 #end
+#if($statuses<=0 )
 <td class="tablelistbg">&nbsp;
     #if($!infoSort.twoFloor!="")
     <a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>
@@ -401,11 +407,12 @@
     <a href="/accessory/actions.html?method=insert&fileIds=$vMUtils.encrypt($file.id)&cm=$cm">原文</a>
     #end
 </td>
+#end
 </tr>
 #end
-</table>
+</table> #if($statuses<=0 )
 #parse( "/WEB-INF/pages/common/page.vm" )
-
+   #end
 #if($!structureList1)
 <br>
 <table width="99%" border="0" cellpadding="0" cellspacing="0">
@@ -417,6 +424,9 @@
     #end
     <td class="tableheadingbg">操作</td>
 </tr>
+#if($statuses==1)
+#set($fileList2=$fileList)
+#end
 #foreach($!file in $!fileList2)
 <tr onclick="javascript:showlayer3('$vMUtils.encrypt($parInfoSortId)','$vMUtils.encrypt($file.id)','$vMUtils.encrypt($infoSortId)','$vMUtils.encrypt(2)','$cm')"
     style="cursor:pointer">
@@ -655,9 +665,12 @@
     #end
     <td class="tableheadingbg">操作</td>
 </tr>
+#if($statuses==2)
+    #set($fileList3 =$fileList)
+#end
 #foreach($!file in $!fileList3)
 <tr>
-#foreach($biz in $structureList1)
+#foreach($biz in $structureList2)
 #if($biz.isLists==1)
 #set($strIndex=$biz.serialNumber)
 #if($strIndex=='a1')
