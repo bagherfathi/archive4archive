@@ -19,19 +19,19 @@
         <td></td>
         <td>
             <script language="javascript" type="text/javascript">
-                var current="fuzzy";
+                var current = "fuzzy";
                 function exchange() {
-                    var fuzzy=document.getElementById("fuzzy");
-                    var precision=document.getElementById("precision");
-                     if(current=="fuzzy"){
-                         fuzzy.style.display='none';
-                         precision.style.display='block';
-                         current="precision";
-                     } else{
-                         fuzzy.style.display='block';
-                         precision.style.display='none';
-                         current="fuzzy";
-                     }
+                    var fuzzy = document.getElementById("fuzzy");
+                    var precision = document.getElementById("precision");
+                    if (current == "fuzzy") {
+                        fuzzy.style.display = 'none';
+                        precision.style.display = 'block';
+                        current = "precision";
+                    } else {
+                        fuzzy.style.display = 'block';
+                        precision.style.display = 'none';
+                        current = "fuzzy";
+                    }
                 }
             </script>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -49,8 +49,10 @@
                                                 <td>
                                                     <table>
                                                         <tr>
-                                                            <td >
-                                                                <input type="button" class=btn1_mouseout onclick="javascript:exchange()" style="cursor:pointer" value="切换查询"></input>
+                                                            <td>
+                                                                <input type="button" class=btn1_mouseout
+                                                                       onclick="javascript:exchange()"
+                                                                       style="cursor:pointer" value="切换查询"></input>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -61,6 +63,29 @@
                                                             <td>
                                                                 <input name="titleA5" type="text" class="inputfield"
                                                                        value="$!titleA5">
+                                                            </td>
+                                                            <td>
+                                                                ##                                                                <select name="selectLayer" class="pulldown"
+##                                                                        onchange="tochanages('$biz.serialNumber',this.value);">
+                                                                <select name="selectLayer" class="pulldown">
+                                                                    <option value="">-请选择-</option>
+##                                                                    #if($biz.type==0)
+##                                                                    <option value="0">第一层
+##                                                                    </option>
+##                                                                    #elseif($biz.type==1)
+##                                                                    <option value="0">第一层
+##                                                                    </option>
+##                                                                    <option value="1">第二层
+##                                                                    </option>
+##                                                                    #elseif($biz.type==2)
+                                                                    <option value="0">第一层
+                                                                    </option>
+                                                                    <option value="1">第二层
+                                                                    </option>
+                                                                    <option value="2">第三层
+                                                                    </option>
+##                                                                    #end
+##                                                                </select>
                                                             </td>
                                                             <td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
                                                         </tr>
