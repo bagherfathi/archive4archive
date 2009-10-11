@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="false" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" optional="false" version="2.5" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/web" relative="/" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/conf" />
+          <root url="file://$MODULE_DIR$/resources" />
+          <root url="file://$MODULE_DIR$/src/java/framework" />
+          <root url="file://$MODULE_DIR$/src/java/modules" />
+          <root url="file://$MODULE_DIR$/src/java/share" />
+        </sourceRoots>
+        <building>
+          <setting name="EXPLODED_URL" value="file://$MODULE_DIR$/out/production/archive" />
+          <setting name="EXPLODED_ENABLED" value="true" />
+          <setting name="JAR_URL" value="file://" />
+          <setting name="JAR_ENABLED" value="false" />
+          <setting name="EXCLUDE_EXPLODED_DIRECTORY" value="false" />
+        </building>
+        <packaging>
+          <containerElement type="module" name="archive">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/classes" />
+          </containerElement>
+          <containerElement type="library" name="archivelib" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib" />
+          </containerElement>
+          <containerElement type="library" level="module">
+            <attribute name="method" value="1" />
+            <attribute name="URI" value="/WEB-INF/lib" />
+            <url>jar://$APPLICATION_HOME_DIR$/lib/j2ee.jar!/</url>
+          </containerElement>
+        </packaging>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/out/production/archive/WEB-INF/classes" />
+    <output-test url="file://$MODULE_DIR$/out/test/archive/WEB-INF/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/conf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/java/framework" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/java/modules" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/java/share" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/java/web" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/upload" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library" exported="">
+      <library name="archivelib">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/commons-chain-1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-collections-3.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/saaj.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/log4j-1.2.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/mm.mysql-2.0.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/ojdbc14.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jakarta-oro-2.0.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts-scripting-1.3.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-codec-1.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/cglib-nodep-2.1_3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts-mailreader-dao-1.3.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/junit.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-logging-1.0.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jta.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/velocity-1.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/resolver.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts-core-1.3.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/ehcache-1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-fileupload-1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/quartz-1.6.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/wsdl4j-1.5.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/msnm.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jaxrpc.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts-el-1.3.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jcmppapi30.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/xmlrpc-1.2-b1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/xmlParserAPIs.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts2-core-2.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-discovery-0.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/bcprov-jdk15-134.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/asm.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/velocity-tools-1.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/velocity-tools-1.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jcommon-1.0.0-rc1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts-extras-1.3.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/mysql-connector-java-3.1.13-bin.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jta-spec1_0_1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-beanutils-1.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/lucene-analyzers-2.2.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/oro-2.0.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-validator-1.3.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/permaBEEP.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts-taglib-1.3.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jxl.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-httpclient-3.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-dbcp-1.2.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/htmlparser1.5-patch.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-io-1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/activation.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts2-all-2.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/spring.2.02.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jdbc2_0-stdext.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/lucene-highlighter-2.2.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/yguard.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/lucene-core-2.2.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-pool-1.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/freemarker-2.3.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/hibernate3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/cryptix-jce-provider.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/axis-ant.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-configuration-1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jdom.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-lang-2.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-digester-1.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/dom4j-1.6.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts-faces-1.3.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/antlr-2.7.5H3.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/servlet-api-2.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/c3p0-0.9.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts2-api-2.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/ognl-2.6.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javamail-1.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/xwork-2.0-beta-1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/xml-apis.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/EUCPCommHTTPSingle.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/oscache-2.3.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/asm-attrs.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/poi-2.5.1-final-20040804.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/xercesImpl.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jfreechart-1.0.0-rc1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/axis.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/struts-tiles-1.3.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/aopalliance.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/j2ee.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+
