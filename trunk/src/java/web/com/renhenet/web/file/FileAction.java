@@ -206,31 +206,29 @@ public class FileAction extends DispatchActions {
 			context.put("pagination", pagination);
 
 			// µÚ2²ã
-			if (parInfoSortId > 0) {
-				int num2 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
-						infoSortId, parInfoSortId, 1, context);
-				List<File> fileList2 = service
-						.getFileByInfoSortIdAndParInfoSortIdAndStatus(
-								infoSortId, parInfoSortId, 1, context,
-								startNum, 10);
-				context.put("fileList2", fileList2);
-				Pagination pagination2 = new Pagination(num2, startNum, 10);
-				context.put("pagination2", pagination2);
-			}
+			// if (parInfoSortId > 0) {
+			int num2 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
+					infoSortId, parInfoSortId, 1, context);
+			List<File> fileList2 = service
+					.getFileByInfoSortIdAndParInfoSortIdAndStatus(infoSortId,
+							parInfoSortId, 1, context, startNum, 10);
+			context.put("fileList2", fileList2);
+			Pagination pagination2 = new Pagination(num2, startNum, 10);
+			context.put("pagination2", pagination2);
+			// }
 
 			// µÚ3²ã
-			if (parparInfoSortId > 0) {
-				int num3 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
-						infoSortId, parparInfoSortId, 2, context);
-				List<File> fileList3 = service
-						.getFileByInfoSortIdAndParInfoSortIdAndStatus(
-								infoSortId, parparInfoSortId, 2, context,
-								startNum, 10);
-				context.put("fileList3", fileList3);
+			// if (parparInfoSortId > 0) {
+			int num3 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
+					infoSortId, parparInfoSortId, 2, context);
+			List<File> fileList3 = service
+					.getFileByInfoSortIdAndParInfoSortIdAndStatus(infoSortId,
+							parparInfoSortId, 2, context, startNum, 10);
+			context.put("fileList3", fileList3);
 
-				Pagination pagination3 = new Pagination(num3, startNum, 10);
-				context.put("pagination3", pagination3);
-			}
+			Pagination pagination3 = new Pagination(num3, startNum, 10);
+			context.put("pagination3", pagination3);
+			// }
 		}
 		context.put("fileList", fileList);
 
