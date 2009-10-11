@@ -31,7 +31,13 @@ public class FileService extends CommonService {
 	public List<File> getFileByInfoSortIdAndParInfoSortIdAndStatus(
 			int infoSortId, int parInfoSortId, int status, WebContext context,
 			int startNum, int num) {
-		String hql = "from File where infoSortId =? and parInfoSortId=? and status=?";
+		String hql = "from File where status=? ";
+		if (infoSortId > 0) {
+			hql += " and infoSortId =" + infoSortId;
+		}
+		if (parInfoSortId > 0) {
+			hql += "and parInfoSortId=" + parInfoSortId;
+		}
 		for (int i = 0; i <= 100; i++) {
 			String name = "a" + i;
 			String value = context.getParameter(name);
@@ -42,13 +48,20 @@ public class FileService extends CommonService {
 		}
 
 		hql += " order by id desc";
-		return (List<File>) dao.find(hql, new Object[] { infoSortId,
-				parInfoSortId, status }, startNum, num);
+		return (List<File>) dao.find(hql, new Object[] { status }, startNum,
+				num);
 	}
 
 	public int getNumByInfoSortIdAndParInfoSortIdAndStatus(int infoSortId,
 			int parInfoSortId, int status, WebContext context) {
-		String hql = "select count(*) from File where infoSortId =? and parInfoSortId=? and status=?";
+		String hql = "select count(*)  from File where status=? ";
+		if (infoSortId > 0) {
+			hql += " and infoSortId =" + infoSortId;
+		}
+		if (parInfoSortId > 0) {
+			hql += " and parInfoSortId=" + parInfoSortId;
+		}
+
 		for (int i = 0; i <= 100; i++) {
 			String name = "a" + i;
 			String value = context.getParameter(name);
@@ -59,8 +72,7 @@ public class FileService extends CommonService {
 		}
 
 		hql += " order by id desc";
-		int num = dao.getCount(hql, new Object[] { infoSortId, parInfoSortId,
-				status });
+		int num = dao.getCount(hql, new Object[] { status });
 
 		return num;
 	}
@@ -99,13 +111,15 @@ public class FileService extends CommonService {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public List<File> getFileByInfoSortIdAnd(int infoSortId, String a5,
+	public List<File> getFileByInfoSortIdAnd(int infoSortId, String a5,   int statuses,
 			int parInfoSortId, int startNum, int num) {
 		StringBuffer query = new StringBuffer();
 		List args = new ArrayList();
 
 		query.append("SELECT * FROM files WHERE contains(a5,'" + a5
-				+ "',1) > 0  and par_info_sort_id=" + parInfoSortId
+				+ "',1) > 0  " 
+//                " and par_info_sort_id=" + parInfoSortId
+                +" and status="+statuses
 				+ " and info_sort_id =" + infoSortId
 				+ " ORDER BY score(1) desc");
 
@@ -235,12 +249,14 @@ public class FileService extends CommonService {
 	}
 
 	public int getNumByInfoSortIdAndA5(int infoSortId, String a5,
-			int parInfoSortId, int startNum, int num) {
+			int parInfoSortId,int statuses, int startNum, int num) {
 		StringBuffer query = new StringBuffer();
 		List args = new ArrayList();
 
 		query.append("SELECT count(*) FROM files WHERE contains(a5,'" + a5
-				+ "',1) > 0  and par_info_sort_id=" + parInfoSortId
+				+ "',1) > 0" 
+//                "  and par_info_sort_id=" + parInfoSortId
+                +" and status="+statuses
 				+ " and info_sort_id =" + infoSortId
 				+ " ORDER BY score(1) desc");
 
