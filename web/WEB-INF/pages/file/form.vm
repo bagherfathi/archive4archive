@@ -1083,7 +1083,7 @@
 							</td>
 							<td>
 								#if($biz.length>200)
-									#showFormTextarea("$biz.serialNumber" "$values" 3)
+									#showFormTextarea("$biz.serialNumber" "$values" 3)#if($biz.isNull==0)#showMustFill()#end
 								#else
 									#if($biz.type>=3)
 										<input name="$!biz.serialNumber" type="text" size="10" maxlength="10" value="$values" />
@@ -1106,9 +1106,10 @@
 														</option>
 													#end
 												#end
-											</select>
+											</select>#if($biz.isNull==0)#showMustFill()#end
 										#else
 											#showFormText("$biz.serialNumber" "$values" 20)
+											#if($biz.isNull==0)#showMustFill()#end
 										#end
 										
 									#end					

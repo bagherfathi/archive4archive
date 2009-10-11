@@ -1,40 +1,340 @@
+<link rel="stylesheet" href="/css/jquery.treeview.css"/>
+<link rel="stylesheet" href="/css/screen.css"/>
 
+<script src="/scripts/jquery.js" type="text/javascript"></script>
+<script src="/scripts/jquery.cookie.js" type="text/javascript"></script>
+<script src="/scripts/jquery.treeview.js" type="text/javascript"></script>
+
+<script>
+
+    $(document).ready(function() {
+
+        $("#archiveTree1").treeview({
+            animated: "fast",
+            collapsed: true,
+            unique: true,
+            persist: "cookie",
+            toggle: function() {
+                window.console && console.log("%o was toggled", this);
+            }
+        });
+        
+          $("#archiveTree2").treeview({
+            animated: "fast",
+            collapsed: true,
+            unique: true,
+            persist: "cookie",
+            toggle: function() {
+                window.console && console.log("%o was toggled", this);
+            }
+        });
+        
+        
+    });
+</script>
 <table width="100%" border="0" cellpadding="4" cellspacing="1" >
+
+    
 	<tr>
 		<td >
 			<form name="infosortForm" method="post" action="$!actionUrl" onSubmit = "return validateInfosortForm(this);">
 				<input type=hidden name=id value=$!bizObj.id>
 				<table width="100%" border="0" cellpadding="2" cellspacing="3">
 					<tr> 
-						<td bgcolor="#eeeee5" width="20%">信息分类:
+						<td >信息分类:
 						</td>
 						<td>
-							#showListSelect($infoSortList2 "infoSortId" "")#showMustFill()
+						<table>
+						<tr>
+						<td width="450px" valign="top">
+					<ul id="archiveTree1" class="filetree">
+        <li class="open"><span class="folder">信息分类</span>
+            #set($list1=$vMUtils.getInfoSortByparentId(0))
+            #if($list1.size()!=0)
+            <ul>
+                #set($index1=1)
+                #foreach($infosort1 in $list1)
+                #set($strIndex1="da"+$index1)
+                <li class="open">
+
+                    #if($infosort1.type==2)
+                            <span class="file"><a
+                                    href="#" onclick="cpValue('$!infosort1.id','$!infosort1.name')">$!infosort1.name</a></span>
+                    #else
+                    <span class="folder" onclick="cpValue('$!infosort1.id','$!infosort1.name')">$!infosort1.name</span>
+                    #end
+
+                    #set($list2=$vMUtils.getInfoSortByparentId($!infosort1.id))
+                    #if($list2.size()!=0)
+                    <ul>
+                        #set($index2=1)
+                        #foreach($infosort2 in $list2)
+                        #set($strIndex2="da"+$index2)
+
+                        <li class="open">
+                            #if($infosort2.type==2)
+                                    <span class="file"><a
+                                            href="#" onclick="cpValue('$!infosort2.id','$!infosort2.name')">$!infosort2.name</a></span>
+                            #else
+                            <span class="folder" onclick="cpValue('$!infosort2.id','$!infosort2.name')">$!infosort2.name</span>
+                            #end
+
+                            #set($list3=$vMUtils.getInfoSortByparentId($!infosort2.id))
+                            #if($list3.size()!=0)
+                            <ul>#set($index3=1)
+                                #foreach($infosort3 in $list3)
+                                #set($strIndex3="da"+$index3)
+                                <li class="open">
+                                    #if($infosort3.type==2)
+                                            <span class="file"><a
+                                                    href="#" onclick="cpValue('$!infosort3.id','$!infosort3.name')">$!infosort3.name</a></span>
+                                    #else
+                                    <span class="folder" onclick="cpValue('$!infosort3.id','$!infosort3.name')">$!infosort3.name</span>
+                                    #end
+
+                                    #set($list4=$vMUtils.getInfoSortByparentId($!infosort3.id))
+                                    #if($list4.size()!=0)
+                                    <ul> #set($index4=1)
+                                        #foreach($infosort4 in $list4)
+                                        #set($strIndex4="da"+$index4)
+                                        <li class="open">
+                                            #if($infosort4.type==2)
+                                                    <span class="file"><a
+                                                            href="#" onclick="cpValue('$!infosort4.id','$!infosort4.name')">$!infosort4.name</a></span>
+
+                                            #else
+                                            <span class="folder" onclick="cpValue('$!infosort4.id','$!infosort4.name')">$!infosort4.name</span>
+                                            #end
+
+                                            #set($list5=$vMUtils.getInfoSortByparentId($!infosort4.id))
+                                            #if($list5.size()!=0)
+
+                                            <ul> #set($index5=1)
+                                                #foreach($infosort5 in $list5)
+                                                #set($strIndex5="da"+$index5)
+                                                <li class="open">
+                                                    #if($infosort5.type==2)
+                                                            <span class="file"><a
+                                                                    href="#" onclick="cpValue('$!infosort5.id','$!infosort5.name')">$!infosort5.name</a></span>
+                                                    #else
+                                                    <span class="folder" onclick="cpValue('$!infosort5.id','$!infosort5.name')">$!infosort5.name</span>
+                                                    #end
+                                                </li>
+                                                #set($index5=$index5+1)
+                                                #end
+                                            </ul>
+                                            #end
+
+                                        </li>
+                                        #set($index4=$index4+1)
+                                        #end
+                                    </ul>
+                                    #end
+
+
+                                </li>
+                                #set($index3=$index3+1)
+                                #end
+                            </ul>
+                            #end
+
+
+                        </li>
+                        #set($index2=$index2+1)
+                        #end
+                    </ul>
+                    #end
+
+
+                </li>
+                #set($index1=$index1+1)
+                #end
+            </ul>
+            #end
+
+        </li>
+    </ul>
+						
+						</td>
+						<td >目录:
+						</td>
+						<td width="450px" valign="top">
+						 <ul id="archiveTree2" class="filetree">
+        <li class="open"><span class="folder">信息分类</span>
+            #set($list1=$vMUtils.getInfoSortByparentId(0))
+            #if($list1.size()!=0)
+            <ul>
+                #set($index1=1)
+                #foreach($infosort1 in $list1)
+                #set($strIndex1="da"+$index1)
+                <li class="open">
+
+                    #if($infosort1.type==2)
+                            <span class="file"><a
+                                    href="#" onclick="cpValue1('$!infosort1.id','$!infosort1.name')">$!infosort1.name</a></span>
+                    #else
+                    <span class="folder" onclick="cpValue1('$!infosort1.id','$!infosort1.name')">$!infosort1.name</span>
+                    #end
+
+                    #set($list2=$vMUtils.getInfoSortByparentId($!infosort1.id))
+                    #if($list2.size()!=0)
+                    <ul>
+                        #set($index2=1)
+                        #foreach($infosort2 in $list2)
+                        #set($strIndex2="da"+$index2)
+
+                        <li class="open">
+                            #if($infosort2.type==2)
+                                    <span class="file"><a
+                                            href="#" onclick="cpValue1('$!infosort2.id','$!infosort2.name')">$!infosort2.name</a></span>
+                            #else
+                            <span class="folder" onclick="cpValue1('$!infosort2.id','$!infosort2.name')">$!infosort2.name</span>
+                            #end
+
+                            #set($list3=$vMUtils.getInfoSortByparentId($!infosort2.id))
+                            #if($list3.size()!=0)
+                            <ul>#set($index3=1)
+                                #foreach($infosort3 in $list3)
+                                #set($strIndex3="da"+$index3)
+                                <li class="open">
+                                    #if($infosort3.type==2)
+                                            <span class="file"><a
+                                                    href="#" onclick="cpValue1('$!infosort3.id','$!infosort3.name')">$!infosort3.name</a></span>
+                                    #else
+                                    <span class="folder" onclick="cpValue1('$!infosort3.id','$!infosort3.name')">$!infosort3.name</span>
+                                    #end
+
+                                    #set($list4=$vMUtils.getInfoSortByparentId($!infosort3.id))
+                                    #if($list4.size()!=0)
+                                    <ul> #set($index4=1)
+                                        #foreach($infosort4 in $list4)
+                                        #set($strIndex4="da"+$index4)
+                                        <li class="open">
+                                            #if($infosort4.type==2)
+                                                    <span class="file"><a
+                                                            href="#" onclick="cpValue1('$!infosort4.id','$!infosort4.name')">$!infosort4.name</a></span>
+
+                                            #else
+                                            <span class="folder" onclick="cpValue1('$!infosort4.id','$!infosort4.name')">$!infosort4.name</span>
+                                            #end
+
+                                            #set($list5=$vMUtils.getInfoSortByparentId($!infosort4.id))
+                                            #if($list5.size()!=0)
+
+                                            <ul> #set($index5=1)
+                                                #foreach($infosort5 in $list5)
+                                                #set($strIndex5="da"+$index5)
+                                                <li class="open">
+                                                    #if($infosort5.type!=2)
+                                                            <span class="file"><a
+                                                                    href="#" onclick="cpValue1('$!infosort5.id','$!infosort5.name')">$!infosort5.name</a></span>
+                                                    #else
+                                                    <span class="folder" onclick="cpValue1('$!infosort5.id','$!infosort5.name')">$!infosort5.name</span>
+                                                    #end
+                                                </li>
+                                                #set($index5=$index5+1)
+                                                #end
+                                            </ul>
+                                            #end
+
+                                        </li>
+                                        #set($index4=$index4+1)
+                                        #end
+                                    </ul>
+                                    #end
+
+
+                                </li>
+                                #set($index3=$index3+1)
+                                #end
+                            </ul>
+                            #end
+                        </li>
+                        #set($index2=$index2+1)
+                        #end
+                    </ul>
+                    #end
+                </li>
+                #set($index1=$index1+1)
+                #end
+            </ul>
+            #end
+
+        </li>
+    </ul>
+    </td>
+    </tr>
+    </table>
 						</td>
 					</tr>					
-					<tr>
-						<td bgcolor="#eeeee5" width="20%">目录:
-						</td>
-						<td>
-							#showListSelect($infoSortList "parentId" "")#showMustFill()
-						</td>
-						<td bgcolor="#eeeee5" width="20%">名称:
-						</td>
-						<td>
-							#showFormText("name" "" 20)
-						</td>
-					</tr>
+					
 				</table>
 				<table width="100%" border="0" cellspacing="4" cellpadding="0">
 					<tr>
+					<td bgcolor="#eeeee5" width="20%">从信息分类:
+						</td>
+						<td>
+						<input id="infoSortId" type=hidden name="infoSortId" value="">	
+						<input id="infoSortName" type=text name="infoSortName" value="" readonly>#showMustFill()
+						</td>
+					<td bgcolor="#eeeee5" width="20%">复制到目录:
+						</td>
+						<td>
+							<input id="parentId" type=hidden name="parentId" value="">	
+							<input id="parentIdName" type=text name="parentIdName" value="" readonly>#showMustFill()
+						</td>
+					</tr>
+					<tr>
+					<td bgcolor="#eeeee5" width="20%">名称为:
+						</td>
+						<td>
+						<input id="name" type=text name="name" value="">#showMustFill()
+						</td>
+					
+					</tr>
+				</table>
+				<table width="100%" border="0" cellspacing="4" cellpadding="0">
+					
+					<tr>
 						<td  align="center" >
-							#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+							<input type=button name="insert" value="保存" class=btn1_mouseout title="保存" onclick="tosubmit();"/>
 						</td>
 					</tr>
 				</table>
 			</form>
+			
 		</td>
 	</tr>
 </table>
+
+<script>
+function cpValue(id,name){
+	document.getElementById("infoSortId").value=id;
+	document.getElementById("infoSortName").value=name;
+}
+function cpValue1(id,name){
+	document.getElementById("parentId").value=id;
+	document.getElementById("parentIdName").value=name;
+}
+
+function tosubmit(){
+	if(document.getElementById("infoSortName").value==""){
+		alert("请选择信息分类");
+		return false;
+	}
+	if(document.getElementById("parentIdName").value==""){
+		alert("请选择信息分类目录");
+		return false;
+	}
+	if(document.getElementById("name").value==""){
+		alert("请填写名称");
+		return false;
+	}
+	document.infosortForm.submit();
+}
+
+</script>
+
+
 
 
