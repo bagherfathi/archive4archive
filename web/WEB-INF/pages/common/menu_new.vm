@@ -420,12 +420,16 @@
             </ul>
         </div>
         <li><a onClick="javascript:showdesc(62)" class=menubg>
-            <img src=/images/expand.gif border="0" align="absmiddle" id=pic62>资料设置</a></li>
+        	#set($menuOpen = false)
+            #if($memuModule == "infosort" || $memuModule == "cpstructure"  || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")
+            #set($menuOpen = true)
+            #end
+            <img src=#if($menuOpen)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic62>资料设置</a></li>
         <div id="desc62"
-             style="display:#if($memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
+             style="display:#if($memuModule == "infosort" || $memuModule == "cpstructure"  || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
             <ul>
                 <li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息分类 </a></li>
-                <li><a href="/cpstructure/actions.html?method=insert"  #showMenuClass("infosort")> 复制添加信息分类 </a>
+                <li><a href="/cpstructure/actions.html?method=insert"  #showMenuClass("cpstructure")> 复制添加信息分类 </a>
                 </li>
                 <li><a href="/dictionarysort/actions.html?method=list" #showMenuClass("dictionarysort")> 字典类目 </a>
                 </li>
