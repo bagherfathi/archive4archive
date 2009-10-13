@@ -196,7 +196,7 @@ public class CPStructureAction extends DispatchActions {
 
 	@Override
 	public String getWebMenuType(WebContext context) throws ServletException {
-		return "file";
+		return "cpstructure";
 	}
 
 	@Override
