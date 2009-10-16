@@ -33,8 +33,8 @@ select ZN_NAME from STRUCTURE where info_sort_id=${i} ;
 exit
 EOF`
 Result=`echo  "${Result}"|grep -v 已|grep -v selected`
-Result=`echo  ${Result}|sed 's/ /,/g'`
-FieldList=${Result}
+Result=`echo  ${Result}|sed 's/ /,/g'|sed 's/,/,F/g'`
+FieldList=F${Result}
 echo ${FieldList}
 
 Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive <<EOF
@@ -60,7 +60,8 @@ Result=`echo  "${Result}"|grep -v 已|grep -v selected`
 ViewName=`echo ${Result}|awk '{for(i=0;i<=NF-1;i++)printf("%s ",$(NF-i));printf("\n");}'|sed 's/ /_/g'|sed 's/\_$//g'`
 echo ${ViewName}
 
-Create="Create Or Replace View ${ViewName} ( ${FieldList} ) As Select ${ValueList} From files;"
+#Create="Create Or Replace View ${ViewName} ( ${FieldList} ) As Select ${ValueList} From files;"
+Create="Create Or Replace View View${i} ( ${FieldList} ) As Select ${ValueList} From files;"
 echo ${Create}
 
 /usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive <<EOF
