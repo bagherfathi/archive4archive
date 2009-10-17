@@ -57,11 +57,13 @@ for i in ${StructureIdList};do
 	if [ ${One} = "true" ];then
 		if [ "${i}" = "${ViewId}" ];then
 			echo "Match";	
+			Find=true;
 		else
 			continue;
 		fi
+	else	
+		Find=true;
 	fi
-
 	echo ViewID:${i}
 	echo 
 
@@ -70,7 +72,7 @@ for i in ${StructureIdList};do
 	set heading off;
 	set pagesize 0;
 	set linesize 10240;
-	select ZN_NAME from STRUCTURE where info_sort_id=${i} ;
+	select ZN_NAME from STRUCTURE where info_sort_id=${i} and is_delete=0 order by id;
 	exit
 	EOF`
 	Result=`echo  "${Result}"|grep -v 已|grep -v selected`
@@ -86,7 +88,7 @@ for i in ${StructureIdList};do
 		number=`expr ${number} + 1`;
 	done
 	#Result=`echo  ${Result}|sed 's/ /,F/g'`
-	FieldList="INFO_SORT_ID,STATUS,PAR_INFO_SORT_ID,TYPE,TITLE,${FieldList}"
+	FieldList="ID,INFO_SORT_ID,STATUS,PAR_INFO_SORT_ID,TYPE,TITLE,${FieldList}"
 	#echo ${FieldList}
 
 	#**********************************************************  Get Value List **************************************************************************
@@ -94,12 +96,12 @@ for i in ${StructureIdList};do
 	set heading off;
 	set pagesize 0;
 	set linesize 10240;
-	select SERIAL_NUMBER from STRUCTURE where info_sort_id=${i} ;
+	select SERIAL_NUMBER from STRUCTURE where info_sort_id=${i} and is_delete=0 order by id;
 	exit
 	EOF`
 	Result=`echo  "${Result}"|grep -v 已|grep -v selected`
 	Result=`echo  ${Result}|sed 's/ /,/g'`
-	ValueList="INFO_SORT_ID,STATUS,PAR_INFO_SORT_ID,TYPE,TITLE,${Result}"
+	ValueList="ID,INFO_SORT_ID,STATUS,PAR_INFO_SORT_ID,TYPE,TITLE,${Result}"
 	#echo ${ValueList}
 
 	#select name from info_sort t start with id= ${i} connect by id = prior parent_id;
@@ -136,3 +138,6 @@ for i in ${StructureIdList};do
 	echo "******************************************************************************"
 	sleep 1;
 done
+if [ "${Find}" != "true" ];then
+	echo "Can't find record."	
+fi
