@@ -1,0 +1,2 @@
+REM INSERTING into T226_传统方法整理
+Insert into T226_传统方法整理 (ID,INFO_SORT_ID,STATUS,PAR_INFO_SORT_ID,TYPE,TITLE,F1案卷级档号,F2总件数,F3题名,F4存放位置,F5密级,F6全宗号,F7目录号,F8归档年度,F9保管期限,F10实体分类号,F11案卷号,F12总页数,F13文件开始时间,F14文件结束时间,F15主题词,F16归档日期,F17备注,F18部门,F19档号,F20组卷标识,F21文件形成时间,F22文件编号,F23页号,F24顺序号,F25责任者,F26临时号,F27份数) values (HIBERNATE_SEQUENCE.nextval,226,0,0,0,null,'1','2','3','4','5','6','7','8','9','10',null,'11','12','14','13','15','16','17',null,null,null,null,null,null,null,null,null);
