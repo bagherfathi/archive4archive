@@ -3,7 +3,9 @@
 <br>
 <div id="conbg">
 <div class=contitle>
-<div class=leftmain>新增信息分类</div>
+<div class=leftmain>位置：#foreach($biz in $infoSortDtoList)
+ 	$biz.name &gt;
+ #end 新增信息分类</div>
 <div class=rightmain>&nbsp;&nbsp;<a href="/infosort/actions.html?method=list">&#171;返回</a></div>
 <div class=rightmain></div>
 </div>
