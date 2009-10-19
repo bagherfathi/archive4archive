@@ -3,7 +3,7 @@
 <table width="100%"><tr><td><div id=msg></div></td></tr></table>
 <div id="conbg">
 <div class=contitle>
-<div class=leftmain>编辑结构关系表</div>
+<div class=leftmain>编辑$!infoSort.name</div>
 <div class=rightmain>&nbsp;&nbsp;<a href="/file/actions.html?method=list&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt($status)&cm=$cm">&#171;返回</a></div>
 <div class=rightmain></div>
 </div>
