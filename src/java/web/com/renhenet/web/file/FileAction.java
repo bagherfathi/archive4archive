@@ -198,7 +198,7 @@ public class FileAction extends DispatchActions {
 			int num = service.getNumByInfoSortIdAndA5(infoSortId, a5,statuses, 0, 0, 0);
 			Pagination pagination = new Pagination(num, startNum, 10);
 
-			context.put("pagination", pagination);
+			context.put("pagination1", pagination);
 		} else {
 			// µÚ1²ã
 			int num1 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
@@ -206,7 +206,7 @@ public class FileAction extends DispatchActions {
 			fileList = service.getFileByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, 0, 0, context, startNum, 10);
 			Pagination pagination = new Pagination(num1, startNum, 10);
-			context.put("pagination", pagination);
+			context.put("pagination1", pagination);
 
 			// µÚ2²ã
 			// if (parInfoSortId > 0) {
