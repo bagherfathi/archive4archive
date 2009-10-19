@@ -65,18 +65,9 @@
                                                                        value="$!titleA5">
                                                             </td>
                                                             <td>
-                                                                ##                                                                <select name="selectLayer" class="pulldown"
-##                                                                        onchange="tochanages('$biz.serialNumber',this.value);">
                                                                 <select name="statuses1" class="pulldown">
-##                                                                    #if($biz.type==0)
                                                                     <option value="-1">-请选择-
                                                                     </option>
-##                                                                    #elseif($biz.type==1)
-##                                                                    <option value="0">第一层
-##                                                                    </option>
-##                                                                    <option value="1">第二层
-##                                                                    </option>
-##                                                                    #elseif($biz.type==2)
                                                                     <option value="0" #if($statuses==0)selected
 #end >第一层
                                                                     </option>
@@ -86,7 +77,6 @@
                                                                     <option value="2" #if($statuses==2)selected
 #end >第三层
                                                                     </option>
-##                                                                    #end
                                                                 </select>
                                                             </td>
                                                             <td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
@@ -170,14 +160,10 @@
     <td class="tableheadingbg">操作</td>
 </tr>
 <script language="javascript" type="text/javascript">
-    //    function showalert(){
-    //        alert("abc");
-    //    }
     function showlayer2(parInfoSortIds, infoSortIds, statuses, cm) {
         window.location.href = "/file/actions.html?method=list&parInfoSortIds=" + parInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
     }
     function showlayer3(parInfoSortIds, parparInfoSortIds, infoSortIds, statuses, cm) {
-        //        alert("/file/actions.html?method=list&parInfoSortIds="+parInfoSortIds+"&parparInfoSortIds="+parparInfoSortIds+"&infoSortIds="+infoSortIds+"&statuses="+statuses+"&cm="+cm);
         window.location.href = "/file/actions.html?method=list&parInfoSortIds=" + parInfoSortIds + "&parparInfoSortIds=" + parparInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
     }
 </script>
@@ -410,9 +396,10 @@
 #end
 </tr>
 #end
-</table> #if($statuses<=0 )
-#parse( "/WEB-INF/pages/common/page.vm" )
-   #end
+</table> 
+#if($fileList.size()>0)
+#parse( "/WEB-INF/pages/common/pages.vm" )
+#end
 #if($!structureList1)
 <br>
 <table width="99%" border="0" cellpadding="0" cellspacing="0">
