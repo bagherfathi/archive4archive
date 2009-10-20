@@ -8,8 +8,10 @@ import com.renhenet.fw.ServiceLocator;
 import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
 import com.renhenet.modules.member.DictionarySortService;
+import com.renhenet.modules.member.InfoSortService;
 import com.renhenet.modules.member.StructureService;
 import com.renhenet.po.DictionarySort;
+import com.renhenet.po.InfoSortDTO;
 import com.renhenet.po.Structure;
 import com.renhenet.util.searchcontext.SearchContext;
 import com.renhenet.web.DispatchActions;
@@ -17,149 +19,157 @@ import com.renhenet.web.VMUtils;
 import com.renhenet.web.form.StructureForm;
 
 public class StructureAction extends DispatchActions {
-    private static StructureService service = (StructureService) ServiceLocator
-            .getService("structureService");
+	private static StructureService service = (StructureService) ServiceLocator
+			.getService("structureService");
 
-    private static DictionarySortService dictionarySortService = (DictionarySortService) ServiceLocator
-            .getService("dictionarySortService");
+	private static DictionarySortService dictionarySortService = (DictionarySortService) ServiceLocator
+			.getService("dictionarySortService");
 
-    @SuppressWarnings("unchecked")
-    @Override
-    protected Class getActionClass() {
-        return Structure.class;
-    }
+	private static InfoSortService infoSortService = (InfoSortService) ServiceLocator
+			.getService("infoSortService");
 
-    public String insertProcess(WebContext context) throws ServletException {
-        // 根据infoSortId得到所有表结构
-        int infoSortId = context.getSIntParameter("infoSortIds");
-        context.put("infoSortId", infoSortId);
-        int status = context.getSIntParameter("statuses");
-        context.put("status", status);
+	@SuppressWarnings("unchecked")
+	@Override
+	protected Class getActionClass() {
+		return Structure.class;
+	}
 
-        List<Structure> structureList = service
-                .getStructureByInfoSortIdAndInStatus(infoSortId, status);
+	public String insertProcess(WebContext context) throws ServletException {
+		// 根据infoSortId得到所有表结构
+		int infoSortId = context.getSIntParameter("infoSortIds");
+		context.put("infoSortId", infoSortId);
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
 
-        context.put("structureList", structureList);
+		List<InfoSortDTO> infoSortDtoList = infoSortService
+				.getInfoSortNameByInfoSortId(infoSortId);
+		context.put("infoSortDtoList", infoSortDtoList);
 
-        List<DictionarySort> dictionarySortList = dictionarySortService
-                .getDictionarySortByParentId(0);
-        context.put("dictionarySortList", dictionarySortList);
+		List<Structure> structureList = service
+				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
 
-        if ("list".equals(context.getParameter("insert"))) {
-            StructureForm form = (StructureForm) context.getForm();
-            List<Structure> structureInList = service.getStructureByInfoSortIdAndInStatus(infoSortId,status);
-            for (int i = 0; i < structureInList.size(); i++) {
-                Structure structure = structureInList.get(i);
-                if (status == 0) {
-                    for (int j = 0; j < form.getListseq().length; j++) {
-                        if (form.getListseq()[j] == i + 1) {
-                            structure.setTaxis(j + 1);
-                            service.updateObject(structure);
-                        }
-                    }
-                } else if (status == 1) {
-                  for (int j = 0; j < form.getListseq().length; j++) {
-                        if (form.getListseq()[j] == i + 1) {
-                            structure.setTaxis2(j + 1);
-                            service.updateObject(structure);
-                        }
-                    }
-                } else if (status == 2) {
-                   for (int j = 0; j < form.getListseq().length; j++) {
-                        if (form.getListseq()[j] == i + 1) {
-                            structure.setTaxis3(j + 1);
-                            service.updateObject(structure);
-                        }
-                    }
-                }
-            }
-            return "/structure/actions.html?method=insert&infoSortIds="
-                    + VMUtils.encrypt(infoSortId) + "&statuses="
-                    + VMUtils.encrypt(status);
-        }
+		context.put("structureList", structureList);
 
-        if (context.getParameter("insert") != null
-                || context.getParameter("insert2") != null) {
-            StructureForm form = (StructureForm) context.getForm();
+		List<DictionarySort> dictionarySortList = dictionarySortService
+				.getDictionarySortByParentId(0);
+		context.put("dictionarySortList", dictionarySortList);
 
-            int serialNumber = service.getStructureByinfoSortId(form
-                    .getInfoSortId());
+		if ("list".equals(context.getParameter("insert"))) {
+			StructureForm form = (StructureForm) context.getForm();
+			List<Structure> structureInList = service
+					.getStructureByInfoSortIdAndInStatus(infoSortId, status);
+			for (int i = 0; i < structureInList.size(); i++) {
+				Structure structure = structureInList.get(i);
+				if (status == 0) {
+					for (int j = 0; j < form.getListseq().length; j++) {
+						if (form.getListseq()[j] == i + 1) {
+							structure.setTaxis(j + 1);
+							service.updateObject(structure);
+						}
+					}
+				} else if (status == 1) {
+					for (int j = 0; j < form.getListseq().length; j++) {
+						if (form.getListseq()[j] == i + 1) {
+							structure.setTaxis2(j + 1);
+							service.updateObject(structure);
+						}
+					}
+				} else if (status == 2) {
+					for (int j = 0; j < form.getListseq().length; j++) {
+						if (form.getListseq()[j] == i + 1) {
+							structure.setTaxis3(j + 1);
+							service.updateObject(structure);
+						}
+					}
+				}
+			}
+			return "/structure/actions.html?method=insert&infoSortIds="
+					+ VMUtils.encrypt(infoSortId) + "&statuses="
+					+ VMUtils.encrypt(status);
+		}
 
-            String strSerialNumber = "a" + serialNumber;
-            form.setSerialNumber(strSerialNumber);
+		if (context.getParameter("insert") != null
+				|| context.getParameter("insert2") != null) {
+			StructureForm form = (StructureForm) context.getForm();
 
-            super.insertProcess(context);
+			int serialNumber = service.getStructureByinfoSortId(form
+					.getInfoSortId());
 
-            return "/structure/actions.html?method=insert&infoSortIds="
-                    + VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
-                    + VMUtils.encrypt(form.getStatus());
-        }
+			String strSerialNumber = "a" + serialNumber;
+			form.setSerialNumber(strSerialNumber);
 
-        return super.insertProcess(context);
-    }
+			super.insertProcess(context);
 
-    public String updateProcess(WebContext context) throws ServletException {
-        // 根据infoSortId得到所有表结构
-        int infoSortId = context.getSIntParameter("infoSortIds");
-        context.put("infoSortId", infoSortId);
-        int status = context.getSIntParameter("statuses");
-        context.put("status", status);
+			return "/structure/actions.html?method=insert&infoSortIds="
+					+ VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
+					+ VMUtils.encrypt(form.getStatus());
+		}
 
-        List<Structure> structureList = service
-                .getStructureByInfoSortIdAndInStatus(infoSortId, status);
-        context.put("structureList", structureList);
+		return super.insertProcess(context);
+	}
 
-        List<DictionarySort> dictionarySortList = dictionarySortService
-                .getDictionarySortByParentId(0);
-        context.put("dictionarySortList", dictionarySortList);
+	public String updateProcess(WebContext context) throws ServletException {
+		// 根据infoSortId得到所有表结构
+		int infoSortId = context.getSIntParameter("infoSortIds");
+		context.put("infoSortId", infoSortId);
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
 
-        if (context.getParameter("insert") != null
-                || context.getParameter("insert2") != null) {
-            StructureForm form = (StructureForm) context.getForm();
-            super.updateProcess(context);
+		List<Structure> structureList = service
+				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
+		context.put("structureList", structureList);
 
-            return "/structure/actions.html?method=insert&infoSortIds="
-                    + VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
-                    + VMUtils.encrypt(form.getStatus());
-        }
+		List<DictionarySort> dictionarySortList = dictionarySortService
+				.getDictionarySortByParentId(0);
+		context.put("dictionarySortList", dictionarySortList);
 
-        return super.updateProcess(context);
-    }
+		if (context.getParameter("insert") != null
+				|| context.getParameter("insert2") != null) {
+			StructureForm form = (StructureForm) context.getForm();
+			super.updateProcess(context);
 
-    public String deleteProcess(WebContext context) throws ServletException {
-        int infoSortId = context.getSIntParameter("infoSortIds");
-        int sid = context.getSIntParameter("sid");
-        int status = context.getSIntParameter("statuses");
-        context.put("status", status);
+			return "/structure/actions.html?method=insert&infoSortIds="
+					+ VMUtils.encrypt(form.getInfoSortId()) + "&statuses="
+					+ VMUtils.encrypt(form.getStatus());
+		}
 
-        if (sid > 0) {
-            Structure structure = (Structure) service.getObjectById(
-                    Structure.class, sid);
-            structure.setIsDelete(1);
-            service.updateObject(structure);
+		return super.updateProcess(context);
+	}
 
-            return "/structure/actions.html?method=insert&infoSortIds="
-                    + VMUtils.encrypt(infoSortId) + "&statuses="
-                    + VMUtils.encrypt(status);
-        }
-        return super.deleteProcess(context);
-    }
+	public String deleteProcess(WebContext context) throws ServletException {
+		int infoSortId = context.getSIntParameter("infoSortIds");
+		int sid = context.getSIntParameter("sid");
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
 
-    @Override
-    protected SearchContext getListSearchContext(WebContext context) {
-        SearchContext searchContext = new SearchContext();
+		if (sid > 0) {
+			Structure structure = (Structure) service.getObjectById(
+					Structure.class, sid);
+			structure.setIsDelete(1);
+			service.updateObject(structure);
 
-        return searchContext;
-    }
+			return "/structure/actions.html?method=insert&infoSortIds="
+					+ VMUtils.encrypt(infoSortId) + "&statuses="
+					+ VMUtils.encrypt(status);
+		}
+		return super.deleteProcess(context);
+	}
 
-    @Override
-    protected CommonService getService() {
-        return service;
-    }
+	@Override
+	protected SearchContext getListSearchContext(WebContext context) {
+		SearchContext searchContext = new SearchContext();
 
-    @Override
-    public String getWebMenuType(WebContext context) throws ServletException {
-        return "file";
-    }
+		return searchContext;
+	}
+
+	@Override
+	protected CommonService getService() {
+		return service;
+	}
+
+	@Override
+	public String getWebMenuType(WebContext context) throws ServletException {
+		return "file";
+	}
 
 }
