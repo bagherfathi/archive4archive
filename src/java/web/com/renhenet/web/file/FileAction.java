@@ -147,7 +147,7 @@ public class FileAction extends DispatchActions {
 	protected SearchContext getListSearchContext(WebContext context) {
 		SearchContext searchContext = new SearchContext();
 		int infoSortId = context.getSIntParameter("infoSortIds");
-		int startNum = context.getIntParameter("startNum");
+		int startNum = context.getIntParameter("start");
 		context.put("startNum", startNum);
 
 		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
