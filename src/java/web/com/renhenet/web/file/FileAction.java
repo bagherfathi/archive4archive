@@ -203,7 +203,7 @@ public class FileAction extends DispatchActions {
 					0, startNum, 10);
 			int num = service.getNumByInfoSortIdAndA5(infoSortId, a5, statuses,
 					0, 0, 0);
-			Pagination pagination = new Pagination(num, startNum, 10);
+			Pagination pagination = new Pagination(num, startNum, pageSize);
 
 			context.put("pagination1", pagination);
 		} else {
@@ -211,8 +211,8 @@ public class FileAction extends DispatchActions {
 			int num1 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, 0, 0, context);
 			fileList = service.getFileByInfoSortIdAndParInfoSortIdAndStatus(
-					infoSortId, 0, 0, context, startNum, 10);
-			Pagination pagination = new Pagination(num1, startNum, 10);
+					infoSortId, 0, 0, context, startNum, pageSize);
+			Pagination pagination = new Pagination(num1, startNum, pageSize);
 			context.put("pagination1", pagination);
 
 			// µÚ2²ã
@@ -221,9 +221,9 @@ public class FileAction extends DispatchActions {
 					infoSortId, parInfoSortId, 1, context);
 			List<File> fileList2 = service
 					.getFileByInfoSortIdAndParInfoSortIdAndStatus(infoSortId,
-							parInfoSortId, 1, context, startNum, 10);
+							parInfoSortId, 1, context, startNum, pageSize);
 			context.put("fileList2", fileList2);
-			Pagination pagination2 = new Pagination(num2, startNum, 10);
+			Pagination pagination2 = new Pagination(num2, startNum, pageSize);
 			context.put("pagination2", pagination2);
 			// }
 
@@ -233,10 +233,10 @@ public class FileAction extends DispatchActions {
 					infoSortId, parparInfoSortId, 2, context);
 			List<File> fileList3 = service
 					.getFileByInfoSortIdAndParInfoSortIdAndStatus(infoSortId,
-							parparInfoSortId, 2, context, startNum, 10);
+							parparInfoSortId, 2, context, startNum, pageSize);
 			context.put("fileList3", fileList3);
 
-			Pagination pagination3 = new Pagination(num3, startNum, 10);
+			Pagination pagination3 = new Pagination(num3, startNum, pageSize);
 			context.put("pagination3", pagination3);
 			// }
 		}
