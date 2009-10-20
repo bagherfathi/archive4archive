@@ -150,6 +150,12 @@ public class FileAction extends DispatchActions {
 		int startNum = context.getIntParameter("start");
 		context.put("startNum", startNum);
 
+		int pageSize = context.getIntParameter("pageSize");
+		context.put("pageSize", pageSize);
+		if (pageSize <= 0) {
+			pageSize = 10;
+		}
+
 		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
 		context.put("parInfoSortId", parInfoSortId);
 
@@ -161,7 +167,7 @@ public class FileAction extends DispatchActions {
 		int status = context.getSIntParameter("statuses");
 		context.put("status", status);
 
-        int statuses = context.getIntParameter("statuses1");
+		int statuses = context.getIntParameter("statuses1");
 		context.put("statuses", statuses);
 
 		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
@@ -174,7 +180,7 @@ public class FileAction extends DispatchActions {
 				.getStructureByInfoSortIdAndInStatus(infoSortId, 0);
 		context.put("structureList", structureList);
 
-		if(infoSort.getStatus() > 0){
+		if (infoSort.getStatus() > 0) {
 			// µÚ¶þ²ã
 			List<Structure> structureList1 = structureService
 					.getStructureByInfoSortIdAndInStatus(infoSortId, 1);
@@ -193,9 +199,10 @@ public class FileAction extends DispatchActions {
 
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
-			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5,statuses, 0,
-					startNum, 10);
-			int num = service.getNumByInfoSortIdAndA5(infoSortId, a5,statuses, 0, 0, 0);
+			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, statuses,
+					0, startNum, 10);
+			int num = service.getNumByInfoSortIdAndA5(infoSortId, a5, statuses,
+					0, 0, 0);
 			Pagination pagination = new Pagination(num, startNum, 10);
 
 			context.put("pagination1", pagination);
