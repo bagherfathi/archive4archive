@@ -3,7 +3,9 @@
 <br>
 <div id="conbg">
 <div class=contitle>
-<div class=leftmain>定义表结构</div>
+<div class=leftmain>位置：#foreach($biz in $infoSortDtoList)
+ 	$biz.name &gt;
+ #end 新增结构关系表</div>
 <div class=rightmain></div>
 </div>
 $validator.getDynamicJavascript()
