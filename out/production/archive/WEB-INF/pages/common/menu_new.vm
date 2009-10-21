@@ -30,15 +30,6 @@
                 window.console && console.log("%o was toggled", this);
             }
         });
-        $("#fileArchiveTree").treeview({
-            animated: "fast",
-            collapsed: true,
-            unique: true,
-            persist: "cookie",
-            toggle: function() {
-                window.console && console.log("%o was toggled", this);
-            }
-        });
     });
 </script>
 <div class="lmain" background="/images/menuleft2.gif" onClick="javascript:showdesc(1)">文件管理</div>
@@ -124,8 +115,6 @@
                                         #end
                                     </ul>
                                     #end
-
-
                                 </li>
                                 #set($index3=$index3+1)
                                 #end
@@ -138,8 +127,6 @@
                         #end
                     </ul>
                     #end
-
-
                 </li>
                 #set($index1=$index1+1)
                 #end
@@ -433,12 +420,16 @@
             </ul>
         </div>
         <li><a onClick="javascript:showdesc(62)" class=menubg>
-            <img src=/images/expand.gif border="0" align="absmiddle" id=pic62>资料设置</a></li>
+        	#set($menuOpen = false)
+            #if($memuModule == "infosort" || $memuModule == "cpstructure"  || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")
+            #set($menuOpen = true)
+            #end
+            <img src=#if($menuOpen)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic62>资料设置</a></li>
         <div id="desc62"
-             style="display:#if($memuModule == "infosort" || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
+             style="display:#if($memuModule == "infosort" || $memuModule == "cpstructure"  || $memuModule == "dictionarysort" || $memuModule == "quanzong" || $memuModule=="structure")block#else none#end">
             <ul>
                 <li><a href="/infosort/actions.html?method=list"  #showMenuClass("infosort")> 信息分类 </a></li>
-                <li><a href="/cpstructure/actions.html?method=insert"  #showMenuClass("infosort")> 复制添加信息分类 </a>
+                <li><a href="/cpstructure/actions.html?method=insert"  #showMenuClass("cpstructure")> 复制添加信息分类 </a>
                 </li>
                 <li><a href="/dictionarysort/actions.html?method=list" #showMenuClass("dictionarysort")> 字典类目 </a>
                 </li>
