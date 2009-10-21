@@ -1,0 +1,62 @@
+<script language="javascript">
+	<!--
+	function checkAll(name,isCheck){
+    	items = eval("document.all." +name);
+    	if(items.length != null){
+        	for (i=0;i<items.length;i++){
+        		items[i].checked=isCheck;
+        	}
+    	}else{
+    		items.checked=isCheck
+    	}
+	}
+	-->
+</script>
+#set($split = "?")
+#if($urlPre.indexOf("?") > 0)
+	#set($split = "&")
+#end
+<table width="100%" border="0" cellspacing="0" cellpadding="2" bgcolor="#FFFFFF">
+<tr>
+<td height="8"></td>
+</tr>
+	<tr height = 20>
+		
+		<td align="left">
+		<div id="yschpg">
+				每页显示数量:
+				<a href="${curUrl}${split}pageSize=5">5</a>
+				<a href="${curUrl}${split}pageSize=10">10</a>
+				<a href="${curUrl}${split}pageSize=20">20</a>
+				<a href="${curUrl}${split}pageSize=50">50</a>
+				&nbsp;&nbsp;
+				显示 $pagination1.getStartRow() - $pagination1.getEndRow() 共 $pagination1.getTotalRow() 条 $pagination1.getTotalPage() 页 
+				#if($pagination1.getPreviousPage() > 0)
+					[
+					<a href="${urlPre}${split}start=$pagination1.getPrePage().getStartRow()$!parEnd" class="next">上一页
+					</a>]
+				#end
+				#set($pages = $pagination1.getPages())
+				#foreach ($p in $pages) 
+					#if( $p.getPage() == $pagination1.getCurrentPage() ) 
+						<b>$p.getPage()</b>&nbsp;
+						#else 
+							<a href="${urlPre}${split}start=$p.getStartRow()$!parEnd">$p.getPage()</a>&nbsp;
+					#end
+				#end
+				#if($pagination1.getNextPage() > 0)
+					[
+					<a href="${urlPre}${split}start=$pagination1.getNPage().getStartRow()$!parEnd" class="next">下一页
+					</a>]
+				#end
+				</div>
+		</td>
+		
+		<td width="100" align=center>
+			#if($showSelectAll)
+				<a href="#" onclick="checkAll('ids',true);">全选</a>&nbsp;
+				<a href="#" onclick="checkAll('ids',false);">全不选</a>
+			#end
+		</td>
+	</tr>
+</table>
