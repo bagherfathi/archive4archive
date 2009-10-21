@@ -293,7 +293,7 @@
                 #set($index1=1)
                 #foreach($infosort1 in $list1)
                 #set($strIndex1="da"+$index1)
-                <li class="open">
+                <li>
 
                     #if($infosort1.type==2)
                             <span class="file"><a
@@ -309,7 +309,7 @@
                         #foreach($infosort2 in $list2)
                         #set($strIndex2="da"+$index2)
 
-                        <li class="open">
+                        <li>
                             #if($infosort2.type==2)
                                     <span class="file"><a
                                             href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort2.id)&statuses=$vMUtils.encrypt(0)&cm=da$index2">$!infosort2.name</a></span>
@@ -322,7 +322,7 @@
                             <ul>#set($index3=1)
                                 #foreach($infosort3 in $list3)
                                 #set($strIndex3="da"+$index3)
-                                <li class="open">
+                                <li>
                                     #if($infosort3.type==2)
                                             <span class="file"><a
                                                     href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort3.id)&statuses=$vMUtils.encrypt(0)&cm=da$index3">$!infosort3.name</a></span>
@@ -335,7 +335,7 @@
                                     <ul> #set($index4=1)
                                         #foreach($infosort4 in $list4)
                                         #set($strIndex4="da"+$index4)
-                                        <li class="open">
+                                        <li >
                                             #if($infosort4.type==2)
                                                     <span class="file"><a
                                                             href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort4.id)&statuses=$vMUtils.encrypt(0)&cm=da$index4">$!infosort4.name</a></span>
@@ -350,7 +350,7 @@
                                             <ul> #set($index5=1)
                                                 #foreach($infosort5 in $list5)
                                                 #set($strIndex5="da"+$index5)
-                                                <li class="open">
+                                                <li >
                                                     #if($infosort5.type==2)
                                                             <span class="file"><a
                                                                     href="/file/actions.html?method=list&oc=all&infoSortIds=$vMUtils.encrypt($!infosort5.id)&statuses=$vMUtils.encrypt(0)&cm=da$index5">$!infosort5.name</a></span>
