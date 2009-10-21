@@ -52,7 +52,7 @@
                                                             <td>
                                                                 <input type="button" class=btn1_mouseout
                                                                        onclick="javascript:exchange()"
-                                                                       style="cursor:pointer" value="ÇÐ»»²éÑ¯"></input>
+                                                                       style="cursor:pointer" value="ÇÐ»»²éÑ¯">
                                                             </td>
                                                         </tr>
                                                     </table>
