@@ -15,7 +15,9 @@ import com.renhenet.fw.util.FileManager;
 import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
 import com.renhenet.modules.member.AccessoryService;
+import com.renhenet.modules.member.DhszService;
 import com.renhenet.po.Accessory;
+import com.renhenet.po.Dhsz;
 import com.renhenet.po.File;
 import com.renhenet.util.DateUtil;
 import com.renhenet.util.searchcontext.SearchContext;
@@ -30,6 +32,9 @@ public class AccessoryAction extends DispatchActions {
 	private static AccessoryService service = (AccessoryService) ServiceLocator
 			.getService("accessoryService");
 
+	private static DhszService dhszService = (DhszService) ServiceLocator
+			.getService("dhszService");
+
 	@SuppressWarnings("unchecked")
 	protected Class getActionClass() {
 		return Accessory.class;
@@ -40,6 +45,14 @@ public class AccessoryAction extends DispatchActions {
 		context.put("fileId", fileId);
 
 		File files = (File) service.getObjectById(File.class, fileId);
+		List<Dhsz> dhszList = dhszService.getDhszByinfoSortId(files
+				.getInfoSortId());
+		boolean dh = false;
+		if (dhszList != null && dhszList.size() > 0) {
+			dh = true;
+		}
+		context.put("dh", dh);
+
 		String path = "";
 		if (files.getStatus() == 0) {
 			if (!StringUtils.isEmpty(files.getA9())) {
