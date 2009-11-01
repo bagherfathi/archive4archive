@@ -1,25 +1,31 @@
 <script language="javascript">
-	function tick() {
-	   var today
-	   today = new Date();
-       var Clock = document.getElementById("Clock");
-	   Clock.innerHTML = today.toLocaleString();
-	   window.setTimeout("tick()", 1000);
-	}
-	function initial() {
-	   dStyle = detail.style;
-	   CLD.SY.selectedIndex=tY-1900;
-	   CLD.SM.selectedIndex=tM;
-	   drawCld(tY,tM);
-	   tick();
-	}
-	window.onload = function(){
-		initArrangableNodes();
-		tick();
-		
-	}
+    function tick() {
+        var today
+        today = new Date();
+        var Clock = document.getElementById("Clock");
+
+        //	   Clock.innerHTML = today.toLocaleString();
+        var bb = (today.getMonth() + 1) + "月" + today.getDate() + "日\r";
+        bb += "星期" + '日一二三四五六'.charAt(today.getDay()) + "\r" + today.getHours() + "时";
+        bb += today.getMinutes() + "分" + today.getSeconds() + "秒";
+        Clock.innerHTML = bb;
+
+        window.setTimeout("tick()", 1000);
+    }
+    function initial() {
+        dStyle = detail.style;
+        CLD.SY.selectedIndex = tY - 1900;
+        CLD.SM.selectedIndex = tM;
+        drawCld(tY, tM);
+        tick();
+    }
+    window.onload = function() {
+        initArrangableNodes();
+        tick();
+
+    }
 </script>
 
-<font id=Clock face=ARIAL  color="#ffffff" fize=9pt align="left"></font>
-               
+<font id=Clock face=ARIAL color="#ffffff" fize=9pt align="left"></font>
+
 </body>
