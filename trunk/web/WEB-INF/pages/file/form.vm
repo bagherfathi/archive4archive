@@ -232,7 +232,7 @@
 <br><br>
 #end
 
-<iframe width=174 height=172 name="gToday:normal:/scripts/time/agenda.js"  src="/scripts/time/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>     
+<iframe width=174 height=172 name="gToday:normal:/scripts/time/agenda.js" id="gToday:normal:/scripts/time/agenda.js"  src="/scripts/time/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; left:-500px; top:0px;"></iframe>     
 
 <table width="100%" border="0" cellpadding="4" cellspacing="1" >
 	<tr>
