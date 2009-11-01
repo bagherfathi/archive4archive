@@ -58,11 +58,14 @@ public class AccessoryAction extends DispatchActions {
 		List<FileDto> fileDtoList = new ArrayList<FileDto>();
 		FileManager fm = new FileManager();
 		mkDir(FILE_PATH + path);
-		List<String> fileList = fm.serachFiles(FILE_PATH + path);
-		for (int i = 0; i < fileList.size(); i++) {
-			FileDto fileDto = new FileDto();
-			fileDto.setFilePath("/upload/" + path + fileList.get(i));
-			fileDtoList.add(fileDto);
+
+		if (!StringUtils.isEmpty(path)) {
+			List<String> fileList = fm.serachFiles(FILE_PATH + path);
+			for (int i = 0; i < fileList.size(); i++) {
+				FileDto fileDto = new FileDto();
+				fileDto.setFilePath("/upload/" + path + fileList.get(i));
+				fileDtoList.add(fileDto);
+			}
 		}
 		context.put("fileDtoList", fileDtoList);
 
