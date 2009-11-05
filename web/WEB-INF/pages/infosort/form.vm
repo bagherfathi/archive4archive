@@ -140,8 +140,12 @@
                             <script language="javascript" type="text/javascript">
                                 function validate() {
                                     var name = document.infosortForm["name"].value;
+                                    if(name==null||name==""){
+                                        alert("类目名称不允许为空");
+                                        return false;
+                                    }
                                     if (/[^\u4e00-\u9fa5\w]/.test(name)) {
-                                        alert("有非法字符");
+                                        alert("类目名称包含非法字符");
                                         return false;
                                     }
                                     document.infosortForm.submit();
