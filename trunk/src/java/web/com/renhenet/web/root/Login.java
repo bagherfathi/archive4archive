@@ -15,12 +15,14 @@ import com.renhenet.web.form.LoginForm;
  * @author luoxn
  */
 public class Login extends BaseAction {
-
+	
 	private static final MemberService memberService = ServiceManager
 			.getMemberService();
 
 	@Override
 	public String process(WebContext context) throws ServletException {
+		String password = context.getParameter("password");
+		context.put("password", password);
 		String re = DEFAULT_FORWARD;
 		Member member = null;
 		if (context.getParameter("login") != null) {

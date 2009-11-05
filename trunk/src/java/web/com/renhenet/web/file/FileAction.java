@@ -149,6 +149,11 @@ public class FileAction extends DispatchActions {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		int startNum = context.getIntParameter("start");
 		context.put("startNum", startNum);
+		boolean ajax = false;
+		if ("true".equals(context.getParameter("ajax"))) {
+			ajax = true;
+		}
+		context.put("ajax", ajax);
 
 		int pageSize = context.getIntParameter("pageSize");
 		context.put("pageSize", pageSize);
