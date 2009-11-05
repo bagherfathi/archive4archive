@@ -74,18 +74,16 @@
                             #showFormText("seq" "$!bizObj.seq" 20)#showMustFill()
                         </td>
                     </tr>
+                    #if($!bizObj.type==2&&$bizObj)
                     <tr>
-                        <td bgcolor="#eeeee5" width="20%">类目编号:
+                        <td bgcolor="#eeeee5" width="20%">表名:
                         </td>
                         <td>
-                            #if(!$bizObj)
-                            <input name="idid" id="idid" size="$_size"  type="text" value="不用填写" disabled=1>
-                            #else
-                            <input name="idid" id="idid" size="$_size"  type="text" value="$!bizObj.id" disabled=1>
-                            #end
-##                            #showFormText("seq" "" 20)
+                            <input name="idid" id="idid" size="$_size"  type="text" value="T$!bizObj.id$!bizObj.name" disabled=1>
                         </td>
                     </tr>
+                    #end
+                    
 
                     <tr>
                         <td bgcolor="#eeeee5" width="20%">类目类型:
