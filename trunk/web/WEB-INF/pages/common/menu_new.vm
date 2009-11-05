@@ -34,7 +34,7 @@
 </script>
 <div class="lmain" background="/images/menuleft2.gif" onClick="javascript:showdesc(1)">文件管理</div>
 <div class="lmain2" id="desc1"
-     style="display:#if($memuModule == "file" && ($cm.indexOf("wj")>=0 || $cm.indexOf("gd")>=0))block#else none#end">
+     style="background-color:white; display:#if($memuModule == "file" && ($cm.indexOf("wj")>=0 || $cm.indexOf("gd")>=0))block#else none#end">
    <ul id="fileTree" class="filetree">
         <li ><span class="folder">文件录入</span>
             #set($list1=$vMUtils.getInfoSortByparentId(132))
@@ -282,7 +282,7 @@
     
 </div>
 <div class="lmain" onClick="javascript:showdesc(9)">档案管理</div>
-<div class="lmain2" id="desc9" style="display:#if($memuModule == "file" && ($cm.indexOf("da")>=0 ))block#else none#end">
+<div class="lmain2" id="desc9" style="background-color:white;display:#if($memuModule == "file" && ($cm.indexOf("da")>=0 ))block#else none#end">
 
 
     <ul id="archiveTree" class="filetree">
