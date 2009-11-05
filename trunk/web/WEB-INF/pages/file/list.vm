@@ -1,3 +1,4 @@
+#if(!$ajax)
 #renhehead()
 #renheMenu("file")
 #if($!infoSort.oneFloor!="")
@@ -160,11 +161,16 @@
     <td class="tableheadingbg">操作</td>
 </tr>
 <script language="javascript" type="text/javascript">
+	
     function showlayer2(parInfoSortIds, infoSortIds, statuses, cm) {
-        window.location.href = "/file/actions.html?method=list&parInfoSortIds=" + parInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
+        var urls = "/file/actions.html?method=list&ajax=true&parInfoSortIds=" + parInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
+        CallServer(urls);
+        //window.location.href = "/file/actions.html?method=list&parInfoSortIds=" + parInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
     }
     function showlayer3(parInfoSortIds, parparInfoSortIds, infoSortIds, statuses, cm) {
-        window.location.href = "/file/actions.html?method=list&parInfoSortIds=" + parInfoSortIds + "&parparInfoSortIds=" + parparInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
+    	var urls="/file/actions.html?method=list&ajax=true&parInfoSortIds=" + parInfoSortIds + "&parparInfoSortIds=" + parparInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
+    	 CallServer(urls);
+        //window.location.href = "/file/actions.html?method=list&parInfoSortIds=" + parInfoSortIds + "&parparInfoSortIds=" + parparInfoSortIds + "&infoSortIds=" + infoSortIds + "&statuses=" + statuses + "&cm=" + cm;
     }
 </script>
 #if($statuses>0)
@@ -385,7 +391,6 @@
 <td class="tablelistbg">&nbsp;
     #if($!infoSort.twoFloor!="")
     <a href="/file/actions.html?method=insert&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">新增$!infoSort.twoFloor</a>
-    ##								<a href="/file/actions.html?method=list&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(1)&cm=$cm">显示第二层</a>
  #end
     <a href="/file/actions.html?method=update&sid=$vMUtils.encrypt($file.id)&parInfoSortIds=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm">编辑</a>
     <a href="/file/actions.html?method=delete&sid=$vMUtils.encrypt($file.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&statuses=$vMUtils.encrypt(0)&cm=$cm">删除</a>
@@ -400,8 +405,13 @@
 #if($fileList.size()>0)
 #parse( "/WEB-INF/pages/common/pages.vm" )
 #end
-#if($!structureList1)
+#end
+#if(!$ajax)
 <br>
+<div id="ajaxTable">
+#end
+
+#if($!structureList1)
 <table width="99%" border="0" cellpadding="0" cellspacing="0">
 <tr>
     #foreach($biz in $structureList1)
@@ -876,10 +886,36 @@
 </table>
 #end
 
-
 <script>
     function tochanages(name, value) {
         document.getElementById(name).value = value;
     }
+
+var xmlrequest =false;
+function CallServer(urls)
+{
+	if(!xmlrequest){
+    	xmlrequest=new XMLHttpRequest();
+	}
+
+	if(xmlrequest)    
+	{        
+	    var url=urls;
+	    xmlrequest.open("GET",url,true); 
+   		//设置处理响应的回调函数
+	    xmlrequest.onreadystatechange=UpdatePage;
+	    xmlrequest.send(null);
+	}
+}
+function UpdatePage()
+{
+    if(xmlrequest.readyState==4){
+      var response=xmlrequest.responseText;
+	  document.getElementById("ajaxTable").innerHTML=response;	
+    }
+}
 </script>
+#if(!$ajax)
+</div>
 #renheend()
+#end
