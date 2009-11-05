@@ -1,146 +1,160 @@
 #if($infoSortList && $parentId>0)
 <div id="listhead">
-		<div id="listheadleftimg"></div>
-		<div id="listheadrightimg"></div>
-	</div>
-	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
-          <tr>
-            <td class="tableheadingbg">类目序号</td>
-            <td class="tableheadingbg">类目名称</td>
-            <td class="tableheadingbg">类目类型</td>
-            <td class="tableheadingbg">创建时间</td>
-			<td class="tableheadingbg">操作</td>
-          </tr>
-		#foreach($biz in $infoSortList)
-		<tr>
-			<td class="tablelistbg">$biz.seq</td>
-			<td class="tablelistbg">$biz.name</td>
-			<td class="tablelistbg">
-			#if($!biz.type=='0')
-			顶层分类
-			#elseif($!biz.type=='1')
-			中间分类	
-			#elseif($!biz.type=='2')
-			底层分类 	
-			#end
-			</td>
-			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
-			<td class="tablelistbg">
-				#if($!biz.type!='2')
-				<a href="/infosort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>
-				#else
-					#if($biz.oneFloor!="")
-						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(0)"  >一层结构维护</a>
-					#end
-					#if($biz.twoFloor!="")
-						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(1)"  >二层结构维护</a>
-					#end
-					#if($biz.threeFloor!="")
-						<a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(2)"  >三层结构维护</a>
-					#end
-					<a href="/dhsz/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)"  >档号设置</a>
-				#end
-				<a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
-				<a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
-				
-			</td>
-         </tr>
-		#end
-      </table>
+    <div id="listheadleftimg"></div>
+    <div id="listheadrightimg"></div>
+</div>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="tableheadingbg">类目序号</td>
+        <td class="tableheadingbg">类目名称</td>
+        <td class="tableheadingbg">类目类型</td>
+        <td class="tableheadingbg">创建时间</td>
+        <td class="tableheadingbg">操作</td>
+    </tr>
+    #foreach($biz in $infoSortList)
+    <tr>
+        <td class="tablelistbg">$biz.seq</td>
+        <td class="tablelistbg">$biz.name</td>
+        <td class="tablelistbg">
+            #if($!biz.type=='0')
+            顶层分类
+            #elseif($!biz.type=='1')
+            中间分类
+            #elseif($!biz.type=='2')
+            底层分类
+            #end
+        </td>
+        <td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
+        <td class="tablelistbg">
+            #if($!biz.type!='2')
+            <a href="/infosort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)">添加子分类</a>
+            #else
+            #if($biz.oneFloor!="")
+            <a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(0)">一层结构维护</a>
+            #end
+            #if($biz.twoFloor!="")
+            <a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(1)">二层结构维护</a>
+            #end
+            #if($biz.threeFloor!="")
+            <a href="/structure/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)&statuses=$vMUtils.encrypt(2)">三层结构维护</a>
+            #end
+            <a href="/dhsz/actions.html?method=insert&infoSortIds=$vMUtils.encrypt($biz.id)">档号设置</a>
+            #end
+            <a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)">编辑</a>
+            <a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)">删除</a>
+
+        </td>
+    </tr>
+    #end
+</table>
 #end
 <br>
-<table width="100%" border="0" cellpadding="4" cellspacing="1" >
-	<tr>
-		<td >
-			<form name="infosortForm" method="post" action="$!actionUrl" onSubmit = "return validateinfosortForm(this);">
-				<input type=hidden name=id value=$!bizObj.id>
-				#if($!parentId>0)
-					<input type=hidden name=parentId value=$!parentId>
-				#else
-				<input type=hidden name=parentId value=$!bizObj.parentId>
-				#end
-						<table width="100%" border="0" cellpadding="2" cellspacing="3">
-							<tr> 
-								<td bgcolor="#eeeee5" width="20%">类目名称:
-								</td>
-								<td>
-									#showFormText("name" "$!bizObj.name" 20)#showMustFill()
-								</td>
-							</tr>	
-							<tr> 
-								<td bgcolor="#eeeee5" width="20%">类目序号:
-								</td>
-								<td>
-									#showFormText("seq" "$!bizObj.seq" 20)#showMustFill()
-								</td>
-							</tr>
-											
-							<tr>
-								<td bgcolor="#eeeee5" width="20%">类目类型:
-								</td>
-								<td>
-									<select name="type">
-										<option value="0"  #if($!bizObj.type==0) selected #end>顶层分类</option>
-										<option value="1" #if($!bizObj.type==1) selected #end>中间分类</option>
-										<option value="2" #if($!bizObj.type==2) selected #end>底层分类</option>
-									</select>
-								</td>
-							</tr>
-						</table>
-						
-						#if($!bizObj.type==2)
-						<br><br>下属编目表
-						<table width="100%" border="0" cellpadding="2" cellspacing="3">
-							<tr>
-								<td bgcolor="#eeeee5" width="20%">选择层次:
-								</td>
-								<td>
-									<select name="status">
-										<option value="0"  #if($!bizObj.status==0) selected #end>一层</option>
-										<option value="1" #if($!bizObj.status==1) selected #end>二层</option>
-										<option value="2" #if($!bizObj.status==2) selected #end>三层</option>
-									</select>
-								</td>
-							</tr>
-							##if($!bizObj.oneFloor!="")
-							<tr> 
-								<td bgcolor="#eeeee5" width="20%">第一层:
-								</td>
-								<td>
-									#showFormText("oneFloor" "$!bizObj.oneFloor" 20)
-								</td>
-							</tr>
-							##end
-							##if($!bizObj.oneFloor!="")
-							<tr> 
-								<td bgcolor="#eeeee5" width="20%">第二层:
-								</td>
-								<td>
-									#showFormText("twoFloor" "$!bizObj.twoFloor" 20)
-								</td>
-							</tr>
-							##end
-							##if($!bizObj.oneFloor!="")	
-							<tr> 
-								<td bgcolor="#eeeee5" width="20%">第三层:
-								</td>
-								<td>
-									#showFormText("threeFloor" "$!bizObj.threeFloor" 20)
-								</td>
-							</tr>
-							##end	
-						</table>
-						#end
-						<table width="100%" border="0" cellspacing="4" cellpadding="0">
-							<tr>
-								<td  align="center" >
-									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
-								</td>
-							</tr>
-						</table>
-			</form>
-		</td>
-	</tr>
-</table>
+<table width="100%" border="0" cellpadding="4" cellspacing="1">
+    <tr>
+        <td>
+            <form name="infosortForm" method="post" action="$!actionUrl" onSubmit="return validateinfosortForm(this);">
+                <input type=hidden name=id value=$!bizObj.id>
+                #if($!parentId>0)
+                <input type=hidden name=parentId value=$!parentId>
+                #else
+                <input type=hidden name=parentId value=$!bizObj.parentId>
+                #end
+                <table width="100%" border="0" cellpadding="2" cellspacing="3">
+                    <tr>
+                        <td bgcolor="#eeeee5" width="20%">类目名称(不得包含标点或非法字符):
+                        </td>
+                        <td>
+                            #showFormText("name" "$!bizObj.name" 20)#showMustFill()
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#eeeee5" width="20%">类目序号:
+                        </td>
+                        <td>
+                            #showFormText("seq" "$!bizObj.seq" 20)#showMustFill()
+                        </td>
+                    </tr>
 
+                    <tr>
+                        <td bgcolor="#eeeee5" width="20%">类目类型:
+                        </td>
+                        <td>
+                            <select name="type">
+                                <option value="0"  #if($!bizObj.type==0) selected #end>顶层分类</option>
+                                <option value="1" #if($!bizObj.type==1) selected #end>中间分类</option>
+                                <option value="2" #if($!bizObj.type==2) selected #end>底层分类</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                #if($!bizObj.type==2)
+                <br><br>下属编目表
+                <table width="100%" border="0" cellpadding="2" cellspacing="3">
+                    <tr>
+                        <td bgcolor="#eeeee5" width="20%">选择层次:
+                        </td>
+                        <td>
+                            <select name="status">
+                                <option value="0"  #if($!bizObj.status==0) selected #end>一层</option>
+                                <option value="1" #if($!bizObj.status==1) selected #end>二层</option>
+                                <option value="2" #if($!bizObj.status==2) selected #end>三层</option>
+                            </select>
+                        </td>
+                    </tr>
+                    ##if($!bizObj.oneFloor!="")
+
+                    <tr>
+                        <td bgcolor="#eeeee5" width="20%">第一层:
+                        </td>
+                        <td>
+                            #showFormText("oneFloor" "$!bizObj.oneFloor" 20)
+                        </td>
+                    </tr>
+                    ##end
+ ##if($!bizObj.oneFloor!="")
+
+                    <tr>
+                        <td bgcolor="#eeeee5" width="20%">第二层:
+                        </td>
+                        <td>
+                            #showFormText("twoFloor" "$!bizObj.twoFloor" 20)
+                        </td>
+                    </tr>
+                    ##end
+ ##if($!bizObj.oneFloor!="")
+
+                    <tr>
+                        <td bgcolor="#eeeee5" width="20%">第三层:
+                        </td>
+                        <td>
+                            #showFormText("threeFloor" "$!bizObj.threeFloor" 20)
+                        </td>
+                    </tr>
+                    ##end
+                        </table>
+                #end
+                <table width="100%" border="0" cellspacing="4" cellpadding="0">
+                    <tr>
+                        <td align="center">
+                            <script language="javascript" type="text/javascript">
+                                function validate() {
+                                    var name = document.infosortForm["name"].value;
+                                    if (/[^\u4e00-\u9fa5\w]/.test(name)) {
+                                        alert("有非法字符");
+                                        return false;
+                                    }
+                                    document.infosortForm.submit();
+                                }
+                            </script>
+                            ##									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+                            <input type=button name="insert" value="保存" class=btn1_mouseout title="保存"
+                                   onclick="javascript:validate();"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
 
