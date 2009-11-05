@@ -19,14 +19,16 @@ public class FileManager {
 	public synchronized List<String> serachFiles(String dir) {
 		File root = new File(dir);
 		File[] filesOrDirs = root.listFiles();
-		for (int i = 0; i < filesOrDirs.length; i++) {
-			if (filesOrDirs[i].isDirectory()) {
-				serachFiles(filesOrDirs[i].getAbsolutePath());
-			} else {
-				String filePath = filesOrDirs[i].getName();
-				outList.add(filePath);
-			}
-		}
+        if(null!=filesOrDirs) {
+            for (int i = 0; i < filesOrDirs.length; i++) {
+                if (filesOrDirs[i].isDirectory()) {
+                    serachFiles(filesOrDirs[i].getAbsolutePath());
+                } else {
+                    String filePath = filesOrDirs[i].getName();
+                    outList.add(filePath);
+                }
+            }
+        }
 		return outList;
 	}
 
