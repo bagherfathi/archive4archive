@@ -68,14 +68,14 @@ public class FileAction extends DispatchActions {
 				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
 		context.put("structureList", structureList);
 
-		// µÃµ½¶þ²ã»òÕßÈý²ãµÄµµ°¸
+		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
 		if (status > 0) {
-			// µÃµ½ÉÏ²ãµÄµµ°¸ÎÄ¼þµÄÄÚÈÝ
+			// ï¿½Ãµï¿½ï¿½Ï²ï¿½Äµï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			List<File> fileList = service.getFileByParInfoSortId(parInfoSortId);
 			context.put("fileList", fileList);
 		}
 
-		// µÃµ½µµºÅÉèÖÃÏî,´¦ÀíµµºÅ
+		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½?ï¿½ï¿½
 		List<Dhsz> dhszList1 = dhszService.getDhszByinfoSortId(infoSortId);
 		List<Dhsz> dhszList = new ArrayList();
 
@@ -96,6 +96,9 @@ public class FileAction extends DispatchActions {
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {
 			FileForm form = (FileForm) context.getForm();
+			if(form.getStatus()==0){
+				form.setParInfoSortId(0);
+			}
 			super.insertProcess(context);
 
 			return "/file/actions.html?method=insert&parInfoSortIds="
@@ -178,21 +181,21 @@ public class FileAction extends DispatchActions {
 		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
 				InfoSort.class, infoSortId);
 		context.put("infoSort", infoSort);
-		// µÃµ½·ÖÀàÓÐ¼¸²ã
+		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
 
-		// µÚÒ»²ã
+		// ï¿½ï¿½Ò»ï¿½ï¿½
 		List<Structure> structureList = structureService
 				.getStructureByInfoSortIdAndInStatus(infoSortId, 0);
 		context.put("structureList", structureList);
 
 		if (infoSort.getStatus() > 0) {
-			// µÚ¶þ²ã
+			// ï¿½Ú¶ï¿½ï¿½ï¿½
 			List<Structure> structureList1 = structureService
 					.getStructureByInfoSortIdAndInStatus(infoSortId, 1);
 			context.put("structureList1", structureList1);
 		}
 		if (infoSort.getStatus() == 2) {
-			// µÚÈý²ã
+			// ï¿½ï¿½ï¿½ï¿½ï¿½
 			List<Structure> structureList2 = structureService
 					.getStructureByInfoSortIdAndInStatus(infoSortId, 2);
 			context.put("structureList2", structureList2);
@@ -212,7 +215,7 @@ public class FileAction extends DispatchActions {
 
 			context.put("pagination1", pagination);
 		} else {
-			// µÚ1²ã
+			// ï¿½ï¿½1ï¿½ï¿½
 			int num1 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, 0, 0, context);
 			fileList = service.getFileByInfoSortIdAndParInfoSortIdAndStatus(
@@ -220,7 +223,7 @@ public class FileAction extends DispatchActions {
 			Pagination pagination = new Pagination(num1, startNum, pageSize);
 			context.put("pagination1", pagination);
 
-			// µÚ2²ã
+			// ï¿½ï¿½2ï¿½ï¿½
 			// if (parInfoSortId > 0) {
 			int num2 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, parInfoSortId, 1, context);
@@ -232,7 +235,7 @@ public class FileAction extends DispatchActions {
 			context.put("pagination2", pagination2);
 			// }
 
-			// µÚ3²ã
+			// ï¿½ï¿½3ï¿½ï¿½
 			// if (parparInfoSortId > 0) {
 			int num3 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, parparInfoSortId, 2, context);
