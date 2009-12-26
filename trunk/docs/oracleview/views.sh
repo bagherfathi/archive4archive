@@ -137,7 +137,7 @@ for i in ${StructureIdList};do
 	echo "${Result}"
 
 	echo "******************************************************************************"
-	sleep 1;
+	sleep 3;
 done
 if [ "${Find}" != "true" ];then
 	echo "Can't find record."	
