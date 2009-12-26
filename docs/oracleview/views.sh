@@ -2,6 +2,7 @@
 #
 #       Tingwei 10/14/09-  Creation
 #
+SERVERIP=127.0.0.1
 agv="$1"
 One=false
 if [ "$agv" = "" ];then
@@ -43,7 +44,7 @@ sleep 1;
 
 #************************  get infosort ***************************************
 #select 911911911,INFO_SORT_ID from STRUCTURE group by INFO_SORT_ID;
-Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive <<EOF
+Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive@//${SERVERIP}:1521/XE <<EOF
 select 911911911,a.INFO_SORT_ID from STRUCTURE a,info_sort b where a.info_sort_id=b.id group by a.INFO_SORT_ID;
 exit
 EOF`
@@ -68,7 +69,7 @@ for i in ${StructureIdList};do
 	echo 
 
 	#******************************************* Get Name List *********************************************************
-	Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive <<EOF
+	Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive@//${SERVERIP}:1521/XE <<EOF
 	set heading off;
 	set pagesize 0;
 	set linesize 10240;
@@ -92,7 +93,7 @@ for i in ${StructureIdList};do
 	#echo ${FieldList}
 
 	#**********************************************************  Get Value List **************************************************************************
-	Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive <<EOF
+	Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive@//${SERVERIP}:1521/XE <<EOF
 	set heading off;
 	set pagesize 0;
 	set linesize 10240;
@@ -106,7 +107,7 @@ for i in ${StructureIdList};do
 
 	#select name from info_sort t start with id= ${i} connect by id = prior parent_id;
 
-	Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive <<EOF
+	Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive@//${SERVERIP}:1521/XE <<EOF
 	set heading off;
 	set pagesize 0;
 	set linesize 10240;
@@ -129,7 +130,7 @@ for i in ${StructureIdList};do
 	echo "Executing ..."
 	echo
 
-	Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive <<EOF
+	Result=`/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/sqlplus -s archive/archive@//${SERVERIP}:1521/XE <<EOF
 	${Create}
 	exit
 	EOF`
