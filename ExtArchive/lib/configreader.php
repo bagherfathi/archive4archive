@@ -1,5 +1,4 @@
 <?php
-
 /**
 * 读取4中配置的表信息,现支持php.ini,xml.yaml
 */
@@ -30,13 +29,24 @@ class Settings {
 
 //读取INI文件的子类
 Class Settings_INI Extends Settings {
-	function load($file) {
+//	function load($file) {
+//		if (file_exists($file) == false) {
+//			return false;
+//		}
+//		$this->_settings = parse_ini_file($file, true);
+//	}
+	private $file;
+	function load() {
+		$file="../config/extarchive.ini";
 		if (file_exists($file) == false) {
 			return false;
 		}
 		$this->_settings = parse_ini_file($file, true);
 	}
 }
+
+$iniconfig = new Settings_INI;
+$iniconfig->load();
 
 //读取PHP文件的子类
 //Class Settings_PHP Extends Settings {
