@@ -37,7 +37,7 @@ Class Settings_INI Extends Settings {
 //	}
 	private $file;
 	function load() {
-		$file="../config/extarchive.ini";
+		$file="config/extarchive.ini";
 		if (file_exists($file) == false) {
 			return false;
 		}
