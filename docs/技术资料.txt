@@ -1,3 +1,6 @@
 Windows 建立目录链接
 mklink /D  C:\AppServ\www\ExtArchive D:\Project\archive\ExtArchive
 第一个目录为创建后的目录，第二个目录为需要被映射的目录
+
+Mysql 无时插入（ignore）
+INSERT IGNORE INTO SOURCETABLE (id, idc, name,funno,serial,rollback,operno,operdate,done) values('1','2','3','4','5','6','7','8','9');
