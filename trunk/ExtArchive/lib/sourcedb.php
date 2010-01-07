@@ -7,6 +7,7 @@ $TnsName = '' . $iniconfig->get('SourceDB.TnsName') . '';
 $User = '' . $iniconfig->get('SourceDB.User') . '';
 $Password = '' . $iniconfig->get('SourceDB.Password') . '';
 $View = '' . $iniconfig->get('SourceDB.View') . '';
+$OperNo = '' . $iniconfig->get('SourceDB.OperNo') . '';
 //echo 'INI: ' . $Host . '';
 //echo "\n";
 //echo 'INI: ' . $TnsName . '';
