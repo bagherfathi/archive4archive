@@ -4,3 +4,18 @@ mklink /D  C:\AppServ\www\ExtArchive D:\Project\archive\ExtArchive
 
 Mysql 无时插入（ignore）
 INSERT IGNORE INTO SOURCETABLE (id, idc, name,funno,serial,rollback,operno,operdate,done) values('1','2','3','4','5','6','7','8','9');
+
+创建临时表
+'sourcetable', 'CREATE TABLE `sourcetable` (
+  `id` decimal(10,0) NOT NULL,
+  `name` varchar(400) default NULL,
+  `funno` varchar(400) default NULL,
+  `serial` varchar(400) default NULL,
+  `rollback` varchar(400) default NULL,
+  `operno` varchar(400) default NULL,
+  `opertime` varchar(400) default NULL,
+  `operdate` varchar(400) default NULL,
+  `done` varchar(45) default NULL,
+  `idc` varchar(400) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8'
