@@ -3,6 +3,12 @@
  * and open the template in the editor.
  */
 
+/*
+ * POPPanel.java
+ *
+ * Created on 2010-1-13, 17:04:07
+ */
+
 package popmenu;
 
 /**
@@ -11,7 +17,7 @@ package popmenu;
  */
 public class POPPanel extends javax.swing.JPanel {
 
-    /** Creates new form TipJPanel */
+    /** Creates new form POPPanel */
     public POPPanel() {
         initComponents();
     }
@@ -25,47 +31,24 @@ public class POPPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(desktopapplication1.DesktopApplication1.class).getContext().getResourceMap(POPPanel.class);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(popmenu.POPMenuApp.class).getContext().getResourceMap(POPPanel.class);
         setBackground(resourceMap.getColor("Form.background")); // NOI18N
-        setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        setForeground(resourceMap.getColor("Form.foreground")); // NOI18N
-        setOpaque(false);
-
-        jScrollPane1.setName("jScrollPane1"); // NOI18N
-
-        jTextArea1.setBackground(resourceMap.getColor("jTextArea1.background")); // NOI18N
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(resourceMap.getFont("jTextArea1.font")); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText(resourceMap.getString("jTextArea1.text")); // NOI18N
-        jTextArea1.setName("jTextArea1"); // NOI18N
-        jScrollPane1.setViewportView(jTextArea1);
+        setName("Form"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -130,7 +130,7 @@ public class POPMenuApp extends TrayIcon {
     }
 
     static Image createImage() {
-        File file = new File("D:\\Project\\archive\\PopMenu\\1.ico");
+        File file = new File(".\\1.ico");
         Image icon;
         int width = 16;
         int height = 16;
@@ -171,18 +171,18 @@ public class POPMenuApp extends TrayIcon {
     }
 
     static class PopTimer extends java.util.TimerTask {
-        private POPWindow tipWindow;
+        private POPWindow pOPWindow;
 
-        public void setTipWindow(POPWindow tipWindow){
-            this.tipWindow=tipWindow;
+        public void setTipWindow(POPWindow pOPWindow){
+            this.pOPWindow=tipWindow;
         }
         @Override
         public void run() {
             // TODO Auto-generated method stub
-            if (tipWindow.isRun()) {
-                tipWindow.stopPop();
+            if (pOPWindow.isRun()) {
+                pOPWindow.stopPop();
             } else {
-                tipWindow.startPop();
+                pOPWindow.startPop();
             }
         }
     }
