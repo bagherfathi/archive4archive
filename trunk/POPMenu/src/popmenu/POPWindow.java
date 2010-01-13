@@ -55,7 +55,7 @@ public class POPWindow extends JWindow implements Runnable {
         if(isActive){
             return;
         }
-        this.toFront();
+        this.toBack();
         new Thread(this).start();
         isActive = true;
     }
@@ -75,6 +75,7 @@ public class POPWindow extends JWindow implements Runnable {
     public void run() {
         for (int i = 0; i <= height; i += 10) {
             try {
+                this.toFront();
                 this.setLocation(x, y - i);
                 Thread.sleep(20);
             } catch (InterruptedException ex) {
@@ -108,10 +109,11 @@ public class POPWindow extends JWindow implements Runnable {
     private JPanel createTipBar() {
 
 //        TipBar tipBar = new TipBar(createImage());
-        return new POPPanel();
+        return new POPJPanel();
     }
 
     public static void main(String[] args) {
+        new POPWindow().toFront();
 //        TipWindow tipWindow=new TipWindow();
 //        Timer timer = new Timer();
 //        MyTask myTask=new MyTask();
