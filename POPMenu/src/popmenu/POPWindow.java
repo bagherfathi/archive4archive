@@ -55,6 +55,7 @@ public class POPWindow extends JWindow implements Runnable {
         if(isActive){
             return;
         }
+        this.toFront();
         new Thread(this).start();
         isActive = true;
     }
