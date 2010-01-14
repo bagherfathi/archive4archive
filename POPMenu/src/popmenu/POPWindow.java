@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package popmenu;
 
 import java.awt.BorderLayout;
@@ -49,22 +48,24 @@ public class POPWindow extends JWindow implements Runnable {
     public POPWindow() {
     }
 
-    public boolean isRun(){
+    public boolean isRun() {
         return isActive;
     }
+
     public void startPop() {
         initComponents();
-        if(isActive){
+        if (isActive) {
             return;
         }
 //        this.toFront();
+        this.setAlwaysOnTop(true);
         this.setVisible(true);
         new Thread(this).start();
         isActive = true;
     }
 
     public void stopPop() {
-        if(!isActive){
+        if (!isActive) {
             return;
         }
         this.dispose();
@@ -80,7 +81,6 @@ public class POPWindow extends JWindow implements Runnable {
             try {
 //                this.toFront();
                 this.setLocation(x, y - i);
-                this.setAlwaysOnTop(true);
                 Thread.sleep(20);
             } catch (InterruptedException ex) {
                 Logger.getLogger(POPWindow.class.getName()).log(Level.SEVERE, null, ex);
