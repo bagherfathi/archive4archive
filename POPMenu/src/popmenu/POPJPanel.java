@@ -4,9 +4,9 @@
  */
 
 /*
- * POPPanel.java
+ * POPJPanel.java
  *
- * Created on 2010-1-13, 17:04:07
+ * Created on 2010-1-13, 17:30:15
  */
 
 package popmenu;
@@ -15,10 +15,10 @@ package popmenu;
  *
  * @author Administrator
  */
-public class POPPanel extends javax.swing.JPanel {
+public class POPJPanel extends javax.swing.JPanel {
 
-    /** Creates new form POPPanel */
-    public POPPanel() {
+    /** Creates new form POPJPanel */
+    public POPJPanel() {
         initComponents();
     }
 
@@ -31,9 +31,9 @@ public class POPPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(popmenu.POPMenuApp.class).getContext().getResourceMap(POPPanel.class);
-        setBackground(resourceMap.getColor("Form.background")); // NOI18N
+        setMaximumSize(new java.awt.Dimension(100, 50));
         setName("Form"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(100, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
