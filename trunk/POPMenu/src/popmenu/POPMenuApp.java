@@ -50,7 +50,7 @@ public class POPMenuApp extends TrayIcon {
     private static JDialog dialog;
     private static PopTimer PopTimer = new PopTimer();
     private static Timer timer=new Timer();
-    private static POPWindow tipWindow = new POPWindow();
+    public static POPWindow tipWindow = new POPWindow();
 //    private TipWindow tipWindow;
 
     static {
@@ -58,7 +58,7 @@ public class POPMenuApp extends TrayIcon {
         dialog.setUndecorated(true);
         dialog.setAlwaysOnTop(true);
         PopTimer popTimer=new PopTimer();
-        popTimer.setTipWindow(tipWindow);
+//        popTimer.setTipWindow(tipWindow);
         timer.schedule(popTimer, 1000, 5000);
     }
     public static void finish(){
@@ -102,7 +102,7 @@ public class POPMenuApp extends TrayIcon {
                 dialog.setVisible(true);
                 menu.show(dialog.getContentPane(), 0, 0);
                 // popup works only for focused windows
-                dialog.toFront();
+//                dialog.toFront();
             }
         }
     }
@@ -171,18 +171,13 @@ public class POPMenuApp extends TrayIcon {
     }
 
     static class PopTimer extends java.util.TimerTask {
-        private POPWindow pOPWindow;
-
-        public void setTipWindow(POPWindow pOPWindow){
-            this.pOPWindow=tipWindow;
-        }
         @Override
         public void run() {
             // TODO Auto-generated method stub
-            if (pOPWindow.isRun()) {
-                pOPWindow.stopPop();
+            if (POPMenuApp.tipWindow.isRun()) {
+                POPMenuApp.tipWindow.stopPop();
             } else {
-                pOPWindow.startPop();
+                POPMenuApp.tipWindow.startPop();
             }
         }
     }

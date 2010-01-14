@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.SplashScreen;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,7 @@ import java.io.FileNotFoundException;
 import java.util.Timer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 import sun.awt.shell.ShellFolder;
@@ -38,8 +40,8 @@ public class POPWindow extends JWindow implements Runnable {
 
     {
         dim = Toolkit.getDefaultToolkit().getScreenSize();
-        width = 200;
-        height = 150;
+        width = 270;
+        height = 200;
         x = (int) (dim.getWidth() - width);
         y = (int) (dim.getHeight());
     }
@@ -55,7 +57,8 @@ public class POPWindow extends JWindow implements Runnable {
         if(isActive){
             return;
         }
-        this.toBack();
+//        this.toFront();
+        this.setVisible(true);
         new Thread(this).start();
         isActive = true;
     }
@@ -75,8 +78,9 @@ public class POPWindow extends JWindow implements Runnable {
     public void run() {
         for (int i = 0; i <= height; i += 10) {
             try {
-                this.toFront();
+//                this.toFront();
                 this.setLocation(x, y - i);
+                this.setAlwaysOnTop(true);
                 Thread.sleep(20);
             } catch (InterruptedException ex) {
                 Logger.getLogger(POPWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -85,7 +89,7 @@ public class POPWindow extends JWindow implements Runnable {
     }
 
     private void initComponents() {
-        this.setSize(width, height);
+        this.setSize(250, 150);
         this.setLocation(x, y);
         this.setLayout(new BorderLayout());
         JPanel tipBar = createTipBar();
@@ -113,7 +117,8 @@ public class POPWindow extends JWindow implements Runnable {
     }
 
     public static void main(String[] args) {
-        new POPWindow().toFront();
+//        new POPWindow().toFront();
+//        SplashScreen s = new SplashScreen();   // And sets it visible too.
 //        TipWindow tipWindow=new TipWindow();
 //        Timer timer = new Timer();
 //        MyTask myTask=new MyTask();
