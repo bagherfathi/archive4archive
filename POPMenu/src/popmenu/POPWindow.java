@@ -5,6 +5,7 @@
 package popmenu;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -43,6 +44,11 @@ public class POPWindow extends JWindow implements Runnable {
         height = 200;
         x = (int) (dim.getWidth() - width);
         y = (int) (dim.getHeight());
+//        initwidth = 250;
+//        initheight = 150;
+//        initx = (int) (dim.getWidth() - initwidth);
+//        inity = (int) (dim.getHeight());
+
     }
 
     public POPWindow() {
@@ -77,7 +83,7 @@ public class POPWindow extends JWindow implements Runnable {
     }
 
     public void run() {
-        for (int i = 0; i <= height; i += 10) {
+        for (int i = 0; i <= height + 50; i += 10) {
             try {
 //                this.toFront();
                 this.setLocation(x, y - i);
@@ -89,11 +95,13 @@ public class POPWindow extends JWindow implements Runnable {
     }
 
     private void initComponents() {
-        this.setSize(250, 150);
+        this.setSize(width, height);
         this.setLocation(x, y);
         this.setLayout(new BorderLayout());
-        JPanel tipBar = createTipBar();
-        tipBar.addMouseListener(new MouseAdapter() {
+//        JPanel tipBar = createTipBar();
+        // tipBar.addMouseListener(new MouseAdapter() {
+
+        this.addMouseListener(new MouseAdapter() {
 
             public void mousePressed(MouseEvent e) {
                 showJPopupMenu(e);
@@ -103,18 +111,22 @@ public class POPWindow extends JWindow implements Runnable {
                 showJPopupMenu(e);
             }
         });
-        this.add(tipBar, BorderLayout.NORTH);
+//        this.add(tipBar, BorderLayout.NORTH);
         this.setVisible(true);
     }
 
     /**
      * 鍒涘缓涓婇潰鐨勫伐鍏锋潯
      */
-    private JPanel createTipBar() {
-
-//        TipBar tipBar = new TipBar(createImage());
-        return new POPJPanel();
-    }
+//    private JPanel createTipBar() {
+//
+//        JPanel jpanel = new JPanel();
+//        jpanel.setForeground(Color.red);
+//        jpanel.setBackground(Color.red);
+//        jpanel.setSize(width, height);
+////        TipBar tipBar = new TipBar(createImage());
+//        return jpanel;
+//    }
 
     public static void main(String[] args) {
 //        new POPWindow().toFront();
