@@ -5,27 +5,13 @@
 package popmenu;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.SplashScreen;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Timer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JWindow;
-import sun.awt.shell.ShellFolder;
 
 /**
  *
@@ -103,10 +89,12 @@ public class POPWindow extends JWindow implements Runnable {
 
         this.addMouseListener(new MouseAdapter() {
 
+            @Override
             public void mousePressed(MouseEvent e) {
                 showJPopupMenu(e);
             }
 
+            @Override
             public void mouseReleased(MouseEvent e) {
                 showJPopupMenu(e);
             }
