@@ -57,12 +57,12 @@ public class HttpClientApp {
         } catch (IOException e) {
             return null;
         } finally {
-            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, "Finally Error");
+//            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, "Finally Error");
         }
         try {
             return getMethod.getResponseBodyAsString();
         } catch (IOException ex) {
-            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }

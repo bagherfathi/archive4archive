@@ -1,7 +1,6 @@
 /*
  * POPMenuApp.java
  */
-
 package popmenu;
 
 import java.awt.AWTException;
@@ -10,6 +9,7 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.SystemTray;
+import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,19 +40,34 @@ public class POPMenuApp extends TrayIcon {
     private JPopupMenu menu;
     private static JDialog dialog;
     private static PopTimer PopTimer = new PopTimer();
-    private static Timer timer=new Timer();
+    private static Timer timer = new Timer();
     public static POPWindow tipWindow = new POPWindow();
+    public static String username = null;
+    public static String password = null;
+    private static LoginDialog loginDialog = new LoginDialog(new javax.swing.JFrame(), true);
+
+    ;
 //    private TipWindow tipWindow;
 
     static {
         dialog = new JDialog((Frame) null, "TrayDialog");
         dialog.setUndecorated(true);
         dialog.setAlwaysOnTop(true);
-        PopTimer popTimer=new PopTimer();
+        PopTimer popTimer = new PopTimer();
 //        popTimer.setTipWindow(tipWindow);
         timer.schedule(popTimer, 1000, 5000);
+//        final LoginDialog
+//        loginDialog = new LoginDialog(new javax.swing.JFrame(), true);
+        loginDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                loginDialog.setVisible(false);
+            }
+        });
+        loginDialog.setVisible(false);
     }
-    public static void finish(){
+
+    public static void finish() {
         tipWindow.stopPop();
         timer.cancel();
     }
@@ -78,11 +93,10 @@ public class POPMenuApp extends TrayIcon {
             public void mousePressed(MouseEvent e) {
                 showJPopupMenu(e);
             }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                showJPopupMenu(e);
-            }
+//            @Override
+//            public void mouseReleased(MouseEvent e) {
+//                showJPopupMenu(e);
+//            }
         });
     }
 
@@ -130,7 +144,7 @@ public class POPMenuApp extends TrayIcon {
         try {
             icon = ShellFolder.getShellFolder(file).getIcon(true);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(POPMenuApp.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(POPMenuApp.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         BufferedImage b = new BufferedImage(width, height,
@@ -142,21 +156,34 @@ public class POPMenuApp extends TrayIcon {
 
     static JPopupMenu createJPopupMenu() {
         final JPopupMenu m = new JPopupMenu();
+        JMenuItem jMenuItemsub1 = new JMenuItem("item 2");
+        jMenuItemsub1.setText("登录");
         m.add(new JMenuItem("Item 1"));
         m.add(new JMenuItem("Item 2"));
-        JMenu submenu = new JMenu("Submenu");
-        submenu.add(new JMenuItem("item 1"));
+        JMenu submenu = new JMenu("系统设置");
+        submenu.add(jMenuItemsub1);
         submenu.add(new JMenuItem("item 2"));
+        jMenuItemsub1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                loginDialog.setVisible(true);
+            }
+        });
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        loginDialog.setAlwaysOnTop(true);
+        loginDialog.setMyLocation(new Double(dim.getWidth()/2-100).intValue(), new Double(dim.getHeight()/2-200).intValue());
+        loginDialog.setVisible(true);
         submenu.add(new JMenuItem("item 3"));
         m.add(submenu);
-        JMenuItem exitItem = new JMenuItem("Exit");
-        MyActionListener myActionListener=new MyActionListener();
+        JMenuItem exitItem = new JMenuItem("退出");
+        MyActionListener myActionListener = new MyActionListener();
         exitItem.addActionListener(myActionListener);
         m.add(exitItem);
         return m;
     }
 
-    static class MyActionListener implements ActionListener{
+    static class MyActionListener implements ActionListener {
+
         public void actionPerformed(ActionEvent e) {
             POPMenuApp.finish();
             System.exit(0);
@@ -164,13 +191,20 @@ public class POPMenuApp extends TrayIcon {
     }
 
     static class PopTimer extends java.util.TimerTask {
+
         @Override
         public void run() {
             // TODO Auto-generated method stub
             if (POPMenuApp.tipWindow.isRun()) {
                 POPMenuApp.tipWindow.stopPop();
             } else {
-                POPMenuApp.tipWindow.startPop();
+                if(POPMenuApp.username!=null&&POPMenuApp.password!=null){
+                    String message=new HttpClientApp().httpRequest();
+                    if(!message.contains("false")){
+                        POPMenuApp.tipWindow.setText(message);
+                        POPMenuApp.tipWindow.startPop();
+                    }
+                }
             }
         }
     }
