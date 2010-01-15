@@ -5,12 +5,15 @@
 package popmenu;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextArea;
 import javax.swing.JWindow;
 
 /**
@@ -23,6 +26,13 @@ public class POPWindow extends JWindow implements Runnable {
     private int x, y;
     private int width, height;
     private boolean isActive = false;
+    private JTextArea jTextArea = new JTextArea();
+    private MouseAdapter mouseAdapter=new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                showJPopupMenu(e);
+            }
+        };
 
     {
         dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -35,6 +45,10 @@ public class POPWindow extends JWindow implements Runnable {
 //        initx = (int) (dim.getWidth() - initwidth);
 //        inity = (int) (dim.getHeight());
 
+    }
+
+    public void setText(String text) {
+        this.jTextArea.setText(text);
     }
 
     public POPWindow() {
@@ -50,6 +64,7 @@ public class POPWindow extends JWindow implements Runnable {
             return;
         }
 //        this.toFront();
+        this.jTextArea.addMouseListener(mouseAdapter);
         this.setAlwaysOnTop(true);
         this.setVisible(true);
         new Thread(this).start();
@@ -60,11 +75,23 @@ public class POPWindow extends JWindow implements Runnable {
         if (!isActive) {
             return;
         }
+        jTextArea.removeMouseListener(mouseAdapter);
         this.dispose();
         isActive = false;
     }
 
     private void showJPopupMenu(MouseEvent e) {
+        String cmmd = "rundll32 url.dll FileProtocolHandler ";
+        String url = "http://localhost/test/test.html?username=" + POPMenuApp.username + "&password=" + POPMenuApp.password;
+        if ("".equals(url)) {
+            url = "http://www.csdn.net";
+        }
+        Runtime rt = Runtime.getRuntime();
+        try {
+            rt.exec(cmmd + url);
+        } catch (IOException ex) {
+//            Logger.getLogger(POPWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         stopPop();
     }
 
@@ -86,20 +113,10 @@ public class POPWindow extends JWindow implements Runnable {
         this.setLayout(new BorderLayout());
 //        JPanel tipBar = createTipBar();
         // tipBar.addMouseListener(new MouseAdapter() {
-
-        this.addMouseListener(new MouseAdapter() {
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                showJPopupMenu(e);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                showJPopupMenu(e);
-            }
-        });
 //        this.add(tipBar, BorderLayout.NORTH);
+//        jTextArea.setText("ssssssssssssssssssssssssssssssssss");
+        jTextArea.setBackground(Color.CYAN);
+        this.add(this.jTextArea);
         this.setVisible(true);
     }
 
@@ -115,7 +132,6 @@ public class POPWindow extends JWindow implements Runnable {
 ////        TipBar tipBar = new TipBar(createImage());
 //        return jpanel;
 //    }
-
     public static void main(String[] args) {
 //        new POPWindow().toFront();
 //        SplashScreen s = new SplashScreen();   // And sets it visible too.
