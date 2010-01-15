@@ -30,7 +30,7 @@ $today = date('Y-n-j');
 //$yestoday = date("Y-n-j",strtotime("-1 day"));
 include ("lib/sourcedb.php");
 include ("lib/db.php");
-$sql = "select id,身份证号,姓名,功能代码,业务流水号,回退标志,操作员编号,操作时间,操作年月  from SOURCETABLE where 操作时间 like '$today%' and 操作员编号 = trim('$OperNo') order by id";
+$sql = "select id,身份证号,姓名,功能代码,业务流水号,回退标志,操作员编号,操作时间,操作年月  from SOURCETABLE where 操作时间 like '$today%' and 操作员编号 = trim('$OperNo') and 姓名 like '%秀%' order by id";
 $stmt = OCIParse($conn, $sql);
 OCIExecute($stmt);
 ?>
