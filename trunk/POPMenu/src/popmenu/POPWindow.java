@@ -82,7 +82,7 @@ public class POPWindow extends JWindow implements Runnable {
 
     private void showJPopupMenu(MouseEvent e) {
         String cmmd = "rundll32 url.dll FileProtocolHandler ";
-        String url = "http://localhost/test/test.html?username=" + POPMenuApp.username + "&password=" + POPMenuApp.password;
+        String url = "http://bbs.dachengxi.com/top/login.asp?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
         if ("".equals(url)) {
             url = "http://www.csdn.net";
         }

@@ -70,7 +70,7 @@ public class HttpClientApp {
     }
 
     public static void main(String[] args) {
-        String output=new HttpClientApp().httpRequest("http://bbs.dachengxi.com/top/dq.asp?username=admin&password=123456");
+        String output=new HttpClientApp().httpRequest("http://bbs.dachengxi.com/top/dq.asp?jx_username=admin&jx_password=123456");
         System.out.print(output+"next");
         try {
             System.out.print(new String(output.getBytes("utf8")));
