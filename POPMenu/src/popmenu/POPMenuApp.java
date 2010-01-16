@@ -18,6 +18,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.Timer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -164,14 +165,16 @@ public class POPMenuApp extends TrayIcon {
         submenu.add(jMenuItemsub1);
         submenu.add(new JMenuItem("item 2"));
         jMenuItemsub1.addMouseListener(new MouseAdapter() {
+
             @Override
             public void mousePressed(MouseEvent e) {
+
                 loginDialog.setVisible(true);
             }
         });
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         loginDialog.setAlwaysOnTop(true);
-        loginDialog.setMyLocation(new Double(dim.getWidth()/2-100).intValue(), new Double(dim.getHeight()/2-200).intValue());
+        loginDialog.setMyLocation(new Double(dim.getWidth() / 2 - 100).intValue(), new Double(dim.getHeight() / 2 - 200).intValue());
         loginDialog.setVisible(true);
         submenu.add(new JMenuItem("item 3"));
         m.add(submenu);
@@ -186,6 +189,11 @@ public class POPMenuApp extends TrayIcon {
 
         public void actionPerformed(ActionEvent e) {
             POPMenuApp.finish();
+            String message = new HttpClientApp().httpRequest("http://localhost/test/test.html");
+            if (!message.contains("false")) {
+                POPMenuApp.tipWindow.setText(message);
+                POPMenuApp.tipWindow.startPop();
+            }
             System.exit(0);
         }
     }
@@ -198,11 +206,19 @@ public class POPMenuApp extends TrayIcon {
             if (POPMenuApp.tipWindow.isRun()) {
                 POPMenuApp.tipWindow.stopPop();
             } else {
-                if(POPMenuApp.username!=null&&POPMenuApp.password!=null){
-                    String message=new HttpClientApp().httpRequest();
-                    if(!message.contains("false")){
-                        POPMenuApp.tipWindow.setText(message);
-                        POPMenuApp.tipWindow.startPop();
+                if (POPMenuApp.username != null && POPMenuApp.password != null) {
+                    try {
+                        String messageSrc = new HttpClientApp().httpRequest("http://bbs.dachengxi.com/top/dq.asp?username=" + POPMenuApp.username + "&password=" + POPMenuApp.password);
+                        byte[] bs = messageSrc.getBytes("UTF-8");
+                        String message = new String(bs);
+                        System.out.print(message);
+
+                        if (!message.contains("false")) {
+                            POPMenuApp.tipWindow.setText(message);
+                            POPMenuApp.tipWindow.startPop();
+                        }
+                    } catch (UnsupportedEncodingException ex) {
+                        Logger.getLogger(POPMenuApp.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
