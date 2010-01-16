@@ -5,6 +5,7 @@
 package popmenu;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -21,9 +22,9 @@ public class HttpClientApp {
 
     private int times = 1;
 
-    public String httpRequest() {
+    public String httpRequest(String url) {
 
-        String outString = getUrlResponse("http://localhost/test/test.html", 3, 3);
+        String outString = getUrlResponse(url, 3, 3);
         return outString;
     }
 
@@ -60,7 +61,8 @@ public class HttpClientApp {
 //            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, "Finally Error");
         }
         try {
-            return getMethod.getResponseBodyAsString();
+            StringBuffer outputString=new StringBuffer(new String(getMethod.getResponseBody(),"GBK").replace("\\n", "\n"));
+            return outputString.toString();
         } catch (IOException ex) {
 //            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, ex);
             return null;
@@ -68,6 +70,12 @@ public class HttpClientApp {
     }
 
     public static void main(String[] args) {
-        System.out.print(new HttpClientApp().httpRequest());
+        String output=new HttpClientApp().httpRequest("http://bbs.dachengxi.com/top/dq.asp?username=admin&password=123456");
+        System.out.print(output+"next");
+        try {
+            System.out.print(new String(output.getBytes("utf8")));
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
