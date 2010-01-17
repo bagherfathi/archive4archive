@@ -110,8 +110,10 @@ public class POPWindow extends JDialog implements Runnable {
         jTextArea.setFont(new java.awt.Font("宋体", 0, 18));
         jTextArea.setBackground(Color.YELLOW);
         jTextArea.setForeground(new Color(112, 146, 190));
+        jTextArea.setEditable(false);
         this.add(this.jTextArea);
-        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        //设置是否可以关闭
+//        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         this.setVisible(true);
     }
 

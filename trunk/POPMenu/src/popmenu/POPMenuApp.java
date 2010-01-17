@@ -18,8 +18,11 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Timer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JDialog;
 import javax.swing.JMenu;
@@ -157,11 +160,26 @@ public class POPMenuApp extends TrayIcon {
         final JPopupMenu m = new JPopupMenu();
         JMenuItem jMenuItemsub1 = new JMenuItem("item 2");
         jMenuItemsub1.setText("登录");
-        m.add(new JMenuItem("Item 1"));
-        m.add(new JMenuItem("Item 2"));
+        JMenuItem JMenuItem = new JMenuItem("主页");
+        JMenuItem.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                String cmmd = "rundll32 url.dll FileProtocolHandler ";
+                String url = ServerUrl.homePageUrl + "?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
+                Runtime rt = Runtime.getRuntime();
+                try {
+                    rt.exec(cmmd + url);
+                } catch (IOException ex) {
+                    Logger.getLogger(POPMenuApp.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        m.add(JMenuItem);
+//        m.add(new JMenuItem("Item 2"));
         JMenu submenu = new JMenu("系统设置");
         submenu.add(jMenuItemsub1);
-        submenu.add(new JMenuItem("item 2"));
+//        submenu.add(new JMenuItem("item 2"));
         jMenuItemsub1.addMouseListener(new MouseAdapter() {
 
             @Override
@@ -187,7 +205,7 @@ public class POPMenuApp extends TrayIcon {
 
         public void actionPerformed(ActionEvent e) {
             POPMenuApp.finish();
-            String reqString=ServerUrl.logoutUrl+"?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
+            String reqString = ServerUrl.logoutUrl + "?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
             String message = new HttpClientApp().httpRequest(reqString);
             System.out.print(message);
             if (!message.contains("false")) {
@@ -208,7 +226,7 @@ public class POPMenuApp extends TrayIcon {
             } else {
                 if (POPMenuApp.username != null && POPMenuApp.password != null) {
                     try {
-                        String messageSrc = new HttpClientApp().httpRequest(ServerUrl.checkListUrl+"?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password);
+                        String messageSrc = new HttpClientApp().httpRequest(ServerUrl.checkListUrl + "?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password);
                         byte[] bs = messageSrc.getBytes("UTF-8");
                         String message = new String(bs);
 
