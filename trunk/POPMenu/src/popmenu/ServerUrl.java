@@ -9,7 +9,9 @@ package popmenu;
  * @author Administrator
  */
 public class ServerUrl {
-    public static String checkPasswordUrl = "http://bbs.dachengxi.com/top/check.asp?";
+    public static int urlTimeout=3000;
+    public static int urlRetryTimes=3;
+    public static String checkPasswordUrl = "http://bbs.dachengxi.com/top/check.asp";
     public static String checkListUrl = "http://bbs.dachengxi.com/top/dq.asp";
     public static String homePageUrl = "http://bbs.dachengxi.com/top/login.asp";
     public static String logoutUrl = "http://bbs.dachengxi.com/top/loginout.asp";

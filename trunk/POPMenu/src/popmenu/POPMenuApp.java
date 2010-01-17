@@ -20,8 +20,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Timer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JDialog;
 import javax.swing.JMenu;
@@ -210,17 +208,16 @@ public class POPMenuApp extends TrayIcon {
             } else {
                 if (POPMenuApp.username != null && POPMenuApp.password != null) {
                     try {
-                        String messageSrc = new HttpClientApp().httpRequest(ServerUrl.checkListUrl="?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password);
+                        String messageSrc = new HttpClientApp().httpRequest(ServerUrl.checkListUrl+"?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password);
                         byte[] bs = messageSrc.getBytes("UTF-8");
                         String message = new String(bs);
-                        System.out.print(message);
 
                         if (!message.contains("false")) {
                             POPMenuApp.tipWindow.setText(message);
                             POPMenuApp.tipWindow.startPop();
                         }
                     } catch (UnsupportedEncodingException ex) {
-                        Logger.getLogger(POPMenuApp.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.print(ex);
                     }
                 }
             }
