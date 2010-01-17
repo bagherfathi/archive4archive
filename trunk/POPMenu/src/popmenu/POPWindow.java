@@ -13,14 +13,14 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JTextArea;
-import javax.swing.JWindow;
 
 /**
  *
  * @author Administrator
  */
-public class POPWindow extends JWindow implements Runnable {
+public class POPWindow extends JDialog implements Runnable {
 
     private static Dimension dim;
     private int x, y;
@@ -82,10 +82,7 @@ public class POPWindow extends JWindow implements Runnable {
 
     private void showJPopupMenu(MouseEvent e) {
         String cmmd = "rundll32 url.dll FileProtocolHandler ";
-        String url = "http://bbs.dachengxi.com/top/login.asp?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
-        if ("".equals(url)) {
-            url = "http://www.csdn.net";
-        }
+        String url =ServerUrl.homePageUrl="?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
         Runtime rt = Runtime.getRuntime();
         try {
             rt.exec(cmmd + url);
@@ -111,12 +108,11 @@ public class POPWindow extends JWindow implements Runnable {
         this.setSize(width, height);
         this.setLocation(x, y);
         this.setLayout(new BorderLayout());
-//        JPanel tipBar = createTipBar();
-        // tipBar.addMouseListener(new MouseAdapter() {
-//        this.add(tipBar, BorderLayout.NORTH);
-//        jTextArea.setText("ssssssssssssssssssssssssssssssssss");
-        jTextArea.setBackground(Color.CYAN);
+        jTextArea.setText("你有一条短信\n你有一个未办事件\n您有一个代理处日程");
+        jTextArea.setFont(new java.awt.Font("宋体", 0, 18));
+        jTextArea.setForeground(new Color(112, 146, 190));
         this.add(this.jTextArea);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         this.setVisible(true);
     }
 

@@ -189,7 +189,7 @@ public class POPMenuApp extends TrayIcon {
 
         public void actionPerformed(ActionEvent e) {
             POPMenuApp.finish();
-            String reqString="http://bbs.dachengxi.com/top/loginout.asp?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
+            String reqString=ServerUrl.logoutUrl+"?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
             String message = new HttpClientApp().httpRequest(reqString);
             System.out.print(message);
             if (!message.contains("false")) {
@@ -210,7 +210,7 @@ public class POPMenuApp extends TrayIcon {
             } else {
                 if (POPMenuApp.username != null && POPMenuApp.password != null) {
                     try {
-                        String messageSrc = new HttpClientApp().httpRequest("http://bbs.dachengxi.com/top/dq.asp?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password);
+                        String messageSrc = new HttpClientApp().httpRequest(ServerUrl.checkListUrl="?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password);
                         byte[] bs = messageSrc.getBytes("UTF-8");
                         String message = new String(bs);
                         System.out.print(message);
