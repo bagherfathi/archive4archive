@@ -159,8 +159,8 @@ public class POPMenuApp extends TrayIcon {
     static JPopupMenu createJPopupMenu() {
         final JPopupMenu m = new JPopupMenu();
         JMenuItem jMenuItemsub1 = new JMenuItem("item 2");
-        jMenuItemsub1.setText("ç™»å½•");
-        JMenuItem JMenuItem = new JMenuItem("ä¸»é¡µ");
+        jMenuItemsub1.setText("µÇÂ¼");
+        JMenuItem JMenuItem = new JMenuItem("Ö÷Ò³");
         JMenuItem.addMouseListener(new MouseAdapter() {
 
             @Override
@@ -177,7 +177,7 @@ public class POPMenuApp extends TrayIcon {
         });
         m.add(JMenuItem);
 //        m.add(new JMenuItem("Item 2"));
-        JMenu submenu = new JMenu("ç³»ç»Ÿè®¾ç½®");
+        JMenu submenu = new JMenu("ÏµÍ³ÉèÖÃ");
         submenu.add(jMenuItemsub1);
 //        submenu.add(new JMenuItem("item 2"));
         jMenuItemsub1.addMouseListener(new MouseAdapter() {
@@ -194,7 +194,7 @@ public class POPMenuApp extends TrayIcon {
         loginDialog.setVisible(true);
         submenu.add(new JMenuItem("item 3"));
         m.add(submenu);
-        JMenuItem exitItem = new JMenuItem("é€€å‡º");
+        JMenuItem exitItem = new JMenuItem("ÍË³ö");
         MyActionListener myActionListener = new MyActionListener();
         exitItem.addActionListener(myActionListener);
         m.add(exitItem);
@@ -225,18 +225,18 @@ public class POPMenuApp extends TrayIcon {
                 POPMenuApp.tipWindow.stopPop();
             } else {
                 if (POPMenuApp.username != null && POPMenuApp.password != null) {
-                    try {
-                        String messageSrc = new HttpClientApp().httpRequest(ServerUrl.checkListUrl + "?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password);
-                        byte[] bs = messageSrc.getBytes("UTF-8");
-                        String message = new String(bs);
+//                    try {
+                    String messageSrc = new HttpClientApp().httpRequest(ServerUrl.checkListUrl + "?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password);
+//                        byte[] bs = messageSrc.getBytes("UTF-8");
+//                        String message = new String(bs);
 
-                        if (!message.contains("false")) {
-                            POPMenuApp.tipWindow.setText(message);
-                            POPMenuApp.tipWindow.startPop();
-                        }
-                    } catch (UnsupportedEncodingException ex) {
-                        System.out.print(ex);
+                    if (!messageSrc.contains("false")) {
+                        POPMenuApp.tipWindow.setText(messageSrc);
+                        POPMenuApp.tipWindow.startPop();
                     }
+//                    } catch (UnsupportedEncodingException ex) {
+//                        System.out.print(ex);
+//                    }
                 }
             }
         }

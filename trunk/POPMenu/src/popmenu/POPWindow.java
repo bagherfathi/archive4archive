@@ -107,18 +107,18 @@ public class POPWindow extends JDialog implements Runnable {
         this.setSize(width, height);
         this.setLocation(x, y);
         this.setLayout(new BorderLayout());
-        jTextArea.setFont(new java.awt.Font("å®‹ä½“", 0, 18));
+        jTextArea.setFont(new java.awt.Font("ËÎÌå", 0, 18));
         jTextArea.setBackground(Color.YELLOW);
         jTextArea.setForeground(new Color(112, 146, 190));
         jTextArea.setEditable(false);
         this.add(this.jTextArea);
-        //è®¾ç½®æ˜¯å¦å¯ä»¥å…³é—­
+        //ÉèÖÃÊÇ·ñ¿ÉÒÔ¹Ø±Õ
 //        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         this.setVisible(true);
     }
 
     /**
-     * é’æ¶˜ç¼“æ¶“å©‡æ½°é¨å‹«ä¼éé”‹æ½¯
+     * ??»ºä¸????·¥?·æ?
      */
 //    private JPanel createTipBar() {
 //
