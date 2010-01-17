@@ -24,11 +24,12 @@ public class HttpClientApp {
 
     public String httpRequest(String url) {
 
-        String outString = getUrlResponse(url, 3, 3);
+        String outString = getUrlResponse(url, ServerUrl.urlTimeout, ServerUrl.urlRetryTimes);
         return outString;
     }
 
     private String getUrlResponse(String url, int timeOut, final int retryTimes) {
+        System.out.print(url+"\n");
         int errorCode = -200;
         Protocol myhttps = new Protocol("https", new ProtocolSocketFactory4HttpAdaprot(), 443);
 
@@ -56,22 +57,25 @@ public class HttpClientApp {
         try {
             errorCode = httpClient.executeMethod(getMethod);
         } catch (IOException e) {
+            System.out.print(e);
             return null;
         } finally {
 //            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, "Finally Error");
         }
         try {
-            StringBuffer outputString=new StringBuffer(new String(getMethod.getResponseBody(),"GBK").replace("\\n", "\n"));
+            StringBuffer outputString = new StringBuffer(new String(getMethod.getResponseBody(), "GBK").replace("\\n", "\n"));
+            System.out.print(outputString+"\n");
             return outputString.toString();
         } catch (IOException ex) {
 //            Logger.getLogger(HttpClientApp.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.print(ex);
             return null;
         }
     }
 
     public static void main(String[] args) {
-        String output=new HttpClientApp().httpRequest("http://bbs.dachengxi.com/top/dq.asp?jx_username=admin&jx_password=123456");
-        System.out.print(output+"next");
+        String output = new HttpClientApp().httpRequest("http://bbs.dachengxi.com/top/dq.asp?jx_username=admin&jx_password=123456");
+        System.out.print(output + "next");
         try {
             System.out.print(new String(output.getBytes("utf8")));
         } catch (UnsupportedEncodingException ex) {

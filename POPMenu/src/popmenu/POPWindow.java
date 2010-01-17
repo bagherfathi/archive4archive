@@ -82,12 +82,12 @@ public class POPWindow extends JDialog implements Runnable {
 
     private void showJPopupMenu(MouseEvent e) {
         String cmmd = "rundll32 url.dll FileProtocolHandler ";
-        String url =ServerUrl.homePageUrl="?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
+        String url =ServerUrl.homePageUrl+"?jx_username=" + POPMenuApp.username + "&jx_password=" + POPMenuApp.password;
         Runtime rt = Runtime.getRuntime();
         try {
             rt.exec(cmmd + url);
         } catch (IOException ex) {
-//            Logger.getLogger(POPWindow.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.print("Open homepage error!");
         }
         stopPop();
     }
@@ -95,7 +95,6 @@ public class POPWindow extends JDialog implements Runnable {
     public void run() {
         for (int i = 0; i <= height + 50; i += 10) {
             try {
-//                this.toFront();
                 this.setLocation(x, y - i);
                 Thread.sleep(20);
             } catch (InterruptedException ex) {
@@ -108,8 +107,8 @@ public class POPWindow extends JDialog implements Runnable {
         this.setSize(width, height);
         this.setLocation(x, y);
         this.setLayout(new BorderLayout());
-        jTextArea.setText("你有一条短信\n你有一个未办事件\n您有一个代理处日程");
         jTextArea.setFont(new java.awt.Font("宋体", 0, 18));
+        jTextArea.setBackground(Color.YELLOW);
         jTextArea.setForeground(new Color(112, 146, 190));
         this.add(this.jTextArea);
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
@@ -130,6 +129,7 @@ public class POPWindow extends JDialog implements Runnable {
 //    }
     public static void main(String[] args) {
 //        new POPWindow().toFront();
+          new POPWindow().startPop();
 //        SplashScreen s = new SplashScreen();   // And sets it visible too.
 //        TipWindow tipWindow=new TipWindow();
 //        Timer timer = new Timer();

@@ -89,9 +89,9 @@ public class LoginDialog extends javax.swing.JDialog {
             return;
         }
         String checkpasswordUrl = ServerUrl.checkPasswordUrl+"?jx_username=" + username + "&jx_password=" + password;
-        System.out.print(checkpasswordUrl + "\n");
+      //  System.out.print(checkpasswordUrl + "\n");
         String message = new HttpClientApp().httpRequest(checkpasswordUrl);
-        System.out.print(message + "\n");
+     //   System.out.print(message + "\n");
 
         if (!message.trim().contains("true")) {
             jTextField2.setText("密码错");
