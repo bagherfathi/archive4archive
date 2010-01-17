@@ -88,7 +88,7 @@ public class LoginDialog extends javax.swing.JDialog {
             jTextField2.requestFocus();
             return;
         }
-        String checkpasswordUrl = "http://bbs.dachengxi.com/top/check.asp?jx_username=" + username + "&jx_password=" + password;
+        String checkpasswordUrl = ServerUrl.checkPasswordUrl+"?jx_username=" + username + "&jx_password=" + password;
         System.out.print(checkpasswordUrl + "\n");
         String message = new HttpClientApp().httpRequest(checkpasswordUrl);
         System.out.print(message + "\n");
