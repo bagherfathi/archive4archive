@@ -192,7 +192,7 @@ public class POPMenuApp extends TrayIcon {
         loginDialog.setAlwaysOnTop(true);
         loginDialog.setMyLocation(new Double(dim.getWidth() / 2 - 100).intValue(), new Double(dim.getHeight() / 2 - 200).intValue());
         loginDialog.setVisible(true);
-        submenu.add(new JMenuItem("item 3"));
+//        submenu.add(new JMenuItem("item 3"));
         m.add(submenu);
         JMenuItem exitItem = new JMenuItem("ÍË³ö");
         MyActionListener myActionListener = new MyActionListener();
