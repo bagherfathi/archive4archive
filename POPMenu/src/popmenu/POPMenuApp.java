@@ -57,7 +57,7 @@ public class POPMenuApp extends TrayIcon {
         dialog.setAlwaysOnTop(true);
         PopTimer popTimer = new PopTimer();
 //        popTimer.setTipWindow(tipWindow);
-        timer.schedule(popTimer, 1000, 5000);
+        timer.schedule(popTimer, 1000, 60000);
 //        final LoginDialog
 //        loginDialog = new LoginDialog(new javax.swing.JFrame(), true);
         loginDialog.addWindowListener(new java.awt.event.WindowAdapter() {
