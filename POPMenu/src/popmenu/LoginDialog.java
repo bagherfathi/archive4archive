@@ -38,14 +38,14 @@ public class LoginDialog extends javax.swing.JDialog {
         setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Áî®Êà∑"); // NOI18N
+        jLabel1.setText(" ◊“≥"); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("ÂØÜÁ†Å"); // NOI18N
+        jLabel2.setText("œµÕ≥"); // NOI18N
         jLabel2.setName("jLabel2"); // NOI18N
 
-        jButton1.setText("Á°ÆÂÆö"); // NOI18N
+        jButton1.setText("»∑∂®"); // NOI18N
         jButton1.setName("jButton1"); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
 
@@ -94,7 +94,7 @@ public class LoginDialog extends javax.swing.JDialog {
      //   System.out.print(message + "\n");
 
         if (!message.trim().contains("true")) {
-            jTextField2.setText("ÂØÜÁ†ÅÈîô");
+            jTextField2.setText("”√ªß√‹¬Î¥Ì");
             jTextField2.requestFocus();
             return;
         }
