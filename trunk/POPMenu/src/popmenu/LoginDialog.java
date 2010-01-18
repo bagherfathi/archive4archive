@@ -38,11 +38,11 @@ public class LoginDialog extends javax.swing.JDialog {
         setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("首页"); // NOI18N
+        jLabel1.setText("账户"); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("系统"); // NOI18N
+        jLabel2.setText("密码"); // NOI18N
         jLabel2.setName("jLabel2"); // NOI18N
 
         jButton1.setText("确定"); // NOI18N
