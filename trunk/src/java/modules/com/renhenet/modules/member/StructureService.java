@@ -1,11 +1,13 @@
 package com.renhenet.modules.member;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.renhenet.modules.CommonService;
+import com.renhenet.po.InfoSortDTO;
 import com.renhenet.po.Structure;
 
 public class StructureService extends CommonService {
@@ -72,16 +74,23 @@ public class StructureService extends CommonService {
 
 	// 根据信息门类得到最后添加的一条Structure记录处理
 	public int getStructureByinfoSortId(int infoSortId) {
-		String hql = "from Structure where infoSortId =? order by id desc";
-		Structure structure = (Structure) dao.findSingle(hql,
-				new Object[] { infoSortId });
-		if (structure == null) {
-			return 1;
-		} else {
-			String str = structure.getSerialNumber();
-			return new Integer(str.substring(1, str.length())) + 1;
+		List args = new ArrayList();
+		String sql = "select substr(serial_number,2,5) from structure where info_sort_id ="+infoSortId
+		+" order by to_number(substr(serial_number,2,5)) desc";
+		
+		List<Object[]> oos = dao.executeQueryBySQL(sql, null, args.toArray());
+		
+		int number =1;
+		if (oos != null && oos.size() > 0) {
+			if(oos.get(0)!=null){
+				number = new Integer(oos.get(0)[0]+"")+1;
+			}else{
+				return 1;
+			}
 		}
-
+		
+		return number;
+		
 	}
 
 }

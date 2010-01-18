@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.renhenet.fw.ServiceLocator;
 import com.renhenet.fw.waf.WebContext;
 import com.renhenet.modules.CommonService;
@@ -91,12 +93,17 @@ public class StructureAction extends DispatchActions {
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {
 			StructureForm form = (StructureForm) context.getForm();
-
-			int serialNumber = service.getStructureByinfoSortId(form
-					.getInfoSortId());
-
-			String strSerialNumber = "a" + serialNumber;
-			form.setSerialNumber(strSerialNumber);
+			if(!StringUtils.isEmpty(form.getSelectSerialNumber())){
+				form.setSerialNumber(form.getSelectSerialNumber());
+			}else{
+				int serialNumber = service.getStructureByinfoSortId(form
+						.getInfoSortId());
+				if(serialNumber>=5 && serialNumber<=11){
+					serialNumber=12;
+				}
+				String strSerialNumber = "a" + serialNumber;
+				form.setSerialNumber(strSerialNumber);
+			}
 
 			super.insertProcess(context);
 
