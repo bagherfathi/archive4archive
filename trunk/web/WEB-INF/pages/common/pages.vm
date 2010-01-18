@@ -25,15 +25,15 @@
 		<td align="left">
 		<div id="yschpg">
 				每页显示数量:
-				<a href="${curUrl}${split}pageSize=5">5</a>
-				<a href="${curUrl}${split}pageSize=10">10</a>
-				<a href="${curUrl}${split}pageSize=20">20</a>
-				<a href="${curUrl}${split}pageSize=50">50</a>
+				<a href="#" onclick="searchSubmit('${curUrl}${split}pageSize=5')">5</a>
+				<a href="#" onclick="searchSubmit('${curUrl}${split}pageSize=10')">10</a>
+				<a href="#" onclick="searchSubmit('${curUrl}${split}pageSize=20')">20</a>
+				<a href="#" onclick="searchSubmit('${curUrl}${split}pageSize=50')">50</a>
 				&nbsp;&nbsp;
 				显示 $pagination1.getStartRow() - $pagination1.getEndRow() 共 $pagination1.getTotalRow() 条 $pagination1.getTotalPage() 页 
 				#if($pagination1.getPreviousPage() > 0)
 					[
-					<a href="${urlPre}${split}start=$pagination1.getPrePage().getStartRow()$!parEnd" class="next">上一页
+					<a href="#" onclick="searchSubmit('${urlPre}${split}start=$pagination1.getPrePage().getStartRow()$!parEnd')" class="next">上一页
 					</a>]
 				#end
 				#set($pages = $pagination1.getPages())
@@ -41,12 +41,12 @@
 					#if( $p.getPage() == $pagination1.getCurrentPage() ) 
 						<b>$p.getPage()</b>&nbsp;
 						#else 
-							<a href="${urlPre}${split}start=$p.getStartRow()$!parEnd">$p.getPage()</a>&nbsp;
+							<a href="#" onclick="searchSubmit('${urlPre}${split}start=$p.getStartRow()$!parEnd')">$p.getPage()</a>&nbsp;
 					#end
 				#end
 				#if($pagination1.getNextPage() > 0)
 					[
-					<a href="${urlPre}${split}start=$pagination1.getNPage().getStartRow()$!parEnd" class="next">下一页
+					<a href="#" onclick="searchSubmit('${urlPre}${split}start=$pagination1.getNPage().getStartRow()$!parEnd')" class="next">下一页
 					</a>]
 				#end
 				</div>
@@ -60,3 +60,10 @@
 		</td>
 	</tr>
 </table>
+
+<script>
+	function searchSubmit(url){
+		document.searchForm.action=url;
+		document.searchForm.submit();
+	}
+</script>

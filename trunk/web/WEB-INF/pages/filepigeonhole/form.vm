@@ -14,7 +14,7 @@
 			<td class="tablelistbg">$biz.infoColumn</td>
 			<td class="tablelistbg">$biz.infoColumnTo</td>
 			<td class="tablelistbg">
-				<a href="/filepigeonhole/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&infoSortIdsTo=$vMUtils.encrypt($infoSortIdTo)&statuses=$vMUtils.encrypt($&status)&cm=$cm"  >É¾³ý</a>
+				<a href="/filepigeonhole/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($infoSortId)&infoSortIdsTo=$vMUtils.encrypt($infoSortIdTo)&statuses=$vMUtils.encrypt($&status)&cm=$cm" onclick="return confirm('ÄúÈ·ÊµÒªÉ¾³ýÂð£¿')" >É¾³ý</a>
 			</td>
          </tr>
 		#end

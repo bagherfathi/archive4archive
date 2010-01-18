@@ -42,6 +42,10 @@
 			<forward name="show" path="/WEB-INF/pages/root/login.vm" />
 		</action>
 		
+		<action path="/error" type="com.renhenet.web.root.Index">
+			<forward name="show" path="/WEB-INF/pages/system_error.vm" />
+		</action>
+		
 		<action path="/login" name="loginForm" type="com.renhenet.web.root.Login">
 			<forward name="show" path="/WEB-INF/pages/root/index.vm" />
 		</action>
@@ -102,6 +106,7 @@
 			<forward name="insertsuccess" path="/file/actions.html?method=list" redirect="true" />
 			<forward name="delete" path="/file/actions.html?method=list" redirect="true" />
 			<forward name="update" path="/WEB-INF/pages/file/update.vm" />
+			<forward name="detail" path="/WEB-INF/pages/file/detail.vm" />
 		</action>
 		
 		<action path="/files/actions"	type="com.renhenet.web.file.FilesAction" name="fileForm" input=""	parameter="method" scope="request">

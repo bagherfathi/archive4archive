@@ -42,7 +42,7 @@
             <td class="tablelistbg">
                 <a href="/infosort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)">添加子分类</a>
                 <a href="/infosort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)">编辑 </a>
-                <a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)">删除</a>
+                <a href="/infosort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)" onclick="return confirm('您确实要删除吗？')">删除</a>
             </td>
         </tr>
         #end

@@ -1203,7 +1203,9 @@
 					<table width="100%" border="0" cellspacing="4" cellpadding="0">
 						<tr>
 							<td  align="center" >
+							#if($!action != "detail")
 								<input type=button name="insert" value="±£´æ" class=btn1_mouseout title="±£´æ" onclick="toSubmit();"/>
+							#end
 							</td>
 						</tr>
 					</table>

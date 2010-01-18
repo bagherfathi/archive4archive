@@ -21,7 +21,33 @@
                         <td bgcolor="#eeeee5" width="20%">自动编码:
                         </td>
                         <td>
-                           <input type=text name=serialNumber value=$!bizObj.serialNumber>
+                       	#set($indexA5=0)
+                        #set($indexA6=0)
+                        #set($indexA7=0)
+                        #set($indexA8=0)
+                        #set($indexA9=0)
+                        #set($indexA10=0)
+                        #set($indexA11=0)
+                        #foreach($biz in $structureList)
+                        	#if($biz.serialNumber=="a5")#set($indexA5=1)#end
+                        	#if($biz.serialNumber=="a6")#set($indexA6=1)#end
+                        	#if($biz.serialNumber=="a7")#set($indexA7=1)#end
+                        	#if($biz.serialNumber=="a8")#set($indexA8=1)#end
+                        	#if($biz.serialNumber=="a9")#set($indexA9=1)#end
+                        	#if($biz.serialNumber=="a10")#set($indexA10=1)#end
+                        	#if($biz.serialNumber=="a11")#set($indexA11=1)#end
+                        #end
+                           <input type=text name=serialNumber value="$!bizObj.serialNumber" size="6"> 
+                           <select name="selectSerialNumber">
+                           		<option value="">请选择特殊字段</option>
+                           		#if($indexA5==0)<option value="a5">题名</option>#end
+                           		#if($indexA6==0)<option value="a6">归档年度</option>#end
+                           		#if($indexA7==0)<option value="a7">全宗号</option>#end
+                           		#if($indexA8==0)<option value="a8">保管期限</option>#end
+                           		#if($indexA9==0)<option value="a9">第一层档号</option>#end
+                           		#if($indexA10==0)<option value="a10">第二层档号</option>#end
+                           		#if($indexA11==0)<option value="a11">第三层档号</option>#end
+                           </select>
                         </td>
                     </tr>
                     <tr>
@@ -215,7 +241,7 @@
             <td class="tablelistbg">$biz.serialNumber</td>            
             <td class="tablelistbg">
                 <a href="/structure/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)">编辑</a>
-                <a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)">删除</a>
+                <a href="/structure/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)&statuses=$vMUtils.encrypt($status)" onclick="return confirm('您确实要删除吗？')">删除</a>
             </td>
         </tr>
         #end

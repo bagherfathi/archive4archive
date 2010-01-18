@@ -1,34 +1,33 @@
-#if($dictionarysortList && $parentId>0)
+#if($dictionarySortList && $parentId>0)
 <div id="listhead">
 		<div id="listheadleftimg"></div>
 		<div id="listheadrightimg"></div>
 	</div>
 	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
           <tr>
-            <td class="tableheadingbg">类目序号</td>
-            <td class="tableheadingbg">类目名称</td>
-            <td class="tableheadingbg">类目类型</td>
+           <td class="tableheadingbg">名称</td>
+            <td class="tableheadingbg">代码</td>
+            <td class="tableheadingbg">缺省值</td>
+            <td class="tableheadingbg">备注</td>
             <td class="tableheadingbg">创建时间</td>
 			<td class="tableheadingbg">操作</td>
           </tr>
-		#foreach($biz in $dictionarysortList)
+		#foreach($biz in $dictionarySortList)
 		<tr>
-			<td class="tablelistbg">$biz.seq</td>
-			<td class="tablelistbg">$biz.name</td>
+			<td class="tablelistbg">&nbsp;$!biz.name</td>
+			<td class="tablelistbg">&nbsp;$!biz.seq</td>
 			<td class="tablelistbg">
-			#if($!biz.type=='0')
-			顶层分类
-			#elseif($!biz.type=='1')
-			中间分类	
-			#elseif($!biz.type=='2')
-			底层分类 	
+			#if($!biz.defaultValue=='0')
+			否
+			#elseif($!biz.defaultValue=='1')
+			是		
 			#end
 			</td>
+			<td class="tablelistbg">&nbsp;$!biz.memo</td>
 			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
 			<td class="tablelistbg">
-				#if($!biz.type!='2')<a href="/dictionarysort/actions.html?method=insert&parentId=$vMUtils.encrypt($biz.id)"  >添加子分类</a>#end
-				<a href="/dictionarysort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
-				<a href="/dictionarysort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >删除</a>
+				<a href="/dictionarysort/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  >编辑</a>
+				<a href="/dictionarysort/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&parentId=$vMUtils.encrypt($parentId)"  onclick="return confirm('您确实要删除吗？')">删除</a>
 			</td>
          </tr>
 		#end
