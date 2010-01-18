@@ -19,7 +19,7 @@
 			<td class="tablelistbg">$biz.taxis</td>
 			<td class="tablelistbg">
 				<a href="/dhsz/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)&infoSortIds=$vMUtils.encrypt($biz.infoSortId)"  >±à¼­</a>
-				<a href="/dhsz/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortId=$vMUtils.encrypt($biz.infoSortId)"  >É¾³ý</a>
+				<a href="/dhsz/actions.html?method=delete&sid=$vMUtils.encrypt($biz.id)&infoSortId=$vMUtils.encrypt($biz.infoSortId)"  onclick="return confirm('ÄúÈ·ÊµÒªÉ¾³ýÂð£¿')">É¾³ý</a>
 			</td>
          </tr>
 		#end

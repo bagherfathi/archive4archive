@@ -17,7 +17,7 @@
 		<tr>
 			<td class="tablelistbg">$biz.filePath</td>
 			<td class="tablelistbg">
-				<a href="$biz.filePath" target="_blank">查看</a>
+			<a href="#" onclick="toUrl('$biz.filePath');">下载</a>   
 			</td>
          </tr>
 		#end
@@ -36,14 +36,14 @@
 								<td bgcolor="#eeeee5" width="20%">文件:
 								</td>
 								<td>
-									<input name="accessoryFiles" class="btn1_mouseout" type="file" value="">
+									<input id="accessoryFiles" name="accessoryFiles" class="btn1_mouseout" type="file" value="" >
 								</td>
 							</tr>
 						</table>
 						<table width="100%" border="0" cellspacing="4" cellpadding="0">
 							<tr>
 								<td  align="center" >
-									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+									<input type=button name="insert" value="保存" class=btn1_mouseout title="保存" onclick="toSubmit();"/>
 								</td>
 							</tr>
 						</table>
@@ -51,3 +51,16 @@
 		</td>
 	</tr>
 </table>
+<script>
+	function toUrl(url){
+		location.href='/accessory/actions.html?method=insert&cm=$cm&fileIds=$vMUtils.encrypt($fileId)&filename='+url;
+	}
+	
+	function toSubmit(){
+		if(document.getElementById("accessoryFiles").value==""){
+			alert("请选择文件");
+			return false;
+		}
+		document.accessoryForm.submit();
+	}
+</script>   

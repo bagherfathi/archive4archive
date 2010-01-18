@@ -3,7 +3,7 @@
 <div id="conbg">
 <div class=contitle>
 <div class=leftmain>添加原文</div>
-<div class=rightmain>&nbsp;&nbsp;<a href="#">&#171;返回</a></div>
+<div class=rightmain>&nbsp;&nbsp;<a href="javascript:history.back(-1)">&#171;返回</a></div>
 <div class=rightmain></div>
 </div>
 $validator.getDynamicJavascript()
