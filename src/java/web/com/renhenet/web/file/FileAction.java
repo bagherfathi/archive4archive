@@ -68,14 +68,14 @@ public class FileAction extends DispatchActions {
 				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
 		context.put("structureList", structureList);
 
-		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
+		// µÃµ½¶þ²ã»òÕßÈý²ãµÄµµ°¸
 		if (status > 0) {
-			// ï¿½Ãµï¿½ï¿½Ï²ï¿½Äµï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// µÃµ½ÉÏ²ãµÄµµ°¸ÎÄ¼þµÄÄÚÈÝ
 			List<File> fileList = service.getFileByParInfoSortId(parInfoSortId);
 			context.put("fileList", fileList);
 		}
 
-		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½?ï¿½ï¿½
+		// µÃµ½µµºÅÉèÖÃÏî,´¦ÀíµµºÅ
 		List<Dhsz> dhszList1 = dhszService.getDhszByinfoSortId(infoSortId);
 		List<Dhsz> dhszList = new ArrayList();
 
@@ -83,12 +83,12 @@ public class FileAction extends DispatchActions {
 		for (Dhsz dhsz : dhszList1) {
 			Structure structure = (Structure) service.getObjectById(
 					Structure.class, dhsz.getStructureId());
-			strStructure += "," + structure.getSerialNumber() + ",";
-			// structure.setZnName(structure.getZnName().substring(0,
-			// dhsz.getLen()));
+			if (structure != null) {
+				strStructure += "," + structure.getSerialNumber() + ",";
 
-			dhsz.setStructure(structure);
-			dhszList.add(dhsz);
+				dhsz.setStructure(structure);
+				dhszList.add(dhsz);
+			}
 		}
 		context.put("strStructure", strStructure);
 		context.put("dhszList", dhszList);
@@ -96,9 +96,6 @@ public class FileAction extends DispatchActions {
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {
 			FileForm form = (FileForm) context.getForm();
-			if(form.getStatus()==0){
-				form.setParInfoSortId(0);
-			}
 			super.insertProcess(context);
 
 			return "/file/actions.html?method=insert&parInfoSortIds="
@@ -114,6 +111,26 @@ public class FileAction extends DispatchActions {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
 
+		// µÃµ½µµºÅÉèÖÃÏî,´¦ÀíµµºÅ
+		List<Dhsz> dhszList1 = dhszService.getDhszByinfoSortId(infoSortId);
+		List<Dhsz> dhszList = new ArrayList();
+
+		String strStructure = "";
+		for (Dhsz dhsz : dhszList1) {
+			Structure structure = (Structure) service.getObjectById(
+					Structure.class, dhsz.getStructureId());
+			if (structure != null) {
+				strStructure += "," + structure.getSerialNumber() + ",";
+				// structure.setZnName(structure.getZnName().substring(0,
+				// dhsz.getLen()));
+
+				dhsz.setStructure(structure);
+				dhszList.add(dhsz);
+			}
+		}
+		context.put("strStructure", strStructure);
+		context.put("dhszList", dhszList);
+
 		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
 				InfoSort.class, infoSortId);
 		context.put("infoSort", infoSort);
@@ -128,6 +145,24 @@ public class FileAction extends DispatchActions {
 		return super.updateProcess(context);
 	}
 
+	public String detailProcess(WebContext context) throws ServletException {
+		int infoSortId = context.getSIntParameter("infoSortIds");
+		context.put("infoSortId", infoSortId);
+
+		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
+				InfoSort.class, infoSortId);
+		context.put("infoSort", infoSort);
+
+		int status = context.getSIntParameter("statuses");
+		context.put("status", status);
+
+		List<Structure> structureList = structureService
+				.getStructureByInfoSortIdAndInStatus(infoSortId, status);
+		context.put("structureList", structureList);
+
+		return super.detailProcess(context);
+	}
+
 	public String deleteProcess(WebContext context) throws ServletException {
 		int infoSortId = context.getSIntParameter("infoSortIds");
 		context.put("infoSortId", infoSortId);
@@ -137,7 +172,7 @@ public class FileAction extends DispatchActions {
 
 		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
 		context.put("parInfoSortId", parInfoSortId);
-
+		
 		super.deleteProcess(context);
 
 		return "/file/actions.html?method=list&parInfoSortIds="
@@ -157,13 +192,23 @@ public class FileAction extends DispatchActions {
 			ajax = true;
 		}
 		context.put("ajax", ajax);
-
+		
+		if(startNum<0){
+			startNum=0;
+		}
 		int pageSize = context.getIntParameter("pageSize");
 		context.put("pageSize", pageSize);
 		if (pageSize <= 0) {
 			pageSize = 10;
 		}
-
+		context.put("pageSize", pageSize);
+		
+		int typeses = context.getIntParameter("typeses");
+		if(typeses!=0){
+			typeses=1;
+		}
+		context.put("typeses", typeses);
+		
 		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
 		context.put("parInfoSortId", parInfoSortId);
 
@@ -181,21 +226,22 @@ public class FileAction extends DispatchActions {
 		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
 				InfoSort.class, infoSortId);
 		context.put("infoSort", infoSort);
-		// ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½
+		
+		// µÃµ½·ÖÀàÓÐ¼¸²ã
 
-		// ï¿½ï¿½Ò»ï¿½ï¿½
+		// µÚÒ»²ã
 		List<Structure> structureList = structureService
 				.getStructureByInfoSortIdAndInStatus(infoSortId, 0);
 		context.put("structureList", structureList);
 
 		if (infoSort.getStatus() > 0) {
-			// ï¿½Ú¶ï¿½ï¿½ï¿½
+			// µÚ¶þ²ã
 			List<Structure> structureList1 = structureService
 					.getStructureByInfoSortIdAndInStatus(infoSortId, 1);
 			context.put("structureList1", structureList1);
 		}
 		if (infoSort.getStatus() == 2) {
-			// ï¿½ï¿½ï¿½ï¿½ï¿½
+			// µÚÈý²ã
 			List<Structure> structureList2 = structureService
 					.getStructureByInfoSortIdAndInStatus(infoSortId, 2);
 			context.put("structureList2", structureList2);
@@ -208,14 +254,14 @@ public class FileAction extends DispatchActions {
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
 			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, statuses,
-					0, startNum, 10);
+					0, startNum, startNum+10);
 			int num = service.getNumByInfoSortIdAndA5(infoSortId, a5, statuses,
 					0, 0, 0);
 			Pagination pagination = new Pagination(num, startNum, pageSize);
 
 			context.put("pagination1", pagination);
 		} else {
-			// ï¿½ï¿½1ï¿½ï¿½
+			// µÚ1²ã
 			int num1 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, 0, 0, context);
 			fileList = service.getFileByInfoSortIdAndParInfoSortIdAndStatus(
@@ -223,7 +269,7 @@ public class FileAction extends DispatchActions {
 			Pagination pagination = new Pagination(num1, startNum, pageSize);
 			context.put("pagination1", pagination);
 
-			// ï¿½ï¿½2ï¿½ï¿½
+			// µÚ2²ã
 			// if (parInfoSortId > 0) {
 			int num2 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, parInfoSortId, 1, context);
@@ -235,7 +281,7 @@ public class FileAction extends DispatchActions {
 			context.put("pagination2", pagination2);
 			// }
 
-			// ï¿½ï¿½3ï¿½ï¿½
+			// µÚ3²ã
 			// if (parparInfoSortId > 0) {
 			int num3 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
 					infoSortId, parparInfoSortId, 2, context);
@@ -262,7 +308,6 @@ public class FileAction extends DispatchActions {
 	public String getWebMenuType(WebContext context) throws ServletException {
 		return "file";
 	}
-
 	public String getTitles(String title) {
 		if (title == null) {
 			return "";

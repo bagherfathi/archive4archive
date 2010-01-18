@@ -6,6 +6,7 @@ import com.renhenet.fw.waf.BasePOForm;
 public class StructureForm extends BasePOForm {
     private int[] listseq;
 	private String serialNumber;
+	private String selectSerialNumber;
 	private String enName;
 	private String znName;
 	private String dictionaryName;
@@ -35,7 +36,15 @@ public class StructureForm extends BasePOForm {
 	private int ifThree;
 	private int isDhpz;
 
-    public int[] getListseq() {
+    public String getSelectSerialNumber() {
+		return selectSerialNumber;
+	}
+
+	public void setSelectSerialNumber(String selectSerialNumber) {
+		this.selectSerialNumber = selectSerialNumber;
+	}
+
+	public int[] getListseq() {
         return listseq;
     }
 

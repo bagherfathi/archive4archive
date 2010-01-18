@@ -136,75 +136,77 @@ public class FilePigeonholeAction extends DispatchActions {
 				|| context.getParameter("insert2") != null) {
 
 			FilePigeonholeForm form = (FilePigeonholeForm) context.getForm();
+			if (form != null && form.getFileGds() != null) {
+				for (int i = 0; i < form.getFileGds().length; i++) {
+					// 更新当前文件为已归档
+					File files = (File) service.getObjectById(File.class, form
+							.getFileGds()[i]);
 
-			for (int i = 0; i < form.getFileGds().length; i++) {
-				// 更新当前文件为已归档
-				File files = (File) service.getObjectById(File.class, form
-						.getFileGds()[i]);
+					if (context.getParameter("cm").indexOf("dsag") >= 0) {
+						files.setA7(form.getQzh());
+						files.setA6(form.getYear());
+						files.setA8(form.getBgqx());
+						files.setType(1);
+						service.updateObject(files);
 
-				if (context.getParameter("cm").indexOf("dsag") >= 0) {
-					files.setA7(form.getQzh());
-					files.setA6(form.getYear());
-					files.setA8(form.getBgqx());
+						return "/files/actions.html?method=list&infoSortId="
+								+ VMUtils.encrypt(infoSortId) + "&statuses="
+								+ VMUtils.encrypt(status) + "&cm="
+								+ context.getParameter("cm");
+					}
+
+					files.setA6("126");
 					files.setType(1);
 					service.updateObject(files);
 
-					return "/files/actions.html?method=list&infoSortId="
-							+ VMUtils.encrypt(infoSortId) + "&statuses="
-							+ VMUtils.encrypt(status) + "&cm="
-							+ context.getParameter("cm");
-				}
+					List<FilePigeonhole> filePigeonholeList = service
+							.getFilePigeonholeByInfoSortId(infoSortId);
 
-				files.setA6("126");
-				files.setType(1);
-				service.updateObject(files);
+					File filed = new File();
+					Object target = "";
+					for (FilePigeonhole filePigeonhole : filePigeonholeList) {
+						filed.setId(null);
+						Field[] fileds = files.getClass().getDeclaredFields();
+						try {
+							Method method = (files.getClass())
+									.getDeclaredMethod(getGetterOrSetterName(
+											filePigeonhole.getInfoColumn(),
+											"get"), null);
+							target = method.invoke(files, new Object[0]);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
 
-				List<FilePigeonhole> filePigeonholeList = service
-						.getFilePigeonholeByInfoSortId(infoSortId);
+						try {
+							log.info("fileds[0].getType()"
+									+ fileds[0].getType());
+							Method method = (filed.getClass())
+									.getDeclaredMethod(getGetterOrSetterName(
+											filePigeonhole.getInfoColumnTo(),
+											"set"), new String().getClass());
 
-				File filed = new File();
-				Object target = "";
-				for (FilePigeonhole filePigeonhole : filePigeonholeList) {
-					filed.setId(null);
-					Field[] fileds = files.getClass().getDeclaredFields();
-					try {
-						Method method = (files.getClass()).getDeclaredMethod(
-								getGetterOrSetterName(filePigeonhole
-										.getInfoColumn(), "get"), null);
-						target = method.invoke(files, new Object[0]);
-					} catch (Exception e) {
-						e.printStackTrace();
+							Object[] params = new Object[1];
+							params[0] = target;
+							/** */
+							/** 调用Setter方法,设置该对象的值 */
+							method.invoke(filed, params);
+
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
 					}
 
-					try {
-						log.info("fileds[0].getType()" + fileds[0].getType());
-						Method method = (filed.getClass()).getDeclaredMethod(
-								getGetterOrSetterName(filePigeonhole
-										.getInfoColumnTo(), "set"),
-								new String().getClass());
+					int infoSortIdTo = service
+							.getInfoSortIdsToByInfoSortId(infoSortId);
 
-						Object[] params = new Object[1];
-						params[0] = target;
-						/** */
-						/** 调用Setter方法,设置该对象的值 */
-						method.invoke(filed, params);
+					filed.setInfoSortId(infoSortIdTo);
+					filed.setA7(form.getQzh());
+					filed.setA6(form.getYear());
+					filed.setA8(form.getBgqx());
 
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+					service.insertObject(filed);
 				}
-
-				int infoSortIdTo = service
-						.getInfoSortIdsToByInfoSortId(infoSortId);
-
-				filed.setInfoSortId(infoSortIdTo);
-				filed.setA7(form.getQzh());
-				filed.setA6(form.getYear());
-				filed.setA8(form.getBgqx());
-
-				service.insertObject(filed);
 			}
-
 			return "/files/actions.html?method=list&infoSortId="
 					+ VMUtils.encrypt(infoSortId) + "&statuses="
 					+ VMUtils.encrypt(status) + "&cm="

@@ -39,6 +39,10 @@ public class DictionarySortAction extends DispatchActions {
 		int parentId = context.getSIntParameter("parentId");
 		context.put("parentId", parentId);
 
+		List<DictionarySort> dictionarySortList = service
+				.getDictionarySortByParentId(parentId);
+		context.put("dictionarySortList", dictionarySortList);
+
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {
 			DictionarySortForm form = (DictionarySortForm) context.getForm();
@@ -57,6 +61,10 @@ public class DictionarySortAction extends DispatchActions {
 	public String updateProcess(WebContext context) throws ServletException {
 		int parentId = context.getSIntParameter("parentId");
 		context.put("parentId", parentId);
+
+		List<DictionarySort> dictionarySortList = service
+				.getDictionarySortByParentId(parentId);
+		context.put("dictionarySortList", dictionarySortList);
 
 		if (context.getParameter("insert") != null
 				|| context.getParameter("insert2") != null) {

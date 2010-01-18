@@ -46,8 +46,15 @@ public class FileService extends CommonService {
 				hql += " and " + name + " like '%" + value + "%'";
 			}
 		}
-
-		hql += " order by id desc";
+		if (status == 0) {
+			hql += " order by a9 asc";
+		} else if (status == 1) {
+			hql += " order by a10 asc";
+		} else if (status == 2) {
+			hql += " order by a11 asc";
+		} else {
+			hql += " order by id asc";
+		}
 		return (List<File>) dao.find(hql, new Object[] { status }, startNum,
 				num);
 	}
@@ -111,31 +118,34 @@ public class FileService extends CommonService {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public List<File> getFileByInfoSortIdAnd(int infoSortId, String a5,   int statuses,
-			int parInfoSortId, int startNum, int num) {
+	public List<File> getFileByInfoSortIdAnd(int infoSortId, String a5,
+			int statuses, int parInfoSortId, int startNum, int num) {
 		StringBuffer query = new StringBuffer();
 		List args = new ArrayList();
 
-		query.append("SELECT * FROM files WHERE contains(a5,'" + a5
-				+ "',1) > 0  " 
-//                " and par_info_sort_id=" + parInfoSortId
-                +" and status="+statuses
-				+ " and info_sort_id =" + infoSortId
-				+ " ORDER BY score(1) desc");
+		query.append("SELECT * FROM (SELECT A.*, ROWNUM RN FROM "
+				+ "(SELECT * FROM files) A WHERE ROWNUM <= "+num+" and contains(a5,'" + a5 + "',1) > 0  "
+				// " and par_info_sort_id=" + parInfoSortId
+				+ " and status=" + statuses + " and info_sort_id ="
+				+ infoSortId + " ORDER BY score(1) desc) WHERE RN > "+startNum);
 
-		if (startNum > 0) {
-			query.append(" limit" + startNum + "," + num);
-		}
+		// query.append("SELECT * FROM files WHERE contains(a5,'" + a5
+		// + "',1) > 0 "
+		// // " and par_info_sort_id=" + parInfoSortId
+		// + " and status=" + statuses + " and info_sort_id ="
+		// + infoSortId + " ORDER BY score(1) desc");
+
+		
 
 		List<Object[]> oos = dao.executeQueryBySQL(query.toString(), null, args
 				.toArray());
 
 		List<File> vos = null;
 		if (oos != null && oos.size() > 0) {
-			File file =null;
+			File file = null;
 			vos = new ArrayList(oos.size());
 			for (Object[] oo : oos) {
-                file = new File();
+				file = new File();
 				file.setId(Integer.parseInt(oo[0] + ""));
 				file.setInfoSortId(Integer.parseInt(oo[1] + ""));
 				file.setStatus(new Integer(oo[2] + "").intValue());
@@ -250,16 +260,15 @@ public class FileService extends CommonService {
 	}
 
 	public int getNumByInfoSortIdAndA5(int infoSortId, String a5,
-			int parInfoSortId,int statuses, int startNum, int num) {
+			int parInfoSortId, int statuses, int startNum, int num) {
 		StringBuffer query = new StringBuffer();
 		List args = new ArrayList();
 
 		query.append("SELECT count(*) FROM files WHERE contains(a5,'" + a5
-				+ "',1) > 0" 
-//                "  and par_info_sort_id=" + parInfoSortId
-                +" and status="+statuses
-				+ " and info_sort_id =" + infoSortId
-				+ " ORDER BY score(1) desc");
+				+ "',1) > 0"
+				// " and par_info_sort_id=" + parInfoSortId
+				+ " and status=" + statuses + " and info_sort_id ="
+				+ infoSortId + " ORDER BY score(1) desc");
 
 		if (startNum > 0) {
 			query.append(" limit" + startNum + "," + num);
@@ -267,7 +276,6 @@ public class FileService extends CommonService {
 
 		List<Object[]> oos = dao.executeQueryBySQL(query.toString(), null, args
 				.toArray());
-
-		return Integer.parseInt(oos.get(0)[0].toString());
+		 return Integer.parseInt(oos.get(0)[0].toString());
 	}
 }
