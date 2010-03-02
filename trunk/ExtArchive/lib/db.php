@@ -5,6 +5,7 @@ $Host = ''. $iniconfig->get('DB.Host') .'';
 $Name = ''. $iniconfig->get('DB.Name') .'';
 $User = ''. $iniconfig->get('DB.User') .'';
 $Password = ''. $iniconfig->get('DB.Password') .'';
+$OperNo = '' . $iniconfig->get('SourceDB.OperNo') . '';
 //echo 'INI: '.$Host.'';
 //echo "\n";
 //echo 'INI: '.$Name.'';
