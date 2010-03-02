@@ -1,0 +1,16 @@
+/* CSS Document */
+body,td,th {
+	font-size: 12px;
+}
+/*Ñ¡Ïî¿¨1*/
+#lib_Tab1{width:763px;margin:0px;padding:0px;margin-bottom:600px;}
+/*²Ëµ¥class*/
+.lib_tabborder{border:1px solid #cccccc;}
+.lib_Menubox {height:28px;line-height:28px;position:relative;}
+
+.lib_Menubox ul{margin:0px;padding:0px;list-style:none; position:absolute; top:3px; left:0; margin-left:10px; height:25px;text-align:center;}
+.lib_Menubox li{float:left;display:block;cursor:pointer;width:114px;color:#949694;font-weight:bold; margin-right:2px;height:25px;line-height:25px; background-color:#EBEBEB}
+.lib_Menubox li.hover{padding:0px;background:#fff;width:116px;border-left:1px solid #cccccc;border-top:1px solid #cccccc;border-right:1px solid #cccccc;
+color:#739242;height:25px;line-height:25px;}
+.lib_Contentbox{clear:both;margin-top:0px; border-top:none;height:181px; text-align:left;padding-top:8px;}
+
