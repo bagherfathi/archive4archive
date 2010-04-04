@@ -22,6 +22,7 @@ import com.ft.rfms.entity.RfmsFlowCtrl;
 import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.entity.RfmsMerchantAudit;
 import com.ft.rfms.entity.RfmsMerchantBranch;
+import com.ft.rfms.entity.RfmsMerchantPayment;
 import com.ft.rfms.entity.RfmsMerchantPos;
 import com.ft.rfms.entity.dao.RfmsCommisionStepDAO;
 import com.ft.rfms.entity.dao.RfmsFlowCtrlDAO;
@@ -373,5 +374,27 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 		 return (Operator)this.baseDao.getObjectById(Operator.class, new Long(audit.getNextOperatorId()));
 		}
 		return null;
+	}
+	
+	/**
+	 * 对商户充值
+	 * @param merchantId
+	 * @param payment
+	 * @param appRquest
+	 * @throws Exception
+	 */
+	public void savePayment(Long merchantId,RfmsMerchantPayment payment,AppRequest appRequest) throws Exception{
+		RfmsMerchant merchant=this.merchantDAO.getById(merchantId);
+		//设置金额
+		this.appService.saveApp(appRequest);
+		if(merchant.getAmount()==null){
+			merchant.setAmount(new Long(0));
+		}
+		merchant.setAmount(merchant.getAmount()+payment.getAmount());
+		merchant = (RfmsMerchant) this.saveAndSetHistoryObject(merchant,
+				appRequest);
+		this.merchantDAO.saveOrUpdate(merchant);
+		this.baseDao.save(payment);
+		
 	}
 }
