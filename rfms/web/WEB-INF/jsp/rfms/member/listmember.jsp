@@ -17,7 +17,8 @@
 </script>
 <html:form action="/member" method="post">
 	<input type="hidden" value="search" name="act" />
-	<input type="hidden" name="searchObj.operatorId" value="<c:out value='${memberForm.currentUser.operatorId }'/>"/>
+	<input type="hidden" name="searchObj.operatorId"
+		value="<c:out value='${memberForm.currentUser.operatorId }'/>" />
 	<webui:panel title="会员管理" icon="../images/icon_search.gif" width="95%">
 		<webui:formTable>
 			<tr>
@@ -47,11 +48,15 @@
 			sortable="false" filterable="false" autoIncludeParameters="false"
 			tableId="memberForm" form="memberForm">
 			<webui:row>
-				<webui:column property="name" title="会员类别"
-					styleClass="td_normal">
-				</webui:column>
-				<webui:column sortable="true" property="memo" title="描述"
-					styleClass="td_normal" />
+				<webui:column property="name" title="会员名称" styleClass="td_normal"></webui:column>
+				<webui:column property="mobile" title="会员手机" styleClass="td_normal"></webui:column>
+				<webui:column property="address" title="地址" styleClass="td_normal"></webui:column>
+				<webui:column property="sex" title="性别">
+					<webui:lookup code="SEX@RFMS_CARD" value="${member.sex}" />
+				</webui:column>	
+				<webui:column property="status" title="会员类别">
+					<webui:lookup code="CODE_STATUS@RFMS_CARD" value="${member.status}" />
+				</webui:column>	
 				<webui:column property="op" title="title.rfms.common.operater"
 					width="3%">
 					<a href="<c:url value='/rfms/member.do?act=edit&id=${member.id}'/>"><bean:message
