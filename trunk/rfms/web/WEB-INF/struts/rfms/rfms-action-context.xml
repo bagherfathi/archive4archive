@@ -7,6 +7,12 @@
 <beans default-autowire="no" default-lazy-init="true"
 	default-dependency-check="none">
 
+	<bean id="memberAction" class="com.ft.rfms.web.merchant.MemberAction">
+		<property name="rfmsMemberService">
+			<ref bean="rfmsMemberService" />
+		</property>
+	</bean>
+
 	<bean id="merchantAction" class="com.ft.rfms.web.merchant.MerchantAction">
 		<property name="merchantService">
 			<ref bean="merchantService" />
