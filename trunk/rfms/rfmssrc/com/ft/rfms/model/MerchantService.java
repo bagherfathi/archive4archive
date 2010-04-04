@@ -12,6 +12,7 @@ import com.ft.rfms.entity.RfmsCommisionStep;
 import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.entity.RfmsMerchantAudit;
 import com.ft.rfms.entity.RfmsMerchantBranch;
+import com.ft.rfms.entity.RfmsMerchantPayment;
 import com.ft.rfms.entity.RfmsMerchantPos;
 import com.ft.sm.entity.Operator;
 
@@ -102,4 +103,13 @@ public interface MerchantService extends BaseService {
 	 * @throws Exception
 	 */
 	public Operator findOperatorByMerchantIdAndAuditStatus(Long merchantId,Long auditStatus)throws Exception;
+	
+	/**
+	 * 对商户充值
+	 * @param merchantId
+	 * @param payment
+	 * @param appRquest
+	 * @throws Exception
+	 */
+	public void savePayment(Long merchantId,RfmsMerchantPayment payment,AppRequest appRquest) throws Exception;
 }
