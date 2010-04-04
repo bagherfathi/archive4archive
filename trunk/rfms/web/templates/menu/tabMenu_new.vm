@@ -1,0 +1,313 @@
+<SCRIPT language=javascript src="res/jquery.pack.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=javascript type=text/JavaScript>       
+<!--
+var displaymode=0;
+#set($sheetPath="appThemes/"+$!{session.getAttribute("appThemes")}+"/")
+var StyleSheetPath="$sheetPath";
+function jumpto(inputurl)
+{
+    if (document.getElementById&&displaymode==0)
+        document.getElementById("main_right").src=inputurl
+    else if (document.all&&displaymode==0)
+        document.all.external.src=inputurl
+    else{
+        if (!window.win2||win2.closed)
+            win2=window.open(inputurl)
+        else{
+        }
+    }
+}
+
+function ShowMain(FileName_Left,FileName_Right)
+{
+    if(FileName_Left != "")
+    {
+        var checkLeftUrl = CheckCurrentLeftUrl(FileName_Left);
+        if(checkLeftUrl=="false")
+        {
+            document.getElementById("left").src = FileName_Left + GetUrlParm(FileName_Left);
+        }
+    }
+    if(FileName_Right != "")
+    {
+        document.getElementById("main_right").src = FileName_Right + GetUrlParm(FileName_Right);
+    }
+} 
+
+function CheckCurrentLeftUrl(leftUrl)
+{
+    var src = document.getElementById("left").src;
+    var regex = /\s*[\?&]{1,1}t=[0-9]{1,}$/;
+    var currentLeftUrl = src.replace(regex,'');
+    if(currentLeftUrl.lastIndexOf(leftUrl) >= 0)
+    {
+        if(currentLeftUrl.lastIndexOf(leftUrl) == (currentLeftUrl.length-leftUrl.length))
+        {
+            return "true";
+        }
+    }
+    return "false";
+}
+
+function GetUrlParm(url)
+{
+    var urlparm = "?";
+    if(url.indexOf('?')>=0)
+    {
+        urlparm = "&";
+    }
+    urlparm = urlparm + "t=" + GetRandomNum();
+    return urlparm;
+}
+  
+function ShowOperatingList(FileName_Left,FileName_Right)
+{
+    if(FileName_Left != "")
+    {
+        var checkLeftUrl = CheckCurrentLeftUrl(FileName_Left);
+        if(checkLeftUrl=="false")
+        {
+            document.getElementById("left").src = FileName_Left + GetUrlParm(FileName_Left);
+        }
+    }
+    if(FileName_Right != "")
+    {
+        document.getElementById("main_right").src = FileName_Right + GetUrlParm(FileName_Right);
+    }
+}
+
+function GetRandomNum()
+{
+        var Range = 1000;
+        var Rand = Math.random();
+        return (Math.round(Rand * Range));
+}
+
+function switchSysBar()
+{
+    var obj = document.getElementById("switchPoint");
+    if (obj.alt == "关闭左栏")
+    {
+        obj.alt = "打开左栏";
+        obj.src = "" + StyleSheetPath + "images/butOpen.gif";
+        document.getElementById("frmTitle").style.display="none";
+        var width,height
+        width=document.body.clientWidth-12;
+        height=document.body.clientHeight-70;
+        document.getElementById("main_right").style.height=height;
+        document.getElementById("main_right").style.width=width;  
+    }
+    else
+    {
+        obj.alt = "关闭左栏";
+        obj.src = "" + StyleSheetPath + "images/butClose.gif";
+        document.getElementById("frmTitle").style.display="";
+        onload();
+    }
+}
+
+var tID="";
+
+function ShowHideLayer(ID)
+{
+    if(ID != tID)
+    {
+        if(tID != "")
+        {
+            document.getElementById(tID).style.display="none";
+            document.getElementById("A"+tID).style.backgroundImage = "url(" + StyleSheetPath + "images/digital_left.gif)";
+            document.getElementById("Span"+tID).style.backgroundImage = "url(" + StyleSheetPath + "images/digital_side.gif)";
+            document.getElementById("Span"+tID).className = "digitaltext";
+        }
+        document.getElementById(ID).style.display = "";
+        document.getElementById("A"+ID).style.backgroundImage ="url(" + StyleSheetPath + "images/seg_left.gif)";
+        document.getElementById("Span"+ID).style.backgroundImage = "url(" + StyleSheetPath + "images/seg_side.gif)";
+        document.getElementById("Span"+ID).className = "segtext";
+        //alert(document.getElementById(ID).innerHTML);
+        tID=ID;
+    }
+}
+
+var message=0,order=0,time=0,uncheckarticle=0;
+var unsigninarticle=0,stockalarm=0,noconsignment=0;
+var mintime=5000,addtime=1000,maxtime=50000;
+var clock;
+function timeOut()
+{
+    if(time>=(maxtime-mintime)/addtime)
+       time=(maxtime-mintime)/addtime;
+    return mintime+addtime*time;
+}
+function OpenLink(FileName_Left,FileName_Right)
+{
+    if(parent.document.getElementById("left").src != FileName_Left)
+    {
+        parent.document.getElementById("left").src=FileName_Left;
+    }
+    parent.document.getElementById("main_right").src=FileName_Right;
+}
+function openMessageManage()
+{OpenLink('Accessories/MessageGuide.aspx','Accessories/MessageManage.aspx');}
+function openOrderList()
+{OpenLink('Shop/OrderGuide.aspx','Shop/OrderList.aspx?SearchType=4');}
+function openContentManage()
+{OpenLink('Contents/NodeTree.aspx','Contents/ContentManage.aspx?Status=101');}
+function openCommentManage()
+{OpenLink('Contents/CommentGuide.aspx','Contents/CommentManage.aspx?Enquiries=true&SearchType=2');}
+function openContentSignin()
+{OpenLink('Contents/NodeTree.aspx','Contents/ContentSignin.aspx');}
+function openProductManage(type)
+{OpenLink('Shop/ShopNodeTree.aspx','Shop/ProductManage.aspx?SearchType=SpeedSearch&Keyword='+type.toString());}
+function openNoConsignment()
+{OpenLink('Shop/OrderGuide.aspx','Shop/OrderList.aspx?SearchType=7');}
+function showPop()
+{
+      
+}
+var isShowPop = true;
+function ClosePop()
+{
+    $('#showPop').hide('slow');
+    isShowPop = false;
+}
+##$(document).ready(function(){
+##     $("#info").ajaxComplete(function(whoareyou, request, settings){
+##     clearTimeout(clock);
+##     if(isShowPop)
+##     {
+##        clock=setTimeout("showPop()",timeOut());
+##     }
+##     });
+##     if(isShowPop)
+##        showPop();
+        
+##    setTimeout("ClosePop()",30000);
+##    });
+    //-->
+</SCRIPT>
+
+
+<SCRIPT type=text/JavaScript>
+function show(id){
+var obj;
+obj=document.getElementById('PopMenu_'+id);	obj.style.visibility="visible";
+}
+
+function hide(id){
+var obj;
+obj=document.getElementById('PopMenu_'+id);	obj.style.visibility="hidden";
+}
+
+function hideOthers(id){
+var divs;
+if(document.all)
+{
+  divs = document.all.tags('DIV');
+}
+else
+{
+  divs = document.getElementsByTagName("DIV");
+}
+
+for(var i = 0 ;i < divs.length;i++)
+{
+	if(divs[i].id != 'PopMenu_'+id && divs[i].id.indexOf('PopMenu_')>=0)
+	{	    divs[i].style.visibility="hidden";
+	}
+}
+}
+	
+</SCRIPT>
+	
+##第一个显示的菜单
+#set($defaultMenu=1)
+#set($defaultSubMenu=1)
+
+<DIV id=content>
+<UL id="ChannelMenuItems">
+#set($level = 0) 
+#foreach ($menuItem in $menu.components) 
+#set ($level = $level+1) 
+#set($menuClass = "menu1_up")
+#if($level==1) 
+#set($menuClass="menu1_down") 
+#end
+	<LI id="topMenu_$!menuItem.name"
+		onClick="ShowHideLayer('ChannelMenu_$!menuItem.name')"><A
+		id="AChannelMenu_$!menuItem.name" href="javascript:ShowHideLayer('ChannelMenu_$!menuItem.name')"> <SPAN
+		id="SpanChannelMenu_$!menuItem.name">${menuItem.title}</SPAN> </A></LI>
+#end
+</UL>
+
+
+<DIV id="SubMenu">#set($level = 0) 
+#foreach ($menuItem in $menu.components) 
+#set ($level = $level+1) 
+#set($level2 = 0)
+#set($menuDisplay = "none") 
+#if($level==1) 
+#set($menuDisplay="") 
+#end
+
+#if($level==1 && $level2==0)
+#set($defaultMenu=$!menuItem.name)
+#end
+<DIV id="ChannelMenu_$!menuItem.name" style="display:none; WIDTH:100%">
+<UL>
+		#foreach ($menuItem2 in $menuItem.components) 
+		#set ($level2 =	$level2+1) 
+		#if($menuItem2.components.size()>0) 
+		        #if($level2==1 && $level==1)
+		        #set($defaultSubMenu=$!menuItem2.name)
+		<LI onMouseOver="show('$!menuItem2.name');hideOthers('$!menuItem2.name');"
+			onmouseout="hide('$!menuItem2.name')"><A href="javascript:ShowMain('sm/leftMenu.do?menuname=$!menuItem2.name','#')">${menuItem2.title}</A></LI>
+	           #else
+		<LI onMouseOver="show('$!menuItem2.name');hideOthers('$!menuItem2.name');"
+			onmouseout="hide('$!menuItem2.name')"><A href="javascript:ShowMain('sm/leftMenu.do?menuname=$!menuItem2.name','#')">${menuItem2.title}</A></LI>
+		       #end
+		#else
+		<LI onMouseOver="show('$!menuItem2.name');hideOthers('$!menuItem2.name');"
+			onmouseout="hide('$!menuItem2.name')"><A href="#">${menuItem2.title}</A></LI>
+		#end 
+		##div 显示左边的菜单
+			#if($menuItem2.components.size()>0) 
+			 <DIV class=SubMenuDiv id="PopMenu_$!menuItem2.name" 
+		        onmouseover="show('$!menuItem2.name')" onclick="hide('$!menuItem2.name')"  onmouseout="hide('$!menuItem2.name')">
+		        <DL>
+		          <DD>
+		          #foreach ($menuItem3 in $menuItem2.components) 
+		          <SPAN><A href="javascript:ShowOperatingList('sm/leftMenu.do?menuname=$!menuItem2.name','$!menuItem3.url')">$!menuItem3.title</A></SPAN> 
+		          #end
+		          </DD></DL><IFRAME id="iframe_$!menuItem2.name" 
+		        style="Z-INDEX: -1; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; POSITION: absolute; TOP: 0px; BORDER-BOTTOM-STYLE: none" 
+		        src="about:blank" frameBorder=0 width="100%" 
+		        height=20></IFRAME></DIV>
+		   #end    
+	  #end 
+ </UL>
+</DIV>
+#end
+
+</DIV>
+</DIV>
+</TD>
+</TR>
+<TR style="VERTICAL-ALIGN: top" height="95%">
+    <TD id=frmTitle width="10%">
+    <IFRAME id="left" style="Z-INDEX: 2; VISIBILITY: inherit; WIDTH: 195px; HEIGHT: 100%" 
+      name="left" src="sm/leftMenu.do?menuname=$!defaultSubMenu" frameBorder="0"></IFRAME></TD>
+    <TD class=but onclick="switchSysBar()">
+	<IMG id="switchPoint"  style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; WIDTH: 12px; BORDER-BOTTOM: 0px"  alt="关闭左栏" src="$!sheetPath/images/butClose.gif">
+	</TD>
+    <TD width="90%"  border="0">
+    <IFRAME id="main_right" width="100%" height="100%" name="main_right" src="blank.htm" frameBorder="0" scrolling=auto></IFRAME>
+
+
+<SCRIPT type=text/javascript>
+    <!--
+    ShowHideLayer('ChannelMenu_$!defaultMenu');
+    ##ShowMain('sm/leftMenu.do?menuname=$!defaultSubMenu','#');
+    //-->
+</SCRIPT>

@@ -1,0 +1,81 @@
+<SCRIPT language=javascript type=text/JavaScript>       
+<!--
+    function JumpToMainRight(url) {parent.frames["main_right"].location = url;}
+    function ReloadMainRight() { parent.frames["main_right"].location.reload(); }
+    function Switch(obj)
+    {
+        obj.className = (obj.className == "guideexpand") ? "guidecollapse" : "guideexpand";
+        var nextDiv;
+        if (obj.nextSibling)
+        {
+            if(obj.nextSibling.nodeName=="DIV")
+            {
+                nextDiv = obj.nextSibling;
+            }
+            else
+            {
+                if(obj.nextSibling.nextSibling)
+                {
+                    if(obj.nextSibling.nextSibling.nodeName=="DIV")
+                    {
+                        nextDiv = obj.nextSibling.nextSibling;
+                    }
+                }
+            }
+            if(nextDiv)
+            {
+                nextDiv.style.display = (nextDiv.style.display != "") ? "" : "none"; 
+            }
+        }
+    }
+    function keylock(evt)
+    {
+	    if((evt.keyCode == 13) && (this.OpenMainRight))
+	    {
+	        this.OpenMainRight();
+	    }
+    }
+    String.prototype.trim = function()
+    {
+        // 用正则表达式将前后空格
+        // 用空字符串替代。
+        return this.replace(/(^\s*)|(\s*$)/g, "");
+    }
+    -->
+</script>
+   <div id="Guide_back"  style="width:195">
+     <ul>
+     <li id="Guide_top">
+     <div id="Guide_toptext">$!menu.title</div>
+     </li>
+  <li id="Guide_main">
+  <div id="Guide_box">
+  <DIV class=guideexpand onclick=Switch(this)>常规操作</DIV>
+	  <div class="guide"  style="width:165">
+		  <ul id="Links">
+		#foreach ($menuItem in $menu.components) 
+		  #set ($title = $menuItem.title)
+		  #if ($menuItem.components.size()>0)
+		  <li id="_links_$!menuItem.name"><a href="javascript:JumpToMainRight('$!menuItem.url')">$!menuItem.title</a></li>
+		  #else
+		  <li id="_links_$!menuItem.name"><a href="javascript:JumpToMainRight('$!menuItem.url')">$!menuItem.title</a></li>
+		  #end
+		#end
+		  </ul>
+	    </div>
+	    
+    <DIV class="guidecollapse" onclick=Switch(this)>常用操作</DIV>
+    <div class="guide" style="width:165">
+    <ul>
+		  <li id="_links_logout"><a href="javascript:JumpToMainRight('../logout.do')">退出登录</a></li>
+		  <li id="_links_logout"><a href="javascript:JumpToMainRight('./opSelf.do')">修改密码</a></li>
+	</ul>
+    </div>
+    <!--
+    <DIV class="guidecollapse" onclick=Switch(this)>快速查找</DIV>
+    <div class="guide" style="width:165"></div> -->
+ </div>
+   </li>
+    <li id="Guide_bottom"></li>
+  </ul>
+ </div> 

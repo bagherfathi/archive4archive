@@ -1,0 +1,6 @@
+<!-- fieldset block begin -->
+ 
+#if($drawRes.showButton=="true")
+<span 	class="clsButtonFace NOPRINT"><a href="${drawRes.drawUrl}">¡Ï¡œ </a>
+</span>
+#end

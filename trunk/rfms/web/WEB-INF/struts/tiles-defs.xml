@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>	
+    <definition name="main.layout" path="/WEB-INF/jsp/layout/mainLayout.jsp"/>
+    <definition name="classic.layout" path="/WEB-INF/jsp/layout/classicLayout.jsp"/>
+    <definition name="tree.layout" path="/WEB-INF/jsp/layout/treeFrameLayout.jsp"/>
+	<definition name="common.exception.error.page"	path="/WEB-INF/jsp/commons/error.jsp"/> 
+	<definition name="cs.layout" path="/WEB-INF/jsp/layout/csMainLayout.jsp"/>   
+</tiles-definitions>

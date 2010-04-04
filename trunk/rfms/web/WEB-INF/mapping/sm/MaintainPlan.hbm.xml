@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="MaintainPlan"
+		table="SM_MAINTAIN_PLAN"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="planId"
+			type="long"
+			column="PLAN_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="planName"
+			column="PLAN_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="planDesc"
+			column="PLAN_DESC"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="planCycle"
+			column="PLAN_CYCLE"
+			type="long"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="cycleUnit"
+			column="CYCLE_UNIT"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="<XDtConfig:configParameterValue paramName="Xmlencoding"/>" ?>
+<struts-config>
+  <form-beans>
+  <XDtClass:forAllClasses>
+  <XDtClass:forAllClassTags tagName="struts.form">
+    <form-bean name="<XDtClass:classTagValue tagName="struts.form" paramName="name"/>"
+        type="<XDtClass:fullClassName/>"
+        >
+       <XDtMethod:forAllMethods sort="true" superclasses="true">
+        <XDtMethod:forAllMethodTags tagName="struts.entity-field">
+        <form-property 
+		  <XDtMethod:ifHasMethodTag tagName="struts.entity-field" paramName="name">
+            name="<XDtMethod:methodTagValue tagName="struts.entity-field" paramName="name"/>"
+		  </XDtMethod:ifHasMethodTag>
+		  <XDtMethod:ifDoesntHaveMethodTag tagName="struts.entity-field" paramName="name">
+		    name="<XDtMethod:propertyName/>"
+		  </XDtMethod:ifDoesntHaveMethodTag>
+		  <XDtMethod:ifHasMethodTag tagName="struts.entity-field" paramName="className">
+            className="<XDtMethod:methodTagValue tagName="struts.entity-field" paramName="className"/>"
+		  </XDtMethod:ifHasMethodTag>
+		  <XDtMethod:ifHasMethodTag tagName="struts.entity-field" paramName="type">
+            type="<XDtMethod:methodTagValue tagName="struts.entity-field" paramName="type"/>"
+		  </XDtMethod:ifHasMethodTag>
+		  <XDtMethod:ifDoesntHaveMethodTag tagName="struts.entity-field" paramName="type">
+		    type="<XDtMethod:methodType/>"
+		  </XDtMethod:ifDoesntHaveMethodTag>
+          <XDtMethod:ifHasMethodTag tagName="struts.entity-field" paramName="initial">
+            initial="<XDtMethod:methodTagValue tagName="struts.entity-field" paramName="initial"/>"
+          </XDtMethod:ifHasMethodTag>
+          <XDtMethod:ifHasMethodTag tagName="struts.entity-field" paramName="size">
+            size="<XDtMethod:methodTagValue tagName="struts.entity-field" paramName="size"/>"
+          </XDtMethod:ifHasMethodTag>
+            />
+        </XDtMethod:forAllMethodTags>
+       </XDtMethod:forAllMethods>
+    </form-bean>
+  </XDtClass:forAllClassTags>
+  </XDtClass:forAllClasses>
+ </form-beans>
+ <action-mappings>
+ 
+  <XDtClass:forAllClasses>
+  <XDtClass:forAllClassTags tagName="struts.action">
+    <action path="<XDtClass:classTagValue tagName="struts.action" paramName="path"/>"
+        type="<XDtClass:fullClassName/>"
+        <XDtMethod:ifHasMethodTag tagName="struts.action" paramName="message">
+            input="<XDtMethod:methodTagValue tagName="struts.action" paramName="message"/>"
+		</XDtMethod:ifHasMethodTag>
+        >
+  	    <XDtMethod:forAllMethods sort="true" superclasses="false">
+        <XDtMethod:forAllMethodTags tagName="struts.message">
+	      	<forward
+	      		name="<XDtMethod:methodName/>"
+			  <XDtMethod:ifHasMethodTag tagName="struts.message" paramName="key">
+	            path="<XDtMethod:methodTagValue tagName="struts.message" paramName="key"/>"
+			  </XDtMethod:ifHasMethodTag>
+			  <XDtMethod:ifHasMethodTag tagName="struts.message" paramName="scope">
+			   module="<XDtMethod:methodTagValue tagName="struts.message" paramName="scope"/>"
+			  </XDtMethod:ifHasMethodTag>
+			  />   
+        </XDtMethod:forAllMethodTags>
+       </XDtMethod:forAllMethods>
+    </action>
+  </XDtClass:forAllClassTags>
+  </XDtClass:forAllClasses>
+ </action-mappings> 
+</struts-config>
+ 

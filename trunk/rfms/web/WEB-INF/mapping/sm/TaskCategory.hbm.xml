@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="TaskCategory"
+		table="SM_TASK_CATEGORY"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="categoryId"
+			type="long"
+			column="CATEGORY_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="categoryName"
+			column="CATEGORY_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="categoryDesc"
+			column="CATEGORY_DESC"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

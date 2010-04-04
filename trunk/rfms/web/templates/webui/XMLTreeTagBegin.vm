@@ -1,0 +1,18 @@
+var tree,tree2 = null;
+	function doOnLoad(){
+		var imSrcAr = new Array($!{xmlTree.images})
+		var imAr = new Array(0);
+		for(var i=0;i<imSrcAr.length;i++){
+			imAr[imAr.length] = new Image();
+			imAr[imAr.length-1].src = "../images/"+imSrcAr[i]
+		}
+		tree=new dhtmlXTreeObject(document.getElementById('${xmlTree.treeId}'),"100%","100%",0);
+		tree.setImagePath('$!{xmlTree.imagePath}');
+		tree.setDragHandler($!{xmlTree.dragHandler});
+		tree.enableCheckBoxes($!{xmlTree.enableCheckBox});
+		tree.enableThreeStateCheckboxes(true);
+		tree.enableDragAndDrop($!{xmlTreeenableDragAndDrop});
+		tree.setOnRightClickHandler($!{xmlTree.onClickHandler});
+		tree.setOnClickHandler($!{xmlTree.onRightClickHandler});
+		tree.loadXML('${xmlTree.xmlURL}');
+	}

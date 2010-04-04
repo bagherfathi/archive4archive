@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-4-3 21:22:51 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.ft.rfms.entity.RfmsMemberType" table="RFMS_MEMBER_TYPE" schema="RFMS">
+        <meta attribute="sync-DAO">true</meta>
+		<id
+			name="id"
+			type="java.lang.Long"
+			column="ID"
+		>
+			<generator class="sequence">
+			    <param name="sequence">RFMS.RFMS_MERCHANT_SEQ</param>
+			</generator>
+		</id>
+        <property name="name" type="string">
+            <column name="NAME" />
+        </property>
+        <property name="memo" type="string">
+            <column name="MEMO" />
+        </property>
+        <property name="createDate" type="date">
+            <column name="CREATE_DATE" length="7" />
+        </property>
+        <property name="updateDate" type="date">
+            <column name="UPDATE_DATE" length="7" />
+        </property>
+        <property name="operatorId" type="java.lang.Long">
+            <column name="OPERATOR_ID" precision="14" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

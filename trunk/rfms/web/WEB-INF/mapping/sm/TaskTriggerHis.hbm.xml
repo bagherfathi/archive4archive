@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="TaskTriggerHis"
+		table="SM_TASK_TRIGGER_HIS"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="hisId"
+			type="long"
+			column="HIS_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="triggerId"
+			column="TRIGGER_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="taskId"
+			column="TASK_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="taskName"
+			column="TASK_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="className"
+			column="CLASS_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="methodName"
+			column="METHOD_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="triggerDesc"
+			column="TRIGGER_DESC"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="endTime"
+			column="END_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="startTime"
+			column="START_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="App"
+		table="SM_APP"
+		schema="RFMS"
+	>
+		<id
+			name="appId"
+			type="long"
+			column="APP_ID"
+		>
+			<generator class="sequence">
+			    <param name="sequence">RFMS.SM_APP_SEQ</param>
+			</generator>
+		</id>
+
+		<property
+			name="appCode"
+			column="APP_CODE"
+			type="java.lang.String"
+			not-null="true"
+			length="63"
+		/>
+		<property
+			name="appTime"
+			column="APP_TIME"
+			type="java.util.Date"
+			not-null="true"
+			length="7"
+		/>
+		<property
+			name="appAction"
+			column="APP_ACTION"
+			type="java.lang.String"
+			not-null="false"
+			length="63"
+		/>
+		<property
+			name="relatAppId"
+			column="RELAT_APP_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="notes"
+			column="NOTES"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="orgId"
+			column="ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="loginOrgId"
+			column="LOGIN_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="appStatus"
+			column="APP_STATUS"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="recOrgId"
+			column="REC_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="corpOrgId"
+			column="CORP_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

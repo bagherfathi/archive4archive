@@ -1,0 +1,13 @@
+<SCRIPT LANGUAGE="JavaScript">
+function init(){
+    fitRegion(${regionTag.formName}['${regionTag.province}'],"1","");
+    //cityKey = getKeyByDescription("");
+    fitCity(${regionTag.formName}['${regionTag.city}'],${regionTag.formName}['${regionTag.province}'].value,"");
+    fitDistrict(${regionTag.formName}['${regionTag.district}'],${regionTag.formName}['${regionTag.city}'].value,"0");
+    fitRegion(${regionTag.formName}['${regionTag.street}'],${regionTag.formName}['${regionTag.district}'].value,"");
+    fitRegion(${regionTag.formName}['${regionTag.zone}'],${regionTag.formName}['${regionTag.street}'].value,"");
+    fitRegion(${regionTag.formName}['${regionTag.community}'],${regionTag.formName}['${regionTag.zone}'].value,"0");
+	${regionTag.formName}['${regionTag.city}'].focus();
+}
+init();
+</SCRIPT>

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="RuleFile"
+		table="SM_RULE_FILE"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="fileId"
+			type="long"
+			column="FILE_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="ruleId"
+			column="RULE_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="fileContent"
+			column="FILE_CONTENT"
+			type="org.springframework.orm.hibernate3.support.BlobByteArrayType"
+			not-null="false"
+		/>
+		<property
+			name="version"
+			column="VERSION"
+			type="long"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="uploadTime"
+			column="UPLOAD_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="publisher"
+			column="PUBLISHER"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='GBK'?>
+#if($child == false)
+<tree id="0">
+<item text="$root.nodeName#if($root.nodeStatus.toString()=="1")(禁止)#end" 
+    id="#if(${root.nodeType}!="")${root.nodeType}_#end$root.nodeId"  
+    im0="book.gif" im1="books_open.gif" im2="books_close.gif" child="1" select="1" open="1">
+   #foreach( $elem in $children )
+     <item text="$elem.nodeName#if($elem.nodeStatus.toString()=="1")(禁止)#end" 
+      id="#if(${elem.nodeType}!="")${elem.nodeType}_#end$elem.nodeId"
+      im0="book.gif" im1="books_open.gif" im2="book.gif" child="1">
+     </item>    
+   #end  
+</item>
+</tree>
+#end 
+
+#if($child == true)
+<tree id="$type_id">
+   #foreach( $elem in $children )
+     <item text="$elem.nodeName#if($elem.nodeStatus.toString()=="1")(禁止)#end" 
+      id="#if(${elem.nodeType}!="")${elem.nodeType}_#end$elem.nodeId" 
+      im0="book.gif" im1="books_open.gif" im2="book.gif" child="1">
+     </item>    
+   #end
+</tree>
+#end 

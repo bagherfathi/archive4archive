@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<project name="RFMS" default="build">
+
+
+
+	<!-- 读入配置文件 -->
+	<property name="build.properties" value="build1.properties" />
+	<property file="${build.properties}" />
+
+
+	<patternset id="jarfiles">
+		<include name="*.jar" />
+		<include name="*.zip" />
+	</patternset>
+	<path id="classpath">
+		<fileset dir="${lib}">
+			<patternset refid="jarfiles" />
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${cms.lib}">
+			<patternset refid="jarfiles" />
+		</fileset>
+	</path>
+	<path id="conf">
+		<fileset dir="RFMS/WEB-INF/conf">
+		</fileset>
+	</path>
+
+	<path id="allclasspath">
+		<path refid="classpath" />
+		<path refid="conf" />
+	</path>
+
+	<target name="compile-common">
+		<delete dir="${build}/common" />
+		<delete file="${cms.lib}/RFMS-common.jar" />
+		<mkdir dir="${build}/common" />
+		<javac srcdir="${commonsrc}" encoding="GBK" destdir="${build}/common" deprecation="yes" debug="no" source="1.5">
+			<classpath refid="classpath" />
+		</javac>
+		<jar destfile="${cms.lib}/RFMS-common.jar">
+			<zipfileset dir="${build}/common">
+				<include name="**/*.class" />
+				<include name="**/*.properties" />
+			</zipfileset>
+			<zipfileset dir="${commonsrc}">
+				<include name="**/*.properties" />
+			</zipfileset>
+		</jar>
+
+	</target>
+
+	<target name="compile-sm">
+		<delete dir="${build}/sm" />
+		<delete file="${cms.lib}/RFMS-sm.jar" />
+		<mkdir dir="${build}/sm" />
+		<javac srcdir="${smsrc}" encoding="GBK" destdir="${build}/sm" deprecation="yes" debug="yes" source="1.5">
+			<classpath refid="classpath" />
+		</javac>
+
+		<javac srcdir="${smwebsrc}" encoding="GBK" destdir="${build}/sm" deprecation="yes" debug="yes" source="1.5">
+			<classpath refid="classpath" />
+		</javac>
+		<jar destfile="${cms.lib}/RFMS-sm.jar">
+			<zipfileset dir="${build}/sm">
+				<include name="**/*.class" />
+				<include name="**/*.properties" />
+			</zipfileset>
+			<zipfileset dir="${smsrc}">
+				<include name="**/*.properties" />
+			</zipfileset>
+			<zipfileset dir="${smwebsrc}">
+				<include name="**/*.properties" />
+			</zipfileset>
+		</jar>
+
+	</target>
+
+
+	<target name="compile-rfms">
+		<delete dir="${build}/rfms" />
+		<delete file="${cms.lib}/RFMS.jar" />
+		<mkdir dir="${build}/rfms" />
+		<javac srcdir="${rfmssrc}" encoding="GBK" destdir="${build}/rfms" deprecation="yes" debug="yes" source="1.5">
+			<classpath refid="classpath" />
+		</javac>
+
+		<javac srcdir="${rfmswebsrc}" encoding="GBK" destdir="${build}/rfms" deprecation="yes" debug="yes" source="1.5">
+			<classpath refid="classpath" />
+		</javac>
+		<jar destfile="${cms.lib}/RFMS.jar">
+			<zipfileset dir="${build}/rfms">
+				<include name="**/*.class" />
+				<include name="**/*.properties" />
+			</zipfileset>
+			<zipfileset dir="${rfmssrc}">
+				<include name="**/*.properties" />
+			</zipfileset>
+			<zipfileset dir="${rfmswebsrc}">
+				<include name="**/*.properties" />
+			</zipfileset>
+		</jar>
+
+	</target>
+
+	<target name="compile-all" depends="compile-common,compile-sm,compile-rfms">
+	</target>
+
+	<target name="build" depends="clear">
+		<delete dir="../dist/rfmsweb">
+		</delete>
+		<mkdir dir="../dist/rfmsweb" />
+		<copy todir="../dist/rfmsweb" overwrite="true">
+			<fileset dir="../web">
+				<include name="**/*.*" />
+				<exclude name="**/svn/*.*" />
+				<exclude name="**/WEB-INF/lib/**/*" />
+				<!--<exclude name="**/WEB-INF/classes/**/*" />-->
+			</fileset>
+		</copy>
+
+		<mkdir dir="../dist/rfmsweb/WEB-INF/classes" />
+		<mkdir dir="../dist/rfmsweb/WEB-INF/lib" />
+		<!--
+		<copy todir="${build}/rfmsweb/WEB-INF/lib" overwrite="true">
+			
+			<fileset dir="${lib}">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/ant">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/antlr">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/aopalliance">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/asm">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/aspectj">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/axis">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/bnd">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/bsh">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/c3p0">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/caucho">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/cglib">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/commonj">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/concurrent">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/dom4j">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/drools">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/easymock">
+				<include name="*.*" />
+			</fileset>
+
+			<fileset dir="${lib}/ehcache">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/fck">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/freemarker">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/glassfish">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/groovy">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/hibernate">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/hsqldb">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/ibatis">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/itext">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/j2ee">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jakarta-commons">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jakarta-taglibs">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jamon">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jarjar">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jasperreports">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jaxws">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jdo">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jexcelapi">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jfree">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jmx">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jotm">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/jruby">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/junit">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/log4j">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/maven">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/oc4j">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/openjpa">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/poi">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/portlet">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/qdox">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/quartz">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/serp">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/slf4j">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/srping">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/struts">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/testng">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/tiles">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/tomcat">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/toplink">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/velocity">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/websphere">
+				<include name="*.*" />
+			</fileset>
+			<fileset dir="${lib}/xerces">
+				<include name="*.*" />
+			</fileset>
+			
+		</copy>
+		-->
+		<copy todir="../dist/rfmsweb/WEB-INF/lib" overwrite="true">
+			<fileset dir="../dist/jar">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+
+	</target>
+
+
+	<target name="clear">
+		<delete dir="${build}/rfms" />
+		<delete dir="${build}/sm" />
+	    <delete dir="${build}/common" />
+		<delete dir="${build}/jar" />
+		<delete dir="${build}/rfmsweb" />
+		<mkdir dir="${build}/rfms" />
+				<mkdir dir="${build}/sm" />
+			    <mkdir dir="${build}/common" />
+				<mkdir dir="${build}/jar" />
+				<mkdir dir="${build}/rfmsweb" />
+	</target>
+	
+	<target name="rfmsweb.war" depends="build">
+	  <war warfile="${build}/rfmsweb.war" webxml="${build}/rfmsweb/WEB-INF/web.xml">
+	   <lib dir="${build}/rfmsweb/WEB-INF/lib"/>
+	   <classes dir = "${build}/rfmsweb/WEB-INF/classes"/>
+	   <fileset dir="${build}/rfmsweb">
+	   </fileset>
+	  </war>
+	 
+	 </target>
+
+</project>

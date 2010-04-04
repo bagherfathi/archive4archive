@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/spring/common-context.xml,/WEB-INF/spring/sm/*.xml,/WEB-INF/spring/rfms/*.xml
+		</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>extremecomponentsPreferencesLocation</param-name>
+		<param-value>/extremetable.properties</param-value>
+	</context-param>
+
+	<filter>
+		<filter-name>Set Character Encoding</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>GBK</param-value>
+		</init-param>
+	</filter>
+	<!--
+		<filter>
+		<filter-name>eXtremeExport</filter-name> 
+		<filter-class>
+		org.extremecomponents.table.filter.ExportFilter
+		</filter-class>
+		<init-param> 
+		<param-name>responseHeadersSetBeforeDoFilter</param-name>
+		<param-value>true</param-value> </init-param>
+		</filter>
+	-->
+	<filter>
+		<filter-name>PermissionChecker</filter-name>
+		<filter-class>
+			com.ft.common.security.filter.PermissionCheckerFilter
+		</filter-class>
+		<init-param>
+			<param-name>checkPermission</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>loginRedirectUrl</param-name>
+			<param-value>/logout.do</param-value>
+		</init-param>
+		<init-param>
+			<param-name>noPermissionRedirecUrl</param-name>
+			<param-value>/noPermission.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>permissionSkipPattern</param-name>
+			<param-value>
+				/\/login|\/logout|\/main|\/top|\/bottom|\/*Tree|\/dialog/
+			</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>PermissionChecker</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<!--
+		<filter-mapping>
+		<filter-name>eXtremeExport</filter-name> <url-pattern>/*</url-pattern>
+		</filter-mapping>
+	-->
+	<listener>
+		<listener-class>
+			com.ft.spring.web.SpringContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			com.ft.webui.context.WebUIContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			com.ft.commons.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			com.ft.common.session.OperatorSessionListener
+		</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>
+			org.apache.struts.action.ActionServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/sm</param-name>
+			<param-value>
+				/WEB-INF/struts/sm/sm-struts-config.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/rfms</param-name>
+			<param-value>
+				/WEB-INF/struts/rfms/rfms-struts-config.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>Connector</servlet-name>
+		<servlet-class>
+			net.fckeditor.connector.ConnectorServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DisplayChart</servlet-name>
+		<servlet-class>
+			org.jfree.chart.servlet.DisplayChart
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<servlet-class>
+			com.ft.commons.web.servlet.FileUploadServlet
+		</servlet-class>
+		<init-param>
+			<param-name>uploadPath</param-name>
+			<param-value>/uploadFiles</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>ImageServlet</servlet-name>
+		<servlet-class>
+			net.sf.jasperreports.j2ee.servlets.ImageServlet
+		</servlet-class>
+	</servlet>
+	<!-- servlet>
+		<servlet-name>ReportServer</servlet-name>
+		<servlet-class>com.fr.web.ReportServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ReportServer</servlet-name>
+		<url-pattern>/ReportServer</url-pattern>
+	</servlet-mapping-->
+	<servlet-mapping>
+		<servlet-name>ImageServlet</servlet-name>
+		<url-pattern>/servlets/image</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FileUploadServlet</servlet-name>
+		<url-pattern>/fileUpload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DisplayChart</servlet-name>
+		<url-pattern>/DisplayChart</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Connector</servlet-name>
+		<url-pattern>
+			/fckeditor/editor/filemanager/connectors/*
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+</web-app>

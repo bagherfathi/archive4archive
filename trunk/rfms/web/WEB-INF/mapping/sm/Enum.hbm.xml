@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="Enum"
+		table="SM_ENUM"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="enumId"
+			type="long"
+			column="ENUM_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="categoryId"
+			column="CATEGORY_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="enumName"
+			column="ENUM_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="enumCode"
+			column="ENUM_CODE"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="enumDesc"
+			column="ENUM_DESC"
+			type="java.lang.String"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="status"
+			column="STATUS"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="appId"
+			column="APP_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="createDate"
+			column="CREATE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="validDate"
+			column="VALID_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="expireDate"
+			column="EXPIRE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="updateDate"
+			column="UPDATE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="orgId"
+			column="ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="loginOrgId"
+			column="LOGIN_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

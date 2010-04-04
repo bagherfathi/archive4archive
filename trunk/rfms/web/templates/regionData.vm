@@ -1,0 +1,8 @@
+<script>
+var regionArray = new Array;
+#foreach( $region in $regions )
+#if (${region.regionId}!=${region.parent.regionId})
+regionArray[regionArray.length] = new Array("${region.regionId}","${region.regionName}","${region.regionType}","${region.parent.regionId}");
+#end
+#end
+</script>

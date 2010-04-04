@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GBK"?>
+#set($eg = $enumGroup)
+	<enumDataGroup groupName="$!{eg.groupName}" description="$!{eg.description}">
+		#foreach ($ed in $eg.enumDatas)
+		<enumData enumName="$!{ed.enumName}" enumCode="$!{ed.enumCode}" enumDesc="$!{ed.enumDesc}" >
+			#foreach ($ede in $ed.entries)
+			<enumDataEntry label="$!{ede.label}" value="$!{ede.value}" status="$!{ede.status}"/>
+			#end
+		</enumData>
+		#end
+	</enumDataGroup>

@@ -1,0 +1,103 @@
+<project basedir="../" default="busi-spring-config">
+	<property environment="env"/>
+	<property name="xdoclet.home" value="D:\xdoclet-1.2.3"/>
+	<property name="tomcat.home" value="D:\tomcat-4.1.34"/>
+	<property name="xdt.dir" value="xdt"/>
+	
+	<!--<property name="biz.config.dir"
+		value="${module.config.dir}/spring/${module.name}"/>-->
+	<property name="biz.config.dir"
+		value="./config/spring"/>
+	<path id="xdoclet.class.path">
+		<!--
+		<fileset dir="${xdoclet.home}/lib">
+			<include name="*.jar"/>
+		</fileset>
+		-->
+		<fileset dir="${tomcat.home}/common/lib">
+			<include name="*.jar"/>
+		</fileset>
+		<pathelement location="E:/JbossEclipseIDE/xdoclet/classes"/>
+		<fileset dir="D:/xdoclet-1.2.3/lib">
+					<include name="xjavadoc-1.1.jar"/>
+		</fileset>	
+		<fileset dir="E:/JbossEclipseIDE/freePlatform/lib">
+					<include name="*.jar" />
+				</fileset>
+	</path>
+	
+	<target name="busi-spring-config">
+		
+		<delete quiet="true">
+			<fileset dir="${biz.config.dir}">
+				<include name="${module.name}-busi-context.xml"/>
+			</fileset>
+		</delete>
+		
+		<taskdef name="springdoclet"
+			classname="xdoclet.modules.spring.SpringDocletTask">
+			<classpath refid="xdoclet.class.path"/>
+		</taskdef>
+		
+		<springdoclet destdir="${biz.config.dir}"
+			excludedtags="@version,@author,@todo,@see"
+			addedtags="@xdoclet-generated at ${TODAY}">
+			<fileset dir="../src">
+				<include name="**/*Impl.java"/>
+				<exclude name="**/*Action.java"/>
+			</fileset>
+			<springxml destinationFile="platform-busi-context.xml"
+				validatexml="true"/>
+		</springdoclet>
+	</target>
+	
+	<target name="dao-spring-config">
+		
+		<delete quiet="true">
+			<fileset dir="${biz.config.dir}">
+				<include name="${module.name}-dao-context.xml"/>
+			</fileset>
+		</delete>
+		
+		<taskdef name="springdoclet"
+			classname="xdoclet.modules.spring.SpringDocletTask">
+			<classpath refid="xdoclet.class.path"/>
+		</taskdef>
+		
+		<springdoclet destdir="${biz.config.dir}"
+			excludedtags="@version,@author,@todo,@see"
+			addedtags="@xdoclet-generated at ${TODAY}">
+			<fileset dir="../src">
+				<include name="**/*Dao.java"/>
+			</fileset>
+			<springxml destinationFile="${module.name}-dao-context.xml"
+				validatexml="true"/>
+		</springdoclet>
+	</target>
+	
+	<target name="busi-spring-aop-config">
+		<delete quiet="true">
+			<fileset dir="${biz.config.dir}">
+				 <include name="${module.name}-aop-context.xml"/>
+			</fileset>
+		</delete>
+		<taskdef name="springdoclet"
+			classname="xdoclet.modules.spring.SpringDocletTask">
+			<classpath refid="xdoclet.class.path"/>
+		</taskdef>
+		<springdoclet destdir="${biz.config.dir}"
+			excludedtags="@version,@author,@todo,@see"
+			addedtags="@xdoclet-generated at ${TODAY}">
+			<fileset dir="../src">
+				<include name="**/Impl.java"/>
+				<include name="**/Service.java"/>
+			</fileset>
+			<springxml templateFile="${xdt.dir}/spring-aop-bean.xdt"
+				destinationFile="${module.name}-aop-context.xml"
+				validatexml="true"/>
+		</springdoclet>
+	</target>
+	
+	<target name="all" depends="busi-spring-config"/>
+	
+</project>

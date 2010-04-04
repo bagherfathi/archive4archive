@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.1</Version>
+<Report class="com.fr.report.WorkSheet" name="按商户等级">
+<TableDataMap>
+<NameTableData name="mlevel">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter class="com.fr.report.parameter.DefaultParameter">
+<Attributes name="beginDate" type="0" pop="true" />
+<O t="S">2008-01-01</O></Parameter>
+<Parameter class="com.fr.report.parameter.DefaultParameter">
+<Attributes name="endDate" type="0" pop="true" />
+<O t="S">2009-12-30</O><CellEditorDef class="com.fr.report.cellElement.TextCellEditorDef"><Attr allowBlank="false" /></CellEditorDef></Parameter>
+</Parameters>
+<Attributes type="0" isCache="false" />
+<Database class="com.fr.data.impl.NameDatabase">
+<DatabaseName><![CDATA[rfms]]></DatabaseName>
+</Database>
+<Query><![CDATA[select b.enum_entry_value,b.enum_entry_label,
+(select count(a.mlevel) from rfms_merchant a
+where (a.mlevel||'') =  b.enum_entry_value
+and a.create_time between to_date('[?beginDate|2008-01-01?]', 'yyyy-MM-dd')    and to_date('[?endDate|2008-12-30?]', 'yyyy-MM-dd')) num
+from sm_enum_entry b,sm_enum c
+where b.enum_id=c.enum_id
+and b.expire_date is null
+and c.enum_code='mlevel'
+order by b.enum_entry_value]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.33" footerHeight="0.33">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+<ToolbarManager specifiedToolbar="true" toolbarPosition="1" isIconVisible="true" isTextVisible="true" isShowPageSetup="true" isShowPDFPrint="false" isShowPDF="false" isShowExcel="true" isShowPrint="false" isShowExport="false" isShowEmail="false">
+<firstIconObject path="/com/fr/web/images/first.png">
+</firstIconObject>
+<previousIconObject path="/com/fr/web/images/previous.png">
+</previousIconObject>
+<nextIconObject path="/com/fr/web/images/next.png">
+</nextIconObject>
+<lastIconObject path="/com/fr/web/images/last.png">
+</lastIconObject>
+<pageSetupIconObject path="/com/fr/web/images/pageSetup.png">
+</pageSetupIconObject>
+<pdfPrintIconObject path="/com/fr/web/images/pdfPrint.png">
+</pdfPrintIconObject>
+<pdfIconObject path="/com/fr/web/images/pdf.png">
+</pdfIconObject>
+<printIconObject path="/com/fr/web/images/serverPrint.png">
+</printIconObject>
+<exportIconObject path="/com/fr/web/images/export.png">
+</exportIconObject>
+<emailIconObject path="/com/fr/web/images/email.png">
+</emailIconObject>
+</ToolbarManager>
+</ReportWebAttr>
+<ReportWriteAttr>
+<ReportWriteRightResultLink>
+</ReportWriteRightResultLink>
+<ReportWriteWrongResultLink>
+</ReportWriteWrongResultLink>
+</ReportWriteAttr>
+<RowHeight defaultValue="19.0">
+<![CDATA[53.0]]>
+</RowHeight>
+<ColumnWidth defaultValue="72.0">
+<![CDATA[82.0,162.0,125.0]]>
+</ColumnWidth>
+<FloatElementList>
+</FloatElementList>
+<CellElementList>
+<C c="0" r="0" cs="3" s="0"><O t="S">按商户等级</O></C>
+<C c="0" r="3" s="1"><O t="S">序号</O></C>
+<C c="1" r="3" s="1"><O t="S">商户等级</O></C>
+<C c="2" r="3" s="1"><O t="S">商户数量</O></C>
+<C c="0" r="4" s="2"><O t="DSColumn"><Attributes dsName="mlevel" columnName="NUM" />
+<Complex type="2" />
+<O t="Formula" class="Formula" ><Attributes
+><![CDATA[=ROW()-4]]>
+</Attributes>
+</O></O><Expand dir="0" />
+</C>
+<C c="1" r="4" s="3"><O t="DSColumn"><Attributes dsName="mlevel" columnName="ENUM_ENTRY_LABEL" />
+<Complex type="2" />
+</O><Expand dir="0" />
+</C>
+<C c="2" r="4" s="4"><O t="DSColumn"><Attributes dsName="mlevel" columnName="NUM" />
+</O><Expand dir="0" />
+</C>
+<C c="0" r="5" cs="2" s="2"><O t="S">合计</O></C>
+<C c="2" r="5" s="5"><O t="Formula" class="Formula" ><Attributes
+><![CDATA[=SUM(C5)]]>
+</Attributes>
+</O></C>
+</CellElementList>
+</Report>
+<Report class="com.fr.report.WorkSheet" name="按行业类型">
+<TableDataMap>
+<NameTableData name="industry">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter class="com.fr.report.parameter.DefaultParameter">
+<Attributes name="beginDate" type="0" pop="true" />
+<O t="S">2008-01-01</O></Parameter>
+<Parameter class="com.fr.report.parameter.DefaultParameter">
+<Attributes name="endDate" type="0" pop="true" />
+<O t="S">2008-12-30</O></Parameter>
+</Parameters>
+<Attributes type="0" isCache="false" />
+<Database class="com.fr.data.impl.NameDatabase">
+<DatabaseName><![CDATA[rfms]]></DatabaseName>
+</Database>
+<Query><![CDATA[select b.enum_entry_value,b.enum_entry_label,
+(select count(a.industry) from rfms_merchant a
+where (a.industry||'') =  b.enum_entry_value
+and a.create_time between to_date('[?beginDate|2008-01-01?]', 'yyyy-MM-dd')    and to_date('[?endDate|2008-12-30?]', 'yyyy-MM-dd')) num
+from sm_enum_entry b,sm_enum c
+where b.enum_id=c.enum_id
+and b.expire_date is null
+and c.enum_code='industry'
+order by b.enum_entry_value]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.33" footerHeight="0.33">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+</ReportWebAttr>
+<ReportWriteAttr>
+<ReportWriteRightResultLink>
+</ReportWriteRightResultLink>
+<ReportWriteWrongResultLink>
+</ReportWriteWrongResultLink>
+</ReportWriteAttr>
+<RowHeight defaultValue="19.0">
+<![CDATA[65.0]]>
+</RowHeight>
+<ColumnWidth defaultValue="72.0">
+<![CDATA[62.0,207.0,129.0]]>
+</ColumnWidth>
+<FloatElementList>
+</FloatElementList>
+<CellElementList>
+<C c="0" r="0" cs="3" s="0"><O t="S">按行业类型</O></C>
+<C c="0" r="3" s="1"><O t="S">序号</O></C>
+<C c="1" r="3" s="1"><O t="S">行业类型</O></C>
+<C c="2" r="3" s="1"><O t="S">商户数量</O></C>
+<C c="0" r="4" s="2"><O t="DSColumn"><Attributes dsName="industry" columnName="ENUM_ENTRY_LABEL" />
+<Complex type="2" />
+<O t="Formula" class="Formula" ><Attributes
+><![CDATA[=ROW()-4]]>
+</Attributes>
+</O></O><Expand dir="0" />
+</C>
+<C c="1" r="4" s="3"><O t="DSColumn"><Attributes dsName="industry" columnName="ENUM_ENTRY_LABEL" />
+<Complex type="2" />
+</O><Expand dir="0" />
+</C>
+<C c="2" r="4" s="4"><O t="DSColumn"><Attributes dsName="industry" columnName="NUM" />
+</O><Expand dir="0" />
+</C>
+<C c="0" r="5" cs="2" s="2"><O t="S">合计</O></C>
+<C c="2" r="5" s="5"><O t="Formula" class="Formula" ><Attributes
+><![CDATA[=SUM(C5)]]>
+</Attributes>
+</O></C>
+</CellElementList>
+</Report>
+<Report class="com.fr.report.WorkSheet" name="按商户进程">
+<TableDataMap>
+<NameTableData name="dayTrade">
+<TableData class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter class="com.fr.report.parameter.DefaultParameter">
+<Attributes name="beginDate" type="0" pop="true" />
+<O t="S">2009-01-01</O><CellEditorDef class="com.fr.report.cellElement.DateCellEditorDef"><Attribute format="yyyy-MM-dd" />
+</CellEditorDef></Parameter>
+<Parameter class="com.fr.report.parameter.DefaultParameter">
+<Attributes name="endDate" type="0" pop="true" />
+<O t="S">2009-12-30</O><CellEditorDef class="com.fr.report.cellElement.DateCellEditorDef"><Attribute format="yyyy-MM-dd" />
+</CellEditorDef></Parameter>
+</Parameters>
+<Attributes type="0" isCache="false" />
+<Database class="com.fr.data.impl.NameDatabase">
+<DatabaseName><![CDATA[rfms]]></DatabaseName>
+</Database>
+<Query><![CDATA[select b.enum_entry_value,b.enum_entry_label,
+(select count(a.audit_status) from rfms_merchant a
+where (a.audit_status||'') =  b.enum_entry_value
+and a.create_time between to_date('[?beginDate|2008-01-01?]', 'yyyy-MM-dd')    and to_date('[?endDate|2008-12-30?]', 'yyyy-MM-dd')) num
+from sm_enum_entry b,sm_enum c
+where b.enum_id=c.enum_id
+and b.expire_date is null
+and c.enum_code='audit_status'
+order by b.enum_entry_value]]></Query>
+</TableData>
+</NameTableData>
+</TableDataMap>
+<ReportSettings shrinkToFit="false" headerHeight="0.33" footerHeight="0.33">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportParameterAttr>
+<Parameters>
+</Parameters>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="0" userDefineWindow="false" />
+</ReportParameterAttr>
+<AutoRecalculate>false</AutoRecalculate>
+<DesignAttributes>
+</DesignAttributes>
+<ReportWebAttr>
+<EmailManager mailHost="" password="___" user="" fromEmailAddress="" />
+<ServerPrinter>
+</ServerPrinter>
+<ToolbarManager specifiedToolbar="true" toolbarPosition="1" isIconVisible="true" isTextVisible="true" isShowPageSetup="true" isShowPDFPrint="true" isShowPDF="false" isShowExcel="true" isShowPrint="false" isShowExport="false" isShowEmail="false">
+<firstIconObject path="/com/fr/web/images/first.png">
+</firstIconObject>
+<previousIconObject path="/com/fr/web/images/previous.png">
+</previousIconObject>
+<nextIconObject path="/com/fr/web/images/next.png">
+</nextIconObject>
+<lastIconObject path="/com/fr/web/images/last.png">
+</lastIconObject>
+<pageSetupIconObject path="/com/fr/web/images/pageSetup.png">
+</pageSetupIconObject>
+<pdfPrintIconObject path="/com/fr/web/images/pdfPrint.png">
+</pdfPrintIconObject>
+<pdfIconObject path="/com/fr/web/images/pdf.png">
+</pdfIconObject>
+<printIconObject path="/com/fr/web/images/serverPrint.png">
+</printIconObject>
+<exportIconObject path="/com/fr/web/images/export.png">
+</exportIconObject>
+<emailIconObject path="/com/fr/web/images/email.png">
+</emailIconObject>
+</ToolbarManager>
+</ReportWebAttr>
+<ReportWriteAttr>
+<ReportWriteRightResultLink>
+</ReportWriteRightResultLink>
+<ReportWriteWrongResultLink>
+</ReportWriteWrongResultLink>
+</ReportWriteAttr>
+<RowHeight defaultValue="19.0">
+<![CDATA[51.0]]>
+</RowHeight>
+<ColumnWidth defaultValue="72.0">
+<![CDATA[59.0,189.0]]>
+</ColumnWidth>
+<FloatElementList>
+</FloatElementList>
+<CellElementList>
+<C c="0" r="0" cs="3" s="0"><O t="S">按商户进程</O></C>
+<C c="0" r="3" s="1"><O t="S">序号</O></C>
+<C c="1" r="3" s="1"><O t="S">商户进程</O></C>
+<C c="2" r="3" s="1"><O t="S">商户数量</O></C>
+<C c="0" r="4" s="2"><O t="DSColumn"><Attributes dsName="dayTrade" columnName="NUM" />
+<Complex type="2" />
+<O t="Formula" class="Formula" ><Attributes
+><![CDATA[=ROW()-4]]>
+</Attributes>
+</O></O><Expand dir="0" />
+</C>
+<C c="1" r="4" s="3"><O t="DSColumn"><Attributes dsName="dayTrade" columnName="ENUM_ENTRY_LABEL" />
+<Complex type="2" />
+</O><Expand dir="0" />
+</C>
+<C c="2" r="4" s="4"><O t="DSColumn"><Attributes dsName="dayTrade" columnName="NUM" />
+</O><Expand dir="0" />
+</C>
+<C c="0" r="5" cs="2" s="2"><O t="S">合计</O></C>
+<C c="2" r="5" s="5"><O t="Formula" class="Formula" ><Attributes
+><![CDATA[=SUM(C5)]]>
+</Attributes>
+</O></C>
+<C c="1" r="9"><O t="S"></O></C>
+<C c="1" r="13"><O t="S"></O></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="34" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.DecimalFormat"><![CDATA[#0.00%]]>
+</Format>
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="ColorBackground"
+ color="-4144960">
+</Background>
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat"><![CDATA[yyyy-MM-dd]]>
+</Format>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

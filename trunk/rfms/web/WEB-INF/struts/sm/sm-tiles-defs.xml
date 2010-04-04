@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>	
+  <!-- ========== Tiles Mapping Definitions =================================== -->
+
+   <!-- OperateLogAction-->
+    <definition name="sm.operator.log.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/log/listOperateLog.jsp"	/>
+    </definition>
+   <!-- QueryOperatorPrivilegeAction-->
+    <definition name="sm.query.operator.privilege" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/queryOperatorPrivilege.jsp"	/>
+    </definition>
+	<!--QueryOperatorPrivilegeAction.queryOperatorPrivilege -->
+    <definition name="sm.query.operator.privilege.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/listOperatorPrivilege.jsp"	/>
+    </definition>
+   <!-- PerformanceLogAction-->
+    <definition name="sm.performance.log.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/log/listPerformanceLog.jsp"	/>
+    </definition>
+   <!-- AfficheAction-->
+    <definition name="sm.info.affiche.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/indexAffiche.jsp"	/>
+    </definition>
+	<!--AfficheAction.create -->
+    <definition name="sm.info.affiche.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/addAffiche.jsp"	/>
+    </definition>
+	<!--AfficheAction.view -->
+    <definition name="sm.info.affiche.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/viewAffiche.jsp"	/>
+    </definition>
+	<!--AfficheAction.toEdit -->
+    <definition name="sm.info.affiche.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/editAffiche.jsp"	/>
+    </definition>
+   <!-- QueryDataResourcePrivilegeAction-->
+    <definition name="sm.query.data.resource.privilege" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/queryDataResourcePrivilege.jsp"	/>
+    </definition>
+	<!--QueryDataResourcePrivilegeAction.queryDataResourcePrivilege -->
+    <definition name="sm.query.data.resource.privilege.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/listDataResourcePrivilege.jsp"	/>
+    </definition>
+   <!-- SchedulerAction-->
+    <definition name="sm.scheduler.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/trigger.jsp"	/>
+    </definition>
+   <!-- BrowseAfficheAction-->
+    <definition name="sm.info.browse.index" 
+    	    page="/WEB-INF/jsp/sm/info/browseAffiche.jsp"         >  
+    </definition>
+	<!--BrowseAfficheAction.list -->
+    <definition name="sm.info.browse.list" 
+    	    page="/WEB-INF/jsp/sm/info/listBrowseAffiche.jsp"         >  
+    </definition>
+	<!--BrowseAfficheAction.view -->
+    <definition name="sm.info.browse.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/viewAfficheInfo.jsp"	/>
+    </definition>
+   <!-- DataResourceQueryAction-->
+    <definition name="sm.dataresource.query.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/dataResourceQuery.jsp"	/>
+    </definition>
+   <!-- RuleFileAction-->
+    <definition name="sm.rule.file.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/listRuleFile.jsp"	/>
+    </definition>
+	<!--RuleFileAction.add -->
+    <definition name="sm.rule.file.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/addRuleFile.jsp"	/>
+    </definition>
+	<!--RuleFileAction.edit -->
+    <definition name="sm.rule.file.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/editRuleFile.jsp"	/>
+    </definition>
+   <!-- TaskAction-->
+    <definition name="sm.task.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/task.jsp"	/>
+	      <put name="title"	 value="/WEB-INF/jsp任务管理"	/>
+    </definition>
+	<!--TaskAction.create -->
+    <definition name="sm.task.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/taskAdd.jsp"	/>
+    </definition>
+	<!--TaskAction.edit -->
+    <definition name="sm.task.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/taskAdd.jsp"	/>
+    </definition>
+   <!-- GroupAction-->
+    <definition name="sm.group.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/group/listGroup.jsp"	/>
+    </definition>
+	<!--GroupAction.create -->
+    <definition name="sm.group.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/group/createGroup.jsp"	/>
+    </definition>
+	<!--GroupAction.view -->
+    <definition name="sm.group.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/group/viewGroup.jsp"	/>
+    </definition>
+	<!--GroupAction.edit -->
+    <definition name="sm.group.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/group/editGroup.jsp"	/>
+    </definition>
+   <!-- QueryGroupPrivilegeAction-->
+    <definition name="sm.query.group.privilege" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/queryGroupPrivilege.jsp"	/>
+    </definition>
+	<!--QueryGroupPrivilegeAction.queryGroupPrivilege -->
+    <definition name="sm.query.group.privilege.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/listGroupPrivilege.jsp"	/>
+    </definition>
+   <!-- RoleAction-->
+    <definition name="sm.role.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/listRole.jsp"	/>
+    </definition>
+	<!--RoleAction.create -->
+    <definition name="sm.role.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/addRole.jsp"	/>
+    </definition>
+	<!--RoleAction.toEdit -->
+    <definition name="sm.role.update" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/editRole.jsp"	/>
+    </definition>
+	<!--RoleAction.preview -->
+    <definition name="sm.role.preview" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/previewRole.jsp"	/>
+    </definition>
+	<!--RoleAction.view -->
+    <definition name="sm.role.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/viewRoleIndex.jsp"	/>
+    </definition>
+   <!-- OrgAction-->
+    <definition name="sm.org.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/org/listOrg.jsp"	/>
+    </definition>
+	<!--OrgAction.view -->
+    <definition name="sm.org.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/org/viewOrg.jsp"	/>
+    </definition>
+	<!--OrgAction.create -->
+    <definition name="sm.org.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/org/createOrg.jsp"	/>
+    </definition>
+	<!--OrgAction.edit -->
+    <definition name="sm.org.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/org/editOrg.jsp"	/>
+    </definition>
+	<!--OrgAction.regionList -->
+    <definition name="sm.org.region.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/org/listOrgRegion.jsp"	/>
+    </definition>
+	<!--OrgAction.regionConfig -->
+    <definition name="sm.org.region.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/org/configOrgRegion.jsp"	/>
+    </definition>
+   <!-- OperatorDataResourceAction-->
+    <definition name="sm.op.dataresource.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opDataResourceConfig.jsp"	/>
+    </definition>
+   <!-- MaintainPlanAction-->
+    <definition name="sm.maintainPlan.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/maintain/listPlan.jsp"	/>
+    </definition>
+	<!--MaintainPlanAction.create -->
+    <definition name="sm.maintain.plan.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/maintain/addPlan.jsp"	/>
+    </definition>
+	<!--MaintainPlanAction.toEdit -->
+    <definition name="sm.maintain.plan.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/maintain/editPlan.jsp"	/>
+    </definition>
+   <!-- GroupOrgAction-->
+    <definition name="sm.group.org.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/group/listGroupOrg.jsp"	/>
+    </definition>
+	<!--GroupOrgAction.configOrg -->
+    <definition name="sm.group.org.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/group/groupOrgConfig.jsp"	/>
+    </definition>
+   <!-- TemplateInfoAction-->
+    <definition name="sm.template.info.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/listTemplateInfo.jsp"	/>
+    </definition>
+	<!--TemplateInfoAction.view -->
+    <definition name="sm.template.info.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/viewTemplateInfo.jsp"	/>
+    </definition>
+	<!--TemplateInfoAction.create -->
+    <definition name="sm.template.info.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/createTemplateInfo.jsp"	/>
+    </definition>
+	<!--TemplateInfoAction.edit -->
+    <definition name="sm.template.info.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/editTemplateInfo.jsp"	/>
+    </definition>
+   <!-- EnumGroupAction-->
+    <definition name="sm.enum.group.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/enum/listEnumGroup.jsp"	/>
+    </definition>
+	<!--EnumGroupAction.create -->
+    <definition name="sm.enum.group.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/enum/editEnumGroup.jsp"	/>
+    </definition>
+   <!-- ResourceQueryAction-->
+    <definition name="sm.resource.query.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/resourceQuery.jsp"	/>
+    </definition>
+   <!-- CommisionAction-->
+    <definition name="privilege.consign.list.operators" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/commission/listOperator.jsp"	/>
+    </definition>
+	<!--CommisionAction.selectComissionResource -->
+    <definition name="privilege.consign.select" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/commission/selectCommision.jsp"	/>
+    </definition>
+	<!--CommisionAction.searchCommissions -->
+    <definition name="privilege.consign.list.commission" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/commission/searchCommission.jsp"	/>
+    </definition>
+	<!--CommisionAction.editCommission -->
+    <definition name="privilege.consign.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/commission/editCommission.jsp"	/>
+    </definition>
+   <!-- RegionAction-->
+    <definition name="sm.region.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/region/viewRegion.jsp"	/>
+    </definition>
+	<!--RegionAction.create -->
+    <definition name="sm.region.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/region/editRegion.jsp"	/>
+    </definition>
+   <!-- OperatorDataRoleAction-->
+    <definition name="sm.op.data.role.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/listOpDataRole.jsp"	/>
+    </definition>
+	<!--OperatorDataRoleAction.configRole -->
+    <definition name="sm.op.data.role.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opDataRoleConfig.jsp"	/>
+    </definition>
+	<!--OperatorDataRoleAction.batchConfigRole -->
+    <definition name="sm.op.data.role.batch.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opDataRoleBatchConfig.jsp"	/>
+    </definition>
+   <!-- RuleCategoryAction-->
+    <definition name="sm.rule.category.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/listRuleCategory.jsp"	/>
+    </definition>
+	<!--RuleCategoryAction.create -->
+    <definition name="sm.rule.category.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/addRuleCategory.jsp"	/>
+    </definition>
+	<!--RuleCategoryAction.toEdit -->
+    <definition name="sm.rule.category.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/editRuleCategory.jsp"	/>
+    </definition>
+   <!-- TaskCategoryAction-->
+    <definition name="sm.task.category.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/listTaskCategory.jsp"	/>
+    </definition>
+	<!--TaskCategoryAction.create -->
+    <definition name="sm.task.category.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/addTaskCategory.jsp"	/>
+    </definition>
+	<!--TaskCategoryAction.toEdit -->
+    <definition name="sm.task.category.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/editTaskCategory.jsp"	/>
+    </definition>
+   <!-- EnumAction-->
+    <definition name="sm.enum.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/enum/editEnum.jsp"	/>
+    </definition>
+   <!-- InfoCategoryAction-->
+    <definition name="sm.info.category.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/listCategory.jsp"	/>
+    </definition>
+	<!--InfoCategoryAction.create -->
+    <definition name="sm.info.category.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/addCategory.jsp"	/>
+    </definition>
+	<!--InfoCategoryAction.toEdit -->
+    <definition name="sm.info.category.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/editCategory.jsp"	/>
+    </definition>
+   <!-- OperatorOrgAction-->
+    <definition name="sm.op.org.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/listOpOrg.jsp"	/>
+    </definition>
+	<!--OperatorOrgAction.configOrg -->
+    <definition name="sm.op.org.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opOrgConfig.jsp"	/>
+    </definition>
+	<!--OperatorOrgAction.batchConfigOrg -->
+    <definition name="sm.op.org.batch.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opOrgBatchConfig.jsp"	/>
+    </definition>
+   <!-- OpSelfAction-->
+    <definition name="sm.op.self" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opSelf.jsp"	/>
+    </definition>
+   <!-- TemplateAction-->
+    <definition name="sm.template.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/listTemplate.jsp"	/>
+    </definition>
+	<!--TemplateAction.create -->
+    <definition name="sm.template.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/addTemplate.jsp"	/>
+    </definition>
+	<!--TemplateAction.view -->
+    <definition name="sm.template.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/viewTemplate.jsp"	/>
+    </definition>
+	<!--TemplateAction.edit -->
+    <definition name="sm.template.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/editTemplate.jsp"	/>
+    </definition>
+   <!-- OperatorAction-->
+    <definition name="sm.op.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/listOp.jsp"	/>
+    </definition>
+	<!--OperatorAction.create -->
+    <definition name="sm.op.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/createOp.jsp"	/>
+    </definition>
+	<!--OperatorAction.edit -->
+    <definition name="sm.op.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/editOp.jsp"	/>
+    </definition>
+	<!--OperatorAction.view -->
+    <definition name="sm.op.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/viewOp.jsp"	/>
+    </definition>
+	<!--OperatorAction.copy -->
+    <definition name="sm.op.copy" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/copyOp.jsp"	/>
+    </definition>
+	<!--OperatorAction.changePassword -->
+    <definition name="sm.op.password" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opPassword.jsp"	/>
+    </definition>
+   <!-- OperatorGroupAction-->
+    <definition name="sm.op.group.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/listOpGroup.jsp"	/>
+    </definition>
+	<!--OperatorGroupAction.configGroup -->
+    <definition name="sm.op.group.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opGroupConfig.jsp"	/>
+    </definition>
+	<!--OperatorGroupAction.batchConfigGroup -->
+    <definition name="sm.op.group.batch.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opGroupBatchConfig.jsp"	/>
+    </definition>
+   <!-- EnumCategoryAction-->
+    <definition name="sm.enum.category.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/enum/editEnumCategory.jsp"	/>
+    </definition>
+   <!-- ConfigParamAction-->
+    <definition name="sm.param.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/param/listParam.jsp"	/>
+    </definition>
+	<!--ConfigParamAction.create -->
+    <definition name="sm.param.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/param/createParam.jsp"	/>
+    </definition>
+	<!--ConfigParamAction.createNode -->
+    <definition name="sm.param.node.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/param/createNode.jsp"	/>
+    </definition>
+	<!--ConfigParamAction.edit -->
+    <definition name="sm.param.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/param/editParam.jsp"	/>
+    </definition>
+	<!--ConfigParamAction.editNode -->
+    <definition name="sm.param.node.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/param/editNode.jsp"	/>
+    </definition>
+   <!-- TemplateCategoryAction-->
+    <definition name="sm.template.category.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/listTemplateCategory.jsp"	/>
+    </definition>
+	<!--TemplateCategoryAction.view -->
+    <definition name="sm.template.category.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/viewTemplateCategory.jsp"	/>
+    </definition>
+	<!--TemplateCategoryAction.create -->
+    <definition name="sm.template.category.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/createTemplateCategory.jsp"	/>
+    </definition>
+   <!-- RefreshCacehAction-->
+    <definition name="sm.refresh.cache.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/cache/refreshCache.jsp"	/>
+    </definition>
+   <!-- QueryResourcePrivilegeAction-->
+    <definition name="sm.query.resource.privilege" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/queryResourcePrivilege.jsp"	/>
+    </definition>
+	<!--QueryResourcePrivilegeAction.queryResourcePrivilege -->
+    <definition name="sm.query.resource.privilege.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/privilege/listResourcePrivilege.jsp"	/>
+    </definition>
+   <!-- TemplateBindAction-->
+    <definition name="sm.template.bind.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/listTemplateBind.jsp"	/>
+    </definition>
+   <!-- DataResourceAction-->
+    <definition name="sm.dataResource.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/listDataResource.jsp"	/>
+    </definition>
+	<!--DataResourceAction.add -->
+    <definition name="sm.dataResource.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/addDataResource.jsp"	/>
+    </definition>
+	<!--DataResourceAction.view -->
+    <definition name="sm.dataResource.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/viewDataResource.jsp"	/>
+    </definition>
+	<!--DataResourceAction.edit -->
+    <definition name="sm.dataResource.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/editDataResource.jsp"	/>
+    </definition>
+	<!--DataResourceAction.toAddEntry -->
+    <definition name="sm.dataResource.add.entry" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/addDataResourceEntry.jsp"	/>
+    </definition>
+	<!--DataResourceAction.toEditEntry -->
+    <definition name="sm.dataResource.edit.entry" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/editDataResourceEntry.jsp"	/>
+    </definition>
+   <!-- DataRoleAction-->
+    <definition name="sm.data.role.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/listDataRole.jsp"	/>
+    </definition>
+	<!--DataRoleAction.create -->
+    <definition name="sm.data.role.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/addDataRole.jsp"	/>
+    </definition>
+	<!--DataRoleAction.preview -->
+    <definition name="sm.data.role.preview" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/previewDataRole.jsp"	/>
+    </definition>
+	<!--DataRoleAction.view -->
+    <definition name="sm.data.role.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/viewDataRoleIndex.jsp"	/>
+    </definition>
+	<!--DataRoleAction.toEdit -->
+    <definition name="sm.data.role.update" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/role/editDataRole.jsp"	/>
+    </definition>
+   <!-- RuleAction-->
+    <definition name="sm.rule.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/listRule.jsp"	/>
+    </definition>
+	<!--RuleAction.toCreate -->
+    <definition name="sm.rule.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/addRule.jsp"	/>
+    </definition>
+	<!--RuleAction.toEdit -->
+    <definition name="sm.rule.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/editRule.jsp"	/>
+    </definition>
+	<!--RuleAction.toView -->
+    <definition name="sm.rule.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/rule/viewRule.jsp"	/>
+    </definition>
+   <!-- ResourceAction-->
+    <definition name="sm.resource.main" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/listMenu.jsp"	/>
+    </definition>
+	<!--ResourceAction.view -->
+    <definition name="sm.resource.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/viewMenu.jsp"	/>
+    </definition>
+	<!--ResourceAction.add -->
+    <definition name="sm.resource.menu.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/addMenu.jsp"	/>
+    </definition>
+	<!--ResourceAction.edit -->
+    <definition name="sm.resource.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/editMenu.jsp"	/>
+    </definition>
+	<!--ResourceAction.addButton -->
+    <definition name="sm.resource.button.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/addButton.jsp"	/>
+    </definition>
+	<!--ResourceAction.toImport -->
+    <definition name="sm.resource.import" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/resource/importResource.jsp"	/>
+    </definition>
+   <!-- OperatorRoleAction-->
+    <definition name="sm.op.role.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/listOpRole.jsp"	/>
+    </definition>
+	<!--OperatorRoleAction.configRole -->
+    <definition name="sm.op.role.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opRoleConfig.jsp"	/>
+    </definition>
+	<!--OperatorRoleAction.batchConfigRole -->
+    <definition name="sm.op.role.batch.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opRoleBatchConfig.jsp"	/>
+    </definition>
+   <!-- InfoSharedAction-->
+    <definition name="sm.info.shared.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/indexShared.jsp"	/>
+    </definition>
+	<!--InfoSharedAction.categoryList -->
+    <definition name="sm.info.shared.categoryList" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/indexShared.jsp"	/>
+    </definition>
+	<!--InfoSharedAction.toSearch -->
+    <definition name="sm.info.shared.search" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/searchShared.jsp"	/>
+    </definition>
+	<!--InfoSharedAction.view -->
+    <definition name="sm.info.shared.view" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/viewShared.jsp"	/>
+    </definition>
+	<!--InfoSharedAction.toPublish -->
+    <definition name="sm.info.shared.publish" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/addShared.jsp"	/>
+    </definition>
+	<!--InfoSharedAction.toEdit -->
+    <definition name="sm.info.shared.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/info/editShared.jsp"	/>
+    </definition>
+   <!-- SelRegionAction-->
+    <definition name="sm.region.select" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/region/selRegion.jsp"	/>
+    </definition>
+   <!-- GroupRoleAction-->
+    <definition name="sm.group.role.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/group/listGroupRole.jsp"	/>
+    </definition>
+	<!--GroupRoleAction.configRole -->
+    <definition name="sm.group.role.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/group/groupRoleConfig.jsp"	/>
+    </definition>
+   <!-- OperatorResourceAction-->
+    <definition name="sm.op.resource.config" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/op/opResourceConfig.jsp"	/>
+    </definition>
+   <!-- BankOrgAction-->
+    <definition name="sm.bank.org.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/bank/listBankOrg.jsp"	/>
+    </definition>
+	<!--BankOrgAction.addRelBankOrg -->
+    <definition name="sm.bank.org.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/bank/editBankOrg.jsp"	/>
+    </definition>
+	<!--BankOrgAction.edit -->
+    <definition name="sm.bank.org.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/bank/editBankOrg.jsp"	/>
+    </definition>
+   <!-- TemplateFileAction-->
+    <definition name="sm.template.file.list" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/listTemplateFileHistory.jsp"	/>
+    </definition>
+	<!--TemplateFileAction.listHistory -->
+    <definition name="sm.template.file.history" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/listTemplateFileHistory.jsp"	/>
+    </definition>
+	<!--TemplateFileAction.toPreview -->
+    <definition name="sm.template.file.toPreview" 
+    	    page="/WEB-INF/jsp/sm/template/toPreviewTemplateFile.jsp"         >  
+    </definition>
+	<!--TemplateFileAction.preview -->
+    <definition name="sm.template.file.preview" 
+    	    page="/WEB-INF/jsp/sm/template/previewTemplateFile.jsp"         >  
+    </definition>
+	<!--TemplateFileAction.add -->
+    <definition name="sm.template.file.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/addTemplateFile.jsp"	/>
+    </definition>
+	<!--TemplateFileAction.edit -->
+    <definition name="sm.template.file.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/template/editTemplateFile.jsp"	/>
+    </definition>
+   <!-- TriggerAction-->
+    <definition name="sm.task.trigger.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/triggerIndex.jsp"	/>
+    </definition>
+	<!--TriggerAction.history -->
+    <definition name="sm.trigger.history" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/triggerHistory.jsp"	/>
+    </definition>
+	<!--TriggerAction.trigger -->
+    <definition name="sm.task.trigger" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/taskCron.jsp"	/>
+    </definition>
+	<!--TriggerAction.newTrigger -->
+    <definition name="sm.trigger.add" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/triggerEdit.jsp"	/>
+    </definition>
+	<!--TriggerAction.editTrigger -->
+    <definition name="sm.trigger.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/task/triggerEdit.jsp"	/>
+    </definition>
+   <!-- MaintainLogAction-->
+    <definition name="sm.maintainLog.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/maintain/indexLog.jsp"	/>
+    </definition>
+	<!--MaintainLogAction.create -->
+    <definition name="sm.maintain.log.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/maintain/addLog.jsp"	/>
+    </definition>
+	<!--MaintainLogAction.toEdit -->
+    <definition name="sm.maintain.log.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/maintain/editLog.jsp"	/>
+    </definition>
+   <!-- BankErrorAction-->
+    <definition name="sm.bankError.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/bank/listBankError.jsp"	/>
+    </definition>
+	<!--BankErrorAction.edit -->
+    <definition name="sm.bankerror.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/bank/editBankError.jsp"	/>
+    </definition>
+   <!-- DialogAction-->
+    <definition name="dialog.select.org" 
+    	    page="/WEB-INF/jsp/sm/dialog/opOrgTree.jsp"         >  
+    </definition>
+	<!--DialogAction.opAccessOrg -->
+    <definition name="sm.dialog.select.op.access.org" 
+    	    page="/WEB-INF/jsp/sm/dialog/opAccessOrg.jsp"         >  
+    </definition>
+	<!--DialogAction.parentOrg -->
+    <definition name="dialog.select.parent" 
+    	    page="/WEB-INF/jsp/sm/dialog/orgTree.jsp"         >  
+    </definition>
+	<!--DialogAction.selLinkValue -->
+    <definition name="dialog.select.link" 
+    	    page="/WEB-INF/jsp/sm/dialog/enumTree.jsp"         >  
+    </definition>
+	<!--DialogAction.templateBind -->
+    <definition name="sm.dialog.template.bind" 
+    	    page="/WEB-INF/jsp/sm/dialog/templateBind.jsp"         >  
+    </definition>
+	<!--DialogAction.selectRole -->
+    <definition name="dialog.select.role" 
+    	    page="/WEB-INF/jsp/sm/dialog/resourceTree.jsp"         >  
+    </definition>
+	<!--DialogAction.regionTree -->
+    <definition name="dialog.select.region" 
+    	    page="/WEB-INF/jsp/sm/dialog/regionTree.jsp"         >  
+    </definition>
+	<!--DialogAction.resourceTree -->
+    <definition name="dialog.select.resource" 
+    	    page="/WEB-INF/jsp/sm/dialog/selectResource.jsp"         >  
+    </definition>
+	<!--DialogAction.dataResourceTree -->
+    <definition name="dialog.select.dataresource" 
+    	    page="/WEB-INF/jsp/sm/dialog/selectDataResource.jsp"         >  
+    </definition>
+	<!--DialogAction.selectOrgRegion -->
+    <definition name="dialog.select.org.region" 
+    	    page="/WEB-INF/jsp/sm/dialog/selectOrgRegion.jsp"         >  
+    </definition>
+	<!--DialogAction.orgsTree -->
+    <definition name="dialog.select.orgs.tree" 
+    	    page="/WEB-INF/jsp/sm/dialog/orgsTree.jsp"         >  
+    </definition>
+	<!--DialogAction.selLoginOrg -->
+    <definition name="dialog.select.login.org" 
+    	    page="/WEB-INF/jsp/sm/dialog/selLoginOrg.jsp"         >  
+    </definition>
+	<!--DialogAction.selOp -->
+    <definition name="dialog.select.op" 
+    	    page="/WEB-INF/jsp/sm/dialog/selectOp.jsp"         >  
+    </definition>
+   <!-- BankAction-->
+    <definition name="sm.bank.index" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/bank/listBank.jsp"	/>
+    </definition>
+	<!--BankAction.create -->
+    <definition name="sm.bank.create" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/bank/editBank.jsp"	/>
+    </definition>
+	<!--BankAction.edit -->
+    <definition name="sm.bank.edit" 
+    	        extends="main.layout"    >  
+	      <put name="body"	 value="/WEB-INF/jsp/sm/bank/editBank.jsp"	/>
+    </definition>
+
+    <definition name="sm.enum.index" extends="tree.layout">
+		<put name="title" value="main"/>
+		<put name="left" value="/sm/enumTree.do"/>	
+		<put name="main" value="/sm/enumGroup.do"/>			
+    </definition>
+
+    <definition name="sm.enum.tree" path="/WEB-INF/jsp/sm/enum/enumTree.jsp"/>
+	<definition name="sm.region.index" extends="tree.layout">
+		<put name="title" value="main"/>
+		<put name="left" value="/sm/regionTree.do"/>	
+		<put name="main" value="/sm/region.do"/>			
+    </definition>
+    <definition name="sm.region.tree" path="/WEB-INF/jsp/sm/region/regionTree.jsp"/>
+	<definition name="sm.resouece.index" extends="tree.layout">
+			<put name="title" value="main"/>
+			<put name="left" value="/sm/resourceTree.do"/>	
+			<put name="main" value="/sm/resource.do"/>			
+	</definition>
+	<definition name="sm.resource.tree" path="/WEB-INF/jsp/sm/resource/menuTree.jsp"/>
+
+	<definition name="sm.privilege.resouece.index" extends="tree.layout">
+			<put name="title" value="main"/>
+			<put name="left" value="/sm/resourcePrivilegeTree.do"/>	
+			<put name="main" value="/sm/queryRPrivilege.do"/>			
+	</definition>
+
+	<definition name="sm.privilege.resouece.tree" path="/WEB-INF/jsp/sm/privilege/resourceTree.jsp"/>
+
+	<definition name="sm.privilege.data.resouece.index" extends="tree.layout">
+			<put name="title" value="main"/>
+			<put name="left" value="/sm/dataResourcePrivilegeTree.do"/>	
+			<put name="main" value="/sm/queryDRPrivilege.do"/>			
+	</definition>
+
+	<definition name="sm.privilege.data.resouece.tree" path="/WEB-INF/jsp/sm/privilege/dataResourceTree.jsp"/>
+
+	<definition name="sm.op.index" extends="tree.layout">
+		<put name="title" value="main"/>
+		<put name="left" value="/sm/opOrgTree.do"/>	
+		<put name="main" value="/sm/op.do"/>			
+    </definition>
+
+   <definition name="sm.op.org.tree" 
+	   path="/WEB-INF/jsp/sm/op/opOrgTree.jsp"/>
+
+	<definition name="sm.org.index" extends="tree.layout">
+		<put name="title" value="main"/>
+		<put name="left" value="/sm/orgTree.do"/>	
+		<put name="main" value="/sm/org.do"/>			
+    </definition>
+
+	<definition name="sm.org.tree" 
+	   path="/WEB-INF/jsp/sm/org/orgTree.jsp"/>
+
+   <definition name="sm.template.bind.index" extends="tree.layout">
+		<put name="title" value="main"/>
+		<put name="left" value="/sm/templateOrgTree.do"/>	
+		<put name="main" value="/sm/templateBind.do"/>			
+    </definition>   
+
+   <definition name="sm.template.org.tree" 
+	   path="/WEB-INF/jsp/sm/template/templateOrgTree.jsp"/>
+
+   <definition name="sm.param.index" extends="tree.layout">
+		<put name="title" value="main"/>
+		<put name="left" value="/sm/paramTree.do"/>	
+		<put name="main" value="/sm/param.do"/>			
+    </definition>   
+
+   <definition name="sm.param.tree" 
+	   path="/WEB-INF/jsp/sm/param/configParamTree.jsp"/>
+
+    <definition name="exception.error.page"
+		path="/WEB-INF/jsp/sm/common/errorPage.jsp"/>
+
+	<definition name="sm.rule.info.index" extends="tree.layout">
+			<put name="title" value="main"/>
+			<put name="left" value="/sm/rule.do"/>	
+			<put name="main" value="/sm/rule.do?act=toSearch"/>			
+	</definition>
+	<definition name="sm.tree.xml" 
+	   path="/WEB-INF/jsp/sm/common/treeXml.jsp"/>
+	
+	<definition name="sm.param.topMenu" 
+	   path="/WEB-INF/jsp/commons/menu.jsp"/>  
+	
+    <definition name="sm.param.leftMenu" 
+	   path="/WEB-INF/jsp/commons/leftMenu.jsp"/> 
+	   
+    <!-- 
+	<definition name="sm.function.privilege.index" extends="tree.layout">
+		<put name="title" value="main"/>
+		<put name="left" value="/sm/functionPrivilegeTree.do"/>
+		<put name="main" value="/sm/functionPrivilege.do"/>
+	</definition>
+
+	<definition name="sm.privilege.function.tree" path="/WEB-INF/jsp/sm/privilege/functionLeftTree.jsp"/>
+	-->
+
+</tiles-definitions>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="GBK"?>
+<resources>
+#foreach ($res in $resources)
+<resource title="$!{res.title}" type="$!{res.type}" resourceKey="$!{res.resourceKey}"
+ resourcePath="$!{res.resourcePath}" url="$!{res.url}" image="$!{res.image}"
+ visible="$!{res.visible}" order="$!{res.order}" />
+#end
+</resources>

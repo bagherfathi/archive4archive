@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="Bank"
+		table="SM_BANK"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="bankId"
+			type="long"
+			column="bank_id"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="bankName"
+			column="bank_name"
+			type="java.lang.String"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="bankCode"
+			column="bank_code"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="bankDesc"
+			column="bank_desc"
+			type="java.lang.String"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="bankType"
+			column="bank_type"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="status"
+			column="status"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="appId"
+			column="app_id"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="createDate"
+			column="create_date"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="validDate"
+			column="valid_date"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="expireDate"
+			column="expire_date"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="updateDate"
+			column="update_date"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="operatorId"
+			column="operator_id"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="orgId"
+			column="org_id"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="loginOrgId"
+			column="login_org_id"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

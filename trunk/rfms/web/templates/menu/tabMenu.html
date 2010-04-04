@@ -1,0 +1,179 @@
+<script language="JavaScript">
+var menuCount = $menu.components.size();
+var currentMenu = 1;
+<!--
+function changeImage(id) {
+for (var i = 1; i <=menuCount; i++) {		
+		td=eval("document.all.TopMenu_Item_"+i);
+		tdleft=eval("document.all.TopMenu_Item_"+i+"_1");
+		tdright=eval("document.all.TopMenu_Item_"+i+"_2");	
+		tdlink=eval("document.all.TopMenu_Item_"+i+"_3");
+	if(i==id) {
+		td.className="menu1_downm";
+		tdleft.className="menu1_downl";
+		tdright.className="menu1_downr";
+		tdlink.className="menu1";	
+	}else{
+		td.className="menu1_upm";
+		tdleft.className="menu1_upl";
+		tdright.className="menu1_upr";
+		tdlink.className="menu1";	
+		
+    }
+}
+
+
+ }
+ 
+function clickImage(id) {
+ttt=id;
+	td=eval("document.all.TopMenu_Item_"+id);
+	tdleft=eval("document.all.TopMenu_Item_"+id+"_1");
+	tdright=eval("document.all.TopMenu_Item_"+id+"_2");	
+	tdlink=eval("document.all.TopMenu_Item_"+id+"_3");
+	td.className="menu1_downm";
+	tdleft.className="menu1_downl";
+	tdright.className="menu1_downr";
+	tdlink.className="menu1";
+    currentMenu  = id;
+	for (var i=1; i<=menuCount; i++) {
+  	  aSubMenu= document.getElementById("subMenu_"+i);
+	  if(i==id) {
+			aSubMenu.style.display="";
+  			aSubMenuItem = document.getElementById("subMenu_"+i+"_1");
+  			if(aSubMenuItem){
+            subClickImage(id,"1",aSubMenuItem.name);
+            }
+	  }else{
+			aSubMenu.style.display="none";
+   	  }
+	}
+    changeImage(id);
+    
+ }
+
+function subClickImage(id1,id2,menuName) {
+	td=eval("document.all.subMenu_"+id1+"_"+id2);
+	td.className="menu2_downm";
+    alink = eval("document.all.subMenu_"+id1+"_"+id2+"_link");
+    clickSubMenu(menuName);
+	for (var i=1; i<=50; i++) {
+  	  aSubMenu= eval("document.all.subMenu_"+id1+"_"+i);
+	   if(aSubMenu==null)break;
+       if(i!=id2) {
+	        aSubMenu.className="menu2_upm";
+	  }
+	}	
+ }
+ 
+function clickSubMenu(menuId){
+    leftMenu = parent.document.getElementById('leftMenu');
+	leftMenu.src="leftMenu.jsp?menuname="+menuId;
+}
+
+function changeLeftMenu(menuId){
+	leftMenu = parent.document.getElementById('leftMenu');
+	leftMenu.src="leftMenu.jsp?menuname="+menuId;
+}
+function closeMenu4(){ 
+    var menu4 = parent.document.getElementById('menu4');
+	menu4.rows="0,*";   
+}
+function refreshBottom(id){
+    var bottom = parent.document.getElementById('bottom');
+	bottom.src = "bottom.jsp?menuName=" + id; 
+}
+
+function overMenu(id){
+     ttt = id;
+    sumTitleWidth(id);
+	// alert(TopMenu.scrollLeft+"   "+TopMenu.offsetWidth+"  "+sumTitle+"   ===");
+	 if(TopMenu.scrollLeft+TopMenu.offsetWidth<sumTitle){
+	 menu1_scroll(1)
+	 }
+	 else if (TopMenu.scrollLeft>sumTitle-titleWidth[id])
+	 { 
+		  //   alert(TopMenu.scrollLeft+" "+(sumTitle-titleWidth[id])+"  "+sumTitle+"  "+titleWidth[id]);
+		 	 sumTitleWidth(id);
+	         menu1_scroll(-1)
+	 }  
+}
+-->
+</script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="menu1_bg">
+  <tr>
+    <td >&nbsp;</td>
+    <td align="left"><table width="100%" border="0" cellpadding="0" cellspacing="0" height="26">
+      <tr>
+        <td>
+            <table border="0" cellpadding="0" cellspacing="0" width="900">
+              <tr> 
+                <td width="851" valign="bottom"> 
+<div id="TopMenu" style="width:851px;height:22px;overflow:hidden;margin-top:4px;">
+<table border="0" cellspacing="0" cellpadding="0" >
+      <tr valign="bottom" align="left"> 
+#set($level = 0)                          
+#foreach ($menuItem in $menu.components)    #set ($level = $level+1)  #set($menuClass = "menu1_up") #if($level==1) #set($menuClass="menu1_down")  #end
+  <td align="left" width="40"> 
+                                <table cellspacing=0 cellpadding=0 border=0 height="22" id="titleDisplay${level}">
+                                  <tr> 
+                                    <td class="${menuClass}l" nowrap id="TopMenu_Item_${level}_1"></td>
+                                    <td class="${menuClass}m" nowrap id="TopMenu_Item_${level}">
+										<a id="TopMenu_Item_${level}_3" href="#" target="_self" 
+												title="${menuItem.title}" class="menu1" 
+												onClick="clickImage(${level});closeMenu4();overMenu(ttt);" onMouseOver="overMenu(ttt)">
+											${menuItem.title}</a>
+									</td>
+                                    <td class="${menuClass}r" nowrap id="TopMenu_Item_${level}_2"></td>
+                                  </tr>
+                                </table> 
+	 </td>
+#end          
+      <td>&nbsp;</td> 
+   </tr>
+ </table>
+</div>
+</td>
+              </tr>
+            </table>
+          </td>
+      </tr>
+    </table></td>
+    <td width="10">&nbsp;</td>
+      <td width="20"><img name="P0" src="images/icon_left.gif"  border="0" id="left" style="cursor:hand; display:none;" onMouseDown="menu1_scroll(-6)" onMouseUp="menu1_scroll(0)" onMouseOver="show(0)" onMouseOut="hide(0)" align="absmiddle"></td>
+      <td width="20"><img name="P1" src="images/icon_right.gif" border="0" id="right" style="cursor:hand; display:none; " onMouseDown="menu1_scroll(6)" onMouseUp="menu1_scroll(0)" onMouseOver="show(1)" onMouseOut="hide(1)" align="absmiddle"></td>
+  </tr>
+</table>
+<div id="subMenu" style="overflow:hidden;height:23;width:100%;background-image: url('images/webui/menu2_bg.gif')" > 
+#set($level = 0)
+#foreach ($menuItem in $menu.components)   #set ($level = $level+1)  #set($level2 = 0)
+#set($menuDisplay = "none") #if($level==1) #set($menuDisplay="") #end
+<table  style="display:${menuDisplay}" id="subMenu_${level}" cellspacing="0" cellpadding="0" border="0" height="23" width="100%" >
+   <tr valign="bottom"><td align="left"><div style="overflow:auto;height:23px;" >
+   <ul style="list-style:none;margin-left:6px;">
+   #foreach ($menuItem2 in $menuItem.components)  #set ($level2 = $level2+1) 
+      #if($menuItem2.components.size()>0)
+         #if($level2==1 && $level==1)
+           <li style="float:left;padding-top:4px" nowrap name="${menuItem2.name}" id="subMenu_${level}_${level2}"  class="menu2_downm"> 
+          <script>clickSubMenu("$menuItem2.name");</script>
+         #else 
+             <li style="float:left;padding-top:4px"  nowrap name="${menuItem2.name}" id="subMenu_${level}_${level2}"  class="menu2_upm"> 
+         #end        
+         <a id="subMenu_${level}_${level2}_link" href="#" title="${menuItem2.title}" 
+               class="menu2" onClick='subClickImage($level,$level2,"${menuItem2.name}");closeMenu4();'>${menuItem2.title}</a></li>
+      #else       
+        <li style="float:left;padding-top:4px" nowrap name="${menuItem2.name}" id="subMenu_${level}_${level2}" class="menu2_upm">
+             <a id="${menuItem2.name}_link" href="${menuItem2.url}" target="mainFrame" title="${menuItem2.title}" class="menu2">${menuItem2.title}</a></li>
+      #end
+      <li style="float:left;" class="menu2_div"></li>
+	#end </ul></div> </td>
+	<td>&nbsp</td>
+	</tr>
+</table>
+#end
+</div>
+<SCRIPT>
+menu1_init();
+setTitleWidth($menu.components.size());
+</SCRIPT>

@@ -1,0 +1,68 @@
+<project basedir="../" default="all">
+	<property environment="env"/>
+	<property name="xdoclet.home" value="D:\xdoclet-1.2.3"/>
+	<property name="tomcat.home" value="D:\tomcat-4.1.34"/>
+	<property name="xdt.dir" value="xdt"/>
+	<property name="biz.config.dir"
+			value="../${module.dir}/config/spring"/>
+	
+	<property name="module.javasrc.dir" value="${module.dir}/javasrc"/>
+	<property name="module.gensrc.dir" value="${module.dir}/gensrc"/>
+	<property name="module.business.dir" value="${module.javasrc.dir}/business"/>
+	<property name="ejbgen.src.dir" value="${module.gensrc.dir}/ejb"/>
+	<property name="module.ejbbean.dir" value="${module.business.dir}/ejb"/>
+	
+	<path id="xdoclet.classpath">
+    	<fileset dir="bes">
+    		<include name="*.jar"/>
+    	</fileset>
+		<fileset dir="${xdoclet.home}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${tomcat.home}/common/lib">
+				<include name="*.jar" />
+		</fileset>
+	</path>
+	
+	<!--生成Home和Local接口-->
+    <target name="gen-ejbhome-src" description="EJB">
+		<!--
+		<delete dir="${ejbgen.src.dir}"></delete>
+		<taskdef name="ejbdoclet" classname="xdoclet.modules.ejb.EjbDocletTask" classpathref="xdoclet.classpath" />
+		<ejbdoclet ejbSpec="2.1" destDir="${ejbgen.src.dir}" mergedir="">
+			<fileset dir="${module.ejbbean.dir}">		
+        	    <include name="**/*Bean.java" />
+        	</fileset>
+			
+			<deploymentdescriptor destDir="${ejbgen.src.dir}/META-INF">
+			</deploymentdescriptor>
+			
+			<remoteinterface prefixWithPackageStructure="true"/>
+			<homeinterface prefixWithPackageStructure="true"/>
+			<localhomeinterface />
+			<localinterface/>
+			
+			<borland version="6.5" destdir="${ejbgen.src.dir}/META-INF"/>
+		</ejbdoclet>
+		-->
+	</target>
+	
+	<target name="ejb-client-config">
+		<!--
+		<delete quiet="true">
+		    <fileset dir="${biz.config.dir}">
+		    	<include name="${module.name}-ejbcleint-context.xml"/>
+		    </fileset>
+		</delete>
+		<taskdef name="ejbClientDoclet" classname="xdoclet.DocletTask" classpathref="xdoclet.classpath" />
+		<ejbClientDoclet  destDir="${biz.config.dir}">
+			<fileset dir="${module.interface.dir}">
+					<include name="**/*.java"/>
+			</fileset>
+			<xmltemplate templateFile="${xdt.dir}/ejb-client.xdt" destinationFile="${module.name}-ejb-context.xml" />
+		</ejbClientDoclet>
+		-->
+	</target>
+
+	<target name="all" depends="gen-ejbhome-src,ejb-client-config"/>
+</project>

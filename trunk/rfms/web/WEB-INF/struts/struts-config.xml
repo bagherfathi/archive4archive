@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean  name="loginForm"
+                    type="org.apache.struts.action.DynaActionForm">
+            <form-property name="loginName" type="java.lang.String"/>
+            <form-property name="password" type="java.lang.String"/>
+        </form-bean>
+    </form-beans>
+    
+    <!-- ========== Global Forward Definitions ============================== -->
+    <global-exceptions>
+		<exception key="boss.runtime.exception" type="com.ft.common.exception.CommonRuntimeException"
+		           path="common.exception.error.page"
+		           handler="com.ft.common.exception.CommonExceptionHandler">			 
+	    </exception>
+		
+		<exception key="boss.exception" type="java.lang.Exception"
+		           path="common.exception.error.page"
+		           handler="com.ft.common.exception.CommonExceptionHandler">			 
+	    </exception>
+    </global-exceptions> 
+    
+    <!-- ========== Global Forward Definitions ============================== -->
+    <global-forwards>
+    </global-forwards>
+    
+    <action-mappings>
+        <action
+	      path="/login"
+	      type="com.ft.web.sm.login.LoginAction"
+	      name="loginForm"
+	      scope="request"
+	      input="/WEB-INF/jsp/login/login.jsp"
+	      parameter="act"
+	      unknown="false"
+	      validate="true"
+	    >
+	      <forward
+	        name="main"
+	        path="/sm/topMenu.do"
+	        redirect="false"
+	      />
+	    </action>
+	    <action path="/logout" 
+	            type="org.apache.struts.actions.ForwardAction" 
+		        parameter="/WEB-INF/jsp/login/logout.jsp">
+		</action>
+    </action-mappings>
+    
+    <message-resources parameter="GlobalExceptionResouece" null="false" />
+    
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/struts/validator-rules.xml" />
+	</plug-in>
+	
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+  <set-property property="definitionConfigFiles" value="/WEB-INF/struts/tiles-defs.xml" />
+  <set-property property="moduleAware" value="true" />
+</plug-in>
+	
+    <plug-in className="net.sf.navigator.menu.MenuPlugIn">
+        <set-property property="menuConfig" value="/WEB-INF/struts/menu-config.xml" />
+    </plug-in>
+    
+	<plug-in className="com.ft.commons.datetime.DateTypePlugin">    
+	</plug-in>
+	
+</struts-config>
+

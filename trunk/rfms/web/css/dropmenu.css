@@ -1,0 +1,168 @@
+body 
+ {
+	SCROLLBAR-FACE-COLOR: #CDE0EE;
+	SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+	SCROLLBAR-SHADOW-COLOR: #E4ECF2;
+	SCROLLBAR-3DLIGHT-COLOR: #B9D5E8;
+	SCROLLBAR-ARROW-COLOR: #6698B9;
+	SCROLLBAR-TRACK-COLOR: #EAF2F8;
+	SCROLLBAR-DARKSHADOW-COLOR: #A8C3D5;
+	SCROLLBAR-BASE-COLOR: #C8DAE8;
+	margin:0px;
+ }
+ 
+td{ font-size:12px;}
+
+#save{ font:Arial, Helvetica, sans-serif;
+        font-size:12px;
+		color:#000000;
+		padding:1px 0px 0px 1px;
+		background-image:url(../../../image/btn_bg.jpg);
+		border:1px solid #609DD9;
+		height:18px;}
+
+.outmenubar {
+	font-size: 12px;
+	cursor: default;
+	background: #C8DAE8;
+	width:100%;
+	color: buttontext;
+	border-right: 1px solid #FFFFFF;
+	border-left: 1px solid #77A9C9;
+	border-bottom: 1px solid #EAF1F7;
+	border-top: 1px solid #77A9C9;
+}
+
+.inmenubar {
+	font-size: 12px;
+	background: #C8DAE8;
+	color: buttontext;
+	border-right: 1px solid #77A9C9;
+	border-left: 1px solid #EAF1F7;
+	border-bottom: 1px solid #77A9C9;
+	border-top: 1px solid #EAF1F7;
+}
+
+.menubarhand {
+	font-size: 12px;
+	width: 3px;
+	height: 20px;
+	background: #C8DAE8;
+	border-right: 1px solid #77A9C9;
+	border-left: 1px solid #EAF1F7;
+	border-bottom: 1px solid #77A9C9;
+	border-top: 1px solid #EAF1F7;
+}
+
+.menubar {
+	padding: 2px 5px 0px 5px;
+	font-size: 12px;
+	background: #C8DAE8;
+	color: buttontext;
+	border-right: 1px solid #C8DAE8;
+	border-left: 1px solid #C8DAE8;
+	border-bottom: 1px solid #C8DAE8;
+	border-top: 1px solid #C8DAE8;
+}
+
+.overmenubar {
+	padding: 2px 5px 0px 5px;
+	font-size: 12px;
+	background: highlight;
+	color: highlighttext;
+	border-right: 1px solid #C8DAE8;
+	border-left: 1px solid #C8DAE8;
+	border-bottom: 1px solid #C8DAE8;
+	border-top: 1px solid #C8DAE8;
+}
+
+.menubarsep {
+	font-size: 12px;
+	width: 3px;
+	border-left: 1px solid #77A9C9;
+	border-right: 1px solid #EAF1F7;
+}
+
+.outmenu {
+	cursor: default;
+	font-size: 12px;
+	background: #C8DAE8;
+	border-right: 1px solid windowframe;
+	border-left: 1px solid  #C8DAE8;
+	border-bottom: 1px solid windowframe;
+	border-top: 1px solid  #C8DAE8;
+}
+
+.inmenu {
+	font-size: 12px;
+	border-right: 1px solid #77A9C9;
+	border-left: 1px solid #EAF1F7;
+	border-bottom: 1px solid #77A9C9;
+	border-top: 1px solid #EAF1F7;
+}
+
+.menuitem {
+	font-size: 12px;
+	padding: 2px 20px 0px 21px;
+	background: #C8DAE8;
+	color: menutext;
+}
+
+.overmenuitem {
+	font-size: 12px;
+	padding: 2px 20px 0px 21px;
+	background: highlight;
+	color: highlighttext;
+}
+
+.menuitemwithimg {
+	font-size: 12px;
+	padding: 2px 20px 0px 2px;
+	background: #C8DAE8;
+	color: menutext;
+}
+
+.overmenuitemwithimg {
+	font-size: 12px;
+	padding: 2px 20px 0px 2px;
+	background: highlight;
+	color: highlighttext;
+}
+
+.menuitemicon {
+	padding: 1px 1px 1px 1px;
+}
+
+.overmenuitemicon {
+	background: highlight;
+	color: highlighttext;
+	padding: 0px 0px 0px 0px;
+	border-left: 1px solid highlight;
+	border-right: 1px solid #77A9C9;
+	border-bottom: 1px solid #77A9C9;
+	border-top: 1px solid #EAF1F7;
+}
+
+.menusep {
+	font-size: 12px;
+	width: 100%;
+	border-top: 1px solid #77A9C9;
+	border-bottom: 1px solid #EAF1F7;
+}
+
+.TDmenusep {
+	font-size: 12px;
+	padding: 2px 1px 2px 1px;
+}
+
+.toolbar{behavior:url(dropmenu/scripts/toolbar.htc);}
+
+.tooltitle { font-size:12px; color:#FFFFFF;}
+
+.inputlogin
+       { font-size:12px;
+         color:#000000;
+		 border:1px #000000 solid;
+		 vertical-align:middle;
+		 font-family: "Arial";
+		 padding-left:2px;}

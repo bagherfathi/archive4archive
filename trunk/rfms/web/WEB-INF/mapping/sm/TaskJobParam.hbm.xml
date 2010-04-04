@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="TaskJobParam"
+		table="SM_TASK_JOB_PARAM"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="paramId"
+			type="long"
+			column="PARAM_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="triggerId"
+			column="TRIGGER_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="paramDefineid"
+			column="PARAM_DEFINEID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="paramValue"
+			column="PARAM_VALUE"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

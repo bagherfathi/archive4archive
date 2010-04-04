@@ -1,0 +1,360 @@
+body.dialog {
+	font-family: verdana, sans-serif;
+	font-size: 11px;
+	padding: 0;
+	margin: 0; 
+	
+} 
+table.dialog { 
+	margin: 30px auto; 
+	width: 700px; 
+	align: center ;
+	background-color: Window; 
+	border-left: 1px solid ThreeDLightShadow; 
+	border-top: 1px solid ThreeDLightShadow; 
+	border-right: 1px solid ThreedDarkShadow; 
+	border-bottom: 1px solid ThreedDarkShadow; 
+} 
+table.dialogbox { 
+	width: 100%; 
+	background-color: #DEEBF7;
+	border-left: 1px solid ThreeDHighlight; 
+	border-top: 1px solid ThreeDHighlight; 
+	border-right: 1px solid ThreeDShadow; 
+	border-bottom: 1px solid ThreeDShadow; 
+	padding: 1px; 
+} 
+.dialoghead { 
+	background-color:  #4292C6; 
+	margin-bottom: 8px; 
+	padding: 2px; 
+	color: CaptionText; 
+	font-size: 12px; 
+	font-weight: bold; 
+	width: 100%; 
+} 
+.dialogcontent { 
+	border-left: 1px solid ThreeDHighlight; 
+	border-top: 1px solid ThreeDHighlight; 
+	border-right: 2px solid ThreeDShadow; 
+	border-bottom: 2px solid ThreeDShadow; 
+	padding: 15px; 
+	margin: 8px; 
+} 
+.dialogspacer { 
+	height: 10px; 
+} 
+.dialoginnerboxborder { 
+	border-left: 1px solid ThreeDShadow; 
+	border-top: 1px solid ThreeDShadow; 
+	border-right: 1px solid ThreeDHighlight; 
+	border-bottom: 1px solid ThreeDHighlight; 
+	padding: 0; 
+} 
+.dialoginnerbox { 
+	background-color: Window; 
+	border-left: 1px solid ThreedDarkShadow; 
+	border-top: 1px solid ThreedDarkShadow; 
+	border-right: 1px solid ThreeDLightShadow; 
+	border-bottom: 1px solid ThreeDLightShadow; 
+	padding: 2px; 
+} 
+.dialogbuttons { 
+	padding: 3px 8px 5px; 
+	text-align: center; 
+} 
+input.dialogbutton { 
+	font-family: verdana, sans-serif; 
+	font-size: 11px; 
+	background-color: #DEEBF7; 
+	width: 100px; 
+	height: 20px; 
+	padding: 0 3px; 
+	margin-left: 12px; 
+	overflow: visible; 
+	border-style: ridge;
+	border-left: 1px solid #C0C0C0; border-top: 1px solid #C0C0C0; 
+} 
+
+.nomargin { 
+	padding: 0; 
+	margin: 0; 
+} 
+.hide { 
+	display: none; 
+	visibility: hidden; 
+} 
+.show { 
+	display: inline; 
+	visibility: visible; 
+} 
+
+
+
+
+div.dialogblockborderheadline { 
+	margin-top: 10px; 
+} 
+div.dialogblockborder { 
+	border-left: 1px solid ThreeDShadow; 
+	border-top: 1px solid ThreeDShadow; 
+	border-right: 1px solid ThreeDHighlight; 
+	border-bottom: 1px solid ThreeDHighlight; 
+} 
+div.dialogblock { 
+	position: relative; 
+	padding: 8px; 
+	border-left: 1px solid ThreeDHighlight; 
+	border-top: 1px solid ThreeDHighlight; 
+	border-right: 1px solid ThreeDShadow; 
+	border-bottom: 1px solid ThreeDShadow; 
+} 
+span.dialogblockhead { 
+	font-weight: bold; 
+	position:absolute; 
+	top: -7px; 
+	left: 5px; 
+	background: #DEEBF7; 
+	padding: 0 3px; 
+	white-space: nowrap; 
+} 
+input, select, option, textarea { 
+	font-family: verdana, sans-serif; 
+	font-size: 11px; 
+} 
+.help { 
+	color: InfoText; 
+	position: absolute; 
+	top: 0px; 
+	left: 0px; 
+	padding: 5px; 
+	width: 200px; 
+	border: 1px solid WindowFrame; 
+	background-color: InfoBackground; 
+	visibility: hidden; 
+	font-size: 8pt; 
+} 
+
+.container {
+        width: 219px;
+        top: 0px;
+        left: 0px;
+        height: 480;
+        padding: 5px;
+        overflow: auto;
+        border-style: outset; 
+        border-width: 1px;
+}
+
+div.cm { 
+ 			position: absolute; 
+ 			visibility: hidden; 
+ 			top: 0px; 
+ 			left: 0px; 
+ 			background-color: ThreeDFace; 
+ 			z-index: 100; 
+ 			border-left: 1px solid ThreeDFace; 
+ 			border-top: 1px solid ThreeDFace; 
+ 			border-bottom: 1px solid ThreedDarkShadow; 
+ 			border-right: 1px solid ThreedDarkShadow; 
+ 			filter:progid:DXImageTransform.Microsoft.Shadow(color=ThreeDShadow, Direction=135, Strength=3); 
+ }
+div.cm2 { 
+			border-left: 1px solid ThreeDHighlight; 
+			border-top: 1px solid ThreeDHighlight; 
+			border-bottom: 1px solid ThreeDShadow; 
+			border-right: 1px solid ThreeDShadow; 
+}
+table.cm { width: 150px; } 
+span.cmsep{
+			 display: block; 
+			 width: 100%; 
+			 height: 1px;
+			 font-size: 0px; 
+			 background-color: ThreeDShadow;
+			 padding: 0px; 
+			 border-bottom: 1px solid ThreeDHighlight;
+} 
+td.cmsep { 
+			box-sizing: border-box; -moz-box-sizing: border-box; 
+			padding: 2px; 
+} 
+
+span.cmenorm { 
+			box-sizing: border-box; -moz-box-sizing: border-box;
+			cursor: hand; 
+			display: block; 
+			width: 100%; 
+			padding: 2px 0px 2px 10px; 
+} 
+span.cmehigh {
+			box-sizing: border-box; -moz-box-sizing: border-box; 
+			cursor: hand; 
+			display: block; 
+			width: 100%; 
+			padding: 2px 0px 2px 10px; 
+			color: CaptionText; 
+			background-color: ActiveCaption; 
+}
+span.inanorm {
+			 box-sizing: border-box; -moz-box-sizing: border-box; 
+			 cursor: default; 
+			 display: block; 
+			 width: 100%;
+			 padding: 2px 0px 2px 10px; 
+			 color: InactiveCaption; 
+} 
+span.inahigh { box-sizing: border-box; -moz-box-sizing: border-box;
+				 cursor: default; 
+				 display: block; 
+				 width: 100%; padding: 2px 0px 2px 10px; 
+				 color: InactiveCaptionText; 
+				 background-color: ActiveCaption; 
+}
+.selected { 
+			background: ActiveCaption; 
+			color: CaptionText; 
+}
+.unselected { 
+ 			background: Window; 
+ 			color:WindowText; 
+}
+
+.panelTitle{
+
+      FONT-WEIGHT: bold;
+	FONT-SIZE: 13px;
+	COLOR: highlighttext;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 22px;
+	cursor:default;
+	background-color: #6698B9;
+	text-indent: 10px;
+	border-left:1px solid #A8C3D5;
+	border-top:1px solid #A8C3D5;
+	border-right:1px solid #E4ECF2;
+	border-bottom:1px solid #E4ECF2;
+}
+
+.panelButtom{
+    FONT-SIZE: 12px;
+	BACKGROUND: #E4ECF2;
+	COLOR: buttonfacetext;
+	FONT-FAMILY: "宋体";
+	text-align: right;
+	HEIGHT: 30px;
+	cursor:default;
+	text-decoration: none;
+	text-indent: 3px;
+	border-right:1px solid #A8C3D5;
+	border-bottom:1px solid #A8C3D5;
+}
+
+/*--表格--*/
+.table_top_1 {
+	background-image: url(../images/table_top_1.gif);
+	width: 6px;
+	height:27px;
+}
+.table_top_2 {
+	background-image: url(../images/table_top_2.gif);
+	height:27px;
+}
+.table_top_3 {
+	background-image: url(../images/table_top_3.gif);
+	width: 6px;
+	height:27px;
+}
+.table_middle {
+	border-left: #9BC3ED 1px solid;
+	border-right: #9BC3ED 1px solid;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.table_bottom_1 {
+	background-image: url(../images/table_bottom_1.gif);
+	width: 8px;
+	height:8px;
+}
+.table_bottom_2 {
+	background-image: url(../images/table_bottom_2.gif);
+	height:8px;
+}
+.table_bottom_3 {
+	background-image: url(../images/table_bottom_3.gif);
+	width: 8px;
+	height:8px;
+}
+.table-bg {
+	background-color: #BBD9F9;
+}
+/*-- 完 --*/
+
+/*--TD--*/
+.td-bg {
+	background-color: #FFFFFF;
+}
+.td_normal {
+    font-size: 12px;
+	line-height: 18px;
+	white-space: normal; 
+	word-break: break-all ;
+}
+.td-left
+{
+    background-color: #EBF5FF;
+    color: #000000;
+    font-size: 12px;
+    text-align: right;
+	padding-left: 5px;
+	padding-right: 8px;
+}
+.td-right
+{
+    background-color: #F9F9F9;
+    color: #000000;
+    font-size: 12px;
+    text-align: left;
+	padding-left: 5px;
+}
+.td-center
+{
+    background-color: #F9F9F9;
+    color: #000000;
+    font-size: 12px;
+    text-align: center;
+	padding-left: 5px;
+}
+.td-detail
+{
+    background-color: #CDE2F7;
+    color: #000000;
+    font-size: 12px;
+    text-align: center;	
+	height:22px;
+}
+.text-red { 
+	color:#FF0000;
+	vertical-align:center;
+}
+.td-title {
+	background-color: #A7D3FF;
+	height: 23px;
+    text-align: center;	
+}
+.tb-list {
+	border-color: #CCCCCC;
+	border-collapse: collapse;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-top-width: 1px;
+}
+.wid80
+{
+    >width: 80%
+}
+.wid90
+{
+    >width: 90%
+}
+/*-- 完 --*/

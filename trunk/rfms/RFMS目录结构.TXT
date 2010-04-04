@@ -1,0 +1,29 @@
+RFMS
+---ant 编译脚本
+---commonsrc 核心代码目录
+---dist  编译后的输出文件目录
+---rfmssrc  商户关系业务逻辑代码目录
+---rfmswebsrc  商户管理web层代码目录
+---smsrc   系统管理业务逻辑代码
+---smwebsrc  系统管理web代码目录
+---test  测试代码
+---web   web工程目录
+------js  js代码目录
+------templates  velocity模板目录
+------WEB-INF
+---------classes
+---------conf 数据库，日志配置目录
+---------jsp jsp文件目录
+---------lib  jar目录
+---------mapping   hibernate配置文件目录
+---------reportlets  报表文件目录
+---------resources   报表配置文件目录
+---------spring    spring配置文件目录
+---------struts    Struts配置文件目录
+---------tld     taglib配置文件目录
+---------web.xml   
+---------webui.properties
+------appThemes   主题皮肤目录
+------css  css目录
+------fckeditor  fck网页编辑器
+------images    图片文件目录

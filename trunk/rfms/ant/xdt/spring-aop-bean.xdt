@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="<XDtConfig:configParameterValue paramName='Xmlencoding'/>"?>
+
+<!DOCTYPE beans PUBLIC
+    "<XDtXml:publicId/>"
+    "<XDtXml:systemId/>">
+
+<beans>
+<XDtClass:forAllClasses>
+<XDtClass:forAllClassTags tagName="spring:aop-bean">
+  <bean
+  <XDtClass:ifHasClassTag tagName="spring.aop-bean" paramName="id">
+      id="<XDtClass:classTagValue tagName="spring.aop-bean" paramName="id"/>"
+  </XDtClass:ifHasClassTag>
+  <XDtClass:ifHasClassTag tagName="spring.aop-bean" paramName="parent">
+      parent="<XDtClass:classTagValue tagName="spring.aop-bean" paramName="parent"/>"
+  </XDtClass:ifHasClassTag>>
+  <XDtClass:ifHasClassTag tagName="spring.aop-bean" paramName="target">
+   		<property name="target">
+			<ref bean="<XDtClass:classTagValue tagName="spring.aop-bean" paramName="target"/>"/>
+		</property>
+  </XDtClass:ifHasClassTag>
+  </bean>
+</XDtClass:forAllClassTags>
+</XDtClass:forAllClasses>
+
+<XDtMerge:merge file="spring-aop-beans.xml">
+  <!--
+     To include additional bean definitions for Spring in the generated
+     application context file, add a file to your XDoclet merge directory
+     called spring-beans.xml that contains the <bean></bean> markup.
+  -->
+</XDtMerge:merge>
+
+</beans>

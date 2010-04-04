@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="no" default-lazy-init="true"
+	default-dependency-check="none">
+
+	<bean id="merchantAction" class="com.ft.rfms.web.merchant.MerchantAction">
+		<property name="merchantService">
+			<ref bean="merchantService" />
+		</property>
+		<property name="appService">
+			<ref bean="busiAppService" />
+		</property>
+		<property name="roleId">
+			<value>10</value>
+		</property>
+	</bean>
+
+
+	<bean id="fineReportAction" class="com.ft.rfms.web.report.FineReportAction">
+
+		<property name="reportService">
+
+			<ref bean="reportService" />
+		</property>
+
+	</bean>
+	<bean id="tradeSearchAction" class="com.ft.rfms.web.report.TradeSearchAction">
+		<property name="reportService">
+			<ref bean="reportService" />
+		</property>
+		<property name="sql">
+			<value><![CDATA[select t.trade_status,st.text,t.realamount,t.recordtime,t.org_id,org.name,t.eftno,t.cardasn
+from rfms.tbl_trade t,rfms.tbl_organization org,rfms.dict_trade_status st
+where t.org_id=org.id
+and t.trade_status=st.id
+and t.trade_type=151]]></value>
+		</property>
+		<property name="conditionMap">
+			<map>
+				<entry key="beginDate">
+					<value><![CDATA[ and t.recordtime>to_date('[beginDate]','yyyy-mm-dd')]]></value>
+				</entry>
+				<entry key="endDate">
+					<value><![CDATA[ and t.recordtime<=to_date('[endDate]','yyyy-mm-dd')+1]]></value>
+				</entry>
+				<entry key="posCode">
+					<value><![CDATA[ and t.eftNo=[posCode]]]></value>
+				</entry>
+
+				<entry key="tradeCode">
+					<value><![CDATA[ and t.id=[tradeCode]]]></value>
+				</entry>
+				<entry key="cardCode">
+					<value><![CDATA[ and t.cardasn=[cardCode]]]></value>
+				</entry>
+				<entry key="tradeStatus">
+					<value><![CDATA[ and t.trade_status in ([tradeStatus])]]></value>
+				</entry>
+				<entry key="minMoney">
+					<value><![CDATA[ and abs(t.realamount)>=100*[minMoney]]]></value>
+				</entry>
+				<entry key="maxMoney">
+					<value><![CDATA[ and abs(t.realamount)<=100*[maxMoney]]]></value>
+				</entry>
+				<entry key="orderby">
+					<value><![CDATA[ order by t.recordtime desc ]]></value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="merchantTradeSearchAction" class="com.ft.rfms.web.report.MerchantTradeSearchAction">
+		<property name="reportService">
+			<ref bean="reportService" />
+		</property>
+		<property name="sql">
+			<value><![CDATA[select t.trade_status,st.text,t.realamount,t.recordtime,t.org_id,org.name,t.eftno,t.cardasn
+from rfms.tbl_trade t,rfms.tbl_organization org,rfms.dict_trade_status st
+where t.org_id=org.id
+and t.trade_status=st.id
+and t.trade_type=151]]></value>
+		</property>
+		<property name="conditionMap">
+			<map>
+				<entry key="beginDate">
+					<value><![CDATA[ and t.recordtime>to_date('[beginDate]','yyyy-mm-dd')]]></value>
+				</entry>
+				<entry key="endDate">
+					<value><![CDATA[ and t.recordtime<=to_date('[endDate]','yyyy-mm-dd')+1]]></value>
+				</entry>
+				<entry key="posCode">
+					<value><![CDATA[ and t.eftNo=[posCode]]]></value>
+				</entry>
+
+				<entry key="tradeCode">
+					<value><![CDATA[ and t.id=[tradeCode]]]></value>
+				</entry>
+				<entry key="cardCode">
+					<value><![CDATA[ and t.cardasn=[cardCode]]]></value>
+				</entry>
+				<entry key="tradeStatus">
+					<value><![CDATA[ and t.trade_status in([tradeStatus])]]></value>
+				</entry>
+				<entry key="minMoney">
+					<value><![CDATA[ and abs(t.realamount)>=100*[minMoney]]]></value>
+				</entry>
+				<entry key="maxMoney">
+					<value><![CDATA[ and abs(t.realamount)<=100*[maxMoney]]]></value>
+				</entry>
+				<entry key="orderby">
+					<value><![CDATA[ order by t.recordtime desc ]]></value>
+				</entry>
+
+			</map>
+		</property>
+	</bean>
+	<bean id="payReportAction" class="com.ft.rfms.web.report.PayReportAction">
+		<property name="reportService">
+			<ref bean="reportService" />
+		</property>
+		<property name="sql">
+			<value><![CDATA[select p.id, p.settle_record_id,mer.merchant_name, p.start_date, p.end_date,p.amount, p.pay_flag
+  from rfms.rfms_settle_pay p,rfms.rfms_settle_record re,rfms.rfms_merchant mer
+ where p.settle_record_id=re.id
+ and re.merchant_id=mer.merchant_id
+ and p.pay_flag = 0]]></value>
+		</property>
+		<property name="conditionMap">
+			<map>
+				<entry key="beginDate">
+					<value><![CDATA[ and p.pay_date>=to_date('[beginDate]','yyyy-MM-dd')]]></value>
+				</entry>
+				<entry key="endDate">
+					<value><![CDATA[ and p.pay_date<=to_date('[endDate]','yyyy-MM-dd')]]></value>
+				</entry>
+				<entry key="orderby">
+					<value><![CDATA[ order by mer.merchant_name,p.pay_date ]]></value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>

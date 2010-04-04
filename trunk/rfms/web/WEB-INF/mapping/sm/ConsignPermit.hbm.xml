@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="ConsignPermit"
+		table="SM_CONSIGN_PERMIT"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="consignId"
+			type="long"
+			column="CONSIGN_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="consignerId"
+			column="CONSIGNER_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="consignerOrgId"
+			column="CONSIGNER_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="consigneeId"
+			column="CONSIGNEE_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="consigneeOrgId"
+			column="CONSIGNEE_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="resourceId"
+			column="RESOURCE_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="resourceType"
+			column="RESOURCE_TYPE"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="orgId"
+			column="ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="validTime"
+			column="VALID_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="expireTime"
+			column="EXPIRE_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="consignTime"
+			column="CONSIGN_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

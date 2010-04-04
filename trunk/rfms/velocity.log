@@ -1,0 +1,29 @@
+2010-04-04 10:42:08,703 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 10:42:08,703 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 10:42:08,703 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-04 10:42:08,703 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 10:42:08,703 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:42:08,703 - WebappLoader : initialization starting.
+2010-04-04 10:42:08,703 - WebappLoader : initialization complete.
+2010-04-04 10:42:08,703 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-04 10:42:08,703 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-04 10:42:08,703 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-04 10:42:08,703 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-04 10:42:08,703 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-04 10:42:08,703 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-04 10:42:08,703 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-04 10:42:08,718 - Created '20' parsers.
+2010-04-04 10:42:08,718 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-04 10:42:08,750 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-04 10:42:08,796 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-04 10:42:08,875 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 10:42:08,875 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-04 10:42:08,875 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-04 10:42:08,875 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-04 10:42:08,875 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-04 10:42:09,203 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:42:10,656 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:42:14,500 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:43:15,796 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:43:17,062 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:43:25,703 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader

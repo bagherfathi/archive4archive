@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/conf/config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>${jdbc.driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc.url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.password}</value>
+		</property>
+		<property name="maxActive">
+			<value>${maxActive}</value>
+		</property>
+		<property name="maxWait">
+			<value>${maxWait}</value>
+		</property>
+		<property name="maxIdle">
+			<value>${maxIdle}</value>
+		</property>
+		<property name="validationQuery">
+			<value>${validationQuery}</value>
+		</property>
+	</bean>
+
+	<bean id="lobHandler"
+		class="org.springframework.jdbc.support.lob.DefaultLobHandler">
+	</bean>
+	<!-- oracle colb -->
+	<!-- 
+		<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"/>
+		
+		<bean id="lobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler">
+		<property name="nativeJdbcExtractor">
+		<ref local="nativeJdbcExtractor"/>
+		</property>
+		</bean>
+	-->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>${hibernate.mapping.dir}</value>
+			</list>
+		</property>
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="schemaUpdate">
+			<value>false</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.max_fetch_depth">3</prop>
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">30</prop>
+				<prop key="hibernate.jdbc.use_scrollable_resultset">
+					true
+				</prop>
+				<prop key="hibernate.query.substitutions">
+					true 1, false 0
+				</prop>
+				<prop key="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
+				</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.transaction.factory_class">
+					org.hibernate.transaction.JDBCTransactionFactory
+				</prop>
+				<!-- 
+					<prop key="hibernate.hbm2ddl.auto">none</prop>
+				-->
+			</props>
+		</property>
+		<property name="lobHandler">
+			<ref local="lobHandler" />
+		</property>
+	</bean>
+
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="transactionDefinition"
+		class="org.springframework.transaction.support.DefaultTransactionDefinition">
+		<property name="propagationBehaviorName">
+			<value>PROPAGATION_REQUIRED</value>
+		</property>
+	</bean>
+
+	<bean id="entityQueryHelper"
+		class="com.ft.hibernate.helper.EntityQueryHelper">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="entityPersistentHelper"
+		class="com.ft.hibernate.helper.EntityPersistentHelper">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="entityMetadataSupport"
+		class="com.ft.hibernate.support.EntityMetadataSupport">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="entityDAOHelper" abstract="true">
+		<property name="persistentHelper">
+			<ref local="entityPersistentHelper"></ref>
+		</property>
+		<property name="entityQueryHelper">
+			<ref local="entityQueryHelper"></ref>
+		</property>
+	</bean>
+
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath">
+			<value>templates</value>
+		</property>
+		<property name="overrideLogging">
+			<value>true</value>
+		</property>
+		<property name="velocityProperties">
+			<props>
+				<prop key="resource.loader">file</prop>
+				<prop key="file.resource.loader.class">
+					org.apache.velocity.runtime.resource.loader.FileResourceLoader
+				</prop>
+				<prop key="file.resource.loader.cache">true</prop>
+				<prop key="input.encoding">GB2312</prop>
+				<prop key="output.encoding">GB2312</prop>
+				<prop key="velocimacro.library">globalMacros.vm</prop>
+				<prop key="velocimacro.library.autoreload">true</prop>
+				<prop
+					key="velocimacro.permissions.allow.inline.to.replace.global">
+					true
+				</prop>
+				<prop key="userdirective">
+					net.sf.navigator.displayer.LocalDirective
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="templateEngine"
+		class="com.ft.commons.template.VelocityTemplateEngine">
+		<property name="velocityEngine">
+			<ref bean="velocityEngine"></ref>
+		</property>
+	</bean>
+
+	<bean id="transactionProxyFactoryBean" lazy-init="true"
+		abstract="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="disable*">PROPAGATION_REQUIRED</prop>
+				<prop key="batch*">PROPAGATION_REQUIRED</prop>
+				<prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="report*">PROPAGATION_REQUIRED</prop>
+				<prop key="read*">PROPAGATION_REQUIRED</prop>
+				<prop key="post*">PROPAGATION_REQUIRED</prop>
+				<prop key="reply*">PROPAGATION_REQUIRED</prop>
+				<prop key="open*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref local="dataSource"/>
+        </property>
+    </bean>
+	<bean id="baseDao" class="com.ft.hibernate.support.BaseDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="baseService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="baseServiceImpl" />
+		</property>
+	</bean>
+	  <bean
+      id="baseServiceImpl"
+      class="com.ft.common.busi.BaseServiceImpl"
+  >
+    <property name="baseDao">
+      <ref bean="baseDao"/>
+    </property>
+  </bean>
+  
+  
+  
+</beans>

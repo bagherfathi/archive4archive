@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<form-validation>
+	<global>
+		<constant>
+			<constant-name>urlMask</constant-name>
+			<constant-value>http:\/\/([^/:]+)(:\d*)?([^# ]*)$</constant-value>
+		</constant>
+		<constant>
+			<constant-name>ipAddressMask</constant-name>
+			<constant-value>^\d{1,3}\.{1}\d{1,3}\.{1}\d{1,3}\.{1}\d{1,3}$
+			</constant-value>
+		</constant>
+		<constant>
+			<constant-name>phone</constant-name>
+			<constant-value>^\d{0,4}\-?\d{0,4}\-?\d{6}\d*\*?\d{0,6}$
+			</constant-value>
+		</constant>
+		<constant>
+			<constant-name>specialCharacter</constant-name>
+			<constant-value>^[\w\u4e00-\u9fa5\（\）\(\)\-\s]*$</constant-value>
+		</constant>
+	</global>
+
+	<formset>
+		<form name="merchantForm">
+			<field property="baseEntity.merchantName" depends="required,maxlength,mask,exist">
+				<arg position="0" key="label.rfms.merchant.merchant_name" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+					<var-name>entityName</var-name>
+					<var-value>com.ft.rfms.entity.RfmsMerchant</var-value>
+				</var>
+				<var>
+					<var-name>attribute</var-name>
+					<var-value>merchantName</var-value>
+				</var>
+				<var>
+					<var-name>keyName</var-name>
+					<var-value>id</var-value>
+				</var>
+				<var>
+					<var-name>historyed</var-name>
+					<var-value>true</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.merchantCode" depends="required,maxlength,mask,exist">
+				<arg position="0" key="label.rfms.merchant.merchant_code" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+					<var-name>entityName</var-name>
+					<var-value>com.ft.rfms.entity.RfmsMerchant</var-value>
+				</var>
+				<var>
+					<var-name>attribute</var-name>
+					<var-value>merchantCode</var-value>
+				</var>
+				<var>
+					<var-name>keyName</var-name>
+					<var-value>id</var-value>
+				</var>
+			</field>
+
+			<field property="baseEntity.address" depends="required,maxlength">
+				<arg position="0" key="label.rfms.merchant.address" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.contactPhone" depends="required,mask">
+				<arg position="0" key="label.rfms.merchant.contact_phone" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.contactName" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.merchant.contact_name" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+
+			<field property="baseEntity.branchNum" depends="required,integer">
+				<arg position="0" key="label.rfms.merchant.branch_num" />
+			</field>
+			<field property="baseEntity.userId" depends="required,integer">
+				<arg position="0" key="label.rfms.merchant.user_id" />
+			</field>
+			<field property="baseEntity.commisionCharge" depends="required,floatRange">
+				<arg position="0" key="label.rfms.merchant.commision_charge" />
+				<arg key="${var:min}" name="floatRange" position="1" resource="false" />
+				<arg key="${var:max}" name="floatRange" position="2" resource="false" />
+				<var>
+					<var-name>min</var-name>
+					<var-value>0.0</var-value>
+				</var>
+				<var>
+					<var-name>max</var-name>
+					<var-value>1</var-value>
+				</var>
+			</field>
+
+			<field property="baseEntity.discountRate" depends="floatRange">
+				<arg position="0" key="label.rfms.merchant.discount_rate" />
+				<arg key="${var:min}" name="floatRange" position="1" resource="false" />
+				<arg key="${var:max}" name="floatRange" position="2" resource="false" />
+				<var>
+					<var-name>min</var-name>
+					<var-value>0.0</var-value>
+				</var>
+				<var>
+					<var-name>max</var-name>
+					<var-value>1</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.handlingCharge" depends="floatRange">
+				<arg position="0" key="label.rfms.merchant.handling_charge" />
+				<arg key="${var:min}" name="floatRange" position="1" resource="false" />
+				<arg key="${var:max}" name="floatRange" position="2" resource="false" />
+				<var>
+					<var-name>min</var-name>
+					<var-value>0.0</var-value>
+				</var>
+				<var>
+					<var-name>max</var-name>
+					<var-value>1</var-value>
+				</var>
+			</field>
+
+			<field property="baseEntity.rebates" depends="floatRange">
+				<arg position="0" key="label.rfms.merchant.rebates" />
+				<arg key="${var:min}" name="floatRange" position="1" resource="false" />
+				<arg key="${var:max}" name="floatRange" position="2" resource="false" />
+				<var>
+					<var-name>min</var-name>
+					<var-value>0.0</var-value>
+				</var>
+				<var>
+					<var-name>max</var-name>
+					<var-value>1</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.posFee" depends="floatRange">
+				<arg position="0" key="label.rfms.merchant.pos_fee" />
+				<arg key="${var:min}" name="floatRange" position="1" resource="false" />
+				<arg key="${var:max}" name="floatRange" position="2" resource="false" />
+				<var>
+					<var-name>min</var-name>
+					<var-value>0.0</var-value>
+				</var>
+				<var>
+					<var-name>max</var-name>
+					<var-value>1</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.bankName" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.merchant.bank_name" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.bankAccountName" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.merchant.bank_account_name" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.bankAccountCode" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.merchant.bank_account_code" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+
+			<field property="baseEntity.settlePeriod" depends="required,integer">
+				<arg position="0" key="label.rfms.merchant.settle_period" />
+			</field>
+			<field property="baseEntity.settleDate" depends="required,integer">
+				<arg position="0" key="label.rfms.merchant.settle_date" />
+			</field>
+			<field property="baseEntity.settleType" depends="required,integer">
+				<arg position="0" key="label.rfms.merchant.settle_type" />
+			</field>
+			<field property="baseEntity.checkDate" depends="required,integer">
+				<arg position="0" key="label.rfms.merchant.check_date" />
+			</field>
+			<field property="baseEntity.financeContact" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.merchant.finance_contact" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+		</form>
+
+		<form name="cardForm">
+			<field property="baseEntity.cardName" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.card.card_name" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+					<var-name>entityName</var-name>
+					<var-value>com.ft.rfms.entity.RfmsCard</var-value>
+				</var>
+				<!-- var>
+					<var-name>attribute</var-name>
+					<var-value>cardName</var-value>
+				</var>
+				<var>
+					<var-name>keyName</var-name>
+					<var-value>id</var-value>
+				</var>
+				<var>
+					<var-name>historyed</var-name>
+					<var-value>true</var-value>
+				</var-->
+			</field>
+			<field property="baseEntity.parValue" depends="required,integer">
+				<arg position="0" key="label.rfms.card.par_value" />
+			</field>
+			<field property="baseEntity.xfCs" depends="required,integer">
+				<arg position="0" key="label.rfms.card.xfCs" />
+			</field>
+			<field property="baseEntity.syCs" depends="required,integer">
+				<arg position="0" key="label.rfms.card.syCs" />
+			</field>
+			<field property="baseEntity.cfCs" depends="required,integer">
+				<arg position="0" key="label.rfms.card.cfCs" />
+			</field>
+			<field property="baseEntity.tqTx" depends="required,integer">
+				<arg position="0" key="label.rfms.card.tqTx" />
+			</field>
+
+			<field property="baseEntity.sygz" depends="maxlength,mask">
+				<arg position="0" key="sysadmin.label.card.sygz" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+
+		</form>
+		
+		<form name="membertypeForm">
+			<field property="baseEntity.name" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.membertype.name" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+					<var-name>entityName</var-name>
+					<var-value>com.ft.rfms.entity.RfmsMemberType</var-value>
+				</var>
+			</field>
+			<field property="baseEntity.memo" depends="maxlength,mask">
+				<arg position="0" key="sysadmin.label.membertype.memo" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+
+		</form>
+
+	</formset>
+</form-validation>

@@ -1,0 +1,8 @@
+<!---Title Bar BODY end-->  
+        </td>
+      </tr>
+      <tr> 
+        <td height="6"><img src="${contextPath}/images/main/new_4.gif" width="${bar.width}" height="6"></td>
+      </tr>
+</table>
+<!---Title Bar end-->   

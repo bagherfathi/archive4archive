@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="RelGroupOrg"
+		table="SM_REL_GROUP_ORG"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="relId"
+			type="long"
+			column="REL_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="groupId"
+			column="GROUP_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="orgId"
+			column="ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

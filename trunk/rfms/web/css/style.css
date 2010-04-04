@@ -1,0 +1,431 @@
+A:link {
+	color: #000000;
+	text-decoration: none;
+}
+A:visited {
+	color: #000000;
+	text-decoration: none;
+}
+A.underline:link {
+	color: #000000;
+	text-decoration: underline;
+}
+A.underline:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+p, body {
+	font-size: 12px;
+	scrollbar-face-color: #eeeeee;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #dee3e7;
+	scrollbar-3dlight-color: #d1d7dc;
+	scrollbar-arrow-color:  #000000;
+	scrollbar-track-color: #ededed;
+	scrollbar-darkshadow-color: #808080;
+}
+form {
+	margin: 0px;
+}
+th {
+	height: 20px;
+	background-color: #EBF5FF;
+	font-size: 12px;
+	text-align: center;
+	white-space: nowrap;
+}
+td {
+	font-size: 12px;
+	line-height: 18px;
+	white-space: nowrap;
+	
+}
+
+hr {
+	color: #CCCCCC;
+	height: 1px;
+}
+input {
+	font-size: 12px;
+	font-family:Arial, Helvetica, sans-serif;
+	border-top: #999999 1px solid;
+	border-bottom: #ECF2F4 1px solid;
+	border-left: #999999 1px solid;
+	border-right: #ECF2F4 1px solid;
+	padding-left: 3px;
+	padding-right: 3px;
+	height: 18px;
+	vertical-align:middle;
+}
+.input_readonly {
+	font-size: 12px;
+    background-color: #E7E7E7;
+	border-top: #999999 1px solid;
+	border-bottom: #ECF2F4 1px solid;
+	border-left: #999999 1px solid;
+	border-right: #ECF2F4 1px solid;
+	padding-left: 3px;
+	padding-right: 3px;
+	height: 18px;
+}
+.input_auto {
+   >width:auto;
+}
+.input_short {
+   >width:25px;
+}
+textarea {
+	font-size: 12px;
+	border-top: #999999 1px solid;
+	border-bottom: #ECF2F4 1px solid;
+	border-left: #999999 1px solid;
+	border-right: #ECF2F4 1px solid;
+	vertical-align:middle;
+}
+
+select {
+    font-size:12px;
+	vertical-align:middle;
+	width:164px;
+}
+
+.select_auto {
+    >width:auto;
+}
+/*-- 登陆页面 --*/
+.bg-login {	
+	background: #183a75 url(../images/login/login_bg.gif);
+}
+.inputlogin
+       { font-size:12px;
+         color:#000000;
+		 border:1px #000000 solid;
+		 vertical-align:middle;
+		 font-family: "Arial";
+		 padding-left:2px;
+}
+/*-- 完 --*/
+
+a.link-red {
+	color: #000000;
+	text-decoration: none;
+}
+a.link-red:visited {
+	color: #800080;
+	text-decoration:underline;
+}
+.cur-hand {
+	cursor: hand
+}
+
+.noborder {
+	border: none;
+}
+.frame_bg{
+	background-color: #3E85EB;
+}
+.frame_border_bg{
+	border-color: #E4ECF2;
+}
+.frame_bg_bottom{
+	background-color: #C3DEF7;
+	border-top: #9BC3ED 1px solid;
+	border-bottom: #9BC3ED 1px solid;
+}
+
+/*一级菜单*/
+A.menu1:link {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+}
+A.menu1:visited {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+	white-space: nowrap;
+}
+.menu1_bg {
+	background-color: #B4D1F0;
+	background-image: url(../images/menu1_bg.gif);
+	background-position:right;
+	background-repeat:repeat-y;
+	white-space: nowrap;
+}
+.menu1_downl {
+	width: 7px;
+	background-image: url(../images/menu1_downl.gif);
+	white-space: nowrap;
+}
+.menu1_downm {
+	padding-top:5px;
+	padding-left:4px;
+	padding-right:4px;
+	background-image: url(../images/menu1_downm.gif);
+	white-space: nowrap;
+}
+.menu1_downr {
+	width: 6px;
+	background-image: url(../images/menu1_downr.gif);
+	white-space: nowrap;
+}
+.menu1_upl {
+	width: 7px;
+	background-image: url(../images/menu1_upl.gif);
+	white-space: nowrap;
+}
+.menu1_upm {
+	padding-top:5px;
+	padding-left:4px;
+	padding-right:4px;
+	background-image: url(../images/menu1_upm.gif);
+	white-space: nowrap;
+}
+.menu1_upr {
+	width: 6px;
+	white-space: nowrap;
+	background-image: url(../images/menu1_upr.gif);
+}
+/*--完--*/
+
+
+/*二级菜单*/
+
+A.menu2:link {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 8px;
+}
+A.menu2:visited {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 8px;
+}
+.menu2_bg {
+	background-image: url(../images/menu2_bg.gif);
+}
+.menu2_upm {
+	padding-left: 3px;
+	padding-right: 3px;
+	height:23px;
+}
+.menu2_downm {
+	padding-left: 3px;
+	padding-right: 3px;
+	height:23px;
+	background-image: url(../images/menu2_downm.gif);
+}
+.menu2_div {
+	width: 2px;
+	background-image: url(../images/menu2_div.gif);
+	background-repeat:repeat-x;
+}
+/*--完--*/
+
+/*三级菜单*/
+A.menu3 {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+}
+A.menu3:visited {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+	white-space: nowrap;
+}
+A.menu3_d {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+}
+A.menu3_d:visited {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+	white-space: nowrap;
+}
+.menu3_bg {
+	background: #FFFFFF url(../images/left_bg.gif);
+	background-repeat:repeat-x;
+	border-right:1px #C3DEF7 solid;
+}
+.menu3_td {
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.menu3_downm {
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	background: #FFEEC3;
+}
+/*--完--*/
+/*四级菜单*/
+ul.menu4_menu{
+	list-style:none;
+	margin:0;
+	padding:0;
+	height:29px;
+	background-image:url(../images/menu4_bg.gif);
+}
+ul.menu4_menu li{
+	float:left;
+	padding:0;
+	height:29px;
+	margin-right:1px;
+	background:url(../images/menu4_left.gif) left top no-repeat;
+}
+ul.menu4_menu li a{
+	display:block;
+	line-height:29px;
+	padding:0 14px 0 9px;
+	color:#000;
+	background:url(../images/menu4_right.gif) right top no-repeat;
+	white-space: nowrap;
+}
+ul.menu4_menu li.Selected{
+	background:url(../images/menu4_left_selected.gif) left top no-repeat;
+}
+ul.menu4_menu li.Selected a{
+	background:url(../images/menu4_right_selected.gif) right top no-repeat;
+}
+
+
+/*-- 定义文本链接的按钮效果 --*/
+A.abtn:link {
+	color: #000000;
+	text-decoration: none;
+}
+A.abtn:visited {
+	color: #000000;
+	text-decoration: none;
+}
+A.abtn:active {
+	color: #000000;
+	text-decoration: none;
+}
+A.abtn:hover {
+	color: #000000;
+	text-decoration: none;
+}
+.clsButtonDisabled {
+	height: 20px;
+	background-image: url(../images/buttonfacedown.gif);
+	background-repeat: repeat-x;
+	border-left: #000000 1px solid;
+	border-top: #000000 1px solid;
+	border-bottom: #000000 1px solid;
+	border-right: #000000 1px solid;
+	font-size: 12px;
+	color: #cccccc;
+	text-align: center; 
+	letter-spacing: 4px;
+	vertical-align: middle;
+	cursor: default; 
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 1px;
+	word-break: keep-all;
+}
+.clsButtonFace {
+	height: 20px;
+	background-image: url(../images/buttonface.gif);
+	background-repeat: repeat-x;
+	border-left: #4982B8 1px solid;
+	border-top: #4982B8 1px solid;
+	border-bottom: #4982B8 1px solid;
+	border-right: #4982B8 1px solid;
+	font-size: 12px;
+	text-align: center; 
+	letter-spacing: 4px;
+	vertical-align: middle;
+	cursor: hand; 
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 2px;
+	word-break: keep-all;
+}
+.clsButtonFaceDown {
+	height: 20px;
+	background-image: url(../images/buttonfacedown.gif);
+	background-repeat: repeat-x;
+	border-left: #000000 1px solid;
+	border-top: #000000 1px solid;
+	border-bottom: #000000 1px solid;
+	border-right: #000000 1px solid;
+	font-size: 12px;
+	text-align: center; 
+	letter-spacing: 4px;
+	vertical-align: middle;
+	cursor: hand; 
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 1px;
+	word-break: keep-all;
+}
+.clsButtonFace a{
+	color: #000000;
+}
+.clsButtonFaceDown a{
+	color: #000000;
+}
+
+/*-- Tab标签效果, 定义了自动切换的方法以前Tab的显示效果 --*/
+ul.TabBarLevel1{
+list-style:none;
+margin:0;
+padding:0;
+height:25px;
+/*background:url(../images/tab_bg.gif);*/
+}
+ul.TabBarLevel1 li{
+float:left;
+padding:0;
+height:25px;
+background:url(../images/tab_left.gif) left top no-repeat;
+}
+ul.TabBarLevel1 li a{
+display:block;
+line-height:25px;
+padding:0 9px;
+color:#333;
+background:url(../images/tab_right.gif) right top no-repeat;
+white-space: nowrap;
+}
+ul.TabBarLevel1 li.Selected{
+background:url(../images/tab_left_selected.gif) left top no-repeat;
+}
+ul.TabBarLevel1 li.Selected a{
+background:url(../images/tab_right_selected.gif) right top no-repeat;
+}
+table#idTabsList
+{
+	border-left: #9BC3ED 1px solid;
+	border-right: #9BC3ED 1px solid;
+	border-bottom: #9BC3ED 1px solid;
+	/*border: solid 1px #65B3F9;*/
+}
+/*右键菜单*/
+.contextMenu {
+  border-right: buttonhighlight 2px outset; 
+  border-top: buttonhighlight 2px outset; 
+  visibility: hidden; 
+  border-left: buttonhighlight 2px outset; 
+  width: 165px; cursor: default; 
+  border-bottom: buttonhighlight 2px outset; 
+  position: absolute; 
+  background-color: menu
+}
+.menuitems {padding-left: 5px; padding-top: 2px; padding-bottom: 2px}
+
+.treeHighlight {
+    background: navy;
+    color: white!important ;
+}
+/*完*/

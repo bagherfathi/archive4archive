@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="RoleHis"
+		table="SM_ROLE_HIS"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="historyId"
+			type="long"
+			column="HISTORY_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="roleId"
+			column="ROLE_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="roleName"
+			column="ROLE_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="roleDesc"
+			column="ROLE_DESC"
+			type="java.lang.String"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="roleType"
+			column="ROLE_TYPE"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="appId"
+			column="APP_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="createDate"
+			column="CREATE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="validDate"
+			column="VALID_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="expireDate"
+			column="EXPIRE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="updateDate"
+			column="UPDATE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="orgId"
+			column="ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="loginOrgId"
+			column="LOGIN_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="newAppId"
+			column="NEW_APP_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

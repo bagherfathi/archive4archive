@@ -1,0 +1,77 @@
+#if($pageBean.currentPage<1)
+	#set($pageBean.currentPage = 1)
+#end
+
+<table border="0"  cellpadding="4"  cellspacing="1">
+  <tr>
+    #if($pageBean.getPageCount()>1 && $showPagination)
+    <td>
+      #set( $shang = $pageBean.currentPage / 10 )
+      #set( $f = 10 * $shang)
+      #set( $t = $f + 9)
+      #if($t > $pageBean.pageCount) 
+        #set( $t = $pageBean.pageCount)
+      #end
+      #if($f ==0) 
+        #set( $f= $f+1)
+      #end
+      #if($pageBean.currentPage!= 1)
+        <a href="$pageAction.getPageAction(1)" title="首页"><font face="webdings" size="3">9</font></a>
+      #else
+	    <font title="首页" face="webdings" size="3">9</font>
+      #end
+      #if($f > 9)
+        #set($pre = $f - 1)
+        <a href="$pageAction.getPageAction($pre)" title="前十页"><font face="webdings" size="3">7</font></a>
+      #end 
+      #foreach( $pageNo in [$f .. $t])
+        #if($pageNo == $pageBean.currentPage)
+            <font color="red">${pageNo}</font>
+        #end
+        #if($pageNo != $pageBean.currentPage)
+           <a href="$pageAction.getPageAction($pageNo)">${pageNo}</a>
+        #end
+      #end
+      #if($t < $pageBean.pageCount)
+        #set($n = $t+1)
+        <a href="$pageAction.getPageAction($n)" title="后十页"><font face="webdings" size="3">8</font></a>
+      #end 
+      
+      #if(($pageBean.currentPage!= $pageBean.pageCount)&&($pageBean.pageCount>1))
+      <a href="$pageAction.getPageAction($pageBean.pageCount)" title="末页"><font face="webdings" size="3">:</font></a>
+      #else
+      <font title="末页" face="webdings" size="3">:</font>
+      #end
+    </td>
+    #end
+    <td>共#if($showPagination)<font color="red">$pageBean.pageCount</font>页#end<font color="red">$pageBean.recordCount</font>条记录
+    </td>
+    #if($pageBean.getPageCount()>1 && $showPagination)
+    <td>
+      <input type="text" id="${formName}_pageNo" size="1" onKeyPress="if((event.keyCode==13)){return go_${formName}_page();}"/>&nbsp;
+      <input type="button" value="Go" onclick="go_${formName}_page()"/>
+    </td>
+    <script>
+      function go_${formName}_page(){
+        var p = document.getElementById("${formName}_pageNo").value;
+        var message = "请输入正确的页码，页码最小为1，最大为$pageBean.pageCount";
+        
+        if(!checkPositiveNumber3(document.getElementById("${formName}_pageNo"),message,true)){
+            return false;
+        }
+        if(p<=0 || p>$pageBean.pageCount){
+          alert(message);
+          return false;
+        }
+        document.forms.${formName}.${formName}_p.value=p;
+        ${pageAction.getSubmitAction()};
+      }
+    </script>
+    #end
+    #if($exportLink!="")
+    <td align="right">
+      <span class="clsButtonFace"><a href="$exportLink">导出Excel</a></span>
+    </td>
+    #end
+  </tr>
+</table>
