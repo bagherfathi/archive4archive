@@ -10,30 +10,30 @@
 
 	<!--BankOrgAction.edit -->
 	
-	<definition name="rfms.card.edit" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/card/editcard.jsp" />
+	<definition name="rfms.ticket.edit" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticket/editticket.jsp" />
 	</definition>
-	<definition name="rfms.card.index" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/card/listcard.jsp" />
+	<definition name="rfms.ticket.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticket/listticket.jsp" />
 	</definition>
-	<definition name="rfms.card.searchIndex" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/card/listcard.jsp" />
+	<definition name="rfms.ticket.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticket/listticket.jsp" />
 	</definition>
-	<definition name="rfms.card.view" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/card/showcard.jsp" />
+	<definition name="rfms.ticket.view" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticket/showticket.jsp" />
 	</definition>
 	
-	<definition name="rfms.cardsend.edit" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/cardsend/editcardsend.jsp" />
+	<definition name="rfms.ticketsend.edit" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticketsend/editticketsend.jsp" />
 	</definition>
-	<definition name="rfms.cardsend.index" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/cardsend/listcardsend.jsp" />
+	<definition name="rfms.ticketsend.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticketsend/listticketsend.jsp" />
 	</definition>
-	<definition name="rfms.cardsend.searchIndex" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/cardsend/listcardsend.jsp" />
+	<definition name="rfms.ticketsend.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticketsend/listticketsend.jsp" />
 	</definition>
-	<definition name="rfms.cardsend.view" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/cardsend/showcardsend.jsp" />
+	<definition name="rfms.ticketsend.view" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticketsend/showticketsend.jsp" />
 	</definition>
 
 	<definition name="rfms.sms.edit" extends="main.layout">
@@ -62,19 +62,7 @@
 	<definition name="rfms.member.view" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/member/showmember.jsp" />
 	</definition>
-	
-	<definition name="rfms.membertype.edit" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/membertype/editmembertype.jsp" />
-	</definition>
-	<definition name="rfms.membertype.index" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/membertype/listmembertype.jsp" />
-	</definition>
-	<definition name="rfms.membertype.searchIndex" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/membertype/listmembertype.jsp" />
-	</definition>
-	<definition name="rfms.membertype.view" extends="main.layout">
-		<put name="body" value="/WEB-INF/jsp/rfms/membertype/showmembertype.jsp" />
-	</definition>
+
 	
 	<definition name="rfms.merchant.edit" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/merchant/editMerchant.jsp" />

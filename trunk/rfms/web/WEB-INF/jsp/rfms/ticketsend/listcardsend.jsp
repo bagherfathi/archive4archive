@@ -15,10 +15,10 @@
     }
     document.body.onkeypress= checkEnter;
 </script>
-<html:form action="/card" method="post">
+<html:form action="/cardsend" method="post">
 	<input type="hidden" value="search" name="act" />
 	<input type="hidden" name="searchObj.operatorId" value="<c:out value='${cardForm.currentUser.operatorId }'/>"/>
-	<webui:panel title="title.rfms.merchant.search" icon="../images/icon_search.gif" width="95%">
+	<webui:panel title="飞卷下发" icon="../images/icon_search.gif" width="95%">
 		<webui:formTable>
 			<tr>
 				<webui:input label="编号">
@@ -30,7 +30,7 @@
 			</tr>
 			<tr>
 				<webui:input label="label.rfms.card.status" colspan="3">
-					<html:select property="searchObj.status">
+					<html:select property="baseEntity.status">
 						<html:option value="-1">请选择</html:option>
 						<html:optionsCollection name="enumSet"
 							property="element(STATUS@RFMS_CARD)" />
@@ -39,15 +39,13 @@
 			</tr>
 		</webui:formTable>
 		<webui:linkButton styleClass="clsButtonFace"
-			href="javascript:onCreate();" value="sysadmin.button.create" />
-		<webui:linkButton styleClass="clsButtonFace"
 			href="javascript:loadOn();document.cardForm.submit();"
 			value="sysadmin.button.search" />
 	</webui:panel>
 
 	<br />
 
-	<webui:panel title="现金券管理" icon="../images/icon_list.gif">
+	<webui:panel title="飞券列表" icon="../images/icon_list.gif">
 		<webui:table dataSource="cardDS"
 			action="${pageContext.request.contextPath}/rfms/card.do"
 			imagePath="${pageContext.request.contextPath}/images/table/*.gif"
@@ -84,17 +82,12 @@
 					property="yxDate" title="飞券有效期">
 				</webui:column>
 				<webui:column property="status" title="label.rfms.card.status">
-					<webui:lookup code="status@RFMS_CARD" value="${card.status}" />
+					<webui:lookup code="STATUS@RFMS_CARD" value="${card.status}" />
 				</webui:column>
-				<webui:column property="op" title="title.rfms.common.operater"
-					width="3%">
-					<a href="<c:url value='/rfms/card.do?act=edit&id=${card.id}'/>"><bean:message
-						key="sysadmin.button.edit" /></a>&nbsp;
-			</webui:column>
 
 				<webui:column property="op" title="title.rfms.common.operater"
 					width="3%">
-					<a href="<c:url value='/rfms/card.do?act=view&id=${card.id}'/>">查看</a>&nbsp;
+					<a href="<c:url value='/rfms/cardsend.do?act=edit&id=${card.id}'/>">下发</a>&nbsp;
 			</webui:column>
 
 			</webui:row>

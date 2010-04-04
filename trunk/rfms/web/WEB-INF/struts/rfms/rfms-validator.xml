@@ -250,9 +250,9 @@
 			</field>
 		</form>
 
-		<form name="cardForm">
-			<field property="baseEntity.cardName" depends="required,maxlength,mask">
-				<arg position="0" key="label.rfms.card.card_name" />
+		<form name="ticketForm">
+			<field property="baseEntity.ticketName" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.ticket.ticket_name" />
 				<arg position="2" name="maxlength" key="${var:maxlength}"
 					resource="false" />
 				<var>
@@ -263,88 +263,15 @@
 					<var-name>mask</var-name>
 					<var-value>${specialCharacter}</var-value>
 				</var>
-				<var>
-					<var-name>entityName</var-name>
-					<var-value>com.ft.rfms.entity.RfmsCard</var-value>
-				</var>
-				<!-- var>
-					<var-name>attribute</var-name>
-					<var-value>cardName</var-value>
-				</var>
-				<var>
-					<var-name>keyName</var-name>
-					<var-value>id</var-value>
-				</var>
-				<var>
-					<var-name>historyed</var-name>
-					<var-value>true</var-value>
-				</var-->
 			</field>
 			<field property="baseEntity.parValue" depends="required,integer">
-				<arg position="0" key="label.rfms.card.par_value" />
-			</field>
-			<field property="baseEntity.xfCs" depends="required,integer">
-				<arg position="0" key="label.rfms.card.xfCs" />
-			</field>
-			<field property="baseEntity.syCs" depends="required,integer">
-				<arg position="0" key="label.rfms.card.syCs" />
-			</field>
-			<field property="baseEntity.cfCs" depends="required,integer">
-				<arg position="0" key="label.rfms.card.cfCs" />
-			</field>
-			<field property="baseEntity.tqTx" depends="required,integer">
-				<arg position="0" key="label.rfms.card.tqTx" />
+				<arg position="0" key="label.rfms.ticket.par_value" />
 			</field>
 
-			<field property="baseEntity.sygz" depends="maxlength,mask">
-				<arg position="0" key="sysadmin.label.card.sygz" />
-				<arg position="2" name="maxlength" key="${var:maxlength}"
-					resource="false" />
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>255</var-value>
-				</var>
-				<var>
-					<var-name>mask</var-name>
-					<var-value>${specialCharacter}</var-value>
-				</var>
-			</field>
 
 		</form>
 		
-		<form name="membertypeForm">
-			<field property="baseEntity.name" depends="required,maxlength,mask">
-				<arg position="0" key="label.rfms.membertype.name" />
-				<arg position="2" name="maxlength" key="${var:maxlength}"
-					resource="false" />
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>255</var-value>
-				</var>
-				<var>
-					<var-name>mask</var-name>
-					<var-value>${specialCharacter}</var-value>
-				</var>
-				<var>
-					<var-name>entityName</var-name>
-					<var-value>com.ft.rfms.entity.RfmsMemberType</var-value>
-				</var>
-			</field>
-			<field property="baseEntity.memo" depends="maxlength,mask">
-				<arg position="0" key="sysadmin.label.membertype.memo" />
-				<arg position="2" name="maxlength" key="${var:maxlength}"
-					resource="false" />
-				<var>
-					<var-name>maxlength</var-name>
-					<var-value>255</var-value>
-				</var>
-				<var>
-					<var-name>mask</var-name>
-					<var-value>${specialCharacter}</var-value>
-				</var>
-			</field>
-
-		</form>
+		
 
 	</formset>
 </form-validation>

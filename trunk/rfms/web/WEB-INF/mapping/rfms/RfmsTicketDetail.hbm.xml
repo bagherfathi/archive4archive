@@ -5,40 +5,48 @@
 
 <hibernate-mapping package="com.ft.rfms.entity">
 	<class
-		name="RfmsSms"
-		table="RFMS_SMS" schema="RFMS" lazy="false"
+		name="RfmsTicketDetail"
+		table="RFMS_TICKET_DETAIL" schema="RFMS" lazy="false"
 	>
 		<meta attribute="sync-DAO">true</meta>
 
 		<id
-			name="id"
+			name="detailId"
 			type="java.lang.Long"
-			column="ID"
+			column="DETAIL_ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">RFMS.RFMS_SMS_SEQ</param>
+			    <param name="sequence">RFMS.RFMS_TICKET_DETAIL_SEQ</param>
 			</generator>
 		</id>
+		
+		<property
+			name="ticketId"
+			column="TICKET_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="seqNumber"
+			column="SEQ_NUMBER"
+			type="string"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="status"
+			column="STATUS"
+			type="java.lang.Long"
+			not-null="false"
+			length="2"
+		/>
 		<property
 			name="mobile"
 			column="MOBILE"
 			type="string"
 			not-null="false"
-			length="255"
-		/>
-		<property
-			name="message"
-			column="MESSAGE"
-			type="string"
-			not-null="false"
-			length="120"
-		/>
-		<property
-			name="status"
-			column="STATUS"
-			type="string"
-			not-null="false"
-			length="1"
+			length="14"
 		/>
 		<property
 			name="sendDate"
@@ -48,22 +56,22 @@
 			length="7"
 		/>
 		<property
-			name="createDate"
-			column="CREATE_DATE"
+			name="sendOperatorId"
+			column="SEND_OPERATOR_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="useDate"
+			column="USE_DATE"
 			type="date"
 			not-null="false"
 			length="7"
 		/>
 		<property
-			name="updateDate"
-			column="UPDATE_DATE"
-			type="date"
-			not-null="false"
-			length="7"
-		/>
-		<property
-			name="operatorId"
-			column="OPERATOR_ID"
+			name="userPos"
+			column="USER_POS"
 			type="java.lang.Long"
 			not-null="false"
 			length="14"
