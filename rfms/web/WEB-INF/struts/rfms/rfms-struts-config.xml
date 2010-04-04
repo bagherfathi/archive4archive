@@ -91,7 +91,7 @@
 			<forward name="view" path="rfms.member.view" redirect="false" />
 		</action>
 		<action path="/membertype" type="com.ft.rfms.web.merchant.MemberTypeAction"
-			name="membertypeForm" scope="session" input="rfms.membertype.index"
+			name="membertypeForm" scope="request" input="rfms.membertype.index"
 			parameter="act" unknown="false" validate="false">
 			<forward name="edit" path="rfms.membertype.edit" redirect="false" />
 			<forward name="searchIndex" path="rfms.membertype.searchIndex"
