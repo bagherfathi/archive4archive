@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="commonsrc/com/ft/commons/validator"/>
+	<classpathentry kind="src" path="web/appThemes/adminDefault"/>
+	<classpathentry excluding="editor/plugins/simplecommands/|editor/dialog/fck_select/|editor/skins/default/|_samples/_plugins/findreplace/lang/|editor/dialog/fck_flash/|editor/plugins/bbcode/|editor/plugins/bbcode/_sample/|editor/_source/classes/|editor/plugins/dragresizetable/|editor/skins/office2003/|editor/dialog/fck_link/|editor/skins/silver/|editor/lang/|editor/_source/|_samples/_plugins/samples/|editor/plugins/placeholder/|editor/dialog/common/|editor/plugins/tablecommands/|editor/js/|_samples/_plugins/findreplace/|editor/filemanager/browser/default/js/|editor/dtd/|editor/dialog/fck_image/|editor/_source/commandclasses/|editor/plugins/autogrow/|editor/dialog/fck_spellerpages/spellerpages/|editor/plugins/placeholder/lang/|editor/_source/internals/" kind="src" path="web/fckeditor"/>
+	<classpathentry excluding="lang/" kind="src" path="web/fckeditor/_samples/_plugins/findreplace"/>
+	<classpathentry kind="src" path="web/fckeditor/_samples/_plugins/findreplace/lang"/>
+	<classpathentry kind="src" path="web/fckeditor/_samples/_plugins/samples"/>
+	<classpathentry excluding="classes/|commandclasses/|internals/" kind="src" path="web/fckeditor/editor/_source"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/_source/classes"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/_source/commandclasses"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/_source/internals"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/dialog/common"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/dialog/fck_flash"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/dialog/fck_image"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/dialog/fck_link"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/dialog/fck_select"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/dialog/fck_spellerpages/spellerpages"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/dtd"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/filemanager/browser/default/js"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/js"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/lang"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/plugins/autogrow"/>
+	<classpathentry excluding="_sample/" kind="src" path="web/fckeditor/editor/plugins/bbcode"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/plugins/bbcode/_sample"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/plugins/dragresizetable"/>
+	<classpathentry excluding="lang/" kind="src" path="web/fckeditor/editor/plugins/placeholder"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/plugins/placeholder/lang"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/plugins/simplecommands"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/plugins/tablecommands"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/skins/default"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/skins/office2003"/>
+	<classpathentry kind="src" path="web/fckeditor/editor/skins/silver"/>
+	<classpathentry kind="src" path="web/js"/>
+	<classpathentry kind="src" path="web/tab"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+</classpath>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--使用JMS消息进行缓存同步-->
+    <!--<bean id="jndiTemplate"
+		class="org.springframework.jndi.JndiTemplate">
+		<property name="environment">
+			<props>
+				<prop key="java.naming.factory.initial">${java.naming.factory.initial}</prop>
+				<prop key="java.naming.provider.url">${java.naming.provider.url}</prop>
+				<prop key="java.naming.factory.url.pkgs">${java.naming.factory.url.pkgs}</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="jmsTopicConnectionFactory"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>${sm.jms.connectFactoryName}</value>
+		</property>
+	</bean>
+	
+	<bean id="smEventTopic"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>${sm.jms.topic.name}</value>
+		</property>
+	</bean>
+	
+	<bean id="jmsTopicTemplate"
+		class="org.springframework.jms.core.JmsTemplate102">
+		<property name="connectionFactory">
+			<ref bean="jmsTopicConnectionFactory" />
+		</property>
+		<property name="defaultDestination">
+			<ref bean="smEventTopic" />
+		</property>
+		<property name="pubSubDomain">
+				<value>true</value>
+		</property>
+		<property name="sessionAcknowledgeMode">
+				<value>1</value>
+		</property>
+		<property name="sessionTransacted">
+				<value>true</value>
+		</property>
+		<property name="explicitQosEnabled">
+				<value>true</value>
+		</property>
+	</bean> 
+	
+	<bean id="smEventTopicDispatcher" class="com.ft.common.event.impl.SMEventTopicDispatcher">
+		<property name="jmsTemplate">
+			<ref bean="jmsTopicTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="smEventSupport" class="com.ft.common.event.SMEventSupport">
+	    <property name="listerners">
+			<list>
+				<ref bean="templateRepository"></ref>	
+				<ref bean="ruleRepository"></ref>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="smEventTopicReceiver" class="com.ft.common.event.impl.SMEventTopicReceiver" init-method="init">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="smEventSupport">
+			<ref bean="smEventSupport" />
+		</property>
+		<property name="factoryName">
+			<value>${sm.jms.connectFactoryName}</value>
+		</property>
+		<property name="topicName">
+			<value>${sm.jms.topic.name}</value>
+		</property>
+	</bean>
+	-->
+	<bean id="transactionInterceptor" 
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager">
+			<ref bean="transactionManager"/>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="disable*">PROPAGATION_REQUIRED</prop>
+				<prop key="batch*">PROPAGATION_REQUIRED</prop>
+				<prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="report*">PROPAGATION_REQUIRED</prop>
+				<prop key="read*">PROPAGATION_REQUIRED</prop>
+				<prop key="post*">PROPAGATION_REQUIRED</prop>
+				<prop key="reply*">PROPAGATION_REQUIRED</prop>
+				<prop key="open*">PROPAGATION_REQUIRED</prop>
+				<prop key="publish*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    <!--
+	<bean id="ruleAdvice" class="com.ft.busi.sm.impl.advice.RuleAdvice">
+    </bean>-->
+	
+    <bean id="ruleManager" class="org.springframework.aop.framework.ProxyFactoryBean">
+   		<property name="target">
+			<ref bean="ruleManagerImpl"/>
+		</property>
+	    <property name="interceptorNames">
+        	<list>
+				<value>ruleAdvice</value>
+				<value>transactionInterceptor</value>
+			</list>
+        </property>
+    </bean>
+	
+	<!--
+	<bean id="templateAdvice" class="com.ft.busi.sm.impl.advice.TemplateAdvice">
+    </bean>
+    -->
+    <bean id="templateManager" class="org.springframework.aop.framework.ProxyFactoryBean">
+   		<property name="target">
+			<ref bean="templateManagerImpl"/>
+		</property>
+	    <property name="interceptorNames">
+        	<list>
+				<value>templateAdvice</value>
+				<value>transactionInterceptor</value>
+			</list>
+        </property>
+    </bean>
+
+<!--
+	<bean id="orgAdvice" class="com.ft.busi.sm.impl.advice.OrgAdvice">
+    </bean>
+	-->
+    <bean id="orgManager" class="org.springframework.aop.framework.ProxyFactoryBean">
+   		<property name="target">
+			<ref bean="orgManagerImpl"/>
+		</property>
+	    <property name="interceptorNames">
+        	<list>
+				<value>orgAdvice</value>
+				<value>transactionInterceptor</value>
+			</list>
+        </property>
+    </bean>
+	
+	<!--
+	<bean id="enumAdvice" class="com.ft.busi.sm.impl.advice.EnumAdvice">
+    </bean>
+    -->
+    <bean id="enumManager" class="org.springframework.aop.framework.ProxyFactoryBean">
+   		<property name="target">
+			<ref bean="enumManagerImpl"/>
+		</property>
+	    <property name="interceptorNames">
+        	<list>
+				<value>enumAdvice</value>
+				<value>transactionInterceptor</value>
+			</list>
+        </property>
+    </bean>
+    <!--
+	<bean id="resourceAdvice" class="com.ft.busi.sm.impl.advice.ResourceAdvice">
+    </bean>
+    -->
+	<bean id="resourceManager" class="org.springframework.aop.framework.ProxyFactoryBean">
+   		<property name="target">
+			<ref bean="resourceManagerImpl"/>
+		</property>
+	    <property name="interceptorNames">
+        	<list>
+				<value>resourceAdvice</value>
+				<value>transactionInterceptor</value>
+			</list>
+        </property>
+    </bean>
+</beans>

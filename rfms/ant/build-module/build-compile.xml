@@ -1,0 +1,184 @@
+<project name="project" basedir="../../" default="all">
+	<tstamp prefix="build">
+		<format property="date" pattern="yyyyMMdd"/>
+	</tstamp>
+
+	<property name="module.dist.dir" value="${module.dir}/dist"/>
+	<property name="lib.dir" value ="20.thirdparty"/>
+	<property name="module.javasrc.dir" value="${module.dir}/javasrc"/>
+	<property name="module.gensrc.dir" value="${module.dir}/gensrc"/>
+	<property name="module.business.dir" value="${module.javasrc.dir}/business"/>
+	<property name="module.web.dir" value="${module.javasrc.dir}/web"/>
+	<property name="module.impl.dir" value="${module.business.dir}/impl"/>
+	<property name="module.interface.dir"
+		value="${module.business.dir}/interface"/>
+	<property name="module.ejbbean.dir" value="${module.business.dir}/ejb"/>
+	<property name="module.entity.dir" value="${module.gensrc.dir}/hibernate"/>
+	<property name="module.dto.dir" value="${module.business.dir}/dto"/>
+	<property name="module.common.dir" value="${module.business.dir}/common"/>
+	<property name="module.app.dir" value="${module.javasrc.dir}/app"/>
+	<property name="module.util.dir" value="${module.javasrc.dir}/utils"/>
+	<property name="module.bizsupport.dir" value="${module.web.dir}/bizsupport"/>
+	<property name="module.websrc.dir" value="${module.web.dir}/${module.name}"/>
+	<property name="module.ejbhome.dir" value="${module.gensrc.dir}/ejb"/>
+
+	<path id="project.class.path">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="clear">
+		<delete dir="${module.dist.dir}/jars"/>
+		<delete dir="${module.dist.dir}/interface"/>
+		<delete dir="${module.dist.dir}/impl"/>
+		<delete dir="${module.dist.dir}/common"/>
+		<delete dir="${module.dist.dir}/web"/>
+		<delete dir="${module.dist.dir}/dto"/>
+		<delete dir="${module.dist.dir}/entity"/>
+	</target>
+	
+	<target name="init" depends="clear">
+		<mkdir dir="${module.dist.dir}/jars"/>
+		<mkdir dir="${module.dist.dir}/interface"/>
+		<mkdir dir="${module.dist.dir}/impl"/>
+		<mkdir dir="${module.dist.dir}/common"/>
+		<mkdir dir="${module.dist.dir}/web"/>
+		<mkdir dir="${module.dist.dir}/dto"/>
+		<mkdir dir="${module.dist.dir}/entity"/>
+	</target>
+
+	<target name="entity_compile" depends="init">
+		<javac srcdir="${module.entity.dir}" source="1.4"
+			destdir="${module.dist.dir}/entity" debug="true" encoding="GBK" failonerror="false">
+			<classpath>
+				<fileset dir="${module.dist.dir}/jars">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+			<classpath refid="project.class.path"/>
+		</javac>
+
+		<jar destfile="${module.dist.dir}/jars/boss-${module.name}-entity.jar">
+			<zipfileset dir="${module.dist.dir}/entity">
+				<include name="**/*.class"/>
+				<include name="**/*.properties"/>
+			</zipfileset>
+			<zipfileset dir="${module.entity.dir}">
+				<include name="**/*.properties"/>
+			</zipfileset>
+		</jar>
+	</target>
+
+	<target name="dto_compile" >
+		<javac srcdir="${module.dto.dir}" source="1.4"
+			destdir="${module.dist.dir}/dto" debug="true" encoding="GBK" failonerror="false">
+			<classpath>
+				<fileset dir="${module.dist.dir}/jars">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+			<classpath refid="project.class.path"/>
+		</javac>
+		<jar destfile="${module.dist.dir}/jars/boss-${module.name}-dto.jar">
+			<zipfileset dir="${module.dist.dir}/dto">
+				<include name="**/*.class"/>
+				<include name="**/*.properties"/>
+			</zipfileset>
+			<zipfileset dir="${module.dto.dir}">
+				<include name="**/*.properties"/>
+			</zipfileset>
+		</jar>
+	</target>
+
+	<target name="interface_compile" >
+		<javac
+			srcdir="${module.util.dir}:
+		   		${module.interface.dir}"
+			source="1.4" destdir="${module.dist.dir}/interface" debug="true"
+			encoding="GBK" failonerror="false">
+			<classpath>
+				<fileset dir="${module.dist.dir}/jars">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+			<classpath refid="project.class.path"/>
+		</javac>
+
+		<jar
+			destfile="${module.dist.dir}/jars/boss-${module.name}-interface.jar">
+			<zipfileset dir="${module.dist.dir}/interface">
+				<include name="**/*.class"/>
+				<include name="**/*.properties"/>
+			</zipfileset>
+			<zipfileset dir="${module.util.dir}">
+				<include name="**/*.properties"/>
+			</zipfileset>
+			<zipfileset dir="${module.interface.dir}">
+				<include name="**/*.properties"/>
+			</zipfileset>
+		</jar>
+	</target>
+
+	<target name="impl_compile" >
+		<javac srcdir="${module.util.dir}:${module.common.dir}:${module.impl.dir}" source="1.4"
+			destdir="${module.dist.dir}/impl" debug="true" encoding="GBK" 
+			failonerror="false">
+			<classpath>
+				<fileset dir="${module.dist.dir}/jars">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+			<classpath refid="project.class.path"/>
+		</javac>
+
+		<jar destfile="${module.dist.dir}/jars/boss-${module.name}-impl.jar">
+			<zipfileset dir="${module.dist.dir}/impl">
+				<include name="**/*.class"/>
+				<include name="**/*.properties"/>
+				<include name="**/*.bsh"/>
+			</zipfileset>
+			<zipfileset dir="${module.common.dir}">
+				<include name="**/*.properties"/>
+                <include name="**/*.bsh"/>
+				<include name="**/*.xml"/>
+			</zipfileset>
+			<zipfileset dir="${module.impl.dir}">
+				<include name="**/*.properties"/>
+                <include name="**/*.bsh"/>
+			</zipfileset>
+		</jar>
+	</target>
+
+	<target name="web_compile" >
+
+		<javac srcdir="${module.bizsupport.dir}:${module.websrc.dir}" source="1.4"
+			destdir="${module.dist.dir}/web" debug="true" encoding="GBK"
+			failonerror="false">
+
+			<classpath>
+				<fileset dir="${module.dist.dir}/jars">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+			<classpath refid="project.class.path"/>
+		</javac>
+
+		<native2ascii encoding="gb2312" src="${module.websrc.dir}" dest="${module.dist.dir}/web" includes="**/*.properties" ext="_zh_CN.properties"/>
+
+		<jar destfile="${module.dist.dir}/jars/boss-${module.name}-web.jar">
+			<zipfileset dir="${module.dist.dir}/web">
+				<include name="**/*.class"/>
+				<include name="**/*.properties" />
+			</zipfileset>
+		</jar>
+	</target>
+
+	<target name="ejb_compile">
+
+	</target>
+
+	<target name="all"
+		depends="entity_compile,dto_compile,interface_compile,impl_compile,web_compile"/>
+
+</project>

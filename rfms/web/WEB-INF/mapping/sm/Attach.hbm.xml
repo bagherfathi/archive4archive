@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="Attach"
+		table="SM_ATTACH"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="attachId"
+			type="long"
+			column="ATTACH_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="infoId"
+			column="INFO_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="fileName"
+			column="FILE_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="filePath"
+			column="FILE_PATH"
+			type="java.lang.String"
+			not-null="false"
+			length="512"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

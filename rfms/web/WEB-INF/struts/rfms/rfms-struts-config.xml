@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<struts-config>
+
+	<!--
+		========== Data Sources Definitions
+		===================================
+	-->
+	<!--
+		Define your Struts data sources in a file called
+		struts-data-sources.xml and place it in your merge directory.
+	-->
+
+	<!--
+		========== Form Bean Definitions ===================================
+	-->
+	<form-beans>
+
+		<form-bean name="merchantForm" type="com.ft.rfms.web.merchant.MerchantForm" />
+		<form-bean name="cardForm" type="com.ft.rfms.web.merchant.CardForm" />
+		<form-bean name="cardsendForm" type="com.ft.rfms.web.merchant.CardSendForm" />
+		<form-bean name="smsForm" type="com.ft.rfms.web.merchant.SmsForm" />
+		<form-bean name="memberForm" type="com.ft.rfms.web.merchant.MemberForm" />
+		<form-bean name="membertypeForm" type="com.ft.rfms.web.merchant.MemberTypeForm" />
+		<form-bean name="cardForm" type="com.ft.rfms.web.merchant.CardForm" />
+		<form-bean name="merchantForm" type="com.ft.rfms.web.merchant.MerchantForm" />
+		<form-bean name="fineReportForm" type="com.ft.rfms.web.report.FineReportForm" />
+		<form-bean name="tradeSearchForm" type="com.ft.rfms.web.report.TradeSearchForm" />
+		<form-bean name="merchantTradeSearchForm"
+			type="com.ft.rfms.web.report.MerchantTradeSearchForm" />
+		<form-bean name="payReportForm" type="com.ft.rfms.web.report.PayReportForm" />
+		<form-bean name="invoiceReportForm" type="com.ft.rfms.web.report.InvoiceReportForm" />
+		<form-bean name="cardReportForm" type="com.ft.rfms.web.report.CardReportForm" />
+		<form-bean name="merchantReportForm" type="com.ft.rfms.web.report.MerchantReportForm" />
+	</form-beans>
+
+	<!--
+		========== Global Exceptions Definitions
+		===================================
+	-->
+	<!--
+		Define your exceptions in a file called global-exceptions.xml and
+		place it in your merge directory.
+	-->
+
+	<!--
+		========== Global Forward Definitions
+		===================================
+	-->
+	<!--
+		Define your forwards in a file called global-forwards.xml and place it
+		in your merge directory.
+	-->
+
+	<!--
+		========== Action Mapping Definitions
+		===================================
+	-->
+	<action-mappings>
+		<action path="/card" type="com.ft.rfms.web.merchant.CardAction"
+			name="cardForm" scope="session" input="rfms.card.index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="edit" path="rfms.card.edit" redirect="false" />
+			<forward name="searchIndex" path="rfms.card.searchIndex"
+				redirect="false" />
+			<forward name="view" path="rfms.card.view" redirect="false" />
+		</action>
+		<action path="/cardsend" type="com.ft.rfms.web.merchant.CardSendAction"
+			name="cardsendForm" scope="session" input="rfms.cardsend.index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="edit" path="rfms.cardsend.edit" redirect="false" />
+			<forward name="searchIndex" path="rfms.cardsend.searchIndex"
+				redirect="false" />
+			<forward name="view" path="rfms.cardsend.view" redirect="false" />
+		</action>
+		<action path="/sms" type="com.ft.rfms.web.merchant.SmsAction"
+			name="smsForm" scope="session" input="rfms.sms.index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="edit" path="rfms.sms.edit" redirect="false" />
+			<forward name="searchIndex" path="rfms.sms.searchIndex"
+				redirect="false" />
+			<forward name="view" path="rfms.sms.view" redirect="false" />
+		</action>
+		<action path="/member" type="com.ft.rfms.web.merchant.MemberAction"
+			name="memberForm" scope="session" input="rfms.member.index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="edit" path="rfms.member.edit" redirect="false" />
+			<forward name="searchIndex" path="rfms.member.searchIndex"
+				redirect="false" />
+			<forward name="view" path="rfms.member.view" redirect="false" />
+		</action>
+		<action path="/membertype" type="com.ft.rfms.web.merchant.MemberTypeAction"
+			name="membertypeForm" scope="session" input="rfms.membertype.index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="edit" path="rfms.membertype.edit" redirect="false" />
+			<forward name="searchIndex" path="rfms.membertype.searchIndex"
+				redirect="false" />
+			<forward name="view" path="rfms.membertype.view" redirect="false" />
+		</action>
+		
+		<action path="/merchant" type="com.ft.rfms.web.merchant.MerchantAction"
+			name="merchantForm" scope="session" input="rfms.merchant.index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="edit" path="rfms.merchant.edit" redirect="false" />
+			<forward name="listBranch" path="rfms.merchant.listBranch"
+				redirect="false" />
+			<forward name="editBranch" path="/merchant/editBranch.jsp"
+				redirect="false" />
+			<forward name="audit" path="rfms.merchant.auditList"
+				redirect="false" />
+			<forward name="auditView" path="rfms.merchant.auditView"
+				redirect="false" />
+			<forward name="posIndex" path="/merchant/editPos.jsp"
+				redirect="false" />
+			<forward name="posShow" path="/merchant/viewPos.jsp"
+				redirect="false" />
+			<forward name="stepIndex" path="/merchant/editStep.jsp"
+				redirect="false" />
+			<forward name="searchIndex" path="rfms.merchant.searchIndex"
+				redirect="false" />
+			<forward name="view" path="rfms.merchant.view" redirect="false" />
+			<forward name="searchIndex" path="rfms.merchant.searchIndex"
+				redirect="false" />
+		</action>
+		<action path="/fineReport" type="com.ft.rfms.web.report.FineReportAction"
+			name="fineReportForm" scope="request" input="rfms.reports.settlement.Index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="checkRep" path="rfms.reports.checking.Index"
+				redirect="false" />
+			<forward name="paymentDtl" path="rfms.reports.checking.payment"
+				redirect="false" />
+			<forward name="dayTrade" path="rfms.reports.dayTrade.Index"
+				redirect="false" />
+			<forward name="merchantReport" path="rfms.reports.merchantReport.Index"
+				redirect="false" />
+			<forward name="merchantDayTrade" path="rfms.reports.merchantDayTrade.Index"
+				redirect="false" />
+			<forward name="cardRep" path="rfms.reports.merchantDayTrade.Index"
+				redirect="false" />
+		</action>
+
+		<action path="/tradeSearch" type="com.ft.rfms.web.report.TradeSearchAction"
+			name="tradeSearchForm" scope="request" input="rfms.reports.tradeSearch.Index"
+			parameter="act" unknown="false" validate="false">
+		</action>
+
+		<action path="/merchantTradeSearch" type="com.ft.rfms.web.report.MerchantTradeSearchAction"
+			name="merchantTradeSearchForm" scope="request"
+			input="rfms.reports.merchantTradeSearch.Index" parameter="act"
+			unknown="false" validate="false">
+		</action>
+		<action path="/payReport" type="com.ft.rfms.web.report.PayReportAction"
+			name="payReportForm" scope="request" input="rfms.reports.payRport.Index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="cardTypeRep" path="rfms.reports.cardTypeRep.Index"
+				redirect="false" />
+		</action>
+
+		<action path="/invoiceReport" type="com.ft.rfms.web.report.InvoiceReportAction"
+			name="payReportForm" scope="request" input="rfms.reports.invoiceRport.Index"
+			parameter="act" unknown="false" validate="false">
+		</action>
+
+		<action path="/merchantReport" type="com.ft.rfms.web.report.MerchantReportAction"
+			name="merchantReportForm" scope="request"
+			input="rfms.reports.merchantInfoReport.Index" parameter="act"
+			unknown="false" validate="false">
+		</action>
+
+		<action path="/cardReport" type="com.ft.rfms.web.report.CardReportAction"
+			name="cardReportForm" scope="request" input="rfms.reports.cardRport.Index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="cardSaledRep" path="rfms.reports.cardSaledRep.Index"
+				redirect="false" />
+			<forward name="cardLockedRep" path="rfms.reports.cardLockedRep.Index"
+				redirect="false" />
+		</action>
+	</action-mappings>
+
+	<controller processorClass="com.ft.struts.SpringRequestProcessor"
+		forwardPattern="/WEB-INF/jsp$M$P" />
+
+	<message-resources parameter="com.ft.rfms.web.MessageResources"
+		null="false" />
+	<message-resources parameter="ActionDefinitionResource"
+		key="action" null="false" />
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitionConfigFiles"
+			value="/WEB-INF/struts/tiles-defs.xml, 
+                                                     /WEB-INF/struts/rfms/rfms-tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/struts/validator-rules.xml,
+                       /WEB-INF/struts/rfms/rfms-validator.xml" />
+	</plug-in>
+
+	<plug-in className="com.ft.struts.message.ActionMessagePlugin">
+		<set-property property="fileName"
+			value="/WEB-INF/struts/rfms/action-messages.xml" />
+	</plug-in>
+
+</struts-config>

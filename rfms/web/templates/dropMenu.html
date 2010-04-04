@@ -1,0 +1,26 @@
+## displayMenu is defined in WEB-INF/classes/globalMacros.vm
+#macro( menuIndexItem $menu $level $menuid)
+ 	$menuid=new Array("$menu.title","","5","","");
+#end
+
+#macro( displayIndexMenu $menu $level $menuid)
+  #menuIndexItem($menu $level $menuid)
+  #if ($menu.components.size() > 0)
+	 #set($itemIndex=0)
+    #foreach ($menu in $menu.components)
+		#set ($itemIndex=$itemIndex+1 )
+	    #if($level>0)
+		  #set ($menuid= "${menuid}_${itemIndex}") 
+        #else
+            #set ($menuid= "${menuid}0") 
+     	#end
+		#set ($level = $level+1)
+	    #eval("#displayIndexMenu($menu $level $menuid)") 
+    #end
+  #end
+#end
+
+#set($menuid="eosmenu1")
+#displayIndexMenu($menu 0 $menuid)
+	
+

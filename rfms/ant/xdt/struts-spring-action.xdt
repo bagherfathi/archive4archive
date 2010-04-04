@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="<XDtConfig:configParameterValue paramName='Xmlencoding'/>"?>
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	
+	<bean name="beanNameAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">	 
+
+	</bean> 
+  
+ <XDtClass:forAllClasses type="org.apache.struts.action.Action">
+   <XDtClass:forAllClassTags tagName="struts:entityAction">
+   
+     <bean name="inherited<XDtClass:className/>" abstract="true" class="<XDtClass:fullClassName/>">
+         <XDtMethod:forAllMethods superclasses="true">
+  				 <XDtMethod:ifHasMethodTag tagName="spring.property">
+  			<property name="<XDtMethod:propertyName/>">
+   				 <XDtMethod:ifHasMethodTag tagName="spring.property" paramName="value">
+     	 <value><XDtMethod:methodTagValue tagName="spring.property" paramName="value"/></value>
+    	</XDtMethod:ifHasMethodTag>
+		    <XDtMethod:ifHasMethodTag tagName="spring.property" paramName="ref">
+		      <ref bean="<XDtMethod:methodTagValue tagName="spring.property" paramName="ref"/>"/>
+		    </XDtMethod:ifHasMethodTag>
+		    <XDtMethod:ifHasMethodTag tagName="spring.property" paramName="list">
+		      <list>
+		      <XDtMethod:forAllMethodTagTokens tagName="spring.property" paramName="list">
+		        <value><XDtMethod:currentToken/></value>
+		      </XDtMethod:forAllMethodTagTokens>
+		      </list>
+    		</XDtMethod:ifHasMethodTag>
+  		  </property>
+	 	 </XDtMethod:ifHasMethodTag>
+		 </XDtMethod:forAllMethods>
+    </bean>
+   <!-- <XDtClass:className/>-->
+     <XDtMethod:forAllMethods  sort="true" >
+	   <XDtMethod:forAllMethodTags tagName="struts:action">
+    <bean
+      name="/<XDtMethod:methodName/>" class="<XDtClass:fullClassName/>" parent="inherited<XDtClass:className/>">    
+    </bean>
+	   </XDtMethod:forAllMethodTags>
+	  </XDtMethod:forAllMethods>
+   </XDtClass:forAllClassTags>
+  </XDtClass:forAllClasses>
+</beans>

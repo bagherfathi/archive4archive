@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+  <bean id="securityService" class="com.ft.sm.adapter.SecurityServiceImpl">
+	  <property name="orgManager">
+		  <ref bean="orgManager"/>
+	  </property>
+	  <property name="operatorManager">
+		  <ref bean="operatorManager"/>
+	  </property>
+	  <property name="regionManager">
+		  <ref bean="regionManager"/>
+	  </property>
+	  <property name="resourceManager">
+		  <ref bean="resourceManager"/>
+	  </property>
+	  <!-- 
+	  <property name="ssoClientFactory">
+          <ref bean="ssoClientFactory"/>
+      </property>
+       -->
+      <property name="synOn">
+          <value>false</value>
+      </property>  
+  </bean>
+	
+  <bean id="configurationService" class="com.ft.sm.adapter.ConfigurationServiceImpl">
+	  <property name="configManager">
+		  <ref bean="configParamManager"/>
+	  </property>
+  </bean>
+	
+  <bean id="enumService" class="com.ft.sm.adapter.EnumServiceImpl">
+	  <property name="enumManager">
+		  <ref bean="enumManager"/>
+	  </property>
+  </bean>
+	
+  <bean id="bankService" class="com.ft.sm.adapter.BankServiceImpl">
+	  <property name="bankManager">
+		  <ref bean="bankManager"/>
+	  </property>
+  </bean>
+	
+  <bean id="templateService" class="com.ft.sm.adapter.TemplateServiceImpl">
+	  <property name="templateManager">
+		  <ref bean="templateManager"/>
+	  </property>
+  </bean>
+	
+  <bean id="vmTemplateEngine" class="com.ft.sm.template.impl.VelocityTemplateEngine">
+	  <property name="velocityEngine">
+		  <ref bean="velocityEngine"/>
+	  </property>
+	   <property name="templateRepository">
+		  <ref bean="templateRepository"/>
+	  </property>
+  </bean>
+  <bean id="templateRepository" class="com.ft.sm.template.impl.TemplateRepositoryImpl" init-method="initialize">
+	  <property name="templateManager">
+		  <ref bean="templateManager"/>
+	  </property>
+	  <property name="cache">
+		  <ref bean="oscache"/>
+	  </property>
+  </bean>
+  <bean id="droolsRuleEngine" class="com.ft.sm.rules.impl.DroolsRuleEngine">
+	  <property name="ruleRepository">
+		  <ref bean="ruleRepository"/>
+	  </property>
+  </bean>
+  <bean id="ruleRepository" class="com.ft.sm.rules.impl.RuleRepositoryImpl" init-method="initialize">
+	  <property name="ruleManager">
+		  <ref bean="ruleManager"/>
+	  </property>
+	  <property name="cache">
+		  <ref bean="oscache"/>
+	  </property>
+  </bean>
+
+  <bean id="oscache"
+          class="com.ft.common.cache.impl.OSCache"
+          init-method="init" singleton="false">
+        <property name="oscacheConfig">
+            <value>${sm.oscache.config}</value>
+        </property>
+        <property name="refreshPeriod">
+            <value>-1</value>
+        </property>
+  </bean>
+	
+  <bean id="busiCodeGenerateService" class="com.ft.sm.adapter.BusiCodeGenerateServiceImpl">
+	  <property name="busiCodeGenerateManager">
+		  <ref bean="busiCodeGenerateManager"/>
+	  </property>
+  </bean>
+  <bean
+      id="busiBeanAdapter"
+      class="com.ft.busi.common.BeanAdapter"
+  >
+
+  </bean>
+
+  <bean
+      id="busiSpringBeanUtils"
+      class="com.ft.busi.common.SpringBeanUtils"
+  >
+
+    <property name="beanAdapter">
+
+      <ref bean="busiBeanAdapter"/>
+    </property>
+
+  </bean>
+  
+    <bean
+      id="entityManager"
+      parent="transactionProxyFactoryBean"
+  >
+   		<property name="target">
+			<ref bean="commonEntityManagerImpl"/>
+		</property>
+  </bean>
+  
+  <bean
+      id="commonEntityManagerImpl"
+      class="com.ft.busi.sm.impl.CommonEntityManagerImpl"
+  >
+
+    <property name="baseDao">
+      <ref bean="baseDao"/>
+    </property>
+  </bean>
+</beans>

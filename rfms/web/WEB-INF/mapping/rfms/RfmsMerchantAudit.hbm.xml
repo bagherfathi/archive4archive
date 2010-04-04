@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.rfms.entity">
+	<class
+		name="RfmsMerchantAudit"
+		table="RFMS_MERCHANT_AUDIT" schema="RFMS" lazy="false"
+	>
+		<meta attribute="sync-DAO">true</meta>
+		<id
+			name="auditId"
+			type="java.lang.Long"
+			column="AUDIT_ID"
+		>
+			<generator class="sequence">
+			    <param name="sequence">RFMS.RFMS_MERCHANT_AUDIT_SEQ</param>
+			</generator>
+		</id>
+
+		<property
+			name="merchantId"
+			column="MERCHANT_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="auditTime"
+			column="AUDIT_TIME"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="nextOperatorId"
+			column="NEXT_OPERATOR_ID"
+			type="string"
+			not-null="false"
+			length="1024"
+		/>
+		<property
+			name="returnto"
+			column="RETURNTO"
+			type="java.lang.Long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="auditResult"
+			column="AUDIT_RESULT"
+			type="java.lang.Long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="flowCtrlId"
+			column="FLOW_CTRL_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="finished"
+			column="FINISHED"
+			type="java.lang.Long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="auditRemark"
+			column="AUDIT_REMARK"
+			type="string"
+			not-null="false"
+			length="1024"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,520 @@
+A:link {
+	color: #000000;
+	text-decoration: none;
+}
+A:visited {
+	color: #000000;
+	text-decoration: none;
+}
+A:active {
+	color: #000000;
+	text-decoration: none;
+}
+A:hover {
+	color: #000000;
+	text-decoration: none;
+}
+p, body {
+	font-size: 12px;
+	scrollbar-face-color: #eeeeee;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #dee3e7;
+	scrollbar-3dlight-color: #d1d7dc;
+	scrollbar-arrow-color:  #000000;
+	scrollbar-track-color: #ededed;
+	scrollbar-darkshadow-color: #808080;
+}
+form {
+	margin: 0px;
+}
+th {
+	height: 20px;
+	background-color:#DDEEFE;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	white-space: nowrap;
+}
+td {
+	font-size: 12px;
+	line-height: 18px;
+	white-space: nowrap;
+}
+hr {
+	color: #CCCCCC;
+	height: 1px;
+}
+input {
+	font-size: 12px;
+  	border: 1px solid #666666;
+	padding-left: 3px;
+	padding-right: 3px;
+	height: 18px;
+}
+
+.checkbox {
+    vertical-align:middle;
+	padding:3px;
+	border:0px;
+}
+
+.input_readonly {
+	font-size: 12px;
+    background-color: #E7E7E7;
+  	border: 1px solid #666666;
+	padding-left: 3px;
+	padding-right: 3px;
+	height: 18px;
+}
+textarea {
+	font-size: 12px;
+	border: 1px solid #666666;
+}
+/*-- 登陆页面 --*/
+.bg-login {	
+	background: #183a75 url(../images/login/login_bg.gif);
+}
+.inputlogin
+       { font-size:12px;
+         color:#000000;
+		 border:1px #000000 solid;
+		 vertical-align:middle;
+		 font-family: "Arial";
+		 padding-left:2px;
+}
+/*-- 完 --*/
+
+
+a.link-red {
+	color: #000000;
+	text-decoration: none;
+}
+a.link-red:hover {
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.bg-search {
+	background-image: url(../images/bg_search1.gif);
+	background-repeat: repeat-y;
+}
+.bg-left {
+	background-color: #EAEFF3;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-left-color: #999999;
+	border-right-color: #CCCCCC;
+}
+.title {
+	background-image: url(../images/title_bg.gif);
+	border-width:1px 1px 0px 1px;
+	border-color:#669DD5;
+	border-style:solid;
+	height: 24px;
+	color: #000000;
+	padding-left:4px;
+}
+.table_border {
+    border:1px solid #669DD5;
+	padding:5px 0px 8px 0px;
+}
+.icotitle {
+	height: 23px;
+	width: 23px;
+}
+.tb-list {
+	border-collapse:collapse;
+	border-right:1px solid #AACBED;
+	border-bottom:1px solid #AACBED;
+}
+.td-bg {
+	background-color: #FFFFFF;
+}
+.td-left
+{
+    background-color: #E3EEFB;
+	border-right:1px #C7DDF5 solid;
+	border-bottom:1px #C7DDF5 solid;
+    color: #000000;
+    font-size: 12px;
+    text-align: right;
+	padding-right: 5px;
+}
+.td-right
+{
+    background-color: #f5f5f5;
+	border-right:1px #EBEBEB solid;
+	border-bottom:1px #EBEBEB solid;
+    color: #000000;
+    font-size: 12px;
+    text-align: left;
+	padding-left: 5px;
+}
+.td-detail
+{
+    background-color: #EBF5FF;
+    color: #000000;
+    font-size: 12px;
+	font-weight: bold;
+    text-align: center;	
+	padding-left: 5px;
+}
+.text-bold { 
+    font-weight:bold;
+}
+.text-red { 
+	color:#FF7800;
+	vertical-align:center;
+}
+.td-title {
+	background-color: #A7D3FF;
+	height: 23px;
+    text-align: center;	
+}
+.cur-hand {
+	cursor: hand;
+}
+.wid80
+{
+    width: 80%
+}
+.wid90
+{
+    width: 90%
+}
+.noborder {
+	border: none;
+}
+.frame_bg{
+	background-color: #3E85EB;
+}
+.frame_border_bg{
+	border-color: #E4ECF2;
+}
+.frame_bg_bottom{
+	background-color: #C3DEF7;
+}
+.left_header			{ background-color: #5DB7FF }
+.left_href{ font: 11px Tahoma, Verdana; color: #FFFFFF; font-weight: bold; }
+.left_tableborder		{ background: #D6E0EF; border: 1px solid #5FB7FF } 
+
+A.menu1:link {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+}
+A.menu1:visited {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+	white-space: nowrap;
+}
+A.menu1:active {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+	white-space: nowrap;
+}
+A.menu1:hover {
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+	white-space: nowrap;
+}
+.menu1_bg {
+	background-color: #B4D1F0;
+	background-image: url(../images/menu1_bg.gif);
+	background-position:right;
+	background-repeat:repeat-y;
+	white-space: nowrap;
+}
+.menu1_downl {
+	width: 11px;
+	background-image: url(../images/menu1_downl.gif);
+	white-space: nowrap;
+}
+.menu1_downm {
+	padding-top:5px;
+	background-image: url(../images/menu1_downm.gif);
+	white-space: nowrap;
+}
+.menu1_downr {
+	width: 11px;
+	background-image: url(../images/menu1_downr.gif);
+	white-space: nowrap;
+}
+.menu1_upl {
+	width: 11px;
+	background-image: url(../images/menu1_upl.gif);
+	white-space: nowrap;
+}
+.menu1_upm {
+	padding-top:5px;
+	background-image: url(../images/menu1_upm.gif);
+	white-space: nowrap;
+}
+.menu1_upr {
+	width: 11px;
+	white-space: nowrap;
+	background-image: url(../images/menu1_upr.gif);
+}
+
+
+
+A.menu2:link {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+A.menu2:visited {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+A.menu2:active {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+A.menu2:hover {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.menu2_bg {
+	background-image: url(../images/menu2_bg.gif);
+}
+.menu2_upm {
+	padding-left: 3px;
+	padding-right: 3px;
+	height:23px;
+}
+.menu2_downm {
+	padding-left: 3px;
+	padding-right: 3px;
+	height:23px;
+	background-image: url(../images/menu2_downm.gif);
+}
+.menu2_downa a {
+	color: #FF0000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.menu2_downa visited {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.menu2_downa active {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.menu2_downa hover {
+	color: #000000;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.menu2_div {
+	width: 2px;
+	background-image: url(../images/menu2_div.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+
+.button {
+	font-family: 宋体;
+	color:#000000;
+	border-left: #ffffff 1px solid;
+	border-bottom: #5c6ba2 1px solid;
+	border-right: #5c6ba2 1px solid;
+	font-size:9pt;
+	background-image:url(../images/buttonface.gif);
+	height:20;
+	border:none;
+	cursor:hand;
+	padding-top: 3px;
+}
+/*-- 定义文本链接的按钮效果 --*/
+A.abtn:link {
+	color: #5c6ba2;
+	text-decoration: none;
+}
+A.abtn:visited {
+	color: #5c6ba2;
+	text-decoration: none;
+}
+A.abtn:active {
+	color: #5c6ba2;
+	text-decoration: none;
+}
+A.abtn:hover {
+	color: #5c6ba2;
+	text-decoration: none;
+}
+.clsButtonDisabled {
+	height: 20px;
+	background-image: url(../images/buttonface.gif);
+	background-repeat: repeat-x;
+	border-left: #ffffff 1px solid;
+	border-bottom: #ccffff 1px solid;
+	border-right: #ccffff 1px solid;
+	font-size: 12px;
+	color: #99cccc;
+	text-align: center; 
+	letter-spacing: 4px;
+	vertical-align: middle;
+	cursor: default; 
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 1px;
+	word-break: keep-all;
+	behavior: url(../css/dbutton_d.htc);
+}
+.clsButtonFace {
+	height: 20px;
+	background-image: url(../images/buttonface.gif);
+	background-repeat: repeat-x;
+	border-left: #ffffff 1px solid;
+	border-bottom: #5c6ba2 1px solid;
+	border-right: #5c6ba2 1px solid;
+	font-size: 12px;
+	text-align: center; 
+	letter-spacing: 4px;
+	vertical-align: middle;
+	cursor: hand; 
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 0px;
+	word-break: keep-all;
+	behavior: url(../css/dbutton.htc);
+}
+.clsButtonFaceDown {
+	height: 20px;
+	background-image: url(../images/buttonfacedown.gif);
+	background-repeat: repeat-x;
+	border-left: #8596ca 1px solid;
+	border-bottom: #5c6ba2 1px solid;
+	border-right: #8596ca 1px solid;
+	font-size: 12px;
+	text-align: center; 
+	letter-spacing: 4px;
+	vertical-align: middle;
+	cursor: hand; 
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 1px;
+	word-break: keep-all;
+	behavior: url(../css/dbutton.htc);
+}
+.clsButtonFace a{
+	color: #5c6ba2;
+	behavior: url(../css/dbutton_a.htc);
+}
+.clsButtonFaceDown a{
+	color: #5c6ba2;
+	behavior: url(../css/dbutton_a.htc);
+}
+
+/*-- List表格中使用, 定义了每行鼠标以上去的效果和单元格中文字显示字数的自动截取 --*/
+.datagrid {
+	border-color: #C3BFB3;
+	border-collapse: collapse;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-top-width: 1px;
+}
+.divover 
+{ 
+	position: absolute; 
+	z-index: 2; 
+	border: outset 1px #999999; 
+	background-color: #ffffcc;
+	color: #37609D;
+	width: 100%; 
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.divout 
+{ 
+	position: absolute; 
+	z-index: 1; 
+	overflow: hidden;
+	width: 100%; 
+	height: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.datagrid tr {
+	behavior: url(../css/datagrid_tr.htc);
+}
+.datagrid div {
+	behavior: url(../css/datagrid_div.htc);
+}
+
+/*-- TableList表格中使用, 定义了行的增加删除以及左边checkbox的选择事件 --*/
+.dtable {
+	border-color: #C3BFB3;
+	border-collapse: collapse;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-top-width: 1px;
+	behavior: url(../css/dtable.htc);
+}
+.dtable tr {
+	behavior: url(../css/datagrid_tr.htc);
+}
+
+/*-- Tab标签效果, 定义了自动切换的方法以前Tab的显示效果 --*/
+td.datatab {
+    border-right: #f7f7f7 1px solid;
+    border-top: #D2D2D2 0px solid;
+    border-left: #D2D2D2 1px solid;
+    border-bottom: #D2D2D2 0px solid;
+    cursor: hand;
+    color: black;
+    background-image:url(../images/tabs_bg.gif);
+    background-color: white;
+	padding-left: 8px;
+	padding-right: 8px;
+	word-break: keep-all;
+}
+td.datatabselected
+{
+    border-right: #F7F7F7 1px solid;
+    border-top: #AACBED 1px solid;
+    border-left: #AACBED 1px solid;
+    border-bottom: #8AAEC0 0px solid;
+	cursor: default;
+    color: black;
+    background-image:url(../images/tabs_bg_down.gif);
+	padding-left: 8px;
+	padding-right: 8px;
+	word-break: keep-all;
+}
+table#idTabsTitle
+{
+	background-color: #65B3F9;
+	behavior: url(../css/datatab_title.htc);
+}
+table#idTabsList
+{
+	border: solid 1px #AACBED;
+	behavior:  url(../css/datatab_list.htc);
+}
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="rfmsSmsService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="rfmsSmsServiceImpl" />
+		</property>
+	</bean>
+
+	<bean id="rfmsMemberService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="rfmsMemberServiceImpl" />
+		</property>
+	</bean>
+
+	<bean id="rfmsMemberTypeService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="rfmsMemberTypeServiceImpl" />
+		</property>
+	</bean>
+
+	<bean id="rfmsCardSendService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="rfmsCardSendServiceImpl" />
+		</property>
+	</bean>
+
+	<bean id="rfmsCardService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="rfmsCardServiceImpl" />
+		</property>
+	</bean>
+
+	<bean id="merchantService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="merchantServiceImpl" />
+		</property>
+	</bean>
+	<bean id="reportService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="reportServiceImpl" />
+		</property>
+	</bean>
+	<!--
+		To include additional bean definitions for Spring in the generated
+		application context file, add a file to your XDoclet merge directory
+		called spring-beans.xml that contains the <bean></bean> markup.
+	-->
+
+</beans>

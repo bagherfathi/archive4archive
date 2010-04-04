@@ -1,0 +1,35 @@
+<script>
+	function refreshBottom(id){
+    var bottom = parent.document.getElementById('bottom');
+	bottom.src = "bottom.jsp?menuName=" + id; 
+}
+</script>
+<div id="menu4">
+<ul class="menu4_menu" id="menu4_page">
+#set($level = 0)
+#foreach ($menuItem in $menu.components) 
+  #set ($title = $menuItem.title)
+  #set($level = $level + 1)
+  #if ($level == 1) <script>refreshBottom('$menuItem.name')</script> #end
+  <li id="Tab${level}" #if ($level == 1) class="Selected" #end>
+    <a href="${menuItem.url}" target="mainFrame" onclick="switchTab('${level}','$menuItem.name');refreshBottom('$menuItem.name');">${title}</a>
+  </li>
+#end
+</ul>
+</div>
+
+#if($menu.components.size()>0)
+<script>
+   mainForm = parent.document.getElementById('mainFrame');
+   mainForm.src="$menu.components.get(0).url";
+   function  switchTab(id,menuId){
+     for (var i=1; i<=$menu.components.size(); i++) {
+  	  tabMenu= document.getElementById("Tab"+i);
+	  if(i==id) tabMenu.className="Selected";
+	  else  tabMenu.className="";
+	 }
+   }  
+</script>
+#end
+
+

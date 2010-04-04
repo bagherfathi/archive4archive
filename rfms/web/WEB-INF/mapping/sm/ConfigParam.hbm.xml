@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="ConfigParam"
+		table="SM_CONFIG_PARAM"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="configId"
+			type="long"
+			column="CONFIG_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="configName"
+			column="CONFIG_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="configValue"
+			column="CONFIG_VALUE"
+			type="java.lang.String"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="configCategory"
+			column="CONFIG_CATEGORY"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="configCode"
+			column="CONFIG_CODE"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="parentId"
+			column="PARENT_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="configPath"
+			column="CONFIG_PATH"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="configType"
+			column="CONFIG_TYPE"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

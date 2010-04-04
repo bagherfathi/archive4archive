@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="<XDtConfig:configParameterValue paramName="Xmlencoding"/>" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+ 
+<struts-config>
+
+  <form-beans>
+  <XDtClass:forAllClasses type="org.apache.struts.action.ActionForm">
+   <XDtClass:forAllClassTags tagName="struts:form" superclasses="false">
+    <form-bean
+      name="<XDtClass:classTagValue tagName="struts:form" paramName="name"/>"
+      type="<XDtClass:fullClassName/>"
+    />
+   </XDtClass:forAllClassTags>
+  </XDtClass:forAllClasses>
+
+   <XDtMerge:merge file="struts-forms.xml">
+    <!--
+         If you have non XDoclet forms, define them in a file called struts-forms.xml and
+         place it in your merge directory.
+    -->
+   </XDtMerge:merge>
+  </form-beans>
+  
+ <action-mappings>
+  <XDtClass:forAllClasses type="org.apache.struts.action.Action">
+   <XDtClass:forAllClassTags tagName="struts:entityAction">
+   <!-- <XDtClass:className/>-->
+     <XDtMethod:forAllMethods  sort="true" >
+	   <XDtMethod:forAllMethodTags tagName="struts:action">
+	<!--<XDtClass:className/>.<XDtMethod:methodName/> -->
+
+    <action
+      path="/<XDtMethod:methodName/>"
+    <XDtMethod:ifHasMethodTag tagName="struts:action" paramName="type">
+      type="<XDtMethod:methodTagValue tagName="struts:action" paramName="type"/>"
+    </XDtMethod:ifHasMethodTag>
+    <XDtMethod:ifHasMethodTag tagName="struts:action" paramName="className">
+      className="<XDtMethod:methodTagValue tagName="struts:action" paramName="className"/>"
+    </XDtMethod:ifHasMethodTag>
+    <XDtMethod:ifDoesntHaveMethodTag tagName="struts:action" paramName="type">
+      type="<XDtClass:fullClassName/>"
+    </XDtMethod:ifDoesntHaveMethodTag>
+    <XDtMethod:ifHasMethodTag tagName="struts:action" paramName="input">
+      input="<XDtMethod:methodTagValue tagName="struts:action" paramName="input"/>"
+     </XDtMethod:ifHasMethodTag>
+    <XDtMethod:ifHasMethodTag tagName="struts:action" paramName="name">
+      name="<XDtMethod:methodTagValue tagName="struts:action" paramName="name"/>"
+    </XDtMethod:ifHasMethodTag>
+     <XDtMethod:ifHasMethodTag tagName="struts:action" paramName="attribute">
+      attribute="<XDtMethod:methodTagValue tagName="struts:action" paramName="attribute"/>"
+     </XDtMethod:ifHasMethodTag>
+     <XDtMethod:ifHasMethodTag tagName="struts:action" paramName="prefix">
+      prefix="<XDtMethod:methodTagValue tagName="struts:action" paramName="prefix"/>"
+     </XDtMethod:ifHasMethodTag>
+     <XDtMethod:ifHasMethodTag tagName="struts:action" paramName="suffix">
+      suffix="<XDtMethod:methodTagValue tagName="struts:action" paramName="suffix"/>"
+     </XDtMethod:ifHasMethodTag>
+      scope="<XDtMethod:methodTagValue tagName="struts:action" paramName="scope" default="request" values="request,session"/>"
+     <XDtConfig:ifConfigParamGreaterOrEquals paramName="Version" value="1.1">
+     <XDtMethod:ifHasMethodTag tagName="struts.action" paramName="roles">
+      roles="<XDtMethod:methodTagValue tagName="struts.action" paramName="roles"/>"
+     </XDtMethod:ifHasMethodTag>
+     </XDtConfig:ifConfigParamGreaterOrEquals>
+     <XDtMethod:ifHasMethodTag tagName="struts:action" paramName="parameter">
+      parameter="<XDtMethod:methodTagValue tagName="struts:action" paramName="parameter"/>"
+     </XDtMethod:ifHasMethodTag>
+      unknown="<XDtMethod:methodTagValue tagName="struts:action" paramName="unknown" values="true,false" default="false"/>"
+      validate="<XDtMethod:methodTagValue tagName="struts:action" paramName="validate" values="true,false" default="true"/>"
+    >
+     <XDtMethod:forAllMethodTags tagName="struts:action-set-property">
+      <set-property
+       <XDtMethod:ifHasMethodTag tagName="struts:action-set-property" paramName="id">
+        id="<XDtMethod:methodTagValue tagName="struts:action-set-property" paramName="id"/>"
+       </XDtMethod:ifHasMethodTag>
+        property="<XDtMethod:methodTagValue tagName="struts:action-set-property" paramName="property"/>"
+        value="<XDtMethod:methodTagValue tagName="struts:action-set-property" paramName="value"/>"
+      />
+     </XDtMethod:forAllMethodTags>
+     <XDtMethod:forAllMethodTags tagName="struts:action-exception">
+      <exception
+        key="<XDtMethod:methodTagValue tagName="struts:action-exception" paramName="key"/>"
+        type="<XDtMethod:methodTagValue tagName="struts:action-exception" paramName="type"/>"
+       <XDtMethod:ifHasMethodTag tagName="struts:action-exception" paramName="className">
+        className="<XDtMethod:methodTagValue tagName="struts:action-exception" paramName="className"/>"
+       </XDtMethod:ifHasMethodTag>
+       <XDtMethod:ifHasMethodTag tagName="struts:action-exception" paramName="handler">
+        handler="<XDtMethod:methodTagValue tagName="struts:action-exception" paramName="handler"/>"
+       </XDtMethod:ifHasMethodTag>
+       <XDtMethod:ifHasMethodTag tagName="struts:action-exception" paramName="path">
+        path="<XDtMethod:methodTagValue tagName="struts:action-exception" paramName="path"/>"
+       </XDtMethod:ifHasMethodTag>
+       <XDtMethod:ifHasMethodTag tagName="struts:action-exception" paramName="scope">
+        scope="<XDtMethod:methodTagValue tagName="struts:action-exception" paramName="scope"/>"
+       </XDtMethod:ifHasMethodTag>
+      />
+      </XDtMethod:forAllMethodTags>
+     <XDtMethod:forAllMethodTags tagName="struts:action-forward">
+      <forward
+       <XDtMethod:ifHasMethodTag tagName="struts:action-forward" paramName="className">
+        className="<XDtMethod:methodTagValue tagName="struts:action-forward" paramName="className"/>"
+       </XDtMethod:ifHasMethodTag>
+       <XDtMethod:ifHasMethodTag tagName="struts:action-forward" paramName="contextRelative">
+        contextRelative="<XDtMethod:methodTagValue tagName="struts:action-forward" paramName="contextRelative"/>"
+       </XDtMethod:ifHasMethodTag>
+        name="<XDtMethod:methodTagValue tagName="struts:action-forward" paramName="name"/>"
+        path="<XDtMethod:methodTagValue tagName="struts:action-forward" paramName="path"/>"
+        redirect="<XDtMethod:methodTagValue tagName="struts:action-forward" paramName="redirect" default="false" values="true,false"/>"
+      />
+     </XDtMethod:forAllMethodTags>
+    </action>
+	   </XDtMethod:forAllMethodTags>
+	  </XDtMethod:forAllMethods>
+   </XDtClass:forAllClassTags>
+  </XDtClass:forAllClasses>
+
+
+
+ </action-mappings>
+ 
+ <XDtMerge:merge file="entity-struts-defs.xml">
+    <!-- If you have non XDoclet actions, define them in a file called entity-struts-defs.xml and place it in your merge directory. -->
+  </XDtMerge:merge>
+   
+</struts-config>

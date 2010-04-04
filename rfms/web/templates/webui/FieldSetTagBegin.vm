@@ -1,0 +1,4 @@
+<!-- fieldset block begin -->
+<fieldset>
+<legend><font color="black">${fieldset.title}</font></legend>
+

@@ -1,0 +1,171 @@
+<project basedir="../" default="all">
+	<property environment="env"/>
+	<property name="xdoclet.home" value="D:\xdoclet-1.2.3"/>
+	<property name="tomcat.home" value="D:\tomcat-4.1.34"/>
+	<property name="xdt.dir" value="xdt"/>
+		<property name="struts.config.dir"
+		value="../${module.dir}/config/struts"/>
+	<!--<property name="struts.config.dir" value="${module.config.dir}/struts/${module.name}"/>-->
+	
+		<path id="xdoclet.class.path">
+				<fileset dir="${xdoclet.home}/lib">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${tomcat.home}/common/lib">
+						<include name="*.jar" />
+				</fileset>
+			</path>
+			
+			<path id="jakarta-commons.class.path">
+				<fileset dir="./">
+					<include name="commons*/*.jar"/>
+				</fileset>
+			</path>
+			
+			<path id="struts.class.path">
+				<fileset dir="struts">
+					<include name="*.jar"/>
+				</fileset>
+				<fileset dir="servlet">
+					<include name="*.jar"/>
+				</fileset>
+			</path>
+			
+			<path id="servlet.class.path">
+				<fileset dir="${tomcat.home}/common/lib">
+					<include name="*.jar"/>
+				</fileset>
+			</path>		
+			<path id="module.class.path">
+				<fileset dir="../${module.dir}/dist/jars">
+					<include name="*.jar"/>
+				</fileset>
+			</path>	
+	
+	<target name="struts-config">
+		<delete quiet="true">
+		    <fileset dir="${sm.struts.config.dir}">
+			    <include name="sm-struts-config.xml"/>
+		    </fileset>
+		</delete>
+		
+		<taskdef
+	        name="strutsdoclet"
+	        classname="xdoclet.modules.web.WebDocletTask"
+	        classpathref="xdoclet.class.path"
+	        >
+			<classpath refid="servlet.class.path"/>
+			<classpath refid="struts.class.path"/>
+			<classpath refid="jakarta-commons.class.path"/>
+			<classpath location="${module.classpath}"/>
+			<classpath refid="module.class.path"/>
+			
+		</taskdef>
+		<echo>${module.classpath}</echo>
+	    <strutsdoclet
+		    destdir="${struts.config.dir}"
+			excludedtags="@version,@author,@todo"
+		    addedtags="@xdoclet-generated at ${TODAY},@copyright The XDoclet Team,@author XDoclet,@version ${version}"
+		    force="true"
+			verbose="false"
+			mergedir="../${module.dir}/merge/struts"
+		>
+			<fileset dir="${module.web.dir}">
+			    <include name="**/*Form.java"/>
+				<include name="**/*Action.java"/>
+			</fileset>
+			<strutsconfigxml destinationFile="${module.name}-struts-config.xml" version="1.2" />
+		</strutsdoclet>
+	</target>
+	
+	<target name="action-spring-config">
+			<delete quiet="true">
+			    <fileset dir="${struts.config.dir}">
+				    <include name="${module.name}-action-context.xml"/>
+			    </fileset>
+			</delete>
+			
+			<taskdef  name="springdoclet"  classname="xdoclet.modules.spring.SpringDocletTask">
+				<classpath refid="xdoclet.class.path"/>
+			</taskdef>
+			
+		    <springdoclet
+		  	    destdir="${struts.config.dir}"
+		  	    excludedtags="@version,@author,@todo,@see"   
+		   	    addedtags="@xdoclet-generated at ${TODAY}"
+				mergedir="../${module.dir}/merge/struts">
+				<fileset dir="${module.web.dir}" >
+					<include name="**/*Action.java"/>
+				</fileset>
+				<springxml  templateFile="${xdt.dir}/struts-action-context.xdt" destinationFile="${module.name}-action-context.xml" validatexml="true" />
+			</springdoclet>  
+	</target>
+	
+	
+	
+	<target name="tiles-config">
+			<delete quiet="true">
+			    <fileset dir="${struts.config.dir}">
+			    	<include name="${modules.name}-tiles-defs.xml"/>
+			    </fileset>
+			</delete>
+			
+			<taskdef
+		        name="strutsdoclet"
+		        classname="xdoclet.modules.web.WebDocletTask"
+		        classpathref="xdoclet.class.path"
+		        >
+				<classpath refid="servlet.class.path"/>
+				<classpath refid="struts.class.path"/>
+				<classpath refid="jakarta-commons.class.path"/>
+				<classpath location="${module.classpath}"/>
+				<classpath refid="module.class.path"/>
+			</taskdef>
+			<echo>${module.web.dir}</echo>
+		    <strutsdoclet
+		        destdir="${struts.config.dir}"
+		        excludedtags="@version,@author,@todo,@spring"
+		        addedtags="@xdoclet-generated at ${TODAY},@copyright The XDoclet Team,@author XDoclet,@version ${version}"
+		        force="true"
+		        verbose="false"
+		    	mergedir="../${module.dir}/merge/struts">
+				<fileset dir="${module.web.dir}">
+					<include name="**/*Action.java"/>
+				</fileset>
+				<strutsconfigxml templateFile="${xdt.dir}/struts_tiles_defs_xml.xdt" destinationFile="${module.name}-tiles-defs.xml" version="1.2" />
+			</strutsdoclet>
+	</target>
+		
+	<target name="entity-form-config">
+			<delete quiet="true">
+			    <fileset dir="${struts.config.dir}">
+			    	<include name="entity-form-config.xml"/>
+			    </fileset>
+			</delete>
+			<taskdef
+		        name="strutsdoclet"
+		        classname="xdoclet.modules.web.WebDocletTask"
+		        classpathref="xdoclet.class.path"
+		        >
+				<classpath refid="servlet.class.path"/>
+				<classpath refid="struts.class.path"/>
+				<classpath refid="jakarta-commons.class.path"/>
+				<classpath location="${module.classpath}"/>
+			</taskdef>
+		
+			
+		    <strutsdoclet
+		        destdir="${struts.config.dir}"
+		        excludedtags="@version,@author,@todo"
+		        addedtags="@xdoclet-generated at ${TODAY},@copyright The XDoclet Team,@author XDoclet,@version ${version}"
+		        force="true"
+			    verbose="false">
+		        <fileset dir="${module.web.dir}">
+		            <include name="**/*Form.java"/>
+		            <include name="**/*Action.java"/>
+		        </fileset>
+		  	    <strutsconfigxml templateFile="${xdt.dir}/struts-entity-form.xdt" destinationFile="entity-form-config.xml" version="1.2" />
+		    </strutsdoclet>
+	</target>
+	<target name="all" depends="struts-config,tiles-config,action-spring-config"/>
+</project>

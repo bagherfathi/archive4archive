@@ -1,0 +1,12 @@
+<td class="td-left" width="15%">
+#if($webui.required)
+<span class="tip_star">*</span>
+#end
+$!webui.label
+</td>
+#if($webui.colspan>0)
+<td colspan="${webui.colspan}" class="td-right td_normal" >
+#else
+<td class="td-right $!webui.classStyle" width="35%">
+#end
+

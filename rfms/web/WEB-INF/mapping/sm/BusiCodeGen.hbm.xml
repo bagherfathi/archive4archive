@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="BusiCodeGen"
+		table="SM_BUSI_CODE_GEN"
+		schema="RFMS"
+	>
+		<id
+			name="busiCodeGenId"
+			type="long"
+			column="BUSI_CODE_GEN_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="busiCodeRuleId"
+			column="BUSI_CODE_RULE_ID"
+			type="long"
+			not-null="true"
+			length="14"
+		/>
+		<property
+			name="currentValue"
+			column="CURRENT_VALUE"
+			type="java.lang.String"
+			not-null="false"
+			length="63"
+		/>
+		<property
+			name="nextValue"
+			column="NEXT_VALUE"
+			type="java.lang.String"
+			not-null="false"
+			length="63"
+		/>
+		<property
+			name="updateDay"
+			column="UPDATE_DAY"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="updateOp"
+			column="UPDATE_OP"
+			type="java.lang.String"
+			not-null="false"
+			length="63"
+		/>
+		<property
+			name="createDay"
+			column="CREATE_DAY"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="createOp"
+			column="CREATE_OP"
+			type="java.lang.String"
+			not-null="false"
+			length="63"
+		/>
+		<property
+			name="busiCodeGenCode"
+			column="BUSI_CODE_GEN_CODE"
+			type="java.lang.String"
+			not-null="true"
+			length="128"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

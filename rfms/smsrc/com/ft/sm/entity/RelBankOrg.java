@@ -1,0 +1,299 @@
+/**
+ * @{#} RelBankOrg.java Create on 2006-12-19 14:08:46
+ *
+ * Copyright (c) 2006 by WASU.
+ */
+
+package com.ft.sm.entity;
+
+import java.io.Serializable;
+
+
+/**
+ * This is an object that contains data related to the SM_REL_BANK_ORG table.
+ * Do not modify this class because it will be overwritten if the configuration file
+ * related to this class is modified.
+ *
+ * @hibernate.class
+ *  table="SM_REL_BANK_ORG"
+ */
+
+
+public class RelBankOrg implements Serializable {
+        private static final long serialVersionUID = 1L;
+
+	public static String REF = "RelBankOrg";
+	public static String PROP_BANK_ORG_ID = "bankOrgId";
+	public static String PROP_ORG_ID = "orgId";
+	public static String PROP_REL_ID = "relId";
+	public static String PROP_CREATE_DATE = "createDate";
+	public static String PROP_VALID_DATE = "validDate";
+	public static String PROP_UPDATE_DATE = "updateDate";
+	public static String PROP_OPERATOR_ID = "operatorId";
+	public static String PROP_BANK_ID = "bankId";
+	public static String PROP_ONLINE_TYPE = "onlineType";
+	public static String PROP_APP_ID = "appId";
+	public static String PROP_EXPIRE_DATE = "expireDate";
+	public static String PROP_LOGIN_ORG_ID = "loginOrgId";
+	public static String PROP_ONLINE_STATUS = "onlineStatus";
+
+
+	public RelBankOrg () {
+	    
+	}
+
+
+	// primary key
+	private long relId;
+
+	// fields
+	private long bankId;
+	private long bankOrgId;
+	private long onlineStatus;
+	private long onlineType;
+	private long appId;
+	private java.util.Date createDate;
+	private java.util.Date validDate;
+	private java.util.Date expireDate;
+	private java.util.Date updateDate;
+	private long operatorId;
+	private long orgId;
+	private long loginOrgId;
+
+
+
+	/**
+	 * Return the unique identifier of this class
+     * @hibernate.id
+     *  generator-class="sequence"
+     *  column="rel_id"
+     */
+	public long getRelId () {
+		return relId;
+	}
+
+	/**
+	 * Set the unique identifier of this class
+	 * @param relId the new ID
+	 */
+	public void setRelId (long relId) {
+		this.relId = relId;
+	}
+
+
+
+
+	/**
+	 * Return the value associated with the column: bank_id
+	 */
+	public long getBankId () {
+		return bankId;
+	}
+
+	/**
+	 * Set the value related to the column: bank_id
+	 * @param bankId the bank_id value
+	 */
+	public void setBankId (long bankId) {
+		this.bankId = bankId;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: bank_org_id
+	 */
+	public long getBankOrgId () {
+		return bankOrgId;
+	}
+
+	/**
+	 * Set the value related to the column: bank_org_id
+	 * @param bankOrgId the bank_org_id value
+	 */
+	public void setBankOrgId (long bankOrgId) {
+		this.bankOrgId = bankOrgId;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: online_status
+	 */
+	public long getOnlineStatus () {
+		return onlineStatus;
+	}
+
+	/**
+	 * Set the value related to the column: online_status
+	 * @param onlineStatus the online_status value
+	 */
+	public void setOnlineStatus (long onlineStatus) {
+		this.onlineStatus = onlineStatus;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: online_type
+	 */
+	public long getOnlineType () {
+		return onlineType;
+	}
+
+	/**
+	 * Set the value related to the column: online_type
+	 * @param onlineType the online_type value
+	 */
+	public void setOnlineType (long onlineType) {
+		this.onlineType = onlineType;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: app_id
+	 */
+	public long getAppId () {
+		return appId;
+	}
+
+	/**
+	 * Set the value related to the column: app_id
+	 * @param appId the app_id value
+	 */
+	public void setAppId (long appId) {
+		this.appId = appId;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: create_date
+	 */
+	public java.util.Date getCreateDate () {
+		return createDate;
+	}
+
+	/**
+	 * Set the value related to the column: create_date
+	 * @param createDate the create_date value
+	 */
+	public void setCreateDate (java.util.Date createDate) {
+		this.createDate = createDate;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: valid_date
+	 */
+	public java.util.Date getValidDate () {
+		return validDate;
+	}
+
+	/**
+	 * Set the value related to the column: valid_date
+	 * @param validDate the valid_date value
+	 */
+	public void setValidDate (java.util.Date validDate) {
+		this.validDate = validDate;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: expire_date
+	 */
+	public java.util.Date getExpireDate () {
+		return expireDate;
+	}
+
+	/**
+	 * Set the value related to the column: expire_date
+	 * @param expireDate the expire_date value
+	 */
+	public void setExpireDate (java.util.Date expireDate) {
+		this.expireDate = expireDate;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: update_date
+	 */
+	public java.util.Date getUpdateDate () {
+		return updateDate;
+	}
+
+	/**
+	 * Set the value related to the column: update_date
+	 * @param updateDate the update_date value
+	 */
+	public void setUpdateDate (java.util.Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: operator_id
+	 */
+	public long getOperatorId () {
+		return operatorId;
+	}
+
+	/**
+	 * Set the value related to the column: operator_id
+	 * @param operatorId the operator_id value
+	 */
+	public void setOperatorId (long operatorId) {
+		this.operatorId = operatorId;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: org_id
+	 */
+	public long getOrgId () {
+		return orgId;
+	}
+
+	/**
+	 * Set the value related to the column: org_id
+	 * @param orgId the org_id value
+	 */
+	public void setOrgId (long orgId) {
+		this.orgId = orgId;
+	}
+
+
+
+	/**
+	 * Return the value associated with the column: login_org_id
+	 */
+	public long getLoginOrgId () {
+		return loginOrgId;
+	}
+
+	/**
+	 * Set the value related to the column: login_org_id
+	 * @param loginOrgId the login_org_id value
+	 */
+	public void setLoginOrgId (long loginOrgId) {
+		this.loginOrgId = loginOrgId;
+	}
+
+
+
+
+
+
+
+	public String toString () {
+		return super.toString();
+	}
+
+
+}

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="GB2312"?>
+<ActionMessages>
+	<action path="/opSelf">
+		<method name="save" validate="true" key="msg.update.op.info"
+			input="sm.op.self" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/bank">
+		<method name="save" validate="true" key="msg.save.bank.ok"
+			input="sm.bank.create" showMessage="true">
+		</method>
+		<method name="disable" validate="false" key="msg.disable.bank.ok"
+			input="sm.bank.create" showMessage="true">
+		</method>
+		<method name="disableBank" validate="false" key="msg.disable.bank.ok"
+			input="sm.bank.create" showMessage="true" scope="session">
+		</method>
+		<method name="enable" validate="false" key="msg.enable.bank.ok"
+			input="sm.bank.create" showMessage="true">
+		</method>
+		<method name="enableBank" validate="false" key="msg.enable.bank.ok"
+			input="sm.bank.create" showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/bankOrg">
+		<method name="save" validate="true" key="msg.save.bankorg.ok"
+			input="sm.bank.create" showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/enumGroup">
+		<method name="save" validate="true" key="msg.save.enumgroup.ok"
+			input="sm.enum.group.edit" showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="false" key="msg.delete.enumgroup.ok"
+			input="sm.enum.group.edit" showMessage="true">
+		</method>
+		<method name="export" validate="false" key="msg.delete.enumgroup.ok"
+			input="" showMessage="true">
+		</method>
+		<method name="importEnumDataGroup" validate="false"
+			key="msg.import.enumgroyp.ok" input="" showMessage="true">
+		</method>
+	</action>
+	<action path="/enumCategory">
+		<method name="save" validate="true" key="msg.save.enumcategory.ok"
+			input="sm.enum.category.edit" showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="false" key="msg.delete.enumcategory.ok"
+			input="sm.enum.category.edit" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/enum">
+		<method name="save" validate="true" key="msg.save.enum.ok"
+			input="sm.enum.edit" showMessage="true" scope="session">
+		</method>
+		<method name="disable" validate="false" key="msg.disable.enum.ok"
+			input="sm.enum.edit" showMessage="true" scope="session">
+		</method>
+		<method name="enable" validate="false" key="msg.enable.enum.ok"
+			input="sm.enum.edit" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/bankError">
+		<method name="save" validate="false" key="msg.save.bankerror.ok"
+			showMessage="true">
+		</method>
+		<method name="disable" validate="false" key="msg.disable.bankerror.ok"
+			input="sm.bank.create" showMessage="true">
+		</method>
+		<method name="disableBankError" validate="false"
+			key="msg.disable.bankerror.ok" input="sm.bank.create"
+			showMessage="true" scope="session">
+		</method>
+		<method name="enable" validate="false" key="msg.enable.bankerror.ok"
+			input="sm.bank.create" showMessage="true">
+		</method>
+		<method name="enableBankError" validate="false"
+			key="msg.enable.bankerror.ok" input="sm.bank.create"
+			showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/org">
+		<method name="save" validate="true" key="msg.save.org.ok"
+			input="sm.org.create" showMessage="true" scope="session">
+		</method>
+		<method name="update" validate="true" key="msg.save.org.ok"
+			input="sm.org.edit" showMessage="true" scope="session">
+		</method>
+		<method name="disable" validate="false" key="msg.disable.org.ok"
+			input="sm.org.index" showMessage="true" scope="session">
+		</method>
+		<method name="disableSingle" validate="false" key="msg.disable.org.ok"
+			input="sm.org.view" showMessage="true" scope="session">
+		</method>
+		<method name="recover" validate="false" key="msg.recover.org.ok"
+			input="sm.org.view" showMessage="true" scope="session">
+		</method>
+		<method name="regionSave" validate="false" key="msg.save.org.region.ok"
+			input="sm.org.region.config" showMessage="true" scope="session">
+		</method>
+		<method name="changeParent" validate="false" key="msg.change.org.parent.ok"
+			showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/op">
+		<method name="save" validate="true" key="msg.save.op.ok"
+			input="sm.op.create" showMessage="true">
+		</method>
+		<method name="update" validate="true" key="msg.save.op.ok"
+			input="sm.op.edit" showMessage="true" scope="session">
+		</method>
+		<method name="disable" validate="false" key="msg.disable.op.ok"
+			input="sm.op.index" showMessage="true" scope="session">
+		</method>
+		<method name="disableSingle" validate="false" key="msg.disable.op.ok"
+			input="sm.op.view" showMessage="true" scope="session">
+		</method>
+		<method name="recover" validate="false" key="msg.recover.op.ok"
+			input="sm.op.view" showMessage="true" scope="session">
+		</method>
+		<method name="changePassword" validate="false" key="msg.pwd.change.ok"
+			input="sm.op.view" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/opRole">
+		<method name="saveRole" validate="false" key="msg.save.op.role.ok"
+			input="sm.op.role.config" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/opDataRole">
+		<method name="saveDataRole" validate="false" key="msg.save.op.data.role.ok"
+			input="sm.op.role.config" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/opGroup">
+		<method name="saveGroup" validate="false" key="msg.save.op.group.ok"
+			input="sm.op.group.config" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/opOrg">
+		<method name="saveOrg" validate="false" key="msg.save.op.org.ok"
+			input="sm.op.org.config" showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/group">
+		<method name="save" validate="true" key="msg.save.group.ok"
+			input="sm.group.create" showMessage="true" scope="session">
+		</method>
+		
+		<method name="update" validate="true" key="msg.save.group.ok"
+			input="sm.group.edit" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/groupOrg">
+		<method name="saveOrg" validate="false" key="msg.save.group.org.ok"
+			input="sm.group.org.config" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/groupRole">
+		<method name="saveRole" validate="false" key="msg.save.group.role.ok"
+			input="sm.group.role.config" showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/role">
+		<method name="preview" validate="true" key="sm.label.role.name"
+			input="sm.role.create" showMessage="false">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.role.success"
+			input="sm.role.update" showMessage="true" scope="session">
+		</method>
+		<method name="save" validate="true" key="msg.save.role.success" input="sm.role.create"
+			showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="false" key="msg.delete.role.success"
+			input="" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/dataRole">
+		<method name="preview" validate="true" key="sm.label.role.name"
+			input="sm.data.role.create" showMessage="false">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.data.role.success"
+			input="sm.data.role.update" showMessage="true" scope="session">
+		</method>
+		<method name="save" validate="true" key="msg.save.data.role.success"
+			input="sm.data.role.create" showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="false" key="msg.delete.data.role.success"
+			input="" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/region">
+		<method name="save" validate="true" key="msg.save.region.ok"
+			input="sm.region.edit" showMessage="true" scope="session">
+		</method>
+		<method name="disable" validate="false" key="msg.disable.region.ok"
+			input="sm.region.edit" showMessage="true" scope="session">
+		</method>
+		<method name="enable" validate="false" key="msg.enable.region.ok"
+			input="sm.region.edit" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/resource">
+		<method name="add" validate="true" key="msg.menu.save.success"
+			input="sm.resource.menu.add" showMessage="true" scope="session">
+		</method>
+		<method name="addButton" validate="true" key="msg.button.save.success"
+			input="sm.resource.button.add" showMessage="true" scope="session">
+		</method>
+		<method name="edit" validate="true" key="msg.resource.edit.success"
+			input="sm.resource.edit" showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="false" key="msg.resource.delete.success"
+			input="sm.resource.main" showMessage="true" scope="session">
+		</method>
+		<method name="order" validate="false" key="msg.resource.order.success"
+			input="sm.resource.main" showMessage="true" scope="session">
+		</method>
+		<method name="importMenu" validate="false" key="msg.import.resource.ok"
+			input="" showMessage="true" scope="session">
+		</method>
+	</action>
+	<action path="/dataResource">
+		<method name="add" validate="true" key="msg.save.data.resource.success"
+			input="sm.dataResource.add" showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.data.resource.success" input="sm.dataResource.list"
+			showMessage="true">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.data.resource.success"
+			input="sm.dataResource.edit" showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/infoCategory">
+		<method name="create" validate="true" key="msg.add.info.category.success"
+			input="sm.info.category.create" showMessage="true">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.info.category.success"
+			input="sm.info.category.edit" showMessage="true">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.info.category.success" input="sm.info.category.list"
+			showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/affiche">
+		<method name="create" validate="true" key="msg.add.info.affiche.success"
+			input="sm.info.affiche.create" showMessage="true">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.info.affiche.success" input="" showMessage="true">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.info.affiche.success"
+			input="sm.info.affiche.edit" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/infoShared">
+		<method name="create" validate="true" key="msg.add.info.shared.success"
+			input="sm.info.shared.publish" showMessage="true">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.info.shared.success"
+			input="sm.info.shared.edit" showMessage="true">
+		</method>
+		<method name="delete" validate="false" key="msg.delete.info.shared.success"
+			input="" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/consign">
+		<method name="saveResourceComission" validate="false"
+			key="msg.save.commission.privilege.success" input=""
+			showMessage="true" scope="session">
+		</method>
+		<method name="reclaim" validate="false"
+			key="msg.reclaim.commission.privilege.success" input=""
+			showMessage="true" scope="session">
+		</method>
+		<method name="updateCommission" validate="false"
+			key="msg.edit.commission.privilege.success" input=""
+			showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/ruleCategory">
+		<method name="create" validate="true" key="msg.add.rule.category.success"
+			input="sm.rule.category.add" showMessage="true" scope="session">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.rule.category.success"
+			input="sm.rule.category.edit" showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.rule.category.success" input="" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/rule">
+		<method name="create" validate="true" key="msg.add.rule.success"
+			input="sm.rule.create" showMessage="true">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.rule.success"
+			input="sm.rule.edit" showMessage="true" scope="session">
+		</method>
+		<method name="delete" key="msg.delete.rule.success" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/ruleFile">
+		<method name="update" key="msg.edit.rule.file.success"
+			showMessage="true">
+		</method>
+		<method name="delete" key="msg.delete.rule.success" showMessage="true">
+		</method>
+		<method name="save" key="msg.upload.rule.file.success"
+			showMessage="true">
+		</method>
+		<method name="publish" key="msg.publish.rule.file.success"
+			showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/param">
+		<method name="save" validate="true" key="msg.save.config.param.success"
+			input="sm.param.list" showMessage="true" scope="session">
+		</method>
+		<method name="saveNode" validate="true" key="msg.save.config.node.success"
+			input="sm.param.node.create" showMessage="true" scope="session">
+		</method>
+		<method name="update" validate="true" key="msg.update.config.param.success"
+			input="sm.param.edit" showMessage="true" scope="session">
+		</method>
+		<method name="updateNode" validate="true" key="msg.update.config.node.success"
+			input="sm.param.node.edit" showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/template">
+		<method name="save" validate="true" key="msg.save.template.success"
+			input="sm.template.create" showMessage="true" scope="session">
+		</method>
+		<method name="update" validate="true" key="msg.save.template.success"
+			input="sm.template.edit" showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/templateBind">
+		<method name="addBind" validate="false" key="msg.save.template.bind.success"
+			input="sm.template.bind.list" showMessage="true">
+		</method>
+		<method name="deleteBind" validate="true" key="msg.delete.template.bind.success"
+			input="sm.template.bind.list" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/templateFile">
+		<method name="save" validate="true" key="msg.save.template.file.success"
+			input="sm.template.file.add" showMessage="true" scope="session">
+		</method>
+		<method name="publish" validate="false"
+			key="msg.publish.template.file.success" showMessage="true"
+			scope="session">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.template.file.success" showMessage="true"
+			scope="session">
+		</method>
+	</action>
+	
+	<action path="/templateCategory">
+		<method name="save" validate="true"
+			key="msg.save.template.category.success"
+			input="sm.template.category.create" showMessage="true"
+			scope="session">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.template.category.success" showMessage="true"
+			scope="session">
+		</method>
+	</action>
+	
+	<action path="/maintainPlan">
+		<method name="create" validate="true" key="msg.save.maintain.plan.success"
+			input="sm.maintain.plan.create" showMessage="true">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.maintain.plan.success"
+			input="sm.maintain.plan.edit" showMessage="true">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.maintain.plan.success" input="" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/maintainLog">
+		<method name="create" validate="true" key="msg.save.maintain.log.success"
+			input="sm.maintain.log.create" showMessage="true">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.maintain.log.success"
+			input="sm.maintain.log.edit" showMessage="true">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.maintain.log.success" input="" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/task">
+		<method name="save" validate="true" key="msg.save.task.success"
+			input="sm.task.add" showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="true" key="msg.delete.task.success"
+			input="sm.task.index" showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/taskCategory">
+		<method name="create" validate="true" key="msg.add.task.category.success"
+			input="sm.task.category.add" showMessage="true" scope="session">
+		</method>
+		<method name="edit" validate="true" key="msg.edit.task.category.success"
+			input="sm.task.category.edit" showMessage="true" scope="session">
+		</method>
+		<method name="delete" validate="false"
+			key="msg.delete.task.category.success" input="sm.task.category.list"
+			showMessage="true" scope="session">
+		</method>
+	</action>
+	
+	<action path="/trigger">
+		<method name="saveCron" validate="true" key="msg.save.trigger.success"
+			input="sm.trigger.add" showMessage="true" scope="session">
+		</method>
+		<method name="delTrigger" validate="true" key="msg.delete.trigger.success"
+			input="sm.task.trigger" showMessage="true" scope="session">
+		</method>
+	</action>
+</ActionMessages>

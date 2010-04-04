@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="infoManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="infoManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="regionManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="regionManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="taskManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="taskManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="groupManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="groupManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="busiAppService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="appServiceImpl" />
+		</property>
+	</bean>
+
+	<bean id="maintainManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="maintainManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="operateLogManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="operateLogManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="bankManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="bankManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="commissionManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="commissionManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="configParamManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="configParamManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="operatorManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="operatorManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="roleManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="roleManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="busiCodeGenerateManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="busiCodeGenerateManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="schedulerManager" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="schedulerManagerImpl" />
+		</property>
+	</bean>
+
+	<!--
+		To include additional bean definitions for Spring in the generated
+		application context file, add a file to your XDoclet merge directory
+		called spring-beans.xml that contains the <bean></bean> markup.
+	-->
+
+</beans>

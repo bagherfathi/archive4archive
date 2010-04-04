@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="Affiche"
+		table="SM_AFFICHE"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="afficheId"
+			type="long"
+			column="AFFICHE_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="afficheTitle"
+			column="AFFICHE_TITLE"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="afficheContent"
+			column="AFFICHE_CONTENT"
+			type="java.lang.String"
+			not-null="false"
+			length="1000"
+		/>
+		<property
+			name="publisherId"
+			column="PUBLISHER_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="afficheLevel"
+			column="AFFICHE_LEVEL"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="afficheStatus"
+			column="AFFICHE_STATUS"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="validTime"
+			column="VALID_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="expireTime"
+			column="EXPIRE_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="publishTime"
+			column="PUBLISH_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="categoryId"
+			column="CATEGORY_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

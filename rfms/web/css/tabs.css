@@ -1,0 +1,98 @@
+
+
+#content {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-top: 0;
+    clear: both;
+    margin: 0px;
+    padding: 15px;
+}
+
+/* IE doesn't read the padding from content */
+#content h2 {
+    margin-top: 30px;
+}
+
+/* Override margin for Mozilla to set to default */
+body>#content h2 {
+    margin-top: 15px;
+}
+
+.menuListss {
+    border-bottom: 1px solid #cccccc;
+    margin: 0;
+    padding-bottom: 19px;
+    padding-left: 10px;
+}
+
+.menuListss a:link, .menuListss a:visited	{
+    background: #e8ebf0;
+    border: 1px solid #cccccc;
+    color: #666666;
+    float: left;
+    font-size: small;
+    font-weight: normal;
+    line-height: 14px;
+    margin-right: 8px;
+    padding: 2px 10px 2px 10px;
+    text-decoration: none;
+}
+
+.menuListss a:link.active, .menuListss a:visited.active	{
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    color: #000000;
+}
+
+.menuListss a:hover	{
+    color: #ff0000;
+}
+
+.menuListss li.selected a {
+    background: #ffffff !important;
+    border-bottom: 1px solid #ffffff !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+
+.menuListss li.selected ul.submenu {
+    display: inline;
+    left: 10px;
+    position: absolute;
+    top: 35px;
+}
+
+.menuListss li.selected ul.submenu a {
+    background: #ffffff;
+    border: none;
+    border-left: 1px solid #cccccc;
+    color: #999999 !important;
+    font-size: .98em;
+    font-weight: bold;
+    line-height: 12px;
+    margin-right: 4px;
+    padding: 2px 10px 2px 10px;
+    text-decoration: none;
+}
+
+.menuListss li.selected ul.submenu a.selected {
+    background: transparent;
+    color: #000 !important;
+}
+
+.menuListss ul a:hover, .menuListss ul.submenu a:hover {
+    color: #ff0000 !important;
+}
+
+.menuListss ul, .menuListss li	{
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menuListss ul.submenu {
+    display: none;
+    width: 90%;
+}

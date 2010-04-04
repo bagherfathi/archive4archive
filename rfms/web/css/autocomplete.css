@@ -1,0 +1,24 @@
+.neverModules-auto { 
+  border:1px solid #000000;
+  position:absolute;
+  display:none;
+  font:10pt "Verdana";
+  background-color:#fff;
+  line-height:150%;
+}
+
+.neverModules-auto .out {
+  cursor:default;
+  width:100%;
+  color:#000;
+  text-indent: 4px;
+  background-color:#fff;
+}
+
+.neverModules-auto .over {
+  cursor:default;
+  text-indent: 4px;
+  width:100%;
+  color:highlighttext;
+  background-color:highlight;
+}

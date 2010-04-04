@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="AppType"
+		table="SM_APP_TYPE"
+		schema="RFMS"
+	>
+		<id
+			name="appTypeId"
+			type="long"
+			column="APP_TYPE_ID"
+		>
+			<generator class="sequence">
+			    <param name="sequence">RFMS.SM_APP_TYPE_SEQ</param>
+			</generator>
+		</id>
+
+		<property
+			name="appAction"
+			column="APP_ACTION"
+			type="java.lang.String"
+			not-null="true"
+			length="63"
+		/>
+		<property
+			name="description"
+			column="DESCRIPTION"
+			type="java.lang.String"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="isCharge"
+			column="IS_CHARGE"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="isManagerNotice"
+			column="IS_MANAGER_NOTICE"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="isAccept"
+			column="IS_ACCEPT"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="isPrint"
+			column="IS_PRINT"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="category"
+			column="CATEGORY"
+			type="long"
+			not-null="true"
+			length="2"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="orgId"
+			column="ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="loginOrgId"
+			column="LOGIN_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="appTypeCode"
+			column="APP_TYPE_CODE"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

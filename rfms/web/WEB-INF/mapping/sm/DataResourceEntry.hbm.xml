@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="DataResourceEntry"
+		table="SM_DATA_RESOURCE_ENTRY"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="entryId"
+			type="long"
+			column="ENTRY_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="resourceId"
+			column="RESOURCE_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="entryName"
+			column="ENTRY_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="entryNotes"
+			column="ENTRY_NOTES"
+			type="java.lang.String"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="maxValue"
+			column="MAX_VALUE"
+			type="java.lang.String"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="minValue"
+			column="MIN_VALUE"
+			type="java.lang.String"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="appId"
+			column="APP_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="createDate"
+			column="CREATE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="validDate"
+			column="VALID_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="expireDate"
+			column="EXPIRE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="updateDate"
+			column="UPDATE_DATE"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="orgId"
+			column="ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="loginOrgId"
+			column="LOGIN_ORG_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<struts-config>
+  <form-beans>
+    <form-bean name="maintainLogForm"
+        type="com.ft.web.sm.maintain.MaintainLogForm"
+        >
+        <form-property 
+		    name="maintainLog"
+		    type="com.ft.sm.dto.MaintainLogDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="maintainPlanForm"
+        type="com.ft.web.sm.maintain.MaintainPlanForm"
+        >
+        <form-property 
+		    name="maintainPlan"
+		    type="com.ft.sm.dto.MaintainPlanDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="groupForm"
+        type="com.ft.web.sm.priv.group.GroupForm"
+        >
+        <form-property 
+		    name="groups"
+		    type="com.ft.sm.dto.GroupDTO[]"
+            initial="ids"
+            />
+        <form-property 
+		    name="group"
+		    type="com.ft.sm.dto.GroupDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="enumForm"
+        type="com.ft.web.sm.data.enumdata.EnumForm"
+        >
+        <form-property 
+		    name="enumData"
+		    type="com.ft.sm.dto.EnumDTO"
+            initial="enumId"
+            />
+        <form-property 
+		    name="enumCategory"
+		    type="com.ft.sm.dto.EnumCategoryDTO"
+            initial="categoryId"
+            />
+    </form-bean>
+    <form-bean name="dataResourceForm"
+        type="com.ft.web.sm.priv.resource.DataResourceForm"
+        >
+        <form-property 
+		    name="dataResource"
+		    type="com.ft.sm.dto.DataResourceDTO"
+            initial="id"
+            />
+        <form-property 
+		    name="dataResources"
+		    type="com.ft.sm.dto.DataResourceDTO[]"
+            initial="ids"
+            />
+        <form-property 
+		    name="entry"
+		    type="com.ft.sm.dto.DataResourceEntryDTO"
+            initial="eId"
+            />
+    </form-bean>
+    <form-bean name="dataResourceEntryForm"
+        type="com.ft.web.sm.priv.resource.DataResourceForm"
+        >
+        <form-property 
+		    name="dataResource"
+		    type="com.ft.sm.dto.DataResourceDTO"
+            initial="id"
+            />
+        <form-property 
+		    name="dataResources"
+		    type="com.ft.sm.dto.DataResourceDTO[]"
+            initial="ids"
+            />
+        <form-property 
+		    name="entry"
+		    type="com.ft.sm.dto.DataResourceEntryDTO"
+            initial="eId"
+            />
+    </form-bean>
+    <form-bean name="afficheForm"
+        type="com.ft.web.sm.info.AfficheForm"
+        >
+        <form-property 
+		    name="affiche"
+		    type="com.ft.sm.dto.AfficheDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="queryGroupPrivilegeForm"
+        type="com.ft.web.sm.priv.resource.QueryGroupPrivilegeForm"
+        >
+        <form-property 
+		    name="group"
+		    type="com.ft.sm.dto.GroupDTO"
+            initial="gId"
+            />
+    </form-bean>
+    <form-bean name="ruleForm"
+        type="com.ft.web.sm.rule.RuleForm"
+        >
+        <form-property 
+		    name="rule"
+		    type="com.ft.sm.dto.RuleInfoDTO"
+            initial="ruleId"
+            />
+    </form-bean>
+    <form-bean name="dataRoleForm"
+        type="com.ft.web.sm.priv.role.DataRoleForm"
+        >
+        <form-property 
+		    name="role"
+		    type="com.ft.sm.dto.RoleDTO"
+            initial="id"
+            />
+        <form-property 
+		    name="entrys"
+		    type="com.ft.sm.dto.DataResourceEntryDTO[]"
+            initial="ids"
+            />
+        <form-property 
+		    name="roles"
+		    type="com.ft.sm.dto.RoleDTO[]"
+            initial="roleIds"
+            />
+    </form-bean>
+    <form-bean name="templateForm"
+        type="com.ft.web.sm.template.TemplateForm"
+        >
+        <form-property 
+		    name="template"
+		    type="com.ft.sm.dto.TemplateDTO"
+            initial="templateId"
+            />
+        <form-property 
+		    name="templateFile"
+		    type="com.ft.sm.dto.TemplateFileDTO"
+            initial="templateFileId"
+            />
+    </form-bean>
+    <form-bean name="roleForm"
+        type="com.ft.web.sm.priv.role.RoleForm"
+        >
+        <form-property 
+		    name="ops"
+		    type="com.ft.sm.dto.OperatorDTO[]"
+            initial="opIds"
+            />
+        <form-property 
+		    name="role"
+		    type="com.ft.sm.dto.RoleDTO"
+            initial="id"
+            />
+        <form-property 
+		    name="roles"
+		    type="com.ft.sm.dto.RoleDTO[]"
+            initial="ids"
+            />
+        <form-property 
+		    name="resources"
+		    type="com.ft.sm.dto.ResourceDTO[]"
+            initial="ids"
+            />
+    </form-bean>
+    <form-bean name="infoSharedForm"
+        type="com.ft.web.sm.info.InfoSharedForm"
+        >
+        <form-property 
+		    name="category"
+		    type="com.ft.sm.dto.InfoCategoryDTO"
+            initial="cId"
+            />
+        <form-property 
+		    name="infoShared"
+		    type="com.ft.sm.dto.InfoSharedDTO"
+            initial="id"
+            />
+        <form-property 
+		    name="attach"
+		    type="com.ft.sm.dto.AttachDTO"
+            initial="aId"
+            />
+    </form-bean>
+    <form-bean name="configParamForm"
+        type="com.ft.web.sm.param.ConfigParamForm"
+        >
+        <form-property 
+		    name="configParam"
+		    type="com.ft.sm.dto.ConfigParamDTO"
+            initial="paramId"
+            />
+        <form-property 
+		    name="parent"
+		    type="com.ft.sm.dto.ConfigParamDTO"
+            initial="parentId"
+            />
+    </form-bean>
+    <form-bean name="templateBindForm"
+        type="com.ft.web.sm.template.TemplateBindForm"
+        >
+    </form-bean>
+    <form-bean name="queryResourcePrivilegeForm"
+        type="com.ft.web.sm.priv.resource.QueryResourcePrivilegeForm"
+        >
+        <form-property 
+		    name="resource"
+		    type="com.ft.sm.dto.ResourceDTO"
+            initial="rId"
+            />
+    </form-bean>
+    <form-bean name="dialogForm"
+        type="com.ft.web.sm.priv.dialog.DialogForm"
+        >
+        <form-property 
+		    name="op"
+		    type="com.ft.sm.entity.Operator"
+            initial="opId"
+            />
+        <form-property 
+		    name="org"
+		    type="com.ft.sm.entity.Organization"
+            initial="orgId"
+            />
+    </form-bean>
+    <form-bean name="bankForm"
+        type="com.ft.web.sm.data.bank.BankForm"
+        >
+        <form-property 
+		    name="bank"
+		    type="com.ft.sm.dto.BankDTO"
+            initial="bankId"
+            />
+    </form-bean>
+    <form-bean name="enumCategoryForm"
+        type="com.ft.web.sm.data.enumdata.EnumCategoryForm"
+        >
+        <form-property 
+		    name="enumCategory"
+		    type="com.ft.sm.dto.EnumCategoryDTO"
+            initial="categoryId"
+            />
+    </form-bean>
+    <form-bean name="operatorGroupForm"
+        type="com.ft.web.sm.priv.op.OperatorGroupForm"
+        >
+        <form-property 
+		    name="groups"
+		    type="com.ft.sm.dto.GroupDTO[]"
+            initial="groupIds"
+            />
+        <form-property 
+		    name="op"
+		    type="com.ft.sm.dto.OperatorDTO"
+            initial="opId"
+            />
+        <form-property 
+		    name="ops"
+		    type="com.ft.sm.dto.OperatorDTO[]"
+            initial="opIds"
+            />
+    </form-bean>
+    <form-bean name="taskForm"
+        type="com.ft.web.sm.task.TaskForm"
+        >
+        <form-property 
+		    name="taskTrigger"
+		    type="com.ft.sm.dto.TaskTriggerDTO"
+            initial="triggerId"
+            />
+        <form-property 
+		    name="jobDefine"
+		    type="com.ft.sm.dto.TaskJobDTO"
+            initial="jobId"
+            />
+    </form-bean>
+    <form-bean name="opDataResourceForm"
+        type="com.ft.web.sm.priv.op.OperatorDataResourceForm"
+        >
+        <form-property 
+		    name="op"
+		    type="com.ft.sm.dto.OperatorDTO"
+            initial="opId"
+            />
+    </form-bean>
+    <form-bean name="taskCategoryForm"
+        type="com.ft.web.sm.task.TaskCategoryForm"
+        >
+        <form-property 
+		    name="category"
+		    type="com.ft.sm.dto.TaskCategoryDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="commisionManagerForm"
+        type="com.ft.web.sm.priv.commission.CommisionManagerForm"
+        >
+        <form-property 
+		    name="consignPrivilege"
+		    type="com.ft.sm.dto.ConsignPermitDTO"
+            initial="cpId"
+            />
+    </form-bean>
+    <form-bean name="queryDataResourcePrivilegeForm"
+        type="com.ft.web.sm.priv.resource.QueryDataResourcePrivilegeForm"
+        >
+        <form-property 
+		    name="dataResource"
+		    type="com.ft.sm.dto.DataResourceDTO"
+            initial="drId"
+            />
+        <form-property 
+		    name="dataResourceEntry"
+		    type="com.ft.sm.dto.DataResourceEntryDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="refreshCacheForm"
+        type="com.ft.web.sm.data.cache.RefreshCacheForm"
+        >
+    </form-bean>
+    <form-bean name="enumGroupForm"
+        type="com.ft.web.sm.data.enumdata.EnumGroupForm"
+        >
+        <form-property 
+		    name="enumGroup"
+		    type="com.ft.sm.dto.EnumGroupDTO"
+            initial="groupId"
+            />
+    </form-bean>
+    <form-bean name="resQueryForm"
+        type="com.ft.web.sm.priv.resource.QueryForm"
+        >
+    </form-bean>
+    <form-bean name="queryOperatorPrivilegeForm"
+        type="com.ft.web.sm.priv.resource.QueryOperatorPrivilegeForm"
+        >
+        <form-property 
+		    name="operator"
+		    type="com.ft.sm.dto.OperatorDTO"
+            initial="opId"
+            />
+    </form-bean>
+    <form-bean name="operatorForm"
+        type="com.ft.web.sm.priv.op.OperatorForm"
+        >
+        <form-property 
+		    name="ops"
+		    type="com.ft.sm.dto.OperatorDTO[]"
+            initial="opIds"
+            />
+        <form-property 
+		    name="op"
+		    type="com.ft.sm.dto.OperatorDTO"
+            initial="opId"
+            />
+        <form-property 
+		    name="organization"
+		    type="com.ft.sm.dto.OrganizationDTO"
+            initial="orgId"
+            />
+    </form-bean>
+    <form-bean name="operatorRoleForm"
+        type="com.ft.web.sm.priv.op.OperatorRoleForm"
+        >
+        <form-property 
+		    name="roles"
+		    type="com.ft.sm.dto.RoleDTO[]"
+            initial="roleIds"
+            />
+        <form-property 
+		    name="org"
+		    type="com.ft.sm.dto.OrganizationDTO"
+            initial="orgId"
+            />
+        <form-property 
+		    name="op"
+		    type="com.ft.sm.dto.OperatorDTO"
+            initial="opId"
+            />
+        <form-property 
+		    name="ops"
+		    type="com.ft.sm.dto.OperatorDTO[]"
+            initial="opIds"
+            />
+    </form-bean>
+    <form-bean name="operatorOrgForm"
+        type="com.ft.web.sm.priv.op.OperatorOrgForm"
+        >
+        <form-property 
+		    name="orgs"
+		    type="com.ft.sm.dto.OrganizationDTO[]"
+            initial="orgIds"
+            />
+        <form-property 
+		    name="op"
+		    type="com.ft.sm.dto.OperatorDTO"
+            initial="opId"
+            />
+        <form-property 
+		    name="ops"
+		    type="com.ft.sm.dto.OperatorDTO[]"
+            initial="opIds"
+            />
+    </form-bean>
+    <form-bean name="commisionForm"
+        type="com.ft.web.sm.priv.commission.CommisionForm"
+        >
+        <form-property 
+		    name="consignee"
+		    type="com.ft.sm.dto.OperatorDTO"
+            initial="consigneeId"
+            />
+        <form-property 
+		    name="consignPrivilege"
+		    type="com.ft.sm.dto.ConsignPermitDTO"
+            initial="cpId"
+            />
+    </form-bean>
+    <form-bean name="regionForm"
+        type="com.ft.web.sm.data.region.RegionForm"
+        >
+        <form-property 
+		    name="region"
+		    type="com.ft.sm.dto.RegionDTO"
+            initial="regionId"
+            />
+        <form-property 
+		    name="parentRegion"
+		    type="com.ft.sm.dto.RegionDTO"
+            initial="parentId"
+            />
+    </form-bean>
+    <form-bean name="opSelfForm"
+        type="com.ft.web.sm.priv.op.OpSelfForm"
+        >
+    </form-bean>
+    <form-bean name="resourceForm"
+        type="com.ft.web.sm.priv.resource.ResourceForm"
+        >
+        <form-property 
+		    name="resource"
+		    type="com.ft.sm.dto.ResourceDTO"
+            initial="resource.resourceId"
+            />
+        <form-property 
+		    name="parentResource"
+		    type="com.ft.sm.dto.ResourceDTO"
+            initial="parentResource.resourceId"
+            />
+        <form-property 
+		    name="resources"
+		    type="com.ft.sm.dto.ResourceDTO[]"
+            initial="ids"
+            />
+        <form-property 
+		    name="addedResource"
+		    type="com.ft.sm.dto.ResourceDTO"
+            initial="addedId"
+            />
+    </form-bean>
+    <form-bean name="groupRoleForm"
+        type="com.ft.web.sm.priv.group.GroupRoleForm"
+        >
+        <form-property 
+		    name="roles"
+		    type="com.ft.sm.dto.RoleDTO[]"
+            initial="roleIds"
+            />
+        <form-property 
+		    name="org"
+		    type="com.ft.sm.dto.OrganizationDTO"
+            initial="orgId"
+            />
+        <form-property 
+		    name="group"
+		    type="com.ft.sm.dto.GroupDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="selRegionForm"
+        type="com.ft.web.sm.data.region.SelRegionForm"
+        >
+    </form-bean>
+    <form-bean name="groupOrgForm"
+        type="com.ft.web.sm.priv.group.GroupOrgForm"
+        >
+        <form-property 
+		    name="orgs"
+		    type="com.ft.sm.dto.OrganizationDTO[]"
+            initial="orgIds"
+            />
+        <form-property 
+		    name="group"
+		    type="com.ft.sm.dto.GroupDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="orgForm"
+        type="com.ft.web.sm.priv.org.OrgForm"
+        >
+        <form-property 
+		    name="orgs"
+		    type="com.ft.sm.dto.OrganizationDTO[]"
+            initial="orgIds"
+            />
+        <form-property 
+		    name="regions"
+		    type="com.ft.sm.entity.Region[]"
+            initial="regionIds"
+            />
+        <form-property 
+		    name="org"
+		    type="com.ft.sm.dto.OrganizationDTO"
+            initial="orgId"
+            />
+        <form-property 
+		    name="parentOrg"
+		    type="com.ft.sm.dto.OrganizationDTO"
+            initial="pid"
+            />
+    </form-bean>
+    <form-bean name="bankOrgForm"
+        type="com.ft.web.sm.data.bank.BankOrgForm"
+        >
+        <form-property 
+		    name="bank"
+		    type="com.ft.sm.dto.BankDTO"
+            initial="bankId"
+            />
+        <form-property 
+		    name="relBankOrg"
+		    type="com.ft.sm.dto.RelBankOrgDTO"
+            initial="relBankOrgId"
+            />
+    </form-bean>
+    <form-bean name="opResourceForm"
+        type="com.ft.web.sm.priv.op.OperatorResourceForm"
+        >
+        <form-property 
+		    name="op"
+		    type="com.ft.sm.dto.OperatorDTO"
+            initial="opId"
+            />
+        <form-property 
+		    name="org"
+		    type="com.ft.sm.dto.OrganizationDTO"
+            initial="orgId"
+            />
+    </form-bean>
+    <form-bean name="ruleCategoryForm"
+        type="com.ft.web.sm.rule.RuleCategoryForm"
+        >
+        <form-property 
+		    name="category"
+		    type="com.ft.sm.dto.RuleCategoryDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="bankErrorForm"
+        type="com.ft.web.sm.data.bank.BankErrorForm"
+        >
+        <form-property 
+		    name="bankError"
+		    type="com.ft.sm.dto.BankErrorDTO"
+            initial="bankErrorId"
+            />
+    </form-bean>
+    <form-bean name="infoCategoryForm"
+        type="com.ft.web.sm.info.InfoCategoryForm"
+        >
+        <form-property 
+		    name="category"
+		    type="com.ft.sm.dto.InfoCategoryDTO"
+            initial="id"
+            />
+    </form-bean>
+    <form-bean name="ruleFileForm"
+        type="com.ft.web.sm.rule.RuleFileForm"
+        >
+        <form-property 
+		    name="rule"
+		    type="com.ft.sm.dto.RuleInfoDTO"
+            initial="ruleId"
+            />
+        <form-property 
+		    name="ruleFile"
+		    type="com.ft.sm.dto.RuleFileDTO"
+            initial="fileId"
+            />
+    </form-bean>
+ </form-beans>
+ <action-mappings>
+    <action path="/operateLog"
+        type="com.ft.web.sm.log.OperateLogAction"
+        >
+    </action>
+    <action path="/queryOPPrivilege"
+        type="com.ft.web.sm.priv.resource.QueryOperatorPrivilegeAction"
+        >
+    </action>
+    <action path="/affiche"
+        type="com.ft.web.sm.info.AfficheAction"
+        >
+    </action>
+    <action path="/browse"
+        type="com.ft.web.sm.info.BrowseAfficheAction"
+        >
+    </action>
+    <action path="/dataResourceQuery"
+        type="com.ft.web.sm.priv.resource.DataResourceQueryAction"
+        >
+    </action>
+    <action path="/task"
+        type="com.ft.web.sm.task.TaskAction"
+        >
+    </action>
+    <action path="/opDataResource"
+        type="com.ft.web.sm.priv.op.OperatorDataResourceAction"
+        >
+    </action>
+    <action path="/template"
+        type="com.ft.web.sm.template.TemplateInfoAction"
+        >
+    </action>
+    <action path="/enumGroup"
+        type="com.ft.web.sm.data.enumdata.EnumGroupAction"
+        >
+    </action>
+    <action path="/ruleCategory"
+        type="com.ft.web.sm.rule.RuleCategoryAction"
+        >
+    </action>
+    <action path="/taskCategory"
+        type="com.ft.web.sm.task.TaskCategoryAction"
+        >
+    </action>
+    <action path="/opOrg"
+        type="com.ft.web.sm.priv.op.OperatorOrgAction"
+        >
+    </action>
+    <action path="/opGroup"
+        type="com.ft.web.sm.priv.op.OperatorGroupAction"
+        >
+    </action>
+    <action path="/param"
+        type="com.ft.web.sm.param.ConfigParamAction"
+        >
+    </action>
+    <action path="/templateCategory"
+        type="com.ft.web.sm.template.TemplateCategoryAction"
+        >
+    </action>
+    <action path="/refreshCache"
+        type="com.ft.web.sm.data.cache.RefreshCacehAction"
+        >
+    </action>
+    <action path="/dataResource"
+        type="com.ft.web.sm.priv.resource.DataResourceAction"
+        >
+    </action>
+    <action path="/dataRole"
+        type="com.ft.web.sm.priv.role.DataRoleAction"
+        >
+    </action>
+    <action path="/resource"
+        type="com.ft.web.sm.priv.resource.ResourceAction"
+        >
+    </action>
+    <action path="/opRole"
+        type="com.ft.web.sm.priv.op.OperatorRoleAction"
+        >
+    </action>
+    <action path="/selRegion"
+        type="com.ft.web.sm.data.region.SelRegionAction"
+        >
+    </action>
+    <action path="/groupRole"
+        type="com.ft.web.sm.priv.group.GroupRoleAction"
+        >
+    </action>
+    <action path="/opResource"
+        type="com.ft.web.sm.priv.op.OperatorResourceAction"
+        >
+    </action>
+    <action path="/bankOrg"
+        type="com.ft.web.sm.data.bank.BankOrgAction"
+        >
+    </action>
+    <action path="/bankError"
+        type="com.ft.web.sm.data.bank.BankErrorAction"
+        >
+    </action>
+    <action path="/bank"
+        type="com.ft.web.sm.data.bank.BankAction"
+        >
+    </action>
+    <action path="/performanceLog"
+        type="com.ft.web.sm.log.PerformanceLogAction"
+        >
+    </action>
+    <action path="/queryDRPrivilege"
+        type="com.ft.web.sm.priv.resource.QueryDataResourcePrivilegeAction"
+        >
+    </action>
+    <action path="/scheduler"
+        type="com.ft.web.sm.task.SchedulerAction"
+        >
+    </action>
+    <action path="/ruleFile"
+        type="com.ft.web.sm.rule.RuleFileAction"
+        >
+    </action>
+    <action path="/group"
+        type="com.ft.web.sm.priv.group.GroupAction"
+        >
+    </action>
+    <action path="/queryGroupPrivilege"
+        type="com.ft.web.sm.priv.resource.QueryGroupPrivilegeAction"
+        >
+    </action>
+    <action path="/role"
+        type="com.ft.web.sm.priv.role.RoleAction"
+        >
+    </action>
+    <action path="/org"
+        type="com.ft.web.sm.priv.org.OrgAction"
+        >
+    </action>
+    <action path="/maintainPlan"
+        type="com.ft.web.sm.maintain.MaintainPlanAction"
+        >
+    </action>
+    <action path="/groupOrg"
+        type="com.ft.web.sm.priv.group.GroupOrgAction"
+        >
+    </action>
+    <action path="/resourceQuery"
+        type="com.ft.web.sm.priv.resource.ResourceQueryAction"
+        >
+    </action>
+    <action path="/consign"
+        type="com.ft.web.sm.priv.commission.CommisionAction"
+        >
+    </action>
+    <action path="/region"
+        type="com.ft.web.sm.data.region.RegionAction"
+        >
+    </action>
+    <action path="/opDataRole"
+        type="com.ft.web.sm.priv.op.OperatorDataRoleAction"
+        >
+    </action>
+    <action path="/enum"
+        type="com.ft.web.sm.data.enumdata.EnumAction"
+        >
+    </action>
+    <action path="/infoCategory"
+        type="com.ft.web.sm.info.InfoCategoryAction"
+        >
+    </action>
+    <action path="/opSelf"
+        type="com.ft.web.sm.priv.op.OpSelfAction"
+        >
+    </action>
+    <action path="/template"
+        type="com.ft.web.sm.template.TemplateAction"
+        >
+    </action>
+    <action path="/op"
+        type="com.ft.web.sm.priv.op.OperatorAction"
+        >
+    </action>
+    <action path="/enumCategory"
+        type="com.ft.web.sm.data.enumdata.EnumCategoryAction"
+        >
+    </action>
+    <action path="/queryRPrivilege"
+        type="com.ft.web.sm.priv.resource.QueryResourcePrivilegeAction"
+        >
+    </action>
+    <action path="/templateBind"
+        type="com.ft.web.sm.template.TemplateBindAction"
+        >
+    </action>
+    <action path="/rule"
+        type="com.ft.web.sm.rule.RuleAction"
+        >
+    </action>
+    <action path="/infoShared"
+        type="com.ft.web.sm.info.InfoSharedAction"
+        >
+    </action>
+    <action path="/templateFile"
+        type="com.ft.web.sm.template.TemplateFileAction"
+        >
+    </action>
+    <action path="/trigger"
+        type="com.ft.web.sm.task.TriggerAction"
+        >
+    </action>
+    <action path="/maintainLog"
+        type="com.ft.web.sm.maintain.MaintainLogAction"
+        >
+    </action>
+    <action path="/dialog"
+        type="com.ft.web.sm.priv.dialog.DialogAction"
+        >
+    </action>
+ </action-mappings> 
+</struts-config>

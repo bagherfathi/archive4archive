@@ -1,0 +1,27 @@
+    #if($panel.buttons.size()>0)
+      <table width="95%" border="0" cellspacing="2" cellpadding="2">
+        <tr>
+          <td align="right">
+          #foreach($button in $panel.buttons)
+	      $button.html
+          #end
+	      </td>
+        </tr>
+      </table>
+    #end   
+    </td>
+    <!-- panel body end-->
+  </tr>
+  <tr> 
+    <td colspan="3"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="table_bottom_1"></td>
+          <td class="table_bottom_2"><img src="javascript:false" width="1" height="1"></td>
+          <td class="table_bottom_3"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--panel end -->

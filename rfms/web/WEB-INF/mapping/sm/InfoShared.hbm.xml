@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="InfoShared"
+		table="SM_INFO_SHARED"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="infoId"
+			type="long"
+			column="INFO_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="categoryId"
+			column="CATEGORY_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="infoTitle"
+			column="INFO_TITLE"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="authorId"
+			column="AUTHOR_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="infoContent"
+			column="INFO_CONTENT"
+			type="java.lang.String"
+			not-null="false"
+			length="1000"
+		/>
+		<property
+			name="inceptOrgs"
+			column="INCEPT_ORGS"
+			type="java.lang.String"
+			not-null="false"
+			length="512"
+		/>
+		<property
+			name="validTime"
+			column="VALID_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="expireTime"
+			column="EXPIRE_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="publishTime"
+			column="PUBLISH_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

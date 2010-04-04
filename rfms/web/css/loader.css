@@ -1,0 +1,55 @@
+/* --- loader ---*/
+
+#loader {
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#loader td {
+  padding: 0px;
+  background: Window;
+  border: 1px solid black;
+}
+
+#loader p {
+  border-top: 3px solid ThreeDHighlight;
+  border-left: 3px solid ThreeDHighlight;
+  border-right: 3px solid ThreeDShadow;
+  border-bottom: 3px solid ThreeDShadow;
+  padding: 10px;
+  margin: 0;
+  background: ThreeDFace;
+}
+
+#loader img {
+  float: left;
+  margin-right: 12px;
+}
+
+#loader strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+#loaderContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+ 
+}
+
+#loaderContainer td {
+	padding-top: 150px;
+	vertical-align: top;
+	text-align: center;
+	background-image: url();
+}
+
+#loaderContainer td td {
+	padding-top: 0px;
+	text-align: left;
+}

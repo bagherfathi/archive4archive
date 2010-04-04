@@ -1,0 +1,231 @@
+.eXtremeTable {
+	margin: 0;
+	padding: 0;
+}
+
+.eXtremeTable select {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	border: solid 1px #EEE;
+	width: 75px;
+}
+
+.eXtremeTable .tableRegion {
+    border: 0;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	behavior:url(/boss/css/grid.htc);
+}
+
+
+.eXtremeTable .filter {
+	background-color: #F4F4F4;
+}
+
+.eXtremeTable .filter td {
+	padding: 2px;
+}
+
+.eXtremeTable .title {
+	color: #444444;
+	font-weight: bold;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 15px;
+	vertical-align: middle;
+}
+
+.eXtremeTable .titleRow {
+	background-color: #A7D3FF;
+}
+
+.eXtremeTable .titleRow td {
+	border-bottom: 1px solid #fffff;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.eXtremeTable .titleRow span {
+	
+}
+
+.eXtremeTable .filter input {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	border: solid 1px grey;
+	padding: 1px;
+}
+
+.eXtremeTable .filter select {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 9px;
+	border: solid 1px #EEE;
+}
+
+.eXtremeTable .tableHeader {
+	FONT-SIZE: 12px;
+	BACKGROUND: #CDE2F7;
+	COLOR: buttonfacetext;
+	FONT-FAMILY: "宋体";
+	cursor:default;
+	text-align: center;
+	text-decoration: none;
+	HEIGHT: 20px;
+	border-right:1px solid white;
+	border-bottom:1px solid white;
+	>white-space:normal;
+}
+
+.eXtremeTable .tableHeaderSort {
+	FONT-SIZE: 12px;
+	BACKGROUND: #9BC3ED;
+	COLOR: buttonfacetext;
+	FONT-FAMILY: "宋体";
+	cursor:default;
+	text-align: center;
+	text-decoration: none;
+	HEIGHT: 20px;
+	border-right:1px solid white;
+	border-bottom:1px solid white;
+}
+
+.eXtremeTable .odd a, .even a {
+	color: Black;
+	font-size: 12px;
+}
+
+.eXtremeTable .odd td, .eXtremeTable .even td {
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+	vertical-align: middle;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	border-right: 1px solid #DDDDEE;
+	border-bottom: 1px solid #DDDDEE;
+}
+.eXtremeTable .odd {
+	FONT-SIZE: 12px;
+	BACKGROUND: #ffffff;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 20px;
+	text-decoration: none;
+	border-bottom:1px solid #E4ECF2;
+}
+
+.eXtremeTable .even {
+  	FONT-SIZE: 12px;
+	BACKGROUND: #f5f5f5;
+	FONT-FAMILY: "宋体";
+	HEIGHT: 20px;
+	text-decoration: none;
+	border-bottom:1px solid #E4ECF2;
+}
+
+.eXtremeTable .highlight td , .focus td{	
+	background: #DDECFE;
+	FONT-SIZE: 12px;	
+	FONT-FAMILY: "宋体";
+	HEIGHT: 20px;
+	text-decoration: none;
+	border-bottom:1px solid #E4ECF2;
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+	vertical-align: middle;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	border-right: 1px solid #DDDDEE;
+	border-bottom: 1px solid #DDDDEE;
+}
+
+.eXtremeTable .highlight a, .highlight a {
+	color: Black;
+	font-size: 12px;
+}
+
+.eXtremeTable .compactToolbar {
+	background-color: #F4F4F4;
+}
+
+.eXtremeTable .toolbar {
+	background-color: #F4F4F4;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 9px;
+	margin-right: 1px;
+	border-right: 1px solid silver;
+	border-left: 1px solid silver;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+
+.eXtremeTable .toolbar a:hover {
+	background-color: transparent;
+}
+
+.eXtremeTable .toolbar td {
+	color: #444444;
+	padding: 0px 3px 0px 3px;
+	text-align:center;
+}
+
+.eXtremeTable .separator {
+	width: 7px;
+}
+
+.eXtremeTable .statusBar {
+	background-color: #F5F8FB;
+	font-family: verdana, arial, helvetica, sans-serif;
+	border : 0px;
+	font-size: 12px;
+}
+
+.eXtremeTable .filterButtons {
+	background-color: #F4F4F4;
+	text-align: right;
+}
+
+.eXtremeTable .title span {
+	margin-left: 7px;
+}
+
+.eXtremeTable .formButtons {
+	display: block;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+.eXtremeTable .formButton {
+	cursor: pointer;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:10px;
+	font-weight: bold;
+	background-color: #308dbb;
+	color: white;
+	margin-top: 5px;
+	border: outset 1px #333;
+	vertical-align: middle;
+}
+
+.eXtremeTable .calcRow {
+	background-color: #F4F4F4;
+}
+
+.eXtremeTable .calcTitle {
+	background-color: #F4F4F4;
+	color: black;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+.eXtremeTable .calcResult {
+	background-color: #F4F4F4;
+	color: black;
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<!--
+		========== Tiles Mapping Definitions
+		===================================
+	-->
+
+	<!--BankOrgAction.edit -->
+	
+	<definition name="rfms.card.edit" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/card/editcard.jsp" />
+	</definition>
+	<definition name="rfms.card.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/card/listcard.jsp" />
+	</definition>
+	<definition name="rfms.card.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/card/listcard.jsp" />
+	</definition>
+	<definition name="rfms.card.view" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/card/showcard.jsp" />
+	</definition>
+	
+	<definition name="rfms.cardsend.edit" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/cardsend/editcardsend.jsp" />
+	</definition>
+	<definition name="rfms.cardsend.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/cardsend/listcardsend.jsp" />
+	</definition>
+	<definition name="rfms.cardsend.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/cardsend/listcardsend.jsp" />
+	</definition>
+	<definition name="rfms.cardsend.view" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/cardsend/showcardsend.jsp" />
+	</definition>
+
+	<definition name="rfms.sms.edit" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/sms/editsms.jsp" />
+	</definition>
+	<definition name="rfms.sms.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/sms/listsms.jsp" />
+	</definition>
+	<definition name="rfms.sms.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/sms/listsms.jsp" />
+	</definition>
+	<definition name="rfms.sms.view" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/sms/showsms.jsp" />
+	</definition>
+
+	
+	<definition name="rfms.member.edit" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/member/editmember.jsp" />
+	</definition>
+	<definition name="rfms.member.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/member/listmember.jsp" />
+	</definition>
+	<definition name="rfms.member.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/member/listmember.jsp" />
+	</definition>
+	<definition name="rfms.member.view" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/member/showmember.jsp" />
+	</definition>
+	
+	<definition name="rfms.membertype.edit" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/membertype/editmembertype.jsp" />
+	</definition>
+	<definition name="rfms.membertype.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/membertype/listmembertype.jsp" />
+	</definition>
+	<definition name="rfms.membertype.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/membertype/listmembertype.jsp" />
+	</definition>
+	<definition name="rfms.membertype.view" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/membertype/showmembertype.jsp" />
+	</definition>
+	
+	<definition name="rfms.merchant.edit" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/editMerchant.jsp" />
+	</definition>
+	<definition name="rfms.merchant.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/listMerchant.jsp" />
+	</definition>
+
+	<definition name="rfms.merchant.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/searchMerchant.jsp" />
+	</definition>
+	<definition name="rfms.merchant.view" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/showMerchant.jsp" />
+	</definition>
+	<definition name="rfms.merchant.listBranch" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/listBranch.jsp" />
+	</definition>
+	<definition name="rfms.merchant.editBranch" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/editBranch.jsp" />
+	</definition>
+	<definition name="rfms.merchant.auditList" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/listAuditMerchant.jsp" />
+	</definition>
+	<definition name="rfms.merchant.auditView" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/viewMerchant.jsp" />
+	</definition>
+	<definition name="rfms.merchant.pos" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/editPos.jsp" />
+	</definition>
+	<definition name="rfms.merchant.step" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/editStep.jsp" />
+	</definition>
+
+	<definition name="rfms.merchant.searchIndex" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/searchMerchant.jsp" />
+	</definition>
+
+	<definition name="rfms.reports.reports" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/reports.jsp" />
+	</definition>
+	<definition name="rfms.reports.settlement.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/settlementReportIndex.jsp" />
+	</definition>
+	<definition name="rfms.reports.checking.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/checkingReportIndex.jsp" />
+	</definition>
+	<definition name="rfms.reports.checking.payment" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/paymentDtl.jsp" />
+	</definition>
+	<definition name="rfms.reports.tradeSearch.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/trade/searchTrade.jsp" />
+	</definition>
+	<definition name="rfms.reports.merchantTradeSearch.Index"
+		extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/trade/searchMerchantTrade.jsp" />
+	</definition>
+	<definition name="rfms.reports.payRport.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/payReport.jsp" />
+	</definition>
+	<definition name="rfms.reports.invoiceRport.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/invoiceReport.jsp" />
+	</definition>
+	<definition name="rfms.reports.dayTrade.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/dayTradeDtlReport.jsp" />
+	</definition>
+	<definition name="rfms.reports.merchantReport.Index"
+		extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/merchantReport.jsp" />
+	</definition>
+	<definition name="rfms.reports.merchantDayTrade.Index"
+		extends="main.layout">
+		<put name="body"
+			value="/WEB-INF/jsp/rfms/reports/merchantDayTradeDtlReport.jsp" />
+	</definition>
+
+	<definition name="rfms.reports.cardTypeRep.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/cardTypeReport.jsp" />
+	</definition>
+
+	<definition name="rfms.reports.cardSaledRep.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/cardSaledReport.jsp" />
+	</definition>
+
+	<definition name="rfms.reports.cardLockedRep.Index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/cardLockedReport.jsp" />
+	</definition>
+
+	<definition name="rfms.reports.merchantInfoReport.Index"
+		extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/reports/merchantInfoReport.jsp" />
+	</definition>
+
+</tiles-definitions>

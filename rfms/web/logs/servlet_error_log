@@ -1,0 +1,14 @@
+[2010/04/02 13:41:55] D:\workspace\RFMS\web\WEB-INF\web.xml:77: java.lang.ClassNotFoundException: com.ft.spring.web.SpringContextLoaderListener
+javax.servlet.ServletException: D:\workspace\RFMS\web\WEB-INF\web.xml:77: java.lang.ClassNotFoundException: com.ft.spring.web.SpringContextLoaderListener
+	at com.caucho.server.http.Application.error(Application.java:3966)
+	at com.caucho.server.http.Application.configureServlets(Application.java:849)
+	at com.caucho.server.http.Application.configure(Application.java:578)
+	at com.caucho.server.http.Application.<init>(Application.java:326)
+	at com.caucho.server.http.WebAppMap$Entry.createApplication(WebAppMap.java:599)
+	at com.caucho.server.http.VirtualHost.init(VirtualHost.java:711)
+	at com.caucho.server.http.ServletServer.initHosts(ServletServer.java:887)
+	at com.caucho.server.http.ServletServer.initInternal(ServletServer.java:729)
+	at com.caucho.server.http.ServletServer.init(ServletServer.java:538)
+	at com.caucho.server.http.ResinServer.init(ResinServer.java:415)
+	at com.caucho.server.http.ResinServer.main(ResinServer.java:1176)
+	at com.caucho.server.http.HttpServer.main(HttpServer.java:103)

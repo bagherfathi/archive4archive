@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans
+  default-autowire="no"
+  default-lazy-init="true"
+  default-dependency-check="none"
+>
+
+  <bean
+      id="queryOperatorPrivilegeAction"
+      class="com.ft.web.sm.priv.resource.QueryOperatorPrivilegeAction"
+  >
+
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="resourceTreeBuilder">
+
+      <ref bean="resourceTreeBuilder"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="afficheAction"
+      class="com.ft.web.sm.info.AfficheAction"
+  >
+
+    <property name="infoManager">
+
+      <ref bean="infoManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="queryDataResourcePrivilegeAction"
+      class="com.ft.web.sm.priv.resource.QueryDataResourcePrivilegeAction"
+  >
+
+    <property name="operatorManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="schedulerAction"
+      class="com.ft.web.sm.task.SchedulerAction"
+  >
+
+    <property name="schedulerManager">
+
+      <ref bean="schedulerManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="browseAfficheAction"
+      class="com.ft.web.sm.info.BrowseAfficheAction"
+  >
+
+    <property name="afficheUrl">
+
+      <ref bean="afficheUrl"/>
+    </property>
+    <property name="infoManager">
+
+      <ref bean="infoManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="dataResourceQuenryAction"
+      class="com.ft.web.sm.priv.resource.DataResourceQueryAction"
+  >
+
+    <property name="opManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="ruleFileAction"
+      class="com.ft.web.sm.rule.RuleFileAction"
+  >
+
+    <property name="ruleManager">
+
+      <ref bean="ruleManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="taskAction"
+      class="com.ft.web.sm.task.TaskAction"
+  >
+
+    <property name="taskManager">
+
+      <ref bean="taskManager"/>
+    </property>
+    <property name="schedulerManager">
+
+      <ref bean="schedulerManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="groupAction"
+      class="com.ft.web.sm.priv.group.GroupAction"
+  >
+
+    <property name="orgsTreeBuilder">
+
+      <ref bean="orgsTreeBuilder"/>
+    </property>
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="queryGroupPrivilegeAction"
+      class="com.ft.web.sm.priv.resource.QueryGroupPrivilegeAction"
+  >
+
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="resourceTreeBuilder">
+
+      <ref bean="resourceTreeBuilder"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      name="roleAction"
+      class="com.ft.web.sm.priv.role.RoleAction"
+  >
+
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="resourceTreeBuilder">
+
+      <ref bean="resourceTreeBuilder"/>
+    </property>
+    <property name="orgTreeBuilder">
+
+      <ref bean="orgTreeBuilder"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      name="orgAction"
+      class="com.ft.web.sm.priv.org.OrgAction"
+  >
+
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+ 
+    <property name="regionManager">
+
+      <ref bean="regionManager"/>
+    </property>
+    <property name="orgRepository">
+
+      <ref bean="orgRepository"/>
+    </property>
+    <property name="operatorSessionHandler">
+
+      <ref bean="opSessionHandler"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="opDataResourceAction"
+      class="com.ft.web.sm.priv.op.OperatorDataResourceAction"
+  >
+
+    <property name="opManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="maintainPlanAction"
+      class="com.ft.web.sm.maintain.MaintainPlanAction"
+  >
+
+    <property name="maintainManager">
+
+      <ref bean="maintainManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      name="/login"
+      class="com.ft.web.sm.login.LoginAction"
+  >
+
+  </bean>
+
+  <bean
+      id="groupOrgAction"
+      class="com.ft.web.sm.priv.group.GroupOrgAction"
+  >
+
+    <property name="orgTreeBuilder">
+
+      <ref bean="orgTreeBuilder"/>
+    </property>
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="templateInfoAction"
+      class="com.ft.web.sm.template.TemplateInfoAction"
+  >
+
+    <property name="templateManager">
+
+      <ref bean="templateManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="enumGroupAction"
+      class="com.ft.web.sm.data.enumdata.EnumGroupAction"
+  >
+
+    <property name="enumManager">
+
+      <ref bean="enumManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="resourceQuenryAction"
+      class="com.ft.web.sm.priv.resource.ResourceQueryAction"
+  >
+
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="opManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="consignFunctionAction"
+      class="com.ft.web.sm.priv.commission.CommisionAction"
+  >
+
+    <property name="resourceRepository">
+
+      <ref bean="resourceRepository"/>
+    </property>
+    <property name="resourceTreeBuilder">
+
+      <ref bean="resourceTreeBuilder"/>
+    </property>
+    <property name="commissionManager">
+
+      <ref bean="commissionManager"/>
+    </property>
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="operatorManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="regionAction"
+      class="com.ft.web.sm.data.region.RegionAction"
+  >
+
+    <property name="regionManager">
+
+      <ref bean="regionManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="operatorDataRoleAction"
+      class="com.ft.web.sm.priv.op.OperatorDataRoleAction"
+  >
+
+    <property name="opMgmt">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+ 
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="ruleCategoryAction"
+      class="com.ft.web.sm.rule.RuleCategoryAction"
+  >
+
+    <property name="ruleManager">
+
+      <ref bean="ruleManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="taskCategoryAction"
+      class="com.ft.web.sm.task.TaskCategoryAction"
+  >
+
+    <property name="taskManager">
+
+      <ref bean="taskManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="enumAction"
+      class="com.ft.web.sm.data.enumdata.EnumAction"
+  >
+
+    <property name="enumRepository">
+
+      <ref bean="enumRepository"/>
+    </property>
+    <property name="enumManager">
+
+      <ref bean="enumManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="infoCategoryAction"
+      class="com.ft.web.sm.info.InfoCategoryAction"
+  >
+
+    <property name="infoManager">
+
+      <ref bean="infoManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="operatorOrgAction"
+      class="com.ft.web.sm.priv.op.OperatorOrgAction"
+  >
+
+    <property name="orgTreeBuilder">
+
+      <ref bean="orgTreeBuilder"/>
+    </property>
+    <property name="orgsTreeBuilder">
+
+      <ref bean="orgsTreeBuilder"/>
+    </property>
+    <property name="opMgmt">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+ 
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="opSelfAction"
+      class="com.ft.web.sm.priv.op.OpSelfAction"
+  >
+
+    <property name="opManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+ 
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="templateAction"
+      class="com.ft.web.sm.template.TemplateAction"
+  >
+
+    <property name="templateManager">
+
+      <ref bean="templateManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="operatorAction"
+      class="com.ft.web.sm.priv.op.OperatorAction"
+  >
+
+    <property name="orgsTreeBuilder">
+
+      <ref bean="orgsTreeBuilder"/>
+    </property>
+    <property name="opMgmt">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+ 
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="operatorGroupAction"
+      class="com.ft.web.sm.priv.op.OperatorGroupAction"
+  >
+
+    <property name="opMgmt">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+ 
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="enumCategoryAction"
+      class="com.ft.web.sm.data.enumdata.EnumCategoryAction"
+  >
+
+    <property name="enumManager">
+
+      <ref bean="enumManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="configParamAction"
+      class="com.ft.web.sm.param.ConfigParamAction"
+  >
+
+    <property name="configParamManager">
+
+      <ref bean="configParamManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="templateCategoryAction"
+      class="com.ft.web.sm.template.TemplateCategoryAction"
+  >
+
+    <property name="templateManager">
+
+      <ref bean="templateManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="queryResourcePrivilegeAction"
+      class="com.ft.web.sm.priv.resource.QueryResourcePrivilegeAction"
+  >
+
+    <property name="operatorManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="templateBindAction"
+      class="com.ft.web.sm.template.TemplateBindAction"
+  >
+
+    <property name="templateManager">
+
+      <ref bean="templateManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="dataResourceAction"
+      class="com.ft.web.sm.priv.resource.DataResourceAction"
+  >
+
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      name="dataRoleAction"
+      class="com.ft.web.sm.priv.role.DataRoleAction"
+  >
+
+    <property name="dataResourceTreeBuilder">
+
+      <ref bean="dataResourceTreeBuilder"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="ruleAction"
+      class="com.ft.web.sm.rule.RuleAction"
+  >
+
+    <property name="ruleManager">
+
+      <ref bean="ruleManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="resourceAction"
+      class="com.ft.web.sm.priv.resource.ResourceAction"
+  >
+
+    <property name="templateEngine">
+
+      <ref bean="templateEngine"/>
+    </property>
+    <property name="resourceRepository">
+
+      <ref bean="resourceRepository"/>
+    </property>
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="operatorRoleAction"
+      class="com.ft.web.sm.priv.op.OperatorRoleAction"
+  >
+
+    <property name="opMgmt">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+ 
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="infoSharedAction"
+      class="com.ft.web.sm.info.InfoSharedAction"
+  >
+
+    <property name="infoManager">
+
+      <ref bean="infoManager"/>
+    </property>
+    <property name="infoSharedFile">
+
+      <ref bean="infoSharedFile"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="selRegionAction"
+      class="com.ft.web.sm.data.region.SelRegionAction"
+  >
+
+    <property name="regionManager">
+
+      <ref bean="regionManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="groupRoleAction"
+      class="com.ft.web.sm.priv.group.GroupRoleAction"
+  >
+
+    <property name="groupManager">
+
+      <ref bean="groupManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="opResourceAction"
+      class="com.ft.web.sm.priv.op.OperatorResourceAction"
+  >
+
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="resourceRepository">
+
+      <ref bean="resourceRepository"/>
+    </property>
+    <property name="opManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="bankOrgAction"
+      class="com.ft.web.sm.data.bank.BankOrgAction"
+  >
+
+    <property name="bankManager">
+
+      <ref bean="bankManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="templateFileAction"
+      class="com.ft.web.sm.template.TemplateFileAction"
+  >
+
+    <property name="templateManager">
+
+      <ref bean="templateManager"/>
+    </property>
+    <property name="velocityEngine">
+
+      <ref bean="velocityEngine"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="triggerAction"
+      class="com.ft.web.sm.task.TriggerAction"
+  >
+
+    <property name="taskManager">
+
+      <ref bean="taskManager"/>
+    </property>
+    <property name="schedulerManager">
+
+      <ref bean="schedulerManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="maintainLogAction"
+      class="com.ft.web.sm.maintain.MaintainLogAction"
+  >
+
+    <property name="maintainManager">
+
+      <ref bean="maintainManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="bankErrorAction"
+      class="com.ft.web.sm.data.bank.BankErrorAction"
+  >
+
+    <property name="bankManager">
+
+      <ref bean="bankManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="dialogAction"
+      class="com.ft.web.sm.priv.dialog.DialogAction"
+  >
+
+    <property name="regionManager">
+
+      <ref bean="regionManager"/>
+    </property>
+    <property name="orgTreeBuilder">
+
+      <ref bean="orgTreeBuilder"/>
+    </property>
+    <property name="resourceTreeBuilder">
+
+      <ref bean="resourceTreeBuilder"/>
+    </property>
+    <property name="dataResourceTreeBuilder">
+
+      <ref bean="dataResourceTreeBuilder"/>
+    </property>
+    <property name="orgRegionTreeBuilder">
+
+      <ref bean="orgRegionTreeBuilder"/>
+    </property>
+    <property name="opManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="bankAction"
+      class="com.ft.web.sm.data.bank.BankAction"
+  >
+
+    <property name="bankManager">
+
+      <ref bean="bankManager"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+    <bean name="formAttributeLookuper" class="com.ft.common.FormAttributeLookuper" init-method="init">
+	    <property name="resource">
+			<value>/WEB-INF/struts/sm/entity-form-config.xml</value>
+		</property>
+		<property name="entityQueryHelper">
+			<ref bean="entityQueryHelper"/>
+		</property>
+		<property name="beanMapping">
+			<map>
+				<entry key="com.ft.sm.dto.ConsignPermitDTO">
+					<ref bean="commissionManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.ResourceDTO">
+					<ref bean="resourceManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.DataResourceDTO">
+					<ref bean="resourceManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.DataResourceEntryDTO">
+					<ref bean="resourceManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.GroupDTO">
+					<ref bean="groupManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.OperatorDTO">
+					<ref bean="operatorManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.OrganizationDTO">
+					<ref bean="orgManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.RoleDTO">
+					<ref bean="roleManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.EnumGroupDTO">
+					<ref bean="enumManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.EnumCategoryDTO">
+					<ref bean="enumManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.EnumDTO">
+					<ref bean="enumManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.EnumEntryDTO">
+					<ref bean="enumManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.BankDTO">
+					<ref bean="bankManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.BankErrorDTO">
+					<ref bean="bankManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.RegionDTO">
+					<ref bean="regionManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.AfficheDTO">
+					<ref bean="infoManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.AttachDTO">
+					<ref bean="infoManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.InfoCategoryDTO">
+					<ref bean="infoManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.InfoSharedDTO">
+					<ref bean="infoManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.MaintainPlanDTO">
+					<ref bean="maintainManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.MaintainLogDTO">
+					<ref bean="maintainManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.OperatorLogDTO">
+					<ref bean="operateLogManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.PerformanceLogDTO">
+					<ref bean="operateLogManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.ConfigParamDTO">
+					<ref bean="configParamManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.TemplateDTO">
+					<ref bean="templateManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.TemplateFileDTO">
+					<ref bean="templateManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.TaskJobDTO">
+					<ref bean="taskManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.TaskTriggerDTO">
+					<ref bean="taskManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.RuleInfoDTO">
+					<ref bean="ruleManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.RuleFileDTO">
+					<ref bean="ruleManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.RuleCategoryDTO">
+					<ref bean="ruleManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.RelBankOrgDTO">
+					<ref bean="bankManager"></ref>
+				</entry>
+				<entry key="com.ft.sm.dto.TaskCategoryDTO">
+					<ref bean="taskManager"></ref>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>

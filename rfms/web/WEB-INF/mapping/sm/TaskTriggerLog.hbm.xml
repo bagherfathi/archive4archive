@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="TaskTriggerLog"
+		table="SM_TASK_TRIGGER_LOG"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="logId"
+			type="long"
+			column="LOG_ID"
+		>
+			<generator class="sequence">
+			    <param name="sequence">SEQUSER.SM_TASK_TRIGGER_LOG_SEQ</param>
+			</generator>
+		</id>
+
+		<property
+			name="appId"
+			column="APP_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="long"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="triggerStart"
+			column="TRIGGER_START"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="operDate"
+			column="oper_date"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>		
+		<property
+			name="triggerId"
+			column="TRIGGER_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>		
+		<property
+			name="actionResult"
+			column="ACTION_RESULT"
+			type="long"
+			not-null="false"
+			length="14"
+		/>			
+		<property
+			name="mark"
+			column="MARK"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+	</class>	
+</hibernate-mapping>

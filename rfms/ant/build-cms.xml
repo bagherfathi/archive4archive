@@ -1,0 +1,171 @@
+<project name="CMS" basedir="../" default="config">
+	<tstamp prefix="build.">
+		<format property="date" pattern="yyyyMMdd" />
+	</tstamp>
+
+	<property file="./ant/build.properties" />
+
+	<path id="project.class.path">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="E:/JbossEclipseIDE/xdoclet/classes" />
+		<fileset dir="D:/xdoclet-1.2.3/lib">
+			<include name="xjavadoc-1.1.jar" />
+		</fileset>
+		<fileset dir="E:/JbossEclipseIDE/freePlatform/lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="clear">
+		<ant antfile="${build.template.dir}/build-compile.xml" target="clear" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+	<target name="init">
+		<ant antfile="${build.template.dir}/build-compile.xml" target="init" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+	<target name="init-config-dir">
+		<mkdir dir="${module.config.dir}/struts" />
+		<mkdir dir="${module.config.dir}/spring" />
+		<mkdir dir="${module.config.dir}/mapping" />
+	</target>
+	<target name="biz-config">
+		<ant antfile="${build.template.dir}/build-biz-config.xml" target="all" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.config.dir" value="../${webapp.dir}/WEB-INF" />
+			<property name="module.impl.dir" value="../${module.dir}/${module.impl.dir}" />
+			<property name="module.app.dir" value="../${module.dir}/${module.app.dir}" />
+			<property name="module.dir" value="${module.dir}" />
+			<property name="module.common.dir" value="../${module.dir}/${module.common.dir}" />
+		</ant>
+
+		<ant antfile="${build.template.dir}/build-biz-config.xml" target="busi-spring-config" inheritall="false">
+			<property name="module.name" value="${module.name}-common" />
+			<property name="module.config.dir" value="../${webapp.dir}/WEB-INF" />
+			<property name="module.impl.dir" value="../${module.dir}/${module.common.dir}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+
+	<target name="web-config">
+		<ant antfile="${build.template.dir}/build-web-config.xml" target="all" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.config.dir" value="../${webapp.dir}/WEB-INF" />
+			<property name="module.web.dir" value="../${module.dir}/${module.websrc.dir}" />
+			<property name="module.classpath" value="../${module.dir}/classes" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+	<target name="entity-form-config">
+		<ant antfile="${build.template.dir}/build-web-config.xml" target="entity-form-config" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.config.dir" value="../${webapp.dir}/WEB-INF" />
+			<property name="module.web.dir" value="../${module.dir}/${module.websrc.dir}" />
+			<property name="module.classpath" value="../${module.dir}/classes" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+	<target name="ejb-config">
+		<!--生成EJB Home和EJB Local接口，文件位于${mpdule.dir}/gensrc/ejb-->
+		<ant antfile="${build.template.dir}/build-ejb-config.xml" target="gen-ejbhome-src" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.config.dir" value="../${webapp.dir}/WEB-INF" />
+			<property name="module.ejbbean.dir" value="../${module.dir}/${module.ejbbean.dir}" />
+			<property name="module.interface.dir" value="../${module.dir}/${module.interface.dir}" />
+			<property name="module.dir" value="../${module.dir}" />
+		</ant>
+		<!--生成EJB客户端Spring配置文件${module.name}-ejb-context.xml-->
+		<ant antfile="${build.template.dir}/build-ejb-config.xml" target="ejb-client-config" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.config.dir" value="../${webapp.dir}/WEB-INF" />
+			<property name="module.ejbbean.dir" value="../${module.dir}/${module.ejbbean.dir}" />
+			<property name="module.interface.dir" value="../${module.dir}/${module.interface.dir}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+	<target name="config" depends="init-config-dir,biz-config,web-config" />
+
+	<property name="dest.dir" value="build" />
+
+	<!--公共编译脚本-->
+
+	<!--编译接口类-->
+	<target name="entity_compile" depends="init">
+		<ant antfile="${build.template.dir}/build-compile.xml" target="entity_compile" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+	<target name="dto_compile">
+		<ant antfile="${build.template.dir}/build-compile.xml" target="dto_compile" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+
+	<!--编译接口类-->
+	<target name="interface_compile">
+		<ant antfile="${build.template.dir}/build-compile.xml" target="interface_compile" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+	<!--编译实现类-->
+	<target name="impl_compile">
+		<ant antfile="${build.template.dir}/build-compile.xml" target="impl_compile" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+	<!--编译WEB-->
+	<target name="web_compile">
+		<ant antfile="${build.template.dir}/build-compile.xml" target="web_compile" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+
+	<target name="ejb_compile">
+		<ant antfile="${build.template.dir}/build-compile.xml" target="ejb_compile" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+	<target name="copy-config">
+		<ant antfile="${build.template.dir}/build-deploy.xml" target="copy-web-config" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+
+	<target name="copy-dist">
+		<ant antfile="${build.template.dir}/build-deploy.xml" target="copy-dist" inheritall="false">
+			<property name="module.name" value="${module.name}" />
+			<property name="module.dir" value="${module.dir}" />
+		</ant>
+	</target>
+	<!--编译所有的-->
+	<target name="all_compile" depends="clear,init,entity_compile,dto_compile,
+		interface_compile,impl_compile,web_compile,ejb_compile" />
+	<target name="all" depends="all_compile,config,copy-config,copy-dist" />
+
+	<target name="impl_web_compile" depends="impl_compile,web_compile,ejb_compile" />
+	<target name="all_config" depends="config,copy-config,copy-dist" />
+
+</project>

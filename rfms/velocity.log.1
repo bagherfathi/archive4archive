@@ -1,0 +1,1182 @@
+2010-04-03 14:49:53,468 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-03 14:49:53,468 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-03 14:49:53,468 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-03 14:49:53,468 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-03 14:49:53,593 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 14:49:54,968 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 14:55:22,281 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-03 14:55:22,281 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-03 14:55:22,281 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-03 14:55:22,281 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-03 14:55:22,281 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-03 14:55:22,281 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 14:55:22,281 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 14:55:22,281 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-03 14:55:22,296 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 14:55:22,296 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 14:55:22,296 - WebappLoader : initialization starting.
+2010-04-03 14:55:22,296 - WebappLoader : initialization complete.
+2010-04-03 14:55:22,296 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-03 14:55:22,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-03 14:55:22,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-03 14:55:22,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-03 14:55:22,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-03 14:55:22,296 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-03 14:55:22,296 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-03 14:55:22,296 - Created '20' parsers.
+2010-04-03 14:55:22,296 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-03 14:55:22,312 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-03 14:55:22,328 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-03 14:55:22,375 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 14:55:22,375 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-03 14:55:22,375 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-03 14:55:22,375 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-03 14:55:22,375 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-03 14:55:22,468 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 14:55:22,843 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 19:56:50,500 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-03 19:56:50,531 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-03 19:56:50,531 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-03 19:56:50,531 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-03 19:56:50,531 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-03 19:56:50,531 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 19:56:50,531 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 19:56:50,531 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-03 19:56:50,531 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 19:56:50,531 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 19:56:50,531 - WebappLoader : initialization starting.
+2010-04-03 19:56:50,531 - WebappLoader : initialization complete.
+2010-04-03 19:56:50,531 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-03 19:56:50,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-03 19:56:50,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-03 19:56:50,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-03 19:56:50,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-03 19:56:50,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-03 19:56:50,531 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-03 19:56:50,546 - Created '20' parsers.
+2010-04-03 19:56:50,546 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-03 19:56:50,562 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-03 19:56:50,578 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-03 19:56:50,625 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 19:56:50,625 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-03 19:56:50,625 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-03 19:56:50,625 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-03 19:56:50,625 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-03 19:56:50,781 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 19:56:51,875 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:23:26,281 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-03 23:23:26,296 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-03 23:23:26,296 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-03 23:23:26,296 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-03 23:23:26,296 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-03 23:23:26,312 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 23:23:26,312 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 23:23:26,312 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-03 23:23:26,328 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 23:23:26,328 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:23:26,328 - WebappLoader : initialization starting.
+2010-04-03 23:23:26,328 - WebappLoader : initialization complete.
+2010-04-03 23:23:26,328 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-03 23:23:26,328 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-03 23:23:26,328 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-03 23:23:26,328 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-03 23:23:26,328 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-03 23:23:26,328 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-03 23:23:26,328 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-03 23:23:26,328 - Created '20' parsers.
+2010-04-03 23:23:26,343 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-03 23:23:26,359 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-03 23:23:26,375 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-03 23:23:26,406 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 23:23:26,406 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-03 23:23:26,406 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-03 23:23:26,406 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-03 23:23:26,406 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-03 23:23:26,546 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:23:27,437 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:35:20,843 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:35:21,125 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:38:13,984 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-03 23:38:14,000 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-03 23:38:14,000 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-03 23:38:14,000 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-03 23:38:14,000 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-03 23:38:14,015 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 23:38:14,015 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 23:38:14,015 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-03 23:38:14,015 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 23:38:14,015 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:38:14,015 - WebappLoader : initialization starting.
+2010-04-03 23:38:14,015 - WebappLoader : initialization complete.
+2010-04-03 23:38:14,015 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-03 23:38:14,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-03 23:38:14,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-03 23:38:14,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-03 23:38:14,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-03 23:38:14,015 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-03 23:38:14,015 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-03 23:38:14,031 - Created '20' parsers.
+2010-04-03 23:38:14,031 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-03 23:38:14,046 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-03 23:38:14,062 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-03 23:38:14,109 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 23:38:14,109 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-03 23:38:14,109 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-03 23:38:14,109 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-03 23:38:14,109 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-03 23:38:14,234 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:38:15,312 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:40:15,375 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-03 23:40:15,375 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-03 23:40:15,375 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-03 23:40:15,375 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-03 23:40:15,375 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-03 23:40:15,390 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 23:40:15,390 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 23:40:15,390 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-03 23:40:15,390 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 23:40:15,390 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:40:15,390 - WebappLoader : initialization starting.
+2010-04-03 23:40:15,390 - WebappLoader : initialization complete.
+2010-04-03 23:40:15,390 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-03 23:40:15,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-03 23:40:15,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-03 23:40:15,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-03 23:40:15,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-03 23:40:15,390 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-03 23:40:15,390 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-03 23:40:15,406 - Created '20' parsers.
+2010-04-03 23:40:15,406 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-03 23:40:15,421 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-03 23:40:15,421 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-03 23:40:15,453 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 23:40:15,453 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-03 23:40:15,453 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-03 23:40:15,453 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-03 23:40:15,453 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-03 23:40:15,578 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:40:15,953 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:40:56,718 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:40:56,843 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:56:13,484 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-03 23:56:13,515 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-03 23:56:13,515 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-03 23:56:13,515 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-03 23:56:13,515 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-03 23:56:13,531 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 23:56:13,531 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-03 23:56:13,531 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-03 23:56:13,531 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 23:56:13,531 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-03 23:56:13,531 - WebappLoader : initialization starting.
+2010-04-03 23:56:13,531 - WebappLoader : initialization complete.
+2010-04-03 23:56:13,531 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-03 23:56:13,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-03 23:56:13,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-03 23:56:13,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-03 23:56:13,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-03 23:56:13,531 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-03 23:56:13,531 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-03 23:56:13,546 - Created '20' parsers.
+2010-04-03 23:56:13,546 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-03 23:56:13,546 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-03 23:56:13,562 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-03 23:56:13,640 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-03 23:56:13,640 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-03 23:56:13,640 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-03 23:56:13,640 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-03 23:56:13,640 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-03 23:56:14,218 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:06:23,921 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-04 00:06:23,921 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-04 00:06:23,921 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-04 00:06:23,921 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-04 00:06:23,937 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-04 00:06:23,937 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 00:06:23,937 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 00:06:23,937 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-04 00:06:23,937 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 00:06:23,937 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:06:23,937 - WebappLoader : initialization starting.
+2010-04-04 00:06:23,937 - WebappLoader : initialization complete.
+2010-04-04 00:06:23,937 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-04 00:06:23,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-04 00:06:23,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-04 00:06:23,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-04 00:06:23,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-04 00:06:23,937 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-04 00:06:23,937 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-04 00:06:23,953 - Created '20' parsers.
+2010-04-04 00:06:23,953 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-04 00:06:23,968 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-04 00:06:23,984 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-04 00:06:24,031 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 00:06:24,031 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-04 00:06:24,031 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-04 00:06:24,031 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-04 00:06:24,031 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-04 00:06:24,140 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:06:24,703 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:08:46,765 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:08:46,921 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:08:52,453 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:18:20,421 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-04 00:18:20,421 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-04 00:18:20,421 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-04 00:18:20,421 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-04 00:18:20,421 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-04 00:18:20,437 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 00:18:20,437 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 00:18:20,437 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-04 00:18:20,437 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 00:18:20,437 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:18:20,437 - WebappLoader : initialization starting.
+2010-04-04 00:18:20,437 - WebappLoader : initialization complete.
+2010-04-04 00:18:20,437 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-04 00:18:20,437 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-04 00:18:20,437 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-04 00:18:20,437 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-04 00:18:20,437 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-04 00:18:20,437 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-04 00:18:20,437 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-04 00:18:20,453 - Created '20' parsers.
+2010-04-04 00:18:20,453 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-04 00:18:20,468 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-04 00:18:20,484 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-04 00:18:20,515 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 00:18:20,515 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-04 00:18:20,515 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-04 00:18:20,515 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-04 00:18:20,515 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-04 00:18:20,671 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:18:21,203 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:18:40,156 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:18:40,437 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:20:44,859 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:20:45,015 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:22:43,390 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-04 00:22:43,390 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-04 00:22:43,390 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-04 00:22:43,390 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-04 00:22:43,390 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-04 00:22:43,406 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 00:22:43,406 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 00:22:43,406 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-04 00:22:43,406 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 00:22:43,406 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:22:43,406 - WebappLoader : initialization starting.
+2010-04-04 00:22:43,406 - WebappLoader : initialization complete.
+2010-04-04 00:22:43,406 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-04 00:22:43,406 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-04 00:22:43,406 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-04 00:22:43,406 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-04 00:22:43,406 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-04 00:22:43,406 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-04 00:22:43,406 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-04 00:22:43,421 - Created '20' parsers.
+2010-04-04 00:22:43,421 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-04 00:22:43,437 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-04 00:22:43,453 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-04 00:22:43,484 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 00:22:43,484 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-04 00:22:43,484 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-04 00:22:43,484 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-04 00:22:43,484 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-04 00:22:43,593 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:22:43,859 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:25:21,281 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 00:25:21,390 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:12:46,562 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-04 10:12:46,640 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-04 10:12:46,640 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-04 10:12:46,640 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-04 10:12:46,640 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)
+2010-04-04 10:12:46,656 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 10:12:46,656 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2010-04-04 10:12:46,656 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2010-04-04 10:12:46,671 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 10:12:46,671 - ResourceLoader instantiated: org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:12:46,671 - WebappLoader : initialization starting.
+2010-04-04 10:12:46,671 - WebappLoader : initialization complete.
+2010-04-04 10:12:46,671 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2010-04-04 10:12:46,671 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2010-04-04 10:12:46,687 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2010-04-04 10:12:46,687 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2010-04-04 10:12:46,687 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2010-04-04 10:12:46,687 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2010-04-04 10:12:46,687 - Loaded User Directive: net.sf.navigator.displayer.LocalDirective
+2010-04-04 10:12:46,703 - Created '20' parsers.
+2010-04-04 10:12:46,703 - Velocimacro : adding VMs from VM library : globalMacros.vm
+2010-04-04 10:12:46,718 - Velocimacro : added #eval(  _macro ) : source = globalMacros.vm
+2010-04-04 10:12:46,781 - Velocimacro : added #displayMenu(  menu level ) : source = globalMacros.vm
+2010-04-04 10:12:46,890 - ResourceManager : found globalMacros.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2010-04-04 10:12:46,890 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2010-04-04 10:12:46,890 - Velocimacro : allowInlineToOverride = true : VMs defined inline may replace previous VM definitions
+2010-04-04 10:12:46,890 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2010-04-04 10:12:46,890 - Velocimacro : autoload on : VM system will automatically reload global library macros
+2010-04-04 10:12:47,187 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:12:48,875 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:15:55,265 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:16:00,187 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:16:02,656 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:16:09,078 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:20:57,062 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:21:00,312 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:21:07,359 - ResourceManager : found /templates/menu/tabMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:21:07,546 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:21:22,843 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:24:01,750 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:24:08,078 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:26:44,515 - ResourceManager : found /templates/menu/listMenu_new.vm with loader org.apache.velocity.tools.view.servlet.WebappLoader
+2010-04-04 10:42:08,609 - Log4JLogChute initialized using file 'velocity.log'
+2010-04-04 10:42:08,625 - Starting Apache Velocity v1.5 (compiled: 2007-02-22 08:52:29)
+2010-04-04 10:42:08,625 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2010-04-04 10:42:08,625 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2010-04-04 10:42:08,625 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:242)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.runtime.RuntimeSingleton.init(RuntimeSingleton.java:227)
+	at org.apache.velocity.app.Velocity.init(Velocity.java:111)
+	at net.sf.navigator.displayer.VelocityMenuDisplayer.init(VelocityMenuDisplayer.java:90)
+	at net.sf.navigator.taglib.UseMenuDisplayerTag.doStartTag(UseMenuDisplayerTag.java:229)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspx_meth_menu_useMenuDisplayer_0(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:227)
+	at org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp._jspService(org.apache.jsp.WEB_002dINF.jsp.commons.menu_jsp:106)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:373)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:470)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:364)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.tiles.TilesRequestProcessor.processTilesDefinition(TilesRequestProcessor.java:239)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:302)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:362)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:285)
+	at org.mortbay.jetty.servlet.Dispatcher.forward(Dispatcher.java:126)
+	at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1085)
+	at org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+	at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:398)
+	at org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:241)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:487)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1093)
+	at com.ft.common.security.filter.PermissionCheckerFilter.doFilter(PermissionCheckerFilter.java:79)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1084)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:360)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:181)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:722)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:404)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:139)
+	at org.mortbay.jetty.Server.handle(Server.java:324)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:505)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:842)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:648)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:211)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:380)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:395)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:450)

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="MaintainLog"
+		table="SM_MAINTAIN_LOG"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="logId"
+			type="long"
+			column="LOG_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="planId"
+			column="PLAN_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="logTime"
+			column="LOG_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="logContent"
+			column="LOG_CONTENT"
+			type="org.springframework.orm.hibernate3.support.ClobStringType"
+			not-null="false"
+		/>
+		<property
+			name="logTitle"
+			column="LOG_TITLE"
+			type="java.lang.String"
+			not-null="false"
+			length="128"
+		/>
+		<property
+			name="creator"
+			column="CREATOR"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="logType"
+			column="LOG_TYPE"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

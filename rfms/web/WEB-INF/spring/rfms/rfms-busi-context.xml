@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="no" default-lazy-init="false"
+	default-dependency-check="none">
+
+	<bean id="RfmsCardSendDAO" class="com.ft.rfms.entity.dao.RfmsCardSendDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="RfmsSmsDAO" class="com.ft.rfms.entity.dao.RfmsSmsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="RfmsMemberDAO" class="com.ft.rfms.entity.dao.RfmsMemberDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="RfmsMemberTypeDAO" class="com.ft.rfms.entity.dao.RfmsMemberTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="RfmsCardDAO" class="com.ft.rfms.entity.dao.RfmsCardDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="RfmsMerchantPosDAO" class="com.ft.rfms.entity.dao.RfmsMerchantPosDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="RfmsMerchantHisDAO" class="com.ft.rfms.entity.dao.RfmsMerchantHisDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="RfmsMerchantDAO" class="com.ft.rfms.entity.dao.RfmsMerchantDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="RfmsMerchantBranchHisDAO" class="com.ft.rfms.entity.dao.RfmsMerchantBranchHisDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="RfmsMerchantBranchDAO" class="com.ft.rfms.entity.dao.RfmsMerchantBranchDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<bean id="RfmsMerchantAuditDAO" class="com.ft.rfms.entity.dao.RfmsMerchantAuditDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="RfmsFlowCtrlDAO" class="com.ft.rfms.entity.dao.RfmsFlowCtrlDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="RfmsMerchantPosHisDAO" class="com.ft.rfms.entity.dao.RfmsMerchantPosHisDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="RfmsCommisionStepDAO" class="com.ft.rfms.entity.dao.RfmsCommisionStepDAO">
+
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="merchantServiceImpl" class="com.ft.rfms.busi.MerchantServiceImpl">
+		<property name="merchantPosDAO">
+			<ref bean="RfmsMerchantPosDAO" />
+		</property>
+		<property name="merchantDAO">
+			<ref bean="RfmsMerchantDAO" />
+		</property>
+		<property name="merchantBranchDAO">
+			<ref bean="RfmsMerchantBranchDAO" />
+		</property>
+		<property name="flowCtrlDAO">
+			<ref bean="RfmsFlowCtrlDAO" />
+		</property>
+		<property name="merchantAuditDAO">
+			<ref bean="RfmsMerchantAuditDAO" />
+		</property>
+		<property name="stepDAO">
+			<ref bean="RfmsCommisionStepDAO" />
+		</property>
+
+		<property name="appService">
+			<ref bean="busiAppService" />
+		</property>
+	</bean>
+	<bean id="reportServiceImpl" class="com.ft.rfms.busi.ReportServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	<bean id="rfmsCardServiceImpl" class="com.ft.rfms.busi.RfmsCardServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="rfmsCardDAO">
+			<ref bean="RfmsCardDAO" />
+		</property>
+	</bean>
+	<bean id="rfmsCardSendServiceImpl" class="com.ft.rfms.busi.RfmsCardSendServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="rfmsCardSendDAO">
+			<ref bean="RfmsCardSendDAO" />
+		</property>
+	</bean>
+	<bean id="rfmsSmsServiceImpl" class="com.ft.rfms.busi.RfmsSmsServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="rfmsSmsDAO">
+			<ref bean="RfmsSmsDAO" />
+		</property>
+	</bean>
+	<bean id="rfmsMemberServiceImpl" class="com.ft.rfms.busi.RfmsMemberServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="rfmsMemberDAO">
+			<ref bean="RfmsMemberDAO" />
+		</property>
+	</bean>
+	<bean id="rfmsMemberTypeServiceImpl" class="com.ft.rfms.busi.RfmsMemberTypeServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="rfmsMemberTypeDAO">
+			<ref bean="RfmsMemberTypeDAO" />
+		</property>
+	</bean>
+	<!--
+		To include additional bean definitions for Spring in the generated
+		application context file, add a file to your XDoclet merge directory
+		called spring-beans.xml that contains the <bean></bean> markup.
+	-->
+
+</beans>

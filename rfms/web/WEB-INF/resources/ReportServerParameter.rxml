@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Config>
+<SessionManager maxSessionCount="9999999" sessionTimeout="120000" />
+<ServerPrinter>
+</ServerPrinter>
+<EmailManager mailHost="" fromEmailAddress="" />
+</Config>

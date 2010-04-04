@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="GB2312" ?>
+
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>
+    <Displayer   name="Simple"
+                 type="net.sf.navigator.displayer.SimpleMenuDisplayer"/>
+    <Displayer   name="CoolMenu"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer"/>
+    <Displayer   name="CoolMenu4"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer4"/>
+    <Displayer   name="ListMenu"
+                 type="net.sf.navigator.displayer.ListMenuDisplayer"/>
+    <Displayer   name="TabbedMenu"
+                 type="net.sf.navigator.displayer.TabbedMenuDisplayer"/>
+    <Displayer   name="Velocity"
+                 type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+	  <Displayer   name="CSSListMenu"
+                 type="net.sf.navigator.displayer.CSSListMenuDisplayer"/>
+	  <Displayer   name="DropMenu"
+                 type="com.ft.webui.menu.DropMenuDisplayer"/>	  	  
+  </Displayers>
+
+  <Menus>
+	<Menu  name="SSOMenu"  title="SSO系统菜单"  description="test" width="50">
+		<Item name="adminMenu" title="系统管理">
+			<Item name="sysdataMenu" image="images/webui/menu_1.gif" title="基础数据维护" page="/sysadmin/enum.do"/>
+			<Item name="privMenu" image="images/webui/menu_1.gif" title="权限管理" page="org.do"/>
+			<Item name="logMenu" image="images/webui/menu_1.gif" title="日志管理" page="org.do"/>
+		</Item>
+    </Menu>
+    
+	<Menu name="sysdataMenu">
+  		<Item name="enumMenu" image="images/webui/menu_1.gif" title="系统数据维护" page="/sysadmin/enumIndex.do"/>
+	    <Item name="bankMenu" image="images/webui/menu_2.gif" title="银行信息维护" page="/sysadmin/bank.do"/>
+		<Item name="bankErrorMenu" image="images/webui/menu_3.gif" title="托收错误代码" page="/sysadmin/bankError.do"/>
+		<Item name="regionMenu" image="images/webui/menu_3.gif" title="区域信息维护" page="/sysadmin/regionIndex.do"/>
+	</Menu>
+	<Menu name="privMenu">
+       	<Item name="resourceMenu" image="images/webui/menu_3.gif" title="功能信息维护" page="/sysadmin/resourceIndex.do"/>
+		<Item name="roleMenu" image="images/webui/menu_3.gif" title="功能角色信息维护" page="/sysadmin/role.do"/>
+		<Item name="dataResourceMenu" image="images/webui/menu_3.gif" title="业务权限信息维护" page="/sysadmin/dataResource.do"/>
+		<Item name="operatorMenu" image="images/webui/menu_3.gif" title="操作员维护" page="/sysadmin/opIndex.do"/>
+	   	<Item name="orgMenu" image="images/webui/menu_3.gif" title="组织维护" page="/sysadmin/orgIndex.do"/>
+	   	<Item name="groupMenu" image="images/webui/menu_3.gif" title="操作员组维护" page="/sysadmin/group.do"/>
+		<Item name="resourceConsignPrivilegeMenu" image="images/webui/menu_3.gif" title="功能权限委托/回收" page="/sysadmin/consignFunction.do"/>
+		<Item name="functionPrivilegeMenu" image="images/webui/menu_3.gif" title="功能权限查看" page="/sysadmin/functionPrivilegeIndex.do"/>
+	    <Item name="dataRoleMenu" image="images/webui/menu_3.gif" title="业务角色信息维护" page="/sysadmin/dataRole.do"/>
+	</Menu>
+  </Menus>
+</MenuConfig>

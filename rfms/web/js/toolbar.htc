@@ -1,0 +1,263 @@
+<attach event="onmousedown" onevent="initdrag()"/>
+<attach event="onmouseup" onevent="enddrag()"/>
+<attach event="onmousemove" onevent="startdrag()"/>
+<script>
+var barx0;
+var bary0;
+var barw0=50;
+var barh0=320;
+var barsize=45;
+var barhsize=35;
+var dragenable=0;
+var barx1=30;
+var bary1=150;
+
+function initdrag() {
+dragenable=1;
+barx0=event.clientX+window.document.body.scrollLeft-element.offsetLeft;
+bary0=event.clientY+window.document.body.scrollTop-element.offsetTop;
+element.setCapture();
+}
+
+function startdrag() {
+if(element.document.all('hidbar').src.indexOf('incup')>=0){
+if (dragenable==1) {
+var tempx=event.clientX+window.document.body.scrollLeft-barx0;
+var tempy=event.clientY+window.document.body.scrollTop-bary0;
+	if (event.clientX<50) {
+		element.style.pixelLeft=window.document.body.scrollLeft;
+		if (event.clientY<50) {
+			element.style.pixelTop=window.document.body.scrollTop-5;
+			element.style.width=window.document.body.clientWidth;
+			element.style.height=barhsize;
+			element.style.backgroundImage='url("../image/toolhbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='none';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=barhsize-4;
+			element.document.all('Img').runtimeStyle.width=window.document.body.clientWidth-60;
+			element.document.all('up').src="../image/left.gif";
+			element.document.all('down').src="../image/right.gif";
+			element.document.all('Img').scrollLeft=0;
+			element.document.all('Img').style.whiteSpace="nowrap";
+			window.document.body.style.marginTop=barhsize-5;
+			window.document.body.style.marginLeft=0;				
+			
+			init2();
+			
+			}
+		else if (event.clientY>(window.document.body.clientHeight-50)) {
+			element.style.pixelTop=window.document.body.clientHeight-barhsize+window.document.body.scrollTop;
+			element.style.width=window.document.body.clientWidth;
+			element.style.height=barhsize;
+			element.style.backgroundImage='url("../image/toolbbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='none';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=barhsize-4;
+			element.document.all('Img').runtimeStyle.width=window.document.body.clientWidth-60;
+			element.document.all('up').src="../image/left.gif";
+			element.document.all('down').src="../image/right.gif";
+			element.document.all('Img').scrollLeft=0;
+			element.document.all('Img').style.whiteSpace="nowrap";
+			window.document.body.style.marginBottom=barhsize;
+			window.document.body.style.marginLeft=0;
+			
+                        init2();
+			
+			}
+		else {
+			element.style.pixelTop=window.document.body.scrollTop;
+			element.style.pixelWidth=barsize;
+			element.style.pixelHeight=window.document.body.clientHeight;
+			element.style.backgroundImage='url("../image/toolbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='none';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=window.document.body.clientHeight-46;
+			element.document.all('Img').runtimeStyle.width=barsize-4;
+			element.document.all('up').src="../image/up.gif";
+			element.document.all('down').src="../image/down.gif";
+			element.document.all('Img').scrollTop=0;
+			element.document.all('Img').style.whiteSpace="normal";
+			window.document.body.style.marginLeft=barsize;
+			window.document.body.style.marginTop=0;
+			window.document.body.style.marginBottom=0;
+			
+			init();
+
+			}
+			
+			
+				
+			
+		}
+	else if (event.clientX>(window.document.body.clientWidth-50)) {
+		if (event.clientY<50) {
+			element.style.pixelLeft=window.document.body.scrollLeft;
+			element.style.pixelTop=window.document.body.scrollTop-5;
+			element.style.width=window.document.body.clientWidth;
+			element.style.height=barhsize;
+			element.style.backgroundImage='url("../image/toolhbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='none';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=barhsize-4;
+			element.document.all('Img').runtimeStyle.width=window.document.body.clientWidth-60;
+			element.document.all('up').src="../image/left.gif";
+			element.document.all('down').src="../image/right.gif";
+			element.document.all('Img').scrollLeft=0;
+			element.document.all('Img').style.whiteSpace="nowrap";
+			window.document.body.style.marginTop=barhsize-5;
+			window.document.body.style.marginRight=0;
+			
+			init2();
+			
+			}
+		else if (event.clientY>(window.document.body.clientHeight-50)) {
+			element.style.pixelLeft=window.document.body.scrollLeft;
+			element.style.pixelTop=window.document.body.clientHeight-barhsize+window.document.body.scrollTop;
+			element.style.width=window.document.body.clientWidth;
+			element.style.height=barhsize;
+			element.style.backgroundImage='url("../image/toolbbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='none';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=barhsize-4;
+			element.document.all('Img').runtimeStyle.width=window.document.body.clientWidth-60;
+			element.document.all('up').src="../image/left.gif";
+			element.document.all('down').src="../image/right.gif";
+			element.document.all('Img').scrollLeft=0;
+			element.document.all('Img').style.whiteSpace="nowrap";
+			window.document.body.style.marginBottom=barhsize;
+			window.document.body.style.marginRight=0;
+			
+			init2();
+			
+			}
+		else {
+			element.style.pixelLeft=window.document.body.clientWidth-barsize+window.document.body.scrollLeft;
+			element.style.pixelTop=window.document.body.scrollTop;
+			element.style.width=barsize;
+			element.style.height=window.document.body.clientHeight;
+			element.style.backgroundImage='url("../image/toolrbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='none';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=window.document.body.clientHeight-46;
+			element.document.all('Img').runtimeStyle.width=barsize-4;
+			element.document.all('up').src="../image/up.gif";
+			element.document.all('down').src="../image/down.gif";
+			element.document.all('Img').scrollTop=0;
+			element.document.all('Img').style.whiteSpace="normal";
+			window.document.body.style.marginRight=barsize;
+			window.document.body.style.marginTop=0;
+			window.document.body.style.marginBottom=0;
+			
+			init();
+			
+			}
+		}
+	else {
+		if (event.clientY<50) {
+			element.style.pixelLeft=window.document.body.scrollLeft;
+			element.style.pixelTop=window.document.body.scrollTop-5;
+			element.style.width=window.document.body.clientWidth;
+			element.style.height=barhsize;
+			element.style.backgroundImage='url("../image/toolhbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='none';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=barhsize-4;
+			element.document.all('Img').runtimeStyle.width=window.document.body.clientWidth-60;
+			element.document.all('up').src="../image/left.gif";
+			element.document.all('down').src="../image/right.gif";
+			element.document.all('Img').scrollLeft=0;
+			element.document.all('Img').style.whiteSpace="nowrap";
+			window.document.body.style.marginTop=barhsize-5;
+			window.document.body.style.marginLeft=0;
+			window.document.body.style.marginRight=0;
+			
+			init2();
+			
+			}
+		else if (event.clientY>(window.document.body.clientHeight-50)) {
+			element.style.pixelLeft=window.document.body.scrollLeft;
+			element.style.pixelTop=window.document.body.clientHeight-barhsize+window.document.body.scrollTop;
+			element.style.width=window.document.body.clientWidth;
+			element.style.height=barhsize;
+			element.style.backgroundImage='url("../image/toolbbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='none';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=barhsize-4;
+			element.document.all('Img').runtimeStyle.width=window.document.body.clientWidth-60;
+			element.document.all('up').src="../image/left.gif";
+			element.document.all('down').src="../image/right.gif";
+			element.document.all('Img').scrollLeft=0;
+			element.document.all('Img').style.whiteSpace="nowrap";
+			window.document.body.style.marginBottom=barhsize;
+			window.document.body.style.marginLeft=0;
+			window.document.body.style.marginRight=0;
+			
+			init2();
+			
+			}
+		else {
+			element.style.pixelLeft=(barx0>barw0?(tempx+barx0-5):tempx);
+			element.style.pixelTop=(bary0>barh0?(tempy+bary0-5):tempy);
+			element.style.width=barw0;
+			element.style.height=barh0;
+			element.style.backgroundImage='url("../image/toolbg.jpg")';
+			element.document.all('titleText').runtimeStyle.display='';
+			element.runtimeStyle.textAlign='center';
+			element.document.all('Img').runtimeStyle.height=barh0-48;
+			element.document.all('Img').runtimeStyle.width=barw0-4;
+			element.document.all('up').src="../image/up.gif";
+			element.document.all('down').src="../image/down.gif";
+			element.document.all('Img').scrollTop=0;
+			element.document.all('Img').style.whiteSpace="normal";
+			window.document.body.style.margin=0;
+			
+			init();
+			
+			}
+		}
+	}
+barx1=element.style.pixelLeft-window.document.body.scrollLeft;
+bary1=element.style.pixelTop-window.document.body.scrollTop;
+}
+
+}
+
+function enddrag() {
+dragenable=0;
+element.releaseCapture();
+}
+
+function init(){
+
+if(element.document.all("Img").scrollTop==0)
+ { 
+	element.document.all("up").style.display="none";
+	}else{
+	element.document.all("up").style.display="";
+	}
+	if(element.document.all("Img").scrollTop+element.document.all("Img").offsetHeight>=element.document.all("Img").scrollHeight)
+	{
+	element.document.all("down").style.display="none";
+	}else{
+	element.document.all("down").style.display="";
+	}
+ }
+
+function init2(){
+
+if(element.document.all("Img").scrollLeft==0)
+ { 
+	element.document.all("up").style.display="none";
+	}else{
+	element.document.all("up").style.display="";
+	}
+	if(element.document.all("Img").scrollLeft+element.document.all("Img").offsetWidth>=element.document.all("Img").scrollWidth)
+	{
+	element.document.all("down").style.display="none";
+	}else{
+	element.document.all("down").style.display="";
+	}
+ }
+
+window.onscroll=new Function("element.style.pixelLeft=barx1+window.document.body.scrollLeft;element.style.pixelTop=bary1+window.document.body.scrollTop;");
+</script>

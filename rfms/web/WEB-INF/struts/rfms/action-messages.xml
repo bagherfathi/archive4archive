@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="GB2312"?>
+<ActionMessages>
+	
+	<action path="/merchant">
+		<method name="save" validate="true" key="msg.show.save.success"
+			input="rfms.merchant.edit" showMessage="true">
+		</method>
+		 <method name="delete" validate="true" key="msg.show.delete.success"
+			input="rfms.merchant.list" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/card">
+		<method name="save" validate="true" key="msg.show.save.success"
+			input="rfms.card.edit" showMessage="true">
+		</method>
+		 <method name="delete" validate="true" key="msg.show.delete.success"
+			input="rfms.card.list" showMessage="true">
+		</method>
+	</action>
+	
+	<action path="/cardsend">
+		<method name="save" validate="true" key="msg.show.save.success"
+			input="rfms.cardSend.edit" showMessage="true">
+		</method>
+		 <method name="delete" validate="true" key="msg.show.delete.success"
+			input="rfms.cardsend.list" showMessage="true">
+		</method>
+	</action>
+	<action path="/sms">
+		<method name="save" validate="true" key="msg.show.save.success"
+			input="rfms.sms.edit" showMessage="true">
+		</method>
+		 <method name="delete" validate="true" key="msg.show.delete.success"
+			input="rfms.sms.list" showMessage="true">
+		</method>
+	</action>
+	<action path="/member">
+		<method name="save" validate="true" key="msg.show.save.success"
+			input="rfms.member.edit" showMessage="true">
+		</method>
+		 <method name="delete" validate="true" key="msg.show.delete.success"
+			input="rfms.member.list" showMessage="true">
+		</method>
+	</action>
+	<action path="/membertype">
+		<method name="save" validate="true" key="msg.show.save.success"
+			input="rfms.membertype.edit" showMessage="true">
+		</method>
+		 <method name="delete" validate="true" key="msg.show.delete.success"
+			input="rfms.membertype.list" showMessage="true">
+		</method>
+	</action>
+	
+</ActionMessages>

@@ -1,0 +1,60 @@
+<script>
+    function changeImage(id){
+	    for (var i=1; i<=$menu.components.size(); i++) {
+             aMenu= document.getElementById("menu_"+i);
+	         if(i==id)aMenu.className="menu3_downm";
+	         else aMenu.className="menu3_td";
+        }
+    }
+    function openMenu4(menuName){
+        var menu4 = parent.document.getElementById('menu4');
+		menu4.rows="40,*"; 
+        var menu4_top = parent.document.getElementById('menu4_top');
+	    menu4_top.src="menu4.jsp?menuname="+menuName;
+  
+    }
+    function closeMenu4(){
+        var menu4 = parent.document.getElementById('menu4');
+		menu4.rows="0,*";
+    }
+    function refreshBottom(id){
+      var bottom = parent.document.getElementById('bottom');
+	  bottom.src = "bottom.jsp?menuName=" + id;
+   }
+</script>
+<table width="149" border="0" align="center" cellpadding="0" cellspacing="0">
+#set($level = 0)
+#foreach ($menuItem in $menu.components) 
+  #set ($title = $menuItem.title)
+  #set($level = $level + 1)
+  
+  #if ($menuItem.components.size()>0)
+  #if($level==1) <script> refreshBottom('${menuItem.name}')</script> #end
+  <tr> 
+    <td id="menu_$level" #if($level==1) class="menu3_downm" #else class="menu3_td" #end>
+		<a href="#" onclick="changeImage($level);openMenu4('${menuItem.name}');"  class="menu3"><img src="${menuItem.image}" align="absmiddle" border="0">
+		${title}</a>
+    </td>
+  </tr>
+  #else
+  <tr>
+    <td id="menu_$level" #if($level==1) class="menu3_downm" #else class="menu3_td" #end>
+		<a href="${menuItem.url}" onclick="changeImage($level);closeMenu4();refreshBottom('${menuItem.name}');" target="mainFrame" class="menu3"><img src="${menuItem.image}" align="absmiddle" border="0">
+		${title}</a>
+    </td>
+  </tr> #if($level==1) <script> refreshBottom('${menuItem.name}')</script> #end
+  #end
+
+#end
+</table>
+#if($menu.components.size()>0)
+<script>
+    #if($menu.components.get(0).components.size()>0)
+      openMenu4("$menu.components.get(0).name");
+    #else
+      mainForm = parent.document.getElementById('mainFrame');
+	  mainForm.src="$menu.components.get(0).url";
+    #end
+   
+</script>
+#end

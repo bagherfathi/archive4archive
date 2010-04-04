@@ -1,0 +1,18 @@
+<!-- panel begin -->
+<table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td colspan="3"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="table_top_1"></td>
+          <td class="table_top_2">
+          #if($panel.icon)<img src="${panel.icon}" border="0" align="absmiddle"/>#end ${panel.title}
+          </td>
+          <td class="table_top_3"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td  align="center" width="100%" class="table_middle">
+    <!-- panel body begin-->

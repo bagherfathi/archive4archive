@@ -1,0 +1,1519 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<form-validation>
+	<global>
+		<constant>
+			<constant-name>urlMask</constant-name>		
+			<constant-value>http:\/\/([^/:]+)(:\d*)?([^# ]*)$</constant-value>
+		</constant>
+		<constant>
+			<constant-name>ipAddressMask</constant-name>
+			<constant-value>^\d{1,3}\.{1}\d{1,3}\.{1}\d{1,3}\.{1}\d{1,3}$</constant-value>
+		</constant>
+		<constant>
+			<constant-name>phone</constant-name>
+			<constant-value>^\d{0,4}\-?\d{0,4}\-?\d{6}\d*\*?\d{0,6}$</constant-value>
+		</constant>
+		<constant>
+			<constant-name>specialCharacter</constant-name>
+			<constant-value>^[\w\u4e00-\u9fa5\（\）\(\)\-\s]*$</constant-value>
+		</constant>
+	</global>
+	
+	<formset>
+		<form name="bankForm">
+			<field property="bank.bankName" depends="required,maxlength,mask,exist" >
+				<arg position="0" key="sysadmin.label.bank.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.Bank</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>bankName</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>bankId</var-value>
+			    </var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+			</field>
+			<field property="bank.bankCode" depends="required,maxlength,mask,exist" >
+				<arg position="0" key="sysadmin.label.bank.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.Bank</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>bankCode</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>bankId</var-value>
+			    </var>
+			</field>
+			<field property="bank.description" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.bank.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+			<field property="bank.bankType" depends="required" >
+				<arg position="0" key="sysadmin.label.bank.type"/>
+			</field>			
+		</form>
+		
+		<form name="bankOrgForm">
+			<field property="relBankOrg.relBankOrg.bankOrgId" depends="required" >
+				<arg position="0" key="sysadmin.title.bank.org"/>
+			</field>
+			<field property="relBankOrg.relBankOrg.onlineStatus" depends="required" >
+				<arg position="0" key="sysadmin.label.bank.onlineStatus"/>
+			</field>
+		</form>
+
+		<form name="regionForm">
+			<field property="region.regionName" depends="required,maxlength,exist,mask" >
+				<arg position="0"  key="sysadmin.label.region.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.Region</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>regionName</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>regionId</var-value>
+			    </var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="region.regionCode" depends="required,maxlength,mask" >
+				<arg position="0" key="sysadmin.label.region.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="region.regionType" depends="required">
+				<arg position="0" key="sysadmin.label.region.type"/>
+			</field>
+			<field property="region.ysname" depends="maxlength,mask" >
+				<arg position="0"  key="sysadmin.label.region.ysname"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="region.yscode" depends="maxlength,mask" >
+				<arg position="0" key="sysadmin.label.region.yscode"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			
+		</form>
+
+		<form name="bankErrorForm">
+			<field property="bankError.errorCode" depends="required,maxlength,mask" >
+				<arg position="0" key="sysadmin.label.bank.error.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="bankError.errorDesc" depends="required,maxlength" >
+				<arg position="0" key="sysadmin.label.bank.error.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+			<field property="bankError.bankId" depends="required" >
+				<arg position="0" key="sysadmin.label.bank.name"/>
+			</field>
+		</form>
+		<form name="enumGroupForm">
+			<field property="enumGroup.groupName" depends="required,exist,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.enumgroup.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.EnumGroup</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>groupName</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>groupId</var-value>
+			    </var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+			</field>
+			<field property="enumGroup.description" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="enumCategoryForm">
+			<field property="enumCategory.categoryName" depends="required,exist,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.enumcategory.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.EnumCategory</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>categoryName</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>categoryId</var-value>
+			    </var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+			</field>
+			<field property="enumCategory.categoryCode" depends="required,exist,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.enumcategory.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.EnumCategory</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>categoryCode</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>categoryId</var-value>
+			    </var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+			</field>
+		</form>
+		<form name="enumForm">
+			<field property="enumData.enumName" depends="required,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.enum.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>18</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="enumData.enumCode" depends="required,maxlength,mask" >
+				<arg position="0" key="sysadmin.label.enum.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="enumData.enumDesc" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<form name="resourceForm">
+			<field property="resource.title" depends="required,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.resource.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+		    </field>
+		</form>
+		
+		<form name="menuForm" extends="resourceForm">
+			<field property="resource.url" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.resource.url"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="resource.image" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.resource.image"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+		</form>
+		
+		<form name="buttonForm" extends="resourceForm">
+			<field property="resource.title" depends="required,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.resource.button.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+		    </field>
+			
+			<field property="resource.resourceKey" depends="required,maxlength,mask,exist" >
+				<arg position="0" key="sysadmin.label.resource.resourceKey"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.Resource</var-value>
+  				</var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>resourceCode</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>resourceId</var-value>
+			    </var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+		    </field>
+		</form>
+		
+		<form name="roleForm">
+			<field property="role.roleName" depends="required,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.role.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+		    </field>
+			<field property="role.description" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.role.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+		</form>
+		
+		
+		<form name="groupForm">
+			<field property="group.name" depends="required,minlength,maxlength,mask,exist" >
+				<arg position="0" key="sysadmin.label.group.name"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				 <var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.Group</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>groupName</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>groupId</var-value>
+			    </var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+			</field>
+			<field property="orgId" depends="required">
+				<arg position="0" key="sysadmin.label.group.org"/>
+			</field>
+			<field property="group.description" depends="maxlength">
+				<arg position="0" key="sysadmin.label.group.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="operatorBaseForm">
+			 <field property="op.contact.name"  depends="required,mask,minlength,maxlength" >
+				<arg position="0" key="sysadmin.label.name"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				 <var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+		    </field>
+			<field property="op.contact.postCode"  depends="mask" >
+				<arg position="0" key="sysadmin.label.postCode"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{6}$</var-value>
+				</var>
+		    </field>
+			<field property="op.contact.address"  depends="maxlength" >
+				<arg position="0" key="sysadmin.label.address"/>
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				 <var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>  
+		    </field>
+			<field property="op.email" depends="required,email,maxlength" >
+				<arg position="0" key="sysadmin.label.email"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="op.msn" depends="email,maxlength" >
+				<arg position="0" key="MSN" resource="false"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="op.memo" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.op.memo"/>
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="op.contact.telephone" depends="mask,maxlength" >
+				<arg position="0" key="sysadmin.label.phone"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+		    </field>
+			<field property="op.contact.mobilePhone" depends="minlength,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.mobile"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>11</var-value>
+				</var>
+		    </field>
+			<field property="op.jobNumber" depends="maxlength,mask" >
+				<arg position="0" key="sysadmin.label.op.jobNumber"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9]*$</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>16</var-value>
+				</var>
+		    </field>
+		</form>
+		<form name="operatorForm" extends="operatorBaseForm">
+			 <field property="op.loginName"  depends="required,minlength,maxlength,mask,exist" >
+				<arg position="0" key="sysadmin.label.loginName"/>
+				 <arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				  <var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				 <var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.Operator</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>loginName</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>operatorId</var-value>
+			    </var>
+		    </field>
+			 <field property="op.password"  depends="required,minlength,maxlength" >
+				<arg position="0" key="sysadmin.label.password"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+		        <arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				 <var>
+					<var-name>minlength</var-name>
+					<var-value>5</var-value>
+				</var>
+				 <var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+		    </field>
+		</form>
+		<form name="opForm_password">	
+			<field property="password" depends="required,minlength,maxlength" >
+				<arg position="0" key="sysadmin.label.password"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>5</var-value>
+				</var>
+		    </field> 
+		</form>
+
+		
+		<form name="orgBaseForm">
+			<field property="org.name"  depends="required,minlength,maxlength,mask,exist" >
+				<arg position="0" key="sysadmin.label.org.name"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				 <var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.Organization</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>orgName</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>orgId</var-value>
+			    </var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+		    </field>
+			 <field property="org.contact.name"  depends="mask,minlength,maxlength" >
+				<arg position="0" key="sysadmin.label.contact.name"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+		    </field>
+			<field property="org.contact.postCode"  depends="mask" >
+				<arg position="0" key="sysadmin.label.postCode"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{6}$</var-value>
+				</var>
+		    </field>
+			<field property="org.contact.address"  depends="maxlength" >
+				<arg position="0" key="sysadmin.label.address"/>
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				 <var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="org.contact.telephone" depends="mask,maxlength" >
+				<arg position="0" key="sysadmin.label.phone"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+		    </field>
+			<field property="org.contact.mobilePhone" depends="minlength,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.mobile"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d*$</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>11</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+		    </field>
+			<field property="org.desc" depends="maxlength">
+				<arg position="0" key="sysadmin.label.org.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="orgForm" extends="orgBaseForm">
+			 <field property="org.code"  depends="required,mask,maxlength,minlength,exist" >
+				<arg position="0" key="sysadmin.label.org.code"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				 <var>
+			        <var-name>entityName</var-name>
+			        <var-value>com.ft.sm.entity.Organization</var-value>
+			    </var>
+			    <var>
+			        <var-name>attribute</var-name>
+			        <var-value>orgCode</var-value>
+			    </var>
+			    <var>
+			        <var-name>keyName</var-name>
+			        <var-value>orgId</var-value>
+			    </var>
+				 <var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+		    </field>
+			<field property="org.type"  depends="required">
+				<arg position="0" key="sysadmin.label.org.type"/>
+			</field>
+		</form>
+		
+		<form name="dataResourceForm">
+			<field property="dataResource.title" depends="required,maxlength,mask,exist" >
+				<arg position="0" key="sysadmin.label.dataResource.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.DataResource</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>privName</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>resourceId</var-value>
+			    </var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+		    </field>
+			<field property="dataResource.description" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.dataResource.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="dataResource.code" depends="required,maxlength,mask,exist" >
+				<arg position="0" key="sysadmin.label.dataResource.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>30</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.DataResource</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>privCode</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>resourceId</var-value>
+				</var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+		    </field>
+			<field property="dataResource.dataType" depends="required" >
+				<arg position="0" key="sysadmin.label.dataResource.type"/>
+		    </field>
+			<field property="dataResource.assignType" depends="required" >
+				<arg position="0" key="sysadmin.label.dataResource.assign.type"/>
+		    </field>
+		</form>
+
+		<form name="dataResourceEntryForm">
+			<field property="entry.title" depends="required,maxlength" >
+				<arg position="0" key="sysadmin.label.dataResource.entry.title"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+			</field>
+			
+			<field property="entry.description" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.dataResource.entry.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>128</var-value>
+				</var>
+			</field>
+			
+		</form>
+		
+		<form name="dataResourceEntrySingleForm" extends="dataResourceEntryForm">
+			<field property="maxValue" depends="required,maxlength" >
+				<arg position="0" key="sysadmin.label.dataResource.entry.value"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<form name="dataResourceEntryMultiForm" extends="dataResourceEntryForm">
+			<field property="minValue" depends="required,integer" >
+				<arg position="0" key="sysadmin.label.dataResource.entry.min.value"/>
+			</field>
+			<field property="maxValue" depends="required,integer" >
+				<arg position="0" key="sysadmin.label.dataResource.entry.max.value"/>
+			</field>
+		</form>
+		
+		<form name="dataRoleForm">
+			<field property="role.roleName" depends="required,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.role.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+		    </field>
+			<field property="role.description" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.role.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+		</form>
+		
+		<form name="infoCategoryForm">
+			<field property="category.name" depends="required,mask,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.category.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.InfoCategory</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>categoryName</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>categoryId</var-value>
+			    </var>
+			</field>
+			<field property="category.desc" depends="maxlength">
+				<arg position="0" key="sysadmin.label.category.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+
+		<form name="afficheForm">
+			<field property="affiche.title" depends="required,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.affiche.title"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="affiche.content" depends="required,maxlength">
+				<arg position="0" key="sysadmin.label.affiche.content"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>500</var-value>
+				</var>
+			</field>
+			
+			<field property="affiche.categoryId" depends="required">
+				<arg position="0" key="sysadmin.label.affiche.category"/>
+			</field>
+			
+			<field property="affiche.level" depends="required">
+				<arg position="0" key="sysadmin.label.affiche.level"/>
+			</field>
+		</form>
+		
+		<form name="infoSharedForm">
+			<field property="infoShared.title" depends="required,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.info.shared.title"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
+			<field property="infoShared.content" depends="required,maxlength">
+				<arg position="0" key="sysadmin.label.info.shared.content"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>500</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<form name="ruleCategoryForm">
+			<field property="category.name" depends="required,mask,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.rule.category.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.RuleCategory</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>categoryName</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>categoryId</var-value>
+			    </var>
+			</field>
+			<field property="category.desc" depends="maxlength">
+				<arg position="0" key="sysadmin.label.rule.category.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<form name="ruleForm">
+			<field property="rule.name" depends="required,mask,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.rule.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.RuleInfo</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>ruleName</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>ruleId</var-value>
+			    </var>
+			</field>
+			<field property="rule.code" depends="required,mask,maxlength,exist">
+				<arg position="0" key="sysadmin.label.rule.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_]*$</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.RuleInfo</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>ruleCode</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>ruleId</var-value>
+			    </var>
+			</field>
+			<field property="categoryId" depends="required">
+				<arg position="0" key="sysadmin.lable.rule.category"/>
+			</field>
+			<field property="rule.desc" depends="maxlength">
+				<arg position="0" key="sysadmin.label.rule.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<form name="ruleFileForm">
+			<field property="file" depends="required">
+				<arg position="0" key="sysadmin.label.template.file.path"/>
+			</field>
+		</form>
+		
+        <form name="taskForm">
+			 <field property="jobDefine.name" depends="required,minlength,maxlength,exist" >
+				<arg position="0" key="jobDefine.name"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" /> 
+                 <var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.TaskJob</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>jobName</var-value>
+   				</var>
+				 <var>
+			        <var-name>keyName</var-name>
+			        <var-value>jobId</var-value>
+			    </var>
+				 <var>
+					 <var-name>minlength</var-name>
+					 <var-value>2</var-value>
+				 </var>
+				  <var>
+					 <var-name>maxlength</var-name>
+					 <var-value>64</var-value>
+				 </var>
+
+			</field>
+			
+			<field property="jobDefine.categoryId" depends="required" >
+				<arg position="0" key="jobDefine.category"/>
+			</field>
+			
+            <field property="jobDefine.description" depends="required,minlength,maxlength">
+				<arg position="0" key="jobDefine.description" />
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" /> 
+				<var>
+					 <var-name>minlength</var-name>
+					 <var-value>2</var-value>
+				 </var>
+				  <var>
+					 <var-name>maxlength</var-name>
+					 <var-value>50</var-value>
+				 </var>
+			</field>
+			<field property="jobDefine.className" depends="required,existClass,minlength,maxlength" >
+				<arg position="0" key="jobDefine.className" />
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" /> 
+				<var>
+					 <var-name>minlength</var-name>
+					 <var-value>2</var-value>
+				 </var>
+				  <var>
+					 <var-name>maxlength</var-name>
+					 <var-value>128</var-value>
+				 </var>
+			</field>
+		</form>
+		
+		<form name="taskCategoryForm">
+			<field property="category.name" depends="required,mask,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.task.category.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.TaskCategory</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>categoryName</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>categoryId</var-value>
+			    </var>
+			</field>
+			<field property="category.desc" depends="maxlength">
+				<arg position="0" key="sysadmin.label.task.category.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<form name="configParamForm">
+			<field property="configParam.configCode" depends="required,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.config.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.ConfigParam</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>configCode</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>configId</var-value>
+			    </var>
+			</field>
+			<field property="configParam.configValue" depends="required,maxlength" >
+				<arg position="0" key="sysadmin.label.config.value"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>128</var-value>
+				</var>
+			</field>
+			<field property="configParam.configName" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.config.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+			</field>			
+		</form>
+		
+		<form name="configParamNodeForm">
+			<field property="configParam.configCode" depends="required,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.config.node.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.ConfigParam</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>configCode</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>configId</var-value>
+			    </var>
+			</field>
+			<field property="configParam.configName" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.config.node.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+			</field>		
+		</form>
+		
+		<form name="templateForm">
+		</form>
+		
+		<form name="editTemplateForm" extends="templateForm">
+			<field property="template.template.templateName" depends="required,mask,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.template.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.Template</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>templateName</var-value>
+   				</var>
+   				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>templateId</var-value>
+			    </var>
+			</field>	
+			
+			<field property="template.template.categoryCode" depends="required" >
+				<arg position="0" key="sysadmin.label.template.category"/>
+			</field>	
+		</form>
+		
+		
+		<form name="createTemplateForm" extends="editTemplateForm">
+			<field property="template.template.templateCode" depends="required,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.template.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.Template</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>templateCode</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>templateId</var-value>
+			    </var>
+				<var>
+			        <var-name>historyed</var-name>
+			        <var-value>true</var-value>
+			    </var>
+			</field>		
+		</form>
+		
+		<form name="templateCategoryForm" extends="templateForm">
+			<field property="category.name" depends="required,mask,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.template.category.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.TemplateCategory</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>categoryName</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>categoryId</var-value>
+			    </var>
+			</field>	
+			<field property="category.desc" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.template.category.code"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>		
+		</form>
+		
+		<form name="templateFileForm" extends="templateForm">
+			<field property="file" depends="required">
+				<arg position="0" key="sysadmin.label.template.file.path"/>
+			</field>		
+		</form>
+		<form name="maintainPlanForm">
+			<field property="maintainPlan.name" depends="required,mask,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.maintain.plan.name"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>64</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.MaintainPlan</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>planName</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>planId</var-value>
+			    </var>
+			</field>
+			<field property="maintainPlan.cycle" depends="maxlength,integer" >
+				<arg position="0" key="sysadmin.label.maintain.plan.cycle"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			<field property="maintainPlan.desc" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.maintain.plan.desc"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="maintainLogForm">
+			<field property="maintainLog.title" depends="required,mask,maxlength,exist" >
+				<arg position="0" key="sysadmin.label.maintain.Log.title"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>128</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+				<var>
+      				 <var-name>entityName</var-name>
+       				 <var-value>com.ft.sm.entity.MaintainLog</var-value>
+  				 </var>
+   				<var>
+      				 <var-name>attribute</var-name>
+      				 <var-value>logTitle</var-value>
+   				</var>
+				<var>
+			        <var-name>keyName</var-name>
+			        <var-value>logId</var-value>
+			    </var>
+			</field>
+		</form>
+		
+		<form name="opSelfForm">
+			 <field property="opDTO.contact.name"  depends="required,mask,minlength,maxlength" >
+				<arg position="0" key="sysadmin.label.name"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				 <var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[\w\u4e00-\u9fa5\(\)\uff08\uff09]*$</var-value>
+				</var>
+		    </field>
+			<field property="opDTO.contact.postCode"  depends="mask" >
+				<arg position="0" key="sysadmin.label.postCode"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{6}$</var-value>
+				</var>
+		    </field>
+			<field property="opDTO.contact.address"  depends="maxlength" >
+				<arg position="0" key="sysadmin.label.address"/>
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				 <var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>  
+		    </field>
+			<field property="opDTO.email" depends="required,email,maxlength" >
+				<arg position="0" key="sysadmin.label.email"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="opDTO.msn" depends="email,maxlength" >
+				<arg position="0" key="MSN" resource="false"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="opDTO.memo" depends="maxlength" >
+				<arg position="0" key="sysadmin.label.op.desc"/>
+				<arg position="2"  name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+		    </field>
+			<field property="opDTO.contact.telephone" depends="mask,maxlength" >
+				<arg position="0" key="sysadmin.label.phone"/>
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+		    </field>
+			<field property="opDTO.contact.mobilePhone" depends="minlength,mask,maxlength" >
+				<arg position="0" key="sysadmin.label.mobile"/>
+				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
+				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>11</var-value>
+				</var>
+		    </field>
+		</form>
+	</formset>
+</form-validation>

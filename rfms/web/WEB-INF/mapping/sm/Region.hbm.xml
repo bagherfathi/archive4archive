@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="Region"
+		table="SM_REGION"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="regionId"
+			type="long"
+			column="REGION_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="regionName"
+			column="REGION_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="regionCode"
+			column="REGION_CODE"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="parentId"
+			column="PARENT_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="regionPath"
+			column="REGION_PATH"
+			type="java.lang.String"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="regionType"
+			column="REGION_TYPE"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="status"
+			column="STATUS"
+			type="long"
+			not-null="false"
+			length="2"
+		/>
+         <property
+			name="ysname"
+			column="YSNAME"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="yscode"
+			column="YSCODE"
+			type="java.lang.String"
+			not-null="false"
+			length="64"
+		/>
+
+	</class>	
+</hibernate-mapping>

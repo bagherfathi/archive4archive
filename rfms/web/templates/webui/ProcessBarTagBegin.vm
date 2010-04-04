@@ -1,0 +1,15 @@
+<table>
+<tr>
+<td>
+	<table style="BORDER-RIGHT: #104a7b 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #104a7b 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 1px; BORDER-LEFT: #104a7b 1px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #104a7b 1px solid; BACKGROUND-COLOR: white" cellSpacing="0" cellPadding="0" width="100" border="0" id="table4">
+	<tr>
+	 <td width="100%">
+		<div id="queue$!{process.classId}" style="FONT-SIZE: 3px; WIDTH: $process.value; HEIGHT: 1px; BACKGROUND-COLOR: #76d769">		
+		</div>
+	</td>
+	</tr>
+	</table>
+</td>
+<td>
+	<span id="queueValue$!{process.classId}">${process.current}/${process.total}</span>
+</td>

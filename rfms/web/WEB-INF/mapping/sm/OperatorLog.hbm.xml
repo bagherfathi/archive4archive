@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="OperatorLog"
+		table="SM_OPERATOR_LOG"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="logId"
+			type="long"
+			column="LOG_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="insertTime"
+			column="INSERT_TIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="operName"
+			column="OPER_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="operLoginName"
+			column="OPER_LOGIN_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="16"
+		/>
+		<property
+			name="operOrgName"
+			column="OPER_ORG_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="remoteHost"
+			column="REMOTE_HOST"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="subSysCode"
+			column="SUB_SYS_CODE"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="modelName"
+			column="MODEL_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="actionCategroy"
+			column="ACTION_CATEGROY"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="actionCode"
+			column="ACTION_CODE"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="actionSequence"
+			column="ACTION_SEQUENCE"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="resultCode"
+			column="RESULT_CODE"
+			type="java.lang.String"
+			not-null="false"
+			length="32"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

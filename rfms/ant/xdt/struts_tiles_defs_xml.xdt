@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="<XDtConfig:configParameterValue paramName="Xmlencoding"/>" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>	
+  <!-- ========== Tiles Mapping Definitions =================================== -->
+
+  <XDtClass:forAllClasses type="org.apache.struts.action.Action">
+   <XDtClass:forAllClassTags tagName="struts:tiles">
+   <!-- <XDtClass:className/>-->
+    <definition name="<XDtClass:classTagValue tagName="struts:tiles" paramName="name"/>" 
+    	<XDtClass:ifHasClassTag tagName="struts:tiles" paramName="page">    page="<XDtClass:classTagValue tagName="struts:tiles" paramName="page"/>"    </XDtClass:ifHasClassTag>    <XDtClass:ifHasClassTag tagName="struts:tiles" paramName="extends">    extends="<XDtClass:classTagValue tagName="struts:tiles" paramName="extends"/>"   </XDtClass:ifHasClassTag> >  
+	     <XDtClass:forAllClassTags tagName="struts:tiles-put">
+	      <put name="<XDtClass:classTagValue tagName="struts:tiles-put" paramName="name"/>"	 value="/WEB-INF/jsp<XDtClass:classTagValue tagName="struts:tiles-put" paramName="value"/>"	/>
+	     </XDtClass:forAllClassTags>
+    </definition>
+     <XDtMethod:forAllMethods  sort="true" >
+	   <XDtMethod:forAllMethodTags tagName="struts:tiles">
+	<!--<XDtClass:className/>.<XDtMethod:methodName/> -->
+    <definition name="<XDtMethod:methodTagValue tagName="struts:tiles" paramName="name"/>" 
+    	<XDtMethod:ifHasMethodTag tagName="struts:tiles" paramName="page">    page="<XDtMethod:methodTagValue tagName="struts:tiles" paramName="page"/>"    </XDtMethod:ifHasMethodTag>    <XDtMethod:ifHasMethodTag tagName="struts:tiles" paramName="extends">    extends="<XDtMethod:methodTagValue tagName="struts:tiles" paramName="extends"/>"   </XDtMethod:ifHasMethodTag> >  
+	     <XDtMethod:forAllMethodTags tagName="struts:tiles-put">
+	      <put name="<XDtMethod:methodTagValue tagName="struts:tiles-put" paramName="name"/>"	 value="/WEB-INF/jsp<XDtMethod:methodTagValue tagName="struts:tiles-put" paramName="value"/>"	/>
+	     </XDtMethod:forAllMethodTags>
+    </definition>
+	   </XDtMethod:forAllMethodTags>
+	  </XDtMethod:forAllMethods>
+   </XDtClass:forAllClassTags>
+  </XDtClass:forAllClasses>
+
+<XDtMerge:merge file="tiles-defs.xml">
+    <!-- If you have non XDoclet actions, define them in a file called struts-actions.xml and place it in your merge directory. -->
+   </XDtMerge:merge>
+
+</tiles-definitions>

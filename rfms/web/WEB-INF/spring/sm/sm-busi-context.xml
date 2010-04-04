@@ -1,0 +1,1665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans
+  default-autowire="no"
+  default-lazy-init="false"
+  default-dependency-check="none"
+>
+
+  <bean
+      id="afficheUrl"
+      class="com.ft.common.infoShared.AfficheUrl"
+  >
+
+    <property name="url">
+
+      <value>${sm.get.affiche.url}</value>
+    </property>
+
+  </bean>
+
+  <bean
+      id="lockObjDao"
+      class="com.ft.busi.sm.impl.dao.LockObjDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="TaskCategoryDao"
+      class="com.ft.busi.sm.impl.dao.TaskCategoryDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="EnumDao"
+      class="com.ft.busi.sm.impl.dao.EnumDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="TaskTriggerDao"
+      class="com.ft.busi.sm.impl.dao.TaskTriggerDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="TaskParamDefineDao"
+      class="com.ft.busi.sm.impl.dao.TaskParamDefineDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="orgRepository"
+      class="com.ft.common.security.OrgRepository"
+      init-method="init"
+  >
+
+    <property name="cache">
+
+      <ref bean="oscache"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="TemplateHisDao"
+      class="com.ft.busi.sm.impl.dao.TemplateHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="DataResourceHisDao"
+      class="com.ft.busi.sm.impl.dao.DataResourceHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="MaintainLogDao"
+      class="com.ft.busi.sm.impl.dao.MaintainLogDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RelOperGroupDao"
+      class="com.ft.busi.sm.impl.dao.RelOperGroupDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RelTemplateOrgDao"
+      class="com.ft.busi.sm.impl.dao.RelTemplateOrgDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RelOperRoleDao"
+      class="com.ft.busi.sm.impl.dao.RelOperRoleDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="infoSharedFile"
+      class="com.ft.common.infoShared.InfoSharedFile"
+  >
+
+    <property name="filePath">
+
+      <value>${article.file.path}</value>
+    </property>
+
+  </bean>
+
+  <bean
+      id="templateRepository"
+      class="com.ft.sm.template.impl.TemplateRepositoryImpl"
+      init-method="initialize"
+  >
+
+    <property name="templateManager">
+
+      <ref bean="templateManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="ruleRepository"
+      class="com.ft.sm.rules.impl.RuleRepositoryImpl"
+      init-method="initialize"
+  >
+
+    <property name="ruleManager">
+
+      <ref bean="ruleManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="resourceManagerImpl"
+      class="com.ft.busi.sm.impl.ResourceManagerImpl"
+  >
+
+    <property name="commissionDao">
+
+      <ref bean="ConsignPermitDao"/>
+    </property>
+    <property name="resourceDao">
+
+      <ref bean="ResourceDao"/>
+    </property>
+    <property name="dataResourceDao">
+
+      <ref bean="DataResourceDao"/>
+    </property>
+    <property name="dataResourceEntryDao">
+
+      <ref bean="DataResourceEntryDao"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="busiCodeRuleDao"
+      class="com.ft.busi.sm.impl.dao.BusiCodeRuleDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="OperatorLogDao"
+      class="com.ft.busi.sm.impl.dao.OperatorLogDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="infoManagerImpl"
+      class="com.ft.busi.sm.impl.InfoManagerImpl"
+  >
+
+    <property name="afficheDao">
+
+      <ref bean="AfficheDao"/>
+    </property>
+    <property name="attachDao">
+
+      <ref bean="AttachDao"/>
+    </property>
+    <property name="infoCategoryDao">
+
+      <ref bean="InfoCategoryDao"/>
+    </property>
+    <property name="infoSharedDao">
+
+      <ref bean="InfoSharedDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="orgManagerImpl"
+      class="com.ft.busi.sm.impl.OrgManagerImpl"
+  >
+
+    <property name="orgDao">
+
+      <ref bean="OrganizationDao"/>
+    </property>
+    <property name="regionDao">
+
+      <ref bean="RegionDao"/>
+    </property>
+    <property name="relOrgRegionDao">
+
+      <ref bean="RelOrgRegionDao"/>
+    </property>
+    <property name="relRoleOrgDao">
+
+      <ref bean="RelRoleOrgDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="RoleDao"
+      class="com.ft.busi.sm.impl.dao.RoleDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="TaskTriggerHisDao"
+      class="com.ft.busi.sm.impl.dao.TaskTriggerHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="opSessionHandler"
+      class="com.ft.common.session.OperatorSessionHandler"
+  >
+
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="opManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="sessionRepository">
+
+      <ref bean="opSessionRepository"/>
+    </property>
+    <property name="menuBuilder">
+
+      <ref bean="menuBuilder"/>
+    </property>
+    <property name="loginOrgCookieGenerator">
+
+      <ref bean="loginOrgCookieGenerator"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="BankErrorDao"
+      class="com.ft.busi.sm.impl.dao.BankErrorDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="MaintainPlanDao"
+      class="com.ft.busi.sm.impl.dao.MaintainPlanDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="regionManagerImpl"
+      class="com.ft.busi.sm.impl.RegionManagerImpl"
+  >
+
+    <property name="regionDao">
+
+      <ref bean="RegionDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="busiBeanAdapter"
+      class="com.ft.busi.common.BeanAdapter"
+  >
+
+  </bean>
+
+  <bean
+      id="taskManagerImpl"
+      class="com.ft.busi.sm.impl.TaskManagerImpl"
+  >
+
+    <property name="taskJobDao">
+
+      <ref bean="TaskJobDao"/>
+    </property>
+    <property name="taskTriggerDao">
+
+      <ref bean="TaskTriggerDao"/>
+    </property>
+    <property name="taskTriggerHisDao">
+
+      <ref bean="TaskTriggerHisDao"/>
+    </property>
+    <property name="taskJobParamDao">
+
+      <ref bean="TaskJobParamDao"/>
+    </property>
+    <property name="taskParamDefineDao">
+
+      <ref bean="TaskParamDefineDao"/>
+    </property>
+    <property name="taskCategoryDao">
+
+      <ref bean="TaskCategoryDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="EnumCategoryDao"
+      class="com.ft.busi.sm.impl.dao.EnumCategoryDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="regionTreeBuilder"
+      class="com.ft.common.region.RegionTreeBuilder"
+  >
+
+    <property name="regionManager">
+
+      <ref bean="regionManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="RuleInfoDao"
+      class="com.ft.busi.sm.impl.dao.RuleInfoDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="InfoSharedDao"
+      class="com.ft.busi.sm.impl.dao.InfoSharedDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="busiSpringBeanUtils"
+      class="com.ft.busi.common.SpringBeanUtils"
+  >
+
+    <property name="beanAdapter">
+
+      <ref bean="busiBeanAdapter"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="RelTemplateOrgHisDao"
+      class="com.ft.busi.sm.impl.dao.RelTemplateOrgHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="groupManagerImpl"
+      class="com.ft.busi.sm.impl.GroupManagerImpl"
+  >
+
+    <property name="groupDao">
+
+      <ref bean="GroupDao"/>
+    </property>
+    <property name="orgDao">
+
+      <ref bean="OrganizationDao"/>
+    </property>
+    <property name="roleDao">
+
+      <ref bean="RoleDao"/>
+    </property>
+    <property name="relGroupOrgDao">
+
+      <ref bean="RelGroupOrgDao"/>
+    </property>
+    <property name="relGroupRoleDao">
+
+      <ref bean="RelGroupRoleDao"/>
+    </property>
+    <property name="permitLogDao">
+
+      <ref bean="PermitLogDao"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="RoleHisDao"
+      class="com.ft.busi.sm.impl.dao.RoleHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+<!-- 
+  <bean
+      id="syncImpl"
+      class="com.ft.busi.sm.impl.sso.SyncImpl"
+      init-method="init"
+  >
+
+    <property name="ssoClientFactory">
+
+      <ref bean="ssoClientFactory"/>
+    </property>
+    <property name="synOn">
+
+      <value>${data.syn.enable}</value>
+    </property>
+    <property name="configParmaDao">
+
+      <ref bean="ConfigParamDao"/>
+    </property>
+    <property name="operatorDao">
+
+      <ref bean="OperatorDao"/>
+    </property>
+    <property name="orgDao">
+
+      <ref bean="OrganizationDao"/>
+    </property>
+    <property name="roleDao">
+
+      <ref bean="RoleDao"/>
+    </property>
+    <property name="relOperRoleDao">
+
+      <ref bean="RelOperRoleDao"/>
+    </property>
+    <property name="relOperOrgDao">
+
+      <ref bean="RelOperOrgDao"/>
+    </property>
+
+  </bean>
+ -->
+  <bean
+      id="BankHisDao"
+      class="com.ft.busi.sm.impl.dao.BankHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RelGroupRoleDao"
+      class="com.ft.busi.sm.impl.dao.RelGroupRoleDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RelOperOrgDao"
+      class="com.ft.busi.sm.impl.dao.RelOperOrgDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="authenticationManager"
+      class="com.ft.common.login.AuthenticationManager"
+  >
+
+    <property name="operatorMgmt">
+
+      <ref bean="operatorManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="GroupHisDao"
+      class="com.ft.busi.sm.impl.dao.GroupHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="TemplateDao"
+      class="com.ft.busi.sm.impl.dao.TemplateDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="enumRepository"
+      class="com.ft.common.enumdata.EnumRepository"
+  >
+
+    <property name="enumManager">
+
+      <ref bean="enumManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="EnumEntryDao"
+      class="com.ft.busi.sm.impl.dao.EnumEntryDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="OperatorDao"
+      class="com.ft.busi.sm.impl.dao.OperatorDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RelOrgRegionDao"
+      class="com.ft.busi.sm.impl.dao.RelOrgRegionDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="busiCodeGenerateService"
+      class="com.ft.sm.adapter.BusiCodeGenerateServiceImpl"
+  >
+
+    <property name="busiCodeGenerateManager">
+
+      <ref bean="busiCodeGenerateManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="BankErrorHisDao"
+      class="com.ft.busi.sm.impl.dao.BankErrorHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RelGroupOrgDao"
+      class="com.ft.busi.sm.impl.dao.RelGroupOrgDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="GroupDao"
+      class="com.ft.busi.sm.impl.dao.GroupDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RuleFileDao"
+      class="com.ft.busi.sm.impl.dao.RuleFileDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="vmRuleEngine"
+      class="com.ft.sm.rules.impl.VelocityRuleEngine"
+  >
+
+    <property name="ruleRepository">
+
+      <ref bean="ruleRepository"/>
+    </property>
+    <property name="velocityEngine">
+
+      <ref bean="velocityEngine"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="EnumGroupDao"
+      class="com.ft.busi.sm.impl.dao.EnumGroupDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="templateService"
+      class="com.ft.sm.adapter.TemplateServiceImpl"
+  >
+
+    <property name="templateManager">
+
+      <ref bean="templateManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="ConsignPermitDao"
+      class="com.ft.busi.sm.impl.dao.ConsignPermitDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="configParamTreeBuilder"
+      class="com.ft.common.config.ConfigParamTreeBuilder"
+  >
+
+    <property name="paramManager">
+
+      <ref bean="configParamManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="maintainManagerImpl"
+      class="com.ft.busi.sm.impl.MaintainManagerImpl"
+  >
+
+    <property name="logDao">
+
+      <ref bean="MaintainLogDao"/>
+    </property>
+    <property name="planDao">
+
+      <ref bean="MaintainPlanDao"/>
+    </property>
+
+  </bean>
+<!-- 
+  <bean
+      id="syncProxy"
+      class="com.ft.common.sso.SyncProxy"
+  >
+
+    <property name="ssoClientFactory">
+
+      <ref bean="ssoClientFactory"/>
+    </property>
+    <property name="synOn">
+
+      <value>${data.syn.enable}</value>
+    </property>
+
+  </bean>
+ -->
+  <bean
+      id="operateLogManagerImpl"
+      class="com.ft.busi.sm.impl.OperateLogManagerImpl"
+  >
+
+    <property name="operatorLogDao">
+
+      <ref bean="OperatorLogDao"/>
+    </property>
+    <property name="performanceLogDao">
+
+      <ref bean="PerformanceLogDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="RelRoleResDao"
+      class="com.ft.busi.sm.impl.dao.RelRoleResDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+<!-- 
+  <bean
+      id="afterLoginContextResolver"
+      class="com.ft.common.security.AfterLoginContextResolver"
+  >
+
+    <property name="userSessionHandler">
+
+      <ref bean="opSessionHandler"/>
+    </property>
+
+  </bean>
+ -->
+  <bean
+      id="DataResourceEntryHisDao"
+      class="com.ft.busi.sm.impl.dao.DataResourceEntryHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="menuBuilder"
+      class="com.ft.common.login.MenuBuilder"
+  >
+
+    <property name="resourceRepository">
+
+      <ref bean="resourceRepository"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="OrganizationDao"
+      class="com.ft.busi.sm.impl.dao.OrganizationDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RelBankOrgDao"
+      class="com.ft.busi.sm.impl.dao.RelBankOrgDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="orgTreeBuilder"
+      class="com.ft.common.security.OrgTreeBuilder"
+  >
+
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="orgRepository">
+
+      <ref bean="orgRepository"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="TaskJobDao"
+      class="com.ft.busi.sm.impl.dao.TaskJobDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="TaskJobParamDao"
+      class="com.ft.busi.sm.impl.dao.TaskJobParamDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="resourceRepository"
+      class="com.ft.common.security.ResourceRepository"
+      init-method="init"
+  >
+
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="vmTemplateEngine"
+      class="com.ft.sm.template.impl.VelocityTemplateEngine"
+  >
+
+    <property name="templateRepository">
+
+      <ref bean="templateRepository"/>
+    </property>
+    <property name="velocityEngine">
+
+      <ref bean="velocityEngine"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="dataResourceTreeBuilder"
+      class="com.ft.common.security.DataResourceTreeBuilder"
+  >
+
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="configurationService"
+      class="com.ft.sm.adapter.ConfigurationServiceImpl"
+  >
+
+    <property name="configManager">
+
+      <ref bean="configParamManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="RegionDao"
+      class="com.ft.busi.sm.impl.dao.RegionDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="RuleCategoryDao"
+      class="com.ft.busi.sm.impl.dao.RuleCategoryDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="bankManagerImpl"
+      class="com.ft.busi.sm.impl.BankManagerImpl"
+  >
+
+    <property name="bankDao">
+
+      <ref bean="BankDao"/>
+    </property>
+    <property name="bankErrorDao">
+
+      <ref bean="BankErrorDao"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+    <property name="relBankOrgDao">
+
+      <ref bean="RelBankOrgDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="opSessionRepository"
+      class="com.ft.common.session.OperatorSessionRepository"
+  >
+
+  </bean>
+
+  <bean
+      id="RelRoleOrgDao"
+      class="com.ft.busi.sm.impl.dao.RelRoleOrgDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="BankDao"
+      class="com.ft.busi.sm.impl.dao.BankDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="loginOrgCookieGenerator"
+      class="com.ft.common.session.LoginOrgCookieGenerator"
+  >
+
+  </bean>
+
+  <bean
+      id="templateManagerImpl"
+      class="com.ft.busi.sm.impl.TemplateManagerImpl"
+  >
+
+    <property name="templateDao">
+
+      <ref bean="TemplateDao"/>
+    </property>
+    <property name="relTemplateOrgDao">
+
+      <ref bean="RelTemplateOrgDao"/>
+    </property>
+    <property name="templateFileDao">
+
+      <ref bean="TemplateFileDao"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="opResourceTreeBuilder"
+      class="com.ft.common.op.OpResourceTreeBuilder"
+  >
+
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="resourceTreeBuilder">
+
+      <ref bean="resourceTreeBuilder"/>
+    </property>
+    <property name="dataResourceTreeBuilder">
+
+      <ref bean="dataResourceTreeBuilder"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="commissionManagerImpl"
+      class="com.ft.busi.sm.impl.CommissionManagerImpl"
+  >
+
+    <property name="consignPermitDao">
+
+      <ref bean="ConsignPermitDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="enumLoader"
+      class="com.ft.common.enumdata.EnumLoader"
+  >
+
+    <property name="enumRepository">
+      <ref bean="enumRepository"/>
+    </property>
+  </bean>
+
+  <bean
+      id="AttachDao"
+      class="com.ft.busi.sm.impl.dao.AttachDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="PerformanceLogDao"
+      class="com.ft.busi.sm.impl.dao.PerformanceLogDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="PermitLogDao"
+      class="com.ft.busi.sm.impl.dao.PermitLogDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="securityService"
+      class="com.ft.sm.adapter.SecurityServiceImpl"
+  >
+
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="regionManager">
+
+      <ref bean="regionManager"/>
+    </property>
+    <property name="resourceManager">
+
+      <ref bean="resourceManager"/>
+    </property>
+    <property name="operatorManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="ssoClientFactory">
+
+      <ref bean="ssoClientFactory"/>
+    </property>
+    <property name="synOn">
+
+      <value>${data.syn.enable}</value>
+    </property>
+
+  </bean>
+
+  <bean
+      id="loginCheckerFilter"
+      class="com.ft.common.security.filter.LoginCheckerFilter"
+  >
+
+    <property name="loginRedirectUrl">
+
+      <value>${login.redirect.url}</value>
+    </property>
+    <property name="loginSkipPattern">
+
+      <value>${login.skip.pattern}</value>
+    </property>
+
+  </bean>
+
+  <bean
+      id="busiCodeGenDao"
+      class="com.ft.busi.sm.impl.dao.BusiCodeGenDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="InfoCategoryDao"
+      class="com.ft.busi.sm.impl.dao.InfoCategoryDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="ruleManagerImpl"
+      class="com.ft.busi.sm.impl.RuleManagerImpl"
+  >
+
+    <property name="ruleCategoryDao">
+
+      <ref bean="RuleCategoryDao"/>
+    </property>
+    <property name="ruleFileDao">
+
+      <ref bean="RuleFileDao"/>
+    </property>
+    <property name="ruleInfoDao">
+
+      <ref bean="RuleInfoDao"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="ResourceHisDao"
+      class="com.ft.busi.sm.impl.dao.ResourceHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="droolsRuleEngine"
+      class="com.ft.sm.rules.impl.DroolsRuleEngine"
+  >
+
+    <property name="ruleRepository">
+
+      <ref bean="ruleRepository"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="RelRoleDataResDao"
+      class="com.ft.busi.sm.impl.dao.RelRoleDataResDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="configParamManagerImpl"
+      class="com.ft.busi.sm.impl.ConfigParamManagerImpl"
+  >
+
+    <property name="configParamDao">
+
+      <ref bean="ConfigParamDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="orgsTreeBuilder"
+      class="com.ft.common.security.OrgsTreeBuilder"
+  >
+
+    <property name="orgRepository">
+
+      <ref bean="orgRepository"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="enumTreeBuilder"
+      class="com.ft.common.enumdata.EnumTreeBuilder"
+  >
+
+    <property name="enumManager">
+
+      <ref bean="enumManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="AfficheDao"
+      class="com.ft.busi.sm.impl.dao.AfficheDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="orgRegionTreeBuilder"
+      class="com.ft.common.security.OrgRegionTreeBuilder"
+  >
+
+    <property name="regionManager">
+
+      <ref bean="regionManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="DataResourceEntryDao"
+      class="com.ft.busi.sm.impl.dao.DataResourceEntryDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="resourceTreeBuilder"
+      class="com.ft.common.security.ResourceTreeBuilder"
+  >
+
+    <property name="resourceRepository">
+
+      <ref bean="resourceRepository"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="DataResourceDao"
+      class="com.ft.busi.sm.impl.dao.DataResourceDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="operatorManagerImpl"
+      class="com.ft.busi.sm.impl.OperatorManagerImpl"
+  >
+
+    <property name="operatorDao">
+
+      <ref bean="OperatorDao"/>
+    </property>
+    <property name="orgDao">
+
+      <ref bean="OrganizationDao"/>
+    </property>
+    <property name="groupDao">
+
+      <ref bean="GroupDao"/>
+    </property>
+    <property name="roleDao">
+
+      <ref bean="RoleDao"/>
+    </property>
+    <property name="permitLogDao">
+
+      <ref bean="PermitLogDao"/>
+    </property>
+    <property name="relOperRoleDao">
+
+      <ref bean="RelOperRoleDao"/>
+    </property>
+    <property name="relOperGroupDao">
+
+      <ref bean="RelOperGroupDao"/>
+    </property>
+    <property name="relOperOrgDao">
+
+      <ref bean="RelOperOrgDao"/>
+    </property>
+    <property name="relRoleResDao">
+
+      <ref bean="RelRoleResDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="ResourceDao"
+      class="com.ft.busi.sm.impl.dao.ResourceDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="enumEntryTreeBuilder"
+      class="com.ft.common.enumdata.EnumEntryTreeBuilder"
+  >
+
+    <property name="enumManager">
+
+      <ref bean="enumManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="ConfigParamDao"
+      class="com.ft.busi.sm.impl.dao.ConfigParamDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="enumManagerImpl"
+      class="com.ft.busi.sm.impl.EnumManagerImpl"
+  >
+
+    <property name="enumGroupDao">
+
+      <ref bean="EnumGroupDao"/>
+    </property>
+    <property name="enumCategoryDao">
+
+      <ref bean="EnumCategoryDao"/>
+    </property>
+    <property name="enumDao">
+
+      <ref bean="EnumDao"/>
+    </property>
+    <property name="enumEntryDao">
+
+      <ref bean="EnumEntryDao"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+
+  </bean>
+
+<!-- 
+  <bean
+      id="ssoDataEventHandler"
+      class="com.ft.common.sso.SSODataEventHandler"
+  >
+
+    <property name="opManager">
+
+      <ref bean="operatorManager"/>
+    </property>
+    <property name="orgManager">
+
+      <ref bean="orgManager"/>
+    </property>
+    <property name="roleManager">
+
+      <ref bean="roleManager"/>
+    </property>
+
+  </bean>
+-->
+  <bean
+      id="roleManagerImpl"
+      class="com.ft.busi.sm.impl.RoleManagerImpl"
+  >
+
+    <property name="roleDao">
+
+      <ref bean="RoleDao"/>
+    </property>
+    <property name="resourceDao">
+
+      <ref bean="ResourceDao"/>
+    </property>
+    <property name="dataResourceEntryDao">
+
+      <ref bean="DataResourceEntryDao"/>
+    </property>
+    <property name="permitLogDao">
+
+      <ref bean="PermitLogDao"/>
+    </property>
+    <property name="relRoleResDao">
+
+      <ref bean="RelRoleResDao"/>
+    </property>
+    <property name="relRoleDataResDao">
+
+      <ref bean="RelRoleDataResDao"/>
+    </property>
+    <property name="appService">
+
+      <ref bean="busiAppService"/>
+    </property>
+    <property name="roleHisDao">
+
+      <ref bean="RoleHisDao"/>
+    </property>
+    <property name="relRoleOrgDao">
+
+      <ref bean="RelRoleOrgDao"/>
+    </property>
+    <property name="relOperRoleDao">
+
+      <ref bean="RelOperRoleDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="RelBankOrgHisDao"
+      class="com.ft.busi.sm.impl.dao.RelBankOrgHisDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="busiCodeGenerateManagerImpl"
+      class="com.ft.busi.sm.impl.BusiCodeGenerateManagerImpl"
+  >
+
+    <property name="busiCodeRuleDao">
+
+      <ref bean="busiCodeRuleDao"/>
+    </property>
+    <property name="busiCodeGenDao">
+
+      <ref bean="busiCodeGenDao"/>
+    </property>
+    <property name="lockObjDao">
+
+      <ref bean="lockObjDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="schedulerManagerImpl"
+      class="com.ft.busi.sm.impl.SchedulerManagerImpl"
+      init-method="runAll"
+  >
+
+    <property name="taskManager">
+
+      <ref bean="taskManager"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="TemplateFileDao"
+      class="com.ft.busi.sm.impl.dao.TemplateFileDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+<bean
+      id="appViewDao"
+      class="com.ft.busi.sm.impl.dao.ViAppDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="appOperateDtlDao"
+      class="com.ft.busi.sm.impl.dao.AppOperateDtlDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="appDao"
+      class="com.ft.busi.sm.impl.dao.AppDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+
+  <bean
+      id="appServiceImpl"
+      class="com.ft.busi.impl.AppServiceImpl"
+  >
+
+    <property name="appDao">
+
+      <ref bean="appDao"/>
+    </property>
+    <property name="appTypeDao">
+
+      <ref bean="appTypeDao"/>
+    </property>
+    <property name="appOperateDtlDao">
+
+      <ref bean="appOperateDtlDao"/>
+    </property>
+
+  </bean>
+
+  <bean
+      id="appTypeDao"
+      class="com.ft.busi.sm.impl.dao.AppTypeDao"
+  >
+
+    <property name="sessionFactory">
+      <ref bean="sessionFactory"/>
+    </property>
+  </bean>
+  <!--
+     To include additional bean definitions for Spring in the generated
+     application context file, add a file to your XDoclet merge directory
+     called spring-beans.xml that contains the <bean></bean> markup.
+  -->
+
+</beans>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="<XDtConfig:configParameterValue paramName='Xmlencoding'/>"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd"> 
+<beans default-autowire="no"
+       default-lazy-init="true"
+       default-dependency-check="none"> 
+
+<XDtMerge:merge file="spring-ejb-beans.xml">
+  <!--
+     To include additional bean definitions for Spring in the generated
+     application context file, add a file to your XDoclet merge directory
+     called spring-ejb-beans.xml that contains the <bean></bean> markup.
+  -->
+</XDtMerge:merge>
+
+<XDtClass:forAllClasses>
+<XDtClass:forAllClassTags tagName="ejb.client">
+  <bean
+  <XDtClass:ifHasClassTag tagName="ejb.client" paramName="id">
+      id="<XDtClass:classTagValue tagName="ejb.client" paramName="id"/>" parent="ejbProxyFactoryBean"
+  </XDtClass:ifHasClassTag>>
+  <XDtClass:ifHasClassTag tagName="ejb.client" paramName="jndiName">
+      <property name="jndiName"><value><XDtClass:classTagValue tagName="ejb.client" paramName="jndiName"/></value></property> 
+  </XDtClass:ifHasClassTag>
+      <property name="businessInterface"><value><XDtClass:fullClassName/></value></property>
+  <XDtClass:ifHasClassTag tagName="ejb.client" paramName="homepackage">
+      <property name="homeInterface">
+          <value><XDtClass:classTagValue tagName="ejb.client" paramName="homepackage"/>.<XDtClass:className/>RemoteHome</value>
+      </property>
+  </XDtClass:ifHasClassTag>
+  </bean>
+</XDtClass:forAllClassTags>
+</XDtClass:forAllClasses>
+
+
+
+</beans>

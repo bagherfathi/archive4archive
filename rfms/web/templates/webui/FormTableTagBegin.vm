@@ -1,0 +1,3 @@
+<!--form table begin -->
+<table width="${formTable.width}" class="${formTable.styleClass}" cellspacing="${formTable.cellspacing}" cellpadding="${formTable.cellpadding}">
+	

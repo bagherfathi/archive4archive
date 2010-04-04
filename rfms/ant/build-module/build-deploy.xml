@@ -1,0 +1,56 @@
+<project name="deploy" default="copy-dist" basedir="../">
+	 <property name="webapp.dir" value="../18.boss_web"/>
+	 <property name="lib.dir" value ="../20.thirdparty"/>
+	 <property name="module.dist.dir" value="../${module.dir}/dist"/>
+	 <property name="module.config.dir" value="../${module.dir}/config"/>
+	 <target name="copy-dist">
+		<!--modified by licy 2006/12/07, delete cvs files ,can't commit boss-interface-->
+
+		<delete>
+			<fileset dir="${lib.dir}/boss-interface/${module.name}">
+				<include name="**/*.*"/>
+				<exclude name="**/CVS/*.*"/>
+			</fileset>
+		</delete>		
+			<!--end of added 2006/12/07-->
+
+		<mkdir dir="${lib.dir}/boss-interface/${module.name}"/>
+		<copy todir="${lib.dir}/boss-interface/${module.name}">
+			<fileset dir="${module.dist.dir}/jars">
+				<include name="*.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${lib.dir}/boss-interface/${module.name}">
+			<fileset dir="${module.config.dir}">
+				<include name="**/*.*"/>
+				<exclude name="**/CVS/*.*"/>
+			</fileset>
+		</copy>		
+	</target>
+	<target name="copy-web-config">
+			<delete dir="${webapp.dir}/WEB-INF/mapping/${module.name}"/>
+			<mkdir dir="${webapp.dir}/WEB-INF/mapping/${module.name}"/>
+			<copy todir="${webapp.dir}/WEB-INF/mapping/${module.name}" overwrite="true">
+				<fileset dir="${module.config.dir}/mapping">
+					<include name="**/*.hbm.xml"/>
+				</fileset>
+			</copy>	
+			
+			<delete dir="${webapp.dir}/WEB-INF/spring/${module.name}"/>
+			<mkdir dir="${webapp.dir}/WEB-INF/spring/${module.name}"/>
+			<copy todir="${webapp.dir}/WEB-INF/spring/${module.name}" overwrite="true">
+				<fileset dir="${module.config.dir}/spring">
+					<include name="*.xml"/>
+				</fileset>
+			</copy>
+		
+
+			<delete dir="${webapp.dir}/WEB-INF/struts/${module.name}"/>
+			<mkdir dir="${webapp.dir}/WEB-INF/struts/${module.name}"/>
+			<copy todir="${webapp.dir}/WEB-INF/struts/${module.name}" overwrite="true">
+					<fileset dir="${module.config.dir}/struts">
+						<include name="*.xml"/>
+					</fileset>
+			</copy>
+	</target>
+</project>

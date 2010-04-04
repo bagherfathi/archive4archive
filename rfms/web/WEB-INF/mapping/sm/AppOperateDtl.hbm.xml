@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="AppOperateDtl"
+		table="SM_APP_OPERATE_DTL"
+		schema="RFMS"
+	>
+		<id
+			name="operateDtlId"
+			type="long"
+			column="OPERATE_DTL_ID"
+		>
+			<generator class="sequence">
+			    <param name="sequence">RFMS.SM_APP_OPERATE_DTL_SEQ</param>
+			</generator>
+		</id>
+
+		<property
+			name="appId"
+			column="APP_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="className"
+			column="CLASS_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="1024"
+		/>
+		<property
+			name="objectId"
+			column="OBJECT_ID"
+			type="long"
+			not-null="false"
+			length="14"
+		/>
+        <property
+			name="operatorType"
+			column="OPERATOR_TYPE"
+			type="long"
+			not-null="false"
+			length="4"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

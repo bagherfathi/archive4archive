@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.sm.entity" >
+	<class
+		name="TaskJob"
+		table="SM_TASK_JOB"
+		schema="RFMS"
+		lazy="false"
+	>
+		<id
+			name="jobId"
+			type="long"
+			column="JOB_ID"
+		>
+			<generator class="increment"/>
+		</id>
+
+		<property
+			name="jobName"
+			column="JOB_NAME"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="jobDesc"
+			column="JOB_DESC"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="jobMethodname"
+			column="JOB_METHODNAME"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="jobClassname"
+			column="JOB_CLASSNAME"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="jobCreatetime"
+			column="JOB_CREATETIME"
+			type="java.util.Date"
+			not-null="false"
+			length="7"
+		/>
+		
+		<property
+			name="categoryId"
+			column="CATEGORY_ID"
+			type="long"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

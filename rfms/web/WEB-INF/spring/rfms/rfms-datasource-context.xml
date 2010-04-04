@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="cardSendDS" class="com.ft.common.EntityBeanDataSource">
+		<property name="beanClass">
+			<value>com.ft.rfms.entity.RfmsCardSend</value>
+		</property>
+		<property name="aliasName">
+			<value>merc</value>
+		</property>
+		<property name="entityManager">
+			<ref bean="entityManager" />
+		</property>
+		<property name="queryHelper">
+			<ref bean="entityQueryHelper" />
+		</property>
+		<property name="orderFields">
+			<value>id desc</value>
+		</property>
+		<property name="params">
+			<list>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name"><value>operatorId</value></property>
+					<property name="type"><value>java.lang.Long</value></property>
+					<property name="expr"><value>=</value></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="smsDS" class="com.ft.common.EntityBeanDataSource">
+		<property name="beanClass">
+			<value>com.ft.rfms.entity.RfmsSms</value>
+		</property>
+		<property name="aliasName">
+			<value>merc</value>
+		</property>
+		<property name="entityManager">
+			<ref bean="entityManager" />
+		</property>
+		<property name="queryHelper">
+			<ref bean="entityQueryHelper" />
+		</property>
+		<property name="orderFields">
+			<value>id desc</value>
+		</property>
+		<property name="params">
+			<list>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name"><value>operatorId</value></property>
+					<property name="type"><value>java.lang.Long</value></property>
+					<property name="expr"><value>=</value></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="memberDS" class="com.ft.common.EntityBeanDataSource">
+		<property name="beanClass">
+			<value>com.ft.rfms.entity.RfmsMember</value>
+		</property>
+		<property name="aliasName">
+			<value>merc</value>
+		</property>
+		<property name="entityManager">
+			<ref bean="entityManager" />
+		</property>
+		<property name="queryHelper">
+			<ref bean="entityQueryHelper" />
+		</property>
+		<property name="orderFields">
+			<value>id desc</value>
+		</property>
+		<property name="params">
+			<list>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>name</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.name</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>mobile</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.mobile</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name"><value>operatorId</value></property>
+					<property name="type"><value>java.lang.Long</value></property>
+					<property name="expr"><value>=</value></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="memberTypeDS" class="com.ft.common.EntityBeanDataSource">
+		<property name="beanClass">
+			<value>com.ft.rfms.entity.RfmsMemberType</value>
+		</property>
+		<property name="aliasName">
+			<value>merc</value>
+		</property>
+		<property name="entityManager">
+			<ref bean="entityManager" />
+		</property>
+		<property name="queryHelper">
+			<ref bean="entityQueryHelper" />
+		</property>
+		<property name="orderFields">
+			<value>id desc</value>
+		</property>
+		<property name="params">
+			<list>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>name</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.name</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name"><value>operatorId</value></property>
+					<property name="type"><value>java.lang.Long</value></property>
+					<property name="expr"><value>=</value></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="cardDS" class="com.ft.common.EntityBeanDataSource">
+		<property name="beanClass">
+			<value>com.ft.rfms.entity.RfmsCard</value>
+		</property>
+		<property name="aliasName">
+			<value>merc</value>
+		</property>
+		<property name="entityManager">
+			<ref bean="entityManager" />
+		</property>
+		<property name="queryHelper">
+			<ref bean="entityQueryHelper" />
+		</property>
+		<property name="orderFields">
+			<value>id desc</value>
+		</property>
+		<property name="params">
+			<list>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>cardSerial</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.cardSerial</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>cardName</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.cardName</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>status</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.status</value>
+					</property>
+					<property name="type">
+						<value>java.lang.Long</value>
+					</property>
+					<property name="expr">
+						<value>=</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name"><value>operatorId</value></property>
+					<property name="type"><value>java.lang.Long</value></property>
+					<property name="expr"><value>=</value></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="merchantDS" class="com.ft.common.EntityBeanDataSource">
+		<property name="beanClass">
+			<value>com.ft.rfms.entity.RfmsMerchant</value>
+		</property>
+		<property name="aliasName">
+			<value>merc</value>
+		</property>
+		<property name="entityManager">
+			<ref bean="entityManager" />
+		</property>
+		<property name="queryHelper">
+			<ref bean="entityQueryHelper" />
+		</property>
+		<property name="orderFields">
+			<value>id desc</value>
+		</property>
+		<property name="params">
+			<list>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>merchantName</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.merchantName</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>merchantCode</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.merchantCode</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>status</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.status</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>=</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>auditStatus</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.auditStatus</value>
+					</property>
+					<property name="type">
+						<value>java.lang.Long</value>
+					</property>
+					<property name="expr">
+						<value>=</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>auditStatus</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.auditStatus</value>
+					</property>
+					<property name="type">
+						<value>java.lang.Long</value>
+					</property>
+					<property name="expr">
+						<value>=</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>operatorId</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.operatorId</value>
+					</property>
+					<property name="type">
+						<value>java.lang.Long</value>
+					</property>
+					<property name="expr">
+						<value>=</value>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="merchantRepDS" class="com.ft.common.EntityBeanDataSource">
+		<property name="beanClass">
+			<value>com.ft.rfms.entity.RfmsMerchant</value>
+		</property>
+		<property name="aliasName">
+			<value>merc</value>
+		</property>
+		<property name="entityManager">
+			<ref bean="entityManager" />
+		</property>
+		<property name="queryHelper">
+			<ref bean="entityQueryHelper" />
+		</property>
+		<property name="orderFields">
+			<value>id desc</value>
+		</property>
+		<property name="params">
+			<list>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>merchantName</value>
+					</property>
+					<property name="paramName">
+						<value>merchantName</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>merchantCode</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.merchantCode</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>settlePeriod</value>
+					</property>
+					<property name="paramName">
+						<value>settlePeriod</value>
+					</property>
+					<property name="type">
+						<value>java.lang.Long</value>
+					</property>
+					<property name="expr">
+						<value>=</value>
+					</property>
+				</bean>
+
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>settleType</value>
+					</property>
+					<property name="paramName">
+						<value>settleType</value>
+					</property>
+					<property name="type">
+						<value>java.lang.Long</value>
+					</property>
+					<property name="expr">
+						<value>=</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>settleDate</value>
+					</property>
+					<property name="paramName">
+						<value>beginDay</value>
+					</property>
+					<property name="type">
+						<value>java.lang.Long</value>
+					</property>
+					<property name="expr">
+						<value>>=</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>settleDate</value>
+					</property>
+					<property name="paramName">
+						<value>endDay</value>
+					</property>
+					<property name="type">
+						<value>java.lang.Long</value>
+					</property>
+					<property name="expr">
+						<value><![CDATA[<=]]></value>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>

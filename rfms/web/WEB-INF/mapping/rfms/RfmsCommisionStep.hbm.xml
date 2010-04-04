@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.rfms.entity">
+	<class
+		name="RfmsCommisionStep"
+		table="RFMS_COMMISION_STEP" schema="RFMS" lazy="false"
+	>
+		<meta attribute="sync-DAO">true</meta>
+		<id
+			name="commisionStepId"
+			type="java.lang.Long"
+			column="COMMISION_STEP_ID"
+		>
+			<generator class="sequence">
+			    <param name="sequence">RFMS.RFMS_COMMISION_STEP_SEQ</param>
+			</generator>
+		</id>
+
+		<property
+			name="merchantId"
+			column="MERCHANT_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="minCharge"
+			column="MIN_CHARGE"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="maxCharge"
+			column="MAX_CHARGE"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="commisionCharge"
+			column="COMMISION_CHARGE"
+			type="java.lang.Float"
+			not-null="false"
+			length="3"
+		/>
+
+
+	</class>	
+</hibernate-mapping>
