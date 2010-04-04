@@ -207,7 +207,7 @@
 						<value>searchObj.status</value>
 					</property>
 					<property name="type">
-						<value>java.lang.Long</value>
+						<value>java.lang.String</value>
 					</property>
 					<property name="expr">
 						<value>=</value>
