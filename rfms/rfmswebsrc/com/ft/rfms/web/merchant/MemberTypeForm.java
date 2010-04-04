@@ -16,12 +16,12 @@ import com.ft.singleTable.web.BaseSimpleForm;
  */
 public class MemberTypeForm extends BaseSimpleForm {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6712704093956357719L;
 	private Long id;
 	private String name;
-	private String memo;
-	private Date createDate;
-	private Date updateDate;
-	private Long operatorId;
 
 	public MemberTypeForm() {
 	}
@@ -34,10 +34,6 @@ public class MemberTypeForm extends BaseSimpleForm {
 			Date updateDate, Long operatorId) {
 		this.id = id;
 		this.name = name;
-		this.memo = memo;
-		this.createDate = createDate;
-		this.updateDate = updateDate;
-		this.operatorId = operatorId;
 	}
 
 	public Long getId() {
@@ -54,38 +50,6 @@ public class MemberTypeForm extends BaseSimpleForm {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getMemo() {
-		return this.memo;
-	}
-
-	public void setMemo(String memo) {
-		this.memo = memo;
-	}
-
-	public Date getCreateDate() {
-		return this.createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
-	public Date getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public Long getOperatorId() {
-		return this.operatorId;
-	}
-
-	public void setOperatorId(Long operatorId) {
-		this.operatorId = operatorId;
 	}
 
 	@Override
