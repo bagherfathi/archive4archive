@@ -81,7 +81,7 @@ public class RfmsMerchant implements Serializable,IBaseEntity {
 	public static String PROP_COMMISION_STEP = "commisionStep";
 	public static String PROP_INDUSTRY = "industry";
 	public static String PROP_MLEVEL = "mlevel";
-	
+	public static String PROP_AMOUNT = "amount";
 
 
 	private int hashCode = Integer.MIN_VALUE;
@@ -136,8 +136,16 @@ public class RfmsMerchant implements Serializable,IBaseEntity {
     private java.lang.Long regionId;
 	private java.lang.String industry;
 	private java.lang.String mlevel;
-   
+	private java.lang.Long amount; //ÕË»§½ð¶î
 
+
+	public java.lang.Long getAmount() {
+		return amount;
+	}
+
+	public void setAmount(java.lang.Long amount) {
+		this.amount = amount;
+	}
 
 	/**
 	 * @return the commisionStep
