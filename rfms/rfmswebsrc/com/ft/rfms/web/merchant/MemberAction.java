@@ -11,23 +11,29 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.ft.rfms.entity.RfmsMember;
+import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.model.RfmsMemberService;
 import com.ft.singleTable.web.BaseSimpleAction;
 
 public class MemberAction extends BaseSimpleAction {
 
 	private RfmsMemberService rfmsMemberService;
+	private String merchantName;
 
 	@Override
 	public ActionForward create(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
-		arg2.getSession().removeAttribute("cardForm");
 		MemberForm aform = (MemberForm) arg1;
-		aform.reset(arg0, arg2);
 		arg2.getSession().setAttribute("baseEntity.operatorId",
 				aform.getCurrentUser().getOperatorId());
 
-		arg2.getSession().setAttribute("cardForm", aform);
+		RfmsMerchant rfmsMerchant = (RfmsMerchant) rfmsMemberService
+				.getEntityByIdentityAttribute(RfmsMerchant.class,
+						"merchantCode", aform.getCurrentUser()
+								.getMerchantCode());
+		if (rfmsMerchant != null) {
+			merchantName = rfmsMerchant.getMerchantCode();
+		}
 
 		return arg0.findForward("edit");
 	}
@@ -78,6 +84,14 @@ public class MemberAction extends BaseSimpleAction {
 
 	public void setRfmsMemberService(RfmsMemberService rfmsMemberService) {
 		this.rfmsMemberService = rfmsMemberService;
+	}
+
+	public String getMerchantName() {
+		return merchantName;
+	}
+
+	public void setMerchantName(String merchantName) {
+		this.merchantName = merchantName;
 	}
 
 }
