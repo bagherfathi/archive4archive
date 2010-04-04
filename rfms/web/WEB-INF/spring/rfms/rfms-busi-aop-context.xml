@@ -17,22 +17,10 @@
 			<ref bean="rfmsMemberServiceImpl" />
 		</property>
 	</bean>
-
-	<bean id="rfmsMemberTypeService" parent="transactionProxyFactoryBean">
+	
+	<bean id="rfmsTicketService" parent="transactionProxyFactoryBean">
 		<property name="target">
-			<ref bean="rfmsMemberTypeServiceImpl" />
-		</property>
-	</bean>
-
-	<bean id="rfmsCardSendService" parent="transactionProxyFactoryBean">
-		<property name="target">
-			<ref bean="rfmsCardSendServiceImpl" />
-		</property>
-	</bean>
-
-	<bean id="rfmsCardService" parent="transactionProxyFactoryBean">
-		<property name="target">
-			<ref bean="rfmsCardServiceImpl" />
+			<ref bean="rfmsTicketServiceImpl" />
 		</property>
 	</bean>
 

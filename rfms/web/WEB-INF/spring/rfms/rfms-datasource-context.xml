@@ -5,32 +5,6 @@
     "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="cardSendDS" class="com.ft.common.EntityBeanDataSource">
-		<property name="beanClass">
-			<value>com.ft.rfms.entity.RfmsCardSend</value>
-		</property>
-		<property name="aliasName">
-			<value>merc</value>
-		</property>
-		<property name="entityManager">
-			<ref bean="entityManager" />
-		</property>
-		<property name="queryHelper">
-			<ref bean="entityQueryHelper" />
-		</property>
-		<property name="orderFields">
-			<value>id desc</value>
-		</property>
-		<property name="params">
-			<list>
-				<bean class="com.ft.hibernate.datasource.EntityParam">
-					<property name="name"><value>operatorId</value></property>
-					<property name="type"><value>java.lang.Long</value></property>
-					<property name="expr"><value>=</value></property>
-				</bean>
-			</list>
-		</property>
-	</bean>
 	
 	<bean id="smsDS" class="com.ft.common.EntityBeanDataSource">
 		<property name="beanClass">
@@ -113,9 +87,10 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="memberTypeDS" class="com.ft.common.EntityBeanDataSource">
+	
+	<bean id="ticketDS" class="com.ft.common.EntityBeanDataSource">
 		<property name="beanClass">
-			<value>com.ft.rfms.entity.RfmsMemberType</value>
+			<value>com.ft.rfms.entity.RfmsTicket</value>
 		</property>
 		<property name="aliasName">
 			<value>merc</value>
@@ -133,50 +108,10 @@
 			<list>
 				<bean class="com.ft.hibernate.datasource.EntityParam">
 					<property name="name">
-						<value>name</value>
+						<value>ticketSerial</value>
 					</property>
 					<property name="paramName">
-						<value>searchObj.name</value>
-					</property>
-					<property name="type">
-						<value>java.lang.String</value>
-					</property>
-					<property name="expr">
-						<value>like</value>
-					</property>
-				</bean>
-				<bean class="com.ft.hibernate.datasource.EntityParam">
-					<property name="name"><value>operatorId</value></property>
-					<property name="type"><value>java.lang.Long</value></property>
-					<property name="expr"><value>=</value></property>
-				</bean>
-			</list>
-		</property>
-	</bean>
-	<bean id="cardDS" class="com.ft.common.EntityBeanDataSource">
-		<property name="beanClass">
-			<value>com.ft.rfms.entity.RfmsCard</value>
-		</property>
-		<property name="aliasName">
-			<value>merc</value>
-		</property>
-		<property name="entityManager">
-			<ref bean="entityManager" />
-		</property>
-		<property name="queryHelper">
-			<ref bean="entityQueryHelper" />
-		</property>
-		<property name="orderFields">
-			<value>id desc</value>
-		</property>
-		<property name="params">
-			<list>
-				<bean class="com.ft.hibernate.datasource.EntityParam">
-					<property name="name">
-						<value>cardSerial</value>
-					</property>
-					<property name="paramName">
-						<value>searchObj.cardSerial</value>
+						<value>searchObj.ticketSerial</value>
 					</property>
 					<property name="type">
 						<value>java.lang.String</value>
@@ -187,10 +122,10 @@
 				</bean>
 				<bean class="com.ft.hibernate.datasource.EntityParam">
 					<property name="name">
-						<value>cardName</value>
+						<value>ticketName</value>
 					</property>
 					<property name="paramName">
-						<value>searchObj.cardName</value>
+						<value>searchObj.ticketName</value>
 					</property>
 					<property name="type">
 						<value>java.lang.String</value>

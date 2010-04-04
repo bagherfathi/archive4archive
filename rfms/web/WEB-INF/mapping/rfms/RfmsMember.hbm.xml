@@ -1,66 +1,124 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2010-4-3 21:22:51 by Hibernate Tools 3.3.0.GA -->
-<hibernate-mapping>
-    <class name="com.ft.rfms.entity.RfmsMember" table="RFMS_MEMBER" schema="RFMS">
-        <meta attribute="sync-DAO">true</meta>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.rfms.entity">
+	<class
+		name="RfmsMember"
+		table="RFMS_MEMBER" schema="RFMS" lazy="false"
+	>
+		<meta attribute="sync-DAO">true</meta>
+
 		<id
 			name="id"
 			type="java.lang.Long"
 			column="ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">RFMS.RFMS_MERCHANT_SEQ</param>
+			    <param name="sequence">RFMS.RFMS_MEMBER_SEQ</param>
 			</generator>
 		</id>
-        <property name="cardSerial" type="string">
-            <column name="CARD_SERIAL" />
-        </property>
-        <property name="mobile" type="string">
-            <column name="MOBILE" />
-        </property>
-        <property name="name" type="string">
-            <column name="NAME" length="120" />
-        </property>
-        <property name="zjStatus" type="java.lang.Character">
-            <column name="ZJ_STATUS" length="1" />
-        </property>
-        <property name="zjNumber" type="string">
-            <column name="ZJ_NUMBER" />
-        </property>
-        <property name="age" type="java.lang.Character">
-            <column name="AGE" length="1" />
-        </property>
-        <property name="birthDate" type="date">
-            <column name="BIRTH_DATE" length="7" />
-        </property>
-        <property name="tel" type="string">
-            <column name="TEL" />
-        </property>
-        <property name="email" type="string">
-            <column name="EMAIL" />
-        </property>
-        <property name="address" type="string">
-            <column name="ADDRESS" />
-        </property>
-        <property name="zipcode" type="string">
-            <column name="ZIPCODE" />
-        </property>
-        <property name="status" type="java.lang.Character">
-            <column name="STATUS" length="1" />
-        </property>
-        <property name="memberTypeId" type="java.lang.Long">
-            <column name="MEMBER_TYPE_ID" precision="14" scale="0" />
-        </property>
-        <property name="createDate" type="date">
-            <column name="CREATE_DATE" length="7" />
-        </property>
-        <property name="updateDate" type="date">
-            <column name="UPDATE_DATE" length="7" />
-        </property>
-        <property name="operatorId" type="java.lang.Long">
-            <column name="OPERATOR_ID" precision="14" scale="0" />
-        </property>
-    </class>
+		
+		<property
+			name="mobile"
+			column="MOBILE"
+			type="string"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="name"
+			column="NAME"
+			type="string"
+			not-null="false"
+			length="120"
+		/>
+		<property
+			name="sex"
+			column="SEX"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="birthDate"
+			column="BIRTH_DATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="tel"
+			column="TEL"
+			type="string"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="email"
+			column="EMAIL"
+			type="string"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="address"
+			column="ADDRESS"
+			type="string"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="zipcode"
+			column="ZIPCODE"
+			type="string"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="status"
+			column="STATUS"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="memberType"
+			column="MEMBER_TYPE"
+			type="java.lang.Long"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="createDate"
+			column="CREATE_DATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="updateDate"
+			column="UPDATE_DATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="pwd"
+			column="PWD"
+			type="string"
+			not-null="false"
+			length="36"
+		/>
+
+
+	</class>	
 </hibernate-mapping>

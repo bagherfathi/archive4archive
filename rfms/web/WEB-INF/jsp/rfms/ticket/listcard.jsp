@@ -30,7 +30,7 @@
 			</tr>
 			<tr>
 				<webui:input label="label.rfms.card.status" colspan="3">
-					<html:select property="baseEntity.status">
+					<html:select property="searchObj.status">
 						<html:option value="-1">请选择</html:option>
 						<html:optionsCollection name="enumSet"
 							property="element(STATUS@RFMS_CARD)" />
@@ -84,7 +84,7 @@
 					property="yxDate" title="飞券有效期">
 				</webui:column>
 				<webui:column property="status" title="label.rfms.card.status">
-					<webui:lookup code="status@RFMS_CARD" value="${card.status}" />
+					<webui:lookup code="STATUS@RFMS_CARD" value="${card.status}" />
 				</webui:column>
 				<webui:column property="op" title="title.rfms.common.operater"
 					width="3%">

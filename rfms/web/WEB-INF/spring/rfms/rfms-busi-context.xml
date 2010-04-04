@@ -7,7 +7,7 @@
 <beans default-autowire="no" default-lazy-init="false"
 	default-dependency-check="none">
 
-	<bean id="RfmsCardSendDAO" class="com.ft.rfms.entity.dao.RfmsCardSendDAO">
+	<bean id="RfmsTicketDAO" class="com.ft.rfms.entity.dao.RfmsTicketDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -22,12 +22,12 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="RfmsMemberTypeDAO" class="com.ft.rfms.entity.dao.RfmsMemberTypeDAO">
+	<bean id="RfmsTicketDetailDAO" class="com.ft.rfms.entity.dao.RfmsTicketDetailDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="RfmsCardDAO" class="com.ft.rfms.entity.dao.RfmsCardDAO">
+	<bean id="RfmsTicketBindDAO" class="com.ft.rfms.entity.dao.RfmsTicketBindDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -125,22 +125,12 @@
 			<ref bean="baseDao" />
 		</property>
 	</bean>
-	<bean id="rfmsCardServiceImpl" class="com.ft.rfms.busi.RfmsCardServiceImpl">
+	<bean id="rfmsTicketServiceImpl" class="com.ft.rfms.busi.RfmsTicketServiceImpl">
 		<property name="baseDao">
 			<ref bean="baseDao" />
 		</property>
-		<property name="rfmsCardDAO">
-			<ref bean="RfmsCardDAO" />
-		</property>
 	</bean>
-	<bean id="rfmsCardSendServiceImpl" class="com.ft.rfms.busi.RfmsCardSendServiceImpl">
-		<property name="baseDao">
-			<ref bean="baseDao" />
-		</property>
-		<property name="rfmsCardSendDAO">
-			<ref bean="RfmsCardSendDAO" />
-		</property>
-	</bean>
+
 	<bean id="rfmsSmsServiceImpl" class="com.ft.rfms.busi.RfmsSmsServiceImpl">
 		<property name="baseDao">
 			<ref bean="baseDao" />
@@ -157,14 +147,7 @@
 			<ref bean="RfmsMemberDAO" />
 		</property>
 	</bean>
-	<bean id="rfmsMemberTypeServiceImpl" class="com.ft.rfms.busi.RfmsMemberTypeServiceImpl">
-		<property name="baseDao">
-			<ref bean="baseDao" />
-		</property>
-		<property name="rfmsMemberTypeDAO">
-			<ref bean="RfmsMemberTypeDAO" />
-		</property>
-	</bean>
+
 	<!--
 		To include additional bean definitions for Spring in the generated
 		application context file, add a file to your XDoclet merge directory
