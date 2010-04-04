@@ -30,12 +30,14 @@ import com.ft.rfms.entity.RfmsCommisionStep;
 import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.entity.RfmsMerchantAudit;
 import com.ft.rfms.entity.RfmsMerchantBranch;
+import com.ft.rfms.entity.RfmsMerchantPayment;
 import com.ft.rfms.entity.RfmsMerchantPos;
 import com.ft.rfms.model.MerchantService;
 import com.ft.rfms.web.RfmsActionDefinition;
 import com.ft.singleTable.web.BaseSimpleAction;
 import com.ft.sm.dto.OperatorDTO;
 import com.ft.struts.ActionMessagesHelper;
+import com.ft.utils.MoneyFormat;
 
 /**
  * @author soler
@@ -895,4 +897,30 @@ public class MerchantAction extends BaseSimpleAction {
 		return arg0.findForward("searchIndex");
 	}
 
+	public ActionForward toPayment(ActionMapping arg0, ActionForm arg1,
+			HttpServletRequest request, HttpServletResponse arg3)
+			throws Exception {
+
+		return arg0.findForward("payment");
+	}
+	
+	public ActionForward payment(ActionMapping arg0, ActionForm arg1,
+			HttpServletRequest request, HttpServletResponse arg3)
+			throws Exception {
+		MerchantForm aform = (MerchantForm) arg1;
+        String strAmount=aform.getStrAmount();
+        String notes=request.getParameter("notes");
+        RfmsMerchantPayment payment=new RfmsMerchantPayment();
+        payment.setAmount(MoneyFormat.yuan2Fen(strAmount));
+        payment.setNotes(notes);
+        payment.setMetchantId(aform.getMerchantId());
+        payment.setPaymentDate(new Date());
+        payment.setPaymentType(new Long(1));
+        payment.setOperatorId(aform.getCurrentUser().getOperatorId());
+        AppRequest appRequest = aform.getAppRequest(request,
+				RfmsActionDefinition.RFMS_MERCHANT_ADD);
+        this.merchantService.savePayment(aform.getMerchantId(), payment, appRequest);
+        
+		return arg0.findForward("searchIndex");
+	}
 }

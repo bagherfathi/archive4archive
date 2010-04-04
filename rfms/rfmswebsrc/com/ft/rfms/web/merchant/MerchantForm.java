@@ -51,6 +51,18 @@ public class MerchantForm extends BaseSimpleForm {
 	
 	private Long auditStatus;
 	
+	private String strAmount;
+	
+	public String getStrAmount() {
+		return strAmount;
+	}
+
+
+	public void setStrAmount(String strAmount) {
+		this.strAmount = strAmount;
+	}
+
+
 	/**
 	 * @return the auditStatus
 	 */
