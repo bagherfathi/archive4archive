@@ -112,6 +112,8 @@
 			<forward name="view" path="rfms.merchant.view" redirect="false" />
 			<forward name="searchIndex" path="rfms.merchant.searchIndex"
 				redirect="false" />
+			<forward name="payment" path="rfms.merchant.payment"
+				redirect="false" />
 		</action>
 		<action path="/fineReport" type="com.ft.rfms.web.report.FineReportAction"
 			name="fineReportForm" scope="request" input="rfms.reports.settlement.Index"
