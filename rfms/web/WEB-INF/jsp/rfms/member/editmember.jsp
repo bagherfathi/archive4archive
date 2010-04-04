@@ -26,7 +26,7 @@
   }
   
  function submitForm(aform){
-	 if(validatememberForm(aform)){
+	 if(validateMemberForm(aform)){
 		  aform.act.value="save";
 		  loadOn();
 		  aform.submit();
