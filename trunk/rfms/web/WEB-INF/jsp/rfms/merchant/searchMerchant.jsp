@@ -77,6 +77,9 @@
 			<webui:column property="auditStatus" title="label.rfms.merchant.audit_status">
 				<webui:lookup code="audit_status@RFMS_MERCHANT" value="${merchant.auditStatus}" />
 			</webui:column>
+			<webui:column property="amount" title="label.rfms.merchant.amount">
+				<c:out value="${merchant.amount/100.00}" />
+			</webui:column>
 			<webui:column property="curUser" title="当前处理人">
 			<webui:query property="opName" beanName="merchantService" methodName="findOperatorByMerchantIdAndAuditStatus">
 			<webui:param name="merchantId" type="java.lang.Long" value="${merchant.merchantId }"/>
@@ -87,7 +90,8 @@
 			    <a
 					href="<c:url value='/rfms/merchant.do?act=edit&id=${merchant.id}'/>">编辑</a>&nbsp;
 				<a
-					href="<c:url value='/rfms/merchant.do?act=view&id=${merchant.id}'/>">查看</a>&nbsp;
+					href="<c:url value='/rfms/merchant.do?act=view&id=${merchant.id}'/>">查看</a>&nbsp;<a
+					href="<c:url value='/rfms/merchant.do?act=toPayment&merchantId=${merchant.id}'/>">充值</a>&nbsp;
 			</webui:column>
 		</webui:row>
 	</webui:table>

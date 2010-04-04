@@ -92,6 +92,10 @@
 					href="<c:url value='/rfms/merchant.do?act=edit&id=${merchant.id}'/>">²é¿´</a>&nbsp;
 			</webui:column>
 			</c:if>
+			<webui:column property="op" title="title.rfms.common.operater" width="3%">
+				<a
+					href="<c:url value='/rfms/merchant.do?act=toPayment&merchantId=${merchant.id}'/>">³äÖµ</a>&nbsp;
+			</webui:column>
 		</webui:row>
 	</webui:table>
 			
