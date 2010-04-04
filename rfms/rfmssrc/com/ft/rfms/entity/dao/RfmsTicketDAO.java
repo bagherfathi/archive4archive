@@ -5,21 +5,21 @@ import java.io.Serializable;
 import org.hibernate.SessionFactory;
 
 import com.ft.hibernate.support.BaseDao;
-import com.ft.rfms.entity.RfmsMember;
+import com.ft.rfms.entity.RfmsTicket;
 
 
 /**
- * RfmsMember 实体数据访问类
- * @spring.bean id="RfmsMemberDAO"
+ * RfmsTicket 实体数据访问类
+ * @spring.bean id="RfmsTicketDAO"
  *
  * @spring.property ref="sessionFactory" name="sessionFactory"
  *
  */
-public class RfmsMemberDAO extends BaseDao {
+public class RfmsTicketDAO extends BaseDao {
 
-	public RfmsMemberDAO () {}
+	public RfmsTicketDAO () {}
 	
-	public RfmsMemberDAO (SessionFactory sessionFactory) {
+	public RfmsTicketDAO (SessionFactory sessionFactory) {
 	 super.setSessionFactory(sessionFactory);
 	}
 
@@ -29,23 +29,23 @@ public class RfmsMemberDAO extends BaseDao {
      * 获取查询实体类
      */
     public Class getReferenceClass () {
-        return RfmsMember.class;
+        return RfmsTicket.class;
     }
 
     /**
      * 根据ID查找对象
      */
-    public RfmsMember getById(Serializable key)
+    public RfmsTicket getById(Serializable key)
     {
-        return (RfmsMember) this.getHibernateTemplate().get(getReferenceClass(),key);
+        return (RfmsTicket) this.getHibernateTemplate().get(getReferenceClass(),key);
     }
 
     /**
      * 根据ID查找对象
      */
-    public RfmsMember loadById(Serializable key)
+    public RfmsTicket loadById(Serializable key)
     {
-        return (RfmsMember) this.getHibernateTemplate().load(getReferenceClass(),key);
+        return (RfmsTicket) this.getHibernateTemplate().load(getReferenceClass(),key);
     }
 
 

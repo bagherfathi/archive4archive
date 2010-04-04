@@ -10,24 +10,24 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import com.ft.rfms.entity.RfmsCardSend;
-import com.ft.rfms.model.RfmsCardSendService;
+import com.ft.rfms.entity.RfmsTicket;
+import com.ft.rfms.model.RfmsTicketService;
 import com.ft.singleTable.web.BaseSimpleAction;
 
-public class CardSendAction extends BaseSimpleAction {
+public class TicketAction extends BaseSimpleAction {
 
-	private RfmsCardSendService rfmsCardSendService;
+	private RfmsTicketService rfmsCardService;
 
 	@Override
 	public ActionForward create(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
-		arg2.getSession().removeAttribute("cardSendForm");
-		CardSendForm aform = (CardSendForm) arg1;
+		arg2.getSession().removeAttribute("cardForm");
+		TicketForm aform = (TicketForm) arg1;
 		aform.reset(arg0, arg2);
 		arg2.getSession().setAttribute("baseEntity.operatorId",
 				aform.getCurrentUser().getOperatorId());
 
-		arg2.getSession().setAttribute("cardSendForm", aform);
+		arg2.getSession().setAttribute("cardForm", aform);
 
 		return arg0.findForward("edit");
 	}
@@ -46,18 +46,17 @@ public class CardSendAction extends BaseSimpleAction {
 
 	public ActionForward edit(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
-		arg2.getSession().removeAttribute("cardSendForm");
+		arg2.getSession().removeAttribute("cardForm");
 		super.edit(arg0, arg1, arg2, arg3);
 
-		CardSendForm aform = (CardSendForm) arg1;
+		TicketForm aform = (TicketForm) arg1;
 		if (aform.getId() != null && aform.getId().longValue() > 0) {
-			RfmsCardSend rfmsCardSend = (RfmsCardSend) aform.getBaseEntity();
+			RfmsTicket RfmsTicket = (RfmsTicket) aform.getBaseEntity();
 
-			aform.setBaseEntity(rfmsCardSend);
+			aform.setBaseEntity(RfmsTicket);
 		}
-		arg2.getSession().setAttribute("baseEntity.operatorId",
-				aform.getCurrentUser().getOperatorId());
-		arg2.getSession().setAttribute("cardSendForm", aform);
+		
+		arg2.getSession().setAttribute("cardForm", aform);
 
 		return arg0.findForward("edit");
 	}
@@ -65,19 +64,20 @@ public class CardSendAction extends BaseSimpleAction {
 	protected ActionForward unspecified(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		super.unspecified(arg0, arg1, arg2, arg3);
-		CardSendForm aform = (CardSendForm) arg1;
+		TicketForm aform = (TicketForm) arg1;
 		arg2.setAttribute("searchObj.operatorId", aform.getCurrentUser()
 				.getOperatorId());
-		arg2.getSession().setAttribute("cardSendForm", aform);
+		arg2.getSession().setAttribute("cardForm", aform);
 		return arg0.getInputForward();
 	}
 
-	public RfmsCardSendService getRfmsCardSendService() {
-		return rfmsCardSendService;
+	public RfmsTicketService getRfmsCardService() {
+		return rfmsCardService;
 	}
 
-	public void setRfmsCardSendService(RfmsCardSendService rfmsCardSendService) {
-		this.rfmsCardSendService = rfmsCardSendService;
+	public void setRfmsCardService(RfmsTicketService rfmsCardService) {
+		this.rfmsCardService = rfmsCardService;
 	}
+
 
 }
