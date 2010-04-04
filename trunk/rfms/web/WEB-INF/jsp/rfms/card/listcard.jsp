@@ -30,7 +30,7 @@
 			</tr>
 			<tr>
 				<webui:input label="label.rfms.card.status" colspan="3">
-					<html:select property="baseEntity.status">
+					<html:select property="searchObj.status">
 						<html:option value="-1">«Î—°‘Ò</html:option>
 						<html:optionsCollection name="enumSet"
 							property="element(STATUS@RFMS_CARD)" />

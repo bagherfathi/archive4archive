@@ -4,7 +4,6 @@
 	<tr>
 		<webui:input label="label.rfms.card.card_name" required="true">
 			<html:hidden property="baseEntity.type" value="1" />
-			<html:hidden property="baseEntity.status" value="1" />
 			<html:hidden property="baseEntity.cardId" />
 			<html:hidden property="baseEntity.operatorId"/>
 			<html:text property="baseEntity.cardName" size="25" />
