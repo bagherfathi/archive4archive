@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.rfms.entity">
+	<class
+		name="RfmsMerchantPayment"
+		table="RFMS_MERCHANT_PAYMENT" schema="RFMS" lazy="false"
+	>
+		<meta attribute="sync-DAO">true</meta>
+
+		<id
+			name="paymentId"
+			type="java.lang.Long"
+			column="PAYMENT_ID"
+		>
+			<generator class="sequence">
+			    <param name="sequence">RFMS.RFMS_MERCHANT_PAYMENT_SEQ</param>
+			</generator>
+		</id>
+		<property
+			name="metchantId"
+			column="METCHANT_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="amount"
+			column="AMOUNT"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="paymentDate"
+			column="PAYMENT_DATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="paymentType"
+			column="PAYMENT_TYPE"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="notes"
+			column="NOTES"
+			type="string"
+			not-null="false"
+			length="1024"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

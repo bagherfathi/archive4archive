@@ -341,6 +341,12 @@
 			not-null="false"
 			length="255"
 		/>
-
+        <property
+			name="amount"
+			column="AMOUNT"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
 	</class>	
 </hibernate-mapping>
