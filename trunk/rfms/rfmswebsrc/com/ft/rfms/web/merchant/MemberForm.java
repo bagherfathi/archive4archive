@@ -33,6 +33,7 @@ public class MemberForm extends BaseSimpleForm {
 	private Date createDate;
 	private Date updateDate;
 	private Long operatorId;
+	
 
 	public MemberForm() {
 	}
