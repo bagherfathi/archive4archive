@@ -14,18 +14,19 @@
 	</tr>
 	<tr>
 		<webui:input label="label.rfms.member.password" required="true">
-			<html:text property="baseEntity.password" size="25" />
+			<html:password property="baseEntity.pwd" size="25" />
+		
 		</webui:input>
-		<webui:input label="label.rfms.membertype.name" required="true">
+		<webui:input label="label.rfms.member.type" required="true">
 			<webui:radioGroup property="baseEntity.status" styleClass="noborder"
 				beanName="enumSet" beanProperty="element(CODE_STATUS@RFMS_CARD)"
 				valueProperty="value" labelProperty="label" defaultValue="1" />
 		</webui:input>
 	</tr>
 	<tr>
-		<webui:input label="label.rfms.member.age">
-			<webui:radioGroup property="baseEntity.age" styleClass="noborder"
-				beanName="enumSet" beanProperty="element(AGE@RFMS_CARD)"
+		<webui:input label="label.rfms.member.sex">
+			<webui:radioGroup property="baseEntity.sex" styleClass="noborder"
+				beanName="enumSet" beanProperty="element(SEX@RFMS_CARD)"
 				valueProperty="value" labelProperty="label" />
 		</webui:input>
 
