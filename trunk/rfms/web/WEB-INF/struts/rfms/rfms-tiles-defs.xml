@@ -99,6 +99,9 @@
 	<definition name="rfms.merchant.searchIndex" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/merchant/searchMerchant.jsp" />
 	</definition>
+	<definition name="rfms.merchant.payment" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/merchant/payment.jsp" />
+	</definition>
 
 	<definition name="rfms.reports.reports" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/reports/reports.jsp" />
