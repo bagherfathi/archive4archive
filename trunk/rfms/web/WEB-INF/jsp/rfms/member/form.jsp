@@ -2,18 +2,10 @@
 <%@ include file="/WEB-INF/jsp/inc/tld.inc"%>
 <webui:formTable>
 	<tr>
-		<webui:input label="label.rfms.member.name" required="true">
+		<webui:input label="label.rfms.member.mobile" required="true">
 			<html:hidden property="baseEntity.id" />
 			<input type="hidden" name="baseEntity.operatorId"
-				value="<c:out value='${membertypeForm.currentUser.merchantCode}'/>" />
-			<html:text property="baseEntity.name" size="25" />
-		</webui:input>
-		<webui:input label="label.rfms.member.cardSerial" required="true">
-			<html:text property="baseEntity.cardSerial" size="25" />
-		</webui:input>
-	</tr>
-	<tr>
-		<webui:input label="label.rfms.member.mobile" required="true">
+				value="<c:out value='${membertypeForm.currentUser.operatorId}'/>" />
 			<html:text property="baseEntity.mobile" size="25" />
 		</webui:input>
 		<webui:input label="label.rfms.member.name" required="true">
@@ -21,52 +13,24 @@
 		</webui:input>
 	</tr>
 	<tr>
-		<webui:input label="label.rfms.member.zjStatus">
-			<html:select property="baseEntity.zjStatus">
-				<html:option value="-1">«Î—°‘Ò</html:option>
-				<html:optionsCollection name="enumSet"
-					property="element(ZJ_STATUS@RFMS_CARD)" />
-			</html:select>
+		<webui:input label="label.rfms.member.password" required="true">
+			<html:text property="baseEntity.password" size="25" />
 		</webui:input>
-		<webui:input label="label.rfms.member.zjNumber" required="true">
-			<html:text property="baseEntity.zjNumber" size="25" />
-		</webui:input>
-	</tr>
-	<tr>
-		<webui:input label="label.rfms.member.age" required="true">
-			<html:text property="baseEntity.age" size="25" />
-		</webui:input>
-		<webui:input label="label.rfms.card.birthDate" required="true">
-			<webui:calendar id="settleStartdate1" property="baseEntity.birthDate"
-				defaultToday="false" />
-		</webui:input>
-	</tr>
-	<tr>
-		<webui:input label="label.rfms.member.tel" required="true">
-			<html:text property="baseEntity.tel" size="25" />
-		</webui:input>
-		<webui:input label="label.rfms.member.email" required="true">
-			<html:text property="baseEntity.email" size="25" />
-		</webui:input>
-	</tr>
-	<tr>
-		<webui:input label="label.rfms.member.address" required="true">
-			<html:text property="baseEntity.address" size="25" />
-		</webui:input>
-		<webui:input label="label.rfms.member.zipcode" required="true">
-			<html:text property="baseEntity.zipcode" size="25" />
-		</webui:input>
-	</tr>
-	<tr>
 		<webui:input label="label.rfms.membertype.name" required="true">
-			<html:text property="baseEntity.memberTypeId" size="25" />
+			<webui:radioGroup property="baseEntity.status" styleClass="noborder"
+				beanName="enumSet" beanProperty="element(CODE_STATUS@RFMS_CARD)"
+				valueProperty="value" labelProperty="label" defaultValue="1" />
 		</webui:input>
-		<webui:input label="label.rfms.member.status">
-			<html:select property="baseEntity.status">
-				<html:option value="-1">«Î—°‘Ò</html:option>
-				<html:optionsCollection name="enumSet"
-					property="element(HY_STATUS@RFMS_CARD)" />
-			</html:select>
+	</tr>
+	<tr>
+		<webui:input label="label.rfms.member.age">
+			<webui:radioGroup property="baseEntity.age" styleClass="noborder"
+				beanName="enumSet" beanProperty="element(AGE@RFMS_CARD)"
+				valueProperty="value" labelProperty="label" />
+		</webui:input>
+
+		<webui:input label="label.rfms.member.address">
+			<html:text property="baseEntity.address" size="25" />
 		</webui:input>
 	</tr>
 </webui:formTable>

@@ -28,14 +28,6 @@
 					<html:text property="searchObj.mobile" size="25" />
 				</webui:input>
 			</tr>
-			<tr>
-				<webui:input label="会员卡号">
-					<html:text property="searchObj.name" size="25" />
-				</webui:input>
-				<webui:input label="证件号码">
-					<html:text property="searchObj.mobile" size="25" />
-				</webui:input>
-			</tr>
 		</webui:formTable>
 		<webui:linkButton styleClass="clsButtonFace"
 			href="javascript:onCreate();" value="sysadmin.button.create" />
