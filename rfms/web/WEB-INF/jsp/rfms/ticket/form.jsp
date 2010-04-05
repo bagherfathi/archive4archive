@@ -3,9 +3,13 @@
 <webui:formTable>
 	<tr>
 		<webui:input label="label.rfms.ticket.ticket_name" required="true">
-			<html:hidden property="baseEntity.type" value="1" />
+			<html:hidden property="baseEntity.sendCount" />
+			<html:hidden property="baseEntity.useCount" />
 			<html:hidden property="baseEntity.ticketId" />
-			<html:hidden property="baseEntity.operatorId"/>
+			<input type="hidden" name="baseEntity.merchantId"
+				value="<c:out value='${ticketForm.currentUser.merchantCode}'/>" />
+			<input type="hidden" name="baseEntity.operatorId"
+				value="<c:out value='${ticketForm.currentUser.operatorId}'/>" />
 			<html:text property="baseEntity.ticketName" size="25" />
 		</webui:input>
 		<webui:input label="label.rfms.ticket.ticketSerial" required="false">
@@ -15,25 +19,25 @@
 
 	<tr>
 		<webui:input label="label.rfms.ticket.type" required="false">
-			<html:text property="" size="25" value="ÏÖ½ðÈ¯" disabled="true" />
+			<html:select property="baseEntity.type">
+				<html:optionsCollection name="enumSet"
+					property="element(TYPE@RFMS_CARD)" />
+			</html:select>
 		</webui:input>
-		<webui:input label="label.rfms.ticket.parValue" required="true">
-			<html:text property="baseEntity.parValue" size="25"
-				onkeydown="onlyNum()" />
-	    </webui:input>
-	</tr>
-	<tr>
-		<webui:input label="label.rfms.ticket.parZhekou" required="true">
-			<html:text property="baseEntity.parZhekou" size="25"
-				onkeydown="onlyNum()" />
-	    </webui:input>
-	</tr>
-	
-	<tr>
 		<webui:input label="label.rfms.ticket.ticketCount" required="true">
 			<html:text property="baseEntity.ticketCount" size="25"
 				onkeydown="onlyNum()" />
-	    </webui:input>
+		</webui:input>
+	</tr>
+	<tr>
+		<webui:input label="label.rfms.ticket.parValue" required="true">
+			<html:text property="baseEntity.parValue" size="25"
+				onkeydown="onlyNum()" />
+		</webui:input>
+		<webui:input label="label.rfms.ticket.parZhekou" required="true">
+			<html:text property="baseEntity.parZhekou" size="25"
+				onkeydown="onlyNum()" />
+		</webui:input>
 	</tr>
 	<tr>
 		<webui:input label="label.rfms.ticket.beginDate" required="true">
@@ -48,24 +52,27 @@
 	<tr>
 		<webui:input label="label.rfms.ticket.status">
 			<html:select property="baseEntity.status">
-				<html:optionsCollection name="enumSet" property="element(STATUS@RFMS_ticket)"/>
+				<html:optionsCollection name="enumSet"
+					property="element(STATUS@RFMS_CARD)" />
 			</html:select>
 		</webui:input>
 		<webui:input label="label.ticket.ohterInfo" required="true">
-			<!-- html:text property="baseEntity.ohterInfo " size="25"/-->
-	    </webui:input>
-		
-	<tr>
-		<webui:input label="label.rfms.ticket.targetMemberType">
-			<html:select property="baseEntity.targetMemberType">
-				<html:optionsCollection name="enumSet" property="element(STATUS@RFMS_ticket)"/>
-			</html:select>
+			<html:text property="baseEntity.ohterInfo" size="25" />
 		</webui:input>
-	</tr>
+
+		<tr>
+			<webui:input label="label.rfms.ticket.targetMemberType" colspan="3">
+				<webui:checkGroup property="baseEntity.targetMemberType"
+					styleClass="noborder" beanName="enumSet"
+					beanProperty="element(CODE_TYPE@RFMS_CARD)" valueProperty="value"
+					labelProperty="label" />
+			</webui:input>
+		</tr>
 	</tr>
 	<tr>
-		<webui:input label="label.ticket.useRule" colspan="3">
-			<html:textarea property="baseEntity.useRule" styleClass="wid80" rows="3" />
+		<webui:input label="label.rfms.ticket.useRule" colspan="3">
+			<html:textarea property="baseEntity.useRule" styleClass="wid80"
+				rows="3" />
 		</webui:input>
 	</tr>
 </webui:formTable>
