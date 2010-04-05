@@ -11,7 +11,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.ft.rfms.entity.RfmsMember;
-import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.model.RfmsMemberService;
 import com.ft.singleTable.web.BaseSimpleAction;
 
@@ -23,18 +22,6 @@ public class MemberAction extends BaseSimpleAction {
 	@Override
 	public ActionForward create(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
-		MemberForm aform = (MemberForm) arg1;
-		arg2.getSession().setAttribute("baseEntity.operatorId",
-				aform.getCurrentUser().getOperatorId());
-
-		RfmsMerchant rfmsMerchant = (RfmsMerchant) rfmsMemberService
-				.getEntityByIdentityAttribute(RfmsMerchant.class,
-						"merchantCode", aform.getCurrentUser()
-								.getMerchantCode());
-		if (rfmsMerchant != null) {
-			merchantName = rfmsMerchant.getMerchantCode();
-		}
-
 		return arg0.findForward("edit");
 	}
 
