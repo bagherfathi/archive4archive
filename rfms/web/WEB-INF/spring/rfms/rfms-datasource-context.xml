@@ -80,7 +80,7 @@
 				</bean>
 				
 				<bean class="com.ft.hibernate.datasource.EntityParam">
-					<property name="name"><value>operatorId</value></property>
+					<property name="name"><value>merchantId</value></property>
 					<property name="type"><value>java.lang.Long</value></property>
 					<property name="expr"><value>=</value></property>
 				</bean>

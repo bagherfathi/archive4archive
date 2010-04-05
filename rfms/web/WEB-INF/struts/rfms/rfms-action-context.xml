@@ -12,6 +12,11 @@
 			<ref bean="rfmsMemberService" />
 		</property>
 	</bean>
+	<bean id="ticketAction" class="com.ft.rfms.web.merchant.TicketAction">
+		<property name="merchantService">
+			<ref bean="merchantService" />
+		</property>
+	</bean>
 
 	<bean id="merchantAction" class="com.ft.rfms.web.merchant.MerchantAction">
 		<property name="merchantService">
