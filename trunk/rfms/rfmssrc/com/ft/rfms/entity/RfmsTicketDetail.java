@@ -60,7 +60,7 @@ public class RfmsTicketDetail implements Serializable,IBaseEntity {
 	private java.util.Date sendDate;
 	private java.lang.Long sendOperatorId;
 	private java.util.Date useDate;
-	private java.lang.Long userPos;
+	private java.lang.String userPos;
 
 
 
@@ -214,7 +214,7 @@ public class RfmsTicketDetail implements Serializable,IBaseEntity {
 	/**
 	 * Return the value associated with the column: USER_POS
 	 */
-	public java.lang.Long getUserPos () {
+	public java.lang.String getUserPos () {
 		return userPos;
 	}
 
@@ -222,7 +222,7 @@ public class RfmsTicketDetail implements Serializable,IBaseEntity {
 	 * Set the value related to the column: USER_POS
 	 * @param userPos the USER_POS value
 	 */
-	public void setUserPos (java.lang.Long userPos) {
+	public void setUserPos (java.lang.String userPos) {
 		this.userPos = userPos;
 	}
 
