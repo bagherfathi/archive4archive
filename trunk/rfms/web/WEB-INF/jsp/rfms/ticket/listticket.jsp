@@ -17,7 +17,7 @@
 </script>
 <html:form action="/ticket" method="post">
 	<input type="hidden" value="search" name="act" />
-	<input type="hidden" name="searchObj.operatorId" value="<c:out value='${ticketForm.currentUser.operatorId }'/>"/>
+	<input type="hidden" name="searchObj.merchantId" value="<c:out value='${ticketForm.currentUser.merchantCode}'/>"/>
 	<webui:panel title="title.rfms.merchant.search" icon="../images/icon_search.gif" width="95%">
 		<webui:formTable>
 			<tr>
@@ -33,7 +33,7 @@
 					<html:select property="searchObj.status">
 						<html:option value="-1">请选择</html:option>
 						<html:optionsCollection name="enumSet"
-							property="element(STATUS@RFMS_ticket)" />
+							property="element(STATUS@RFMS_CARD)" />
 					</html:select>
 				</webui:input>
 			</tr>
@@ -61,30 +61,17 @@
 				</webui:column>
 				<webui:column sortable="true" property="ticketName" title="名称"
 					styleClass="td_normal" />
-				<webui:column property="sfXf" title="是否主动下发">
-					<webui:lookup code="commision_step@RFMS_MERCHANT"
-						value="${ticket.sfXf}" />
-				</webui:column>
-				<webui:column property="sfHy" title="限会员使用">
-					<webui:lookup code="commision_step@RFMS_MERCHANT"
-						value="${ticket.sfHy}" />
-				</webui:column>
-				<webui:column property="sfHf" title="是否需要回复">
-					<webui:lookup code="commision_step@RFMS_MERCHANT"
-						value="${ticket.sfHf}" />
-				</webui:column>
-				<webui:column property="sfZf" title="是否转发">
-					<webui:lookup code="commision_step@RFMS_MERCHANT"
-						value="${ticket.sfZf}" />
+				<webui:column property="status" title="飞券类型">
+					<webui:lookup code="TYPE@RFMS_CARD" value="${ticket.status}" />
 				</webui:column>
 				<webui:column filterable="false" cell="date" format="yyyy-MM-dd"
-					property="fyDate" title="预定下发日期">
+					property="beginDate" title="预定下发日期">
 				</webui:column>
 				<webui:column filterable="false" cell="date" format="yyyy-MM-dd"
-					property="yxDate" title="飞券有效期">
+					property="endDate" title="飞券有效期">
 				</webui:column>
-				<webui:column property="status" title="状态">
-					<webui:lookup code="STATUS@RFMS_ticket" value="${ticket.status}" />
+				<webui:column property="status" title="飞券状态">
+					<webui:lookup code="STATUS@RFMS_CARD" value="${ticket.status}" />
 				</webui:column>
 				<webui:column property="op" title="title.rfms.common.operater"
 					width="3%">
