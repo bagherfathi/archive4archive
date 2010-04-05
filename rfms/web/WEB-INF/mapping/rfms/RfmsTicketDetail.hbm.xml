@@ -72,7 +72,7 @@
 		<property
 			name="userPos"
 			column="USER_POS"
-			type="java.lang.Long"
+			type="java.lang.String"
 			not-null="false"
 			length="14"
 		/>
