@@ -265,7 +265,7 @@
 				</var>
 			</field>
 			<field property="baseEntity.parValue" depends="required,integer">
-				<arg position="0" key="label.rfms.ticket.par_value" />
+				<arg position="0" key="label.rfms.ticket.parValue" />
 			</field>
 		</form>
 		
