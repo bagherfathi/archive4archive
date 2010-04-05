@@ -1,6 +1,7 @@
 package com.ft.rfms.entity.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.hibernate.SessionFactory;
 
@@ -54,6 +55,11 @@ public class RfmsTicketDAO extends BaseDao {
      */
     public java.util.List findAll () {
         return this.getHibernateTemplate().loadAll(getReferenceClass());
+    }
+    
+    @SuppressWarnings("unchecked")
+	public List<RfmsTicket> findTicketsByMerchant(String merchantCode){
+    	return query("from RfmsTicket t where t.merchantId=?",new Object[]{merchantCode});
     }
 
 }
