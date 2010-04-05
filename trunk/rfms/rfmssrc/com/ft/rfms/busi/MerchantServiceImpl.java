@@ -213,6 +213,13 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 			return codeGenerateService.generateBusiCode("RFMS_MERCHANT_BRANCH_SYS_CODE", paramMap);
 	}
 	
+	public String getTicketSysCode(String ticketSysCode){
+	       BusiCodeGenerateService codeGenerateService=(BusiCodeGenerateService)SpringBeanUtils.getBean("busiCodeGenerateService");
+			Map<Object,Object> paramMap = new HashMap<Object,Object>();
+			paramMap.put("ticketSysCode", ticketSysCode);
+			return codeGenerateService.generateBusiCode("RFMS_TICKET_SYS_CODE", paramMap);
+	}
+	
 	public String getMerchantPosSysCode(Long branchId){
 	       BusiCodeGenerateService codeGenerateService=(BusiCodeGenerateService)SpringBeanUtils.getBean("busiCodeGenerateService");
 			Map<Object,Object> paramMap = new HashMap<Object,Object>();
