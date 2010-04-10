@@ -45,8 +45,8 @@ INPUT {
  <html:messages id="message" message="true">
 		      <LI><font color="red"><c:out value="${message}"/></font></LI>
 	        </html:messages>
-  <LI>用户名：<INPUT maxLength="20" name="loginName" id="loginName"> </LI>
-  <LI>密　码：<INPUT type="password" maxLength="32" name="password" ></LI>
+  <LI>用户名：<INPUT maxLength="20" name="loginName" id="loginName" value="admin"> </LI>
+  <LI>密　码：<INPUT type="password" maxLength="32" name="password" value="1"></LI>
   <LI style="PADDING-LEFT: 48px"><INPUT type="hidden" value="0" name=cookietime/>
   <INPUT class="btn" type="submit" value=" 登录 " name="dosubmit"> <INPUT class="btn" type="reset" value=" 清除 " name="reset"> 
 </LI>

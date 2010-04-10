@@ -55,7 +55,7 @@
 					<webui:lookup code="SEX@RFMS_CARD" value="${member.sex}" />
 				</webui:column>	
 				<webui:column property="status" title="会员类别">
-					<webui:lookup code="CODE_STATUS@RFMS_CARD" value="${member.status}" />
+					<webui:lookup code="CODE_TYPE@RFMS_CARD" value="${member.status}" />
 				</webui:column>	
 				<webui:column property="op" title="title.rfms.common.operater"
 					width="3%">

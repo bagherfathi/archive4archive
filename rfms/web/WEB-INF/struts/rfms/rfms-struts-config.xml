@@ -19,7 +19,7 @@
 
 		<form-bean name="merchantForm" type="com.ft.rfms.web.merchant.MerchantForm" />
 		<form-bean name="ticketForm" type="com.ft.rfms.web.merchant.TicketForm" />
-		<form-bean name="ticketsendForm" type="com.ft.rfms.web.merchant.TicketSendForm" />
+		<form-bean name="ticketdetailForm" type="com.ft.rfms.web.merchant.TicketDetailForm" />
 		<form-bean name="smsForm" type="com.ft.rfms.web.merchant.SmsForm" />
 		<form-bean name="memberForm" type="com.ft.rfms.web.merchant.MemberForm" />
 		<form-bean name="merchantForm" type="com.ft.rfms.web.merchant.MerchantForm" />
@@ -64,17 +64,29 @@
 				redirect="false" />
 			<forward name="view" path="rfms.ticket.view" redirect="false" />
 		</action>
+		
 		<action path="/ticketsend" type="com.ft.rfms.web.merchant.TicketSendAction"
-			name="ticketsendForm" scope="session" input="rfms.ticketsend.index"
+			name="ticketdetailForm" scope="session" input="rfms.ticketdetail.index"
 			parameter="act" unknown="false" validate="false">
-			<forward name="edit" path="rfms.ticketsend.edit" redirect="false" />
-			<forward name="searchIndex" path="rfms.ticketsend.searchIndex"
-				redirect="false" />
-			<forward name="view" path="rfms.ticketsend.view" redirect="false" />
 		</action>
-		<action path="/sms" type="com.ft.rfms.web.merchant.SmsAction"
-			name="smsForm" scope="session" input="rfms.sms.index"
+		
+		<action path="/ticketdetail" type="com.ft.rfms.web.merchant.TicketDetailAction"
+			name="ticketdetailForm" scope="session" input="rfms.ticketdetail.list"
 			parameter="act" unknown="false" validate="false">
+		</action>
+
+		<action path="/ticket" type="com.ft.rfms.web.merchant.TicketAction"
+			name="ticketForm" scope="session" input="rfms.ticket.index"
+			parameter="act" unknown="false" validate="false">
+			<forward name="edit" path="rfms.ticket.edit" redirect="false" />
+			<forward name="searchIndex" path="rfms.ticket.searchIndex"
+				redirect="false" />
+			<forward name="view" path="rfms.ticket.view" redirect="false" />
+		</action>
+
+		<action path="/sms" type="com.ft.rfms.web.merchant.SmsAction"
+			name="smsForm" scope="session" input="rfms.sms.index" parameter="act"
+			unknown="false" validate="false">
 			<forward name="edit" path="rfms.sms.edit" redirect="false" />
 			<forward name="searchIndex" path="rfms.sms.searchIndex"
 				redirect="false" />
@@ -87,6 +99,11 @@
 			<forward name="searchIndex" path="rfms.member.searchIndex"
 				redirect="false" />
 			<forward name="view" path="rfms.member.view" redirect="false" />
+		</action>
+		
+		<action path="/memberimp" type="com.ft.rfms.web.merchant.MemberImport"
+			name="memberForm" scope="session" input="rfms.memberimp.index"
+			parameter="act" unknown="false" validate="false">
 		</action>
 
 		<action path="/merchant" type="com.ft.rfms.web.merchant.MerchantAction"

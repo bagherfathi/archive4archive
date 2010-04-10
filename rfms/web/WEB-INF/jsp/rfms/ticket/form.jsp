@@ -12,7 +12,7 @@
 				value="<c:out value='${ticketForm.currentUser.operatorId}'/>" />
 			<html:text property="baseEntity.ticketName" size="25" />
 		</webui:input>
-		<webui:input label="label.rfms.ticket.ticketSerial" required="false">
+		<webui:input label="label.rfms.ticket.ticketSerial" >
 			<html:text property="baseEntity.ticketSerial" size="25" />
 		</webui:input>
 	</tr>
@@ -56,7 +56,7 @@
 					property="element(STATUS@RFMS_CARD)" />
 			</html:select>
 		</webui:input>
-		<webui:input label="label.ticket.ohterInfo" required="true">
+		<webui:input label="label.ticket.ohterInfo" >
 			<html:text property="baseEntity.ohterInfo" size="25" />
 		</webui:input>
 
@@ -70,7 +70,7 @@
 		</tr>
 	</tr>
 	<tr>
-		<webui:input label="label.rfms.ticket.useRule" colspan="3">
+		<webui:input label="label.rfms.ticket.useRule" required="true" colspan="3">
 			<html:textarea property="baseEntity.useRule" styleClass="wid80"
 				rows="3" />
 		</webui:input>

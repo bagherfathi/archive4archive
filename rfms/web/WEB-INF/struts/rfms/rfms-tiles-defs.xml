@@ -9,7 +9,13 @@
 	-->
 
 	<!--BankOrgAction.edit -->
-	
+	<definition name="rfms.ticketdetail.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticketdetail/ticketsend.jsp" />
+	</definition>
+	<definition name="rfms.ticketdetail.list" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticketdetail/listticketdetail.jsp" />
+	</definition>
+
 	<definition name="rfms.ticket.edit" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticket/editticket.jsp" />
 	</definition>
@@ -22,7 +28,7 @@
 	<definition name="rfms.ticket.view" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticket/showticket.jsp" />
 	</definition>
-	
+
 	<definition name="rfms.ticketsend.edit" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticketsend/editticketsend.jsp" />
 	</definition>
@@ -49,6 +55,10 @@
 		<put name="body" value="/WEB-INF/jsp/rfms/sms/showsms.jsp" />
 	</definition>
 
+
+	<definition name="rfms.memberimp.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/member/upload.jsp" />
+	</definition>
 	
 	<definition name="rfms.member.edit" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/member/editmember.jsp" />
@@ -63,7 +73,7 @@
 		<put name="body" value="/WEB-INF/jsp/rfms/member/showmember.jsp" />
 	</definition>
 
-	
+
 	<definition name="rfms.merchant.edit" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/merchant/editMerchant.jsp" />
 	</definition>
