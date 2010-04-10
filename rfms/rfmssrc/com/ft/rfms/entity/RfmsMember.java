@@ -72,6 +72,15 @@ public class RfmsMember implements Serializable,IBaseEntity {
 	private java.util.Date createDate;
 	private java.util.Date updateDate;
 	private java.lang.Long operatorId;
+	private java.lang.Long merchantId;
+	public java.lang.Long getMerchantId() {
+		return merchantId;
+	}
+
+	public void setMerchantId(java.lang.Long merchantId) {
+		this.merchantId = merchantId;
+	}
+
 	private java.lang.String pwd;
 
 

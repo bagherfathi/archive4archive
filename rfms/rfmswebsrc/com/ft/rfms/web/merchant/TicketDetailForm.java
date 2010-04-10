@@ -14,12 +14,30 @@ import com.ft.singleTable.web.BaseSimpleForm;
  */
 public class TicketDetailForm extends BaseSimpleForm {
 	private static final long serialVersionUID = -4253519821578386058L;
+	private String mobiles;
+	private String mobiles1;
 
 	@Override
 	public void reset(ActionMapping arg0, HttpServletRequest arg1) {
 		super.reset(arg0, arg1);
 		this.setBaseEntity(new RfmsTicketDetail());
 		this.setSearchObj(new RfmsTicketDetail());
+	}
+
+	public String getMobiles() {
+		return mobiles;
+	}
+
+	public void setMobiles(String mobiles) {
+		this.mobiles = mobiles;
+	}
+
+	public String getMobiles1() {
+		return mobiles1;
+	}
+
+	public void setMobiles1(String mobiles1) {
+		this.mobiles1 = mobiles1;
 	}
 
 }
