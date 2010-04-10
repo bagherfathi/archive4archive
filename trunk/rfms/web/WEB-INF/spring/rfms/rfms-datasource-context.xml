@@ -32,6 +32,30 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="ticketDetailDS" class="com.ft.common.EntityBeanDataSource">
+		<property name="beanClass">
+			<value>com.ft.rfms.entity.RfmsTicketDetail</value>
+		</property>
+		<property name="aliasName">
+			<value>merc</value>
+		</property>
+		<property name="entityManager">
+			<ref bean="entityManager" />
+		</property>
+		<property name="queryHelper">
+			<ref bean="entityQueryHelper" />
+		</property>
+		<property name="orderFields">
+			<value>id desc</value>
+		</property>
+		<property name="params">
+			<list>
+			
+			</list>
+		</property>
+	</bean>
+	
 	<bean id="memberDS" class="com.ft.common.EntityBeanDataSource">
 		<property name="beanClass">
 			<value>com.ft.rfms.entity.RfmsMember</value>

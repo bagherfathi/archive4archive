@@ -10,21 +10,18 @@
 		</method>
 	</action>
 	
-	<action path="/card">
+	<action path="/ticket">
 		<method name="save" validate="true" key="msg.show.save.success"
-			input="rfms.card.edit" showMessage="true">
+			input="rfms.trcket.edit" showMessage="true">
 		</method>
 		 <method name="delete" validate="true" key="msg.show.delete.success"
-			input="rfms.card.list" showMessage="true">
+			input="rfms.tricket.list" showMessage="true">
 		</method>
 	</action>
 	
-	<action path="/cardsend">
+	<action path="/ticketsend">
 		<method name="save" validate="true" key="msg.show.save.success"
-			input="rfms.cardSend.edit" showMessage="true">
-		</method>
-		 <method name="delete" validate="true" key="msg.show.delete.success"
-			input="rfms.cardsend.list" showMessage="true">
+			input="rfms.ticketdetail.index" showMessage="true">
 		</method>
 	</action>
 	<action path="/sms">
@@ -43,12 +40,9 @@
 			input="rfms.member.list" showMessage="true">
 		</method>
 	</action>
-	<action path="/membertype">
+	<action path="/memberimp">
 		<method name="save" validate="true" key="msg.show.save.success"
-			input="rfms.membertype.edit" showMessage="true">
-		</method>
-		 <method name="delete" validate="true" key="msg.show.delete.success"
-			input="rfms.membertype.list" showMessage="true">
+			input="rfms.memberimp.index" showMessage="true">
 		</method>
 	</action>
 	

@@ -19,7 +19,7 @@
 		</webui:input>
 		<webui:input label="label.rfms.member.type" required="true">
 			<webui:radioGroup property="baseEntity.status" styleClass="noborder"
-				beanName="enumSet" beanProperty="element(CODE_STATUS@RFMS_CARD)"
+				beanName="enumSet" beanProperty="element(CODE_TYPE@RFMS_CARD)"
 				valueProperty="value" labelProperty="label" defaultValue="1" />
 		</webui:input>
 	</tr>

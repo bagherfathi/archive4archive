@@ -129,6 +129,9 @@
 		<property name="baseDao">
 			<ref bean="baseDao" />
 		</property>
+		<property name="rfmsTicketDAO">
+			<ref bean="RfmsTicketDAO" />
+		</property>
 	</bean>
 
 	<bean id="rfmsSmsServiceImpl" class="com.ft.rfms.busi.RfmsSmsServiceImpl">

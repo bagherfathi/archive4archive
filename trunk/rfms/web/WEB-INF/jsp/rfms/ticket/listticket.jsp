@@ -77,10 +77,8 @@
 					width="3%">
 					<a href="<c:url value='/rfms/ticket.do?act=edit&id=${ticket.id}'/>"><bean:message
 						key="sysadmin.button.edit" /></a>&nbsp;
-			</webui:column>
-
-				<webui:column property="op" title="title.rfms.common.operater"
-					width="3%">
+					<a href="<c:url value='/rfms/ticketsend.do?id=${ticket.id}'/>">飞券下发</a>&nbsp;
+			
 					<a href="<c:url value='/rfms/ticket.do?act=view&id=${ticket.id}'/>">查看</a>&nbsp;
 			</webui:column>
 
