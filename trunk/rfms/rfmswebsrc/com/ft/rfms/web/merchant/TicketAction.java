@@ -46,18 +46,17 @@ public class TicketAction extends BaseSimpleAction {
 		}
 		merchantService.saveOrUpdate(ticket);
 
-		if (ticket.getId() == null) {
-			// 生成飞券卡详细
-			for (int i = 0; i < ticket.getTicketCount(); i++) {
-				RfmsTicketDetail td = new RfmsTicketDetail();
-				String seqNumber = merchantService.getTicketSysCode("");
-				td.setSeqNumber(seqNumber);// 生成下发卡编号
-				td.setMobile("");
-				td.setStatus(new Long(1));// 1.等待下发 2.已下发 3.已使用
-				td.setTicketId(ticket.getId());
-				merchantService.save(td);
-			}
+		// 生成飞券卡详细
+		for (int i = 0; i < ticket.getTicketCount(); i++) {
+			RfmsTicketDetail td = new RfmsTicketDetail();
+			String seqNumber = merchantService.getTicketSysCode("");
+			td.setSeqNumber(seqNumber);// 生成下发卡编号
+			td.setMobile("");
+			td.setStatus(new Long(1));// 1.等待下发 2.已下发 3.已使用
+			td.setTicketId(ticket.getId());
+			merchantService.save(td);
 		}
+
 		return unspecified(arg0, arg1, arg2, arg3);
 	}
 
