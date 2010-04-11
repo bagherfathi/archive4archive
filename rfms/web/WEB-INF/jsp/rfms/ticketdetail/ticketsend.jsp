@@ -66,7 +66,7 @@
         }
     }
 
-    function saveMailGroup() {
+    function saveGroup() {
         mergelist();
     	var codevalue  = $('codevalue').value;
     	if(codevalue==""){
@@ -231,7 +231,7 @@ function addByType(arr,type){
 		</webui:formTable>
 		<br />
 		<webui:linkButton styleClass="clsButtonFace"
-			href="javascript:saveMailGroup();"
+			href="javascript:saveGroup();"
 			value="sysadmin.button.save" />
 		<webui:linkButton styleClass="clsButtonFace"
 			href="javascript:onBack();" value="sysadmin.button.return" />

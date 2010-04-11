@@ -77,7 +77,8 @@
 					width="3%">
 					<a href="<c:url value='/rfms/ticket.do?act=edit&id=${ticket.id}'/>"><bean:message
 						key="sysadmin.button.edit" /></a>&nbsp;
-					<a href="<c:url value='/rfms/ticketsend.do?id=${ticket.id}'/>">飞券下发</a>&nbsp;
+					<a href="<c:url value='/rfms/ticketsend.do?id=${ticket.id}'/>">会员下发</a>&nbsp;
+					<a href="<c:url value='/rfms/ticketsendtem.do?id=${ticket.id}'/>">模板下发</a>&nbsp;
 			
 					<a href="<c:url value='/rfms/ticket.do?act=view&id=${ticket.id}'/>">查看</a>&nbsp;
 			</webui:column>

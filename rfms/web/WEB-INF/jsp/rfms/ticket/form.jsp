@@ -47,7 +47,7 @@
 		</webui:input>
 		<webui:input label="label.rfms.ticket.endDate" required="true">
 			<webui:calendar id="settleStartdate1" property="baseEntity.endDate"
-				defaultToday="false" />
+				defaultToday="false" readonly="true" />
 		</webui:input>
 	</tr>
 	<tr>

@@ -29,17 +29,26 @@
 			tableId="ticketdetailForm" form="ticketdetailForm">
 			<webui:row>
 				<webui:column property="seqNumber" title="飞券编号" styleClass="td_normal"/>
-				<webui:column sortable="true" property="ticketId" title="名称" styleClass="td_normal" />
+				<webui:column property="ticketId" title="飞券名称">
+				<webui:query property="ticketName" beanName="rfmsTicketService" methodName="getRfmsTicketById">
+				<webui:param name="ticketId" type="java.lang.Long" value="${ticketdetail.ticketId }"/>
+				</webui:query>
+				</webui:column>
 				<webui:column property="status" title="飞券状态">
 					<webui:lookup code="SEND_STATUS@RFMS_CARD" value="${ticketdetail.status}" />
 				</webui:column>
 				<webui:column sortable="true" property="mobile" title="手机"
 					styleClass="td_normal" />
-				<webui:column filterable="false" cell="date" format="yyyy-MM-dd HH:mm:ss"
+				<webui:column filterable="false" cell="date" format="yyyy-MM-dd"
 					property="sendDate" title="发送时间">
 				</webui:column>
-				<webui:column sortable="true" property="operator.opName" title="发送人"
-					styleClass="td_normal" />
+					
+				<webui:column property="sendOperatorId" title="发送人">
+				<webui:query property="opName" beanName="merchantService" methodName="findOperatorById">
+				<webui:param name="sendOperatorId" type="java.lang.Long" value="${ticketdetail.sendOperatorId }"/>
+				</webui:query>
+				</webui:column>
+				
 				<webui:column sortable="true" property="useDate" title="使用时间"
 					styleClass="td_normal" />
 				<webui:column sortable="true" property="userPos" title="POS机"
