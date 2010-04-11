@@ -72,12 +72,12 @@ public class RfmsTicketDAO extends BaseDao {
 		return this
 				.query(hql.toString(), new Object[] { rfmsTicketId, status });
 	}
-    
-    @SuppressWarnings("unchecked")
-	public List<RfmsTicket> findTicketsByMerchant(String merchantCode){
-    	return query("from RfmsTicket t where t.merchantId=?",new Object[]{merchantCode});
-    }
 
+	@SuppressWarnings("unchecked")
+	public List<RfmsTicket> findTicketsByMerchant(String merchantCode) {
+		return query("from RfmsTicket t where t.merchantId=?",
+				new Object[] { merchantCode });
+	}
 
 	/**
 	 * 得到已经下发的飞券卡下发信息
@@ -90,10 +90,22 @@ public class RfmsTicketDAO extends BaseDao {
 			Long rfmsTicketId, Long status) {
 		StringBuffer hql = new StringBuffer("from RfmsTicketDetail rt");
 		hql.append(" where rt.").append(RfmsTicket.PROP_TICKET_ID).append("=?")
-				.append(" and rt.").append(RfmsTicket.PROP_STATUS).append("> ?");
+				.append(" and rt.").append(RfmsTicket.PROP_STATUS)
+				.append("> ?");
 
 		return this
 				.query(hql.toString(), new Object[] { rfmsTicketId, status });
+	}
+
+	public RfmsTicket searchTicket(String merchantCode, String ticketCode)
+			throws Exception {
+		StringBuffer hql = new StringBuffer("from RfmsTicket rt");
+		hql.append(" where rt.").append(RfmsTicket.PROP_OPERATOR_ID).append(
+				"=?").append(" and rt.").append(RfmsTicket.PROP_TICKET_SERIAL)
+				.append("=?");
+
+		return (RfmsTicket) this.query(hql.toString(), new Object[] {
+				merchantCode, ticketCode });
 	}
 
 }

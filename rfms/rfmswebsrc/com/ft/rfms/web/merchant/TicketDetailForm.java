@@ -2,10 +2,13 @@ package com.ft.rfms.web.merchant;
 
 // Generated 2010-3-31 17:04:50 by Hibernate Tools 3.3.0.GA
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
+import com.ft.rfms.entity.RfmsTicket;
 import com.ft.rfms.entity.RfmsTicketDetail;
 import com.ft.singleTable.web.BaseSimpleForm;
 
@@ -16,6 +19,15 @@ public class TicketDetailForm extends BaseSimpleForm {
 	private static final long serialVersionUID = -4253519821578386058L;
 	private String mobiles;
 	private String mobiles1;
+	private RfmsTicket rfmsTicket;
+
+	public RfmsTicket getRfmsTicket() {
+		return rfmsTicket;
+	}
+
+	public void setRfmsTicket(RfmsTicket rfmsTicket) {
+		this.rfmsTicket = rfmsTicket;
+	}
 
 	@Override
 	public void reset(ActionMapping arg0, HttpServletRequest arg1) {

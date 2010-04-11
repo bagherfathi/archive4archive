@@ -10,7 +10,6 @@ import com.ft.common.busi.BaseService;
 import com.ft.rfms.busi.MemberLoginDTO;
 import com.ft.rfms.busi.ResultMsg;
 import com.ft.rfms.entity.RfmsTicket;
-import com.ft.rfms.entity.RfmsTicketDetail;
 
 /**
  * @author solar
@@ -37,8 +36,8 @@ public interface WebAndPosService extends BaseService {
 	 * @return 注册错误代码 1001：注册成功 1002：手机号码已经存在 1003：未知错误
 	 * @throws Exception
 	 */
-	public ResultMsg regMember(String mobile, String pwd, String name, Long sex,
-			String address) throws Exception;
+	public ResultMsg regMember(String mobile, String pwd, String name,
+			Long sex, String address) throws Exception;
 
 	/**
 	 * 会员修改密码，用于web服务
@@ -61,7 +60,8 @@ public interface WebAndPosService extends BaseService {
 	 *            密码
 	 * @throws Exception
 	 */
-	public MemberLoginDTO memberLogin(String mobile, String pwd) throws Exception;
+	public MemberLoginDTO memberLogin(String mobile, String pwd)
+			throws Exception;
 
 	/**
 	 * 获取行业信息
@@ -93,18 +93,8 @@ public interface WebAndPosService extends BaseService {
 	 *            飞卷类型 查看飞卷类型ENUM定义
 	 * @throws Exception
 	 */
-	public List<RfmsTicket> searchTicket(Long industry, String merchantName,
+	public List<RfmsTicket> searchTicket(String industry, String merchantName,
 			String ticketNo, Long ticketType) throws Exception;
-
-	/**
-	 * 按飞卷编号查询飞卷
-	 * 
-	 * @param ticketNo
-	 *            飞卷编号
-	 * @return
-	 * @throws Exception
-	 */
-	public RfmsTicket searchTicket(String ticketNo) throws Exception;
 
 	/**
 	 * 按商户编码和飞卷编号查询飞卷

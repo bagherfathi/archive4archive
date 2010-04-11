@@ -16,17 +16,23 @@ import com.ft.sm.entity.Operator;
 public class TicketForm extends BaseSimpleForm {
 	private static final long serialVersionUID = -4253519821578386058L;
 	private Operator operator;
+	private String targetMemberTypes;
 
-	
+	public String getTargetMemberTypes() {
+		return targetMemberTypes;
+	}
+
+	public void setTargetMemberTypes(String targetMemberTypes) {
+		this.targetMemberTypes = targetMemberTypes;
+	}
+
 	public Operator getOperator() {
 		return operator;
 	}
 
-
 	public void setOperator(Operator operator) {
 		this.operator = operator;
 	}
-
 
 	@Override
 	public void reset(ActionMapping arg0, HttpServletRequest arg1) {
