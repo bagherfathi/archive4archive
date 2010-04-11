@@ -20,8 +20,11 @@
 	<input type="hidden" name="searchObj.operatorId" value="<c:out value='${smsForm.currentUser.operatorId }'/>"/>
 	<webui:panel title="title.rfms.merchant.search" icon="../images/icon_search.gif" width="95%">
 		<webui:formTable>
-			
-			
+			<tr>
+				<webui:input label="手机" colspan="3">
+					<html:text property="searchObj.mobile" size="25" />
+				</webui:input>
+			</tr>
 		</webui:formTable>
 		<webui:linkButton styleClass="clsButtonFace"
 			href="javascript:onCreate();" value="sysadmin.button.create" />
@@ -45,27 +48,18 @@
 
 				<webui:column sortable="true" property="message" title="内容"
 					styleClass="td_normal" />
-					<webui:column property="status" title="label.rfms.ticket.status">
-					<webui:lookup code="status@RFMS_CARD" value="${sms.status}" />
+					<webui:column property="status" title="短信状态">
+					<webui:lookup code="SMS_STATUS@RFMS_CARD" value="${sms.status}" />
 				</webui:column>
 
 				<webui:column filterable="false" cell="date" format="yyyy-MM-dd"
 					property="sendDate" title="发送日期">
 				</webui:column>
 				
-				<webui:column property="operatorId" title="发送人"
-					styleClass="td_normal">
-				</webui:column>
-
-				<webui:column property="op" title="title.rfms.common.operater"
-					width="3%">
-					<a href="<c:url value='/rfms/sms.do?act=edit&id=${sms.id}'/>"><bean:message
-						key="sysadmin.button.edit" /></a>&nbsp;
-				</webui:column>
-
-				<webui:column property="op" title="title.rfms.common.operater"
-					width="3%">
-					<a href="<c:url value='/rfms/sms.do?act=view&id=${sms.id}'/>">查看</a>&nbsp;
+				<webui:column property="operatorId" title="发送人">
+				<webui:query property="opName" beanName="merchantService" methodName="findOperatorById">
+				<webui:param name="operatorId" type="java.lang.Long" value="${sms.operatorId }"/>
+				</webui:query>
 				</webui:column>
 				
 			</webui:row>
