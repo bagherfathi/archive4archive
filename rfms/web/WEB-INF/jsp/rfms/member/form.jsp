@@ -27,7 +27,7 @@
 		<webui:input label="label.rfms.member.sex">
 			<webui:radioGroup property="baseEntity.sex" styleClass="noborder"
 				beanName="enumSet" beanProperty="element(SEX@RFMS_CARD)"
-				valueProperty="value" labelProperty="label" />
+				valueProperty="value" labelProperty="label"  />
 		</webui:input>
 
 		<webui:input label="label.rfms.member.address">
@@ -35,3 +35,8 @@
 		</webui:input>
 	</tr>
 </webui:formTable>
+<script>
+	function toSubmit(){
+		
+	}
+</script>

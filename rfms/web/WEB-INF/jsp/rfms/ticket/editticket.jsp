@@ -22,6 +22,16 @@
   
  function submitForm(aform){
 	 if(validateTicketForm(aform)){
+	 		var rad = document.ticketForm["baseEntity.targetMemberType"].length;
+			var str="";
+			for(var i=0;i<rad;i++){
+				 var aa =document.ticketForm["baseEntity.targetMemberType"][i].checked;
+				if(aa==true){
+					str +=document.ticketForm["baseEntity.targetMemberType"][i].value+";";
+				}	
+			}
+			document.getElementById("targetMemberTypes").value=str;
+
 		  aform.act.value="save";
 		  loadOn();
 		  aform.submit();

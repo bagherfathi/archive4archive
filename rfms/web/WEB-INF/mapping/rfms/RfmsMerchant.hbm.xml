@@ -348,5 +348,6 @@
 			not-null="false"
 			length="14"
 		/>
+		
 	</class>	
 </hibernate-mapping>

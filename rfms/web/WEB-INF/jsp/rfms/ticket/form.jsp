@@ -6,6 +6,7 @@
 			<html:hidden property="baseEntity.sendCount" />
 			<html:hidden property="baseEntity.useCount" />
 			<html:hidden property="baseEntity.ticketId" />
+			<input type="hidden" name="targetMemberTypes" id="targetMemberTypes" />
 			<input type="hidden" name="baseEntity.merchantId"
 				value="<c:out value='${ticketForm.currentUser.merchantCode}'/>" />
 			<input type="hidden" name="baseEntity.operatorId"
@@ -65,7 +66,7 @@
 				<webui:checkGroup property="baseEntity.targetMemberType"
 					styleClass="noborder" beanName="enumSet"
 					beanProperty="element(CODE_TYPE@RFMS_CARD)" valueProperty="value"
-					labelProperty="label" />
+					labelProperty="label"/>
 			</webui:input>
 		</tr>
 	</tr>
@@ -76,3 +77,13 @@
 		</webui:input>
 	</tr>
 </webui:formTable>
+<script>
+	var rad1 = document.ticketForm["baseEntity.targetMemberType"].length;
+	for(var i=0;i<rad1;i++){
+		 var aa1 =document.ticketForm["baseEntity.targetMemberType"][i].value;
+		 var str1 ='<c:out value='${ticketForm.baseEntity.targetMemberType}'/>';
+		 if(str1.indexOf(aa1)>-1){
+			 document.ticketForm["baseEntity.targetMemberType"][i].checked=true;
+		 }
+	}
+</script>

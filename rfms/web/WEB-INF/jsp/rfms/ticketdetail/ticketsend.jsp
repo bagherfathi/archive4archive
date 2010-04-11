@@ -185,6 +185,21 @@ function addByType(arr,type){
 	<webui:panel title="飞券下发" width="95%" icon="/images/icon_list.gif">
 		<webui:formTable>
 		<tr>
+			<webui:input label="label.rfms.ticket.ticket_name" colspan="3">
+				<html:text property="rfmsTicket.ticketName" size="25" disabled="true"/>
+			</webui:input>
+		</tr>
+		<tr>
+			<webui:input label="label.rfms.ticket.ticketSerial" colspan="3">
+				<html:text property="rfmsTicket.ticketSerial" size="25" disabled="true" />
+			</webui:input>
+		</tr>
+		<tr>
+			<webui:input label="label.rfms.ticket.ticketCount" colspan="3">
+			<html:text property="rfmsTicket.ticketCount" size="25"disabled="true"/>
+		</webui:input>
+		</tr>
+		<tr>
 			<webui:input label="手机" required="true" colspan="3">
 				<input type="text" id="inputmobile" size="25"/>
 				&nbsp;&nbsp;&nbsp;&nbsp; 
