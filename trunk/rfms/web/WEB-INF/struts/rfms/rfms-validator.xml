@@ -273,6 +273,25 @@
 			<field property="baseEntity.parValue" depends="required,integer">
 				<arg position="0" key="label.rfms.ticket.parValue" />
 			</field>
+			<field property="baseEntity.beginDate" depends="required,integer">
+				<arg position="0" key="label.rfms.ticket.beginDate" />
+			</field>
+			<field property="baseEntity.endDate" depends="required">
+				<arg position="0" key="label.rfms.ticket.endDate" />
+			</field>
+			<field property="baseEntity.useRule" depends="required,maxlength,mask">
+				<arg position="0" key="label.rfms.ticket.useRule" />
+				<arg position="2" name="maxlength" key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${specialCharacter}</var-value>
+				</var>
+			</field>
 		</form>
 		
 		<form name="memberForm">

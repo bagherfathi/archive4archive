@@ -69,6 +69,11 @@
 			name="ticketdetailForm" scope="session" input="rfms.ticketdetail.index"
 			parameter="act" unknown="false" validate="false">
 		</action>
+
+		<action path="/ticketsendtem" type="com.ft.rfms.web.merchant.TicketSendAction"
+			name="ticketdetailForm" scope="session" input="rfms.ticketdetail.indextem"
+			parameter="act" unknown="false" validate="false">
+		</action>
 		
 		<action path="/ticketdetail" type="com.ft.rfms.web.merchant.TicketDetailAction"
 			name="ticketdetailForm" scope="session" input="rfms.ticketdetail.list"
