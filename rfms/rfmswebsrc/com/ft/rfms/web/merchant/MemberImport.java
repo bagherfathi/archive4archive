@@ -19,7 +19,6 @@ import com.ft.utils.DateUtil;
 
 public class MemberImport extends BaseSimpleAction {
 	private static final long serialVersionUID = 3680027327640826434L;
-	private int memberCount;
 	private RfmsMemberService rfmsMemberService;
 
 	public ActionForward save(ActionMapping arg0, ActionForm arg1,
@@ -42,8 +41,7 @@ public class MemberImport extends BaseSimpleAction {
 				if (!StringUtils.isEmpty(strMerchantId)) {
 					merchantId = new Long(strMerchantId);
 				}
-				memberCount = rfmsMemberService.importMember(fileName,
-						merchantId);
+				rfmsMemberService.importMember(fileName, merchantId);
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -51,14 +49,6 @@ public class MemberImport extends BaseSimpleAction {
 		}
 
 		return unspecified(arg0, arg1, arg2, arg3);
-	}
-
-	public int getMemberCount() {
-		return memberCount;
-	}
-
-	public void setMemberCount(int memberCount) {
-		this.memberCount = memberCount;
 	}
 
 	public RfmsMemberService getRfmsMemberService() {

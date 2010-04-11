@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.upload.FormFile;
 
 import com.ft.rfms.entity.RfmsTicket;
 import com.ft.rfms.entity.RfmsTicketDetail;
@@ -20,6 +21,24 @@ public class TicketDetailForm extends BaseSimpleForm {
 	private String mobiles;
 	private String mobiles1;
 	private RfmsTicket rfmsTicket;
+	private int type;
+	private FormFile strFile;
+
+	public FormFile getStrFile() {
+		return strFile;
+	}
+
+	public void setStrFile(FormFile strFile) {
+		this.strFile = strFile;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
 
 	public RfmsTicket getRfmsTicket() {
 		return rfmsTicket;

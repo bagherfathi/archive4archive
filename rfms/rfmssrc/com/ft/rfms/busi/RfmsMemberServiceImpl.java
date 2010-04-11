@@ -1,6 +1,7 @@
 package com.ft.rfms.busi;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -20,7 +21,8 @@ public class RfmsMemberServiceImpl extends BaseServiceImpl implements
 
 	private RfmsMemberDAO rfmsMemberDAO;
 
-	public int importMember(String fileName, Long merchantId) {
+	public List<RfmsMember> importMember(String fileName, Long operatorId) {
+		List<RfmsMember> memberList = new ArrayList();
 		try {
 			POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(
 					fileName));
@@ -28,34 +30,40 @@ public class RfmsMemberServiceImpl extends BaseServiceImpl implements
 			HSSFSheet sheet = wb.getSheetAt(0);
 			int rows = sheet.getLastRowNum();
 
-			int importCount = 0;
 			for (int i = 1; i <= rows; i++) {
 				HSSFRow row = sheet.getRow(i);
 				String name = ExcelUtil.getCellStringValue(row, 0);
 				if (StringUtils.isEmpty(name)) {
 					continue;
 				}
+				String mobile = ExcelUtil.getCellStringValue(row, 1);
+				if (!StringUtils.isEmpty(mobile)) {
+					// 判断手机是否在用户表存在
+					RfmsMember rfmsMember = (RfmsMember) this.baseDao
+							.getEntityByIdentityAttribute(RfmsMember.class,
+									"mobile", mobile);
 
-				if (!StringUtils.isEmpty(ExcelUtil.getCellStringValue(row, 1))) {
 					RfmsMember member = new RfmsMember();
 					member.setName(ExcelUtil.getCellStringValue(row, 0));
 					member.setPwd("123456");
-					member.setMobile(ExcelUtil.getCellStringValue(row, 1));
+					member.setMobile(mobile);
 					if ("男".equals(ExcelUtil.getCellStringValue(row, 2))) {
 						member.setSex("1");
 					} else if ("女".equals(ExcelUtil.getCellStringValue(row, 2))) {
 						member.setSex("2");
 					}
 					member.setAddress(ExcelUtil.getCellStringValue(row, 3));
-					member.setOperatorId(merchantId);
-
-					rfmsMemberDAO.save(member);
+					member.setOperatorId(operatorId);
+					if (rfmsMember == null) {
+						rfmsMemberDAO.save(member);
+					}
+					memberList.add(member);
 				}
 			}
-			return importCount;
+			return memberList;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return -1;
+			return null;
 		}
 	}
 

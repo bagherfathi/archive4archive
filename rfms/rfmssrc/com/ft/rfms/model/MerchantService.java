@@ -30,6 +30,13 @@ public interface MerchantService extends BaseService {
 	 * @throws Exception
 	 */
 	public List findBranchByMerchantId(Long merchantId) throws Exception;
+	
+	/**
+	 * 根据操作员Id得到操作员信息
+	 * @param operatorId
+	 * @return
+	 */
+	public Operator findOperatorById(Long operatorId);
 
 	/**
 	 * 保存或者更新商户和门店

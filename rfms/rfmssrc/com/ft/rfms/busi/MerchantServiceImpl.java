@@ -54,10 +54,10 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 	private RfmsMerchantAuditDAO merchantAuditDAO;
 
 	private RfmsCommisionStepDAO stepDAO;
-	
-	
+
 	/**
-	 * @param stepDAO the stepDAO to set
+	 * @param stepDAO
+	 *            the stepDAO to set
 	 */
 	public void setStepDAO(RfmsCommisionStepDAO stepDAO) {
 		this.stepDAO = stepDAO;
@@ -130,22 +130,29 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public void saveOrUpdateMerchant(RfmsMerchant merchant,
-			List<RfmsMerchantBranch> branchs,Map<String,RfmsCommisionStep> steps, Long[] nextOperatorIds,
+			List<RfmsMerchantBranch> branchs,
+			Map<String, RfmsCommisionStep> steps, Long[] nextOperatorIds,
 			AppRequest appRequest) throws Exception {
 		// 保存商户信息
-		if(merchant.getSysMerchantCode()==null || merchant.getSysMerchantCode().length()==0){
-			merchant.setSysMerchantCode(this.getMerchantSysCode(merchant.getRegionId()));
+		if (merchant.getSysMerchantCode() == null
+				|| merchant.getSysMerchantCode().length() == 0) {
+			merchant.setSysMerchantCode(this.getMerchantSysCode(merchant
+					.getRegionId()));
 		}
 		merchant = (RfmsMerchant) this.saveAndSetHistoryObject(merchant,
 				appRequest);
-		
+
 		this.merchantDAO.saveOrUpdate(merchant);
 		// 保存门店信息
 		List<RfmsMerchantBranch> list = new ArrayList<RfmsMerchantBranch>();
 		for (int i = 0; i < branchs.size(); i++) {
 			RfmsMerchantBranch abranch = branchs.get(i);
-			if(abranch.getSysMerchantCode()==null || abranch.getSysMerchantCode().length()==0){
-				abranch.setSysMerchantCode(this.getMerchantBranchSysCode(merchant.getSysMerchantCode()));
+			if (abranch.getSysMerchantCode() == null
+					|| abranch.getSysMerchantCode().length() == 0) {
+				abranch
+						.setSysMerchantCode(this
+								.getMerchantBranchSysCode(merchant
+										.getSysMerchantCode()));
 			}
 			abranch.setMerchantId(merchant.getMerchantId());
 			list.add(abranch);
@@ -153,22 +160,23 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 		list = (List<RfmsMerchantBranch>) this.saveAndSetHistoryObject(list,
 				appRequest);
 		this.merchantBranchDAO.batchUpdate(list);
-        //保存阶梯佣金之前先删除原有该商户的阶梯佣金
-		if(merchant.getCommisionStep().longValue()==1){
-			Iterator it=steps.keySet().iterator();
-			List stepList=new ArrayList();
-			while(it.hasNext()){
-				RfmsCommisionStep s=steps.get(it.next());
-				if(s.getCommisionStepId()!=null && s.getCommisionStepId().longValue()<0){
+		// 保存阶梯佣金之前先删除原有该商户的阶梯佣金
+		if (merchant.getCommisionStep().longValue() == 1) {
+			Iterator it = steps.keySet().iterator();
+			List stepList = new ArrayList();
+			while (it.hasNext()) {
+				RfmsCommisionStep s = steps.get(it.next());
+				if (s.getCommisionStepId() != null
+						&& s.getCommisionStepId().longValue() < 0) {
 					s.setCommisionStepId(null);
 				}
 				stepList.add(s);
 			}
 			this.stepDAO.batchUpdate(stepList);
-		}else{//当非阶梯设置佣金的是否 向佣金表插入一条记录，最少0，最大9999999999
-			this.stepDAO.deleteFromQuery("from RfmsCommisionStep where" +
-					" merchantId="+merchant.getMerchantId(), null);
-			RfmsCommisionStep s=new RfmsCommisionStep();
+		} else {// 当非阶梯设置佣金的是否 向佣金表插入一条记录，最少0，最大9999999999
+			this.stepDAO.deleteFromQuery("from RfmsCommisionStep where"
+					+ " merchantId=" + merchant.getMerchantId(), null);
+			RfmsCommisionStep s = new RfmsCommisionStep();
 			s.setCommisionCharge(merchant.getCommisionCharge());
 			s.setMaxCharge(new Long("9999999999"));
 			s.setMinCharge(new Long(0));
@@ -178,7 +186,7 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 		// 初始化审批流程
 		if (nextOperatorIds != null && nextOperatorIds.length > 0) {
 			String ids = FindByIdsCallback.joinKeys(nextOperatorIds);
-			ids=ids.substring(1,ids.length()-1);
+			ids = ids.substring(1, ids.length() - 1);
 			List audits = this.merchantAuditDAO.findByMerchantIdAndFlowId(
 					merchant.getMerchantId(), new Long(0));
 			RfmsMerchantAudit audit = null;
@@ -198,39 +206,51 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 		}
 	}
 
-	private String getMerchantSysCode(Long regionId){
-       BusiCodeGenerateService codeGenerateService=(BusiCodeGenerateService)SpringBeanUtils.getBean("busiCodeGenerateService");
-        Region region=(Region)this.merchantDAO.getObjectById(Region.class, regionId);
-		Map<Object,Object> paramMap = new HashMap<Object,Object>();
+	private String getMerchantSysCode(Long regionId) {
+		BusiCodeGenerateService codeGenerateService = (BusiCodeGenerateService) SpringBeanUtils
+				.getBean("busiCodeGenerateService");
+		Region region = (Region) this.merchantDAO.getObjectById(Region.class,
+				regionId);
+		Map<Object, Object> paramMap = new HashMap<Object, Object>();
 		paramMap.put("regionCode", "" + region.getRegionCode());
-		return codeGenerateService.generateBusiCode("RFMS_MERCHANT_SYS_CODE", paramMap);
-		
+		return codeGenerateService.generateBusiCode("RFMS_MERCHANT_SYS_CODE",
+				paramMap);
+
 	}
-	private String getMerchantBranchSysCode(String merchantSysCode){
-	       BusiCodeGenerateService codeGenerateService=(BusiCodeGenerateService)SpringBeanUtils.getBean("busiCodeGenerateService");
-			Map<Object,Object> paramMap = new HashMap<Object,Object>();
-			paramMap.put("merchantSysCode", merchantSysCode);
-			return codeGenerateService.generateBusiCode("RFMS_MERCHANT_BRANCH_SYS_CODE", paramMap);
+
+	private String getMerchantBranchSysCode(String merchantSysCode) {
+		BusiCodeGenerateService codeGenerateService = (BusiCodeGenerateService) SpringBeanUtils
+				.getBean("busiCodeGenerateService");
+		Map<Object, Object> paramMap = new HashMap<Object, Object>();
+		paramMap.put("merchantSysCode", merchantSysCode);
+		return codeGenerateService.generateBusiCode(
+				"RFMS_MERCHANT_BRANCH_SYS_CODE", paramMap);
 	}
-	
-	public String getTicketSysCode(String ticketSysCode){
-	       BusiCodeGenerateService codeGenerateService=(BusiCodeGenerateService)SpringBeanUtils.getBean("busiCodeGenerateService");
-			Map<Object,Object> paramMap = new HashMap<Object,Object>();
-			paramMap.put("ticketSysCode", ticketSysCode);
-			return codeGenerateService.generateBusiCode("RFMS_TICKET_SYS_CODE", paramMap);
+
+	public String getTicketSysCode(String ticketSysCode) {
+		BusiCodeGenerateService codeGenerateService = (BusiCodeGenerateService) SpringBeanUtils
+				.getBean("busiCodeGenerateService");
+		Map<Object, Object> paramMap = new HashMap<Object, Object>();
+		paramMap.put("ticketSysCode", ticketSysCode);
+		return codeGenerateService.generateBusiCode("RFMS_TICKET_SYS_CODE",
+				paramMap);
 	}
-	
-	public String getMerchantPosSysCode(Long branchId){
-	       BusiCodeGenerateService codeGenerateService=(BusiCodeGenerateService)SpringBeanUtils.getBean("busiCodeGenerateService");
-			Map<Object,Object> paramMap = new HashMap<Object,Object>();
-			Long merchantId=this.merchantBranchDAO.getById(branchId).getMerchantId();
-			RfmsMerchant merchant=this.merchantDAO.getById(merchantId);
-			Region region=(Region)this.merchantDAO.getObjectById(Region.class, merchant.getRegionId());
-			String yscode=region.getYscode();
-			paramMap.put("yscode", "" + yscode);
-			return codeGenerateService.generateBusiCode("RFMS_MERCHANT_POS_SYS_CODE", paramMap);
+
+	public String getMerchantPosSysCode(Long branchId) {
+		BusiCodeGenerateService codeGenerateService = (BusiCodeGenerateService) SpringBeanUtils
+				.getBean("busiCodeGenerateService");
+		Map<Object, Object> paramMap = new HashMap<Object, Object>();
+		Long merchantId = this.merchantBranchDAO.getById(branchId)
+				.getMerchantId();
+		RfmsMerchant merchant = this.merchantDAO.getById(merchantId);
+		Region region = (Region) this.merchantDAO.getObjectById(Region.class,
+				merchant.getRegionId());
+		String yscode = region.getYscode();
+		paramMap.put("yscode", "" + yscode);
+		return codeGenerateService.generateBusiCode(
+				"RFMS_MERCHANT_POS_SYS_CODE", paramMap);
 	}
-	
+
 	private Object saveAndSetHistoryObject(Object obj, AppRequest appRequest)
 			throws Exception {
 		this.appService.saveApp(appRequest);
@@ -273,8 +293,8 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 			AppRequest appRequest) throws Exception {
 		RfmsMerchant newmerchant = this.merchantDAO.getById(merchant
 				.getMerchantId());
-		long beforeStatus=newmerchant.getAuditStatus().longValue();
-		if(beforeStatus==7){
+		long beforeStatus = newmerchant.getAuditStatus().longValue();
+		if (beforeStatus == 7) {
 			merchantAudit.setFinished(new Long(1));
 		}
 		boolean isReturnTo = false;
@@ -287,13 +307,13 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 			this.merchantAuditDAO.save(merchantAudit);
 			return;
 		}
-		
-		//auditStatus==1 auditStatus==2 auditStatus==3
-		List<Long> st=new ArrayList<Long>();
+
+		// auditStatus==1 auditStatus==2 auditStatus==3
+		List<Long> st = new ArrayList<Long>();
 		st.add(new Long(1));
 		st.add(new Long(2));
 		st.add(new Long(3));
-		if(!st.contains(newmerchant.getAuditStatus()) ){
+		if (!st.contains(newmerchant.getAuditStatus())) {
 			merchantAudit.setAuditResult(new Long(1));
 		}
 		if (merchantAudit.getAuditResult() == null
@@ -323,13 +343,12 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 				}
 				if (newmerchant.getAuditStatus() == 6) {// 分配数据
 					// 保存pos记录
-					
+
 					this.merchantPosDAO.batchSave(pos);
 				}
 				// 根据当前状态获取下一个审核状态
 				List ctrls = this.flowCtrlDAO
-						.findByAuditStatusBefore(newmerchant
-								.getAuditStatus());
+						.findByAuditStatusBefore(newmerchant.getAuditStatus());
 				Long nextStatus = merchant.getAuditStatus();
 				if (ctrls != null && !ctrls.isEmpty()) {
 					RfmsFlowCtrl flowCtrl = (RfmsFlowCtrl) ctrls.get(0);
@@ -339,69 +358,85 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 			}
 		}
 		// 设置商户审核状态
-		
+
 		Object obj = this.saveAndSetHistoryObject(newmerchant, appRequest);
 		this.merchantDAO.update(obj);
-        if(newmerchant.getAuditStatus()==8){
-			List list=this.merchantBranchDAO.findByMerchantId(newmerchant.getMerchantId());
-			if(list!=null){
-				for(int i=0;i<list.size();i++){
-					RfmsMerchantBranch branch=(RfmsMerchantBranch)list.get(i);
+		if (newmerchant.getAuditStatus() == 8) {
+			List list = this.merchantBranchDAO.findByMerchantId(newmerchant
+					.getMerchantId());
+			if (list != null) {
+				for (int i = 0; i < list.size(); i++) {
+					RfmsMerchantBranch branch = (RfmsMerchantBranch) list
+							.get(i);
 					branch.setSysJionState("1");
 				}
 			}
 			this.merchantBranchDAO.batchUpdate(list);
 		}
 		// 保存商户和审核信息
-		//if(beforeStatus==1 || beforeStatus==2 || beforeStatus==3)
-		  this.merchantAuditDAO.save(merchantAudit);
+		// if(beforeStatus==1 || beforeStatus==2 || beforeStatus==3)
+		this.merchantAuditDAO.save(merchantAudit);
 	}
 
 	public List findPosByBranchId(Long branchId) throws Exception {
 		return this.merchantPosDAO.findPosByBranchId(branchId);
 	}
-	
-	public List findMerchantsByOperatorAndAuditStatus(Long nextOperatorId,Long auditStatus)throws Exception{
-		return this.merchantDAO.findMerchantsByOperatorAndAuditStatus(nextOperatorId, auditStatus);
+
+	public List findMerchantsByOperatorAndAuditStatus(Long nextOperatorId,
+			Long auditStatus) throws Exception {
+		return this.merchantDAO.findMerchantsByOperatorAndAuditStatus(
+				nextOperatorId, auditStatus);
 	}
-	public List findCommisionStepByMerchantId(Long merchantId)throws Exception{
+
+	public List findCommisionStepByMerchantId(Long merchantId) throws Exception {
 		return this.stepDAO.findByMerchantId(merchantId);
 	}
-	
+
 	/**
 	 * 获取下一个操作员
+	 * 
 	 * @param merchantId
 	 * @param auditStatus
 	 * @return
 	 * @throws Exception
 	 */
-	public Operator findOperatorByMerchantIdAndAuditStatus(Long merchantId,Long auditStatus)throws Exception{
-		RfmsMerchantAudit audit=this.merchantAuditDAO.findCurOperator(merchantId);
-		if(audit.getNextOperatorId()!=null && audit.getNextOperatorId().length()>0){
-		 return (Operator)this.baseDao.getObjectById(Operator.class, new Long(audit.getNextOperatorId()));
+	public Operator findOperatorByMerchantIdAndAuditStatus(Long merchantId,
+			Long auditStatus) throws Exception {
+		RfmsMerchantAudit audit = this.merchantAuditDAO
+				.findCurOperator(merchantId);
+		if (audit.getNextOperatorId() != null
+				&& audit.getNextOperatorId().length() > 0) {
+			return (Operator) this.baseDao.getObjectById(Operator.class,
+					new Long(audit.getNextOperatorId()));
 		}
 		return null;
 	}
-	
+
+	public Operator findOperatorById(Long operatorId) {
+		return (Operator) baseDao.getObjectById(Operator.class, operatorId);
+	}
+
 	/**
 	 * 对商户充值
+	 * 
 	 * @param merchantId
 	 * @param payment
 	 * @param appRquest
 	 * @throws Exception
 	 */
-	public void savePayment(Long merchantId,RfmsMerchantPayment payment,AppRequest appRequest) throws Exception{
-		RfmsMerchant merchant=this.merchantDAO.getById(merchantId);
-		//设置金额
+	public void savePayment(Long merchantId, RfmsMerchantPayment payment,
+			AppRequest appRequest) throws Exception {
+		RfmsMerchant merchant = this.merchantDAO.getById(merchantId);
+		// 设置金额
 		this.appService.saveApp(appRequest);
-		if(merchant.getAmount()==null){
+		if (merchant.getAmount() == null) {
 			merchant.setAmount(new Long(0));
 		}
-		merchant.setAmount(merchant.getAmount()+payment.getAmount());
+		merchant.setAmount(merchant.getAmount() + payment.getAmount());
 		merchant = (RfmsMerchant) this.saveAndSetHistoryObject(merchant,
 				appRequest);
 		this.merchantDAO.saveOrUpdate(merchant);
 		this.baseDao.save(payment);
-		
+
 	}
 }

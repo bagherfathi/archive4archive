@@ -15,6 +15,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.upload.FormFile;
 
 import com.ft.rfms.entity.RfmsMember;
 import com.ft.rfms.entity.RfmsSms;
@@ -23,6 +24,9 @@ import com.ft.rfms.entity.RfmsTicketDetail;
 import com.ft.rfms.model.RfmsMemberService;
 import com.ft.rfms.model.RfmsTicketService;
 import com.ft.singleTable.web.BaseSimpleAction;
+import com.ft.singleTable.web.WebHelper;
+import com.ft.struts.ActionMessagesHelper;
+import com.ft.utils.DateUtil;
 
 public class TicketSendAction extends BaseSimpleAction {
 	private RfmsTicketService rfmsTicketService;
@@ -75,47 +79,115 @@ public class TicketSendAction extends BaseSimpleAction {
 	public ActionForward save(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		TicketDetailForm aform = (TicketDetailForm) arg1;
-
-		// 更新下发飞券状态 更新手机，接收人，下发人，下发时间，status
-		ticketDetail = rfmsTicketService.getRfmsTicketDetailByStatus(aform
-				.getId(), new Long(1));
-
-		String[] str = aform.getMobiles().split(";");
-		int len = str.length;
-		if (len > ticketDetail.size()) {
-			// 超过发送限额 返回
-			ActionErrors errors = arg1.validate(arg0, arg2);
-			errors.add("notSameSize", new ActionMessage(
-					"msg.show.merchant.branchSizeEbranchNum"));
-			return arg0.getInputForward();
-		}
-
-		// 取得飞券卡的信息 更新卡信息
-		RfmsTicket rfmsTicket = (RfmsTicket) rfmsTicketService.getObjectById(
-				RfmsTicket.class, aform.getId());
-		rfmsTicket.setSendCount(rfmsTicket.getSendCount() + len);
-		rfmsTicketService.update(rfmsTicket);
-
 		Long operatorId = aform.getCurrentUser().getOperatorId();
-		for (int i = 0; i < len; i++) {
-			RfmsTicketDetail td = ticketDetail.get(i);
-			td.setSendOperatorId(operatorId);
-			td.setSendDate(new Date());
-			td.setMobile(str[i]);
-			td.setStatus(new Long(2));
-			rfmsTicketService.update(td);
 
-			// 发送短信
-			RfmsSms sms = new RfmsSms();
-			sms.setCreateDate(new Date());
-			sms.setMessage(rfmsTicket.getUseRule());// 短信内容
-			sms.setMobile(str[i]);
-			sms.setOperatorId(operatorId);
-			sms.setStatus("1");// 1表示为发送
-			rfmsTicketService.save(sms);
+		// 判断是模板下发还是会员下发
+		if (aform.getType() == 1) {
+			List<RfmsMember> rfmsMemberList = null;
+			FormFile file = aform.getStrFile();// 取得上传的文件
+			String fName = file.getFileName().toLowerCase();
+			if (!fName.endsWith(".xls")) {
+				return unspecified(arg0, arg1, arg2, arg3);
+			} else {
+				try {
+					Date now = new Date();
+					String seq = DateUtil.date2MysqlDate(now) + "";
+					String fileName = seq + ".xls";
+					WebHelper.writeUploadFile2Server(fileName, file);
+					rfmsMemberList = rfmsMemberService.importMember(fileName,
+							operatorId);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				if (rfmsMemberList != null && rfmsMemberList.size() > 0) {
+					// 更新下发飞券状态 更新手机，接收人，下发人，下发时间，status
+					ticketDetail = rfmsTicketService
+							.getRfmsTicketDetailByStatus(aform.getId(),
+									new Long(1));
+					int len = rfmsMemberList.size();
+					if (len > ticketDetail.size()) {
+						// 超过发送限额 返回
+						ActionErrors errors = arg1.validate(arg0, arg2);
+
+						errors.add("notSameSize", new ActionMessage(
+								"msg.show.merchant.branchSizeEbranchNum"));
+						 ActionMessagesHelper.saveMessage(arg2,
+						 "msg.show.merchant.branchSizeEbranchNum", "session");
+						return this
+								.getRedirectForwardAction("ticketsendtem.do");
+					}
+
+					// 取得飞券卡的信息 更新卡信息
+					RfmsTicket rfmsTicket = (RfmsTicket) rfmsTicketService
+							.getObjectById(RfmsTicket.class, aform.getId());
+					rfmsTicket.setSendCount(rfmsTicket.getSendCount() + len);
+					rfmsTicketService.update(rfmsTicket);
+
+					for (int i = 0; i < len; i++) {
+						String mobile = rfmsMemberList.get(i).getMobile();
+						if (!StringUtils.isEmpty(mobile)) {
+							RfmsTicketDetail td = ticketDetail.get(i);
+							td.setSendOperatorId(operatorId);
+							td.setSendDate(new Date());
+							td.setMobile(mobile);
+							td.setStatus(new Long(2));
+							rfmsTicketService.update(td);
+
+							// 发送短信
+							RfmsSms sms = new RfmsSms();
+							sms.setCreateDate(new Date());
+							sms.setMessage(rfmsTicket.getUseRule());// 短信内容
+							sms.setMobile(mobile);
+							sms.setOperatorId(operatorId);
+							sms.setStatus("1");// 1表示为发送
+							rfmsTicketService.save(sms);
+						}
+					}
+				}
+			}
+		} else {
+			// 更新下发飞券状态 更新手机，接收人，下发人，下发时间，status
+			ticketDetail = rfmsTicketService.getRfmsTicketDetailByStatus(aform
+					.getId(), new Long(1));
+			String[] str = aform.getMobiles().split(";");
+			int len = str.length;
+			if (len > ticketDetail.size()) {
+				// 超过发送限额 返回
+				ActionErrors errors = arg1.validate(arg0, arg2);
+				errors.add("notSameSize", new ActionMessage(
+						"msg.show.merchant.branchSizeEbranchNum"));
+				ActionMessagesHelper.saveMessage(arg2,
+						"msg.show.merchant.branchSizeEbranchNum", null);
+			}
+
+			// 取得飞券卡的信息 更新卡信息
+			RfmsTicket rfmsTicket = (RfmsTicket) rfmsTicketService
+					.getObjectById(RfmsTicket.class, aform.getId());
+			rfmsTicket.setSendCount(rfmsTicket.getSendCount() + len);
+			rfmsTicketService.update(rfmsTicket);
+
+			for (int i = 0; i < len; i++) {
+				if (!StringUtils.isEmpty(str[i])) {
+					RfmsTicketDetail td = ticketDetail.get(i);
+					td.setSendOperatorId(operatorId);
+					td.setSendDate(new Date());
+					td.setMobile(str[i]);
+					td.setStatus(new Long(2));
+					rfmsTicketService.update(td);
+
+					// 发送短信
+					RfmsSms sms = new RfmsSms();
+					sms.setCreateDate(new Date());
+					sms.setMessage(rfmsTicket.getUseRule());// 短信内容
+					sms.setMobile(str[i]);
+					sms.setOperatorId(operatorId);
+					sms.setStatus("1");// 1表示为发送
+					rfmsTicketService.save(sms);
+				}
+			}
 		}
 
-		return unspecified(arg0, arg1, arg2, arg3);
+		return this.getRedirectForwardAction("ticket.do");
 	}
 
 	public RfmsTicketService getRfmsTicketService() {
