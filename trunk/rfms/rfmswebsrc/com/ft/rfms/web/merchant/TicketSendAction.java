@@ -33,8 +33,10 @@ public class TicketSendAction extends BaseSimpleAction {
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		// 根据飞券卡得到飞券相关信息
 		TicketDetailForm aform = (TicketDetailForm) arg1;
+
 		RfmsTicket rfmsTicket = (RfmsTicket) rfmsTicketService.getObjectById(
 				RfmsTicket.class, aform.getId());
+		aform.setRfmsTicket(rfmsTicket);
 
 		// 得到已下发的飞券卡下发信息 status=0
 		ticketDetail = rfmsTicketService.getRfmsTicketDetailByBigThanStatus(

@@ -38,6 +38,7 @@ public class TicketAction extends BaseSimpleAction {
 		// ±£¥Ê∑…»Ø–≈œ¢
 		TicketForm aform = (TicketForm) arg1;
 		RfmsTicket ticket = (RfmsTicket) aform.getBaseEntity();
+		ticket.setTargetMemberType(aform.getTargetMemberTypes());
 		if (ticket.getSendCount() == null) {
 			ticket.setSendCount(new Long(0));
 		}
@@ -95,5 +96,6 @@ public class TicketAction extends BaseSimpleAction {
 
 		return arg0.getInputForward();
 	}
+
 
 }

@@ -36,18 +36,21 @@ public class RfmsMemberServiceImpl extends BaseServiceImpl implements
 					continue;
 				}
 
-				RfmsMember member = new RfmsMember();
-				member.setName(ExcelUtil.getCellStringValue(row, 0));
-				member.setMobile(ExcelUtil.getCellStringValue(row, 1));
-				if ("ÄÐ".equals(ExcelUtil.getCellStringValue(row, 2))) {
-					member.setSex("1");
-				} else if ("Å®".equals(ExcelUtil.getCellStringValue(row, 2))) {
-					member.setSex("2");
-				}
-				member.setAddress(ExcelUtil.getCellStringValue(row, 3));
-				member.setOperatorId(merchantId);
+				if (!StringUtils.isEmpty(ExcelUtil.getCellStringValue(row, 1))) {
+					RfmsMember member = new RfmsMember();
+					member.setName(ExcelUtil.getCellStringValue(row, 0));
+					member.setPwd("123456");
+					member.setMobile(ExcelUtil.getCellStringValue(row, 1));
+					if ("ÄÐ".equals(ExcelUtil.getCellStringValue(row, 2))) {
+						member.setSex("1");
+					} else if ("Å®".equals(ExcelUtil.getCellStringValue(row, 2))) {
+						member.setSex("2");
+					}
+					member.setAddress(ExcelUtil.getCellStringValue(row, 3));
+					member.setOperatorId(merchantId);
 
-				rfmsMemberDAO.save(member);
+					rfmsMemberDAO.save(member);
+				}
 			}
 			return importCount;
 		} catch (Exception e) {

@@ -174,7 +174,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 */
 	public ResultMsg posSignOut(String posCode) throws Exception {
 		posSigninMap.remove(posCode);
-		return new ResultMsg("1001","POS机签出成功！");
+		return new ResultMsg("1001", "POS机签出成功！");
 	}
 
 	/*
@@ -250,19 +250,10 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * @see com.ft.rfms.model.WebAndPosService#searchTicket(java.lang.Long,
 	 *      java.lang.String, java.lang.String, java.lang.Long)
 	 */
-	public List<RfmsTicket> searchTicket(Long industry, String merchantName,
+	public List<RfmsTicket> searchTicket(String industry, String merchantName,
 			String ticketNo, Long ticketType) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.ft.rfms.model.WebAndPosService#searchTicket(java.lang.String)
-	 */
-	public RfmsTicket searchTicket(String ticketNo) throws Exception {
-		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 
@@ -274,8 +265,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 */
 	public RfmsTicket searchTicket(String merchantCode, String ticketCode)
 			throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return ticketDao.searchTicket(merchantCode, ticketCode);
 	}
 
 	/*
@@ -286,21 +276,25 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 */
 	public ResultMsg unuseTicket(String posCode, String ticketDetailCode)
 			throws Exception {
-		RfmsTicketDetail detail=(RfmsTicketDetail)this.baseDao.getEntityByIdentityAttribute(RfmsTicketDetail.class, "seqNumber", ticketDetailCode);
-		if(detail==null){
-			return new ResultMsg("1002","飞券序列号不存在！");
+		RfmsTicketDetail detail = (RfmsTicketDetail) this.baseDao
+				.getEntityByIdentityAttribute(RfmsTicketDetail.class,
+						"seqNumber", ticketDetailCode);
+		if (detail == null) {
+			return new ResultMsg("1002", "飞券序列号不存在！");
 		}
-		if(detail.getStatus()!=3){
-			return new ResultMsg("1003","该飞券号码未使用或者已经失效");
+		if (detail.getStatus() != 3) {
+			return new ResultMsg("1003", "该飞券号码未使用或者已经失效");
 		}
-		detail.setStatus(new Long(2));//已经消费
+		detail.setStatus(new Long(2));// 已经消费
 		detail.setUseDate(new Date());
 		detail.setUserPos(posCode);
 		this.baseDao.update(detail);
-		Long ticketId=detail.getTicketId();
-		String update="update RfmsTicket ti set ti.useCount=ti.useCount-1 where ti.ticketId="+ticketId;
-		this.ticketDao.getSessionFactory().getCurrentSession().createQuery(update).executeUpdate();
-		return new ResultMsg("1001","飞卷冲正成功！");
+		Long ticketId = detail.getTicketId();
+		String update = "update RfmsTicket ti set ti.useCount=ti.useCount-1 where ti.ticketId="
+				+ ticketId;
+		this.ticketDao.getSessionFactory().getCurrentSession().createQuery(
+				update).executeUpdate();
+		return new ResultMsg("1001", "飞卷冲正成功！");
 	}
 
 	/*
@@ -311,21 +305,25 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 */
 	public ResultMsg useTicket(String posCode, String ticketDetailCode)
 			throws Exception {
-		RfmsTicketDetail detail=(RfmsTicketDetail)this.baseDao.getEntityByIdentityAttribute(RfmsTicketDetail.class, "seqNumber", ticketDetailCode);
-		if(detail==null){
-			return new ResultMsg("1002","飞券序列号不存在！");
+		RfmsTicketDetail detail = (RfmsTicketDetail) this.baseDao
+				.getEntityByIdentityAttribute(RfmsTicketDetail.class,
+						"seqNumber", ticketDetailCode);
+		if (detail == null) {
+			return new ResultMsg("1002", "飞券序列号不存在！");
 		}
-		if(detail.getStatus()!=2){
-			return new ResultMsg("1003","该飞券号码未激活或者已经失效");
+		if (detail.getStatus() != 2) {
+			return new ResultMsg("1003", "该飞券号码未激活或者已经失效");
 		}
-		detail.setStatus(new Long(3));//已经消费
+		detail.setStatus(new Long(3));// 已经消费
 		detail.setUseDate(new Date());
 		detail.setUserPos(posCode);
 		this.baseDao.update(detail);
-		Long ticketId=detail.getTicketId();
-		String update="update RfmsTicket ti set ti.useCount=ti.useCount+1 where ti.ticketId="+ticketId;
-		this.ticketDao.getSessionFactory().getCurrentSession().createQuery(update).executeUpdate();
-		return new ResultMsg("1001","飞卷消费成功！");
+		Long ticketId = detail.getTicketId();
+		String update = "update RfmsTicket ti set ti.useCount=ti.useCount+1 where ti.ticketId="
+				+ ticketId;
+		this.ticketDao.getSessionFactory().getCurrentSession().createQuery(
+				update).executeUpdate();
+		return new ResultMsg("1001", "飞卷消费成功！");
 	}
 
 }
