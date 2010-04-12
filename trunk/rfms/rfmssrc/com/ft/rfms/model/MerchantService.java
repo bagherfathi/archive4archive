@@ -136,4 +136,6 @@ public interface MerchantService extends BaseService {
 	 */
 	public void savePayment(Long merchantId, RfmsMerchantPayment payment,
 			AppRequest appRquest) throws Exception;
+	
+	public RfmsMerchant findMerchantByBranchId(Long merchantBranchId) throws Exception;
 }
