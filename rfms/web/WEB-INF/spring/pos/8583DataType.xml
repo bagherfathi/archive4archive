@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GB2312"?>
+<iso8583>
+		<field ref="-2" name="length" length="2" type="int" javaType="String" fixType="L,N,0"/>
+		<field ref="-1" name="tpdu" length="5" type="byte" javaType="byte" fixType="NON"/>
+		<field ref="0" name="msgId" length="4" type="bcd" javaType="String" fixType="NON"/>
+		<field ref="1" name="bitmap" length="8" type="byte" javaType="String" fixType="NON"/>
+		<field ref="2" name="couponNo" var="2" length="19" type="bcd"   javaType="String" fixType="NON"/>
+		<field ref="3" name="processCode" length="6" type="bcd" javaType="String"  fixType="NON"/>
+		<field ref="4" name="amount" length="12" type="bcd" javaType="BigInteger" fixType="L,N,0"/>
+		<field ref="5" name="balance" length="12" type="bcd" javaType="BigInteger" fixType="L,N,0"/>
+		<field ref="10" name="consumeMerchantTransNo" length="20" type="asc" javaType="String" fixType="R,N,0"/>
+		<field ref="11" name="merchantTransNo" length="20" type="asc" javaType="String" fixType="R,N,0"/>
+		<field ref="12" name="TransTime" length="6" type="bcd" javaType="String" fixType="NON"/>
+		<field ref="13" name="TransDate" length="8" type="bcd" javaType="String" fixType="NON"/>
+		<field ref="35" name="track2" length="37" type="bcd" bcdPadding="right" var="2" javaType="String" fixType="NON" />
+		<field ref="36" name="track3" length="104" type="bcd" var="3" javaType="String" fixType="NON"/>
+		<field ref="37" name="mainTransNo" length="12" type="asc" javaType="String" fixType="R,N,0"/>
+		<field ref="39" name="errorCode" length="5" type="asc" javaType="String" fixType="NON"/>
+		<field ref="40" name="errorInfo" var="3" length="999" type="asc" javaType="String" fixType="NON"/>
+		<field ref="41" name="merchantCode" length="15" type="asc" javaType="String" fixType="R,N,0"/>
+		<field ref="42" name="posCode" length="15" type="asc" javaType="String" fixType="R,N,0"/>
+		<field ref="49" name="invalidDate" length="8" type="bcd" javaType="String" fixType="NON"/>
+		<field ref="52" name="pin" length="8" type="byte" javaType="byte" fixType="NON"/>
+		<field ref="62" name="workkey" length="24" type="workkey" javaType="byte" fixType="NON"/>
+		<field ref="64" name="mac" length="8" type="byte" javaType="byte" fixType="NON"/>
+</iso8583>
+

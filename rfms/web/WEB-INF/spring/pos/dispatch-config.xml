@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC
+    "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- tpdu  Processor -->
+	<bean id="tpduProcessor" class="com.ft.protocol.iso8583.tpdu.DefaultTpduProcessor"/>
+	<!-- MAC  Processor -->
+	<bean id="macProcessor" class="com.ft.protocol.cipher.mac.AnsiMacProcessor"/>
+	<!-- PIN  Processor -->
+	<bean id="pinProcessor" class="com.ft.protocol.cipher.pin.DesPinProcessor"/>
+	
+	<!-- ******************* Action and Filter  ****************************** -->
+	<bean id="posFilter" class="com.ft.rfcs.app.filter.PosFilter">
+		 <property name="macProcessor" ref="macProcessor"/>
+	</bean>
+	
+	<bean id="merchantFilter" class="com.ft.rfcs.app.filter.MerchantFilter">
+	<property name="merchantService" ref="merchantService"></property>
+	</bean>
+
+	<bean id="couponFilter" class="com.ft.rfcs.app.filter.CouponFilter">
+    	<property name="webAndPos" ref="webAndPosService" />	
+    </bean>
+    
+	
+	<bean id="updateKeyAction" class="com.ft.rfcs.app.action.UpdateKeyAction">
+    	<property name="merchantService" ref="merchantService"/>
+    </bean>
+    <!-- consume action -->
+    <bean id="consumeAction" class="com.ft.rfcs.app.action.ConsumeAction">
+   	    <property name="filterChain">
+			<list>
+				<ref local="merchantFilter" />
+				<ref local="couponFilter" /> 
+			</list>
+		</property>
+    	<property name="pinProcessor" ref="pinProcessor" />
+    	<property name="transNoSeq" ref ="tradeTransNoSeq" />
+    	<property name="posService" ref ="webAndPosService" />
+  	
+    </bean>
+
+	<bean id="traceGenerator" class="com.ft.rfcs.GlobalTraceGenerator"/>	
+    <!-- ***************dispatch  action*****************  -->
+	<bean id="dispatchAction" class="com.ft.frmwk.tcp.TCPDispatchAction">
+		<property name="globalFilterChain">
+			<list>
+				<ref local="posFilter" />
+			</list>
+		</property>
+		<property name="traceGenerator" ref="traceGenerator"/>
+		<property name="actionSet">
+			<map>
+				<entry key="000001">
+					<ref bean="updateKeyAction" />
+				</entry>
+				<entry key="000002">
+					<ref bean="consumeAction" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>
