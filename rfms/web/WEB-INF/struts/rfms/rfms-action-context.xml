@@ -18,7 +18,7 @@
 		</property>
 	</bean>
 	<bean id="portalAction" class="com.ft.rfms.web.merchant.PortalAction">
-		<property name="webAndPosService">
+		<property name="webAndPosService"> 
 			<ref bean="webAndPosService" />
 		</property>
 	</bean>
