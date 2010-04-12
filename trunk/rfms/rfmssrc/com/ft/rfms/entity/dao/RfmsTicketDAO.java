@@ -123,5 +123,15 @@ public class RfmsTicketDAO extends BaseDao {
 		return (RfmsTicket) this.query(hql.toString(), new Object[] {
 				merchantCode, ticketCode });
 	}
+	
+	public boolean posExists(String posCode,Long ticketId){
+		StringBuffer hql = new StringBuffer("from RfmsTicketBind rt");
+		hql.append(" where rt.posCode=? and ticketId=?");
+		List list=this.query(hql.toString(),new Object[]{posCode,ticketId});
+		if(list!=null && !list.isEmpty()){
+			return true;
+		}
+		return false;
+	}
 
 }
