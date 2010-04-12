@@ -9,6 +9,7 @@ import java.util.Map;
 import com.ft.common.busi.BaseService;
 import com.ft.rfms.busi.MemberLoginDTO;
 import com.ft.rfms.busi.ResultMsg;
+import com.ft.rfms.entity.RfcsTrade;
 import com.ft.rfms.entity.RfmsTicket;
 
 /**
@@ -149,7 +150,7 @@ public interface WebAndPosService extends BaseService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ResultMsg useTicket(String posCode, String ticketDetailCode)
+	public ResultMsg useTicket(String posCode, String ticketDetailCode,RfcsTrade trade)
 			throws Exception;
 
 	/**
