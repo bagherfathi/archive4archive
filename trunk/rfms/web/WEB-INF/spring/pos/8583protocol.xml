@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<iso8583>
+	<protocol  lengthField="-2" tpduField="-1" codeField="3" 
+		msgIdField="0" macField="64" encoding="GBK">	
+		<package name="updatekey" send="0100" receive="0101" code="000001" mac="no"/>	
+	    <package name="cousume" send="0200" receive="0201" code="000002"
+			 mac="yes" macFields="0,1,2,3,4,5,11,12,13,37,39,40,41,42,52"/>	
+	</protocol>
+</iso8583>
