@@ -6,6 +6,12 @@
 
 <beans>
 
+   <bean id="webAndPosService" parent="transactionProxyFactoryBean">
+		<property name="target">
+			<ref bean="webAndPosServiceImpl" />
+		</property>
+	</bean>
+	
 	<bean id="rfmsSmsService" parent="transactionProxyFactoryBean">
 		<property name="target">
 			<ref bean="rfmsSmsServiceImpl" />

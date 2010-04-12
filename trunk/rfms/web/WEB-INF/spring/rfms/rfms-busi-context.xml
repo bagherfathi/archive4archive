@@ -151,6 +151,14 @@
 		</property>
 	</bean>
 
+    <bean id="webAndPosServiceImpl" class="com.ft.rfms.busi.WebAndPosServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="ticketDao">
+			<ref bean="RfmsTicketDAO" />
+		</property>
+	</bean>
 	<!--
 		To include additional bean definitions for Spring in the generated
 		application context file, add a file to your XDoclet merge directory
