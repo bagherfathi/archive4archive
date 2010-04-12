@@ -256,7 +256,7 @@ public class PortalAction extends BaseSimpleAction {
 	public void useTicket(String posCode, String ticketDetailCode,
 			HttpServletResponse response) throws Exception {
 		ResultMsg resultMsg = webAndPosService.useTicket(posCode,
-				ticketDetailCode);
+				ticketDetailCode,null);
 		JSONObject jo = JSONObject.fromObject(resultMsg);
 
 		response.getWriter().print(jo.toString());
