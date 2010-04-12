@@ -42,6 +42,16 @@ response.setDateHeader ("Expires", 0);
 				labelProperty="label"  defaultValue="1"/>
 		</webui:input>
 	  </tr>
+	  <tr>		
+		<webui:input label="PIN_KEY" required="true" colspan="3">
+		   <html:text property="pos.pinkey" size="55"/>
+		</webui:input>
+	  </tr>
+	  <tr>		
+		<webui:input label="label.rfms.merchant_pos.sys_pos_code" required="true" colspan="3">
+		  <html:text property="pos.mackey" size="55"/>
+		</webui:input>
+	  </tr>
 </webui:formTable>
 
   <webui:linkButton styleClass="clsButtonFace" href="javascript:submitForm(merchantForm);" value="sysadmin.button.add"/>
