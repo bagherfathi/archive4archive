@@ -69,8 +69,38 @@ public class RfmsMerchantPos implements Serializable,IBaseEntity {
 	private java.lang.Long operatorId;
 	private java.lang.Long orgId;
 	private java.lang.Long loginOrgId;
+	private java.lang.String pinkey;
+	private String mackey;
+	private java.util.Date keyChangeTime;
 
 
+	/**
+	 * @return the keyChangeTime
+	 */
+	public java.util.Date getKeyChangeTime() {
+		return keyChangeTime;
+	}
+
+	/**
+	 * @param keyChangeTime the keyChangeTime to set
+	 */
+	public void setKeyChangeTime(java.util.Date keyChangeTime) {
+		this.keyChangeTime = keyChangeTime;
+	}
+
+	/**
+	 * @return the mackey
+	 */
+	public String getMackey() {
+		return mackey;
+	}
+
+	/**
+	 * @param mackey the mackey to set
+	 */
+	public void setMackey(String mackey) {
+		this.mackey = mackey;
+	}
 
 	/**
 	 * Return the unique identifier of this class
@@ -329,6 +359,20 @@ public class RfmsMerchantPos implements Serializable,IBaseEntity {
 
 	public String toString () {
 		return super.toString();
+	}
+
+	/**
+	 * @return the pinKey
+	 */
+	public java.lang.String getPinkey() {
+		return pinkey;
+	}
+
+	/**
+	 * @param pinKey the pinKey to set
+	 */
+	public void setPinkey(java.lang.String pinkey) {
+		this.pinkey = pinkey;
 	}
 
 

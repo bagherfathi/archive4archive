@@ -439,4 +439,12 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 		this.baseDao.save(payment);
 
 	}
+	
+	public RfmsMerchant findMerchantByBranchId(Long merchantBranchId){
+		RfmsMerchantBranch  branch=this.merchantBranchDAO.getById(merchantBranchId);
+		if(branch==null){
+			return null;
+		}
+		return this.merchantDAO.getById(branch.getMerchantId());
+	}
 }
