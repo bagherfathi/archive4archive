@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ft.rfms.entity">
+	<class
+		name="RfcsPosSignin"
+		table="RFCS_POS_SIGNIN" schema="RFMS" lazy="false"
+	>
+		<meta attribute="sync-DAO">true</meta>
+
+		<property
+			name="signinId"
+			column="SIGNIN_ID"
+			type="java.lang.Long"
+			not-null="true"
+			length="14"
+		/>
+		<property
+			name="operatorId"
+			column="OPERATOR_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="posId"
+			column="POS_ID"
+			type="java.lang.Long"
+			not-null="false"
+			length="14"
+		/>
+		<property
+			name="pinKey"
+			column="PIN_KEY"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="macKey"
+			column="MAC_KEY"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="signinTime"
+			column="SIGNIN_TIME"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>
