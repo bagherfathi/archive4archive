@@ -104,7 +104,6 @@ public class ConsumeAction extends TCPAction {
 		RfcsTrade trade = new RfcsTrade();// 实例化一个交易表对象
 		String result=ResponseCodeConstant.SUCCESS;
 		try{
-		posService.useTicket(pos.getSysPosCode(), couponNo); //使用优惠券
 		trade.setTransNo(payTransNo);// 保存系统交易流水号
 		trade.setSystemId(pos.getId());// 保存POSID
 		trade.setSystemCode(pos.getSysPosCode());// 保存POS编号
@@ -118,8 +117,7 @@ public class ConsumeAction extends TCPAction {
 		trade.setPosTradeType(PosRequestType.CONSUME);// POS交易类型--消费
 		log.debug("构造PosBaseMessage");
 		trade.setStatus(RfcsTrade.STATUS_SUCCESS);// 保存交易状态--成功
-		
-		//TODO　// 保存错误信息到交易表
+		posService.useTicket(pos.getSysPosCode(), couponNo,trade); //使用优惠券,保存错误信息到交易表
         }catch(Exception ex){
         	result=ResponseCodeConstant.EXCEPTION;
 		}
