@@ -85,7 +85,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#memberLogin(java.lang.String,
-	 *      java.lang.String)
+	 * java.lang.String)
 	 */
 	public MemberLoginDTO memberLogin(String mobile, String pwd)
 			throws Exception {
@@ -110,7 +110,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#modifyPwd(java.lang.String,
-	 *      java.lang.String, java.lang.String)
+	 * java.lang.String, java.lang.String)
 	 */
 	public ResultMsg modifyPwd(String mobile, String oldPwd, String newPwd)
 			throws Exception {
@@ -134,7 +134,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#posSignIn(java.lang.String,
-	 *      java.lang.String, java.lang.String)
+	 * java.lang.String, java.lang.String)
 	 */
 	public ResultMsg posSignIn(String posCode, String loginName, String pwd)
 			throws Exception {
@@ -215,8 +215,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#regMember(java.lang.String,
-	 *      java.lang.String, java.lang.String, java.lang.Long,
-	 *      java.lang.String)
+	 * java.lang.String, java.lang.String, java.lang.Long, java.lang.String)
 	 */
 	public ResultMsg regMember(String mobile, String pwd, String name,
 			Long sex, String address) throws Exception {
@@ -248,20 +247,19 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#searchTicket(java.lang.Long,
-	 *      java.lang.String, java.lang.String, java.lang.Long)
+	 * java.lang.String, java.lang.String, java.lang.Long)
 	 */
 	public List<RfmsTicket> searchTicket(String industry, String merchantName,
 			String ticketNo, Long ticketType) throws Exception {
-		
-		
-		return null;
+		return ticketDao.searchTicket(industry, merchantName, ticketNo,
+				ticketType);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#searchTicket(java.lang.String,
-	 *      java.lang.String)
+	 * java.lang.String)
 	 */
 	public RfmsTicket searchTicket(String merchantCode, String ticketCode)
 			throws Exception {
@@ -272,7 +270,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#unuseTicket(java.lang.String,
-	 *      java.lang.String)
+	 * java.lang.String)
 	 */
 	public ResultMsg unuseTicket(String posCode, String ticketDetailCode)
 			throws Exception {
@@ -301,7 +299,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#useTicket(java.lang.String,
-	 *      java.lang.String)
+	 * java.lang.String)
 	 */
 	public ResultMsg useTicket(String posCode, String ticketDetailCode)
 			throws Exception {
