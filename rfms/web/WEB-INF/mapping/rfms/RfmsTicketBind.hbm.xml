@@ -28,11 +28,11 @@
 			length="14"
 		/>
 		<property
-			name="posId"
-			column="POS_ID"
-			type="java.lang.Long"
+			name="posCode"
+			column="POS_CODE"
+			type="java.lang.String"
 			not-null="false"
-			length="14"
+			length="32"
 		/>
 		<property
 			name="createDate"
