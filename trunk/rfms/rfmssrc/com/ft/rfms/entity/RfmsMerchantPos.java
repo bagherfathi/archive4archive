@@ -69,10 +69,24 @@ public class RfmsMerchantPos implements Serializable,IBaseEntity {
 	private java.lang.Long operatorId;
 	private java.lang.Long orgId;
 	private java.lang.Long loginOrgId;
+	private java.lang.String mainkey;
 	private java.lang.String pinkey;
 	private String mackey;
 	private java.util.Date keyChangeTime;
 
+	/**
+	 * @return the mainKey
+	 */
+	public java.lang.String getMainkey() {
+		return mainkey;
+	}
+
+	/**
+	 * @param mainKey the mainKey to set
+	 */
+	public void setMainkey(java.lang.String mainKey) {
+		this.mainkey = mainKey;
+	}
 
 	/**
 	 * @return the keyChangeTime

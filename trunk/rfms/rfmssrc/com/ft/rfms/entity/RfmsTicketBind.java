@@ -50,7 +50,7 @@ public class RfmsTicketBind implements Serializable,IBaseEntity {
 
 	// fields
 	private java.lang.Long ticketId;
-	private java.lang.Long posId;
+	private java.lang.String posCode;
 	private java.lang.Long createDate;
 	private java.lang.Long updateDate;
 
@@ -100,23 +100,19 @@ public class RfmsTicketBind implements Serializable,IBaseEntity {
 	}
 
 
-
 	/**
-	 * Return the value associated with the column: POS_ID
+	 * @return the posCode
 	 */
-	public java.lang.Long getPosId () {
-		return posId;
+	public java.lang.String getPosCode() {
+		return posCode;
 	}
 
 	/**
-	 * Set the value related to the column: POS_ID
-	 * @param posId the POS_ID value
+	 * @param posCode the posCode to set
 	 */
-	public void setPosId (java.lang.Long posId) {
-		this.posId = posId;
+	public void setPosCode(java.lang.String posCode) {
+		this.posCode = posCode;
 	}
-
-
 
 	/**
 	 * Return the value associated with the column: CREATE_DATE
