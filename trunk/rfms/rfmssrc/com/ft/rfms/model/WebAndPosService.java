@@ -16,7 +16,6 @@ import com.ft.rfms.entity.RfmsTicket;
  * 
  */
 public interface WebAndPosService extends BaseService {
-
 	/**
 	 * 会员注册(用于pos机注册)，只提供手机号码，密码自动生成，并发送密码短信
 	 * 

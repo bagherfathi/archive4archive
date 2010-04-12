@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 
 import com.ft.hibernate.support.BaseDao;
+import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.entity.RfmsTicket;
 import com.ft.rfms.entity.RfmsTicketDetail;
 
@@ -95,6 +96,21 @@ public class RfmsTicketDAO extends BaseDao {
 
 		return this
 				.query(hql.toString(), new Object[] { rfmsTicketId, status });
+	}
+
+	public List<RfmsTicket> searchTicket(String industry, String merchantName,
+			String ticketNo, Long ticketType) throws Exception {
+		StringBuffer hql = new StringBuffer(
+				"from RfmsTicket rt,RfmsMerchant as rm");
+		hql.append(" where rm.").append(RfmsMerchant.PROP_INDUSTRY)
+				.append("=?").append(" and rm.").append(
+						RfmsMerchant.PROP_MERCHANT_NAME).append("= ?").append(
+						" and rt.").append(RfmsTicket.PROP_TICKET_SERIAL)
+				.append(" and rt.").append(RfmsTicket.PROP_TYPE).append(
+						" and rt.").append(RfmsTicket.PROP_OPERATOR_ID).append(
+						"=").append(RfmsMerchant.PROP_MERCHANT_CODE);
+
+		return null;
 	}
 
 	public RfmsTicket searchTicket(String merchantCode, String ticketCode)
