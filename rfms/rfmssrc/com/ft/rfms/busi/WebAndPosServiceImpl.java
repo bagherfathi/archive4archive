@@ -11,6 +11,7 @@ import java.util.Map;
 import com.ft.busi.sm.model.EnumManager;
 import com.ft.busi.sm.model.OperatorManager;
 import com.ft.common.busi.BaseServiceImpl;
+import com.ft.rfms.entity.RfcsTrade;
 import com.ft.rfms.entity.RfmsMember;
 import com.ft.rfms.entity.RfmsSms;
 import com.ft.rfms.entity.RfmsTicket;
@@ -301,7 +302,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * @see com.ft.rfms.model.WebAndPosService#useTicket(java.lang.String,
 	 * java.lang.String)
 	 */
-	public ResultMsg useTicket(String posCode, String ticketDetailCode)
+	public ResultMsg useTicket(String posCode, String ticketDetailCode,RfcsTrade trade)
 			throws Exception {
 		RfmsTicketDetail detail = (RfmsTicketDetail) this.baseDao
 				.getEntityByIdentityAttribute(RfmsTicketDetail.class,
@@ -321,6 +322,8 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 				+ ticketId;
 		this.ticketDao.getSessionFactory().getCurrentSession().createQuery(
 				update).executeUpdate();
+		if(trade!=null)
+		this.baseDao.save(trade);
 		return new ResultMsg("1001", "飞卷消费成功！");
 	}
 
