@@ -138,3 +138,9 @@ REMARK VARCHAR2(2000),
 PRIMARY KEY(TRANS_NO)
 );
 create sequence RFCS_TRADE_SEQ;
+
+
+
+alter table rfms.rfms_merchant_pos add pinkey varchar2(256);
+alter table rfms.rfms_merchant_pos add mackey varchar2(256);
+alter table rfms.rfms_merchant_pos add key_Change_TIME date;
