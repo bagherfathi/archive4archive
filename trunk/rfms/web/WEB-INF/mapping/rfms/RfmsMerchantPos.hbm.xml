@@ -40,6 +40,29 @@
 			not-null="false"
 			length="1"
 		/>
+		
+		<property
+			name="pinkey"
+			column="PINKEY"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="mackey"
+			column="MACKEY"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
+		<property
+			name="keyChangeTime"
+			column="KEY_CHANGE_TIME"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		
 		<property
 			name="posType"
 			column="POS_TYPE"
