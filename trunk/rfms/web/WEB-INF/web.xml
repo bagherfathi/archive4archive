@@ -5,7 +5,10 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/spring/common-context.xml,/WEB-INF/spring/sm/*.xml,/WEB-INF/spring/rfms/*.xml
+			/WEB-INF/spring/common-context.xml,/WEB-INF/spring/sm/*.xml,/WEB-INF/spring/rfms/*.xml,
+			/WEB-INF/spring/pos/applicationContext.xml,
+			/WEB-INF/spring/pos/dispatch-config.xml,
+			/WEB-INF/spring/pos/interface-iso8583.xml
 		</param-value>
 	</context-param>
 
