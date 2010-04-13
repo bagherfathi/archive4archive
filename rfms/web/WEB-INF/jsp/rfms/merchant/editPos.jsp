@@ -11,7 +11,7 @@ response.setHeader("Pragma","no-cache"); //HTTP 1.0
 response.setDateHeader ("Expires", 0); 
 %>
 <meta http-equiv="Content-Type" content="text/html;charset=GBK">
-<title>分配数据</title>
+<title>编辑POS数据</title>
 <%@ include file="/WEB-INF/jsp/inc/link.inc"%>
 </head>
 <body align="center">
@@ -43,13 +43,8 @@ response.setDateHeader ("Expires", 0);
 		</webui:input>
 	  </tr>
 	  <tr>		
-		<webui:input label="PIN_KEY" required="true" colspan="3">
-		   <html:text property="pos.pinkey" size="55"/>
-		</webui:input>
-	  </tr>
-	  <tr>		
-		<webui:input label="label.rfms.merchant_pos.sys_pos_code" required="true" colspan="3">
-		  <html:text property="pos.mackey" size="55"/>
+		<webui:input label="POS密钥" required="true" colspan="3">
+		   <html:text property="pos.mainkey" size="55"/>
 		</webui:input>
 	  </tr>
 </webui:formTable>
@@ -72,6 +67,7 @@ response.setDateHeader ("Expires", 0);
 			<webui:column property="posType" title="label.rfms.merchant_pos.pos_type">
 			<webui:lookup code="pos_type@RFMS_MERCHANT_POS" value="${pos.posType}" />
 			</webui:column>
+			<webui:column property="mainkey" title="POS密钥" styleClass="td_normal"/>
 			<webui:column property="dd" title="title.rfms.common.operater">
 				<a
 					href="javascript:editPos(${pos.merchantBranchId},${pos.id})"><bean:message key="sysadmin.button.edit"/></a>&nbsp;

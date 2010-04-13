@@ -11,7 +11,7 @@ response.setHeader("Pragma","no-cache"); //HTTP 1.0
 response.setDateHeader ("Expires", 0); 
 %>
 <meta http-equiv="Content-Type" content="text/html;charset=GBK">
-<title>分配数据</title>
+<title>分配POS数据</title>
 <%@ include file="/WEB-INF/jsp/inc/link.inc"%>
 </head>
 <body align="center">
@@ -35,7 +35,7 @@ response.setDateHeader ("Expires", 0);
 			<webui:column property="posType" title="label.rfms.merchant_pos.pos_type">
 			<webui:lookup code="pos_type@RFMS_MERCHANT_POS" value="${pos.posType}" />
 			</webui:column>
-			
+			<webui:column property="mainkey" title="POS密钥" styleClass="td_normal"/>
 		</webui:row>
 	</webui:table>
 	 <webui:linkButton styleClass="clsButtonFace" href="javascript:onClose();" value="sysadmin.button.close"/>

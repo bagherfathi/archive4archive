@@ -25,7 +25,7 @@
 				<webui:lookup code="audit_status@RFMS_MERCHANT" value="${merchant.auditStatus}" />
 			</webui:column>
 			<webui:column property="op" title="title.rfms.common.operater" width="5%">
-				<a href="<c:url value='/rfms/merchant.do?act=auditView&id=${merchant.id}'/>">ÉóÅú</a>&nbsp;
+				<a href="<c:url value='/rfms/merchant.do?act=auditView&id=${merchant.id}'/>">²é¿´</a>&nbsp;
 			</webui:column>
 		</webui:row>
 	</webui:table>
