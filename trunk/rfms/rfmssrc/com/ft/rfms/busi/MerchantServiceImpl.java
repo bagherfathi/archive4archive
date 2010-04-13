@@ -140,7 +140,7 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 					.getRegionId()));
 		}
 		merchant.setStatus("1");
-		merchant.setAuditStatus(new Long(6));
+		merchant.setAuditStatus(new Long(8));
 		merchant = (RfmsMerchant) this.saveAndSetHistoryObject(merchant,
 				appRequest);
 
