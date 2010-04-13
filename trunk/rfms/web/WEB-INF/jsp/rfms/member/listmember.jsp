@@ -39,11 +39,11 @@
 
 	<br />
 
-	<webui:panel title="会员类别管理" icon="../images/icon_list.gif">
+	<webui:panel title="会员列表" icon="../images/icon_list.gif">
 		<webui:table dataSource="memberDS"
 			action="${pageContext.request.contextPath}/rfms/member.do"
 			imagePath="${pageContext.request.contextPath}/images/table/*.gif"
-			title="会员类别列表" var="member" width="95%" showExports="true"
+			title="会员列表" var="member" width="95%" showExports="true"
 			showPagination="true" showStatusBar="true" showTitle="false"
 			sortable="false" filterable="false" autoIncludeParameters="false"
 			tableId="memberForm" form="memberForm">
