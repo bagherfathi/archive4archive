@@ -1,6 +1,7 @@
 package com.ft.rfms.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.ft.hibernate.support.IBaseEntity;
 
@@ -36,7 +37,7 @@ public class RfmsTicketBind implements Serializable,IBaseEntity {
 
 	public static String REF = "RfmsTicketBind";
 	public static String PROP_BIND_ID = "bindId";
-	public static String PROP_POS_ID = "posId";
+	public static String PROP_POS_CODE = "posCode";
 	public static String PROP_UPDATE_DATE = "updateDate";
 	public static String PROP_CREATE_DATE = "createDate";
 	public static String PROP_TICKET_ID = "ticketId";
@@ -51,8 +52,8 @@ public class RfmsTicketBind implements Serializable,IBaseEntity {
 	// fields
 	private java.lang.Long ticketId;
 	private java.lang.String posCode;
-	private java.lang.Long createDate;
-	private java.lang.Long updateDate;
+	private Date createDate;
+	private Date updateDate;
 
 
 
@@ -117,7 +118,7 @@ public class RfmsTicketBind implements Serializable,IBaseEntity {
 	/**
 	 * Return the value associated with the column: CREATE_DATE
 	 */
-	public java.lang.Long getCreateDate () {
+	public Date getCreateDate () {
 		return createDate;
 	}
 
@@ -125,7 +126,7 @@ public class RfmsTicketBind implements Serializable,IBaseEntity {
 	 * Set the value related to the column: CREATE_DATE
 	 * @param createDate the CREATE_DATE value
 	 */
-	public void setCreateDate (java.lang.Long createDate) {
+	public void setCreateDate (Date createDate) {
 		this.createDate = createDate;
 	}
 
@@ -134,7 +135,7 @@ public class RfmsTicketBind implements Serializable,IBaseEntity {
 	/**
 	 * Return the value associated with the column: UPDATE_DATE
 	 */
-	public java.lang.Long getUpdateDate () {
+	public Date getUpdateDate () {
 		return updateDate;
 	}
 
@@ -142,7 +143,7 @@ public class RfmsTicketBind implements Serializable,IBaseEntity {
 	 * Set the value related to the column: UPDATE_DATE
 	 * @param updateDate the UPDATE_DATE value
 	 */
-	public void setUpdateDate (java.lang.Long updateDate) {
+	public void setUpdateDate (Date updateDate) {
 		this.updateDate = updateDate;
 	}
 
