@@ -39,12 +39,12 @@
 		</webui:input>
 	  </tr>
 	  <tr>
-	    <webui:input label="label.rfms.merchant.industry"  required="false">
+	    <webui:input label="label.rfms.merchant.industry">
 			<html:select property="baseEntity.industry">
 				<html:optionsCollection name="enumSet" property="element(industry@RFMS_MERCHANT)"/>
 		    </html:select>
 	    </webui:input>
-	    <webui:input label="label.rfms.merchant.mlevel"  required="false">
+	    <webui:input label="label.rfms.merchant.mlevel">
 			<html:select property="baseEntity.mlevel">
 				<html:optionsCollection name="enumSet" property="element(mlevel@RFMS_MERCHANT)"/>
 		    </html:select>

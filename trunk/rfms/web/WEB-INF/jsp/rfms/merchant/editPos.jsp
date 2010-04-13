@@ -72,7 +72,10 @@ response.setDateHeader ("Expires", 0);
 				<a
 					href="javascript:editPos(${pos.merchantBranchId},${pos.id})"><bean:message key="sysadmin.button.edit"/></a>&nbsp;
 			</webui:column>
-			
+			<webui:column property="dd" title="title.rfms.common.operater">
+				<a
+					href="javascript:deletePos(merchantForm,${pos.merchantBranchId},${pos.id})"><bean:message key="sysadmin.button.delete"/></a>&nbsp;
+			</webui:column>
 		</webui:row>
 	</webui:table>
 	</webui:panel>
@@ -83,6 +86,11 @@ response.setDateHeader ("Expires", 0);
  function submitForm(aform){
   //loadOn();
   aform.act.value="savePos"
+  aform.submit();
+ }
+  function deletePos(aform,branchId,posId){
+  document.merchantForm.posId.value=posId;
+  aform.act.value="deletePos"
   aform.submit();
  }
  function editPos(branchId,posId){
