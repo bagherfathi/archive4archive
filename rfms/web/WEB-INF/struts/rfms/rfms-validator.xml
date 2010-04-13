@@ -183,7 +183,7 @@
 					<var-value>1</var-value>
 				</var>
 			</field>
-			<field property="baseEntity.bankName" depends="required,maxlength,mask">
+			<field property="baseEntity.bankName" depends="maxlength,mask">
 				<arg position="0" key="label.rfms.merchant.bank_name" />
 				<arg position="2" name="maxlength" key="${var:maxlength}"
 					resource="false" />
@@ -196,7 +196,7 @@
 					<var-value>${specialCharacter}</var-value>
 				</var>
 			</field>
-			<field property="baseEntity.bankAccountName" depends="required,maxlength,mask">
+			<field property="baseEntity.bankAccountName" depends="maxlength,mask">
 				<arg position="0" key="label.rfms.merchant.bank_account_name" />
 				<arg position="2" name="maxlength" key="${var:maxlength}"
 					resource="false" />
@@ -209,7 +209,7 @@
 					<var-value>${specialCharacter}</var-value>
 				</var>
 			</field>
-			<field property="baseEntity.bankAccountCode" depends="required,maxlength,mask">
+			<field property="baseEntity.bankAccountCode" depends="maxlength,mask">
 				<arg position="0" key="label.rfms.merchant.bank_account_code" />
 				<arg position="2" name="maxlength" key="${var:maxlength}"
 					resource="false" />
@@ -226,16 +226,16 @@
 			<field property="baseEntity.settlePeriod" depends="required,integer">
 				<arg position="0" key="label.rfms.merchant.settle_period" />
 			</field>
-			<field property="baseEntity.settleDate" depends="required,integer">
+			<field property="baseEntity.settleDate" depends="integer">
 				<arg position="0" key="label.rfms.merchant.settle_date" />
 			</field>
 			<field property="baseEntity.settleType" depends="required,integer">
 				<arg position="0" key="label.rfms.merchant.settle_type" />
 			</field>
-			<field property="baseEntity.checkDate" depends="required,integer">
+			<field property="baseEntity.checkDate" depends="integer">
 				<arg position="0" key="label.rfms.merchant.check_date" />
 			</field>
-			<field property="baseEntity.financeContact" depends="required,maxlength,mask">
+			<field property="baseEntity.financeContact" depends="maxlength,mask">
 				<arg position="0" key="label.rfms.merchant.finance_contact" />
 				<arg position="2" name="maxlength" key="${var:maxlength}"
 					resource="false" />
