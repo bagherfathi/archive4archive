@@ -17,11 +17,7 @@
 			<ref bean="rfmsMemberService" />
 		</property>
 	</bean>
-	<bean id="portalAction" class="com.ft.rfms.web.merchant.PortalAction">
-		<property name="webAndPosService"> 
-			<ref bean="webAndPosService" />
-		</property>
-	</bean>
+	
 	<bean id="ticketAction" class="com.ft.rfms.web.merchant.TicketAction">
 		<property name="merchantService">
 			<ref bean="merchantService" />
