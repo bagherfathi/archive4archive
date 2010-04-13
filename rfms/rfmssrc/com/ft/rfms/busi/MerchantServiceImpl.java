@@ -139,6 +139,8 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 			merchant.setSysMerchantCode(this.getMerchantSysCode(merchant
 					.getRegionId()));
 		}
+		merchant.setStatus("1");
+		merchant.setAuditStatus(new Long(6));
 		merchant = (RfmsMerchant) this.saveAndSetHistoryObject(merchant,
 				appRequest);
 
@@ -354,7 +356,8 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 					RfmsFlowCtrl flowCtrl = (RfmsFlowCtrl) ctrls.get(0);
 					nextStatus = flowCtrl.getStatusAfter();
 				}
-				newmerchant.setAuditStatus(nextStatus);
+				//newmerchant.setAuditStatus(nextStatus);
+				newmerchant.setAuditStatus(new Long(8));
 			}
 		}
 		// …Ë÷√…Ãªß…Û∫À◊¥Ã¨
