@@ -65,6 +65,8 @@
 			<forward name="view" path="rfms.ticket.view" redirect="false" />
 		</action>
 		
+		<action path="/portal" type="com.ft.rfms.web.portal.PortalAction" />
+		
 		<action path="/ticketsend" type="com.ft.rfms.web.merchant.TicketSendAction"
 			name="ticketdetailForm" scope="session" input="rfms.ticketdetail.index"
 			parameter="act" unknown="false" validate="false">
