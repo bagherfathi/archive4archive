@@ -57,12 +57,13 @@
 	-->
 	<action-mappings>
 		<action path="/ticket" type="com.ft.rfms.web.merchant.TicketAction"
-			name="ticketForm" scope="session" input="rfms.ticket.index"
+			name="ticketForm" scope="request" input="rfms.ticket.index"
 			parameter="act" unknown="false" validate="false">
 			<forward name="edit" path="rfms.ticket.edit" redirect="false" />
-			<forward name="searchIndex" path="rfms.ticket.searchIndex"
-				redirect="false" />
+			<forward name="searchIndex" path="rfms.ticket.searchIndex" redirect="false" />
 			<forward name="view" path="rfms.ticket.view" redirect="false" />
+			<forward name="toBind" path="rfms.ticket.toBind" redirect="false" />
+			<forward name="searchPos" path="rfms.ticket.searchPos" redirect="false" />
 		</action>
 		
 		<action path="/portal" type="com.ft.rfms.web.portal.PortalAction" />
@@ -82,14 +83,6 @@
 			parameter="act" unknown="false" validate="false">
 		</action>
 
-		<action path="/ticket" type="com.ft.rfms.web.merchant.TicketAction"
-			name="ticketForm" scope="session" input="rfms.ticket.index"
-			parameter="act" unknown="false" validate="false">
-			<forward name="edit" path="rfms.ticket.edit" redirect="false" />
-			<forward name="searchIndex" path="rfms.ticket.searchIndex"
-				redirect="false" />
-			<forward name="view" path="rfms.ticket.view" redirect="false" />
-		</action>
 
 		<action path="/sms" type="com.ft.rfms.web.merchant.SmsAction"
 			name="smsForm" scope="session" input="rfms.sms.index" parameter="act"
