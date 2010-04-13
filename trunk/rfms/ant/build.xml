@@ -112,7 +112,16 @@
 			<javac srcdir="${rfcssrc}" encoding="GBK" destdir="${build}/rfcs" deprecation="yes" debug="yes" source="1.5">
 				<classpath refid="classpath" />
 			</javac>
+		<jar destfile="${cms.lib}/RFMS-pos.jar">
+					<zipfileset dir="${build}/rfcs">
+						<include name="**/*.class" />
+						<include name="**/*.properties" />
+					</zipfileset>
+					<zipfileset dir="${rfcssrc}">
+						<include name="**/*.properties" />
+					</zipfileset>
 
+				</jar>
 		</target>
 
 	
