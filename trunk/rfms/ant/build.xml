@@ -119,11 +119,11 @@
 	<target name="compile-all" depends="compile-common,compile-sm,compile-rfms,compile-pos">
 	</target>
 
-	<target name="build" depends="clear">
-		<delete dir="../dist/rfmsweb">
+	<target name="build" depends="clear,compile-all">
+		<delete dir="../dist/rfcsweb">
 		</delete>
-		<mkdir dir="../dist/rfmsweb" />
-		<copy todir="../dist/rfmsweb" overwrite="true">
+		<mkdir dir="../dist/rfcsweb" />
+		<copy todir="../dist/rfcsweb" overwrite="true">
 			<fileset dir="../web">
 				<include name="**/*.*" />
 				<exclude name="**/svn/*.*" />
@@ -132,8 +132,9 @@
 			</fileset>
 		</copy>
 
-		<mkdir dir="../dist/rfmsweb/WEB-INF/classes" />
-		<mkdir dir="../dist/rfmsweb/WEB-INF/lib" />
+		<mkdir dir="../dist/rfcsweb/WEB-INF/classes" />
+		<mkdir dir="../dist/rfcsweb/WEB-INF/lib" />
+		<!--
 		<copy todir="${build}/rfmsweb/WEB-INF/lib" overwrite="true">
 			
 			<fileset dir="${lib}">
@@ -312,7 +313,8 @@
 										<include name="*.*" />
 									</fileset>
 		</copy>
-		<copy todir="../dist/rfmsweb/WEB-INF/lib" overwrite="true">
+		-->
+		<copy todir="../dist/rfcsweb/WEB-INF/lib" overwrite="true">
 			<fileset dir="../dist/jar">
 				<include name="*.jar" />
 			</fileset>
@@ -326,20 +328,20 @@
 		<delete dir="${build}/sm" />
 	    <delete dir="${build}/common" />
 		<delete dir="${build}/jar" />
-		<delete dir="${build}/rfmsweb" />
+		<delete dir="${build}/rfcsweb" />
 		<mkdir dir="${build}/rfms" />
 				<mkdir dir="${build}/sm" />
 			    <mkdir dir="${build}/common" />
 				<mkdir dir="${build}/jar" />
-				<mkdir dir="${build}/rfmsweb" />
+				<mkdir dir="${build}/rfcsweb" />
 		<mkdir dir="${build}/rfcs" />
 	</target>
 	
 	<target name="rfmsweb.war" depends="build">
-	  <war warfile="${build}/rfmsweb.war" webxml="${build}/rfmsweb/WEB-INF/web.xml">
-	   <lib dir="${build}/rfmsweb/WEB-INF/lib"/>
-	   <classes dir = "${build}/rfmsweb/WEB-INF/classes"/>
-	   <fileset dir="${build}/rfmsweb">
+	  <war warfile="${build}/rfcsweb.war" webxml="${build}/rfcsweb/WEB-INF/web.xml">
+	   <lib dir="${build}/rfcsweb/WEB-INF/lib"/>
+	   <classes dir = "${build}/rfcsweb/WEB-INF/classes"/>
+	   <fileset dir="${build}/rfcsweb">
 	   </fileset>
 	  </war>
 	 
