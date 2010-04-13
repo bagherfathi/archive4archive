@@ -25,11 +25,11 @@
 <script>
 
 function viewPos(branchId){
-     var url='merchant.do?act=viewPos&branchId='+branchId;
+     var url='merchant.do?act=viewPos&branchId='+branchId+"&posId=0";
      window.showModalDialog(url,'','dialogHeight:400px;dialogWidth:600px;dialogLeft:200;dialogTop:200;center:yes')
 }
 function showPos(branchId){
-     var url='merchant.do?act=showPos&branchId='+branchId;
+     var url='merchant.do?act=showPos&branchId='+branchId+"&posId=0";
      window.showModalDialog(url,'','dialogHeight:400px;dialogWidth:600px;dialogLeft:200;dialogTop:200;center:yes')
 }
    

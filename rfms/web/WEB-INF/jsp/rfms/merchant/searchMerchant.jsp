@@ -87,11 +87,16 @@
 			</webui:query>
 			</webui:column>
 			<webui:column property="op" title="title.rfms.common.operater" width="3%">
+			<c:if test="${merchantForm.editPos}">
+			 <a href="<c:url value='/rfms/merchant.do?act=view&id=${merchant.id}'/>">±à¼­POS</a>&nbsp;
+			</c:if>
+			<c:if test="${not merchantForm.editPos}">
 			    <a
 					href="<c:url value='/rfms/merchant.do?act=edit&id=${merchant.id}'/>">±à¼­</a>&nbsp;
 				<a
 					href="<c:url value='/rfms/merchant.do?act=view&id=${merchant.id}'/>">²é¿´</a>&nbsp;<a
 					href="<c:url value='/rfms/merchant.do?act=toPayment&merchantId=${merchant.id}'/>">³äÖµ</a>&nbsp;
+			</c:if>
 			</webui:column>
 		</webui:row>
 	</webui:table>

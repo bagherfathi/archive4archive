@@ -64,7 +64,9 @@
 </webui:fieldSet>
  <c:if test="${merchantForm.baseEntity.auditStatus==null or merchantForm.baseEntity.auditStatus==0 }">
   <webui:linkButton styleClass="clsButtonFace" href="javascript:addBranch(merchantForm);" value="sysadmin.button.addBranch"/>
+  <%--
   <webui:linkButton styleClass="clsButtonFace" href="javascript:submitForm(merchantForm,0);" value="sysadmin.button.save"/>
+  --%>
   <webui:linkButton styleClass="clsButtonFace" href="javascript:submitForm(merchantForm,1);" value="sysadmin.button.submit"/>
  </c:if>
  <c:if test="${merchantForm.baseEntity.auditStatus==8 }">

@@ -29,7 +29,7 @@
 	  </c:if>
 	  <c:if test="${merchantForm.baseEntity.commisionStep==1 }">
 	    <tr id="commisionCharge1">
-	    <webui:input label="label.rfms.merchant.commision_charge" required="true" colspan="3">
+	    <webui:input label="label.rfms.merchant.commision_charge" colspan="3">
 	       <jsp:include flush="true" page="/WEB-INF/jsp/rfms/merchant/listStep.jsp"></jsp:include>
 	    </webui:input>
 	  </tr>
@@ -37,7 +37,7 @@
 	  
 	  <c:if test="${merchantForm.baseEntity.commisionStep!=1 }">
 	  <tr id="commisionCharge">
-	    <webui:input label="label.rfms.merchant.commision_charge" required="true" colspan="3">
+	    <webui:input label="label.rfms.merchant.commision_charge" colspan="3">
 	       <html:text property="baseEntity.commisionCharge" size="25" onkeydown="onlyNum()"/>
 	    </webui:input>
 	  </tr>
@@ -61,15 +61,15 @@
 	  </tr>
 
 	  <tr>
-	    <webui:input label="label.rfms.merchant.bank_name" required="true">
+	    <webui:input label="label.rfms.merchant.bank_name">
 	       <html:text property="baseEntity.bankName" size="25"/>
 	    </webui:input>
-		<webui:input label="label.rfms.merchant.bank_account_name"  required="true">
+		<webui:input label="label.rfms.merchant.bank_account_name">
 		   <html:text property="baseEntity.bankAccountName" size="25"/>
 		</webui:input>
 	  </tr>
 	  <tr>
-	    <webui:input label="label.rfms.merchant.bank_account_code" required="true" colspan="3">
+	    <webui:input label="label.rfms.merchant.bank_account_code" colspan="3">
 	       <html:text property="baseEntity.bankAccountCode" size="25"/>
 	    </webui:input>
 	  </tr>
@@ -96,7 +96,7 @@
 	  </tr>
 	  <!-- finace contacter informations -->
 	  <tr>
-	    <webui:input label="label.rfms.merchant.finance_contact" required="true">
+	    <webui:input label="label.rfms.merchant.finance_contact">
 	       <html:text property="baseEntity.financeContact" size="25"/>
 	    </webui:input>
 		<webui:input label="label.rfms.merchant.finance_contact_phone">

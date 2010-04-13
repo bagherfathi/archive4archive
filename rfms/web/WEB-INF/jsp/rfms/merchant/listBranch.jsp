@@ -33,7 +33,7 @@
 			<c:if test="${merchantForm.baseEntity.auditStatus!=6 }">
 			<webui:column property="dd" title="title.rfms.common.operater">
 				<a
-					href="javascript:showPos(<c:out value='${branch.id}'/>)"><bean:message key="sysadmin.button.merchant_pos.view"/></a>&nbsp;
+					href="javascript:viewPos(<c:out value='${branch.id}'/>)"><bean:message key="sysadmin.button.merchant_pos.edit"/></a>&nbsp;
 			</webui:column>
 			</c:if>
 		</webui:row>
