@@ -13,7 +13,6 @@ import com.ft.frmwk.tcp.SessionContext;
 import com.ft.frmwk.tcp.TCPRequest;
 import com.ft.frmwk.tcp.TCPResponse;
 import com.ft.frmwk.tcp.action.TCPAction;
-import com.ft.pos.PosManager;
 import com.ft.pos.common.PosRequestType;
 import com.ft.pos.sequence.PosSequenceGenerator;
 import com.ft.protocol.cipher.CipherException;
@@ -22,6 +21,7 @@ import com.ft.rfcs.ParaNameConstant;
 import com.ft.rfcs.ResponseCodeConstant;
 import com.ft.rfcs.ServerParamConstant;
 import com.ft.rfcs.app.common.FormatDateUtility;
+import com.ft.rfms.busi.ResultMsg;
 import com.ft.rfms.entity.RfcsTrade;
 import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.entity.RfmsMerchantPos;
@@ -68,7 +68,16 @@ public class ConsumeAction extends TCPAction {
 	public void doAction(TCPRequest request, TCPResponse response,
 			SessionContext sessionContext) throws FTTCPException {
 		log.info("---------------执行消费交易-------------------");		
-		RfmsMerchantPos pos = (RfmsMerchantPos)sessionContext.getParameter(ServerParamConstant.PARAM_EXTERNAL_SYSTEM);
+		//RfmsMerchantPos pos = (RfmsMerchantPos)sessionContext.getParameter(ServerParamConstant.PARAM_EXTERNAL_SYSTEM);
+		String posCode = (String) request.getParaByIndex(ParaNameConstant.POS_CODE);
+		RfmsMerchantPos pos=null;
+		try{
+		  pos=(RfmsMerchantPos)this.posService.getEntityByIdentityAttribute(RfmsMerchantPos.class, "sysPosCode", posCode);
+		}catch(Exception e){
+			log.debug("system is error", e);
+			throw new FTTCPException(ResponseCodeConstant.EXCEPTION,
+					"system is error", e);
+		}
 		RfmsMerchant validMerchant = (RfmsMerchant)sessionContext.getParameter(ServerParamConstant.PARAM_MERCHANT);
 		String posTransNo = (String) request.getParaByIndex(ParaNameConstant.POS_TRANS_NO);// 获取POS交易流水
 		log.info("POS流水号:"+posTransNo);
@@ -87,14 +96,7 @@ public class ConsumeAction extends TCPAction {
 			throw new FTTCPException(ResponseCodeConstant.EXCEPTION,
 					"system is error", e);
 		}
-		//获取优惠券
-		
-		//验证优惠券信息（有效期、使用范围）
-		
-		
-		
-		//构造返回信息（抵现金额，折扣）
-		
+	
 		
 		// 获取当前系统的日期和时间
 		java.sql.Timestamp timestamp =  new java.sql.Timestamp(System.currentTimeMillis());
@@ -102,7 +104,7 @@ public class ConsumeAction extends TCPAction {
 		log.debug("sysTransNo===" + sysTransNo);
 		Long payTransNo = Long.parseLong(sysTransNo);// 获取系统交易流水号
 		RfcsTrade trade = new RfcsTrade();// 实例化一个交易表对象
-		String result=ResponseCodeConstant.SUCCESS;
+		ResultMsg resultMsg=new ResultMsg(ResponseCodeConstant.EXCEPTION,"系统错误");
 		try{
 		trade.setTransNo(payTransNo);// 保存系统交易流水号
 		trade.setSystemId(pos.getId());// 保存POSID
@@ -117,10 +119,12 @@ public class ConsumeAction extends TCPAction {
 		trade.setPosTradeType(PosRequestType.CONSUME);// POS交易类型--消费
 		log.debug("构造PosBaseMessage");
 		trade.setStatus(RfcsTrade.STATUS_SUCCESS);// 保存交易状态--成功
-		posService.useTicket(pos.getSysPosCode(), couponNo,trade); //使用优惠券,保存错误信息到交易表
+		resultMsg=posService.useTicket(pos.getSysPosCode(), couponNo,trade); //使用优惠券,保存错误信息到交易表
+		
         }catch(Exception ex){
-        	result=ResponseCodeConstant.EXCEPTION;
+        	ex.printStackTrace();
 		}
+        log.info(resultMsg.toString());
 		// 通知POS消费结果
 		response.addPara(ParaNameConstant.ACCOUNT, couponNo);// 返回账号
 		response.addPara(ParaNameConstant.AMOUNT, amount);
@@ -128,7 +132,8 @@ public class ConsumeAction extends TCPAction {
 		response.addPara(ParaNameConstant.TRANS_TIME, FormatDateUtility.getTimestamp2OnlyTime(timestamp));// 返回交易时间
 		response.addPara(ParaNameConstant.TRANS_DATE, FormatDateUtility.getTimestamp2OnlyDate(timestamp));// 返回交易日期
 		response.addPara(ParaNameConstant.TRANS_NO, payTransNo.toString());// 返回系统交易流水号
-		response.setResponseCode(result);  //
+		response.setResponseCode(resultMsg.getReturnCode());  //
+		response.addPara(ParaNameConstant.RETMSG, resultMsg.getReturnMsg());
 		response.addPara(ParaNameConstant.POS_CODE, pos.getSysPosCode());// 返回POS终端号
 		response.addPara(ParaNameConstant.MERCHANT_CODE, validMerchant.getMerchantCode());// 返回商户代码，即商户编码
 		//返回码和返回信息

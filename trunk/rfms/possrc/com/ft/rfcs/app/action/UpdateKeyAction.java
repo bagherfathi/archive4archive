@@ -55,11 +55,14 @@ public class UpdateKeyAction extends TCPAction {
 		try {
 			log.info("-----------执行更换工作密钥交易------------");
 
-			RfmsMerchantPos pos = (RfmsMerchantPos) sessionContext
-					.getParameter(ServerParamConstant.PARAM_EXTERNAL_SYSTEM);
+			/*RfmsMerchantPos pos = (RfmsMerchantPos) sessionContext
+					.getParameter(ServerParamConstant.PARAM_EXTERNAL_SYSTEM);*/
+			
+			String posCode = (String) request.getParaByIndex(ParaNameConstant.POS_CODE);
+			RfmsMerchantPos pos=(RfmsMerchantPos)this.merchantService.getEntityByIdentityAttribute(RfmsMerchantPos.class, "sysPosCode", posCode);
 			/** ******测试数据*** */
-			// byte[] mainkey = pos.getMainkey().getBytes();// 根据pos号获取主密钥
-			byte[] mainkey = "12345678".getBytes();
+			byte[] mainkey = pos.getMainkey().getBytes();// 根据pos号获取主密钥
+			//byte[] mainkey = "12345678".getBytes();
 			/** ******测试数据*** */
 			log.debug("mainkey=" + FormatUtility.bytesToHexString(mainkey));// 打印主密钥
 			String mackeyStr = RandamUtility.getRandomNum(8);
@@ -93,7 +96,7 @@ public class UpdateKeyAction extends TCPAction {
 			pos.setKeyChangeTime(new Timestamp(sessionContext
 					.getSessionTimestamp().getTime()));
 			/** ******测试数据*** */
-
+            this.merchantService.update(pos);
 			// posManager.savePos(pos);
 			/** ******测试数据*** */
             //记录pos签入记录
