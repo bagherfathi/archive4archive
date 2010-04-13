@@ -6,7 +6,7 @@
 <html:form styleId="ticketForm" action="/ticket.do" method="post"  onsubmit="return validateTicketForm(this);">
 <input type="hidden" value="edit" name="act"/>
 <input type="hidden" value="0" name="subflag"/>
-<webui:panel title="飞券管理" width="95%"  icon="/images/icon_list.gif">    
+<webui:panel title="优惠券管理" width="95%"  icon="/images/icon_list.gif">    
 	   <%@include file="/WEB-INF/jsp/rfms/ticket/form.jsp" %>
 <br/>
   <webui:linkButton styleClass="clsButtonFace" href="javascript:submitForm(ticketForm,0);" value="sysadmin.button.save"/>

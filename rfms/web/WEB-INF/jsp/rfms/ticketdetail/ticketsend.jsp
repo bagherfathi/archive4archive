@@ -182,7 +182,7 @@ function addByType(arr,type){
   <input type="hidden" name="mobiles" value="<c:out value='${ticketdetailForm.mobiles}'/>" id="codevalue"/>
   <input type="hidden" name="mobiles1" value="<c:out value='${ticketdetailForm.mobiles1}'/>" id="codevalue2"/>
 	<input type="hidden" value="save" name="act" />
-	<webui:panel title="飞券下发" width="95%" icon="/images/icon_list.gif">
+	<webui:panel title="优惠券下发" width="95%" icon="/images/icon_list.gif">
 		<webui:formTable>
 		<tr>
 			<webui:input label="label.rfms.ticket.ticket_name" colspan="3">
@@ -208,7 +208,7 @@ function addByType(arr,type){
 			</webui:input>
 		</tr>
 		<tr>
-			<webui:input label="待下发飞券" required="true">
+			<webui:input label="待下发优惠券" required="true">
 				 <div class="select" id="sel1_1"
                                      style="width:190px;height:210px;">
                                     <select name="aa" size="8"
@@ -218,7 +218,7 @@ function addByType(arr,type){
                                 </div>
 			</webui:input>
 			
-			<webui:input label="已下发飞券" required="true">
+			<webui:input label="已下发优惠券" required="true">
 				 <div class="select" id="sel1_2"
                                      style="width:190px;height:210px;">
                                     <select name="aa2" size="8"

@@ -66,7 +66,34 @@
 		</property>
 		<property name="params">
 			<list>
-			
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>seqNumber</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.seqNumber</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
+						<value>mobile</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.mobile</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
 			</list>
 		</property>
 	</bean>

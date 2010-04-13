@@ -16,25 +16,43 @@
     document.body.onkeypress= checkEnter;
 </script>
 <html:form action="/ticketdetail" method="post">
-
+	<input type="hidden" value="search" name="act" />
+	<input type="hidden" name="searchObj.merchantId" value="<c:out value='${ticketForm.currentUser.merchantCode}'/>"/>
+	<webui:panel title="title.rfms.merchant.search" icon="../images/icon_search.gif" width="95%">
+		<webui:formTable>
+			<tr>
+				<webui:input label="ÓÅ»ÝÈ¯±àºÅ">
+					<html:text property="searchObj.seqNumber" size="25" />
+				</webui:input>
+				<webui:input label="ÊÖ»ú">
+					<html:text property="searchObj.mobile" size="25" />
+				</webui:input>
+			</tr>
+		</webui:formTable>
+		<webui:linkButton styleClass="clsButtonFace"
+			href="javascript:onCreate();" value="sysadmin.button.create" />
+		<webui:linkButton styleClass="clsButtonFace"
+			href="javascript:loadOn();document.ticketForm.submit();"
+			value="sysadmin.button.search" />
+	</webui:panel>
 	
 	<br />
-	<webui:panel title="·ÉÈ¯¿¨Ê¹ÓÃÏêÏ¸" icon="../images/icon_list.gif">
+	<webui:panel title="ÓÅ»ÝÈ¯¿¨Ê¹ÓÃÏêÏ¸" icon="../images/icon_list.gif">
 		<webui:table dataSource="ticketDetailDS"
 			action="${pageContext.request.contextPath}/rfms/ticketdetail.do"
 			imagePath="${pageContext.request.contextPath}/images/table/*.gif"
-			title="·ÉÈ¯¿¨ÁÐ±í" var="ticketdetail" width="95%" showExports="true"
+			title="ÓÅ»ÝÈ¯¿¨ÁÐ±í" var="ticketdetail" width="95%" showExports="true"
 			showPagination="true" showStatusBar="true" showTitle="false"
 			sortable="false" filterable="false" autoIncludeParameters="false"
 			tableId="ticketdetailForm" form="ticketdetailForm">
 			<webui:row>
-				<webui:column property="seqNumber" title="·ÉÈ¯±àºÅ" styleClass="td_normal"/>
-				<webui:column property="ticketId" title="·ÉÈ¯Ãû³Æ">
+				<webui:column property="seqNumber" title="ÓÅ»ÝÈ¯±àºÅ" styleClass="td_normal"/>
+				<webui:column property="ticketId" title="ÓÅ»ÝÈ¯Ãû³Æ">
 				<webui:query property="ticketName" beanName="rfmsTicketService" methodName="getRfmsTicketById">
 				<webui:param name="ticketId" type="java.lang.Long" value="${ticketdetail.ticketId }"/>
 				</webui:query>
 				</webui:column>
-				<webui:column property="status" title="·ÉÈ¯×´Ì¬">
+				<webui:column property="status" title="ÓÅ»ÝÈ¯×´Ì¬">
 					<webui:lookup code="SEND_STATUS@RFMS_CARD" value="${ticketdetail.status}" />
 				</webui:column>
 				<webui:column sortable="true" property="mobile" title="ÊÖ»ú"

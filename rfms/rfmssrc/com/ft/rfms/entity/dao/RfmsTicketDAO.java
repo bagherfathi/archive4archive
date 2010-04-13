@@ -77,8 +77,8 @@ public class RfmsTicketDAO extends BaseDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<RfmsTicket> findTicketsByMerchant(String merchantCode) {
-		return query("from RfmsTicket t where t.merchantId=?",
+	public List<RfmsTicket> findTicketsByMerchant(Long merchantCode) {
+		return query("from RfmsTicket t where operatorId=?",
 				new Object[] { merchantCode });
 	}
 

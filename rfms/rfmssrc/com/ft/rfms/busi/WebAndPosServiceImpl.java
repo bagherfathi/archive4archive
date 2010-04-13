@@ -47,7 +47,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#findTicket(java.lang.String)
 	 */
-	public List<RfmsTicket> findTicket(String merchantCode) throws Exception {
+	public List<RfmsTicket> findTicket(Long merchantCode) throws Exception {
 		// this.baseDao.getEntityByIdentityAttribute(RfmsMerchant.class,
 		// "merchantCode", merchantCode);
 		return this.ticketDao.findTicketsByMerchant(merchantCode);

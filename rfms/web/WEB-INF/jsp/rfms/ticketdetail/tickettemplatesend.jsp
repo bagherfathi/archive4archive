@@ -6,7 +6,7 @@
 <html:form styleId="ticketdetailForm" action="/ticketsend.do" method="post" enctype="multipart/form-data">
   <input type="hidden" name="type" value="1" />
 	<input type="hidden" value="save" name="act" />
-	<webui:panel title="飞券下发" width="95%" icon="/images/icon_list.gif">
+	<webui:panel title="优惠券下发" width="95%" icon="/images/icon_list.gif">
 		<webui:formTable>
 		<tr>
 			<webui:input label="label.rfms.ticket.ticket_name" colspan="3">
