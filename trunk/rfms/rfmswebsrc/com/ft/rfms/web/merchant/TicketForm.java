@@ -15,8 +15,27 @@ import com.ft.sm.entity.Operator;
  */
 public class TicketForm extends BaseSimpleForm {
 	private static final long serialVersionUID = -4253519821578386058L;
+
 	private Operator operator;
+
 	private String targetMemberTypes;
+
+	private Long bindId;
+
+	/**
+	 * @return the bindId
+	 */
+	public Long getBindId() {
+		return bindId;
+	}
+
+	/**
+	 * @param bindId
+	 *            the bindId to set
+	 */
+	public void setBindId(Long bindId) {
+		this.bindId = bindId;
+	}
 
 	public String getTargetMemberTypes() {
 		return targetMemberTypes;

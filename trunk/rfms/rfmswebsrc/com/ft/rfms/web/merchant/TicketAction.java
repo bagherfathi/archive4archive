@@ -3,6 +3,9 @@
  */
 package com.ft.rfms.web.merchant;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,14 +13,19 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.ft.rfms.busi.PosBindDTO;
 import com.ft.rfms.entity.RfmsTicket;
+import com.ft.rfms.entity.RfmsTicketBind;
 import com.ft.rfms.entity.RfmsTicketDetail;
 import com.ft.rfms.model.MerchantService;
+import com.ft.rfms.model.RfmsTicketService;
 import com.ft.singleTable.web.BaseSimpleAction;
 
 public class TicketAction extends BaseSimpleAction {
 
 	private MerchantService merchantService;
+
+	private RfmsTicketService ticketService;
 
 	public MerchantService getMerchantService() {
 		return merchantService;
@@ -74,6 +82,79 @@ public class TicketAction extends BaseSimpleAction {
 		return arg0.findForward("view");
 	}
 
+	/**
+	 * 跳转到绑定页面
+	 * 
+	 * @param arg0
+	 * @param arg1
+	 * @param arg2
+	 * @param arg3
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward toBind(ActionMapping arg0, ActionForm arg1,
+			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
+		this.edit(arg0, arg1, arg2, arg3);
+		TicketForm aform = (TicketForm) arg1;
+		List<PosBindDTO> poss = this.ticketService.findPosByTicketId(aform
+				.getId());
+		arg2.setAttribute("posBindDTOs", poss);
+		return arg0.findForward("toBind");
+	}
+
+	/**
+	 * 查询pos，供绑定
+	 * 
+	 * @param arg0
+	 * @param arg1
+	 * @param arg2
+	 * @param arg3
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward searchPos(ActionMapping arg0, ActionForm arg1,
+			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
+		this.edit(arg0, arg1, arg2, arg3);
+		String merchantName = arg2.getParameter("merchantName");
+		String branchName = arg2.getParameter("branchName");
+		String posCode = arg2.getParameter("posCode");
+		List<PosBindDTO> poss = this.ticketService.searchPos(merchantName,
+				branchName, posCode);
+		arg2.setAttribute("poss", poss);
+		return arg0.findForward("searchPos");
+	}
+
+	public ActionForward tosearchPos(ActionMapping arg0, ActionForm arg1,
+			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
+		this.edit(arg0, arg1, arg2, arg3);
+		return arg0.findForward("searchPos");
+	}
+
+	/**
+	 * 绑定pos
+	 * 
+	 * @param arg0
+	 * @param arg1
+	 * @param arg2
+	 * @param arg3
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward bind(ActionMapping arg0, ActionForm arg1,
+			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
+		TicketForm aform = (TicketForm) arg1;
+		String[] posCodes = arg2.getParameterValues("ids");
+		this.ticketService.saveBindPos(aform.getId(), posCodes);
+		return this.toBind(arg0, arg1, arg2, arg3);
+	}
+	
+	public ActionForward bindDelete(ActionMapping arg0, ActionForm arg1,
+			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
+		TicketForm aform = (TicketForm) arg1;
+		this.ticketService.delObject(aform.getBindId(),"RfmsTicketBind");
+		return this.toBind(arg0, arg1, arg2, arg3);
+	}
+
 	public ActionForward edit(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		arg2.getSession().removeAttribute("cardForm");
@@ -96,6 +177,14 @@ public class TicketAction extends BaseSimpleAction {
 		super.unspecified(arg0, arg1, arg2, arg3);
 
 		return arg0.getInputForward();
+	}
+
+	/**
+	 * @param ticketService
+	 *            the ticketService to set
+	 */
+	public void setTicketService(RfmsTicketService ticketService) {
+		this.ticketService = ticketService;
 	}
 
 }
