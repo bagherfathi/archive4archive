@@ -42,7 +42,7 @@ public class TicketSendAction extends BaseSimpleAction {
 				RfmsTicket.class, aform.getId());
 		aform.setRfmsTicket(rfmsTicket);
 
-		// 得到已下发的飞券卡下发信息 status=0
+		// 得到已下发的飞券卡下发信息 status>1
 		ticketDetail = rfmsTicketService.getRfmsTicketDetailByBigThanStatus(
 				rfmsTicket.getId(), new Long(1));
 
@@ -146,7 +146,7 @@ public class TicketSendAction extends BaseSimpleAction {
 				}
 			}
 		} else {
-			// 更新下发飞券状态 更新手机，接收人，下发人，下发时间，status
+			// 更新等待下发飞券状态 更新手机，接收人，下发人，下发时间，status
 			ticketDetail = rfmsTicketService.getRfmsTicketDetailByStatus(aform
 					.getId(), new Long(1));
 			String[] str = aform.getMobiles().split(";");
