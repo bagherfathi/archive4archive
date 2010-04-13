@@ -5,7 +5,7 @@
 
 <html:form styleId="ticketForm" action="/ticket.do" method="post"  onsubmit="return validateticketForm(this);">
 <input type="hidden" value="toSearch" name="act"/>
-<webui:panel title="·ÉÈ¯ÏêÇé" width="95%"  icon="/images/icon_list.gif">    
+<webui:panel title="ÓÅ»ÝÈ¯ÏêÇé" width="95%"  icon="/images/icon_list.gif">    
 	   <%@include file="/WEB-INF/jsp/rfms/ticket/form.jsp" %>
   <webui:linkButton styleClass="clsButtonFace" href="javascript:onBack();" value="sysadmin.button.return"/>
 </webui:panel>

@@ -79,7 +79,7 @@ public interface WebAndPosService extends BaseService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<RfmsTicket> findTicket(String merchantCode) throws Exception;
+	public List<RfmsTicket> findTicket(Long merchantCode) throws Exception;
 
 	/**
 	 * ∑…»Ø≤È—Ø

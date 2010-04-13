@@ -13,13 +13,13 @@
 				value="<c:out value='${ticketForm.currentUser.operatorId}'/>" />
 			<html:text property="baseEntity.ticketName" size="25" />
 		</webui:input>
-		<webui:input label="label.rfms.ticket.ticketSerial" >
+		<webui:input label="label.rfms.ticket.ticketSerial" required="true">
 			<html:text property="baseEntity.ticketSerial" size="25" />
 		</webui:input>
 	</tr>
 
 	<tr>
-		<webui:input label="label.rfms.ticket.type" required="false">
+		<webui:input label="label.rfms.ticket.type" required="true">
 			<html:select property="baseEntity.type">
 				<html:optionsCollection name="enumSet"
 					property="element(TYPE@RFMS_CARD)" />

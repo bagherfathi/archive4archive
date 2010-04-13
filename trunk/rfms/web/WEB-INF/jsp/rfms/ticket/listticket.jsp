@@ -61,16 +61,16 @@
 				</webui:column>
 				<webui:column sortable="true" property="ticketName" title="名称"
 					styleClass="td_normal" />
-				<webui:column property="status" title="飞券类型">
+				<webui:column property="status" title="优惠券类型">
 					<webui:lookup code="TYPE@RFMS_CARD" value="${ticket.status}" />
 				</webui:column>
 				<webui:column filterable="false" cell="date" format="yyyy-MM-dd"
 					property="beginDate" title="预定下发日期">
 				</webui:column>
 				<webui:column filterable="false" cell="date" format="yyyy-MM-dd"
-					property="endDate" title="飞券有效期">
+					property="endDate" title="优惠券有效期">
 				</webui:column>
-				<webui:column property="status" title="飞券状态">
+				<webui:column property="status" title="优惠券状态">
 					<webui:lookup code="STATUS@RFMS_CARD" value="${ticket.status}" />
 				</webui:column>
 				<webui:column property="op" title="title.rfms.common.operater"

@@ -440,6 +440,16 @@ public class RfmsTicket implements Serializable, IBaseEntity {
 		}
 	}
 
+	public String toJSON() {
+		if ("1".equals(type)) {
+			return "优惠券名称:" + ticketName + ",编号:" + ticketSerial + ",面值:"
+					+ parValue + ",使用规则" + useRule;
+		} else {
+			return "优惠券名称:" + ticketName + ",编号:" + ticketSerial + ",折扣:"
+					+ parZhekou + ",使用规则" + useRule;
+		}
+	}
+
 	public int hashCode() {
 		if (Integer.MIN_VALUE == this.hashCode) {
 			if (null == this.getTicketId())
