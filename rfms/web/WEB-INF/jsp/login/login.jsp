@@ -7,7 +7,7 @@
 
 
 <HEAD>
-<TITLE>瑞富通银--商户管理系统--登录</TITLE>
+<TITLE>瑞富通银--优惠券管理系统--登录</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=gbk">
  
 <STYLE type=text/css>* {
