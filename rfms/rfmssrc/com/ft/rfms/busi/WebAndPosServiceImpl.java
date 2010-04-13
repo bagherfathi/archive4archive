@@ -77,24 +77,40 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#getTicket(java.lang.String)
 	 */
-	public RfmsTicket getTicket(String ticketCode) throws Exception {
-		Object obj = this.baseDao.getEntityByIdentityAttribute(
-				RfmsTicket.class, "ticketSerial", ticketCode);
-		return (RfmsTicket) obj;
+	public ResultMsg getTicket(String ticketCode) throws Exception {
+		ResultMsg resultMsg = null;
+		RfmsTicket rfmsTicket = (RfmsTicket) this.baseDao
+				.getEntityByIdentityAttribute(RfmsTicket.class, "ticketSerial",
+						ticketCode);
+
+		List<RfmsTicketDetail> ticketDetailList = ticketDao
+				.getRfmsTicketDetailByStatus(rfmsTicket.getId(), new Long(1));
+		if (ticketDetailList != null && ticketDetailList.size() > 0) {
+			RfmsTicketDetail ticketDetail = ticketDetailList.get(0);
+			resultMsg = new ResultMsg("2001", "恭喜您，申请成功！飞券卡号为："
+					+ ticketDetail.getSeqNumber());
+			// 已经发放
+			ticketDetail.setStatus(new Long(2));
+			baseDao.update(ticketDetail);
+		} else {
+			resultMsg = new ResultMsg("2002", "该券已发放完成，无法申请");
+		}
+
+		return resultMsg;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#memberLogin(java.lang.String,
-	 * java.lang.String)
+	 *      java.lang.String)
 	 */
 	public MemberLoginDTO memberLogin(String mobile, String pwd)
 			throws Exception {
 		MemberLoginDTO result = new MemberLoginDTO();
 		Object obj = this.baseDao.getEntityByIdentityAttribute(
 				RfmsMember.class, "mobile", mobile);
-		if (obj != null) {
+		if (obj == null) {
 			result.setResultMsg(new ResultMsg("1002", "会员号（手机号码）不存在！"));
 			return result;
 		}
@@ -112,7 +128,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#modifyPwd(java.lang.String,
-	 * java.lang.String, java.lang.String)
+	 *      java.lang.String, java.lang.String)
 	 */
 	public ResultMsg modifyPwd(String mobile, String oldPwd, String newPwd)
 			throws Exception {
@@ -136,7 +152,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#posSignIn(java.lang.String,
-	 * java.lang.String, java.lang.String)
+	 *      java.lang.String, java.lang.String)
 	 */
 	public ResultMsg posSignIn(String posCode, String loginName, String pwd)
 			throws Exception {
@@ -217,7 +233,8 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#regMember(java.lang.String,
-	 * java.lang.String, java.lang.String, java.lang.Long, java.lang.String)
+	 *      java.lang.String, java.lang.String, java.lang.Long,
+	 *      java.lang.String)
 	 */
 	public ResultMsg regMember(String mobile, String pwd, String name,
 			Long sex, String address) throws Exception {
@@ -249,7 +266,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#searchTicket(java.lang.Long,
-	 * java.lang.String, java.lang.String, java.lang.Long)
+	 *      java.lang.String, java.lang.String, java.lang.Long)
 	 */
 	public List<RfmsTicket> searchTicket(String industry, String merchantName,
 			String ticketNo, Long ticketType) throws Exception {
@@ -261,7 +278,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#searchTicket(java.lang.String,
-	 * java.lang.String)
+	 *      java.lang.String)
 	 */
 	public RfmsTicket searchTicket(String merchantCode, String ticketCode)
 			throws Exception {
@@ -272,7 +289,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#unuseTicket(java.lang.String,
-	 * java.lang.String)
+	 *      java.lang.String)
 	 */
 	public ResultMsg unuseTicket(String posCode, String ticketDetailCode)
 			throws Exception {
@@ -301,10 +318,10 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#useTicket(java.lang.String,
-	 * java.lang.String)
+	 *      java.lang.String)
 	 */
-	public ResultMsg useTicket(String posCode, String ticketDetailCode,RfcsTrade trade)
-			throws Exception {
+	public ResultMsg useTicket(String posCode, String ticketDetailCode,
+			RfcsTrade trade) throws Exception {
 		RfmsTicketDetail detail = (RfmsTicketDetail) this.baseDao
 				.getEntityByIdentityAttribute(RfmsTicketDetail.class,
 						"seqNumber", ticketDetailCode);
@@ -334,8 +351,8 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 				+ ticketId;
 		this.ticketDao.getSessionFactory().getCurrentSession().createQuery(
 				update).executeUpdate();
-		if(trade!=null)
-		this.baseDao.save(trade);
+		if (trade != null)
+			this.baseDao.save(trade);
 		String msg="";
 		String t=ticket.getType();
 		if(t.equals("1")){

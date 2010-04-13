@@ -11,6 +11,7 @@ import com.ft.rfms.busi.MemberLoginDTO;
 import com.ft.rfms.busi.ResultMsg;
 import com.ft.rfms.entity.RfcsTrade;
 import com.ft.rfms.entity.RfmsTicket;
+import com.ft.rfms.entity.RfmsTicketDetail;
 
 /**
  * @author solar
@@ -116,7 +117,7 @@ public interface WebAndPosService extends BaseService {
 	 *            ·É¾í±àºÅ
 	 * @throws Exception
 	 */
-	public RfmsTicket getTicket(String ticketCode) throws Exception;
+	public ResultMsg getTicket(String ticketCode) throws Exception;
 
 	/**
 	 * pos»úÇ©µ½
