@@ -85,7 +85,7 @@
 	  </tr>
  
      <tr>
-	    <webui:input label="label.rfms.merchant.amount" required="true">
+	    <webui:input label="label.rfms.merchant.amount" required="true" colspan="3">
 	       <c:out value="${merchantForm.baseEntity.amount/100.00}"/>
 	    </webui:input>
 	  </tr>
