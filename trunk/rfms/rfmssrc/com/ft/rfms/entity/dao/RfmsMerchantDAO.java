@@ -63,7 +63,7 @@ public class RfmsMerchantDAO extends BaseDao {
     	 //and mer.audit_status=1 and au.next_operator_id=1;
     	hql.append("select distinct mer from RfmsMerchant mer,RfmsMerchantAudit au where au.merchantId=mer.merchantId");
     	hql.append(" and mer.auditStatus=?");
-    	hql.append(" and au.nextOperatorId=?");
-    	return this.query(hql.toString(),new Object[]{auditStatus,operatorId+""});
+    	//hql.append(" and au.nextOperatorId=?");
+    	return this.query(hql.toString(),new Object[]{auditStatus});
     }
 }
