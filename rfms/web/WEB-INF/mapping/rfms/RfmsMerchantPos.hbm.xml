@@ -40,7 +40,13 @@
 			not-null="false"
 			length="1"
 		/>
-		
+		<property
+			name="mainkey"
+			column="MAINKEY"
+			type="string"
+			not-null="false"
+			length="256"
+		/>
 		<property
 			name="pinkey"
 			column="PINKEY"
