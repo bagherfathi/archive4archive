@@ -31,6 +31,12 @@
 	<definition name="rfms.ticket.view" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticket/showticket.jsp" />
 	</definition>
+	<definition name="rfms.ticket.toBind" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticket/bindPos.jsp" />
+	</definition>
+	<definition name="rfms.ticket.searchPos" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticket/searchPos.jsp" />
+	</definition>
 
 	<definition name="rfms.ticketsend.edit" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticketsend/editticketsend.jsp" />
