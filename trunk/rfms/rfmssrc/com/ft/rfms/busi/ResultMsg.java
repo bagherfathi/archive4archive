@@ -50,6 +50,13 @@ public class ResultMsg implements Serializable {
 		this.returnCode = returnCode;
 		this.returnMsg = returnMsg;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return new StringBuffer("返回码：").append(returnCode).append("返回信息：").append(returnMsg).toString();
+	}
 	
 
 }

@@ -15,6 +15,7 @@ import com.ft.rfms.entity.RfcsTrade;
 import com.ft.rfms.entity.RfmsMember;
 import com.ft.rfms.entity.RfmsSms;
 import com.ft.rfms.entity.RfmsTicket;
+import com.ft.rfms.entity.RfmsTicketBind;
 import com.ft.rfms.entity.RfmsTicketDetail;
 import com.ft.rfms.entity.dao.RfmsTicketDAO;
 import com.ft.sm.dto.EnumEntryDTO;
@@ -308,23 +309,42 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 				.getEntityByIdentityAttribute(RfmsTicketDetail.class,
 						"seqNumber", ticketDetailCode);
 		if (detail == null) {
-			return new ResultMsg("1002", "飞券序列号不存在！");
+			return new ResultMsg("00001", "优惠券序列号不存在！");
 		}
 		if (detail.getStatus() != 2) {
-			return new ResultMsg("1003", "该飞券号码未激活或者已经失效");
+			return new ResultMsg("00002", "该优惠券号码未激活或者已经失效");
 		}
+		Long ticketId=detail.getTicketId();
+		RfmsTicket ticket=this.ticketDao.getById(ticketId);
+		Date endDate=ticket.getEndDate();
+		if(endDate.before(new Date())){
+			return new ResultMsg("00003","该优惠券已经超过使用有效期！");
+		}
+		boolean isexists=this.ticketDao.posExists(posCode, ticketId);
+		if(!isexists){ //券不能再pos机器上消费
+			return new ResultMsg("00004","该优惠券不能再此pos机器上消费！");
+		}
+			
 		detail.setStatus(new Long(3));// 已经消费
 		detail.setUseDate(new Date());
 		detail.setUserPos(posCode);
 		this.baseDao.update(detail);
-		Long ticketId = detail.getTicketId();
+		//Long ticketId = detail.getTicketId();
 		String update = "update RfmsTicket ti set ti.useCount=ti.useCount+1 where ti.ticketId="
 				+ ticketId;
 		this.ticketDao.getSessionFactory().getCurrentSession().createQuery(
 				update).executeUpdate();
 		if(trade!=null)
 		this.baseDao.save(trade);
-		return new ResultMsg("1001", "飞卷消费成功！");
+		String msg="";
+		String t=ticket.getType();
+		if(t.equals("1")){
+			msg="折价券，折价："+ticket.getParValue();
+		}else{
+			msg="折扣券，折扣："+ticket.getParZhekou();
+		
+		}
+		return new ResultMsg("00000", "优惠券消费成功！"+msg);
 	}
 
 }
