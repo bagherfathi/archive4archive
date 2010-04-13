@@ -5,7 +5,7 @@
 
 <html:form styleId="merchantForm" action="/merchant.do" method="post"  onsubmit="return validateMerchantForm(this);">
 <input type="hidden" value="edit" name="act"/>
-<input type="hidden" value="0" name="subflag"/>
+<input type="hidden" value="6" name="subflag"/>
 <webui:panel title="title.rfms.merchant.edit" width="95%"  icon="/images/icon_list.gif">    
  <webui:tabContainer id="foo-bar-container">
     <webui:tabPane id="baseInfo" tabTitle="商户基本信息">
