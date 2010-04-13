@@ -4,7 +4,7 @@
 
 <html>
 <head>
-<title>瑞富通银--商户管理系统</title>
+<title>瑞富通银--优惠券管理系统</title>
 
 </head>
 <body leftmargin="0" topmargin="0" id="Indexbody" height="100%">
