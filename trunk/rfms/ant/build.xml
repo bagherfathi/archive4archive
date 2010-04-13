@@ -104,7 +104,19 @@
 
 	</target>
 
-	<target name="compile-all" depends="compile-common,compile-sm,compile-rfms">
+	
+	<target name="compile-pos">
+			<delete dir="${build}/possrc" />
+			<delete file="${cms.lib}/rfcs-pos.jar" />
+			<mkdir dir="${build}/rfcs" />
+			<javac srcdir="${rfcssrc}" encoding="GBK" destdir="${build}/rfcs" deprecation="yes" debug="yes" source="1.5">
+				<classpath refid="classpath" />
+			</javac>
+
+		</target>
+
+	
+	<target name="compile-all" depends="compile-common,compile-sm,compile-rfms,compile-pos">
 	</target>
 
 	<target name="build" depends="clear">
@@ -122,7 +134,6 @@
 
 		<mkdir dir="../dist/rfmsweb/WEB-INF/classes" />
 		<mkdir dir="../dist/rfmsweb/WEB-INF/lib" />
-		<!--
 		<copy todir="${build}/rfmsweb/WEB-INF/lib" overwrite="true">
 			
 			<fileset dir="${lib}">
@@ -186,12 +197,6 @@
 			<fileset dir="${lib}/freemarker">
 				<include name="*.*" />
 			</fileset>
-			<fileset dir="${lib}/glassfish">
-				<include name="*.*" />
-			</fileset>
-			<fileset dir="${lib}/groovy">
-				<include name="*.*" />
-			</fileset>
 			<fileset dir="${lib}/hibernate">
 				<include name="*.*" />
 			</fileset>
@@ -219,9 +224,6 @@
 			<fileset dir="${lib}/jarjar">
 				<include name="*.*" />
 			</fileset>
-			<fileset dir="${lib}/jasperreports">
-				<include name="*.*" />
-			</fileset>
 			<fileset dir="${lib}/jaxws">
 				<include name="*.*" />
 			</fileset>
@@ -238,9 +240,6 @@
 				<include name="*.*" />
 			</fileset>
 			<fileset dir="${lib}/jotm">
-				<include name="*.*" />
-			</fileset>
-			<fileset dir="${lib}/jruby">
 				<include name="*.*" />
 			</fileset>
 			<fileset dir="${lib}/junit">
@@ -291,21 +290,28 @@
 			<fileset dir="${lib}/tomcat">
 				<include name="*.*" />
 			</fileset>
-			<fileset dir="${lib}/toplink">
-				<include name="*.*" />
-			</fileset>
 			<fileset dir="${lib}/velocity">
-				<include name="*.*" />
-			</fileset>
-			<fileset dir="${lib}/websphere">
 				<include name="*.*" />
 			</fileset>
 			<fileset dir="${lib}/xerces">
 				<include name="*.*" />
 			</fileset>
-			
+			<fileset dir="${lib}/cargo-0.8">
+							<include name="*.*" />
+						</fileset>
+			<fileset dir="${lib}/emma-2.0.5312">
+							<include name="*.*" />
+						</fileset>
+			<fileset dir="${lib}/jmock-1.1.0">
+							<include name="*.*" />
+						</fileset>
+			<fileset dir="${lib}/mina">
+							<include name="*.*" />
+						</fileset>
+			<fileset dir="${lib}/json">
+										<include name="*.*" />
+									</fileset>
 		</copy>
-		-->
 		<copy todir="../dist/rfmsweb/WEB-INF/lib" overwrite="true">
 			<fileset dir="../dist/jar">
 				<include name="*.jar" />
@@ -326,6 +332,7 @@
 			    <mkdir dir="${build}/common" />
 				<mkdir dir="${build}/jar" />
 				<mkdir dir="${build}/rfmsweb" />
+		<mkdir dir="${build}/rfcs" />
 	</target>
 	
 	<target name="rfmsweb.war" depends="build">
