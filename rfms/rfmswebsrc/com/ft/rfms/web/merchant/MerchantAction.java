@@ -677,6 +677,7 @@ public class MerchantAction extends BaseSimpleAction {
 		Long branchId = aform.getBranchId();
 		Map<String, RfmsMerchantPos> posmap = (Map) request.getSession()
 				.getAttribute("posMap" + branchId);
+		this.merchantService.save(pos);
 		if (pos.getMerchantPosId() != null
 				&& pos.getMerchantPosId().longValue() != 0) {
 			posmap.put(String.valueOf(pos.getMerchantPosId()), pos);
@@ -697,6 +698,21 @@ public class MerchantAction extends BaseSimpleAction {
 		return arg0.findForward("posIndex");
 	}
 
+	public ActionForward deletePos(ActionMapping arg0, ActionForm arg1,
+			HttpServletRequest request, HttpServletResponse arg3)
+			throws Exception {
+		MerchantForm aform = (MerchantForm) arg1;
+		RfmsMerchantPos pos = aform.getPos();
+		String posId=request.getParameter("posId");
+		this.merchantService.delObject(new Long(posId), "RfmsMerchantPos");
+		Long branchId = aform.getBranchId();
+		Map<String, RfmsMerchantPos> posmap = (Map) request.getSession()
+				.getAttribute("posMap" + branchId);
+		posmap.remove(posId);
+		request.getSession().setAttribute("merchantPoss", posmap.values());
+		return arg0.findForward("posIndex");
+	}
+	
 	@SuppressWarnings("unchecked")
 	public ActionForward saveAudit(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest request, HttpServletResponse arg3)

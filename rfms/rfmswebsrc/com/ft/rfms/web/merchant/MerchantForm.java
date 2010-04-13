@@ -53,6 +53,24 @@ public class MerchantForm extends BaseSimpleForm {
 	
 	private String strAmount;
 	
+	private boolean editPos=false;
+	
+	/**
+	 * @return the editPos
+	 */
+	public boolean isEditPos() {
+		return editPos;
+	}
+
+
+	/**
+	 * @param editPos the editPos to set
+	 */
+	public void setEditPos(boolean editPos) {
+		this.editPos = editPos;
+	}
+
+
 	public String getStrAmount() {
 		return strAmount;
 	}
