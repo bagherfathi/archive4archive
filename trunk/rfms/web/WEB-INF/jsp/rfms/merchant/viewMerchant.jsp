@@ -20,6 +20,11 @@
 </webui:tabContainer>
 <c:if test="${merchantForm.baseEntity.auditStatus!=7 }">
 <br/>
+<input type="hidden" name="auditResult" value="1"/>
+<input type="hidden" name="auditRemark" value="nothing"/>
+<input type="hidden" name="netxtOperatorIds" value="1"/>
+
+<%--
 <webui:fieldSet title="ÉóÅú" width="90%">
 <webui:formTable>
 <c:if test="${merchantForm.baseEntity.auditStatus==1 or merchantForm.baseEntity.auditStatus==2 or merchantForm.baseEntity.auditStatus==3 }">
@@ -49,6 +54,7 @@
 	  </c:if>
 </webui:formTable>
 </webui:fieldSet>
+--%>
 </c:if>
   <webui:linkButton styleClass="clsButtonFace" href="javascript:submitForm(merchantForm);" value="sysadmin.button.submit"/>
   <webui:linkButton styleClass="clsButtonFace" href="javascript:onBack();" value="sysadmin.button.return"/>
@@ -84,6 +90,7 @@ function checkAuditResult()
 }   
  function submitForm(aform){
   aform.act.value="saveAudit";
+  <%--
   <c:if test="${merchantForm.baseEntity.auditStatus!=7 }">
   var nx=GetRadioValue("netxtOperatorIds");
   if(nx==null || nx==""){
@@ -91,6 +98,7 @@ function checkAuditResult()
    return;
   }
   </c:if>
+  --%>
   loadOn();
   aform.submit();
  }

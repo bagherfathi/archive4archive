@@ -5,6 +5,7 @@
 	       <html:hidden property="baseEntity.merchantId" />
 	       <html:hidden property="baseEntity.status" />
 	       <html:hidden property="baseEntity.auditStatus" />
+	       <html:hidden property="netxtOperatorIds" />
 	       <html:text property="baseEntity.merchantName" size="25"/>
 	    </webui:input>
 		<webui:input label="label.rfms.merchant.merchant_code" required="true">
@@ -81,11 +82,12 @@
 		   </html:select>
 		</webui:input>
 	  </tr>
- 
+    <%--
     <tr>
 	    <webui:input label="label.rfms.merchant_audit.next_operator_id" required="true" colspan="3">
 	       <webui:radioGroup property="netxtOperatorIds" beanName="merchantForm" beanProperty="nextAuditOperators" labelProperty="label" valueProperty="value" styleClass="noborder"/>
 	    </webui:input>
 		
 	  </tr>
+	  --%>
     </webui:formTable>
