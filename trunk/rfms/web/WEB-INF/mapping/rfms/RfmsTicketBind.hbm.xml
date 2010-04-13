@@ -37,14 +37,14 @@
 		<property
 			name="createDate"
 			column="CREATE_DATE"
-			type="java.lang.Long"
+			type="date"
 			not-null="false"
 			length="14"
 		/>
 		<property
 			name="updateDate"
 			column="UPDATE_DATE"
-			type="java.lang.Long"
+			type="date"
 			not-null="false"
 			length="14"
 		/>
