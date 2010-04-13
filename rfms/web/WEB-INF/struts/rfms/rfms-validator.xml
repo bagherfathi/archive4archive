@@ -286,7 +286,7 @@
 			<field property="baseEntity.parZhekou" depends="required,integer">
 				<arg position="0" key="label.rfms.ticket.parZhekou" />
 			</field>
-			<field property="baseEntity.beginDate" depends="required,integer">
+			<field property="baseEntity.beginDate" depends="required">
 				<arg position="0" key="label.rfms.ticket.beginDate" />
 			</field>
 			<field property="baseEntity.endDate" depends="required">
