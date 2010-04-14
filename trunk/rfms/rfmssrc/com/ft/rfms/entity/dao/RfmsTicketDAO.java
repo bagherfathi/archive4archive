@@ -10,6 +10,7 @@ import com.ft.hibernate.support.BaseDao;
 import com.ft.rfms.busi.PosBindDTO;
 import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.entity.RfmsTicket;
+import com.ft.rfms.entity.RfmsTicketBind;
 import com.ft.rfms.entity.RfmsTicketDetail;
 
 /**
@@ -166,4 +167,10 @@ public class RfmsTicketDAO extends BaseDao {
 		
 	}
 	
+	public List<RfmsTicketBind> findBind(Long ticketId){
+		StringBuffer hql = new StringBuffer("from RfmsTicketBind rt");
+		hql.append(" where ticketId=?");
+		List list=this.query(hql.toString(),new Object[]{ticketId});
+		return list;
+	}
 }
