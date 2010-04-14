@@ -38,6 +38,7 @@ public class RfmsTicketDetail implements Serializable,IBaseEntity {
 	public static String PROP_STATUS = "status";
 	public static String PROP_SEND_DATE = "sendDate";
 	public static String PROP_SEQ_NUMBER = "seqNumber";
+	public static String PROP_VALIDATOR_CODE = "validatorCode";
 	public static String PROP_SEND_OPERATOR_ID = "sendOperatorId";
 	public static String PROP_MOBILE = "mobile";
 	public static String PROP_DETAIL_ID = "detailId";
@@ -55,6 +56,7 @@ public class RfmsTicketDetail implements Serializable,IBaseEntity {
 	// fields
 	private java.lang.Long ticketId;
 	private java.lang.String seqNumber;
+	private java.lang.String validatorCode;
 	private java.lang.Long status;
 	private java.lang.String mobile;
 	private java.util.Date sendDate;
@@ -63,6 +65,14 @@ public class RfmsTicketDetail implements Serializable,IBaseEntity {
 	private java.lang.String userPos;
 
 
+
+	public java.lang.String getValidatorCode() {
+		return validatorCode;
+	}
+
+	public void setValidatorCode(java.lang.String validatorCode) {
+		this.validatorCode = validatorCode;
+	}
 
 	/**
 	 * Return the unique identifier of this class

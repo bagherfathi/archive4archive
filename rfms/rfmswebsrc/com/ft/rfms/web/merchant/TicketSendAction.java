@@ -110,9 +110,9 @@ public class TicketSendAction extends BaseSimpleAction {
 						ActionErrors errors = arg1.validate(arg0, arg2);
 
 						errors.add("notSameSize", new ActionMessage(
-								"msg.show.merchant.branchSizeEbranchNum"));
+								"msg.show.ticket.countNum"));
 						 ActionMessagesHelper.saveMessage(arg2,
-						 "msg.show.merchant.branchSizeEbranchNum", "session");
+						 "msg.show.ticket.countNum", "session");
 						return this
 								.getRedirectForwardAction("ticketsendtem.do");
 					}
@@ -155,9 +155,9 @@ public class TicketSendAction extends BaseSimpleAction {
 				// 超过发送限额 返回
 				ActionErrors errors = arg1.validate(arg0, arg2);
 				errors.add("notSameSize", new ActionMessage(
-						"msg.show.merchant.branchSizeEbranchNum"));
+						"msg.show.ticket.countNum"));
 				ActionMessagesHelper.saveMessage(arg2,
-						"msg.show.merchant.branchSizeEbranchNum", null);
+						"msg.show.ticket.countNum", null);
 			}
 
 			// 取得飞券卡的信息 更新卡信息
