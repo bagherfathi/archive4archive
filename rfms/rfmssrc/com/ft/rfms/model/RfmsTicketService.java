@@ -8,6 +8,7 @@ import java.util.List;
 import com.ft.common.busi.BaseService;
 import com.ft.rfms.busi.PosBindDTO;
 import com.ft.rfms.entity.RfmsTicket;
+import com.ft.rfms.entity.RfmsTicketBind;
 import com.ft.rfms.entity.RfmsTicketDetail;
 
 public interface RfmsTicketService extends BaseService {
@@ -38,5 +39,7 @@ public interface RfmsTicketService extends BaseService {
 	public List<PosBindDTO> searchPos(String merchantName,String branchName,String posCode);
 	
 	public void saveBindPos(Long ticketId,String[] posCodes);
+	
+	public List<RfmsTicketBind> findBind(Long ticketId);
 
 }
