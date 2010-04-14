@@ -88,7 +88,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 		if (ticketDetailList != null && ticketDetailList.size() > 0) {
 			RfmsTicketDetail ticketDetail = ticketDetailList.get(0);
 			resultMsg = new ResultMsg("2001", "恭喜您，申请成功！飞券卡号为："
-					+ ticketDetail.getSeqNumber());
+					+ ticketDetail.getValidatorCode());
 			// 已经发放
 			ticketDetail.setStatus(new Long(2));
 			baseDao.update(ticketDetail);

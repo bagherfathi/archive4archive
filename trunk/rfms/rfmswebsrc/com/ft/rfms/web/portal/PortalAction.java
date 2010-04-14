@@ -1,11 +1,13 @@
 package com.ft.rfms.web.portal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import com.ft.rfms.busi.MemberLoginDTO;
 import com.ft.rfms.busi.ResultMsg;
@@ -69,10 +71,11 @@ public class PortalAction extends BaseSimpleAction {
 	 * @return
 	 * @throws Exception
 	 */
-	public Map<String, String> getIndustry() throws Exception {
+	public String getIndustry() throws Exception {
 		Map map = webAndPosService.getIndustry();
+		JSONObject json = JSONObject.fromObject(map);
 
-		return map;
+		return json.toString();
 	}
 
 	/**
@@ -85,15 +88,8 @@ public class PortalAction extends BaseSimpleAction {
 		List<RfmsTicket> rfmsTicketList = webAndPosService
 				.findTicket(merchantCode);
 
-		String json = "";
-		for (int i = 0; i < rfmsTicketList.size(); i++) {
-			RfmsTicket rfmsTicket = rfmsTicketList.get(i);
-			json = json + "{" + rfmsTicket.toJSON() + "}";
-			if (i != rfmsTicketList.size() - 1) {
-				json = json + ",";
-			}
-		}
-		return json;
+		JSONArray json = JSONArray.fromObject(rfmsTicketList);
+		return json.toString();
 	}
 
 	/**
@@ -114,11 +110,8 @@ public class PortalAction extends BaseSimpleAction {
 		List<RfmsTicket> rfmsTicketList = webAndPosService.searchTicket(
 				industry, merchantName, ticketNo, ticketType);
 
-		String json = "";
-		for (Object obj : rfmsTicketList) {
-			json = json + "{" + obj + "}";
-		}
-		return json;
+		JSONArray js = JSONArray.fromObject(rfmsTicketList);
+		return js.toString();
 	}
 
 	/**
@@ -231,6 +224,18 @@ public class PortalAction extends BaseSimpleAction {
 	// }
 	// return jsonObject;
 	// }
+
+	public static void main(String[] arg) {
+		List list = new ArrayList();
+		ResultMsg rm = new ResultMsg("1", "2");
+		ResultMsg rm1 = new ResultMsg("2", "23");
+
+		list.add(rm);
+		list.add(rm1);
+
+		JSONArray js = JSONArray.fromObject(list);
+		System.out.println(js.toString());
+	}
 
 	public WebAndPosService getWebAndPosService() {
 		return webAndPosService;

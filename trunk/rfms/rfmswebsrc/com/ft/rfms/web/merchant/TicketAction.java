@@ -63,7 +63,9 @@ public class TicketAction extends BaseSimpleAction {
 			RfmsTicketDetail td = new RfmsTicketDetail();
 			String seqNumber = merchantService.getTicketSysCode(ticket
 					.getTicketSerial());
+			String validatorCode = merchantService.getTicketSysCode("");
 			td.setSeqNumber(seqNumber);// 生成下发卡编号
+			td.setValidatorCode(validatorCode);
 			td.setMobile("");
 			td.setStatus(new Long(1));// 1.等待下发 2.已下发 3.已使用
 			td.setTicketId(ticket.getId());
@@ -206,11 +208,11 @@ public class TicketAction extends BaseSimpleAction {
 		this.ticketService.saveBindPos(aform.getId(), posCodes);
 		return this.toBind(arg0, arg1, arg2, arg3);
 	}
-	
+
 	public ActionForward bindDelete(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		TicketForm aform = (TicketForm) arg1;
-		this.ticketService.delObject(aform.getBindId(),"RfmsTicketBind");
+		this.ticketService.delObject(aform.getBindId(), "RfmsTicketBind");
 		return this.toBind(arg0, arg1, arg2, arg3);
 	}
 

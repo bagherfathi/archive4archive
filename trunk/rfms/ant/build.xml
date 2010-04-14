@@ -123,9 +123,30 @@
 
 				</jar>
 		</target>
+	
+	<target name="compile-json">
+			<delete dir="${build}/posjson" />
+			<delete file="${cms.lib}/json.jar" />
+			<mkdir dir="${build}/json" />
+			<javac srcdir="${rfcssrc}" encoding="GBK" destdir="${build}/json" deprecation="yes" debug="yes" source="1.5">
+				<classpath refid="classpath" />
+			</javac>
+		<jar destfile="${cms.lib}/RFMS-pos.jar">
+					<zipfileset dir="${build}/json">
+						<include name="**/*.class" />
+						<include name="**/*.properties" />
+					</zipfileset>
+					<zipfileset dir="${rfcssrc}">
+						<include name="**/*.properties" />
+					</zipfileset>
+
+				</jar>
+		</target>
+	
+	
 
 	
-	<target name="compile-all" depends="compile-common,compile-sm,compile-rfms,compile-pos">
+	<target name="compile-all" depends="compile-common,compile-sm,compile-rfms,compile-pos,compile-json">
 	</target>
 
 	<target name="build" depends="clear,compile-all">
