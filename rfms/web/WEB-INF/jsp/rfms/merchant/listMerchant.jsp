@@ -77,8 +77,8 @@
 			<webui:column property="status" title="label.rfms.merchant.status">
 				<webui:lookup code="status@RFMS_MERCHANT" value="${merchant.status}" />
 			</webui:column>
-			<webui:column property="auditStatus" title="label.rfms.merchant.audit_status">
-				<webui:lookup code="audit_status@RFMS_MERCHANT" value="${merchant.auditStatus}" />
+			<webui:column property="amount" title="ÕË»§Óà¶î">
+				<fmt:formatNumber pattern="##0.00" value="${merchant.amount/100.00 }"></fmt:formatNumber>
 			</webui:column>
 			<c:if test="${merchant.auditStatus==null or merchant.auditStatus==0 }">
 			<webui:column property="op" title="title.rfms.common.operater" width="3%">
