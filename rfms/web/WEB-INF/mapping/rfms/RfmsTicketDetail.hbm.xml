@@ -35,6 +35,13 @@
 			length="64"
 		/>
 		<property
+			name="validatorCode"
+			column="VALIDATOR_CODE"
+			type="string"
+			not-null="false"
+			length="64"
+		/>
+		<property
 			name="status"
 			column="STATUS"
 			type="java.lang.Long"
