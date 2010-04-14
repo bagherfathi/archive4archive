@@ -24,7 +24,12 @@
 				<webui:input label="优惠券编号">
 					<html:text property="searchObj.seqNumber" size="25" />
 				</webui:input>
-				<webui:input label="手机">
+				<webui:input label="验证码">
+					<html:text property="searchObj.validatorCode" size="25" />
+				</webui:input>
+			</tr>
+			<tr>
+				<webui:input label="手机" colspan="3">
 					<html:text property="searchObj.mobile" size="25" />
 				</webui:input>
 			</tr>
@@ -47,6 +52,7 @@
 			tableId="ticketdetailForm" form="ticketdetailForm">
 			<webui:row>
 				<webui:column property="seqNumber" title="优惠券编号" styleClass="td_normal"/>
+				<webui:column property="validatorCode" title="验证码" styleClass="td_normal"/>
 				<webui:column property="ticketId" title="优惠券名称">
 				<webui:query property="ticketName" beanName="rfmsTicketService" methodName="getRfmsTicketById">
 				<webui:param name="ticketId" type="java.lang.Long" value="${ticketdetail.ticketId }"/>

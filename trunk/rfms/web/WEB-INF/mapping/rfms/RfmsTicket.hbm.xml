@@ -27,17 +27,17 @@
 			not-null="true" length="14" />
 		<property name="status" column="STATUS" type="string"
 			not-null="false" length="1" />
-		<property name="createDate" column="CREATE_DATE" type="date"
+		<property name="createDate" column="CREATE_DATE" type="java.util.Date"
 			not-null="false" length="7" />
-		<property name="updateDate" column="UPDATE_DATE" type="date"
+		<property name="updateDate" column="UPDATE_DATE" type="java.util.Date"
 			not-null="false" length="7" />
 		<property name="operatorId" column="OPERATOR_ID" type="java.lang.Long"
 			not-null="false" length="14" />
 		<property name="parZhekou" column="PAR_ZHEKOU" type="java.lang.Long"
 			not-null="false" length="4" />
-		<property name="beginDate" column="BEGIN_DATE" type="date"
+		<property name="beginDate" column="BEGIN_DATE" type="java.util.Date"
 			not-null="false" length="7" />
-		<property name="endDate" column="END_DATE" type="date"
+		<property name="endDate" column="END_DATE" type="java.util.Date"
 			not-null="false" length="7" />
 		<property name="ticketCount" column="TICKET_COUNT" type="java.lang.Long"
 			not-null="false" length="14" />
