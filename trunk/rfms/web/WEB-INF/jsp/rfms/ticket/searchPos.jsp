@@ -33,6 +33,8 @@
 	<input type="hidden" value="searchPos" name="act" />
 	<html:hidden property="id"/>
 	<webui:panel title="title.rfms.merchant.search" icon="../images/icon_search.gif" width="95%">
+	<%--
+	<webui:panel title="title.rfms.merchant.search" icon="../images/icon_search.gif" width="95%">
 		<webui:formTable>
 			<tr>
 				<webui:input label="商户名称">
@@ -84,5 +86,32 @@
 			</webui:row>
 		</webui:table>
     <webui:linkButton styleClass="clsButtonFace" href="javascript:onsave();" value="sysadmin.button.save" />
+	</webui:panel>
+	--%>
+
+
+<table>
+  <tr>
+    <td>
+	<p><a href="javascript: mytree.openAll();">全部展开</a> | <a href="javascript: mytree.closeAll();">全部关闭</a></p>
+	<script type="text/javascript">
+		<!--
+    //节点的函数node有9个参数，并不需要全部传，但若只传几个，默认为前面几个
+		mytree = new dTree('mytree','','ticketForm');
+		mytree.config.useCheckbox = true;  //设置有复选框
+		mytree.add(0,-1,'根节点');
+		
+<c:forEach items="${posTree }" var="posnode">
+  mytree.add('<c:out value="${posnode.nodeId }"></c:out>','<c:out value="${posnode.parentId }"></c:out>','<c:out value="${posnode.name }"></c:out>');
+</c:forEach>
+		document.write(mytree);
+
+		//-->
+	</script>
+
+</td>
+  </tr>
+</table>
+ <webui:linkButton styleClass="clsButtonFace" href="javascript:onsave();" value="sysadmin.button.save" />
 	</webui:panel>
 </html:form>

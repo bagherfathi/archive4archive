@@ -73,6 +73,7 @@
 </webui:panel>
 <br />
 	<webui:panel title="已经绑定POS机" icon="../images/icon_list.gif">
+		<%--
 		<webui:table items="posBindDTOs"
 			action="${pageContext.request.contextPath}/rfms/ticket.do"
 			imagePath="${pageContext.request.contextPath}/images/table/*.gif"
@@ -103,6 +104,65 @@
 		</webui:table>
     <webui:linkButton styleClass="clsButtonFace" href="javascript:submitForm(ticketForm);" value="绑定POS机" />
     <webui:linkButton styleClass="clsButtonFace" href="javascript:submitForm(ticketForm);" value="返回" />
+    --%>
+    
+<table>
+  <tr>
+    <td>
+	<%--
+	<p><a href="javascript: mytree.openAll();">全部展开</a> | <a href="javascript: mytree.closeAll();">全部关闭</a></p>
+	--%>
+	<script type="text/javascript">
+		<!--
+    //节点的函数node有9个参数，并不需要全部传，但若只传几个，默认为前面几个
+		mytree = new dTree('mytree','','ticketForm');
+		mytree.config.useCheckbox = true;  //设置有复选框
+		mytree.add(0,-1,'根节点');
+		
+<c:forEach items="${posTree }" var="posnode">
+  mytree.add('<c:out value="${posnode.nodeId }"></c:out>','<c:out value="${posnode.parentId }"></c:out>','<c:out value="${posnode.name }"></c:out>');
+</c:forEach>
+		document.write(mytree);
+
+
+
+function onsave(){
+        var ids=document.getElementsByName("ids");
+        var count=0;
+        for(var x=0;x<ids.length;x++){
+            if(ids[x].checked==true){
+              count++;
+            }
+        }
+        if(count==0){
+          alert("请选择POS");
+          return;
+        }
+        document.ticketForm.act.value="bind";
+        document.ticketForm.submit();
+    }
+    
+<c:forEach items="${binds }" var="b">
+   ids=document.getElementsByName("ids");   
+   for(var i=0;i<ids.length;i++){
+     if(ids[i].value=="P_<c:out value='${b.posCode}'/>"){
+        ids[i].checked=true;
+        var tempId=ids[i].id;
+        var tarr=tempId.split("-");
+        document.getElementById(tarr[0]+"-").checked=true;
+        document.getElementById(tarr[0]+"-"+tarr[1]+"-").checked=true;
+     }
+   }
+</c:forEach>
+
+		//-->
+	</script>
+
+</td>
+  </tr>
+</table>
+<webui:linkButton styleClass="clsButtonFace" href="javascript:onsave();" value="sysadmin.button.save" />&nbsp;
+<webui:linkButton styleClass="clsButtonFace" href="javascript:history.go(-1);" value="sysadmin.button.return" />
 	</webui:panel>
 	
 </html:form>
