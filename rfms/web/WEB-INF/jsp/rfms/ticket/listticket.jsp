@@ -79,7 +79,7 @@
 						key="sysadmin.button.edit" /></a>&nbsp;
 					<a href="<c:url value='/rfms/ticketsend.do?id=${ticket.id}'/>">会员下发</a>&nbsp;
 					<a href="<c:url value='/rfms/ticketsendtem.do?id=${ticket.id}'/>">模板下发</a>&nbsp;
-			        <a href="<c:url value='/rfms/ticket.do?act=toBind&id=${ticket.id}'/>">绑定POS机</a>
+			        <a onclick="loadOn();" href="<c:url value='/rfms/ticket.do?act=toBind&id=${ticket.id}'/>">绑定POS机</a>
 			</webui:column>
 
 			</webui:row>
