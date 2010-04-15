@@ -2,10 +2,14 @@ package com.ft.rfms.web.merchant;
 
 // Generated 2010-3-31 17:04:50 by Hibernate Tools 3.3.0.GA
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
+import com.ft.rfms.entity.RfmsMerchant;
 import com.ft.rfms.entity.RfmsTicket;
 import com.ft.singleTable.web.BaseSimpleForm;
 import com.ft.sm.entity.Operator;
@@ -21,6 +25,16 @@ public class TicketForm extends BaseSimpleForm {
 	private String targetMemberTypes;
 
 	private Long bindId;
+
+	private List merchants = new ArrayList();
+
+	public List getMerchants() {
+		return merchants;
+	}
+
+	public void setMerchants(List merchants) {
+		this.merchants = merchants;
+	}
 
 	/**
 	 * @return the bindId
