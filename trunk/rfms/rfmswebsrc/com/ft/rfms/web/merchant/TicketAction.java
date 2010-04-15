@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.util.LabelValueBean;
 
 import com.ft.rfms.busi.PosBindDTO;
 import com.ft.rfms.entity.RfmsMerchant;
@@ -104,35 +105,46 @@ public class TicketAction extends BaseSimpleAction {
 		List<PosBindDTO> poss = this.ticketService.findPosByTicketId(aform
 				.getId());
 		arg2.setAttribute("posBindDTOs", poss);
-		
-		List<BindTreeNode> result=new ArrayList<BindTreeNode>();
-		List<RfmsMerchant> merchants=this.merchantService.loadAll(RfmsMerchant.class);
-		for(RfmsMerchant merchant:merchants){
-			String nodeId="M_"+merchant.getId();
-			boolean add=false;
-			String name=merchant.getMerchantName().replace('\n', ' ').replace('\r', ' ');
-			BindTreeNode node=new BindTreeNode(nodeId,name,merchant.getMerchantCode(),"0");
-			List<RfmsMerchantBranch> branchs=this.merchantService.findBranchByMerchantId(merchant.getId());
-			for(RfmsMerchantBranch branch:branchs){
-				String branchName=branch.getBranchName().replace('\n', ' ').replace('\r', ' ');
-				BindTreeNode node1=new BindTreeNode("B_"+branch.getMerchantBranchId(),branchName,"B_"+branch.getMerchantBranchId(),nodeId);
-				List<RfmsMerchantPos> posList=this.merchantService.findPosByBranchId(branch.getId());
-				if(!add && posList.size()>0){
+
+		List<BindTreeNode> result = new ArrayList<BindTreeNode>();
+		List<RfmsMerchant> merchants = this.merchantService
+				.loadAll(RfmsMerchant.class);
+		for (RfmsMerchant merchant : merchants) {
+			String nodeId = "M_" + merchant.getId();
+			boolean add = false;
+			String name = merchant.getMerchantName().replace('\n', ' ')
+					.replace('\r', ' ');
+			BindTreeNode node = new BindTreeNode(nodeId, name, merchant
+					.getMerchantCode(), "0");
+			List<RfmsMerchantBranch> branchs = this.merchantService
+					.findBranchByMerchantId(merchant.getId());
+			for (RfmsMerchantBranch branch : branchs) {
+				String branchName = branch.getBranchName().replace('\n', ' ')
+						.replace('\r', ' ');
+				BindTreeNode node1 = new BindTreeNode("B_"
+						+ branch.getMerchantBranchId(), branchName, "B_"
+						+ branch.getMerchantBranchId(), nodeId);
+				List<RfmsMerchantPos> posList = this.merchantService
+						.findPosByBranchId(branch.getId());
+				if (!add && posList.size() > 0) {
 					result.add(node);
 					result.add(node1);
-					add=true;
+					add = true;
 				}
-				for(RfmsMerchantPos pos:posList){
-					BindTreeNode node2=new BindTreeNode("P_"+pos.getSysPosCode(),"B_"+pos.getSysPosCode(),pos.getSysPosCode(),"B_"+branch.getMerchantBranchId());
+				for (RfmsMerchantPos pos : posList) {
+					BindTreeNode node2 = new BindTreeNode("P_"
+							+ pos.getSysPosCode(), "B_" + pos.getSysPosCode(),
+							pos.getSysPosCode(), "B_"
+									+ branch.getMerchantBranchId());
 					result.add(node2);
 				}
 			}
 		}
 		arg2.setAttribute("posTree", result);
-		//获取当前已经绑定的POS
-		List<RfmsTicketBind> binds=this.ticketService.findBind(aform.getId());
+		// 获取当前已经绑定的POS
+		List<RfmsTicketBind> binds = this.ticketService.findBind(aform.getId());
 		arg2.setAttribute("binds", binds);
-		
+
 		return arg0.findForward("toBind");
 	}
 
@@ -155,39 +167,50 @@ public class TicketAction extends BaseSimpleAction {
 		List<PosBindDTO> poss = this.ticketService.searchPos(merchantName,
 				branchName, posCode);
 		arg2.setAttribute("poss", poss);
-		
+
 		return arg0.findForward("searchPos");
 	}
 
 	public ActionForward tosearchPos(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		this.edit(arg0, arg1, arg2, arg3);
-		
-		List<BindTreeNode> result=new ArrayList<BindTreeNode>();
-		List<RfmsMerchant> merchants=this.merchantService.loadAll(RfmsMerchant.class);
-		for(RfmsMerchant merchant:merchants){
-			String nodeId="M_"+merchant.getId();
-			boolean add=false;
-			String name=merchant.getMerchantName().replace('\n', ' ').replace('\r', ' ');
-			BindTreeNode node=new BindTreeNode(nodeId,name,merchant.getMerchantCode(),"0");
-			List<RfmsMerchantBranch> branchs=this.merchantService.findBranchByMerchantId(merchant.getId());
-			for(RfmsMerchantBranch branch:branchs){
-				String branchName=branch.getBranchName().replace('\n', ' ').replace('\r', ' ');
-				BindTreeNode node1=new BindTreeNode("B_"+branch.getMerchantBranchId(),branchName,"B_"+branch.getMerchantBranchId(),nodeId);
-				List<RfmsMerchantPos> posList=this.merchantService.findPosByBranchId(branch.getId());
-				if(!add && posList.size()>0){
+
+		List<BindTreeNode> result = new ArrayList<BindTreeNode>();
+		List<RfmsMerchant> merchants = this.merchantService
+				.loadAll(RfmsMerchant.class);
+		for (RfmsMerchant merchant : merchants) {
+			String nodeId = "M_" + merchant.getId();
+			boolean add = false;
+			String name = merchant.getMerchantName().replace('\n', ' ')
+					.replace('\r', ' ');
+			BindTreeNode node = new BindTreeNode(nodeId, name, merchant
+					.getMerchantCode(), "0");
+			List<RfmsMerchantBranch> branchs = this.merchantService
+					.findBranchByMerchantId(merchant.getId());
+			for (RfmsMerchantBranch branch : branchs) {
+				String branchName = branch.getBranchName().replace('\n', ' ')
+						.replace('\r', ' ');
+				BindTreeNode node1 = new BindTreeNode("B_"
+						+ branch.getMerchantBranchId(), branchName, "B_"
+						+ branch.getMerchantBranchId(), nodeId);
+				List<RfmsMerchantPos> posList = this.merchantService
+						.findPosByBranchId(branch.getId());
+				if (!add && posList.size() > 0) {
 					result.add(node);
 					result.add(node1);
-					add=true;
+					add = true;
 				}
-				for(RfmsMerchantPos pos:posList){
-					BindTreeNode node2=new BindTreeNode("P_"+pos.getSysPosCode(),"B_"+pos.getSysPosCode(),pos.getSysPosCode(),"B_"+branch.getMerchantBranchId());
+				for (RfmsMerchantPos pos : posList) {
+					BindTreeNode node2 = new BindTreeNode("P_"
+							+ pos.getSysPosCode(), "B_" + pos.getSysPosCode(),
+							pos.getSysPosCode(), "B_"
+									+ branch.getMerchantBranchId());
 					result.add(node2);
 				}
 			}
 		}
 		arg2.setAttribute("posTree", result);
-		
+
 		return arg0.findForward("searchPos");
 	}
 
@@ -237,7 +260,21 @@ public class TicketAction extends BaseSimpleAction {
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		super.unspecified(arg0, arg1, arg2, arg3);
 
+		TicketForm aform = (TicketForm) arg1;
+		aform.setMerchants(getRfmsMercant());
 		return arg0.getInputForward();
+	}
+
+	public List<LabelValueBean> getRfmsMercant() throws Exception {
+		List<LabelValueBean> collection = new ArrayList<LabelValueBean>();
+		List<RfmsMerchant> list = (List<RfmsMerchant>) ticketService
+				.loadAll(RfmsMerchant.class);
+		for (RfmsMerchant rm : list) {
+			collection.add(new LabelValueBean(rm.getMerchantName(), rm
+					.getMerchantCode()
+					+ ""));
+		}
+		return collection;
 	}
 
 	/**
