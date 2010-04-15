@@ -12,6 +12,7 @@ import java.io.Serializable;
 public class ResultMsg implements Serializable {
 
 	public static final String REG_EXISTS="1002";
+	public static final String REG_NOT_EXISTS="1003";
 	public static final String SUCCESS="1001";
 	public static final String UNKONW_ERROR="9999";
 	/**

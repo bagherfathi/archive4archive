@@ -17,12 +17,14 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.upload.FormFile;
 
+import com.ft.rfms.busi.ResultMsg;
 import com.ft.rfms.entity.RfmsMember;
 import com.ft.rfms.entity.RfmsSms;
 import com.ft.rfms.entity.RfmsTicket;
 import com.ft.rfms.entity.RfmsTicketDetail;
 import com.ft.rfms.model.RfmsMemberService;
 import com.ft.rfms.model.RfmsTicketService;
+import com.ft.rfms.model.WebAndPosService;
 import com.ft.singleTable.web.BaseSimpleAction;
 import com.ft.singleTable.web.WebHelper;
 import com.ft.struts.ActionMessagesHelper;
@@ -31,6 +33,7 @@ import com.ft.utils.DateUtil;
 public class TicketSendAction extends BaseSimpleAction {
 	private RfmsTicketService rfmsTicketService;
 	private RfmsMemberService rfmsMemberService;
+	private WebAndPosService webAndPosService;
 	List<RfmsTicketDetail> ticketDetail;
 
 	protected ActionForward unspecified(ActionMapping arg0, ActionForm arg1,
@@ -111,8 +114,8 @@ public class TicketSendAction extends BaseSimpleAction {
 
 						errors.add("notSameSize", new ActionMessage(
 								"msg.show.ticket.countNum"));
-						 ActionMessagesHelper.saveMessage(arg2,
-						 "msg.show.ticket.countNum", "session");
+						ActionMessagesHelper.saveMessage(arg2,
+								"msg.show.ticket.countNum", "session");
 						return this
 								.getRedirectForwardAction("ticketsendtem.do");
 					}
@@ -145,6 +148,23 @@ public class TicketSendAction extends BaseSimpleAction {
 					}
 				}
 			}
+		} else if (aform.getType() == 3) {
+			ResultMsg resultMsg = webAndPosService.sendTicketMember(aform
+					.getMobile(), aform.getTicketSerial());
+			if ("1003".equals(resultMsg.getReturnCode())) {
+				ActionMessagesHelper.saveMessage(arg2,
+						"msg.show.member.notmobile", "session");
+
+				return this.getRedirectForwardAction("member.do?act=create");
+			} else if ("2001".equals(resultMsg.getReturnCode())) {
+				ActionMessagesHelper.saveMessage(arg2, "msg.show.send.success",
+						"session");
+			} else if ("2002".equals(resultMsg.getReturnCode())) {
+				ActionMessagesHelper.saveMessage(arg2, "msg.show.send.fail",
+						"session");
+			}
+
+			return this.getRedirectForwardAction("ticketsendmobile.do");
 		} else {
 			// 更新等待下发飞券状态 更新手机，接收人，下发人，下发时间，status
 			ticketDetail = rfmsTicketService.getRfmsTicketDetailByStatus(aform
@@ -188,6 +208,14 @@ public class TicketSendAction extends BaseSimpleAction {
 		}
 
 		return this.getRedirectForwardAction("ticket.do");
+	}
+
+	public WebAndPosService getWebAndPosService() {
+		return webAndPosService;
+	}
+
+	public void setWebAndPosService(WebAndPosService webAndPosService) {
+		this.webAndPosService = webAndPosService;
 	}
 
 	public RfmsTicketService getRfmsTicketService() {
