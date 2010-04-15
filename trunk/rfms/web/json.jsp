@@ -32,14 +32,6 @@ function findTicket() {
 	var merchantCode=document.getElementById("merchantCode").value;
 	var json=jsonrpc.jHello.findTicket(merchantCode);
 	alert(json);
-	//alert(json.split(",").length);
-	
-	//for(var i=0;i<json.split(",").length;i++){
-	 var jsonObj = eval("(" + json + ")");
-	 for (var k in jsonObj) {
-		  alert(k + " : " + jsonObj[k]);
-	 }   
-	//}
 		
 }
 
@@ -66,6 +58,9 @@ function findTicket() {
 	id="button2" value="获取商户的飞卷信息" onclick="findTicket()" /></p>
 <br />
 
+<p>4、: 得到行业信息：<input type="button" name="button2"
+	id="button2" value="得到行业信息" onclick="jsonrpc.jHello.getIndustry()" /></p>
+<br />
 
 </p>
 </body>
