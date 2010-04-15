@@ -11,7 +11,6 @@ import com.ft.rfms.busi.MemberLoginDTO;
 import com.ft.rfms.busi.ResultMsg;
 import com.ft.rfms.entity.RfcsTrade;
 import com.ft.rfms.entity.RfmsTicket;
-import com.ft.rfms.entity.RfmsTicketDetail;
 
 /**
  * @author solar
@@ -151,8 +150,8 @@ public interface WebAndPosService extends BaseService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ResultMsg useTicket(String posCode, String ticketDetailCode,RfcsTrade trade)
-			throws Exception;
+	public ResultMsg useTicket(String posCode, String ticketDetailCode,
+			RfcsTrade trade) throws Exception;
 
 	/**
 	 * ·É¾í³äÕý
@@ -163,6 +162,17 @@ public interface WebAndPosService extends BaseService {
 	 * @throws Exception
 	 */
 	public ResultMsg unuseTicket(String poseCode, String ticketDetailCode)
+			throws Exception;
+
+	/**
+	 * 116114·¢·Å¿¨
+	 * 
+	 * @param mobile
+	 * @param ticketCode
+	 * @return
+	 * @throws Exception
+	 */
+	public ResultMsg sendTicketMember(String mobile, String ticketCode)
 			throws Exception;
 
 }

@@ -103,7 +103,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#memberLogin(java.lang.String,
-	 *      java.lang.String)
+	 * java.lang.String)
 	 */
 	public MemberLoginDTO memberLogin(String mobile, String pwd)
 			throws Exception {
@@ -128,7 +128,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#modifyPwd(java.lang.String,
-	 *      java.lang.String, java.lang.String)
+	 * java.lang.String, java.lang.String)
 	 */
 	public ResultMsg modifyPwd(String mobile, String oldPwd, String newPwd)
 			throws Exception {
@@ -152,7 +152,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#posSignIn(java.lang.String,
-	 *      java.lang.String, java.lang.String)
+	 * java.lang.String, java.lang.String)
 	 */
 	public ResultMsg posSignIn(String posCode, String loginName, String pwd)
 			throws Exception {
@@ -219,6 +219,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 			RfmsSms sms = new RfmsSms();
 			sms.setMessage("您已成功注册为飞卷会员，您的初始密码是123456");
 			sms.setMobile(mobile);
+			sms.setOperatorId(member.getId());
 			sms.setCreateDate(new Date());
 			sms.setUpdateDate(new Date());
 			this.baseDao.save(sms);
@@ -229,12 +230,66 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 		return new ResultMsg("1001", "注册成功！");
 	}
 
+	/**
+	 * 116114发放卡
+	 * 
+	 * @param mobile
+	 * @param ticketCode
+	 * @return
+	 * @throws Exception
+	 */
+	public ResultMsg sendTicketMember(String mobile, String ticketCode)
+			throws Exception {
+		ResultMsg resultMsg = null;
+		RfmsMember rfmsMember = (RfmsMember) this.baseDao
+				.getEntityByIdentityAttribute(RfmsMember.class, "mobile",
+						mobile);
+		if (rfmsMember != null) {
+			RfmsTicket rfmsTicket = (RfmsTicket) this.baseDao
+					.getEntityByIdentityAttribute(RfmsTicket.class,
+							"ticketSerial", ticketCode);
+
+			List<RfmsTicketDetail> ticketDetailList = ticketDao
+					.getRfmsTicketDetailByStatus(rfmsTicket.getId(),
+							new Long(1));
+			if (ticketDetailList != null && ticketDetailList.size() > 0) {
+				RfmsTicketDetail ticketDetail = ticketDetailList.get(0);
+				resultMsg = new ResultMsg("2001", "发放优惠券成功！");
+				// 已经发放
+				ticketDetail.setMobile(mobile);
+				ticketDetail.setSendDate(new Date());
+				ticketDetail.setSendOperatorId(rfmsMember.getOperatorId());
+				ticketDetail.setStatus(new Long(2));
+				baseDao.update(ticketDetail);
+
+				// 发送密码
+				RfmsSms sms = new RfmsSms();
+				sms.setMessage("您已成功注册为飞卷会员，您的初始密码是123456");
+				sms.setMobile(mobile);
+				sms.setOperatorId(rfmsMember.getOperatorId());
+				sms.setCreateDate(new Date());
+				sms.setUpdateDate(new Date());
+				this.baseDao.save(sms);
+				return resultMsg;
+			} else {
+				return new ResultMsg("2002", "该券已发放完成，无法申请");
+			}
+
+		}
+		return new ResultMsg("1003", "手机号码不存在，请先添加用户信息");
+		// try {
+		// return this.getTicket(ticketCode);
+		// } catch (Exception ex) {
+		// ex.printStackTrace();
+		// return new ResultMsg("1003", "未知错误！");
+		// }
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#regMember(java.lang.String,
-	 *      java.lang.String, java.lang.String, java.lang.Long,
-	 *      java.lang.String)
+	 * java.lang.String, java.lang.String, java.lang.Long, java.lang.String)
 	 */
 	public ResultMsg regMember(String mobile, String pwd, String name,
 			Long sex, String address) throws Exception {
@@ -266,7 +321,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#searchTicket(java.lang.Long,
-	 *      java.lang.String, java.lang.String, java.lang.Long)
+	 * java.lang.String, java.lang.String, java.lang.Long)
 	 */
 	public List<RfmsTicket> searchTicket(String industry, String merchantName,
 			String ticketNo, Long ticketType) throws Exception {
@@ -278,7 +333,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#searchTicket(java.lang.String,
-	 *      java.lang.String)
+	 * java.lang.String)
 	 */
 	public RfmsTicket searchTicket(String merchantCode, String ticketCode)
 			throws Exception {
@@ -289,7 +344,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#unuseTicket(java.lang.String,
-	 *      java.lang.String)
+	 * java.lang.String)
 	 */
 	public ResultMsg unuseTicket(String posCode, String ticketDetailCode)
 			throws Exception {
@@ -318,7 +373,7 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 	 * (non-Javadoc)
 	 * 
 	 * @see com.ft.rfms.model.WebAndPosService#useTicket(java.lang.String,
-	 *      java.lang.String)
+	 * java.lang.String)
 	 */
 	public ResultMsg useTicket(String posCode, String ticketDetailCode,
 			RfcsTrade trade) throws Exception {
@@ -331,37 +386,37 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 		if (detail.getStatus() != 2) {
 			return new ResultMsg("00002", "该优惠券号码未激活或者已经失效");
 		}
-		Long ticketId=detail.getTicketId();
-		RfmsTicket ticket=this.ticketDao.getById(ticketId);
-		Date endDate=ticket.getEndDate();
-		if(endDate.before(new Date())){
-			return new ResultMsg("00003","该优惠券已经超过使用有效期！");
+		Long ticketId = detail.getTicketId();
+		RfmsTicket ticket = this.ticketDao.getById(ticketId);
+		Date endDate = ticket.getEndDate();
+		if (endDate.before(new Date())) {
+			return new ResultMsg("00003", "该优惠券已经超过使用有效期！");
 		}
-		boolean isexists=this.ticketDao.posExists(posCode, ticketId);
-		if(!isexists){ //券不能再pos机器上消费
-			return new ResultMsg("00004","该优惠券不能再此pos机器上消费！");
+		boolean isexists = this.ticketDao.posExists(posCode, ticketId);
+		if (!isexists) { // 券不能再pos机器上消费
+			return new ResultMsg("00004", "该优惠券不能再此pos机器上消费！");
 		}
-			
+
 		detail.setStatus(new Long(3));// 已经消费
 		detail.setUseDate(new Date());
 		detail.setUserPos(posCode);
 		this.baseDao.update(detail);
-		//Long ticketId = detail.getTicketId();
+		// Long ticketId = detail.getTicketId();
 		String update = "update RfmsTicket ti set ti.useCount=ti.useCount+1 where ti.ticketId="
 				+ ticketId;
 		this.ticketDao.getSessionFactory().getCurrentSession().createQuery(
 				update).executeUpdate();
 		if (trade != null)
 			this.baseDao.save(trade);
-		String msg="";
-		String t=ticket.getType();
-		if(t.equals("1")){
-			msg="折价券，折价："+ticket.getParValue();
-		}else{
-			msg="折扣券，折扣："+ticket.getParZhekou();
-		
+		String msg = "";
+		String t = ticket.getType();
+		if (t.equals("1")) {
+			msg = "折价券，折价：" + ticket.getParValue();
+		} else {
+			msg = "折扣券，折扣：" + ticket.getParZhekou();
+
 		}
-		return new ResultMsg("00000", "优惠券消费成功！"+msg);
+		return new ResultMsg("00000", "优惠券消费成功！" + msg);
 	}
 
 }

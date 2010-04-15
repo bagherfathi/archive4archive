@@ -23,6 +23,24 @@ public class TicketDetailForm extends BaseSimpleForm {
 	private RfmsTicket rfmsTicket;
 	private int type;
 	private FormFile strFile;
+	private String ticketSerial;
+	private String mobile;
+
+	public String getTicketSerial() {
+		return ticketSerial;
+	}
+
+	public void setTicketSerial(String ticketSerial) {
+		this.ticketSerial = ticketSerial;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 
 	public FormFile getStrFile() {
 		return strFile;
