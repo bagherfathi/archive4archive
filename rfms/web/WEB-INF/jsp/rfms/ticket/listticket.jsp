@@ -56,7 +56,16 @@
 				</webui:input>
 
 			</tr>
-
+			<tr>
+				<webui:input label="商户名称" colspan="3">
+					 <html:select property="baseEntity.merchantId">
+						 <html:option value="-1">请选择</html:option>
+			           <html:optionsCollection name="ticketForm" property="merchants"/>
+			       </html:select>
+				</webui:input>
+			</tr>
+			
+			
 		</webui:formTable>
 		<webui:linkButton styleClass="clsButtonFace"
 			href="javascript:onCreate();" value="sysadmin.button.create" />
@@ -79,7 +88,8 @@
 				<webui:column property="merchantId" title="商户名称">
 					<webui:query property="merchantName" beanName="merchantService"
 						methodName="findMerchantByBranchId">
-						<webui:param name="merchantId" type="java.lang.Long" value="${ticket.merchantId}" />
+						<webui:param name="merchantId" type="java.lang.Long"
+							value="${ticket.merchantId}" />
 					</webui:query>
 				</webui:column>
 				<webui:column property="ticketSerial"
