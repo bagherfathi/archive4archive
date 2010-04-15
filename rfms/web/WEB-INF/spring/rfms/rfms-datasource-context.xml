@@ -82,6 +82,20 @@
 				</bean>
 				<bean class="com.ft.hibernate.datasource.EntityParam">
 					<property name="name">
+						<value>validatorCode</value>
+					</property>
+					<property name="paramName">
+						<value>searchObj.validatorCode</value>
+					</property>
+					<property name="type">
+						<value>java.lang.String</value>
+					</property>
+					<property name="expr">
+						<value>like</value>
+					</property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name">
 						<value>mobile</value>
 					</property>
 					<property name="paramName">
@@ -201,6 +215,11 @@
 					</property>
 				</bean>
 				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name"><value>endDate</value></property>
+					<property name="type"><value>java.util.Date</value></property>
+					<property name="expr"><value>like</value></property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
 					<property name="name">
 						<value>status</value>
 					</property>
@@ -216,6 +235,11 @@
 				</bean>
 				<bean class="com.ft.hibernate.datasource.EntityParam">
 					<property name="name"><value>operatorId</value></property>
+					<property name="type"><value>java.lang.Long</value></property>
+					<property name="expr"><value>=</value></property>
+				</bean>
+				<bean class="com.ft.hibernate.datasource.EntityParam">
+					<property name="name"><value>merchantId</value></property>
 					<property name="type"><value>java.lang.Long</value></property>
 					<property name="expr"><value>=</value></property>
 				</bean>

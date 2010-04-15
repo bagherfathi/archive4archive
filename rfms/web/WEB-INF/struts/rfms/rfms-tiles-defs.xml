@@ -15,6 +15,9 @@
 	<definition name="rfms.ticketdetail.indextem" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticketdetail/tickettemplatesend.jsp" />
 	</definition>
+	<definition name="rfms.ticketdetail.indexmobile" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticketdetail/tickettemplatemobile.jsp" />
+	</definition>
 	<definition name="rfms.ticketdetail.list" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticketdetail/listticketdetail.jsp" />
 	</definition>
@@ -24,6 +27,9 @@
 	</definition>
 	<definition name="rfms.ticket.index" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticket/listticket.jsp" />
+	</definition>
+	<definition name="rfms.ticketto.index" extends="main.layout">
+		<put name="body" value="/WEB-INF/jsp/rfms/ticket/listticketto.jsp" />
 	</definition>
 	<definition name="rfms.ticket.searchIndex" extends="main.layout">
 		<put name="body" value="/WEB-INF/jsp/rfms/ticket/listticket.jsp" />

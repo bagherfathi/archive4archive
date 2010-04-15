@@ -66,6 +66,11 @@
 			<forward name="searchPos" path="rfms.ticket.searchPos" redirect="false" />
 		</action>
 		
+		<action path="/ticketto" type="com.ft.rfms.web.merchant.TicketAction"
+			name="ticketForm" scope="request" input="rfms.ticketto.index"
+			parameter="act" unknown="false" validate="false">
+		</action>
+		
 		<action path="/portal" type="com.ft.rfms.web.portal.PortalAction" />
 		
 		<action path="/ticketsend" type="com.ft.rfms.web.merchant.TicketSendAction"
@@ -75,6 +80,10 @@
 
 		<action path="/ticketsendtem" type="com.ft.rfms.web.merchant.TicketSendAction"
 			name="ticketdetailForm" scope="session" input="rfms.ticketdetail.indextem"
+			parameter="act" unknown="false" validate="false">
+		</action>
+		<action path="/ticketsendmobile" type="com.ft.rfms.web.merchant.TicketSendAction"
+			name="ticketdetailForm" scope="session" input="rfms.ticketdetail.indexmobile"
 			parameter="act" unknown="false" validate="false">
 		</action>
 		

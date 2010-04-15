@@ -33,6 +33,9 @@
 		<property name="rfmsMemberService">
 			<ref bean="rfmsMemberService" />
 		</property>
+		<property name="webAndPosService">
+			<ref bean="webAndPosService" />
+		</property>
 	</bean>
 
 	<bean id="merchantAction" class="com.ft.rfms.web.merchant.MerchantAction">
