@@ -15,7 +15,7 @@
     }
     document.body.onkeypress= checkEnter;
 </script>
-<html:form action="/ticket" method="post">
+<html:form action="/ticketto" method="post">
 	<input type="hidden" value="search" name="act" />
 	<input type="hidden" name="searchObj.merchantId"
 		value="<c:out value='${ticketForm.currentUser.merchantCode}'/>" />
@@ -78,7 +78,7 @@
 
 	<webui:panel title="优惠券管理" icon="../images/icon_list.gif">
 		<webui:table dataSource="ticketDS"
-			action="${pageContext.request.contextPath}/rfms/ticket.do"
+			action="${pageContext.request.contextPath}/rfms/ticketto.do"
 			imagePath="${pageContext.request.contextPath}/images/table/*.gif"
 			title="优惠列表" var="ticket" width="95%" showExports="true"
 			showPagination="true" showStatusBar="true" showTitle="false"
@@ -118,11 +118,9 @@
 				</webui:column>
 				<webui:column property="op" title="title.rfms.common.operater"
 					width="3%">
-					<a href="<c:url value='/rfms/ticket.do?act=view&id=${ticket.id}'/>">查看</a>&nbsp;
-					<a href="<c:url value='/rfms/ticket.do?act=edit&id=${ticket.id}'/>"><bean:message
-						key="sysadmin.button.edit" /></a>&nbsp;
-			        <a
-						href="<c:url value='/rfms/ticket.do?act=toBind&id=${ticket.id}'/>">绑定POS机</a>
+					<a href="<c:url value='/rfms/ticketsendmobile.do?id=${ticket.id}'/>">手机下发</a>&nbsp;
+					<a href="<c:url value='/rfms/ticketsend.do?id=${ticket.id}'/>">会员下发</a>&nbsp;
+					<a href="<c:url value='/rfms/ticketsendtem.do?id=${ticket.id}'/>">模板下发</a>&nbsp;
 				</webui:column>
 
 			</webui:row>
