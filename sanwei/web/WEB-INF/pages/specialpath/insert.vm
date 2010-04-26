@@ -1,0 +1,30 @@
+#renhehead()
+#renheMenu("specialpath")
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="Position">位置：工作助手 / 公交管理 / 新增特殊路径</div>
+
+#if($!inserted)
+	<script type="text/javascript">showmsg(true,"新增特殊路径成功!",msg);</script>
+#end
+
+#set($actionUrl = "/specialpath/actions.html?method=insert")
+
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  新增特殊路径   #########
+<div class=contitle>
+<div class=leftmain>新增特殊路径</div>
+<div class=rightmain></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/specialpath/form.vm" )
+</div>
+</div>
+
+#renheend()	

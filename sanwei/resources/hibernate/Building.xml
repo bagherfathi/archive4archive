@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Aug 24 10:26:10 CST 2006                       -->
+<hibernate-mapping package="com.renhenet.po">
+
+    <class name="Building" table="building" lazy="false">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="identity"/>
+        </id>
+ 
+ 		<property name="userId" column="user_id" type="java.lang.Integer"  />
+        <property name="subject" column="subject" type="java.lang.String" />
+        <property name="content" column="content" type="java.lang.String" />
+        <property name="type" column="type" type="java.lang.Integer" />
+        <property name="placeX" column="place_x" type="java.lang.Double"  />
+ 		<property name="placeY" column="place_y" type="java.lang.Double"  />
+ 		<property name="placeZ" column="place_z" type="java.lang.Double"  />
+ 		<property name="pitch" column="pitch" type="java.lang.Double"  />
+ 		<property name="rotate" column="rotate" type="java.lang.Double"  />
+ 		<property name="driveUp" column="driveUp" type="java.lang.Double"  />
+ 		<property name="lod" column="lod" type="java.lang.Double"  />
+ 		<property name="color" column="color" type="java.lang.Integer"  />
+ 		<property name="bkColor" column="bkColor" type="java.lang.Integer"  />
+        <property name="labelId" column="label_id" type="java.lang.String" />
+        <property name="labelName" column="label_name" type="java.lang.String" />
+        <property name="labelIcon" column="label_icon" type="java.lang.String" />
+        <property name="labelMemo" column="label_memo" type="java.lang.String" />
+        <property name="labelFont" column="label_font" type="java.lang.String" />
+        <property name="remark" column="remark" type="java.lang.String" />
+        <property name="timeCreate" column="time_create" type="java.util.Date"  not-null="true" />
+        <property name="timeModified" column="time_modified" type="java.util.Date"  not-null="true" />
+    </class>
+    
+</hibernate-mapping>

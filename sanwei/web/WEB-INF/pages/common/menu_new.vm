@@ -1,0 +1,101 @@
+<td width="150" height="500" valign="top" bgcolor="#93B1D7">
+<script language="JavaScript" src="/scripts/menu.js"></script>
+	<div class="lmain" onClick="javascript:showdesc(1)">便民信息管理</div>
+		<div class="lmain2" id="desc1" style="display:#if($memuModule == "bus" || $memuModule == "busstation" || $memuModule == "building")block#else none#end">
+			<ul>
+				<li><a  onClick="javascript:showdesc(11)"  class=menubg>
+						#set($menuOpen = false)
+                    		#if($memuModule == "bus" ||$memuModule == "busstation")
+                    			#set($menuOpen = true)
+                    	#end
+						<img src=#if($menuOpen)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic11>公交信息管理</a></li>
+				<div id="desc11" style="display:#if($memuModule == "bus" ||$memuModule == "busstation")block#else none#end">
+					<ul>
+						<li><a href="/bus/actions.html?method=list&cm=sys1"  #showMenuClass("sys1") >公交线路管理</a></li>
+						<li><a href="/busstation/actions.html?method=list&cm=sys2"  #showMenuClass("sys2") >公交站点管理</a></li>
+					</ul>
+				</div>
+				<li><a  onClick="javascript:showdesc(12)"  class=menubg>
+					#set($menuOpen = false)
+                		#if($memuModule == "building" )
+                			#set($menuOpen = true)
+                	#end
+					<img src=#if($menuOpen)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic12>建筑信息管理</a></li>
+					<div id="desc12" style="display:#if($memuModule == "building")block#else none#end">
+						<ul>
+							<li><a href="/building/actions.html?method=list&cm=sys3" #showMenuClass("sys3") >建筑信息管理</a></li>
+						</ul>
+					</div>
+			</ul>	
+	</div>
+	<div class="lmain" onClick="javascript:showdesc(2)"> 网站公告</div>
+		<div class="lmain2" id="desc2" style="display:#if($memuModule == "callboard")block#else none#end">
+			<ul>
+				<li><a href="/callboard/actions.html?method=list&cm=sys4" #showMenuClass("sys4") >公告信息维护</a></li>
+			</ul>
+	</div>
+	<div class="lmain" onClick="javascript:showdesc(3)"> 客服反馈管理</div>
+		<div class="lmain2" id="desc3" style="display:#if($memuModule == "feedback")block#else none#end">
+			<ul>
+				<li><a href="/feedback/actions.html?method=list&cm=sys5" #showMenuClass("sys5") >客服反馈管理</a></li>
+			</ul>
+	</div>
+	<div class="lmain" onClick="javascript:showdesc(4)"> 特殊路径管理</div>
+		<div class="lmain2" id="desc4" style="display:#if($memuModule == "specialpath")block#else none#end">
+			<ul>
+				<li><a href="/specialpath/actions.html?method=list&cm=sys6" #showMenuClass("sys6") >特殊路径管理</a></li>
+			</ul>
+	</div>
+	<div class="lmain" onClick="javascript:showdesc(5)"> 视点管理</div>
+		<div class="lmain2" id="desc5" style="display:#if($memuModule == "viewpoint")block#else none#end">
+			<ul>
+				<li><a href="/viewpoint/actions.html?method=list&cm=sys7" #showMenuClass("sys7") >视点管理</a></li>
+			</ul>
+	</div>
+	<div class="lmain" onClick="javascript:showdesc(8)"> 标注管理</div>
+		<div class="lmain2" id="desc8" style="display:#if($memuModule == "mark")block#else none#end">
+			<ul>
+				<li><a href="/mark/actions.html?method=list&cm=sys8" #showMenuClass("sys8") >标注管理</a></li>
+			</ul>
+	</div>
+	<div class="lmain" onClick="javascript:showdesc(7)"> 日志管理</div>
+		<div class="lmain2" id="desc7" style="display:#if($memuModule == "log")block#else none#end">
+			<ul>
+				<li><a href="/log/actions.html?method=list&cm=sys9" #showMenuClass("sys9") >操作日志管理</a></li>
+			</ul>
+	</div>
+	<div class="lmain" onClick="javascript:showdesc(6)">系统设置</div>
+		<div class="lmain2" id="desc6" style="display:#if($memuModule == "member" || $memuModule == "resources")block#else none#end">
+			<ul>
+				<li><a onClick="javascript:showdesc(61)"  class=menubg>
+						#set($menuOpen = false)
+                    		#if($memuModule == "member" )
+                    			#set($menuOpen = true)
+                    	#end
+						<img src=#if($menuOpen)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic61>权限设置</a></li>
+				<div id="desc61" style="display:#if($memuModule == "member")block#else none#end">
+					<ul>
+						<li><a href="/member/actions.html?method=list&cm=sys10"  #showMenuClass("sys10") >用户管理</a></li>
+						<li><a href="/member/actions.html?method=list&cm=sys11"  #showMenuClass("sys11") >角色管理</a></li>
+					</ul>
+				</div>
+			<!--
+				<li><a  onClick="javascript:showdesc(62)"  class=menubg>
+					#set($menuOpen = false)
+                		#if($memuModule == "resources" )
+                			#set($menuOpen = true)
+                	#end
+					<img src=#if($menuOpen)/images/collapse.gif#else /images/expand.gif#end border="0" align="absmiddle" id=pic62>资料设置</a></li>
+					<div id="desc62" style="display:#if($memuModule == "resources")block#else none#end">
+						<ul>
+							<li><a href="/resources/actions.html?method=search&type=customerStatus&cm=sys12"  #showMenuClass("sys12") >建筑类型设置</a></li>
+						</ul>
+					</div>
+			 -->
+			</ul>	
+	</div>
+
+
+</td>
+<td width="8" valign="top"></td>
+<td valign="top">

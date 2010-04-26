@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="GB2312" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<!-- ============================== Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="loginForm" type="com.renhenet.web.form.LoginForm" />
+		<form-bean name="memberForm" type="com.renhenet.web.form.MemberForm" />
+		<form-bean name="resourcesForm" type="com.renhenet.web.form.ResourcesForm" />
+		<form-bean name="busForm" type="com.renhenet.web.form.BusForm" />
+		<form-bean name="busStationForm" type="com.renhenet.web.form.BusStationForm" />
+		<form-bean name="buildingForm" type="com.renhenet.web.form.BuildingForm" />
+		<form-bean name="callBoardForm"   type="com.renhenet.web.form.CallBoardForm" />
+		<form-bean name="feedBackForm" type="com.renhenet.web.form.FeedBackForm" />
+		<form-bean name="specialPathForm" type="com.renhenet.web.form.SpecialPathForm" />
+		<form-bean name="viewPointForm" type="com.renhenet.web.form.ViewPointForm" />
+		<form-bean name="markForm" type="com.renhenet.web.form.MarkForm" />
+		<form-bean name="logForm" type="com.renhenet.web.form.LogForm" />
+	</form-beans>
+
+	<!-- ================================= Global Exception Definitions -->
+	<global-exceptions>
+		<exception key="system.error" type="java.lang.Exception"
+			handler="com.renhenet.fw.waf.ExceptionHander" />
+	</global-exceptions>
+
+	<!-- ================================= Global Forward Definitions -->
+	<global-forwards>
+		<forward name="systemError" path="/systemerror.html" />
+		<forward name="login" path="/login.html" redirect="true" />
+		<forward name="nlogin" path="/login.html?o=y" redirect="true" />
+		<forward name="systemerror"
+			path="/WEB-INF/pages/system_error.vm" />
+	</global-forwards>
+
+	<!-- ================================= Action Mapping Definitions -->
+	<action-mappings>
+		<!-- manage -->
+		<action path="/index" type="com.renhenet.web.root.Index">
+			<forward name="show" path="/WEB-INF/pages/root/login.vm" />
+		</action>
+		
+		<!-- 登录 -->
+		<action path="/login" name="loginForm" type="com.renhenet.web.root.Login">
+			<forward name="show" path="/WEB-INF/pages/root/index.vm" />
+		</action>
+		
+		<!-- 公交线路 -->
+		<action path="/bus/actions"  type="com.renhenet.web.member.BusAction" name="busForm"  input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/bus/search.vm" />
+	    	<forward name="update" path="/WEB-INF/pages/bus/update.vm"/>
+	    	<forward name="detail" path="/WEB-INF/pages/bus/detail.vm"/>
+	    	<forward name="insert" path="/WEB-INF/pages/bus/insert.vm"/>
+	    	<forward name="insertsuccess"  path="/bus/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true"/>
+	    	<forward name="delete"  path="/bus/actions.html?method=list"/>
+	    </action>
+	    
+		<!-- 公交站点 -->
+		<action path="/busstation/actions"  type="com.renhenet.web.member.BusStationAction" name="busStationForm" input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/busstation/search.vm" />
+	    	<forward name="update" path="/WEB-INF/pages/busstation/update.vm"/>
+	    	<forward name="detail" path="/WEB-INF/pages/busstation/detail.vm"/>
+	    	<forward name="insert" path="/WEB-INF/pages/busstation/insert.vm"/>
+	    	<forward name="insertsuccess"  path="/busstation/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true"/>
+	    	<forward name="delete"  path="/busstation/actions.html?method=list"/>
+	    </action>
+	    
+		<!-- 建筑类型 -->
+		<action path="/building/actions"  type="com.renhenet.web.member.BuildingAction" name="buildingForm" input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/building/search.vm" />
+	    	<forward name="update" path="/WEB-INF/pages/building/update.vm"/>
+	    	<forward name="detail" path="/WEB-INF/pages/building/detail.vm"/>
+	    	<forward name="insert" path="/WEB-INF/pages/building/insert.vm"/>
+	    	<forward name="insertsuccess" path="/building/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true"/>
+	    	<forward name="delete" path="/building/actions.html?method=list"/>
+	    </action>
+	    
+	    <!-- 系统公告 -->
+		<action path="/callboard/actions"  type="com.renhenet.web.member.CallBoardAction" name="callBoardForm" input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/callboard/search.vm" />
+	    	<forward name="update" path="/WEB-INF/pages/callboard/update.vm"/>
+	    	<forward name="detail" path="/WEB-INF/pages/callboard/detail.vm"/>
+	    	<forward name="insert" path="/WEB-INF/pages/callboard/insert.vm"/>
+	    	<forward name="insertsuccess"  path="/callboard/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true"/>
+	    	<forward name="delete"  path="/callboard/actions.html?method=list"/>
+	    </action>
+		
+		<!-- 客户反馈 -->
+		<action path="/feedback/actions" type="com.renhenet.web.member.FeedBackAction" name="feedBackForm" input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/feedback/search.vm" />
+	    	<forward name="update" path="/WEB-INF/pages/feedback/update.vm"/>
+	    	<forward name="detail" path="/WEB-INF/pages/feedback/detail.vm"/>
+	    	<forward name="insert" path="/WEB-INF/pages/feedback/insert.vm"/>
+	    	<forward name="insertsuccess"  path="/feedback/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true"/>
+	    	<forward name="delete"  path="/feedback/actions.html?method=list"/>
+	    </action>
+	    	    
+	    <!-- 特殊路径 -->
+		<action path="/specialpath/actions" type="com.renhenet.web.member.SpecialPathAction" name="specialPathForm" input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/specialpath/search.vm" />
+	    	<forward name="update" path="/WEB-INF/pages/specialpath/update.vm"/>
+	    	<forward name="detail" path="/WEB-INF/pages/specialpath/detail.vm"/>
+	    	<forward name="insert" path="/WEB-INF/pages/specialpath/insert.vm"/>
+	    	<forward name="insertsuccess" path="/specialpath/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true"/>
+	    	<forward name="delete" path="/specialpath/actions.html?method=list"/>
+	    </action>
+	    
+	    <!-- 视点 -->
+		<action path="/viewpoint/actions" type="com.renhenet.web.member.ViewPointAction" name="viewPointForm" input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/viewpoint/search.vm" />
+	    	<forward name="update" path="/WEB-INF/pages/viewpoint/update.vm"/>
+	    	<forward name="detail" path="/WEB-INF/pages/viewpoint/detail.vm"/>
+	    	<forward name="insert" path="/WEB-INF/pages/viewpoint/insert.vm"/>
+	    	<forward name="insertsuccess"  path="/viewpoint/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true"/>
+	    	<forward name="delete"  path="/viewpoint/actions.html?method=list"/>
+	    </action>
+	    
+	    <!-- 标注 -->
+		<action path="/mark/actions" type="com.renhenet.web.member.MarkAction" name="markForm" input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/mark/search.vm" />
+	    	<forward name="update" path="/WEB-INF/pages/mark/update.vm"/>
+	    	<forward name="detail" path="/WEB-INF/pages/mark/detail.vm"/>
+	    	<forward name="insert" path="/WEB-INF/pages/mark/insert.vm"/>
+	    	<forward name="insertsuccess" path="/mark/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true"/>
+	    	<forward name="delete" path="/mark/actions.html?method=list"/>
+	    </action>
+	    
+	    <!-- 操作日志 -->
+		<action path="/log/actions" type="com.renhenet.web.member.LogAction" name="logForm" input="" parameter="method" scope="request" >
+	    	<forward name="list" path="/WEB-INF/pages/log/search.vm" />
+	    	<forward name="delete" path="/log/actions.html?method=list"/>
+	    </action>
+	    
+		<!-- 管理员 -->
+		<action path="/member/actions"	type="com.renhenet.web.member.MemberAction" name="memberForm" input="" parameter="method" scope="request">
+			<forward name="list" path="/WEB-INF/pages/member/list.vm" />
+			<forward name="insert" path="/WEB-INF/pages/member/insert.vm" />
+			<forward name="insertsuccess" path="/member/actions.html?method=list" redirect="true" />
+			<forward name="update" path="/WEB-INF/pages/member/update.vm" />
+		</action>
+	
+		<!-- 系统参数 -->
+		<action path="/resources/actions" type="com.renhenet.web.resources.ResourcesActions" name="resourcesForm" input="" parameter="method" scope="request">
+			<forward name="list" path="/WEB-INF/pages/resources/search.vm" />
+			<forward name="detail" path="/WEB-INF/pages/resources/detail.vm" />
+			<forward name="update" path="/WEB-INF/pages/resources/update.vm" />
+			<forward name="insert" path="/WEB-INF/pages/resources/insert.vm" />
+			<forward name="insertsuccess" path="/resources/actions.html?method=list&amp;search=y&amp;orderBy=desc" redirect="true" />
+			<forward name="delete" path="/resources/actions.html?method=list" />
+		</action>
+		
+	</action-mappings>
+		
+	<!-- ========== Message Resource bundles ============================== -->
+	<message-resources parameter="struts.ApplicationResources" />
+	<!-- ===================================== Controller Configuration -->
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" value="/WEB-INF/conf/validator-rules.xml,/WEB-INF/conf/validation.xml" />
+	</plug-in>
+
+</struts-config>

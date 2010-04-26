@@ -1,0 +1,30 @@
+#renhehead()
+#renheMenu("resources")
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+#if($!inserted)
+	<script type="text/javascript">showmsg(true,"新增成功!",msg);</script>
+#end
+#set($actionUrl = "/resources/actions.html?method=insert&type=$!type")
+
+<div id="Position">位置：系统设置 / 资料设置</div>
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  新增CRM资源   #########
+<div class=contitle>
+<div class=leftmain>新增资料</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/resources/actions.html?method=list&type=$!type">&#171;返回</a></div>
+</div>
+<div class=conmain>
+	#set($hideInsert2 = true)
+	#parse( "/WEB-INF/pages/resources/form.vm" )
+</div>
+</div>
+
+
+#renheend()	

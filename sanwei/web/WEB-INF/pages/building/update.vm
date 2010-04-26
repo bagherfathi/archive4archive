@@ -1,0 +1,28 @@
+#renhehead()
+#renheMenu("building")
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<div id="Position">位置：便民信息 / 建筑信息管理 / 编辑</div>
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+#if($!updated)
+	<script type="text/javascript">showmsg(true,"更新成功!",msg);</script>
+#end
+##set($actionUrl = "/building/actions.html?method=update")
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  编辑建筑信息   #########
+<div class=contitle>
+<div class=leftmain>编辑建筑信息</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/building/actions.html?method=list">&#171;返回</a></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/building/form.vm" )
+</div>
+</div>
+
+
+#renheend()

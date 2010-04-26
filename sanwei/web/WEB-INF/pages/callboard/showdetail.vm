@@ -1,0 +1,73 @@
+#renhehead()
+#renheMenu("callboard")
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td bgcolor="#FFFFFF">
+			<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+				<tr>
+					<td bgcolor="#FFFFFF">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td align=center> 
+									<span class="h">
+										<strong>
+											$!po.subject ($!vMUtils.dateFormate($!po.timeModified, "yyyy-MM-dd")) 
+										</strong>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td> 
+									<table width="100%" border="0">
+										<tr>
+											<td width="100%" valign="top">
+												<table width="100%" class="tb" border="0" cellpadding="2" cellspacing="3">
+													<tr> 
+														<td vAlign=top width="20%">
+															<table width="100%" border="0" cellpadding="0" cellspacing="0">
+																<tr>
+																	<td height="32" background="/img/bb1.gif" class="b14">
+																		<span class="b">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																		</span>公告
+																	</td>
+																</tr>
+															</table>
+															<table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="CCCCCC">
+																<tr>
+																	<td bgcolor="#FFFFFF" vAlign=top>
+																		#if($!callBoardList)
+																			#foreach($callBoard in $callBoardList)
+																				<li>
+																					<a href="/callboard/showdetail.html?id=$!callBoard.id">$!callBoard.subject
+																					</a>($!vMUtils.dateFormate($!callBoard.timeModified, "MM月dd日")) 
+																				</li>
+																			#end
+																			<br><div align =right>
+																			<a href="/callboard/showlist.html">更多...</a>
+																			</div>
+																		#end
+																	</td>
+																</tr>
+															</table>
+														</td>
+														<td  width="80%" vAlign=top  bgcolor="#ECF4FF">
+															<span class="txt14">
+																<br>$!po.content
+															</span>
+														</td>
+													</tr>
+												</table>
+												<div align=center><input type="button" name="back" value="返回" class=btn1_mouseout title="返回" onClick="javascript:history.back(-1)" /></div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+#renheend()

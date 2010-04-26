@@ -1,0 +1,30 @@
+#renhehead()
+#renheMenu("bus")
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="Position">位置：工作助手 / 公交管理 / 新增公交线路</div>
+
+#if($!inserted)
+	<script type="text/javascript">showmsg(true,"新增公交线路成功!",msg);</script>
+#end
+
+#set($actionUrl = "/bus/actions.html?method=insert")
+
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  新增公交线路   #########
+<div class=contitle>
+<div class=leftmain>新增公交线路</div>
+<div class=rightmain></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/bus/form.vm" )
+</div>
+</div>
+
+#renheend()	

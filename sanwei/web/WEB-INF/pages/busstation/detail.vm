@@ -1,0 +1,22 @@
+#renhehead()
+#renheMenu("busstation")
+
+#set($actionUrl = "/busstation/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
+<div id="Position">位置： 公交站点管理 / 详情</div>
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  公交站点详细信息   #########
+<div class=contitle>
+<div class=leftmain>公交站点详细信息</div>
+<div class=rightmain><a href="/busstation/actions.html?method=list">返回</a></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/busstation/form.vm" )
+</div>
+</div>
+
+#renheend()	

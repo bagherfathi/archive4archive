@@ -1,0 +1,48 @@
+#renhehead()
+#renheMenu("member")
+#set($addNewLink = "/member/actions.html?method=insert")
+#set($addNewLinkText = "新增用户")
+#parse( "/WEB-INF/pages/common/search_add_new_link.vm" )
+#set($urlPre = "/member/actions.html?method=list")
+#if($!$bizObjList)
+<div id="listhead">
+		<div id="listheadleftimg"></div>
+		<div id="listheadrightimg"></div>
+	</div>
+	<table width="99%" border="0" cellpadding="0" cellspacing="0" >
+          <tr>
+            <td class="tableheadingbg">用户名</td>
+            <td class="tableheadingbg">用户类型</td>
+            <td class="tableheadingbg">用户状态</td>
+            <td class="tableheadingbg">创建时间</td>
+			<td class="tableheadingbg">操作</td>
+          </tr>
+		#foreach($biz in $bizObjList)
+		<tr>
+			<td class="tablelistbg">$biz.loginName</td>
+			<td class="tablelistbg">
+			#if($!biz.isAdmin=='y')
+			<font color="red">系统管理员</font>
+			#else
+			普通用户			
+			#end
+			</td>
+			<td class="tablelistbg">
+				#if($!biz.state==0)
+					正常
+				#else
+					停用
+				#end
+			</td>
+			<td class="tablelistbg">#showHHMMTime($!biz.timeCreate)</td>
+			<td class="tablelistbg">
+				<a href="/member/actions.html?method=update&sid=$vMUtils.encrypt($biz.id)"  >编辑</a>
+			</td>
+         </tr>
+		#end
+      </table>
+	  	#parse( "/WEB-INF/pages/common/page.vm" )
+#else
+		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
+#end
+#renheend()

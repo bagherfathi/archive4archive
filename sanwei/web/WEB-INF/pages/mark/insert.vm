@@ -1,0 +1,30 @@
+#renhehead()
+#renheMenu("mark")
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="Position">位置：标注管理 / 标注管理 / 新增标注</div>
+
+#if($!inserted)
+	<script type="text/javascript">showmsg(true,"新增标注成功!",msg);</script>
+#end
+
+#set($actionUrl = "/mark/actions.html?method=insert")
+
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  新增标注   #########
+<div class=contitle>
+<div class=leftmain>新增标注</div>
+<div class=rightmain></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/mark/form.vm" )
+</div>
+</div>
+
+#renheend()	

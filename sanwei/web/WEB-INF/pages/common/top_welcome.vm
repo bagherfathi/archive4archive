@@ -1,0 +1,29 @@
+<table id="head" >
+	<tr>
+		##<td><img src="/images/tyloo2.gif" width="231" height="42" hspace="20" /></td>
+	<td>&nbsp;</td>
+	<td width="180"><strong>欢迎你:</strong>&nbsp;$!member.loginName
+	[ <a href="../login.html?logout=logout">退出</a>] </td>
+	</tr>
+</table>
+<div id="topmenu">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td width="150" align="center">
+				
+				##$!vMUtils.dateFormate($!now, "yyyy年M月dd日 HH:mm")
+				#parse( "/WEB-INF/pages/common/timejs.vm" )
+						</td>
+			<td>
+				<div id="topbot">
+					<ul>
+						<li><a href="/login.html">首  页</a></li>
+						<li></li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>

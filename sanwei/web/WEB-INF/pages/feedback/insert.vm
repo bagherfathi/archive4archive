@@ -1,0 +1,30 @@
+#renhehead()
+#renheMenu("feedback")
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="Position">位置：客户反馈管理 / 客户反馈管理 / 新增客服反馈</div>
+
+#if($!inserted)
+	<script type="text/javascript">showmsg(true,"新增客服反馈成功!",msg);</script>
+#end
+
+#set($actionUrl = "/feedback/actions.html?method=insert")
+
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  新增客服反馈   #########
+<div class=contitle>
+<div class=leftmain>新增客户反馈</div>
+<div class=rightmain></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/feedback/form.vm" )
+</div>
+</div>
+
+#renheend()	

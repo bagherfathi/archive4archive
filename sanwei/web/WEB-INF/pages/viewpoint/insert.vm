@@ -1,0 +1,30 @@
+#renhehead()
+#renheMenu("viewpoint")
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+<div id="Position">位置：工作助手 / 视点管理 / 新增视点</div>
+
+#if($!inserted)
+	<script type="text/javascript">showmsg(true,"新增视点成功!",msg);</script>
+#end
+
+#set($actionUrl = "/viewpoint/actions.html?method=insert")
+
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  新增视点   #########
+<div class=contitle>
+<div class=leftmain>新增视点</div>
+<div class=rightmain></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/viewpoint/form.vm" )
+</div>
+</div>
+
+#renheend()	

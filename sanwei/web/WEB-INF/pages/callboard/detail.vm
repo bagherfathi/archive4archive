@@ -1,0 +1,22 @@
+#renhehead()
+#renheMenu("callboard")
+
+#set($actionUrl = "/callboard/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
+<div id="Position">位置：工作助手 /  公告管理 / 详情</div>
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  公告详细信息   #########
+<div class=contitle>
+<div class=leftmain>公告详细信息</div>
+<div class=rightmain><a href="/callboard/actions.html?method=list">返回</a></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/callboard/form.vm" )
+</div>
+</div>
+
+#renheend()	

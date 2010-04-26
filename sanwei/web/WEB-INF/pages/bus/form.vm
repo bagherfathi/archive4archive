@@ -1,0 +1,33 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="busForm" method="post" action="$!actionUrl" onSubmit = "return validateBusForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				<input type=hidden name=userId value=#if($!bizObj.userId)$!bizObj.userId #else $!member.id #end>
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">公交线路名称:
+								</td>
+								<td>
+									#showFormText("name" "$!bizObj.name" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">描述:
+								</td>
+								<td>
+									#showFormTextarea("content" "$!bizObj.content" 5)#showMustFill()
+								</td>
+							</tr>
+						</table>
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>

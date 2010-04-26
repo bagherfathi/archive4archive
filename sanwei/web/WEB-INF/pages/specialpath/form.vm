@@ -1,0 +1,47 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="specialPathForm" method="post" action="$!actionUrl" onSubmit = "return validateSpecialPathForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				<input type=hidden name=userId value=#if($!bizObj.userId)$!bizObj.userId #else $!member.id #end>
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">ÌØÊâÂ·¾¶Ãû³Æ:
+								</td>
+								<td>
+									#showFormText("fileName" "$!bizObj.fileName" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">ÃèÊö:
+								</td>
+								<td>
+									#showFormTextarea("content" "$!bizObj.content" 5)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">Â·¾¶:
+								</td>
+								<td>
+									#showFormText("filePath" "$!bizObj.filePath" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">Í¼Æ¬:
+								</td>
+								<td>
+									#showFormText("picture" "$!bizObj.picture" 40)#showMustFill()
+								</td>
+							</tr>
+						</table>
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>
