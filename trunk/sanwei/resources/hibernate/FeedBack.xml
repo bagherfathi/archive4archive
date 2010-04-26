@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Aug 24 10:26:10 CST 2006                         -->
+<hibernate-mapping package="com.renhenet.po">
+
+    <class name="FeedBack" table="feed_back"  lazy="false">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="identity"/>
+        </id>
+ 
+ 		<property name="userId" column="user_id" type="java.lang.Integer" />
+        <property name="subject" column="subject" type="java.lang.String" />
+        <property name="content" column="content" type="java.lang.String" />
+        <property name="reply" column="reply" type="java.lang.String" />
+        <property name="status" column="status" type="java.lang.Integer" />
+        <property name="timeCreate" column="time_create" type="java.util.Date"  not-null="true" />
+        <property name="timeModified" column="time_modified" type="java.util.Date"  not-null="true" />
+    </class>
+    
+</hibernate-mapping>

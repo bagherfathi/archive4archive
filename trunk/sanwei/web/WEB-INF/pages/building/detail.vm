@@ -1,0 +1,22 @@
+#renhehead()
+#renheMenu("building")
+
+#set($actionUrl = "/building/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
+<div id="Position">位置：建筑信息管理 / 详情</div>
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  建筑详细信息   #########
+<div class=contitle>
+<div class=leftmain>建筑详细信息</div>
+<div class=rightmain><a href="/building/actions.html?method=list">返回</a></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/building/form.vm" )
+</div>
+</div>
+
+#renheend()	

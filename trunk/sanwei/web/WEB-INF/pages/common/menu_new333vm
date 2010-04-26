@@ -1,0 +1,28 @@
+<td width="150" height="500" valign="top" bgcolor="#93B1D7">
+<script language="JavaScript" src="/scripts/menu.js"></script>
+	<div  class="lmain" >便民信息管理</div>
+		<div id="desc2" class="lmainc">
+		<ul>
+			<li><a href="/productprices/actions.html?method=list&status=1">公交信息管理</a></li>
+			<li><a href="/productprices/actions.html?method=list&status=0">价格平稳</a></li>
+			<li><a href="/productprices/actions.html?method=list&status=2">价格下落</a></li>
+		</ul>
+	</div>
+
+
+	<div  class="lmain" >用户管理</div>
+		<div id="desc62" class="lmainc">
+		<ul>
+			<li><a href="/member/actions.html?method=list">前台注册管理</a></li>
+			<li><a href="/member/actions.html?method=list">后台用户管理</a></li>
+		</ul>
+	</div>
+	<div  class="lmain" >系统设置 </div>
+	<div id="desc62" class="lmainc">
+		<ul>
+			<li><a href="/resources/actions.html?method=list&type=priceCase" >建筑类型设置</a></li>
+		</ul>
+	</div>
+</td>
+<td width="8" valign="top"></td>
+<td valign="top">

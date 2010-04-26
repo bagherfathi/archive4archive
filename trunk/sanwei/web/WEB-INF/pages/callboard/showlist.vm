@@ -1,0 +1,39 @@
+#renhehead()
+#renheMenu("callboard")
+<div id=position>位置：公告列表</div>
+
+	############ list ############
+	#if($!$bizObjList)
+		#set($urlPre = "/callboard/showlist.html")
+		#parse( "/WEB-INF/pages/common/page.vm" )
+		<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+			<tr>
+				<td bgcolor="#FFFFFF">
+					<table width="100%" border="0" cellspacing="0">
+						<tr  height="32" bgcolor="#E4EEF8"> 
+							<td width="50%" class="tableheadingbg">主题 
+							</td>
+							<td width="20%" class="tableheadingbg">公告时间 
+							</td>
+							<td width="10%" class="tableheadingbg">公告人
+							</td>
+							
+						</tr>
+						#set($bg = 1)
+						#foreach($callboarddate in $bizObjList)
+							<tr onmouseover="this.bgColor='#E7F4FC'" onmouseout="this.bgColor='#ffffff'" >
+							<td><a href="/callboard/showdetail.html?id=$!callboarddate.id">$!callboarddate.subject</a></td>
+							<td>$!vMUtils.dateFormate($!callboarddate.timeModified, "yyyy-MM-dd HH:mm")</td>
+							<td>#showCrmUser($!callboarddate.userId)</td>
+						</tr>
+						#end
+					</table></td>
+			</tr>
+</table>
+#parse( "/WEB-INF/pages/common/page.vm" )
+#else
+	#if($searchNoResult)
+		#parse( "/WEB-INF/pages/common/noresult.inc.vm" )
+	#end
+#end
+#renheend()

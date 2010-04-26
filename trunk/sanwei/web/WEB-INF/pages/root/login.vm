@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>三维网络发布系统</title>
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+</head>
+<body>
+<form name="loginForm" method="post" action="login.html" onSubmit = "return validateLoginForm(this);">
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+   	<td align="center"><img src="/images/index.jpg" /></td>
+  </tr>
+</table>
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" background="/images/back.jpg">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="372"><table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="3C3F44">
+      <tr>
+        <td bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="169"><table border="0" align="center" cellpadding="0" cellspacing="2">
+              <tr>
+                <td class="f14">用户名：</td>
+                <td><label>
+                  <input name="loginName" type="text" class="b" size="24" value="admin"/>
+                </label></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="f14">密&nbsp;码：</td>
+                <td><input name="password" type="password" class="b" size="26" value="pass"/></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input type=hidden name="login" value="login" />
+                    <input name="loginButton" type="image" src="/images/dl.gif"/></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br />
+</form>
+</body>
+</html>

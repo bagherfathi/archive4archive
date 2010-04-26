@@ -1,0 +1,28 @@
+#renhehead()
+#renheMenu("callboard")
+$validator.getDynamicJavascript()
+$validator.getStaticJavascript()
+<div id="Position">位置：工作助手 /  公告管理 / 编辑</div>
+<table width="100%"><tr><td><div id=msg></div></td></tr></table>
+#if($!updated)
+	<script type="text/javascript">showmsg(true,"更新成功!",msg);</script>
+#end
+##set($actionUrl = "/leads/actions.html?method=update")
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  编辑公告   #########
+<div class=contitle>
+<div class=leftmain>编辑公告</div>
+<div class=rightmain>&nbsp;&nbsp;<a href="/callboard/actions.html?method=list">&#171;返回</a></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/callboard/form.vm" )
+</div>
+</div>
+
+
+#renheend()

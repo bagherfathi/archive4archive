@@ -1,0 +1,96 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="markForm" method="post" action="$!actionUrl" onSubmit = "return validateMarkForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				<input type=hidden name=userId value=#if($!bizObj.userId)$!bizObj.userId #else $!member.id #end>
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">标注名称:
+								</td>
+								<td>
+									#showFormText("name" "$!bizObj.name" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">icon:
+								</td>
+								<td>
+									#showFormText("icon" "$!bizObj.icon" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">字体:
+								</td>
+								<td>
+									#showFormText("font" "$!bizObj.font" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">坐标X:
+								</td>
+								<td>
+									#showFormText("placeX" "$!bizObj.placeX" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">坐标Y:
+								</td>
+								<td>
+									#showFormText("placeY" "$!bizObj.placeY" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">坐标Z:
+								</td>
+								<td>
+									#showFormText("placeZ" "$!bizObj.placeZ" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">lod:
+								</td>
+								<td>
+									#showFormText("lod" "$!bizObj.lod" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">color:
+								</td>
+								<td>
+									#showFormText("color" "$!bizObj.color" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">bkColor:
+								</td>
+								<td>
+									#showFormText("bkColor" "$!bizObj.bkColor" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">driveUp:
+								</td>
+								<td>
+									#showFormText("driveUp" "$!bizObj.driveUp" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">remark:
+								</td>
+								<td>
+									#showFormText("remark" "$!bizObj.remark" 40)#showMustFill()
+								</td>
+							</tr>
+						</table>
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>

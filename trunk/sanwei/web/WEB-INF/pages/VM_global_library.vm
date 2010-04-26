@@ -1,0 +1,209 @@
+#macro( renheparse $template )
+	#parse( "/WEB-INF/pages/$template" )
+#end
+
+#macro( renhehead  )
+	#parse( "/WEB-INF/pages/common/top.vm" )
+	#parse( "/WEB-INF/pages/common/top_welcome.vm" )
+#end
+#macro( renheheadSimple  )
+	#parse( "/WEB-INF/pages/common/top.vm" )
+#end
+#macro( renheMenu $memuModule )
+		#parse( "/WEB-INF/pages/common/menu_new.vm" )
+#end
+
+#macro( mainMenu $memuModule )
+		#parse( "/WEB-INF/pages/web/root/left.vm" )
+#end
+
+##  模版尾设置
+#macro( renheend )
+	#renheparse( "common/end.vm" )
+#end
+#macro( showFormSelect $_resourctName $_fieldName $_fieldValue)
+	#if($!action == "detail")
+		#showResourceValue($_fieldValue)
+	#else
+		#showResourceSelect($_resourctName $_fieldName $!_fieldValue)
+	#end
+#end
+
+
+#macro( showDate $_fieldValue)
+#set($_format = "yyyy年M月d日")
+$!vMUtils.dateFormate($_fieldValue, "$_format")
+#end
+
+#macro( showTime $_fieldValue)
+#set($_format = "yyyy年M月d日 H:mm:s")$!vMUtils.dateFormate($_fieldValue, "$_format")#end
+
+#macro( showHHMMTime $_fieldValue)
+#set($_format = "yyyy年M月d日 H:mm")$!vMUtils.dateFormate($_fieldValue, "$_format")#end
+
+#macro( showDateHuman $_fieldValue)
+$!vMUtils.dateFormateHuman($_fieldValue)
+#end
+
+#macro( showMenuClass $_menuName)
+	#if($_menuName == $curMenu)
+		class=menubg21
+	#else
+		class=menubg2
+	#end
+#end
+
+#macro( showFormText $_fieldName $_fieldValue $_size)
+	#if($!action == "detail")
+		$_fieldValue
+		#else
+			<input name="$_fieldName" size="$_size"  type="text" value="$!_fieldValue">
+	#end
+#end
+
+#macro( showFormRadio $_fieldName $_fieldValue $_defaultFieldValue $_objValue $_objShowValue)
+	#if($!action == "detail")
+		#if($_fieldValue == $_objValue)
+			$!_objShowValue
+		#end
+		#else
+			$!_objShowValue<input type="radio" name="$_fieldName" value="$_fieldValue"  #isCheckedEx("$_fieldValue" $_objValue "$_defaultFieldValue")>
+	#end
+#end
+
+#macro( showFormTextNumber $_fieldName $_fieldValue $_size)
+	#if($!action == "detail")
+		$!vMUtils.numberFormat($_fieldValue)
+		#else
+			<input name="$_fieldName" style="text-align:right" size="$_size"  type="text" value="$!vMUtils.numberFormat($_fieldValue)">
+	#end
+#end
+#macro( showFormTextarea $_fieldName $_fieldValue $_rows)
+	#if($!action == "detail")
+		$_fieldValue
+		#else
+			<textarea name="$_fieldName" rows="$_rows" style="width:90%">$!_fieldValue</textarea>
+	#end
+#end
+#macro( showFormDate $_fieldName $_fieldValue)
+	#set($_format = "yyyy-MM-dd")
+	#if($!action == "detail")
+		$!vMUtils.dateFormate($_fieldValue, "$_format")
+		#else
+			<script language=javascript>createDatePicker("$_fieldName",true,"$!vMUtils.dateFormate($_fieldValue, "$_format")")</script>
+	#end
+#end
+
+#macro( showFormMonth $_fieldName $_fieldValue)
+	#set($_format = "yyyy-MM")
+	#if($!action == "detail")
+		$!vMUtils.dateFormate($_fieldValue, "$_format")
+	#elseif ($!action == "update")
+		#if( $!vMUtils.isRoleCanAccessModule($isAdmin, $crmRoleId, "infoEdit") || !$!_fieldValue )
+			<script language=javascript>createDatePicker("$_fieldName",true,"$!vMUtils.dateFormate($_fieldValue, "$_format")", true, true, true)</script>
+		#else
+			$!vMUtils.dateFormate($_fieldValue, "$_format")
+			<input name="$_fieldName"  type="hidden" value="$!vMUtils.dateFormate($_fieldValue, "$_format")">
+		#end
+	#else
+			<script language=javascript>createDatePicker("$_fieldName",true,"$!vMUtils.dateFormate($_fieldValue, "$_format")", true, true, true)</script>
+	#end
+#end
+
+#macro( showFormTime $_fieldName $_fieldValue)
+	#set($_format = "yyyy-MM-dd HH:mm:ss")
+	#if($!action == "detail")
+		$!vMUtils.dateFormate($_fieldValue, "$_format")
+		#else
+			<script language=javascript>createDatePicker("$_fieldName",true,"$!vMUtils.dateFormate($_fieldValue, "$_format")", false, false, false)</script>
+	#end
+#end
+
+#macro( showResourceSelect $resourceType $selectName $selectValue )
+	#set($resourceTypes = $vMUtils.getResourceByType("$resourceType"))
+	<select name="$selectName" class="pulldown">
+		<option value="">-请选择-
+		</option>
+		#if($resourceTypes)
+			#foreach($_resourceType in $resourceTypes)
+				<option value="$_resourceType.id" #isSelected("$_resourceType.id" $selectValue )>$_resourceType.value
+				</option>
+			#end
+		#end
+	</select>
+#end
+#macro( showListSelect $resourceTypes $selectName $selectValue )
+	<select name="$selectName" class="pulldown">
+		<option value="">-请选择-
+		</option>
+		#if($resourceTypes)
+			#foreach($_resourceType in $resourceTypes)
+				<option value="$_resourceType.id" #isSelected("$_resourceType.id" $selectValue )>$_resourceType.name
+				</option>
+			#end
+		#end
+	</select>
+#end
+#macro( showSalesList  )
+	<select name="salesId" class="pulldown">
+		<option value="">-请选择-</option>
+		#foreach($_sales in $salesList)
+			<option value="$_sales.id" #isSelected("$_sales.id" $salesId )>$_sales.name</option>
+		#end
+	</select>
+#end
+#macro( showCustomerServeList  )
+	<select name="customerServe" class="pulldown">
+		<option value="">-请选择-</option>
+		#foreach($_customerServes in $customerServeList)
+			<option value="$_customerServes.id" #isSelected("$_customerServes.id" $customerServe)>$_customerServes.name</option>
+		#end
+	</select>
+#end
+#macro( showMemberName $userId )
+	#set($_crmUser = false)
+	#if($!userId && $!userId > 0)
+		#set($_crmUser = $!vMUtils.getMember($!userId))
+		#if($_crmUser)
+			$!_crmUser.loginName
+		#end
+	#end
+#end
+
+#macro( showResourceValue $resourceId)
+	$!vMUtils.getResourceValue($!resourceId)
+#end
+##  是否设置选中标志，在select option中使用，前一个参数是option的值，后一个参数时用来对比的值
+#macro( isSelected $optionvalue $value )
+	#if($value) #if($optionvalue) #if($optionvalue==$value) selected #end #end #end
+#end
+##  是否设置选中标志，在select option中使用，前一个参数是option的值，后一个参数时用来对比的值
+#macro( isChecked $optionvalue $value )
+	#if($value) #if($optionvalue) #if($optionvalue==$value) checked #end #end #end
+#end
+##  是否设置选中标志，在select option中使用，前一个参数是option的值，后一个参数时用来对比的值
+#macro( isCheckedEx $optionvalue $value $defaultvalue)
+	#if($value && $value!="") 
+		#if($optionvalue) 
+			#if($optionvalue==$value) checked
+			#end 
+		#end 
+		#elseif($defaultvalue==$optionvalue) checked  #end
+#end
+#macro( isSelectedEx $optionvalue $value $defaultvalue )
+	#if($value)
+		#if($optionvalue) 
+			#if($optionvalue==$value) 
+				selected 
+			#end 
+		#end			
+		#elseif($defaultvalue==$optionvalue) selected  #end
+#end
+
+#macro( showMustFill )
+	#if($!action && $!action != "detail")
+		<img src="/img/bi.gif" width="12" height="12">
+	#end
+#end
+
+	

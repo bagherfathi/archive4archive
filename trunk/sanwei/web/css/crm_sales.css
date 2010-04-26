@@ -1,0 +1,88 @@
+/*A {
+	FONT-SIZE: 12px; COLOR: #039; FONT-FAMILY: 宋体； TEXT-DECORATION: underline
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #039; FONT-FAMILY: 宋体； TEXT-DECORATION: underline
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #003399; FONT-FAMILY: 宋体； TEXT-DECORATION: underline
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #ff6600; FONT-FAMILY: 宋体； TEXT-DECORATION: underline
+}*/
+BODY {
+	MARGIN-TOP: 0px; FONT-SIZE: 12px; COLOR: #000; FONT-FAMILY: 宋体		
+}
+TD {
+	MARGIN-TOP: 0px; FONT-SIZE: 12px; COLOR: #000; FONT-FAMILY: 宋体
+}
+
+
+
+.Button_orange { 
+    font-family: "宋体"; font-size: 12px; color:white; line-height:1.2em;
+	background-color: #fe9901; border-top: solid 1px #FFC844; border-right: solid 1px #C9672D; 
+	border-left: solid 1px #FFC844; border-bottom: solid 1px #C9672D; cursor:hand; }
+.tableheadingbg {
+	height: 21px;
+	background-image: url(images/background_sales.gif);
+	}
+.tableheadingbgclick {
+	height: 21px;
+	background-image: url(images/bgclick_sales.gif);
+	}	
+.tablecontentbg {
+	background-color: #ECF4FF;
+	font-family: "宋体";
+	font-size: 12px;
+}
+.textnotice {
+	FONT-SIZE: 12px; COLOR: #990000; FONT-FAMILY: "宋体； TEXT-DECORATION": none
+}
+.textfield {
+	FONT-SIZE: 12px;
+	COLOR: #990000;
+	FONT-FAMILY: "宋体； TEXT-DECORATION";
+	font-weight: bold;
+}	
+.textwhite {
+	FONT-SIZE: 12px;
+	COLOR: #ffffff;
+	FONT-FAMILY: "宋体； TEXT-DECORATION";	
+}
+.textrank {
+	FONT-SIZE: 12px;
+	COLOR: #FF6600;
+	FONT-FAMILY: "宋体； TEXT-DECORATION";	
+}
+.inputfield {
+	BORDER-RIGHT: #999999 1px solid;
+	PADDING-RIGHT: 4px;
+	BORDER-TOP: #999999 1px solid;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	BACKGROUND: #FFFFCC;
+	PADDING-BOTTOM: 4px;
+	MARGIN-LEFT: 4px;
+	BORDER-LEFT: #999999 1px solid;
+	WIDTH: 200px;
+	COLOR: #000000;
+	MARGIN-RIGHT: 4px;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #999999 1px solid;
+	FONT-FAMILY: 宋体； HEIGHT;
+	left: 2px;
+	top: 0px;
+	right: 0px;
+	bottom: 2px;
+    HEIGHT: 20px
+}
+
+.inputfieldsmall {
+	BORDER-RIGHT: #999999 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #999999 1px solid; PADDING-LEFT: 4px; FONT-SIZE: 12px; BACKGROUND: #FFFFCC; PADDING-BOTTOM: 0px; MARGIN-LEFT: 4px; BORDER-LEFT: #999999 1px solid; WIDTH: 40px; COLOR: #000000; MARGIN-RIGHT: 4px; PADDING-TOP: 2px; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: 宋体； HEIGHT: 20px
+}
+
+.pulldown {
+	FONT-SIZE: 12px; BACKGROUND: #FFFFCC; PADDING-BOTTOM: 1px; MARGIN-LEFT: 4px; COLOR: #000000; MARGIN-RIGHT: 4px; PADDING-TOP: 1px; FONT-FAMILY: "宋体；": 17px
+}
+

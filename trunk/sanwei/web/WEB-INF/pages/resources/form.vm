@@ -1,0 +1,28 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="1">
+	<tr>
+		<td bgcolor="#FFFFFF">
+			<form name="resourcesForm" method="post" action="$!actionUrl" onSubmit = "return validateResourcesForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				<input type="hidden" name=createdDate value=$!bizObj.createdDate>
+				<input type="hidden" name=type value=$!bizObj.type>
+				<table width="100%" border="0" cellpadding="2" cellspacing="3">
+					<tr> 
+						<td align="right"  bgcolor="#eeeee5" width="20%">
+							#if($action=="insert")新增#end资料值:
+						</td>
+						<td>
+							#showFormText("value" "$!bizObj.value" 30)
+						</td>
+					</tr>
+				</table>
+				<table width="100%" border="0" cellspacing="4" cellpadding="0">
+					<tr>
+						<td  align="center" >
+							#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+						</td>
+					</tr>
+				</table>
+			</form>
+		</td>
+	</tr>
+</table>

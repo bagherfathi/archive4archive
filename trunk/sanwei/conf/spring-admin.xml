@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+
+	<bean id="commonDao" class="com.renhenet.fw.dao.CommonDao">
+			<property name="sessionFactory">
+				<ref bean="sessionFactory"/>
+			</property>
+	</bean>	
+	
+ 	<bean id="vMUtils" class="com.renhenet.web.VMUtils" singleton="true">
+ 		<property name="resourcesService"><ref bean="resourcesService"/></property>
+ 		<property name="memberService"><ref bean="memberService"/></property>
+	</bean>
+	
+	<bean id="busService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.BusService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="busStationService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.BusStationService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="buildingService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.BuildingService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="feedBackService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.FeedBackService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="callBoardService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.CallBoardService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="specialPathService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.SpecialPathService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="viewPointService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.ViewPointService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="markService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.MarkService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="logService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.LogService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="memberService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.MemberService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="resourcesService" parent="baseTransactionProxy" >
+		<property name="target">
+			<bean  class="com.renhenet.modules.member.ResourcesService">
+		        <property name="dao"><ref bean="commonDao"/></property>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

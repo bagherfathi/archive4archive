@@ -1,0 +1,22 @@
+#renhehead()
+#renheMenu("viewpoint")
+
+#set($actionUrl = "/viewpoint/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
+<div id="Position">位置：视点管理 / 详情</div>
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  视点详细信息   #########
+<div class=contitle>
+<div class=leftmain>视点详细信息</div>
+<div class=rightmain><a href="/viewpoint/actions.html?method=list">返回</a></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/viewpoint/form.vm" )
+</div>
+</div>
+
+#renheend()	

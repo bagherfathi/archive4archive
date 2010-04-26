@@ -1,0 +1,5 @@
+#Mon Apr 26 11:30:19 CST 2010
+eclipse.preferences.version=1
+encoding//resources/struts/ApplicationResources.properties=GB2312
+encoding//resources/struts/ApplicationResources_zh.properties=GBK
+encoding//web/calendar/normal.js=GB2312

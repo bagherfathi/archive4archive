@@ -1,0 +1,145 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="1" >
+	<tr>
+		<td >
+			<form name="buildingForm" method="post" action="$!actionUrl" onSubmit = "return validateBuildingForm(this);">
+				<input type=hidden name=id value=$!bizObj.id>
+				<input type=hidden name=userId value=#if($!bizObj.userId)$!bizObj.userId #else $!member.id #end>
+						<table width="100%" border="0" cellpadding="2" cellspacing="3">
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">建筑名称:
+								</td>
+								<td>
+									#showFormText("subject" "$!bizObj.subject" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">描述:
+								</td>
+								<td>
+									#showFormTextarea("content" "$!bizObj.content" 5)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">建筑类型:
+								</td>
+								<td>
+									#showFormText("subject" "$!bizObj.subject" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">建筑坐标X:
+								</td>
+								<td>
+									#showFormText("placeX" "$!bizObj.placeX" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">建筑坐标Y:
+								</td>
+								<td>
+									#showFormText("placeY" "$!bizObj.placeY" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">建筑坐标Z:
+								</td>
+								<td>
+									#showFormText("placeZ" "$!bizObj.placeZ" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">pitch:
+								</td>
+								<td>
+									#showFormText("pitch" "$!bizObj.pitch" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">rotate:
+								</td>
+								<td>
+									#showFormText("rotate" "$!bizObj.rotate" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#eeeee5" width="20%">label_id:
+								</td>
+								<td>
+									#showFormText("labelId" "$!bizObj.labelId" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">label_name:
+								</td>
+								<td>
+									#showFormText("labelName" "$!bizObj.labelName" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">label_icon:
+								</td>
+								<td>
+									#showFormText("labelIcon" "$!bizObj.labelIcon" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">label_memo:
+								</td>
+								<td>
+									#showFormText("labelMemo" "$!bizObj.labelMemo" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">label_font:
+								</td>
+								<td>
+									#showFormText("labelFont" "$!bizObj.labelFont" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">lod:
+								</td>
+								<td>
+									#showFormText("lod" "$!bizObj.lod" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">color:
+								</td>
+								<td>
+									#showFormText("color" "$!bizObj.color" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">bkColor:
+								</td>
+								<td>
+									#showFormText("bkColor" "$!bizObj.bkColor" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">driveUp:
+								</td>
+								<td>
+									#showFormText("driveUp" "$!bizObj.driveUp" 40)#showMustFill()
+								</td>
+							</tr>
+							<tr> 
+								<td bgcolor="#eeeee5" width="20%">remark:
+								</td>
+								<td>
+									#showFormText("remark" "$!bizObj.remark" 40)#showMustFill()
+								</td>
+							</tr>							
+						</table>
+						<table width="100%" border="0" cellspacing="4" cellpadding="0">
+							<tr>
+								<td  align="center" >
+									#parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+								</td>
+							</tr>
+						</table>
+			</form>
+		</td>
+	</tr>
+</table>

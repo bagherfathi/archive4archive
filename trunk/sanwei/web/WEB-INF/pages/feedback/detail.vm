@@ -1,0 +1,22 @@
+#renhehead()
+#renheMenu("feedback")
+
+#set($actionUrl = "/feedback/actions.html?method=update&sid=$vMUtils.encrypt($!bizObj.id)")
+<div id="Position">位置：客服反馈管理 / 详情</div>
+<div id="contop">
+	<div id="contopl"></div>
+	<div id="contopr"></div>
+</div>
+
+<div id="conbg">
+#########  客服反馈详细信息   #########
+<div class=contitle>
+<div class=leftmain>客服反馈详细信息</div>
+<div class=rightmain><a href="/feedback/actions.html?method=list">返回</a></div>
+</div>
+<div class=conmain>
+	#parse( "/WEB-INF/pages/feedback/form1.vm" )
+</div>
+</div>
+
+#renheend()	

@@ -1,0 +1,77 @@
+/* calendar1  css start */
+
+.tbc_calendar
+{
+	width: 100%;
+	border-width: 1px;
+	border-color: #787878;
+	border-style: Solid;
+}
+
+.tbc_TodayDay{
+	 background-color:#7C5D3F;
+	 font-weight:bold;
+	 Font-Size:9pt;	
+ 	 Color:#ffffff;
+}
+
+.tbc_Selector{
+	background-color:#787878;
+	font-weight:bold;
+	Font-Size:9pt;
+}
+
+.tbc_Day{
+	 background-color:#ffffff;
+	 border:1px Solid #e0e0e0;
+	 Font-Size:9pt;
+}
+
+
+.tbc_NextPrev{
+	background-color:#EFF4F6;
+	Font-weight:bold;
+	Font-Size:10pt;
+	TEXT-DECORATION: underline;
+	color:#7C5D3F;	
+}
+.tbc_DayHeader
+{
+	background-color: #3F7C5F;
+	border-color: #E0E0E0;
+	border-style: Solid;
+	border-width: 1px;
+	font-size: 10pt;
+	color: #ffffff;
+	text-align: center;
+}
+
+.tbc_SelectedDay{
+	Font-Size:9pt;
+}
+
+.tbc_Title
+{
+	background-color: #EFF4F6;
+	font-weight: bold;
+	font-size: 10pt;
+	border-width: 1px;
+	text-align: center;
+}
+
+.tbc_WeekendDay{
+	background-color:#efefef;
+	Font-Size:9pt;
+	Border-Color:#E0E0E0;
+	border-style  :Solid;
+ 	border-width :1px;
+}
+.tbc_OtherMonthDay{
+	Font-Size:9pt;
+	background-color:#efefef;
+	Border-Color:#E0E0E0;
+	border-style:Solid;
+ 	border-width :1px;
+ 	color:#f2f2f2;
+}
+/* calendar1 css end */
