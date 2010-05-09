@@ -11,9 +11,7 @@
     <webui:tabPane id="baseInfo" tabTitle="商户基本信息">
 	   <%@include file="/WEB-INF/jsp/rfms/merchant/viewMerchantBase.jsp" %>
 	</webui:tabPane>
-	<webui:tabPane id="contactInfo" tabTitle="财务信息">
-	   <%@include file="/WEB-INF/jsp/rfms/merchant/viewMerchantFinance.jsp" %>
-	</webui:tabPane>
+	
     <webui:tabPane id="brachInfo" tabTitle="商户门店">
 	   <%@include file="/WEB-INF/jsp/rfms/merchant/listBranch.jsp" %>
 	</webui:tabPane>

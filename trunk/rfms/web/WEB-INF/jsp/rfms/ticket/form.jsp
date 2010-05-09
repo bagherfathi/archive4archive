@@ -20,7 +20,7 @@
 
 	<tr>
 		<webui:input label="label.rfms.ticket.type" required="true">
-			<html:select property="baseEntity.type">
+			<html:select property="baseEntity.type" onchange="toChanage(this.value);">
 				<html:optionsCollection name="enumSet"
 					property="element(TYPE@RFMS_CARD)" />
 			</html:select>
@@ -30,17 +30,22 @@
 				onkeydown="onlyNum()" />
 		</webui:input>
 	</tr>
-	<tr>
-		<webui:input label="label.rfms.ticket.parValue" required="true">
+	
+	<tr  id="parId">
+		<webui:input label="label.rfms.ticket.parValue" required="true" colspan="3">
 			<html:text property="baseEntity.parValue" size="25"
-				onkeydown="onlyNum()" />
-		</webui:input>
-		<webui:input label="label.rfms.ticket.parZhekou" required="true">
-			<html:text property="baseEntity.parZhekou" size="25"
-				onkeydown="onlyNum()" />
+				onkeydown="onlyNum();" onchange="changeMemo(1);" />
 		</webui:input>
 	</tr>
-	<tr>
+	
+	<tr id="zkId" style="display:none">
+		<webui:input label="label.rfms.ticket.parZhekou" required="true" colspan="3">
+			<html:text property="baseEntity.parZhekou" size="25"
+				onkeydown="onlyNum();" onchange="changeMemo(2);"/>
+		</webui:input>
+	</tr>
+	
+	<tr >
 		<webui:input label="label.rfms.ticket.beginDate" required="true">
 			<webui:calendar id="settleStartdate" property="baseEntity.beginDate"
 				defaultToday="true" />
@@ -85,5 +90,24 @@
 		 if(str1.indexOf(aa1)>-1){
 			 document.ticketForm["baseEntity.targetMemberType"][i].checked=true;
 		 }
+	}
+	function toChanage(index){
+		if(index==1){
+			document.getElementById("parId").style.display="";
+			document.getElementById("zkId").style.display="none";
+		}else if(index==2){
+			document.getElementById("parId").style.display="none";
+			document.getElementById("zkId").style.display="";
+		}
+	}
+
+	function changeMemo(index){
+		var parValue =  document.ticketForm["baseEntity.parValue"].value;
+		var parZhekou =  document.ticketForm["baseEntity.parZhekou"].value;
+		if(index==1){
+			document.ticketForm["baseEntity.useRule"].value="抵价券面值"+parValue+"元";
+		}else if(index==2){
+			document.ticketForm["baseEntity.useRule"].value="折扣券"+parZhekou+"折";
+		}
 	}
 </script>

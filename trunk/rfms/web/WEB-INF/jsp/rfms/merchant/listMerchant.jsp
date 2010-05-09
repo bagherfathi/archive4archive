@@ -43,14 +43,7 @@
 		      </html:select>
 				</webui:input>
 			</tr>
-			<tr>
-				<webui:input label="label.rfms.merchant.user_id" colspan="3">
-					 <html:select property="baseEntity.userId">
-					 <html:option value="-1">«Î—°‘Ò</html:option>
-	           <html:optionsCollection name="merchantForm" property="users"/>
-	       </html:select>
-				</webui:input>
-			</tr>
+			
 		</webui:formTable>
 		<webui:linkButton styleClass="clsButtonFace"
 				href="javascript:onCreate();" value="sysadmin.button.create" />
