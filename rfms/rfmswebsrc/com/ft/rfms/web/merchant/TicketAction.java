@@ -5,6 +5,7 @@ package com.ft.rfms.web.merchant;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,7 +65,7 @@ public class TicketAction extends BaseSimpleAction {
 			RfmsTicketDetail td = new RfmsTicketDetail();
 			String seqNumber = merchantService.getTicketSysCode(ticket
 					.getTicketSerial());
-			String validatorCode = merchantService.getTicketSysCode("");
+			String validatorCode = getRound();
 			td.setSeqNumber(seqNumber);// 生成下发卡编号
 			td.setValidatorCode(validatorCode);
 			td.setMobile("");
@@ -74,6 +75,17 @@ public class TicketAction extends BaseSimpleAction {
 		}
 
 		return unspecified(arg0, arg1, arg2, arg3);
+	}
+
+	//6位飞券卡编号
+	public String getRound() {
+		Random rd = new Random(); // 创建随机对象
+		int x = rd.nextInt(999999);
+
+		if (x > 100000) {
+			return x + "";
+		}
+		return "";
 	}
 
 	@Override

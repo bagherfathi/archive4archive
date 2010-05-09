@@ -146,10 +146,11 @@ public class MerchantAction extends BaseSimpleAction {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.ft.singleTable.web.BaseSimpleAction#create(org.apache.struts.action.ActionMapping,
-	 *      org.apache.struts.action.ActionForm,
-	 *      javax.servlet.http.HttpServletRequest,
-	 *      javax.servlet.http.HttpServletResponse)
+	 * @see
+	 * com.ft.singleTable.web.BaseSimpleAction#create(org.apache.struts.action
+	 * .ActionMapping, org.apache.struts.action.ActionForm,
+	 * javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	public ActionForward create(ActionMapping arg0, ActionForm arg1,
@@ -168,10 +169,11 @@ public class MerchantAction extends BaseSimpleAction {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.ft.singleTable.web.BaseSimpleAction#delete(org.apache.struts.action.ActionMapping,
-	 *      org.apache.struts.action.ActionForm,
-	 *      javax.servlet.http.HttpServletRequest,
-	 *      javax.servlet.http.HttpServletResponse)
+	 * @see
+	 * com.ft.singleTable.web.BaseSimpleAction#delete(org.apache.struts.action
+	 * .ActionMapping, org.apache.struts.action.ActionForm,
+	 * javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	public ActionForward delete(ActionMapping arg0, ActionForm arg1,
@@ -179,12 +181,13 @@ public class MerchantAction extends BaseSimpleAction {
 		// TODO Auto-generated method stub
 		return super.delete(arg0, arg1, arg2, arg3);
 	}
-	
+
 	public ActionForward toSearch(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		// TODO Auto-generated method stub
 		return arg0.findForward("searchIndex");
 	}
+
 	public ActionForward view(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
 		// TODO Auto-generated method stub
@@ -195,10 +198,11 @@ public class MerchantAction extends BaseSimpleAction {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.ft.singleTable.web.BaseSimpleAction#edit(org.apache.struts.action.ActionMapping,
-	 *      org.apache.struts.action.ActionForm,
-	 *      javax.servlet.http.HttpServletRequest,
-	 *      javax.servlet.http.HttpServletResponse)
+	 * @see
+	 * com.ft.singleTable.web.BaseSimpleAction#edit(org.apache.struts.action
+	 * .ActionMapping, org.apache.struts.action.ActionForm,
+	 * javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	public ActionForward edit(ActionMapping arg0, ActionForm arg1,
@@ -206,7 +210,7 @@ public class MerchantAction extends BaseSimpleAction {
 		// TODO Auto-generated method stub
 		arg2.getSession().removeAttribute("merchantForm");
 		arg2.getSession().setAttribute("branchs", new ArrayList());
-		arg2.getSession().setAttribute("stepMap",null);
+		arg2.getSession().setAttribute("stepMap", null);
 		arg2.getSession().setAttribute("merchantSteps", null);
 		super.edit(arg0, arg1, arg2, arg3);
 
@@ -253,10 +257,11 @@ public class MerchantAction extends BaseSimpleAction {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.ft.singleTable.web.BaseSimpleAction#save(org.apache.struts.action.ActionMapping,
-	 *      org.apache.struts.action.ActionForm,
-	 *      javax.servlet.http.HttpServletRequest,
-	 *      javax.servlet.http.HttpServletResponse)
+	 * @see
+	 * com.ft.singleTable.web.BaseSimpleAction#save(org.apache.struts.action
+	 * .ActionMapping, org.apache.struts.action.ActionForm,
+	 * javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -279,70 +284,71 @@ public class MerchantAction extends BaseSimpleAction {
 			ActionMessagesHelper.saveRequestMessage(arg2,
 					"msg.show.merchant.branchSizeEbranchNum");
 		}
-		if (merchant.getCommisionStep().longValue() == 1
-				&& (steps == null || steps.size() == 0)) {
-			errors.add("setSteps", new ActionMessage(
-					"msg.show.merchant.setStep"));
-			ActionMessagesHelper.saveRequestMessage(arg2,
-					"msg.show.merchant.setStep");
-		}
+		// if (merchant.getCommisionStep().longValue() == 1
+		// && (steps == null || steps.size() == 0)) {
+		// errors.add("setSteps", new ActionMessage(
+		// "msg.show.merchant.setStep"));
+		// ActionMessagesHelper.saveRequestMessage(arg2,
+		// "msg.show.merchant.setStep");
+		// }
 		// 结算方式校验
-		Long settlePeriod = merchant.getSettlePeriod();
-		Long settleDate = merchant.getSettleDate();
-		if (settlePeriod.longValue() == 2 || settlePeriod.longValue() == 3) { // 周结算
-			if (settleDate.longValue() < 1 || settleDate.longValue() > 7) {
-				//
-				errors.add("settle", new ActionMessage(
-						"msg.show.merchant.settle_period"));
-				ActionMessagesHelper.saveRequestMessage(arg2,
-						"msg.show.merchant.settle_period", new Object[] {
-								"周结,二周结", "1", "7" });
-			}
-
-		} else if (settlePeriod.longValue() == 3) {
-			if (settleDate.longValue() < 1 || settleDate.longValue() > 28) {
-				//
-				errors.add("settle1", new ActionMessage(
-						"msg.show.merchant.settle_period"));
-				ActionMessagesHelper.saveRequestMessage(arg2,
-						"msg.show.merchant.settle_period", new Object[] { "月结",
-								"1", "28" });
-			}
-		}
+		// Long settlePeriod = merchant.getSettlePeriod();
+		// Long settleDate = merchant.getSettleDate();
+		// if (settlePeriod.longValue() == 2 || settlePeriod.longValue() == 3) {
+		// // 周结算
+		// if (settleDate.longValue() < 1 || settleDate.longValue() > 7) {
+		// //
+		// errors.add("settle", new ActionMessage(
+		// "msg.show.merchant.settle_period"));
+		// ActionMessagesHelper.saveRequestMessage(arg2,
+		// "msg.show.merchant.settle_period", new Object[] {
+		// "周结,二周结", "1", "7" });
+		// }
+		//
+		// } else if (settlePeriod.longValue() == 3) {
+		// if (settleDate.longValue() < 1 || settleDate.longValue() > 28) {
+		// //
+		// errors.add("settle1", new ActionMessage(
+		// "msg.show.merchant.settle_period"));
+		// ActionMessagesHelper.saveRequestMessage(arg2,
+		// "msg.show.merchant.settle_period", new Object[] { "月结",
+		// "1", "28" });
+		// }
+		// }
 
 		// 阶梯佣金设置必须从0开始
-		if (merchant.getCommisionStep().longValue() == 1) {
-			Iterator it = steps.keySet().iterator();
-			boolean hasZeroValue = false;
-			while (it.hasNext()) {
-				RfmsCommisionStep s = steps.get(it.next());
-				if (s.getMinCharge().longValue() == 0) {
-					hasZeroValue = true;
-					merchant.setCommisionCharge(s.getCommisionCharge());
-					break;
-				}
-			}
-			if (!hasZeroValue) {
-				errors.add("settle1", new ActionMessage(
-						"msg.show.merchant.setpCommSet"));
-				ActionMessagesHelper.saveRequestMessage(arg2,
-						"msg.show.merchant.setpCommSet");
-			}
-		}
+		// if (merchant.getCommisionStep().longValue() == 1) {
+		// Iterator it = steps.keySet().iterator();
+		// boolean hasZeroValue = false;
+		// while (it.hasNext()) {
+		// RfmsCommisionStep s = steps.get(it.next());
+		// if (s.getMinCharge().longValue() == 0) {
+		// hasZeroValue = true;
+		// merchant.setCommisionCharge(s.getCommisionCharge());
+		// break;
+		// }
+		// }
+		// if (!hasZeroValue) {
+		// errors.add("settle1", new ActionMessage(
+		// "msg.show.merchant.setpCommSet"));
+		// ActionMessagesHelper.saveRequestMessage(arg2,
+		// "msg.show.merchant.setpCommSet");
+		// }
+		// }
 		Long[] nextOperatorIds = aform.getNetxtOperatorIds();
-		String strsubflag=arg2.getParameter("subflag");
-		if(strsubflag==null){
-			strsubflag="0";
+		String strsubflag = arg2.getParameter("subflag");
+		if (strsubflag == null) {
+			strsubflag = "0";
 		}
-		Long subFlag=new Long(strsubflag);
-		if(merchant.getAuditStatus()==1 || subFlag.longValue()==1){
-		if(nextOperatorIds==null || nextOperatorIds.length<=0){
-			merchant.setAuditStatus(new Long(0));
-			errors.add("settle1", new ActionMessage(
-			"msg.show.merchant.selectNext"));
-	ActionMessagesHelper.saveRequestMessage(arg2,
-			"msg.show.merchant.selectNext");
-		}
+		Long subFlag = new Long(strsubflag);
+		if (merchant.getAuditStatus() == 1 || subFlag.longValue() == 1) {
+			if (nextOperatorIds == null || nextOperatorIds.length <= 0) {
+				merchant.setAuditStatus(new Long(0));
+				errors.add("settle1", new ActionMessage(
+						"msg.show.merchant.selectNext"));
+				ActionMessagesHelper.saveRequestMessage(arg2,
+						"msg.show.merchant.selectNext");
+			}
 		}
 		if (errors != null && errors.size() > 0) {
 			merchant.setAuditStatus(new Long(0));
@@ -350,15 +356,14 @@ public class MerchantAction extends BaseSimpleAction {
 		}
 		AppRequest appRequest = aform.getAppRequest(arg2,
 				RfmsActionDefinition.RFMS_MERCHANT_ADD);
-		
-		
+
 		merchant.setAuditStatus(subFlag);
 		this.merchantService.saveOrUpdateMerchant(merchant, branchs, steps,
 				nextOperatorIds, appRequest);
 		// arg2.getSession().setAttribute("branchs", new
 		// HashSet<RfmsMerchantBranch>());
-		String isSearchEdit=arg2.getParameter("isSearchEdit");
-		if(isSearchEdit!=null && "1".equalsIgnoreCase(isSearchEdit)){
+		String isSearchEdit = arg2.getParameter("isSearchEdit");
+		if (isSearchEdit != null && "1".equalsIgnoreCase(isSearchEdit)) {
 			return arg0.findForward("searchIndex");
 		}
 		return arg0.getInputForward();
@@ -367,10 +372,11 @@ public class MerchantAction extends BaseSimpleAction {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.ft.singleTable.web.BaseSimpleAction#search(org.apache.struts.action.ActionMapping,
-	 *      org.apache.struts.action.ActionForm,
-	 *      javax.servlet.http.HttpServletRequest,
-	 *      javax.servlet.http.HttpServletResponse)
+	 * @see
+	 * com.ft.singleTable.web.BaseSimpleAction#search(org.apache.struts.action
+	 * .ActionMapping, org.apache.struts.action.ActionForm,
+	 * javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	public ActionForward search(ActionMapping arg0, ActionForm arg1,
@@ -385,10 +391,11 @@ public class MerchantAction extends BaseSimpleAction {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.ft.singleTable.web.BaseSimpleAction#unspecified(org.apache.struts.action.ActionMapping,
-	 *      org.apache.struts.action.ActionForm,
-	 *      javax.servlet.http.HttpServletRequest,
-	 *      javax.servlet.http.HttpServletResponse)
+	 * @see
+	 * com.ft.singleTable.web.BaseSimpleAction#unspecified(org.apache.struts
+	 * .action.ActionMapping, org.apache.struts.action.ActionForm,
+	 * javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	protected ActionForward unspecified(ActionMapping arg0, ActionForm arg1,
@@ -397,7 +404,8 @@ public class MerchantAction extends BaseSimpleAction {
 		super.unspecified(arg0, arg1, arg2, arg3);
 		MerchantForm aform = (MerchantForm) arg1;
 		aform.setUsers(getUsers());
-		arg2.setAttribute("searchObj.operatorId", aform.getCurrentUser().getOperatorId());
+		arg2.setAttribute("searchObj.operatorId", aform.getCurrentUser()
+				.getOperatorId());
 		arg2.setAttribute("searchObj.auditStatus", "0");
 		return arg0.getInputForward();
 	}
@@ -514,16 +522,18 @@ public class MerchantAction extends BaseSimpleAction {
 	public ActionForward audit(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest request, HttpServletResponse arg3)
 			throws Exception {
-		String auditStatusStr=request.getParameter("auditStatus");
-		if(auditStatusStr==null){
-			auditStatusStr="0";
+		String auditStatusStr = request.getParameter("auditStatus");
+		if (auditStatusStr == null) {
+			auditStatusStr = "0";
 		}
 		request.getSession().setAttribute("auditStatus",
 				request.getParameter("auditStatus"));
-		MerchantForm aform=(MerchantForm)arg1;
-		List merchants=this.merchantService.findMerchantsByOperatorAndAuditStatus(aform.getCurrentUser().getOperatorId(), new Long(auditStatusStr));
+		MerchantForm aform = (MerchantForm) arg1;
+		List merchants = this.merchantService
+				.findMerchantsByOperatorAndAuditStatus(aform.getCurrentUser()
+						.getOperatorId(), new Long(auditStatusStr));
 		request.setAttribute("merchants", merchants);
-		
+
 		return arg0.findForward("audit");
 	}
 
@@ -635,7 +645,7 @@ public class MerchantAction extends BaseSimpleAction {
 			throws Exception {
 		MerchantForm aform = (MerchantForm) arg1;
 		Long branchId = aform.getBranchId();
-		request.getSession().setAttribute("posMap" + branchId,null);
+		request.getSession().setAttribute("posMap" + branchId, null);
 		this.viewPos(arg0, arg1, request, arg3);
 		return arg0.findForward("posShow");
 	}
@@ -703,7 +713,7 @@ public class MerchantAction extends BaseSimpleAction {
 			throws Exception {
 		MerchantForm aform = (MerchantForm) arg1;
 		RfmsMerchantPos pos = aform.getPos();
-		String posId=request.getParameter("posId");
+		String posId = request.getParameter("posId");
 		this.merchantService.delObject(new Long(posId), "RfmsMerchantPos");
 		Long branchId = aform.getBranchId();
 		Map<String, RfmsMerchantPos> posmap = (Map) request.getSession()
@@ -712,15 +722,14 @@ public class MerchantAction extends BaseSimpleAction {
 		request.getSession().setAttribute("merchantPoss", posmap.values());
 		return arg0.findForward("posIndex");
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public ActionForward saveAudit(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest request, HttpServletResponse arg3)
 			throws Exception {
 
-		
 		MerchantForm aform = (MerchantForm) arg1;
-		boolean returnflag=false;
+		boolean returnflag = false;
 		String auditResult = request.getParameter("auditResult");
 		if (auditResult == null) {
 			auditResult = "0";// 审核不通过
@@ -728,32 +737,38 @@ public class MerchantAction extends BaseSimpleAction {
 		String returnTo = request.getParameter("returnTo");
 		if (returnTo == null) {
 			returnTo = "-1";
-		}else{
-			returnflag=true;
+		} else {
+			returnflag = true;
 		}
 		RfmsMerchant merchant = (RfmsMerchant) aform.getBaseEntity();
-		
+
 		String auditRemark = request.getParameter("auditRemark");
 		Long[] nextopIds = aform.getNetxtOperatorIds();
-		if((nextopIds==null || nextopIds.length<=0)&& merchant.getAuditStatus().longValue()!=7 && !returnTo.equals("-1")){
-	     ActionMessagesHelper.saveRequestMessage(request,"msg.show.merchant.selectNext");
-	     return this.auditView(arg0, arg1, request, arg3);
+		if ((nextopIds == null || nextopIds.length <= 0)
+				&& merchant.getAuditStatus().longValue() != 7
+				&& !returnTo.equals("-1")) {
+			ActionMessagesHelper.saveRequestMessage(request,
+					"msg.show.merchant.selectNext");
+			return this.auditView(arg0, arg1, request, arg3);
 		}
-		if(merchant.getAuditStatus()!=null && merchant.getAuditStatus().longValue()==2){ //设定用户折扣，检查用户折扣是否设定
-		if(merchant.getDiscountRate()==null || merchant.getDiscountRate().floatValue()<=0.0f){
-			ActionMessagesHelper.saveRequestMessage(request,"msg.show.merchant.inputDiscount");
-		     return this.auditView(arg0, arg1, request, arg3);
+		if (merchant.getAuditStatus() != null
+				&& merchant.getAuditStatus().longValue() == 2) { // 设定用户折扣，检查用户折扣是否设定
+			if (merchant.getDiscountRate() == null
+					|| merchant.getDiscountRate().floatValue() <= 0.0f) {
+				ActionMessagesHelper.saveRequestMessage(request,
+						"msg.show.merchant.inputDiscount");
+				return this.auditView(arg0, arg1, request, arg3);
+			}
 		}
-		}
-		
+
 		RfmsMerchantAudit audit = new RfmsMerchantAudit();
 		audit.setAuditRemark(auditRemark);
 		audit.setAuditTime(new Date());
-		if(merchant.getAuditStatus().longValue()==7){
+		if (merchant.getAuditStatus().longValue() == 7) {
 			audit.setFinished(new Long(1));
-		}else{
-		audit.setFinished(new Long(0));
-	    }
+		} else {
+			audit.setFinished(new Long(0));
+		}
 		audit.setFlowCtrlId(new Long(0));
 		audit.setMerchantId(aform.getId());
 		audit.setNextOperatorId(arrayToString(nextopIds));
@@ -767,7 +782,7 @@ public class MerchantAction extends BaseSimpleAction {
 					.getMerchantId());
 
 			for (int n = 0; n < branchs.size(); n++) {
-				int flag=0;
+				int flag = 0;
 				RfmsMerchantBranch branch = (RfmsMerchantBranch) branchs.get(n);
 				Map<String, RfmsMerchantPos> posmap = (Map) request
 						.getSession().getAttribute("posMap" + branch.getId());
@@ -919,24 +934,25 @@ public class MerchantAction extends BaseSimpleAction {
 
 		return arg0.findForward("payment");
 	}
-	
+
 	public ActionForward payment(ActionMapping arg0, ActionForm arg1,
 			HttpServletRequest request, HttpServletResponse arg3)
 			throws Exception {
 		MerchantForm aform = (MerchantForm) arg1;
-        String strAmount=aform.getStrAmount();
-        String notes=request.getParameter("notes");
-        RfmsMerchantPayment payment=new RfmsMerchantPayment();
-        payment.setAmount(MoneyFormat.yuan2Fen(strAmount));
-        payment.setNotes(notes);
-        payment.setMetchantId(aform.getMerchantId());
-        payment.setPaymentDate(new Date());
-        payment.setPaymentType(new Long(1));
-        payment.setOperatorId(aform.getCurrentUser().getOperatorId());
-        AppRequest appRequest = aform.getAppRequest(request,
+		String strAmount = aform.getStrAmount();
+		String notes = request.getParameter("notes");
+		RfmsMerchantPayment payment = new RfmsMerchantPayment();
+		payment.setAmount(MoneyFormat.yuan2Fen(strAmount));
+		payment.setNotes(notes);
+		payment.setMetchantId(aform.getMerchantId());
+		payment.setPaymentDate(new Date());
+		payment.setPaymentType(new Long(1));
+		payment.setOperatorId(aform.getCurrentUser().getOperatorId());
+		AppRequest appRequest = aform.getAppRequest(request,
 				RfmsActionDefinition.RFMS_MERCHANT_ADD);
-        this.merchantService.savePayment(aform.getMerchantId(), payment, appRequest);
-        
+		this.merchantService.savePayment(aform.getMerchantId(), payment,
+				appRequest);
+
 		return arg0.findForward("searchIndex");
 	}
 }
