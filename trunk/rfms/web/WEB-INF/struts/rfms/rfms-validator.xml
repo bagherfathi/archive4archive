@@ -113,10 +113,7 @@
 			<field property="baseEntity.branchNum" depends="required,integer">
 				<arg position="0" key="label.rfms.merchant.branch_num" />
 			</field>
-			<field property="baseEntity.userId" depends="required,integer">
-				<arg position="0" key="label.rfms.merchant.user_id" />
-			</field>
-			<field property="baseEntity.commisionCharge" depends="required,floatRange">
+			<!-- field property="baseEntity.commisionCharge" depends="required,floatRange">
 				<arg position="0" key="label.rfms.merchant.commision_charge" />
 				<arg key="${var:min}" name="floatRange" position="1" resource="false" />
 				<arg key="${var:max}" name="floatRange" position="2" resource="false" />
@@ -128,7 +125,7 @@
 					<var-name>max</var-name>
 					<var-value>1</var-value>
 				</var>
-			</field>
+			</field> -->
 
 			<field property="baseEntity.discountRate" depends="floatRange">
 				<arg position="0" key="label.rfms.merchant.discount_rate" />
@@ -223,15 +220,15 @@
 				</var>
 			</field>
 
-			<field property="baseEntity.settlePeriod" depends="required,integer">
+			<!-- field property="baseEntity.settlePeriod" depends="required,integer">
 				<arg position="0" key="label.rfms.merchant.settle_period" />
-			</field>
+			</field> -->
 			<field property="baseEntity.settleDate" depends="integer">
 				<arg position="0" key="label.rfms.merchant.settle_date" />
 			</field>
-			<field property="baseEntity.settleType" depends="required,integer">
+			<!-- field property="baseEntity.settleType" depends="required,integer">
 				<arg position="0" key="label.rfms.merchant.settle_type" />
-			</field>
+			</field> -->
 			<field property="baseEntity.checkDate" depends="integer">
 				<arg position="0" key="label.rfms.merchant.check_date" />
 			</field>
@@ -280,12 +277,7 @@
 			<field property="baseEntity.ticketCount" depends="required,integer">
 				<arg position="0" key="label.rfms.ticket.ticketCount" />
 			</field>
-			<field property="baseEntity.parValue" depends="required,integer">
-				<arg position="0" key="label.rfms.ticket.parValue" />
-			</field>
-			<field property="baseEntity.parZhekou" depends="required,integer">
-				<arg position="0" key="label.rfms.ticket.parZhekou" />
-			</field>
+		
 			<field property="baseEntity.beginDate" depends="required">
 				<arg position="0" key="label.rfms.ticket.beginDate" />
 			</field>
