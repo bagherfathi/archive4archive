@@ -116,7 +116,8 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.ft.rfms.model.MerchantService#findBranchByMerchantId(java.lang.Long)
+	 * @see
+	 * com.ft.rfms.model.MerchantService#findBranchByMerchantId(java.lang.Long)
 	 */
 	public List findBranchByMerchantId(Long merchantId) throws Exception {
 		// TODO Auto-generated method stub
@@ -126,7 +127,9 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.ft.rfms.model.MerchantService#saveOrUpdateMerchant(com.ft.rfms.entity.RfmsMerchant)
+	 * @see
+	 * com.ft.rfms.model.MerchantService#saveOrUpdateMerchant(com.ft.rfms.entity
+	 * .RfmsMerchant)
 	 */
 	@SuppressWarnings("unchecked")
 	public void saveOrUpdateMerchant(RfmsMerchant merchant,
@@ -140,7 +143,12 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 					.getRegionId()));
 		}
 		merchant.setStatus("1");
-		merchant.setAuditStatus(new Long(8));
+		if (merchant.getAuditStatus() == 1) {
+			merchant.setAuditStatus(new Long(6));
+		}
+		// else {
+		// merchant.setAuditStatus(new Long(8));
+		// }
 		merchant = (RfmsMerchant) this.saveAndSetHistoryObject(merchant,
 				appRequest);
 
@@ -163,28 +171,28 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 				appRequest);
 		this.merchantBranchDAO.batchUpdate(list);
 		// 保存阶梯佣金之前先删除原有该商户的阶梯佣金
-		if (merchant.getCommisionStep().longValue() == 1) {
-			Iterator it = steps.keySet().iterator();
-			List stepList = new ArrayList();
-			while (it.hasNext()) {
-				RfmsCommisionStep s = steps.get(it.next());
-				if (s.getCommisionStepId() != null
-						&& s.getCommisionStepId().longValue() < 0) {
-					s.setCommisionStepId(null);
-				}
-				stepList.add(s);
-			}
-			this.stepDAO.batchUpdate(stepList);
-		} else {// 当非阶梯设置佣金的是否 向佣金表插入一条记录，最少0，最大9999999999
-			this.stepDAO.deleteFromQuery("from RfmsCommisionStep where"
-					+ " merchantId=" + merchant.getMerchantId(), null);
-			RfmsCommisionStep s = new RfmsCommisionStep();
-			s.setCommisionCharge(merchant.getCommisionCharge());
-			s.setMaxCharge(new Long("9999999999"));
-			s.setMinCharge(new Long(0));
-			s.setMerchantId(merchant.getMerchantId());
-			this.stepDAO.saveOrUpdate(s);
-		}
+		// if (merchant.getCommisionStep().longValue() == 1) {
+		// Iterator it = steps.keySet().iterator();
+		// List stepList = new ArrayList();
+		// while (it.hasNext()) {
+		// RfmsCommisionStep s = steps.get(it.next());
+		// if (s.getCommisionStepId() != null
+		// && s.getCommisionStepId().longValue() < 0) {
+		// s.setCommisionStepId(null);
+		// }
+		// stepList.add(s);
+		// }
+		// this.stepDAO.batchUpdate(stepList);
+		// } else {// 当非阶梯设置佣金的是否 向佣金表插入一条记录，最少0，最大9999999999
+		// this.stepDAO.deleteFromQuery("from RfmsCommisionStep where"
+		// + " merchantId=" + merchant.getMerchantId(), null);
+		// RfmsCommisionStep s = new RfmsCommisionStep();
+		// s.setCommisionCharge(merchant.getCommisionCharge());
+		// s.setMaxCharge(new Long("9999999999"));
+		// s.setMinCharge(new Long(0));
+		// s.setMerchantId(merchant.getMerchantId());
+		// this.stepDAO.saveOrUpdate(s);
+		// }
 		// 初始化审批流程
 		if (nextOperatorIds != null && nextOperatorIds.length > 0) {
 			String ids = FindByIdsCallback.joinKeys(nextOperatorIds);
@@ -356,7 +364,7 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 					RfmsFlowCtrl flowCtrl = (RfmsFlowCtrl) ctrls.get(0);
 					nextStatus = flowCtrl.getStatusAfter();
 				}
-				//newmerchant.setAuditStatus(nextStatus);
+				// newmerchant.setAuditStatus(nextStatus);
 				newmerchant.setAuditStatus(new Long(8));
 			}
 		}
@@ -442,10 +450,11 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 		this.baseDao.save(payment);
 
 	}
-	
-	public RfmsMerchant findMerchantByBranchId(Long merchantBranchId){
-		RfmsMerchantBranch  branch=this.merchantBranchDAO.getById(merchantBranchId);
-		if(branch==null){
+
+	public RfmsMerchant findMerchantByBranchId(Long merchantBranchId) {
+		RfmsMerchantBranch branch = this.merchantBranchDAO
+				.getById(merchantBranchId);
+		if (branch == null) {
 			return null;
 		}
 		return this.merchantDAO.getById(branch.getMerchantId());
