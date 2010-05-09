@@ -50,19 +50,6 @@
 		    </html:select>
 	    </webui:input>
 	   </tr>
-	
-	  <tr>
-	    <webui:input label="label.rfms.merchant.user_id" required="true" colspan="3">
-	       <html:select property="baseEntity.userId">
-	           <html:optionsCollection name="merchantForm" property="users"/>
-	       </html:select>
-	    </webui:input>
-	    <%--
-		<webui:input label="label.rfms.merchant.user_id" required="true">
-		    <html:text property="baseEntity.userId" size="25"/>
-		</webui:input>
-		--%>
-	  </tr>
 
 	  <tr>
 	    <webui:input label="label.rfms.merchant.special_contact_name" required="true">

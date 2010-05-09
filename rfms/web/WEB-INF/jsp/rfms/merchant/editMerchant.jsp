@@ -11,9 +11,6 @@
     <webui:tabPane id="baseInfo" tabTitle="商户基本信息">
 	   <%@include file="/WEB-INF/jsp/rfms/merchant/merchantBase.jsp" %>
 	</webui:tabPane>
-	<webui:tabPane id="contactInfo" tabTitle="财务信息">
-	   <%@include file="/WEB-INF/jsp/rfms/merchant/merchantFinance.jsp" %>
-	</webui:tabPane>
 
 </webui:tabContainer>
 <br/>

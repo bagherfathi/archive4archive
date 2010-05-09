@@ -49,21 +49,6 @@
 		    <webui:lookup code="mlevel@RFMS_MERCHANT" value="${merchantForm.baseEntity.mlevel}" />
 		</webui:input>
 	  </tr>
-	
-	  <tr>
-	    <webui:input label="label.rfms.merchant.user_id" required="true" colspan="3">
-	       <webui:query property="opName" beanName="baseService" methodName="getObjectById">
-	        <webui:param name="entityClass" type="java.lang.String" value="com.ft.sm.entity.Operator"/>
-	        <webui:param name="id" type="java.lang.Long" value="${merchantForm.baseEntity.userId }"/>
-	       </webui:query>
-	    </webui:input>
-	    <%--
-		<webui:input label="label.rfms.merchant.user_id" required="true">
-		    <c:out value="${merchantForm.baseEntity.userId}"/>
-		</webui:input>
-		--%>
-	  </tr>
-
 	  <tr>
 	    <webui:input label="label.rfms.merchant.special_contact_name" required="true">
 	       <c:out value="${merchantForm.baseEntity.specialContactName}"/>
