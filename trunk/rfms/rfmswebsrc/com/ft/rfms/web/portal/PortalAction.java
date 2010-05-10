@@ -161,6 +161,8 @@ public class PortalAction extends BaseSimpleAction {
 				pwd);
 		return resultMsg;
 	}
+	
+	
 
 	/**
 	 * Pos签出
@@ -186,6 +188,24 @@ public class PortalAction extends BaseSimpleAction {
 	public ResultMsg useTicket(String posCode, String ticketDetailCode,
 			HttpServletResponse response) throws Exception {
 		ResultMsg resultMsg = webAndPosService.useTicket(posCode,
+				ticketDetailCode, null);
+		return resultMsg;
+	}
+	
+	/**
+	 * 飞卷消费
+	 * 
+	 * @param ticketCode
+	 *            10位优惠券编号
+	 * @param ticketDetailCode
+	 *            6位随机校验码
+	 * @return
+	 * @throws Exception
+	 */
+	public ResultMsg useTicketConsume(String ticketCode,
+			String ticketDetailCode, HttpServletResponse response)
+			throws Exception {
+		ResultMsg resultMsg = webAndPosService.useTicketConsume(ticketCode,
 				ticketDetailCode, null);
 		return resultMsg;
 	}
