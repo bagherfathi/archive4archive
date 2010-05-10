@@ -411,12 +411,40 @@ public class WebAndPosServiceImpl extends BaseServiceImpl implements
 		String msg = "";
 		String t = ticket.getType();
 		if (t.equals("1")) {
-			msg = "折价券，折价：" + ticket.getParValue();
+			msg = ticket.getUseRule();
 		} else {
-			msg = "折扣券，折扣：" + ticket.getParZhekou();
+			msg = ticket.getUseRule();
 
 		}
 		return new ResultMsg("00000", "优惠券消费成功！" + msg);
+	}
+
+	public ResultMsg useTicketConsume(String ticketCode,
+			String ticketDetailCode, RfcsTrade trade) throws Exception {
+		RfmsTicketDetail detail = (RfmsTicketDetail) this.baseDao
+				.getEntityByIdentityAttribute(RfmsTicketDetail.class,
+						"seqNumber", ticketDetailCode);
+		if (detail == null) {
+			return new ResultMsg("00001", "优惠券序列号不存在！");
+		}
+		if (detail.getStatus() != 2) {
+			return new ResultMsg("00002", "该优惠券号码未激活或者已经失效");
+		}
+		Long ticketId = detail.getTicketId();
+		RfmsTicket ticket = this.ticketDao.getById(ticketId);
+		String msg = "";
+
+		if (!ticket.getTicketSerial().equals(ticketCode)) {
+			return new ResultMsg("00001", "优惠券不存在！");
+		}
+
+		Date endDate = ticket.getEndDate();
+		if (endDate.before(new Date())) {
+			return new ResultMsg("00003", "该优惠券已经超过使用有效期！");
+		}
+
+		msg = ticket.getUseRule();
+		return new ResultMsg("00000", msg);
 	}
 
 }

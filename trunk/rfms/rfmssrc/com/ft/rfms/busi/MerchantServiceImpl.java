@@ -143,7 +143,7 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 					.getRegionId()));
 		}
 		merchant.setStatus("1");
-		if (merchant.getAuditStatus() == 1) {
+		if (merchant.getAuditStatus() != 8) {
 			merchant.setAuditStatus(new Long(6));
 		}
 		// else {

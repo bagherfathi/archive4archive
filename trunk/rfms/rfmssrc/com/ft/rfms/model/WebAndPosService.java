@@ -152,6 +152,16 @@ public interface WebAndPosService extends BaseService {
 	 */
 	public ResultMsg useTicket(String posCode, String ticketDetailCode,
 			RfcsTrade trade) throws Exception;
+	/**
+	 * ·É¾íÏû·Ñ
+	 * 
+	 * @param ticketCode
+	 * @param ticketDetailCode
+	 * @return
+	 * @throws Exception
+	 */
+	public ResultMsg useTicketConsume(String ticketCode, String ticketDetailCode,
+			RfcsTrade trade) throws Exception;
 
 	/**
 	 * ·É¾í³äÕý
