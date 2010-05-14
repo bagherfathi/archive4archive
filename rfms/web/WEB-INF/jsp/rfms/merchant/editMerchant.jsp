@@ -27,6 +27,8 @@
 			</webui:column>
 			<webui:column property="branchContactName" title="label.rfms.merchant_branch.branch_contact_name">
 			</webui:column>
+			<webui:column property="branchSerial" title="±àºÅ">
+			</webui:column>
 			<webui:column property="branchPhone" title="label.rfms.merchant_branch.branch_phone">
 			</webui:column>
 			<webui:column property="posNum" title="label.rfms.merchant_branch.pos_num">
@@ -59,7 +61,7 @@
 	</webui:table>
 	
 </webui:fieldSet>
- <c:if test="${merchantForm.baseEntity.auditStatus==null or merchantForm.baseEntity.auditStatus==0 }">
+ <c:if test="${merchantForm.baseEntity.auditStatus==null or merchantForm.baseEntity.auditStatus!=8 }">
   <webui:linkButton styleClass="clsButtonFace" href="javascript:addBranch(merchantForm);" value="sysadmin.button.addBranch"/>
   <%--
   <webui:linkButton styleClass="clsButtonFace" href="javascript:submitForm(merchantForm,0);" value="sysadmin.button.save"/>
