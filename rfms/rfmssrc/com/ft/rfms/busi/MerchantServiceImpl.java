@@ -3,6 +3,8 @@
  */
 package com.ft.rfms.busi;
 
+import hidden.org.codehaus.plexus.util.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -163,6 +165,12 @@ public class MerchantServiceImpl extends BaseServiceImpl implements
 						.setSysMerchantCode(this
 								.getMerchantBranchSysCode(merchant
 										.getSysMerchantCode()));
+				if (StringUtils.isEmpty(abranch.getBranchSerial())) {
+					String seqNumber = this.getTicketSysCode(merchant
+							.getMerchantCode());
+					abranch.setBranchSerial(seqNumber);
+//					merchantBranchDAO.update(abranch);
+				}
 			}
 			abranch.setMerchantId(merchant.getMerchantId());
 			list.add(abranch);
