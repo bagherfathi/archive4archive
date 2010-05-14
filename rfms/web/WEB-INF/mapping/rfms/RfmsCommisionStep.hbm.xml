@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.ft.rfms.entity">
 	<class
 		name="RfmsCommisionStep"
-		table="RFMS_COMMISION_STEP" schema="RFMS" lazy="false"
+		table="RFMS_COMMISION_STEP"  lazy="false"
 	>
 		<meta attribute="sync-DAO">true</meta>
 		<id

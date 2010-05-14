@@ -7,7 +7,7 @@
 	<class
 		name="AppOperateDtl"
 		table="SM_APP_OPERATE_DTL"
-		schema="RFMS"
+		
 	>
 		<id
 			name="operateDtlId"

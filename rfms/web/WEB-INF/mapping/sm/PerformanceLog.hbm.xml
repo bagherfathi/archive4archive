@@ -7,7 +7,7 @@
 	<class
 		name="PerformanceLog"
 		table="SM_PERFORMANCE_LOG"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

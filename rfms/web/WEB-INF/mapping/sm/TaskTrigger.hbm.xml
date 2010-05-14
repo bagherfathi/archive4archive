@@ -7,7 +7,7 @@
 	<class
 		name="TaskTrigger"
 		table="SM_TASK_TRIGGER"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

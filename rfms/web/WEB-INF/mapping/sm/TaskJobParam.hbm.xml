@@ -7,7 +7,7 @@
 	<class
 		name="TaskJobParam"
 		table="SM_TASK_JOB_PARAM"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

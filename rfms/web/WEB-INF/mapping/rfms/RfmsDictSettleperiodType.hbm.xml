@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.ft.rfms.entity">
 	<class
 		name="RfmsDictSettleperiodType"
-		table="RFMS_DICT_SETTLEPERIOD_TYPE" schema="RFMS" lazy="false"
+		table="RFMS_DICT_SETTLEPERIOD_TYPE"  lazy="false"
 	>
 		<meta attribute="sync-DAO">true</meta>
 		<id

@@ -7,7 +7,7 @@
 	<class
 		name="Role"
 		table="SM_ROLE"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

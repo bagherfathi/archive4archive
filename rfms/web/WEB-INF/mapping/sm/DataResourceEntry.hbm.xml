@@ -7,7 +7,7 @@
 	<class
 		name="DataResourceEntry"
 		table="SM_DATA_RESOURCE_ENTRY"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

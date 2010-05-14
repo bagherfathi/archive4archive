@@ -7,7 +7,7 @@
 	<class
 		name="ResourceHis"
 		table="SM_RESOURCE_HIS"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

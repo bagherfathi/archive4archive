@@ -7,7 +7,7 @@
 	<class
 		name="AppType"
 		table="SM_APP_TYPE"
-		schema="RFMS"
+		
 	>
 		<id
 			name="appTypeId"

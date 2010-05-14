@@ -7,7 +7,7 @@
 	<class
 		name="RuleInfoHis"
 		table="SM_RULE_INFO_HIS"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

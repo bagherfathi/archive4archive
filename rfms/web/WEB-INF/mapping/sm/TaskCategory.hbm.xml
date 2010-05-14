@@ -7,7 +7,7 @@
 	<class
 		name="TaskCategory"
 		table="SM_TASK_CATEGORY"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

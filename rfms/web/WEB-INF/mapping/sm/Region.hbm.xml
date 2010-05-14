@@ -7,7 +7,7 @@
 	<class
 		name="Region"
 		table="SM_REGION"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

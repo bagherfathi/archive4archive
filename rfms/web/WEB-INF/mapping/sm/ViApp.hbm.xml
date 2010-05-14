@@ -7,7 +7,7 @@
 	<class
 		name="ViApp"
 		table="SM_VI_APP"
-		schema="RFMS"
+		
 	>
 		<id name="id" column="ID" type="long">
 <generator class="increment"/>

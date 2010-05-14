@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.ft.rfms.entity">
 	<class
 		name="RfmsMember"
-		table="RFMS_MEMBER" schema="RFMS" lazy="false"
+		table="RFMS_MEMBER"  lazy="false"
 	>
 		<meta attribute="sync-DAO">true</meta>
 

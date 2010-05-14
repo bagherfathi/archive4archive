@@ -7,7 +7,7 @@
 	<class
 		name="Operator"
 		table="SM_OPERATOR"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

@@ -7,7 +7,7 @@
 	<class
 		name="TemplateHis"
 		table="SM_TEMPLATE_HIS"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

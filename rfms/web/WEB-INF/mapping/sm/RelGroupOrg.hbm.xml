@@ -7,7 +7,7 @@
 	<class
 		name="RelGroupOrg"
 		table="SM_REL_GROUP_ORG"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

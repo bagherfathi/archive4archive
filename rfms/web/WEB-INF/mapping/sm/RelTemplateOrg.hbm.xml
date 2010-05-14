@@ -7,7 +7,7 @@
 	<class
 		name="RelTemplateOrg"
 		table="SM_REL_TEMPLATE_ORG"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

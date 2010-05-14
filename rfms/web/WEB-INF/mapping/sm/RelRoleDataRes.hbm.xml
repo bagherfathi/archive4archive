@@ -7,7 +7,7 @@
 	<class
 		name="RelRoleDataRes"
 		table="SM_REL_ROLE_DATA_RES"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id
