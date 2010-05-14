@@ -7,7 +7,7 @@
 	<class
 		name="TaskTriggerLog"
 		table="SM_TASK_TRIGGER_LOG"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

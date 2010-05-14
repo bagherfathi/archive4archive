@@ -7,7 +7,7 @@
 	<class
 		name="BusiCodeGen"
 		table="SM_BUSI_CODE_GEN"
-		schema="RFMS"
+		
 	>
 		<id
 			name="busiCodeGenId"

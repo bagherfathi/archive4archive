@@ -7,7 +7,7 @@
 	<class
 		name="BusiCodeRule"
 		table="SM_BUSI_CODE_RULE"
-		schema="RFMS"
+		
 	>
 		<id
 			name="busiCodeRuleId"

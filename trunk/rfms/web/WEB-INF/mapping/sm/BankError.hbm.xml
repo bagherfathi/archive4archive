@@ -7,7 +7,7 @@
 	<class
 		name="BankError"
 		table="SM_BANK_ERROR"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

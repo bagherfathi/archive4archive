@@ -7,7 +7,7 @@
 	<class
 		name="InfoCategory"
 		table="SM_INFO_CATEGORY"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

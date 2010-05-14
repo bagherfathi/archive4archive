@@ -7,7 +7,7 @@
 	<class
 		name="Affiche"
 		table="SM_AFFICHE"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

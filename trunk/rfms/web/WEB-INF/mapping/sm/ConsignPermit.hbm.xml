@@ -7,7 +7,7 @@
 	<class
 		name="ConsignPermit"
 		table="SM_CONSIGN_PERMIT"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

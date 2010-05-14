@@ -7,7 +7,7 @@
 	<class
 		name="Attach"
 		table="SM_ATTACH"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

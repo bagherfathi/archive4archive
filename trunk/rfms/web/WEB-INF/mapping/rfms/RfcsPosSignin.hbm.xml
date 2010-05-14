@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.ft.rfms.entity">
 	<class
 		name="RfcsPosSignin"
-		table="RFCS_POS_SIGNIN" schema="RFMS" lazy="false"
+		table="RFCS_POS_SIGNIN"  lazy="false"
 	>
 		<meta attribute="sync-DAO">true</meta>
 

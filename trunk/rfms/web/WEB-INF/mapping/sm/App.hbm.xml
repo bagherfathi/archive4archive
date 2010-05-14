@@ -7,7 +7,7 @@
 	<class
 		name="App"
 		table="SM_APP"
-		schema="RFMS"
+		
 	>
 		<id
 			name="appId"

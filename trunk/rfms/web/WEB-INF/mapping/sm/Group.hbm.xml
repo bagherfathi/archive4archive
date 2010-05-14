@@ -7,7 +7,7 @@
 	<class
 		name="Group"
 		table="SM_GROUP"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

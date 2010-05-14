@@ -7,7 +7,7 @@
 	<class
 		name="MaintainLog"
 		table="SM_MAINTAIN_LOG"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

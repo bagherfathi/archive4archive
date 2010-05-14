@@ -7,7 +7,7 @@
 	<class
 		name="Template"
 		table="SM_TEMPLATE"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

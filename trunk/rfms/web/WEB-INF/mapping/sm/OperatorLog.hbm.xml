@@ -7,7 +7,7 @@
 	<class
 		name="OperatorLog"
 		table="SM_OPERATOR_LOG"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

@@ -7,7 +7,7 @@
 	<class
 		name="Organization"
 		table="SM_ORGANIZATION"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

@@ -7,7 +7,7 @@
 	<class
 		name="RelAfficheOrg"
 		table="SM_REL_AFFICHE_ORG"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

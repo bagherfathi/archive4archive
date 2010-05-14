@@ -7,7 +7,7 @@
 	<class
 		name="EnumHis"
 		table="SM_ENUM_HIS"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

@@ -7,7 +7,7 @@
 	<class
 		name="LockObj"
 		table="SM_LOCK_OBJ"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

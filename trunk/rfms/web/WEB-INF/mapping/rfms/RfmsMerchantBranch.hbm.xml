@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.ft.rfms.entity">
 	<class
 		name="RfmsMerchantBranch"
-		table="RFMS_MERCHANT_BRANCH" schema="RFMS" lazy="false"
+		table="RFMS_MERCHANT_BRANCH"  lazy="false"
 	>
 		<meta attribute="sync-DAO">true</meta>
 		<id

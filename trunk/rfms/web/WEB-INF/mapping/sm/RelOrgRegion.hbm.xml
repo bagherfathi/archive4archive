@@ -7,7 +7,7 @@
 	<class
 		name="RelOrgRegion"
 		table="SM_REL_ORG_REGION"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

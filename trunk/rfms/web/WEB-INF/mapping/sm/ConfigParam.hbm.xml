@@ -7,7 +7,7 @@
 	<class
 		name="ConfigParam"
 		table="SM_CONFIG_PARAM"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

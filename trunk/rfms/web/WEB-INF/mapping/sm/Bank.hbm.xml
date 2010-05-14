@@ -7,7 +7,7 @@
 	<class
 		name="Bank"
 		table="SM_BANK"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

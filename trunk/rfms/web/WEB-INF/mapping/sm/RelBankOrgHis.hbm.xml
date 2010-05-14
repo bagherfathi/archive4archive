@@ -7,7 +7,7 @@
 	<class
 		name="RelBankOrgHis"
 		table="SM_REL_BANK_ORG_HIS"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

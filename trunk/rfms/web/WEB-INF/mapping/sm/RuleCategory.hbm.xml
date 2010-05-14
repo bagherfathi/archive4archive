@@ -7,7 +7,7 @@
 	<class
 		name="RuleCategory"
 		table="SM_RULE_CATEGORY"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

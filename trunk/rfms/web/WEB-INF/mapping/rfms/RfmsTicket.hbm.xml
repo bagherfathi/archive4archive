@@ -4,7 +4,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 
 <hibernate-mapping package="com.ft.rfms.entity">
-	<class name="RfmsTicket" table="RFMS_TICKET" schema="RFMS" lazy="false">
+	<class name="RfmsTicket" table="RFMS_TICKET"  lazy="false">
 		<meta attribute="sync-DAO">true</meta>
 
 		<id name="ticketId" type="java.lang.Long" column="TICKET_ID">

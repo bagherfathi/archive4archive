@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.ft.rfms.entity">
 	<class
 		name="RfmsTicketBind"
-		table="RFMS_TICKET_BIND" schema="RFMS" lazy="false"
+		table="RFMS_TICKET_BIND"  lazy="false"
 	>
 		<meta attribute="sync-DAO">true</meta>
 

@@ -7,7 +7,7 @@
 	<class
 		name="RuleInfo"
 		table="SM_RULE_INFO"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id

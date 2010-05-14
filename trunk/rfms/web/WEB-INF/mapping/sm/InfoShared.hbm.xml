@@ -7,7 +7,7 @@
 	<class
 		name="InfoShared"
 		table="SM_INFO_SHARED"
-		schema="RFMS"
+		
 		lazy="false"
 	>
 		<id
