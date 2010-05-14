@@ -27,6 +27,13 @@
 			length="10"
 		/>
 		<property
+			name="branchSerial"
+			column="BRANCH_SERIAL"
+			type="java.lang.String"
+			not-null="false"
+			length="10"
+		/>
+		<property
 			name="branchName"
 			column="BRANCH_NAME"
 			type="string"
