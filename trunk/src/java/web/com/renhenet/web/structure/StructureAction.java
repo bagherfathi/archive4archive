@@ -95,6 +95,8 @@ public class StructureAction extends DispatchActions {
 			StructureForm form = (StructureForm) context.getForm();
 			if(!StringUtils.isEmpty(form.getSelectSerialNumber())){
 				form.setSerialNumber(form.getSelectSerialNumber());
+			}else if(!StringUtils.isEmpty(form.getSerialNumber())){
+				form.setSerialNumber(form.getSerialNumber());
 			}else{
 				int serialNumber = service.getStructureByinfoSortId(form
 						.getInfoSortId());

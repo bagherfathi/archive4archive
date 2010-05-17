@@ -117,7 +117,106 @@
                                                                 </select>
                                                                 #else
                                                                <input name="$!biz.serialNumber" type="text" size="20"
-                                                                       maxlength="20" #if($!biz.serialNumber=='a5')value="$!titleA5"#end/>
+#if($!biz.serialNumber=='a1')value=$!a1#end
+#if($!biz.serialNumber=='a2')value=$!a2#end
+#if($!biz.serialNumber=='a3')value=$!a3#end
+#if($!biz.serialNumber=='a4')value=$!a4#end
+#if($!biz.serialNumber=='a5')value=$!a5#end
+#if($!biz.serialNumber=='a6')value=$!a6#end
+#if($!biz.serialNumber=='a7')value=$!a7#end
+#if($!biz.serialNumber=='a8')value=$!a8#end
+#if($!biz.serialNumber=='a9')value=$!a9#end
+#if($!biz.serialNumber=='a10')value=$!a10#end
+#if($!biz.serialNumber=='a11')value=$!a11#end
+#if($!biz.serialNumber=='a12')value=$!a12#end
+#if($!biz.serialNumber=='a13')value=$!a13#end
+#if($!biz.serialNumber=='a14')value=$!a14#end
+#if($!biz.serialNumber=='a15')value=$!a15#end
+#if($!biz.serialNumber=='a16')value=$!a16#end
+#if($!biz.serialNumber=='a17')value=$!a17#end
+#if($!biz.serialNumber=='a18')value=$!a18#end
+#if($!biz.serialNumber=='a19')value=$!a19#end
+#if($!biz.serialNumber=='a20')value=$!a20#end
+#if($!biz.serialNumber=='a21')value=$!a21#end
+#if($!biz.serialNumber=='a22')value=$!a22#end
+#if($!biz.serialNumber=='a23')value=$!a23#end
+#if($!biz.serialNumber=='a24')value=$!a24#end
+#if($!biz.serialNumber=='a25')value=$!a25#end
+#if($!biz.serialNumber=='a26')value=$!a26#end
+#if($!biz.serialNumber=='a27')value=$!a27#end
+#if($!biz.serialNumber=='a28')value=$!a28#end
+#if($!biz.serialNumber=='a29')value=$!a29#end
+#if($!biz.serialNumber=='a30')value=$!a30#end
+#if($!biz.serialNumber=='a31')value=$!a31#end
+#if($!biz.serialNumber=='a32')value=$!a32#end
+#if($!biz.serialNumber=='a33')value=$!a33#end
+#if($!biz.serialNumber=='a34')value=$!a34#end
+#if($!biz.serialNumber=='a35')value=$!a35#end
+#if($!biz.serialNumber=='a36')value=$!a36#end
+#if($!biz.serialNumber=='a37')value=$!a37#end
+#if($!biz.serialNumber=='a38')value=$!a38#end
+#if($!biz.serialNumber=='a39')value=$!a39#end
+#if($!biz.serialNumber=='a40')value=$!a40#end
+#if($!biz.serialNumber=='a41')value=$!a41#end
+#if($!biz.serialNumber=='a42')value=$!a42#end
+#if($!biz.serialNumber=='a43')value=$!a43#end
+#if($!biz.serialNumber=='a44')value=$!a44#end
+#if($!biz.serialNumber=='a45')value=$!a45#end
+#if($!biz.serialNumber=='a46')value=$!a46#end
+#if($!biz.serialNumber=='a47')value=$!a47#end
+#if($!biz.serialNumber=='a48')value=$!a48#end
+#if($!biz.serialNumber=='a49')value=$!a49#end
+#if($!biz.serialNumber=='a50')value=$!a50#end
+#if($!biz.serialNumber=='a51')value=$!a51#end
+#if($!biz.serialNumber=='a52')value=$!a52#end
+#if($!biz.serialNumber=='a53')value=$!a53#end
+#if($!biz.serialNumber=='a54')value=$!a54#end
+#if($!biz.serialNumber=='a55')value=$!a55#end
+#if($!biz.serialNumber=='a56')value=$!a56#end
+#if($!biz.serialNumber=='a57')value=$!a57#end
+#if($!biz.serialNumber=='a58')value=$!a58#end
+#if($!biz.serialNumber=='a59')value=$!a59#end
+#if($!biz.serialNumber=='a60')value=$!a60#end
+#if($!biz.serialNumber=='a61')value=$!a61#end
+#if($!biz.serialNumber=='a62')value=$!a62#end
+#if($!biz.serialNumber=='a63')value=$!a63#end
+#if($!biz.serialNumber=='a64')value=$!a64#end
+#if($!biz.serialNumber=='a65')value=$!a65#end
+#if($!biz.serialNumber=='a66')value=$!a66#end
+#if($!biz.serialNumber=='a67')value=$!a67#end
+#if($!biz.serialNumber=='a68')value=$!a68#end
+#if($!biz.serialNumber=='a69')value=$!a69#end
+#if($!biz.serialNumber=='a70')value=$!a70#end
+#if($!biz.serialNumber=='a71')value=$!a71#end
+#if($!biz.serialNumber=='a72')value=$!a72#end
+#if($!biz.serialNumber=='a73')value=$!a73#end
+#if($!biz.serialNumber=='a74')value=$!a74#end
+#if($!biz.serialNumber=='a75')value=$!a75#end
+#if($!biz.serialNumber=='a76')value=$!a76#end
+#if($!biz.serialNumber=='a77')value=$!a77#end
+#if($!biz.serialNumber=='a78')value=$!a78#end
+#if($!biz.serialNumber=='a79')value=$!a79#end
+#if($!biz.serialNumber=='a80')value=$!a80#end
+#if($!biz.serialNumber=='a81')value=$!a81#end
+#if($!biz.serialNumber=='a82')value=$!a82#end
+#if($!biz.serialNumber=='a83')value=$!a83#end
+#if($!biz.serialNumber=='a84')value=$!a84#end
+#if($!biz.serialNumber=='a85')value=$!a85#end
+#if($!biz.serialNumber=='a86')value=$!a86#end
+#if($!biz.serialNumber=='a87')value=$!a87#end
+#if($!biz.serialNumber=='a88')value=$!a88#end
+#if($!biz.serialNumber=='a89')value=$!a89#end
+#if($!biz.serialNumber=='a90')value=$!a90#end
+#if($!biz.serialNumber=='a91')value=$!a91#end
+#if($!biz.serialNumber=='a92')value=$!a92#end
+#if($!biz.serialNumber=='a93')value=$!a93#end
+#if($!biz.serialNumber=='a94')value=$!a94#end
+#if($!biz.serialNumber=='a95')value=$!a95#end
+#if($!biz.serialNumber=='a96')value=$!a96#end
+#if($!biz.serialNumber=='a97')value=$!a97#end
+#if($!biz.serialNumber=='a98')value=$!a98#end
+#if($!biz.serialNumber=='a99')value=$!a99#end
+#if($!biz.serialNumber=='a100')value=$!a100#end >
                                                                 #end
                                                                 #end
                                                                 #if($index%3==0)
@@ -128,6 +227,23 @@
                                                             #end
                                                             #end
                                                         </tr>
+                                                        <td>层次：</td>
+                                                        <td>
+                                                             <select id="statuses2" name="statuses2" class="pulldown">
+                                                                    <option value="-1">-请选择-
+                                                                    </option>
+                                                                    <option value="0" #if($statuses2==0)selected
+#end >第一层
+                                                                    </option>
+                                                                    <option value="1" #if($statuses2==1)selected
+#end >第二层
+                                                                    </option>
+                                                                    <option value="2" #if($statuses2==2)selected
+#end >第三层
+                                                                    </option>
+                                                                </select>
+                                                            </td>
+                                                        
                                                         <td>#parse( "/WEB-INF/pages/common/search_searchbutton.vm" )</td>
                                                     </table>
                                                 </td>

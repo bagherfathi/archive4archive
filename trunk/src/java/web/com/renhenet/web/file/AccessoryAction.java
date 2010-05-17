@@ -66,7 +66,7 @@ public class AccessoryAction extends DispatchActions {
 		List<InfoSortDTO> infoSortDtoList = infoSortService
 				.getInfoSortNameByInfoSortId(files.getInfoSortId());
 		for (InfoSortDTO infoSortDTO : infoSortDtoList) {
-			path += infoSortDTO.getName() + "/";
+			path += infoSortDTO.getName().trim().replace(" ", "") + "/";
 			mkDir(FILE_PATH + path);
 		}
 
@@ -74,21 +74,26 @@ public class AccessoryAction extends DispatchActions {
 			if (!StringUtils.isEmpty(files.getA9())) {
 				String str[] = files.getA9().split("-");
 				for (int i = 0; i < str.length; i++) {
-					path += str[i] + "/";
-					;
-					mkDir(FILE_PATH + path);
+					if (i != str.length - 1) {
+						path += str[i].trim().replace(" ", "")+"/";
+						mkDir(FILE_PATH + path);
+					}
 				}
-				// path += files.getA9() + "/";
-
+				path += files.getA9().trim().replace(" ", "") + "/";
+				mkDir(FILE_PATH + path);
 			}
 		} else if (files.getStatus() == 1) {
 			if (!StringUtils.isEmpty(files.getA10())) {
 				if (files.getA10() != null) {
 					String str[] = files.getA10().split("-");
 					for (int i = 0; i < str.length; i++) {
-						path += str[i] + "/";
-						mkDir(FILE_PATH + path);
+						if (i != str.length - 1) {
+							path += str[i].trim().replace(" ", "") + "/";
+							mkDir(FILE_PATH + path);
+						}
 					}
+					path += files.getA10().trim().replace(" ", "") + "/";
+					mkDir(FILE_PATH + path);
 				}
 			}
 		} else if (files.getStatus() == 2) {
@@ -96,10 +101,13 @@ public class AccessoryAction extends DispatchActions {
 				if (files.getA11() != null) {
 					String str[] = files.getA11().split("-");
 					for (int i = 0; i < str.length; i++) {
-						path += str[i] + "/";
-						;
-						mkDir(FILE_PATH + path);
+						if (i != str.length - 1) {
+							path += str[i].trim().replace(" ", "") + "/";
+							mkDir(FILE_PATH + path);
+						}
 					}
+					path += files.getA11().trim().replace(" ", "") + "/";
+					mkDir(FILE_PATH + path);
 				}
 			}
 		}
@@ -120,15 +128,12 @@ public class AccessoryAction extends DispatchActions {
 
 		String filename = context.getParameter("filename");
 		if (!StringUtils.isEmpty(filename)) {
-			// context.getResponse().setContentType(("application/octet-stream"));
-			// context.getResponse().setHeader("Content-Disposition",
-			// "attachment; filename=\"" + filename+"\"");
 			// 设置响应头和下载保存的文件名
-			
+
 			String strName[] = filename.split("/");
-			String fileName="test";
-			if(strName!=null){
-				fileName = strName[strName.length-1];
+			String fileName = "test";
+			if (strName != null) {
+				fileName = strName[strName.length - 1];
 			}
 			context.getResponse().reset();
 			context.getResponse().setContentType("application/octet-stream");
@@ -187,7 +192,7 @@ public class AccessoryAction extends DispatchActions {
 			}
 		}
 
-		return super.insertProcess(context);
+		return "insert";
 
 	}
 
