@@ -1,4 +1,4 @@
-/***************  »ù±¾ÑùÊ½ **************/
+/***************  ï¿½ï¿½ï¿½ï¿½Ê½ **************/
 body {line-height: 150%;margin: 0px;font-family: Arial, Helvetica, sans-serif;font-size: 12px;}
 a {
 	color: #0066CC;
@@ -8,7 +8,7 @@ a {
 P,ul,ol,li,div {MARGIN: 0px;padding: 0px;}
 h1,h2,h3,h4,h5,h6{MARGIN: 0px;padding:0px;}
 h1{
-	font-family: "ºÚÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½";
 	font-size: 18px;
 	line-height: normal;
 	font-weight: normal;
@@ -63,7 +63,7 @@ input{FONT-SIZE: 13px;background-color: #FFFFFF;margin: 0px;padding: 1px;}
 #list{border-bottom:1px solid #D4DEE7;border-left:1px solid #D4DEE7;border-right:1px solid #D4DEE7;	color: #333333;}
 .tableheadingbg{background-color:#DFE8F0;border-bottom:1px solid #8DB6CD;font-weight:bold;color:#333333;text-align:center;vertical-align: top;height:19px;text-indent: 5px; white-space:nowrap;}
 .tablelistbgleft{
-	line-height:110%;
+	line-height:120%;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #E5E5E5;
@@ -106,7 +106,7 @@ input{FONT-SIZE: 13px;background-color: #FFFFFF;margin: 0px;padding: 1px;}
 	text-align: right;
 	width: 300px;
 }
-/***************  ±íµ¥ **************/
+/***************  ï¿½? **************/
 FORM {PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; line-height:120%; }
 #search{margin-top:5px;margin-bottom:5px;}
 #search input {VERTICAL-ALIGN: middle; font-size:12px;}
@@ -120,7 +120,7 @@ input.boxlist{}
 }
 input.inputfield {FONT-SIZE: 13px;background-color: #FFFFFF;margin: 0px;padding: 2px;}
 
-/*************  Á´½Ó ************/
+/*************  tï¿½ï¿½ ************/
 
 a:link {color: #004EB3;text-decoration: none;}
 a:visited {color: #cc0000;}

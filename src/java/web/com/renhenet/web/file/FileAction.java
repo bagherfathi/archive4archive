@@ -172,7 +172,7 @@ public class FileAction extends DispatchActions {
 
 		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
 		context.put("parInfoSortId", parInfoSortId);
-		
+
 		super.deleteProcess(context);
 
 		return "/file/actions.html?method=list&parInfoSortIds="
@@ -192,9 +192,9 @@ public class FileAction extends DispatchActions {
 			ajax = true;
 		}
 		context.put("ajax", ajax);
-		
-		if(startNum<0){
-			startNum=0;
+
+		if (startNum < 0) {
+			startNum = 0;
 		}
 		int pageSize = context.getIntParameter("pageSize");
 		context.put("pageSize", pageSize);
@@ -202,13 +202,13 @@ public class FileAction extends DispatchActions {
 			pageSize = 10;
 		}
 		context.put("pageSize", pageSize);
-		
+
 		int typeses = context.getIntParameter("typeses");
-		if(typeses!=0){
-			typeses=1;
+		if (typeses != 0) {
+			typeses = 1;
 		}
 		context.put("typeses", typeses);
-		
+
 		int parInfoSortId = context.getSIntParameter("parInfoSortIds");
 		context.put("parInfoSortId", parInfoSortId);
 
@@ -222,11 +222,13 @@ public class FileAction extends DispatchActions {
 
 		int statuses = context.getIntParameter("statuses1");
 		context.put("statuses", statuses);
+		int statuses2 = context.getIntParameter("statuses2");
+		context.put("statuses2", statuses2);
 
 		InfoSort infoSort = (InfoSort) infoSortService.getObjectById(
 				InfoSort.class, infoSortId);
 		context.put("infoSort", infoSort);
-		
+
 		// 得到分类有几层
 
 		// 第一层
@@ -254,44 +256,90 @@ public class FileAction extends DispatchActions {
 		List<File> fileList = null;
 		if (!StringUtils.isEmpty(a5)) {
 			fileList = service.getFileByInfoSortIdAnd(infoSortId, a5, statuses,
-					0, startNum, startNum+10);
+					0, startNum, startNum + 10);
 			int num = service.getNumByInfoSortIdAndA5(infoSortId, a5, statuses,
 					0, 0, 0);
 			Pagination pagination = new Pagination(num, startNum, pageSize);
 
 			context.put("pagination1", pagination);
 		} else {
-			// 第1层
-			int num1 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
-					infoSortId, 0, 0, context);
-			fileList = service.getFileByInfoSortIdAndParInfoSortIdAndStatus(
-					infoSortId, 0, 0, context, startNum, pageSize);
-			Pagination pagination = new Pagination(num1, startNum, pageSize);
-			context.put("pagination1", pagination);
+			for (int i = 1; i <= 100; i++) {
+				if (!StringUtils.isEmpty(context.getParameter("a" + i))) {
+					context.put("a" + i, context.getParameter("a" + i));
+				}
+			}
 
+			String strA22 = "";
+			// 判断是否是人事档案
+			if (infoSortId == 1048) {
+				// 根据身份证编号查询 a16身份证号 a22内码
+				String sfz = context.getParameter("a16");
+				if (!StringUtils.isEmpty(sfz)) {
+					List<File> fileLists = service.getFileByInfoSortIdAndSfz(
+							infoSortId, infoSortId, sfz);
+					if (fileLists != null) {
+						for (int i = 0; i < fileLists.size(); i++) {
+							File file = fileLists.get(i);
+							if (i == fileLists.size() - 1) {
+								strA22 += file.getA22();
+							} else {
+								strA22 += file.getA22() + ",";
+							}
+						}
+					}
+					// //put进context
+					// if (!StringUtils.isEmpty(strA22)) {
+					// context.put("a22", strA22);
+					// }
+				}
+			}
+
+			// 第1层
+			if (statuses2 != 1 && statuses2 != 2) {
+				int num1 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
+						infoSortId, 0, 0, context, strA22);
+				fileList = service
+						.getFileByInfoSortIdAndParInfoSortIdAndStatus(
+								infoSortId, 0, 0, context, startNum, pageSize);
+				Pagination pagination = new Pagination(num1, startNum, pageSize);
+				context.put("pagination1", pagination);
+			}
 			// 第2层
 			// if (parInfoSortId > 0) {
-			int num2 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
-					infoSortId, parInfoSortId, 1, context);
-			List<File> fileList2 = service
-					.getFileByInfoSortIdAndParInfoSortIdAndStatus(infoSortId,
-							parInfoSortId, 1, context, startNum, pageSize);
-			context.put("fileList2", fileList2);
-			Pagination pagination2 = new Pagination(num2, startNum, pageSize);
-			context.put("pagination2", pagination2);
+			if (statuses2 == 1) {
+				int num2 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
+						infoSortId, parInfoSortId, 1, context, strA22);
+				if (parInfoSortId > 0
+						|| "y".equals(context.getParameter("search"))) {
+					pageSize = 0;
+				}
+				List<File> fileList2 = service
+						.getFileByInfoSortIdAndParInfoSortIdAndStatus(
+								infoSortId, parInfoSortId, 1, context,
+								startNum, pageSize);
+				context.put("fileList2", fileList2);
+			}
+			// Pagination pagination2 = new Pagination(num2, startNum,
+			// pageSize);
+			// context.put("pagination2", pagination2);
 			// }
 
 			// 第3层
 			// if (parparInfoSortId > 0) {
-			int num3 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
-					infoSortId, parparInfoSortId, 2, context);
-			List<File> fileList3 = service
-					.getFileByInfoSortIdAndParInfoSortIdAndStatus(infoSortId,
-							parparInfoSortId, 2, context, startNum, pageSize);
-			context.put("fileList3", fileList3);
+			if (statuses2 == 2) {
+				int num3 = service.getNumByInfoSortIdAndParInfoSortIdAndStatus(
+						infoSortId, parparInfoSortId, 2, context, strA22);
+				List<File> fileList3 = service
+						.getFileByInfoSortIdAndParInfoSortIdAndStatus(
+								infoSortId, parparInfoSortId, 2, context,
+								startNum, pageSize);
+				context.put("fileList3", fileList3);
 
-			Pagination pagination3 = new Pagination(num3, startNum, pageSize);
-			context.put("pagination3", pagination3);
+			}
+
+			// Pagination pagination3 = new Pagination(num3, startNum,
+			// pageSize);
+			// context.put("pagination3", pagination3);
 			// }
 		}
 		context.put("fileList", fileList);
@@ -308,6 +356,7 @@ public class FileAction extends DispatchActions {
 	public String getWebMenuType(WebContext context) throws ServletException {
 		return "file";
 	}
+
 	public String getTitles(String title) {
 		if (title == null) {
 			return "";

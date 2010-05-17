@@ -18,6 +18,20 @@ public class FileService extends CommonService {
 	}
 
 	/**
+	 * 根据身份证和InfoSortId查询得到File
+	 * 
+	 * @param infoSortId
+	 * @param parInfoSortId
+	 * @return
+	 */
+	public List<File> getFileByInfoSortIdAndSfz(int infoSortId,
+			int parInfoSortId, String a16) {
+		String hql = "from File where (infoSortId =? or parInfoSortId=?) and a16=? order by id desc";
+		return (List<File>) dao.findSingle(hql, new Object[] { infoSortId,
+				infoSortId, a16 });
+	}
+
+	/**
 	 * 得到最近添加的一条该类别文件数据
 	 * 
 	 * @param infoSortId
@@ -36,7 +50,7 @@ public class FileService extends CommonService {
 			hql += " and infoSortId =" + infoSortId;
 		}
 		if (parInfoSortId > 0) {
-			hql += "and parInfoSortId=" + parInfoSortId;
+			hql += " and parInfoSortId=" + parInfoSortId;
 		}
 		for (int i = 0; i <= 100; i++) {
 			String name = "a" + i;
@@ -60,7 +74,7 @@ public class FileService extends CommonService {
 	}
 
 	public int getNumByInfoSortIdAndParInfoSortIdAndStatus(int infoSortId,
-			int parInfoSortId, int status, WebContext context) {
+			int parInfoSortId, int status, WebContext context, String strA22) {
 		String hql = "select count(*)  from File where status=? ";
 		if (infoSortId > 0) {
 			hql += " and infoSortId =" + infoSortId;
@@ -76,6 +90,9 @@ public class FileService extends CommonService {
 			if (!StringUtils.isEmpty(value)) {
 				hql += " and " + name + " like '%" + value + "%'";
 			}
+		}
+		if (!StringUtils.isEmpty(strA22)) {
+			hql += " and a22 in(" + strA22 + ")";
 		}
 
 		hql += " order by id desc";
@@ -124,18 +141,19 @@ public class FileService extends CommonService {
 		List args = new ArrayList();
 
 		query.append("SELECT * FROM (SELECT A.*, ROWNUM RN FROM "
-				+ "(SELECT * FROM files) A WHERE ROWNUM <= "+num+" and contains(a5,'" + a5 + "',1) > 0  "
+				+ "(SELECT * FROM files) A WHERE ROWNUM <= " + num
+				+ " and contains(a5,'" + a5
+				+ "',1) > 0  "
 				// " and par_info_sort_id=" + parInfoSortId
 				+ " and status=" + statuses + " and info_sort_id ="
-				+ infoSortId + " ORDER BY score(1) desc) WHERE RN > "+startNum);
+				+ infoSortId + " ORDER BY score(1) desc) WHERE RN > "
+				+ startNum);
 
 		// query.append("SELECT * FROM files WHERE contains(a5,'" + a5
 		// + "',1) > 0 "
 		// // " and par_info_sort_id=" + parInfoSortId
 		// + " and status=" + statuses + " and info_sort_id ="
 		// + infoSortId + " ORDER BY score(1) desc");
-
-		
 
 		List<Object[]> oos = dao.executeQueryBySQL(query.toString(), null, args
 				.toArray());
@@ -276,6 +294,6 @@ public class FileService extends CommonService {
 
 		List<Object[]> oos = dao.executeQueryBySQL(query.toString(), null, args
 				.toArray());
-		 return Integer.parseInt(oos.get(0)[0].toString());
+		return Integer.parseInt(oos.get(0)[0].toString());
 	}
 }

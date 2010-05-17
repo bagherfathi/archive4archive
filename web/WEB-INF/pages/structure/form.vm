@@ -198,14 +198,24 @@
                 <table width="100%" border="0" cellspacing="4" cellpadding="0">
                     <tr>
                         <td align="center">
-                            #parse( "/WEB-INF/pages/common/form_insertbutton.vm" )
+                            <input type="button" name="insert" value="保存" class=btn1_mouseout title="保存" onclick="tosubmit();"/>
                         </td>
                     </tr>
                 </table>
+<script>
+	function tosubmit(){
+		if(document.structureForm["znName"].value==""){
+			alert("请输入中文名");
+			return false;
+		}
+		document.structureForm.submit();	
+	}
+</script>
             </form>
         </td>
     </tr>
 </table>
+
 <br>
 #if($structureList)
 <div id="listhead">
