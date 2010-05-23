@@ -16,7 +16,7 @@
 			column="SIGNIN_ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">SEQUSER.RFCS_POS_SIGNIN_SEQ</param>
+			    <param name="sequence">RFMS.RFCS_POS_SIGNIN_SEQ</param>
 			</generator>
 		</id>
 		<property
