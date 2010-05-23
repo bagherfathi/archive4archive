@@ -17,21 +17,19 @@ public class RfcsPosSignin implements Serializable, IBaseEntity {
 
 	/* [CONSTRUCTOR MARKER BEGIN] */
 	// constructors
-	public RfcsPosSignin() {
+	public RfcsPosSignin () {
 		initialize();
 	}
 
 	/**
-	 * Constructor for required fields
+	 * Constructor for primary key
 	 */
-	public RfcsPosSignin(Long signinId) {
-
+	public RfcsPosSignin (Long signinId) {
 		this.setSigninId(signinId);
 		initialize();
 	}
 
-	protected void initialize() {
-	}
+	protected void initialize () {}
 
 	/* [CONSTRUCTOR MARKER END] */
 
