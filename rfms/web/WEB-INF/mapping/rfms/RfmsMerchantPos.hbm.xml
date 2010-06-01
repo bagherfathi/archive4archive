@@ -15,7 +15,7 @@
 			column="MERCHANT_POS_ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">RFMS.RFMS_MERCHANT_POS_SEQ</param>
+			    <param name="sequence">RFMS_MERCHANT_POS_SEQ</param>
 			</generator>
 		</id>
 

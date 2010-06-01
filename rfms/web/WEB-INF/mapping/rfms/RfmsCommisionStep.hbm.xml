@@ -15,7 +15,7 @@
 			column="COMMISION_STEP_ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">RFMS.RFMS_COMMISION_STEP_SEQ</param>
+			    <param name="sequence">RFMS_COMMISION_STEP_SEQ</param>
 			</generator>
 		</id>
 

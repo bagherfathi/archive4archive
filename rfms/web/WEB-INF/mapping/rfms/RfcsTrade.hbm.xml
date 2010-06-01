@@ -15,7 +15,7 @@
 			column="TRANS_NO"
 		>
 			<generator class="sequence">
-			    <param name="sequence">SEQUSER.RFCS_TRADE_SEQ</param>
+			    <param name="sequence">RFCS_TRADE_SEQ</param>
 			</generator>
 		</id>
 

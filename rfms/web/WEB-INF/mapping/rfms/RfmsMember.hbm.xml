@@ -16,7 +16,7 @@
 			column="ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">RFMS.RFMS_MEMBER_SEQ</param>
+			    <param name="sequence">RFMS_MEMBER_SEQ</param>
 			</generator>
 		</id>
 		
