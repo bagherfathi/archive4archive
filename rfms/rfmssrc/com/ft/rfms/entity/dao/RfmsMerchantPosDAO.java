@@ -63,4 +63,5 @@ public class RfmsMerchantPosDAO extends BaseDao {
 		return this.query(hql.toString(),new Long[]{branchId});
 	}
 
+
 }
