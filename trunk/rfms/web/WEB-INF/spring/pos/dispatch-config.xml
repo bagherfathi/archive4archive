@@ -13,6 +13,7 @@
 	<!-- ******************* Action and Filter  ****************************** -->
 	<bean id="posFilter" class="com.ft.rfcs.app.filter.PosFilter">
 		 <property name="macProcessor" ref="macProcessor"/>
+    	<property name="merchantService" ref="merchantService"/>
 	</bean>
 	
 	<bean id="merchantFilter" class="com.ft.rfcs.app.filter.MerchantFilter">
