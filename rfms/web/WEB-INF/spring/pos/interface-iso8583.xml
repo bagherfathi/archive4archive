@@ -5,8 +5,8 @@
 <beans>
 
 <bean id="iso8583ConfBuilder" autowire="constructor" class="com.ft.protocol.iso8583.conf.ISO8583ConfigBuilder">
-		<constructor-arg type="java.lang.String" value="D:/dangan/dangan/rfms/web/WEB-INF/spring/pos/8583DataType.xml"/>
-		<constructor-arg type="java.lang.String" value="D:/dangan/dangan/rfms/web/WEB-INF/spring/pos/8583protocol.xml"/>
+		<constructor-arg type="java.lang.String" value="E:/lch/瑞富通银/project/feiq/code/rfms/web/WEB-INF/spring/pos/8583DataType.xml"/>
+		<constructor-arg type="java.lang.String" value="E:/lch/瑞富通银/project/feiq/code/rfms/web/WEB-INF/spring/pos/8583protocol.xml"/>
 </bean>
 <bean id="iso8583MessageFacotry" class="com.ft.protocol.iso8583.ISO8583MessageFactory">
 	<property name="confBuilder" ref="iso8583ConfBuilder"/> 
