@@ -19,7 +19,11 @@ import com.ft.protocol.common.PackageMac;
 import com.ft.rfcs.ParaNameConstant;
 import com.ft.rfcs.ResponseCodeConstant;
 import com.ft.rfcs.ServerParamConstant;
+import com.ft.rfms.entity.RfmsMerchantBranch;
 import com.ft.rfms.entity.RfmsMerchantPos;
+import com.ft.rfms.entity.dao.RfmsMerchantBranchDAO;
+import com.ft.rfms.entity.dao.RfmsMerchantPosDAO;
+import com.ft.rfms.model.MerchantService;
 
 /**
  * @author lch
@@ -31,8 +35,7 @@ public class PosFilter implements TCPFilter {
 	
 	private Logger log = Logger.getLogger(PosFilter.class);
 	private IMacProcessor macProcessor; 
-
-	
+	private MerchantService merchantService;
 
 	/**
 	 * @param macProcessor the macProcessor to set
@@ -40,19 +43,33 @@ public class PosFilter implements TCPFilter {
 	public void setMacProcessor(IMacProcessor macProcessor) {
 		this.macProcessor = macProcessor;
 	}
-	
 
 	public void doFilter(TCPRequest request, TCPResponse response,
 			SessionContext sessionContext) throws FTTCPException {
 		String posCode = (String)request.getParaByIndex(ParaNameConstant.POS_CODE);
+		String merchantCode = (String)request.getParaByIndex(ParaNameConstant.MERCHANT_CODE);
 		log.info("POS终端号:"+posCode);
+		/********测试数据****/
+//		RfmsMerchantPos pos = new RfmsMerchantPos();
+//		pos.setSysPosCode(posCode);
+		/********测试数据****/		
 		//查询POS
-/********测试数据****/
-		//Pos pos = posManager.getPos(posCode);
-		RfmsMerchantPos pos = new RfmsMerchantPos();
-/********测试数据****/
-		pos.setSysPosCode(posCode);
-		if(pos == null){
+		RfmsMerchantPos pos;
+		RfmsMerchantBranch merchant;
+		try {
+			pos = (RfmsMerchantPos)this.merchantService.getEntityByIdentityAttribute(RfmsMerchantPos.class, "sysPosCode", posCode);		
+			if(pos == null){
+				throw new FTTCPException(ResponseCodeConstant.SYSTEM_MERCHANTPOS_ERROR,"商户号或终端号不正确");
+			}
+			merchant = (RfmsMerchantBranch)this.merchantService.getEntityByIdentityAttribute(RfmsMerchantBranch.class, "sysMerchantCode", merchantCode);		
+			if(merchant == null){
+				throw new FTTCPException(ResponseCodeConstant.SYSTEM_MERCHANTPOS_ERROR,"商户号或终端号不正确");
+			}
+			if(!pos.getMerchantBranchId().equals(merchant.getMerchantBranchId())){
+				throw new FTTCPException(ResponseCodeConstant.SYSTEM_MERCHANTPOS_ERROR,"商户号或终端号不正确");
+			}
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
 			throw new FTTCPException(ResponseCodeConstant.SYSTEM_MERCHANTPOS_ERROR,"商户号或终端号不正确");
 		}
 		//检查MAC
@@ -93,6 +110,11 @@ public class PosFilter implements TCPFilter {
 		// TODO Auto-generated method stub
 
 	}
+
+	public void setMerchantService(MerchantService merchantService) {
+		this.merchantService = merchantService;
+	}
+
 
 
 }
