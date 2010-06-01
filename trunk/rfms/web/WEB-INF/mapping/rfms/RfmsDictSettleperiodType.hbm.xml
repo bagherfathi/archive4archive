@@ -15,7 +15,7 @@
 			column="ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">RFMS.RFMS_DICT_SETTLEPERIOD_TYPE_SEQ</param>
+			    <param name="sequence">RFMS_DICT_SETTLEPERIOD_TYPE_SEQ</param>
 			</generator>
 		</id>
 

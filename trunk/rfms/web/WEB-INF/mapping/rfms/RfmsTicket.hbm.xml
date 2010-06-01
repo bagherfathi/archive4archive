@@ -9,7 +9,7 @@
 
 		<id name="ticketId" type="java.lang.Long" column="TICKET_ID">
 			<generator class="sequence">
-				<param name="sequence">RFMS.RFMS_TICKET_SEQ</param>
+				<param name="sequence">RFMS_TICKET_SEQ</param>
 			</generator>
 		</id>
 

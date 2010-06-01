@@ -16,7 +16,7 @@
 			column="BIND_ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">RFMS.RFMS_TICKET_BIND_SEQ</param>
+			    <param name="sequence">RFMS_TICKET_BIND_SEQ</param>
 			</generator>
 		</id>
 		

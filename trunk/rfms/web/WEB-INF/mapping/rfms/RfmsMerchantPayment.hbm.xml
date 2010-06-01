@@ -16,7 +16,7 @@
 			column="PAYMENT_ID"
 		>
 			<generator class="sequence">
-			    <param name="sequence">RFMS.RFMS_MERCHANT_PAYMENT_SEQ</param>
+			    <param name="sequence">RFMS_MERCHANT_PAYMENT_SEQ</param>
 			</generator>
 		</id>
 		<property
