@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 
 import com.ft.hibernate.support.BaseDao;
 import com.ft.rfms.entity.RfmsMerchantBranch;
+import com.ft.rfms.entity.RfmsMerchantPos;
+
 
 
 /**
@@ -64,5 +66,6 @@ public class RfmsMerchantBranchDAO extends BaseDao {
     	hql.append(" and branch.").append(RfmsMerchantBranch.PROP_EXPIRE_DATE).append(" is null");
     	return this.query(hql.toString(),new Object[]{merchantId});
     }
+    
 
 }
