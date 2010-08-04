@@ -106,9 +106,9 @@ public class BuildTreeParamTag extends TagSupport{
         Type type = TypeFactory.basic(this.type);
         Evaluator aEvaluator = new Evaluator();
         if(type == null){
-            Object valueObj = (Object)aEvaluator.evaluate("value", this.value,
-            	Object.class, this, pageContext);
-            
+//            Object valueObj = (Object)aEvaluator.evaluate("value", this.value,
+//            	Object.class, this, pageContext);
+        	Object valueObj = (Object)pageContext.findAttribute(this.value);
             tag.params.put(this.name,valueObj);
         }else{
             try {
