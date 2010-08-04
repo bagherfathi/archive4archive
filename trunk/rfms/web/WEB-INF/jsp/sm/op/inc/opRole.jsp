@@ -10,8 +10,8 @@
      <sm:param value="1" type="java.lang.Long"/>
  </sm:query>
   <webui:buildTree beanName="opResourceTreeBuilder" var="root" >
-<webui:buildTreeParam name="roleList" type="java.lang.ArrayList" value="${opRoles}" /> 
-<webui:buildTreeParam name="roleInGroup" type="java.lang.ArrayList" value="${roleInGroups}" />
+<webui:buildTreeParam name="roleList" type="java.lang.ArrayList" value="opRoles" /> 
+<webui:buildTreeParam name="roleInGroup" type="java.lang.ArrayList" value="roleInGroups" />
 <webui:buildTreeParam name="roleType" type="java.lang.Long" value="1" />
 </webui:buildTree>
 
@@ -21,7 +21,7 @@
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr><td align="left">
 	<webui:tree 
-        root="${root}"
+        root="root"
         id="data" 
         type="BaseTreeNode" 
         indent="2" extend="3" 
