@@ -73,9 +73,12 @@ public class TreeTag extends BodyTagSupport {
     private String treeName = "";
 
     public int doStartTag() throws JspException {
-        Evaluator aEvaluator = new Evaluator();
-        TreeNode root = (TreeNode) aEvaluator.evaluate("root", this.root,
-                TreeNode.class, this, pageContext);
+		TreeNode root = (TreeNode) pageContext.findAttribute(this.root);
+		
+		
+//    	Evaluator aEvaluator = new Evaluator();
+//        TreeNode root = (TreeNode) aEvaluator.evaluate("root", this.root,
+//                TreeNode.class, this, pageContext);
         if (root == null)
             throw new JspException("传入的tree为null，请检查！");
         if (expandOnServer) {
