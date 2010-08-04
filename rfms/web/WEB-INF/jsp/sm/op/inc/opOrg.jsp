@@ -1,12 +1,12 @@
 <%@ include file="/WEB-INF/jsp/inc/tld.inc"%>
-
+<%@ page import="com.ft.commons.tree.BaseTreeNode" %>
 <webui:formTable width="100%">
 		<tr>
 			<webui:input label="可访问组织" colspan="4">
 				<table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr><td align="left">
 	<webui:tree 
-        root="${orgTree}"
+        root="orgTree"
         id="data" 
         type="BaseTreeNode" 
         indent="1" extend="1" 
@@ -37,7 +37,7 @@
 				<table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr><td align="left">
 	<webui:tree 
-        root="${orgTreeInGroup}"
+        root="orgTreeInGroup"
         id="data" 
         type="BaseTreeNode" 
         indent="2" extend="3" 
